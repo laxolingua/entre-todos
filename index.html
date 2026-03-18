@@ -161,6 +161,45 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .pg-sec.active{display:block;}
 .res-sec{display:none;}
 .res-sec.active{display:block;}
+/* ── PROPUESTA PLURAL (official doc layout) ──────────────────── */
+.doc-sec{display:none;}
+.doc-sec.active{display:block;}
+.doc-page{background:#fff;border:1px solid #d0d5dd;border-radius:4px;max-width:780px;margin:0 auto 32px;padding:54px 62px 48px;box-shadow:0 2px 12px rgba(0,0,0,.07);font-family:Georgia,'Times New Roman',serif;line-height:1.8;}
+@media(max-width:640px){.doc-page{padding:28px 20px 32px;}}
+.doc-emblem{text-align:center;margin-bottom:6px;}
+.doc-flag{width:54px;height:auto;margin:0 auto 4px;display:block;}
+.doc-country{font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#777;margin-bottom:18px;text-align:center;}
+.doc-main-title{font-family:Barlow Condensed,sans-serif;font-size:1.55rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--azul);text-align:center;line-height:1.2;margin-bottom:4px;}
+.doc-subtitle{font-family:Barlow Condensed,sans-serif;font-size:.95rem;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;color:#666;text-align:center;margin-bottom:6px;}
+.doc-edition{font-family:Barlow Condensed,sans-serif;font-size:.72rem;color:#aaa;text-align:center;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.doc-divider{border:none;border-top:2.5px double var(--azul);margin:18px 0;}
+.doc-divider-thin{border:none;border-top:1px solid #d0d5dd;margin:14px 0;}
+.doc-preamble{font-size:.9rem;color:#444;text-align:justify;margin-bottom:22px;line-height:1.85;}
+.doc-preamble strong{font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);}
+.doc-chapter{margin-bottom:28px;}
+.doc-chapter-title{font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--azul);padding:4px 12px;display:inline-block;border-radius:2px;margin-bottom:10px;}
+.doc-chapter-name{font-family:Barlow Condensed,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:2px;}
+.doc-chapter-sub{font-size:.75rem;color:#888;font-family:Barlow Condensed,sans-serif;margin-bottom:10px;font-style:italic;}
+.doc-article{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f0f0f0;}
+.doc-article:last-child{border-bottom:none;}
+.doc-art-num{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.72rem;color:var(--azul);flex-shrink:0;padding-top:3px;min-width:36px;text-transform:uppercase;letter-spacing:.5px;}
+.doc-art-text{font-size:.85rem;color:#222;line-height:1.7;flex:1;}
+.doc-art-text em{color:#888;font-size:.78rem;}
+.doc-support{font-family:Barlow Condensed,sans-serif;font-size:.7rem;font-weight:700;flex-shrink:0;padding-top:3px;min-width:38px;text-align:right;}
+.doc-support.high{color:#2D7A4F;}
+.doc-support.mid{color:var(--azul);}
+.doc-support.low{color:var(--rojo);}
+.doc-citizen-art{background:#FFF5F6;border-left:3px solid #F5B8C0;border-radius:0 4px 4px 0;padding:8px 10px 8px 14px;margin:4px 0;}
+.doc-citizen-art .doc-art-num{color:#C62828;}
+.doc-footer-note{font-size:.75rem;color:#999;text-align:center;margin-top:24px;font-style:italic;border-top:1px solid #eee;padding-top:14px;}
+.doc-stat-bar{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.doc-stat{text-align:center;}
+.doc-stat .dsn{font-family:Barlow Condensed,sans-serif;font-size:1.5rem;font-weight:700;color:var(--azul);display:block;}
+.doc-stat .dsl{font-family:Barlow Condensed,sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:#aaa;}
+.doc-empty{text-align:center;padding:40px 0;color:#ccc;}
+.doc-empty .de-ico{font-size:2rem;margin-bottom:8px;}
+.doc-empty .de-txt{font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;}
+.doc-dl-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
 
 /* FAQ */
 .faq-item{border:1px solid var(--gris-m);border-radius:6px;margin-bottom:8px;overflow:hidden;}
@@ -365,6 +404,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
         <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();"><span class="hico">🗳️</span>Ver propuestas</button>
         <button class="hdr-ham-item" onclick="selectCatCard('NEW');closeHdrHam();"><span class="hico">💡</span>Propuestas ciudadanas</button>
         <button class="hdr-ham-item" onclick="selectCatCard('RES');closeHdrHam();"><span class="hico">📊</span>Ver resultados</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('DOC');closeHdrHam();"><span class="hico">📜</span>Propuesta Plural</button>
         <button class="hdr-ham-item" onclick="switchTab('ORG',null);closeHdrHam();"><span class="hico">📤</span>Registrar organización</button>
       </div>
     </div>
@@ -609,6 +649,17 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <div style="margin-top:20px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <button class="btn btn-p" onclick="dlJSON()">⬇ Descargar JSON</button>
         <button class="btn btn-s" onclick="dlCSV()">⬇ Descargar CSV</button>
+      </div>
+    </div>
+
+    <!-- PROPUESTA PLURAL PARA LA TRANSICIÓN EN CUBA -->
+    <div class="doc-sec" id="cat-DOC">
+      <div class="doc-page" id="doc-page-content">
+        <!-- Rendered by renderPropuestaPlural() -->
+        <div class="doc-empty">
+          <div class="de-ico">📜</div>
+          <div class="de-txt">Cargando documento...</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2053,7 +2104,7 @@ function selectCatCard(id){
 function showCatGrid(){
   document.getElementById('cat-grid-wrap-inner').style.display='';
   document.getElementById('back-to-grid').style.display='none';
-  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec,.doc-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
 }
 
@@ -2070,7 +2121,7 @@ function toggleHowTo(){
 function heroComentar(){
   document.getElementById('cat-grid-wrap-inner').style.display='';
   document.getElementById('back-to-grid').style.display='none';
-  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec,.doc-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
   document.getElementById('tabs').scrollIntoView({behavior:'smooth'});
 }
@@ -2083,10 +2134,11 @@ function heroResultados(){
 
 // TABS
 function switchTab(id,btn){
-  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.cat-sec,.pg-sec,.res-sec,.doc-sec').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById('cat-'+id);
   if(el)el.classList.add('active');
-  if(id==='RES')renderRes();
+  if(id==='RES') renderRes();
+  if(id==='DOC') renderPropuestaPlural();
 }
 
 // FILTER/SEARCH
@@ -2329,14 +2381,35 @@ function closeCpModal(){
   _cpEditTargetId = null;
 }
 
+/**
+ * Single source of truth re-render.
+ * Finds ALL DOM instances of a citizen proposal (category section + NEW list)
+ * and replaces them with a fresh mkCard() in-place.
+ * Also handles empty-state message when the section becomes empty.
+ */
+function refreshCitizenCard(propId, removed){
+  const p = newProps.find(x=>x.id===propId);
+  // Find every card with this data-id across all sections
+  const existing = document.querySelectorAll('.card[data-id="'+propId+'"]');
+  existing.forEach(cardEl=>{
+    if(removed){
+      cardEl.remove();
+    } else {
+      const newCard = mkCard(p);
+      cardEl.replaceWith(newCard);
+    }
+  });
+  // Update proposal counter
+  document.getElementById('sp').textContent = PROPS.length + newProps.length;
+}
+
 async function saveCpEdit(){
   if(!_cpEditTargetId){ closeCpModal(); return; }
-  const newText = document.getElementById('cp-edit-text').value.trim();
-  const newCat  = document.getElementById('cp-edit-cat').value || detectCategory(newText);
+  const newText   = document.getElementById('cp-edit-text').value.trim();
+  const newCat    = document.getElementById('cp-edit-cat').value || detectCategory(newText);
   const newSocial = document.getElementById('cp-edit-social').value.trim();
   if(!newText){ toast('El texto no puede estar vacío','e'); return; }
 
-  // Find prop in memory
   const p = newProps.find(x=>x.id===_cpEditTargetId);
   if(!p){ toast('Propuesta no encontrada','e'); closeCpModal(); return; }
 
@@ -2345,31 +2418,44 @@ async function saveCpEdit(){
     toast('No autorizado','e'); closeCpModal(); return;
   }
 
-  // Update Supabase if we have sbId
-  if(p.sbId){
-    try{
-      await sbQuery('citizen_proposals',{
-        update: true,
-        match: {id: p.sbId},
-        body: {content: newText, category: newCat, social_link: newSocial, updated_at: new Date().toISOString()}
-      });
-    }catch(e){ toast('Error al guardar en servidor','e'); }
-  }
+  const oldCat = p.cat;
 
-  // Update in-memory
+  // Optimistic update: mutate state first
   p.text   = newText;
   p.cat    = newCat;
   p.social = newSocial;
 
-  // Re-render card in place
-  const cardEl = document.querySelector('.card[data-id="'+_cpEditTargetId+'"]');
-  if(cardEl){
-    const newCard = mkCard(p);
-    cardEl.replaceWith(newCard);
-    // Re-inject into correct category section
+  // If category changed, move the card to the new section
+  if(oldCat !== newCat){
+    // Remove from old category section
+    document.querySelectorAll('.card[data-id="'+_cpEditTargetId+'"]').forEach(cardEl=>{
+      // Only remove the one that's inside cat-<oldCat>, keep the one in NEW list
+      const parentSec = cardEl.closest('#cat-'+oldCat);
+      if(parentSec) cardEl.remove();
+    });
+    // Re-inject into new category section before the next-cat button
     if(newCat && document.getElementById('cat-'+newCat)){
-      document.getElementById('cat-'+newCat).appendChild(newCard.cloneNode(true));
+      const catEl  = document.getElementById('cat-'+newCat);
+      const nextBtn = document.getElementById('next-btn-'+newCat);
+      const newCard = mkCard(p);
+      if(nextBtn) catEl.insertBefore(newCard, nextBtn);
+      else catEl.appendChild(newCard);
     }
+    // Refresh the NEW section card (same position)
+    const newListCard = document.querySelector('#new-list .card[data-id="'+_cpEditTargetId+'"]');
+    if(newListCard) newListCard.replaceWith(mkCard(p));
+  } else {
+    // Same category: just re-render all instances in place
+    refreshCitizenCard(_cpEditTargetId, false);
+  }
+
+  // Persist to Supabase (rollback not needed — text is already saved locally)
+  if(p.sbId){
+    sbQuery('citizen_proposals',{
+      update: true,
+      match: {id: p.sbId},
+      body: {content: newText, category: newCat, social_link: newSocial, updated_at: new Date().toISOString()}
+    }).catch(()=>{ toast('Guardado localmente — error de red al sincronizar','e'); });
   }
 
   toast('Propuesta actualizada ✅');
@@ -2385,22 +2471,22 @@ async function deleteCpProposal(propId){
   }
   const vCount = (votes[propId]||{count:0}).count;
   if(vCount >= DELETE_VOTE_THRESHOLD){
-    toast('Esta propuesta ya tiene '+vCount+' votos — usa "Retirar" en su lugar','e');
+    toast('Esta propuesta tiene '+vCount+' votos — usa "Retirar" en su lugar','e');
     return;
   }
   if(!confirm('¿Eliminar esta propuesta? Esta acción no se puede deshacer.')) return;
 
-  if(p.sbId){
-    try{
-      await sbQuery('citizen_proposals',{delete:true, match:{id:p.sbId}});
-    }catch(e){ toast('Error al eliminar del servidor','e'); }
-  }
-
-  // Remove from memory + DOM
+  // Optimistic: remove from state + DOM immediately
   const idx = newProps.indexOf(p);
   if(idx > -1) newProps.splice(idx, 1);
-  document.querySelectorAll('.card[data-id="'+propId+'"]').forEach(el=>el.remove());
+  refreshCitizenCard(propId, true);
   toast('Propuesta eliminada');
+
+  // Persist (fire and forget — already removed locally)
+  if(p.sbId){
+    sbQuery('citizen_proposals',{delete:true, match:{id:p.sbId}})
+      .catch(()=>{ toast('Eliminada localmente — error de red al sincronizar','e'); });
+  }
 }
 
 async function retireCpProposal(propId){
@@ -2412,29 +2498,156 @@ async function retireCpProposal(propId){
   }
   if(!confirm('¿Retirar esta propuesta? Seguirá visible pero no recibirá nuevos votos.')) return;
 
-  if(p.sbId){
-    try{
-      await sbQuery('citizen_proposals',{
-        update: true,
-        match: {id: p.sbId},
-        body: {status: 'retired', updated_at: new Date().toISOString()}
-      });
-    }catch(e){ toast('Error al retirar del servidor','e'); }
-  }
-
+  // Optimistic: update state + re-render immediately
   p.status = 'retired';
-  // Re-render
-  document.querySelectorAll('.card[data-id="'+propId+'"]').forEach(cardEl=>{
-    const newCard = mkCard(p);
-    cardEl.replaceWith(newCard);
-  });
+  refreshCitizenCard(propId, false);
   toast('Propuesta retirada. El historial de votos se conserva.');
+
+  // Persist
+  if(p.sbId){
+    sbQuery('citizen_proposals',{
+      update: true,
+      match: {id: p.sbId},
+      body: {status: 'retired', updated_at: new Date().toISOString()}
+    }).catch(()=>{ toast('Retirada localmente — error de red al sincronizar','e'); });
+  }
 }
 
 // Close modal when clicking overlay background
 document.getElementById('cp-modal-overlay').addEventListener('click', function(e){
   if(e.target === this) closeCpModal();
 });
+
+
+// ── PROPUESTA PLURAL PARA LA TRANSICIÓN EN CUBA ─────────────────────────
+
+function renderPropuestaPlural(){
+  const container = document.getElementById('doc-page-content');
+  if(!container) return;
+
+  const cats = ['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M'];
+  const catNames = {
+    '0':'Condiciones Mínimas Innegociables',
+    'N':'Vías de Cambio',
+    'A':'Marco Constitucional y Legal',
+    'B':'Modelo Económico y Desarrollo',
+    'C':'Derechos Humanos y Libertades Civiles',
+    'D':'Transición Política y Proceso Electoral',
+    'E':'Justicia Transicional y Reconciliación',
+    'F':'Políticas Sociales y Servicios Públicos',
+    'G':'Relaciones Internacionales',
+    'H':'Modelo de Transición',
+    'I':'Derechos Animales y Bienestar Animal',
+    'J':'Medio Ambiente y Cambio Climático',
+    'K':'Género, Diversidad e Inclusión',
+    'L':'Juventud, Migración y Doble Nacionalidad',
+    'M':'Discapacidad, Tecnología y Privacidad Digital'
+  };
+  const catNums = {'0':'I','N':'II','A':'III','B':'IV','C':'V','D':'VI','E':'VII','F':'VIII','G':'IX','H':'X','I':'XI','J':'XII','K':'XIII','L':'XIV','M':'XV'};
+
+  // Count voted proposals and participants
+  const allVoted   = [...PROPS,...newProps].filter(p=>votes[p.id]&&votes[p.id].count>0);
+  const totalPart  = new Set(Object.values(votes).flatMap(v=>v._tokens||[])).size || tP || 0;
+  const now        = new Date();
+  const dateStr    = now.toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
+
+  // Check if any proposals have votes
+  if(!allVoted.length){
+    container.innerHTML = `
+      <div class="doc-empty">
+        <div class="de-ico">🗳</div>
+        <div class="de-txt">El documento se construye desde los votos<br><span style="font-size:.75rem;font-weight:400;text-transform:none;">Cuando la comunidad vote, las propuestas más apoyadas aparecerán aquí como artículos del documento</span></div>
+      </div>`;
+    return;
+  }
+
+  let chaptersHtml = '';
+  let artCounter   = 1;
+  let includedTotal = 0;
+
+  cats.forEach((cat, ci) => {
+    // Include ALL proposals, sorted by support descending; include citizens too
+    const allInCat = [...PROPS,...newProps].filter(p=>p.cat===cat);
+    const voted    = allInCat
+      .filter(p=>votes[p.id]&&votes[p.id].count>0)
+      .sort((a,b)=>(votes[b.id].total/votes[b.id].count)-(votes[a.id].total/votes[a.id].count));
+    if(!voted.length) return;
+
+    includedTotal += voted.length;
+    const romanNum = catNums[cat] || (ci+1);
+    const catColor = (CAT[cat]&&CAT[cat].c)||'var(--azul)';
+
+    let articlesHtml = voted.map(p=>{
+      const vd  = votes[p.id];
+      const pct = Math.round(vd.total/vd.count/5*100);
+      const supClass = pct>=70?'high':pct>=40?'mid':'low';
+      const isCitizen = !!p.citizen;
+      const artHtml = `
+        <div class="doc-article${isCitizen?' doc-citizen-art':''}">
+          <span class="doc-art-num">Art. ${artCounter++}</span>
+          <span class="doc-art-text">${p.text}${isCitizen?` <em>— Propuesta ciudadana${p.author&&p.author!=='Anonimo'?' de '+p.author:''}</em>`:''}</span>
+          <span class="doc-support ${supClass}">${pct}%</span>
+        </div>`;
+      return artHtml;
+    }).join('');
+
+    chaptersHtml += `
+      <div class="doc-chapter">
+        <div class="doc-chapter-title">Capítulo ${romanNum}</div>
+        <div class="doc-chapter-name">${catNames[cat]}</div>
+        <div class="doc-chapter-sub">${voted.length} artículo${voted.length!==1?'s':''} con apoyo ciudadano</div>
+        ${articlesHtml}
+      </div>
+      <hr class="doc-divider-thin">`;
+  });
+
+  container.innerHTML = `
+    <div class="doc-emblem">
+      <div class="doc-country">República de Cuba — Transición Democrática</div>
+    </div>
+    <hr class="doc-divider">
+    <div class="doc-main-title">Propuesta Plural para la Transición en Cuba</div>
+    <div class="doc-subtitle">Documento de Consenso Ciudadano</div>
+    <div class="doc-edition" id="doc-edition-date">Edición del ${dateStr} · Documento vivo</div>
+    <hr class="doc-divider">
+
+    <div class="doc-stat-bar">
+      <div class="doc-stat">
+        <span class="dsn" id="doc-stat-art">${includedTotal}</span>
+        <span class="dsl">Artículos</span>
+      </div>
+      <div class="doc-stat">
+        <span class="dsn" id="doc-stat-part">${tP||'—'}</span>
+        <span class="dsl">Participantes</span>
+      </div>
+      <div class="doc-stat">
+        <span class="dsn">${cats.filter(c=>[...PROPS,...newProps].some(p=>p.cat===c&&votes[p.id]&&votes[p.id].count>0)).length}</span>
+        <span class="dsl">Capítulos activos</span>
+      </div>
+    </div>
+
+    <p class="doc-preamble">
+      <strong>Considerando</strong> que el pueblo cubano tiene el derecho inalienable a decidir su futuro mediante la participación libre, informada y plural;<br>
+      <strong>Considerando</strong> que este documento recoge el consenso emergente de votaciones ciudadanas abiertas, propuestas de organizaciones de la sociedad civil y aportes individuales;<br>
+      <strong>Considerando</strong> que el nivel de apoyo de cada artículo (expresado en porcentaje) refleja el respaldo colectivo en el momento de esta edición;<br>
+      <strong>Se presenta</strong> la siguiente Propuesta Plural para la Transición en Cuba como expresión no vinculante pero representativa del sentir democrático de la diáspora y la ciudadanía cubana.
+    </p>
+    <hr class="doc-divider-thin">
+
+    ${chaptersHtml}
+
+    <p class="doc-footer-note">
+      Este documento es generado automáticamente en tiempo real a partir de los votos registrados en la plataforma ENTRE TODOS.<br>
+      No representa la posición oficial de ninguna organización. El porcentaje indica el nivel de apoyo ciudadano expresado mediante el sistema de votación 1–5 estrellas.<br>
+      Los artículos con fondo rosado son <strong>propuestas ciudadanas</strong> — aportadas directamente por participantes, no por organizaciones.<br>
+      <span style="color:var(--azul);font-weight:700;">entre-todos.org</span> — Gobernanza Solucionaria para Cuba
+    </p>
+    <div class="doc-dl-row">
+      <button class="btn btn-p" onclick="dlDocPDF ? dlDocPDF() : dlJSON()">⬇ Descargar PDF</button>
+      <button class="btn btn-s" onclick="dlJSON()">⬇ Descargar JSON</button>
+    </div>
+  `;
+}
 
 </script>
 
