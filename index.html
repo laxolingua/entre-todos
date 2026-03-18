@@ -420,6 +420,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
       <button class="hero-cta" style="background:var(--azul);" onclick="heroComentar();">▶ COMENZAR A VOTAR</button>
       <button class="hero-cta" style="background:var(--rojo);" onclick="heroResultados();">📊 VER RESULTADOS</button>
+      <button class="hero-cta" style="background:#1a5c38;" onclick="selectCatCard('DOC');">📜 PROPUESTA PLURAL</button>
     </div>
   </div>
 </div>
@@ -502,7 +503,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 <div class="cat-grid-wrap" id="tabs">
   <div id="back-to-grid" style="display:none;padding-bottom:10px;">
-    <button onclick="showCatGrid()" style="background:none;border:none;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);">← Todas las categorías</button>
+    <button onclick="showCatGrid()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azul);color:#fff;border:none;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:8px 16px;border-radius:6px;">← Todas las categorías</button>
   </div>
   <div id="cat-grid-wrap-inner">
     <div class="cat-grid-title">Selecciona una categoría para votar:</div>
@@ -664,20 +665,14 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     </div>
   </div>
 
-  <!-- SIDEBAR: LIVE CONSENSUS DOC -->
+  <!-- SIDEBAR: PROPUESTA PLURAL LINK -->
   <div>
-    <div class="sb-card" style="position:sticky;top:80px;">
-      <h3 style="display:flex;align-items:center;justify-content:space-between;">
-        <span>📄 Documento Vivo</span>
-        <span id="live-dot" style="width:8px;height:8px;border-radius:50%;background:#ccc;display:inline-block;margin-left:6px;" title="Sin votos aún"></span>
-      </h3>
-      <div style="font-size:.72rem;color:#aaa;margin-bottom:10px;font-style:italic;">Se actualiza en tiempo real con cada voto</div>
-      <div id="live-doc" style="max-height:70vh;overflow-y:auto;">
-        <div style="text-align:center;padding:30px 0;color:#ccc;">
-          <div style="font-size:2rem;margin-bottom:6px;">🗳</div>
-          <div style="font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Empieza a votar<br>para ver el consenso</div>
-        </div>
-      </div>
+    <div class="sb-card" style="position:sticky;top:80px;text-align:center;">
+      <h3 style="color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:10px;">📜 Propuesta Plural</h3>
+      <p style="font-size:.78rem;color:#666;line-height:1.55;margin-bottom:14px;">El documento de consenso ciudadano se construye en tiempo real desde los votos. Todas las propuestas más apoyadas aparecen como artículos del documento oficial.</p>
+      <button onclick="selectCatCard('DOC')" style="width:100%;background:var(--azul);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:8px;">📜 Ver Propuesta Plural</button>
+      <button onclick="selectCatCard('RES')" style="width:100%;background:transparent;color:var(--rojo);border:1.5px solid var(--rojo);padding:8px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">📊 Ver Resultados</button>
+      <div style="font-size:.65rem;color:#bbb;margin-top:10px;font-style:italic;">Se actualiza con cada voto</div>
     </div>
   </div>
 </div>
@@ -2205,7 +2200,6 @@ function updS(){
   document.getElementById('sv').textContent=tV;
   document.getElementById('sf').textContent=tF;
   document.getElementById('sc').textContent=tC;
-  updLiveDoc();
 }
 function updP(){
   ['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M'].forEach(cat=>{
@@ -2551,15 +2545,8 @@ function renderPropuestaPlural(){
   const now        = new Date();
   const dateStr    = now.toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
 
-  // Check if any proposals have votes
-  if(!allVoted.length){
-    container.innerHTML = `
-      <div class="doc-empty">
-        <div class="de-ico">🗳</div>
-        <div class="de-txt">El documento se construye desde los votos<br><span style="font-size:.75rem;font-weight:400;text-transform:none;">Cuando la comunidad vote, las propuestas más apoyadas aparecerán aquí como artículos del documento</span></div>
-      </div>`;
-    return;
-  }
+  // Always show the document — proposals visible even without votes
+  // (unvoted show "sin votos" label)
 
   let chaptersHtml = '';
   let artCounter   = 1;
@@ -2568,25 +2555,29 @@ function renderPropuestaPlural(){
   cats.forEach((cat, ci) => {
     // Include ALL proposals, sorted by support descending; include citizens too
     const allInCat = [...PROPS,...newProps].filter(p=>p.cat===cat);
+    // Sort: voted proposals first (by support %), then unvoted alphabetically
     const voted    = allInCat
       .filter(p=>votes[p.id]&&votes[p.id].count>0)
       .sort((a,b)=>(votes[b.id].total/votes[b.id].count)-(votes[a.id].total/votes[a.id].count));
-    if(!voted.length) return;
+    const unvoted  = allInCat.filter(p=>!votes[p.id]||votes[p.id].count===0);
+    const allSorted = [...voted, ...unvoted];
+    if(!allSorted.length) return;
 
-    includedTotal += voted.length;
+    includedTotal += allSorted.length;
     const romanNum = catNums[cat] || (ci+1);
     const catColor = (CAT[cat]&&CAT[cat].c)||'var(--azul)';
 
-    let articlesHtml = voted.map(p=>{
-      const vd  = votes[p.id];
-      const pct = Math.round(vd.total/vd.count/5*100);
-      const supClass = pct>=70?'high':pct>=40?'mid':'low';
+    let articlesHtml = allSorted.map(p=>{
+      const vd  = votes[p.id]||{count:0,total:0};
+      const pct = vd.count>0 ? Math.round(vd.total/vd.count/5*100) : null;
+      const supClass = pct===null?'':pct>=70?'high':pct>=40?'mid':'low';
+      const supLabel = pct===null ? '<span style="font-size:.62rem;color:#ccc;font-family:Barlow Condensed,sans-serif;">sin votos</span>' : '<span class="doc-support '+supClass+'">'+pct+'%</span>';
       const isCitizen = !!p.citizen;
       const artHtml = `
         <div class="doc-article${isCitizen?' doc-citizen-art':''}">
           <span class="doc-art-num">Art. ${artCounter++}</span>
           <span class="doc-art-text">${p.text}${isCitizen?` <em>— Propuesta ciudadana${p.author&&p.author!=='Anonimo'?' de '+p.author:''}</em>`:''}</span>
-          <span class="doc-support ${supClass}">${pct}%</span>
+          ${supLabel}
         </div>`;
       return artHtml;
     }).join('');
@@ -2595,7 +2586,7 @@ function renderPropuestaPlural(){
       <div class="doc-chapter">
         <div class="doc-chapter-title">Capítulo ${romanNum}</div>
         <div class="doc-chapter-name">${catNames[cat]}</div>
-        <div class="doc-chapter-sub">${voted.length} artículo${voted.length!==1?'s':''} con apoyo ciudadano</div>
+        <div class="doc-chapter-sub">${allSorted.length} artículo${allSorted.length!==1?'s':''}${voted.length>0?' · '+voted.length+' con votos':''}</div>
         ${articlesHtml}
       </div>
       <hr class="doc-divider-thin">`;
@@ -2621,7 +2612,7 @@ function renderPropuestaPlural(){
         <span class="dsl">Participantes</span>
       </div>
       <div class="doc-stat">
-        <span class="dsn">${cats.filter(c=>[...PROPS,...newProps].some(p=>p.cat===c&&votes[p.id]&&votes[p.id].count>0)).length}</span>
+        <span class="dsn">${cats.filter(c=>[...PROPS,...newProps].some(p=>p.cat===c)).length}</span>
         <span class="dsl">Capítulos activos</span>
       </div>
     </div>
