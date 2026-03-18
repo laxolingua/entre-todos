@@ -1449,6 +1449,69 @@ async function loadVotesFromBackend(){
   } catch(e){ /* offline ok */ }
 }
 
+// SUPABASE SYNC — load feedbacks + citizen_proposals on startup
+async function loadAllFromBackend(){
+  loadVotesFromBackend(); // existing votes loader
+  if(!SUPABASE_ENABLED) return;
+  try {
+    // Load feedbacks
+    const fbRows = await sbQuery('feedbacks', {
+      select: 'proposal_id,type,content,author_name,created_at',
+      order: 'created_at.asc'
+    });
+    if(fbRows && Array.isArray(fbRows) && fbRows.length > 0){
+      fbRows.forEach(r => {
+        if(!r.proposal_id) return;
+        if(!feedbacks[r.proposal_id]) feedbacks[r.proposal_id] = [];
+        // Avoid duplicates
+        const exists = feedbacks[r.proposal_id].some(f => f.text === r.content && f.author === r.author_name);
+        if(!exists){
+          feedbacks[r.proposal_id].push({
+            type: r.type || 'adicion',
+            text: r.content || '',
+            author: r.author_name || 'Anonimo'
+          });
+          tF++;
+        }
+      });
+      // Refresh feedback buttons with counts
+      Object.keys(feedbacks).forEach(pid => {
+        const btn = document.getElementById('fbt-'+pid);
+        const cnt = feedbacks[pid].length;
+        if(btn && cnt > 0) btn.textContent = 'Aportar (' + cnt + ')';
+      });
+      updS();
+    }
+
+    // Load citizen proposals
+    const cpRows = await sbQuery('citizen_proposals', {
+      select: 'content,category,author_name,created_at',
+      order: 'created_at.asc'
+    });
+    if(cpRows && Array.isArray(cpRows) && cpRows.length > 0){
+      cpRows.forEach((r, i) => {
+        const nid = 'PROP_SB_' + i;
+        if(newProps.some(p => p.text === r.content)) return; // avoid duplicates
+        newProps.push({
+          id: nid,
+          cat: r.category || '0',
+          noVote: false,
+          text: r.content || '',
+          author: r.author_name || 'Anonimo',
+          refs: []
+        });
+        votes[nid] = {my:0, count:0, total:0};
+      });
+      // Rebuild the new proposals section if visible
+      const newMinList = document.getElementById('new-min-list');
+      if(newMinList && newProps.length > 0){
+        document.getElementById('sp').textContent = PROPS.length + newProps.length;
+      }
+    }
+  } catch(e){ /* offline ok */ }
+}
+
+
 // ── ADMIN MODE — acceso: ?admin=entretodos2026 ────────────────────────
 const IS_ADMIN=(new URLSearchParams(window.location.search).get('admin')==='entretodos2026');
 function _initAdminBar(){
@@ -1521,6 +1584,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('cat-grid-wrap-inner').style.display='none';
   document.getElementById('back-to-grid').style.display='block';
   _initAdminBar();
+  loadAllFromBackend();
 });
 
 function buildCat(cat){
