@@ -1557,8 +1557,12 @@ async function loadAllFromBackend(){
         newProps.push(prop);
         votes[nid] = {my:0, count:0, total:0};
         // Inject card into its category section (use resolvedCat)
+        // Insert BEFORE the "next category" button so it stays at the bottom
         if(resolvedCat && document.getElementById('cat-'+resolvedCat)){
-          document.getElementById('cat-'+resolvedCat).appendChild(mkCard(prop));
+          const catEl = document.getElementById('cat-'+resolvedCat);
+          const nextBtn = document.getElementById('next-btn-'+resolvedCat);
+          if(nextBtn) catEl.insertBefore(mkCard(prop), nextBtn);
+          else catEl.appendChild(mkCard(prop));
         }
         // Also inject into the NEW section list
         const newList = document.getElementById('new-list');
@@ -1738,6 +1742,8 @@ function buildCat(cat){
     const nextCat=allCats[idx+1];
     const nextMeta=CAT[nextCat];
     const nb=document.createElement('div');
+    // Give it a stable ID so citizen cards injected later can be inserted BEFORE it
+    nb.id='next-btn-'+cat;
     nb.style.cssText='text-align:right;padding:10px 0 4px;';
     nb.innerHTML=`<button onclick="switchTab('${nextCat}', document.querySelectorAll('.tab-btn')[${idx+1}]); setTimeout(()=>{const el=document.getElementById('cat-${nextCat}'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});},80);" style="background:var(--azul);color:#fff;border:none;padding:9px 18px;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Siguiente: ${nextCat}. ${nextMeta.name} &#8594;</button>`;
     el.appendChild(nb);
