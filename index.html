@@ -321,6 +321,25 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .citizen-author a { color:var(--rojo);text-decoration:none;font-style:normal;font-weight:600; }
 .citizen-author a:hover { text-decoration:underline; }
 .card.citizen .vote-row { background:#FFF0F2; }
+  /* ── CITIZEN PROPOSAL GOVERNANCE MODAL ───────────────────────────── */
+  #cp-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9000;align-items:center;justify-content:center;}
+  #cp-modal-overlay.open{display:flex;}
+  #cp-modal{background:#fff;border-radius:10px;padding:24px 22px 20px;width:min(94vw,520px);box-shadow:0 8px 32px rgba(0,0,0,.18);position:relative;}
+  #cp-modal h3{font-family:Barlow Condensed,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin:0 0 14px;}
+  #cp-modal textarea{width:100%;box-sizing:border-box;min-height:90px;padding:8px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Barlow,sans-serif;font-size:.85rem;resize:vertical;}
+  #cp-modal select,#cp-modal input[type=text]{width:100%;box-sizing:border-box;padding:7px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Barlow,sans-serif;font-size:.84rem;margin-top:8px;}
+  #cp-modal .modal-row{display:flex;gap:9px;margin-top:12px;justify-content:flex-end;flex-wrap:wrap;}
+  #cp-modal .btn-save{background:var(--azul);color:#fff;border:none;padding:8px 20px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  #cp-modal .btn-cancel{background:#eee;color:#555;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-size:.84rem;cursor:pointer;}
+  #cp-modal .btn-delete{background:#C62828;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  #cp-modal .btn-retire{background:#EF6C00;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  .cp-owner-actions{display:flex;gap:7px;margin-top:6px;flex-wrap:wrap;}
+  .cp-owner-actions .cp-edit-btn{background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
+  .cp-owner-actions .cp-edit-btn:hover{background:var(--azul);color:#fff;}
+  .cp-owner-actions .cp-del-btn{background:none;border:1px solid #C62828;color:#C62828;border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
+  .cp-owner-actions .cp-del-btn:hover{background:#C62828;color:#fff;}
+  .card.citizen.retired{opacity:.55;border-style:dashed!important;}
+  .retired-badge{display:inline-flex;align-items:center;gap:4px;background:#999;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
 </style>
 </head>
 <body>
@@ -494,11 +513,21 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <div style="display:flex;flex-direction:column;gap:9px;">
         <select id="nc" style="padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Barlow,sans-serif;">
           <option value="">Categoría más cercana (opcional)...</option>
-          <option value="A">A. Constitucional</option><option value="B">B. Economía</option>
-          <option value="C">C. Derechos Humanos</option><option value="D">D. Electoral</option>
-          <option value="E">E. Justicia</option><option value="F">F. Social</option>
-          <option value="G">G. Internacional</option><option value="H">H. Modelo de Transición</option>
-          <option value="Z">Otra / Nueva categoría</option>
+          <option value="N">N. Vías de Cambio</option>
+          <option value="A">A. Marco Constitucional y Legal</option>
+          <option value="B">B. Modelo Económico y Desarrollo</option>
+          <option value="C">C. Derechos Humanos y Libertades Civiles</option>
+          <option value="D">D. Transición Política y Proceso Electoral</option>
+          <option value="E">E. Justicia Transicional y Reconciliación</option>
+          <option value="F">F. Políticas Sociales y Servicios Públicos</option>
+          <option value="G">G. Relaciones Internacionales</option>
+          <option value="H">H. Modelo de Transición</option>
+          <option value="I">I. Derechos Animales y Bienestar Animal</option>
+          <option value="J">J. Medio Ambiente y Cambio Climático</option>
+          <option value="K">K. Género, Diversidad e Inclusión</option>
+          <option value="L">L. Juventud, Migración y Doble Nacionalidad</option>
+          <option value="M">M. Discapacidad, Tecnología y Privacidad Digital</option>
+          <option value="Z">Z. Otra / Nueva categoría (sin encaje claro)</option>
         </select>
         <textarea id="nt" style="padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:72px;resize:vertical;" placeholder="Escribe tu propuesta como una afirmación clara y neutral..."></textarea>
         <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
@@ -1168,13 +1197,17 @@ async function sbQuery(table, opts={}){
   const params = new URLSearchParams();
   if(opts.select) params.set('select', opts.select);
   if(opts.eq) Object.entries(opts.eq).forEach(([k,v])=> params.set(k,'eq.'+v));
+  // opts.match: WHERE filter for UPDATE / DELETE (e.g. {id: 42})
+  if(opts.match) Object.entries(opts.match).forEach(([k,v])=> params.set(k,'eq.'+v));
   if(opts.order) params.set('order', opts.order);
   if(opts.limit) params.set('limit', String(opts.limit));
   const ps = params.toString();
   if(ps) url += '?' + ps;
   const method = (opts.upsert||opts.insert) ? 'POST' : opts.update ? 'PATCH' : opts.delete ? 'DELETE' : 'GET';
+  // For updates/deletes return representation so caller gets updated row
+  if(opts.update || opts.delete) headers['Prefer'] = 'return=representation';
   const res = await fetch(url, { method, headers, body: opts.body ? JSON.stringify(opts.body) : undefined });
-  if(!res.ok){ console.warn('Supabase error:', res.status, table); return null; }
+  if(!res.ok){ console.warn('Supabase error:', res.status, table, await res.text()); return null; }
   if(res.status === 204) return { ok: true };
   return res.json();
 }
@@ -1497,28 +1530,35 @@ async function loadAllFromBackend(){
 
     // Load citizen proposals
     const cpRows = await sbQuery('citizen_proposals', {
-      select: 'content,category,author_name,social_link,created_at',
+      select: 'id,content,category,author_name,social_link,device_token,status,created_at',
       order: 'created_at.asc'
     });
     if(cpRows && Array.isArray(cpRows) && cpRows.length > 0){
       cpRows.forEach((r, i) => {
         const nid = 'CP_' + i;
         if(newProps.some(p => p.text === r.content)) return;
+        // If category is Z, try auto-reclassify client-side
+        const resolvedCat = (r.category === 'Z' || !r.category)
+          ? detectCategory(r.content || '')
+          : r.category;
         const prop = {
           id: nid,
-          cat: r.category || '',
+          sbId: r.id,
+          cat: resolvedCat,
           noVote: false,
           text: r.content || '',
           author: r.author_name || 'Anonimo',
           social: r.social_link || '',
           citizen: true,
+          ownerToken: r.device_token || '',
+          status: r.status || 'active',
           refs: []
         };
         newProps.push(prop);
         votes[nid] = {my:0, count:0, total:0};
-        // Inject card into its category section
-        if(r.category && document.getElementById('cat-'+r.category)){
-          document.getElementById('cat-'+r.category).appendChild(mkCard(prop));
+        // Inject card into its category section (use resolvedCat)
+        if(resolvedCat && document.getElementById('cat-'+resolvedCat)){
+          document.getElementById('cat-'+resolvedCat).appendChild(mkCard(prop));
         }
         // Also inject into the NEW section list
         const newList = document.getElementById('new-list');
@@ -1533,6 +1573,57 @@ async function loadAllFromBackend(){
 
 // ── ADMIN MODE — acceso: ?admin=entretodos2026 ────────────────────────
 const IS_ADMIN=(new URLSearchParams(window.location.search).get('admin')==='entretodos2026');
+
+// ── GOVERNANCE CONSTANTS ──────────────────────────────────────────
+const DELETE_VOTE_THRESHOLD = 5; // Max votes before hard-delete is blocked
+
+// Keyword → category mapping for auto-classification of citizen proposals
+const KEYWORD_CAT_MAP = [
+  // I — Animal welfare
+  {cat:'I', words:['animal','animales','mascotas','mascota','perro','gato','gatos','perros','fauna','veterinario','veterinaria','maltrato animal','bienestar animal','refugio animal','zoo','zoologico','peleas de gallos','gallos','especie','extinción','fauna silvestre','zoonosis','spay','neuter','esterilización','microchip']},
+  // J — Environment
+  {cat:'J', words:['medio ambiente','clima','cambio climático','medioambiental','energía renovable','solar','eólica','contaminación','reciclaje','residuos','basura','ecosistema','biodiversidad','reforestación','deforestación','agua potable','océano','mar','río','embalse','playa','coral','pesca','acuicultura','carbono','emisiones','smog','polución']},
+  // K — Gender & diversity
+  {cat:'K', words:['género','lgbtq','lgbtq+','diversidad sexual','trans','transgénero','feminismo','igualdad de género','violencia doméstica','violencia de género','machismo','feminicidio','brecha salarial','identidad de género','orientación sexual','homofobia','transfobia','bisexual','lesbianas','gay','no binario','intersexual','queer']},
+  // L — Youth & migration
+  {cat:'L', words:['juventud','jóvenes','joven','migración','emigración','emigrante','diáspora','doble nacionalidad','retorno','balsero','cubano en el exterior','remesas','visa','ciudadanía','emigrante cubano','exilio']},
+  // M — Disability & tech
+  {cat:'M', words:['discapacidad','discapacitado','accesibilidad','tecnología','privacidad digital','inteligencia artificial','ia','datos personales','internet','ciberseguridad','vigilancia digital','redes sociales','algoritmo','plataforma digital','app','software','hardware','automatización','robótica']},
+  // N — Paths to change
+  {cat:'N', words:['vías de cambio','transición pacífica','negociación','diálogo','huelga general','resistencia civil','desobediencia civil','presión internacional','embargo','sanciones','apertura','reforma','revolución','golpe','cambio sistémico']},
+  // A — Constitutional
+  {cat:'A', words:['constitución','constitucional','ley fundamental','estado de derecho','poder legislativo','asamblea','poder ejecutivo','poder judicial','separación de poderes','descentralización','municipios','reforma constitucional','constituyente']},
+  // B — Economy
+  {cat:'B', words:['economía','propiedad privada','empresa','mercado','libre mercado','empresa privada','mipyme','pyme','emprendimiento','inversión','inflación','moneda','dólar','peso','divisa','salario','sueldo','trabajo informal','desempleo','cuba libre','embargo económico','comercio','exportación','importación','turismo','agricultura','sector privado']},
+  // C — Human rights
+  {cat:'C', words:['derechos humanos','libertad','presos políticos','preso político','represión','censura','libertad de expresión','libertad de prensa','libertad religiosa','libertad de reunión','libertad de asociación','desaparecidos','tortura','acoso','hostigamiento','acto de repudio','detención arbitraria','excarcelación','amnistía']},
+  // D — Electoral
+  {cat:'D', words:['electoral','elecciones','voto','sufragio','partidos políticos','democracia','referéndum','participación política','candidatos','campaña electoral','sistema electoral','urnas','fraude electoral','observadores']},
+  // E — Transitional justice
+  {cat:'E', words:['justicia transicional','reconciliación','verdad','reparación','comisión de verdad','víctimas','juicios','responsabilidad','impunidad','expropiación','confiscación','restitución','compensación','crímenes de estado','crímenes de lesa humanidad']},
+  // F — Social policy
+  {cat:'F', words:['salud','educación','vivienda','pensión','jubilación','seguridad social','servicios públicos','pobreza','desigualdad','alimentación','hambre','nutrición','sistema de salud','hospital','médicos','escuela','universidad','cultura','deporte','religión','iglesia','recreación','familia','infancia','niños','adolescentes','adultos mayores']},
+  // G — International relations
+  {cat:'G', words:['relaciones internacionales','oea','onu','naciones unidas','ee.uu','estados unidos','eeuu','rusia','china','venezuela','comunidad internacional','sanciones internacionales','derechos consulares','cooperación internacional','tratado','convenio internacional','extradición']},
+  // H — Transition model
+  {cat:'H', words:['modelo de transición','gobierno provisional','gobierno de unidad','coalición','período de transición','instituciones de transición','hoja de ruta','agenda de transición','pacto nacional','plataforma política']}
+];
+
+/**
+ * Auto-detects best category from proposal text.
+ * Returns matched category key, or 'Z' if no match.
+ */
+function detectCategory(text){
+  const lower = text.toLowerCase();
+  const scores = {};
+  KEYWORD_CAT_MAP.forEach(({cat, words}) => {
+    let score = 0;
+    words.forEach(w => { if(lower.includes(w)) score += w.split(' ').length; }); // multi-word phrases score higher
+    if(score > 0) scores[cat] = (scores[cat]||0) + score;
+  });
+  if(Object.keys(scores).length === 0) return 'Z';
+  return Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+}
 function _initAdminBar(){
   if(!IS_ADMIN)return;
   const bar=document.createElement('div');
@@ -1722,9 +1813,27 @@ function mkCard(p){
         +'<span class="vpct" id="pct-'+p.id+'">'+pct+'%</span>'
         +'<button class="fbt" id="fbt-'+p.id+'" data-pid="'+p.id+'" onclick="togFb(this.dataset.pid)">&#128172; Aportar'+fbLabel+'</button>'
         +'</div>';
+  // Owner action buttons (edit / delete) for citizen proposals
+  let ownerActionsHtml = '';
+  if(p.citizen && p.status !== 'retired'){
+    const myToken = getOrCreateDeviceToken();
+    const isOwner = IS_ADMIN || (p.ownerToken && p.ownerToken === myToken);
+    if(isOwner){
+      const vCount = (votes[p.id]||{count:0}).count;
+      const canDelete = vCount < DELETE_VOTE_THRESHOLD;
+      ownerActionsHtml = '<div class="cp-owner-actions">'
+        +'<button class="cp-edit-btn" onclick="openCpEditModal(\'' +p.id+ '\')">\u270F\uFE0F Editar</button>'
+        +(canDelete
+          ? '<button class="cp-del-btn" onclick="deleteCpProposal(\'' +p.id+ '\')">\uD83D\uDDD1 Eliminar</button>'
+          : '<button class="cp-del-btn" onclick="retireCpProposal(\'' +p.id+ '\')" title="No se puede eliminar: ya tiene '+vCount+' votos (m\u00EDnimo '+DELETE_VOTE_THRESHOLD+')">\uD83D\uDCE6 Retirar</button>')
+        +'</div>';
+    }
+  }
+  const retiredBadge = (p.citizen && p.status==='retired') ? '<span class="retired-badge">📦 Retirada</span><br>' : '';
+  if(p.status==='retired') d.classList.add('retired');
   d.innerHTML = '<div class="card-top">'
     +'<span class="pid">'+p.id+'</span>'
-    +'<div class="pbody">'+citizenBadge+minBadge+'<div class="ptxt">'+p.text+'</div>'+noteStr+refsHtml+socialHtml+'</div>'
+    +'<div class="pbody">'+retiredBadge+citizenBadge+minBadge+'<div class="ptxt">'+p.text+'</div>'+noteStr+refsHtml+socialHtml+ownerActionsHtml+'</div>'
     +'</div>'
     +varH
     +voteHtml
@@ -1843,13 +1952,16 @@ function rateFb(pid,fi,s){
 // NEW PROPOSALS
 function submitNew(){
   const txt=document.getElementById('nt').value.trim();
-  const cat=document.getElementById('nc').value;
+  let cat=document.getElementById('nc').value;
   const anon=document.getElementById('na').checked;
   const name=anon?'Anonimo':(document.getElementById('nn').value.trim()||'Anonimo');
   const social=(document.getElementById('nsocial')&&!anon)?document.getElementById('nsocial').value.trim():'';
   if(!txt){toast('Escribe tu propuesta primero','e');return;}
+  // Auto-detect category if user left it blank
+  if(!cat){ cat=detectCategory(txt); }
   const nid='N'+(newProps.length+1);
-  newProps.push({id:nid,cat,text:txt,author:name,social:social,citizen:true});
+  const myToken=getOrCreateDeviceToken();
+  newProps.push({id:nid,cat,text:txt,author:name,social:social,citizen:true,ownerToken:myToken});
   votes[nid]={my:0,count:0,total:0};
   const list=document.getElementById('new-list');
   const item=document.createElement('div'); item.className='new-item';
@@ -1869,7 +1981,9 @@ function submitNew(){
   document.getElementById('nt').value=''; document.getElementById('nn').value=''; document.getElementById('nc').value='';
   document.getElementById('sp').textContent=PROPS.length+newProps.length;
   toast('Propuesta enviada. Gracias.');
-  sbQuery('citizen_proposals',{insert:true,body:{device_token:getOrCreateDeviceToken(),content:txt,category:cat,author_name:name,social_link:social}}).catch(()=>{});
+  sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name,social_link:social}})
+    .then(rows=>{ if(rows&&rows[0]&&rows[0].id){ const p=newProps.find(x=>x.id===nid); if(p) p.sbId=rows[0].id; } })
+    .catch(()=>{});
 }
 
 // ORG SUBMISSION
@@ -2184,6 +2298,138 @@ function toast(msg,type){
   t.textContent=msg; t.style.background=type==='e'?'var(--rojo)':'var(--azul)';
   t.classList.add('show'); clearTimeout(tT); tT=setTimeout(()=>t.classList.remove('show'),2400);
 }
+
+// ── CITIZEN PROPOSAL GOVERNANCE ─────────────────────────────────────────
+
+let _cpEditTargetId = null; // proposal id being edited
+
+function openCpEditModal(propId){
+  const p = newProps.find(x=>x.id===propId) || PROPS.find(x=>x.id===propId);
+  if(!p){ toast('No se encontró la propuesta','e'); return; }
+  const myToken = getOrCreateDeviceToken();
+  if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
+    toast('Solo el autor puede editar esta propuesta','e'); return;
+  }
+  _cpEditTargetId = propId;
+  document.getElementById('cp-edit-text').value = p.text || '';
+  document.getElementById('cp-edit-social').value = p.social || '';
+  const sel = document.getElementById('cp-edit-cat');
+  sel.value = p.cat || '';
+  document.getElementById('cp-modal-overlay').classList.add('open');
+}
+
+function closeCpModal(){
+  document.getElementById('cp-modal-overlay').classList.remove('open');
+  _cpEditTargetId = null;
+}
+
+async function saveCpEdit(){
+  if(!_cpEditTargetId){ closeCpModal(); return; }
+  const newText = document.getElementById('cp-edit-text').value.trim();
+  const newCat  = document.getElementById('cp-edit-cat').value || detectCategory(newText);
+  const newSocial = document.getElementById('cp-edit-social').value.trim();
+  if(!newText){ toast('El texto no puede estar vacío','e'); return; }
+
+  // Find prop in memory
+  const p = newProps.find(x=>x.id===_cpEditTargetId);
+  if(!p){ toast('Propuesta no encontrada','e'); closeCpModal(); return; }
+
+  const myToken = getOrCreateDeviceToken();
+  if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
+    toast('No autorizado','e'); closeCpModal(); return;
+  }
+
+  // Update Supabase if we have sbId
+  if(p.sbId){
+    try{
+      await sbQuery('citizen_proposals',{
+        update: true,
+        match: {id: p.sbId},
+        body: {content: newText, category: newCat, social_link: newSocial, updated_at: new Date().toISOString()}
+      });
+    }catch(e){ toast('Error al guardar en servidor','e'); }
+  }
+
+  // Update in-memory
+  p.text   = newText;
+  p.cat    = newCat;
+  p.social = newSocial;
+
+  // Re-render card in place
+  const cardEl = document.querySelector('.card[data-id="'+_cpEditTargetId+'"]');
+  if(cardEl){
+    const newCard = mkCard(p);
+    cardEl.replaceWith(newCard);
+    // Re-inject into correct category section
+    if(newCat && document.getElementById('cat-'+newCat)){
+      document.getElementById('cat-'+newCat).appendChild(newCard.cloneNode(true));
+    }
+  }
+
+  toast('Propuesta actualizada ✅');
+  closeCpModal();
+}
+
+async function deleteCpProposal(propId){
+  const p = newProps.find(x=>x.id===propId);
+  if(!p){ toast('No encontrada','e'); return; }
+  const myToken = getOrCreateDeviceToken();
+  if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
+    toast('Solo el autor puede eliminar esta propuesta','e'); return;
+  }
+  const vCount = (votes[propId]||{count:0}).count;
+  if(vCount >= DELETE_VOTE_THRESHOLD){
+    toast('Esta propuesta ya tiene '+vCount+' votos — usa "Retirar" en su lugar','e');
+    return;
+  }
+  if(!confirm('¿Eliminar esta propuesta? Esta acción no se puede deshacer.')) return;
+
+  if(p.sbId){
+    try{
+      await sbQuery('citizen_proposals',{delete:true, match:{id:p.sbId}});
+    }catch(e){ toast('Error al eliminar del servidor','e'); }
+  }
+
+  // Remove from memory + DOM
+  const idx = newProps.indexOf(p);
+  if(idx > -1) newProps.splice(idx, 1);
+  document.querySelectorAll('.card[data-id="'+propId+'"]').forEach(el=>el.remove());
+  toast('Propuesta eliminada');
+}
+
+async function retireCpProposal(propId){
+  const p = newProps.find(x=>x.id===propId);
+  if(!p){ toast('No encontrada','e'); return; }
+  const myToken = getOrCreateDeviceToken();
+  if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
+    toast('Solo el autor puede retirar esta propuesta','e'); return;
+  }
+  if(!confirm('¿Retirar esta propuesta? Seguirá visible pero no recibirá nuevos votos.')) return;
+
+  if(p.sbId){
+    try{
+      await sbQuery('citizen_proposals',{
+        update: true,
+        match: {id: p.sbId},
+        body: {status: 'retired', updated_at: new Date().toISOString()}
+      });
+    }catch(e){ toast('Error al retirar del servidor','e'); }
+  }
+
+  p.status = 'retired';
+  // Re-render
+  document.querySelectorAll('.card[data-id="'+propId+'"]').forEach(cardEl=>{
+    const newCard = mkCard(p);
+    cardEl.replaceWith(newCard);
+  });
+  toast('Propuesta retirada. El historial de votos se conserva.');
+}
+
+// Close modal when clicking overlay background
+document.getElementById('cp-modal-overlay').addEventListener('click', function(e){
+  if(e.target === this) closeCpModal();
+});
+
 </script>
 
 <!-- HAMBURGER -->
@@ -2216,6 +2462,36 @@ function toast(msg,type){
   </div>
 </div>
 
+<!-- ── CITIZEN PROPOSAL EDIT MODAL ─────────────────────────────── -->
+<div id="cp-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cp-modal-title">
+  <div id="cp-modal">
+    <h3 id="cp-modal-title">Editar propuesta</h3>
+    <textarea id="cp-edit-text" placeholder="Texto de tu propuesta..."></textarea>
+    <select id="cp-edit-cat">
+      <option value="">Categoría...</option>
+      <option value="N">N. Vías de Cambio</option>
+      <option value="A">A. Marco Constitucional y Legal</option>
+      <option value="B">B. Modelo Económico y Desarrollo</option>
+      <option value="C">C. Derechos Humanos y Libertades Civiles</option>
+      <option value="D">D. Transición Política y Proceso Electoral</option>
+      <option value="E">E. Justicia Transicional y Reconciliación</option>
+      <option value="F">F. Políticas Sociales y Servicios Públicos</option>
+      <option value="G">G. Relaciones Internacionales</option>
+      <option value="H">H. Modelo de Transición</option>
+      <option value="I">I. Derechos Animales y Bienestar Animal</option>
+      <option value="J">J. Medio Ambiente y Cambio Climático</option>
+      <option value="K">K. Género, Diversidad e Inclusión</option>
+      <option value="L">L. Juventud, Migración y Doble Nacionalidad</option>
+      <option value="M">M. Discapacidad, Tecnología y Privacidad Digital</option>
+      <option value="Z">Z. Otra / Nueva categoría</option>
+    </select>
+    <input type="text" id="cp-edit-social" placeholder="Perfil social (IG, X, Facebook...) — opcional">
+    <div class="modal-row">
+      <button class="btn-cancel" onclick="closeCpModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveCpEdit()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
 </body>
 </html<!-- AUTH BAR -->
 <div id="auth-bar">
