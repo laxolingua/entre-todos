@@ -1807,7 +1807,7 @@ function _initAdminBar(){
   bar.innerHTML='<span><i class="fi fi-br-settings"></i> ADMIN</span>'
     +'<button onclick="resetMyToken()" style="background:#CF142B;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Reset token</button>'
     +'<button onclick="showAdminPanel()" style="background:#002A8F;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Ver backend</button>'
-    +\'<button onclick="loadPendingProposals()" style="background:#856404;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;"><i class="fi fi-br-time-check"></i> Pendientes</button>\'
+    +'<button onclick="loadPendingProposals()" style="background:#856404;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;"><i class="fi fi-br-time-check"></i> Pendientes</button>'
     +'<button onclick="clearLocalVotes()" style="background:#555;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Limpiar votos locales</button>'
     +'<span id="atk" style="opacity:.5;font-size:.65rem;">Token: '+(localStorage.getItem('et_device_token')||'pendiente')+'</span>';
   document.body.appendChild(bar);
@@ -2124,7 +2124,7 @@ async function loadPendingProposals() {
   const d = document.createElement('div');
   d.id = 'adm-pending-panel';
   d.style.cssText = 'position:fixed;top:55px;left:8px;width:420px;max-height:82vh;overflow-y:auto;background:#fff;border:2px solid #856404;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.22);z-index:9998;padding:16px;font-size:.81rem;';
-  d.innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#856404;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;"><span><i class="fi fi-br-time-check"></i> PROPUESTAS PENDIENTES</span><button onclick="document.getElementById('adm-pending-panel').remove()" style="background:none;border:none;cursor:pointer;font-size:1rem;"><i class="fi fi-br-cross"></i></button></div><div id="adm-pend-list">Cargando...</div>';
+  d.innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#856404;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;"><span><i class="fi fi-br-time-check"></i> PROPUESTAS PENDIENTES</span><button onclick="document.getElementById("adm-pending-panel").remove()" style="background:none;border:none;cursor:pointer;font-size:1rem;"><i class="fi fi-br-cross"></i></button></div><div id="adm-pend-list">Cargando...</div>';
   document.body.appendChild(d);
 
   try {
