@@ -380,8 +380,53 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   .cp-owner-actions .cp-del-btn:hover{background:#C62828;color:#fff;}
   .card.citizen.retired{opacity:.55;border-style:dashed!important;}
   .retired-badge{display:inline-flex;align-items:center;gap:4px;background:#999;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+
+/* DOCUMENT IMPORT SYSTEM */
+.import-tabs{display:flex;gap:0;margin-bottom:14px;border-bottom:2px solid var(--gris-m);}
+.import-tab{padding:7px 16px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:none;background:none;color:var(--gt);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;}
+.import-tab.active{color:var(--azul);border-bottom-color:var(--azul);}
+.import-panel{display:none;}.import-panel.active{display:block;}
+.upload-zone{border:2px dashed var(--gris-m);border-radius:8px;padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fafbff;}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--azul);background:#EEF2FF;}
+.upload-zone .uz-icon{font-size:2rem;color:var(--azul);margin-bottom:6px;}
+.upload-zone .uz-label{font-family:Barlow Condensed,sans-serif;font-size:.84rem;font-weight:700;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;}
+.upload-zone .uz-sub{font-size:.74rem;color:var(--gt);margin-top:4px;}
+.import-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+@media(max-width:600px){.import-meta{grid-template-columns:1fr;}}
+.import-meta input,.import-meta textarea{padding:7px 10px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.82rem;font-family:Barlow,sans-serif;width:100%;box-sizing:border-box;}
+.import-meta textarea{grid-column:1/-1;min-height:58px;resize:vertical;}
+.import-meta .full{grid-column:1/-1;}
+.import-meta label{font-size:.72rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gt);display:block;margin-bottom:3px;}
+.import-meta .priv-note{grid-column:1/-1;font-size:.72rem;color:#999;background:#fff8e1;border:1px solid #ffe082;border-radius:4px;padding:6px 10px;display:flex;align-items:center;gap:6px;}
+.import-progress{background:#EEF2FF;border-radius:8px;padding:14px 16px;margin-top:10px;display:none;}
+.import-progress .prog-title{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.prog-bar-wrap{background:#dde2f0;border-radius:20px;height:6px;overflow:hidden;margin-bottom:6px;}
+.prog-bar-fill{height:100%;background:var(--azul);border-radius:20px;transition:width .3s;width:0%;}
+.prog-status{font-size:.75rem;color:var(--gt);}
+.import-results{margin-top:12px;display:none;}
+.import-results .ir-header{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.85rem;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.ir-proposal{background:#fff;border:1.5px solid var(--gris-m);border-radius:6px;padding:10px 12px;margin-bottom:7px;position:relative;}
+.ir-proposal .ir-cat{display:inline-flex;align-items:center;gap:4px;background:var(--azul);color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.ir-proposal .ir-text{font-size:.84rem;color:#222;line-height:1.5;}
+.ir-proposal .ir-reason{font-size:.72rem;color:#999;margin-top:4px;font-style:italic;}
+.ir-proposal .ir-del{position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;color:#ccc;font-size:.9rem;}
+.ir-proposal .ir-del:hover{color:var(--rojo);}
+.import-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+
+/* PENDING PROPOSALS IN ADMIN */
+.adm-pending-item{border:1.5px solid #ffe082;background:#fff8e1;border-radius:6px;padding:10px 12px;margin-bottom:7px;}
+.adm-pending-item .apc{display:inline-flex;align-items:center;gap:4px;background:#856404;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;}
+.adm-pending-item .apt{font-size:.83rem;color:#222;line-height:1.5;margin-bottom:4px;}
+.adm-pending-item .apa{font-size:.71rem;color:#777;margin-bottom:6px;}
+.adm-pending-btns{display:flex;gap:6px;}
+.btn-approve{padding:4px 12px;background:#2D7A4F;color:#fff;border:none;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
+.btn-reject{padding:4px 12px;background:#CF142B;color:#fff;border:none;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
+
+/* NEW badge in category */
+.new-badge{display:inline-flex;align-items:center;gap:3px;background:#F5B8C0;color:#C62828;padding:1px 6px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-left:6px;vertical-align:middle;}
 </style>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 <div class="flag"></div>
@@ -551,35 +596,114 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
     <!-- NEW PROPOSAL -->
     <div class="pg-sec" id="cat-NEW">
-      <div class="sec-h">+ Propón algo nuevo</div>
-      <p class="sec-sub">¿Hay algo importante que no está en la lista? Escríbelo aquí. Tu propuesta aparece públicamente y puede ser votada por otros participantes. Las más apoyadas se integran al documento final de consenso.</p>
-      <div style="display:flex;flex-direction:column;gap:9px;">
-        <select id="nc" style="padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Barlow,sans-serif;">
-          <option value="">Categoría más cercana (opcional)...</option>
-          <option value="N">N. Vías de Cambio</option>
-          <option value="A">A. Marco Constitucional y Legal</option>
-          <option value="B">B. Modelo Económico y Desarrollo</option>
-          <option value="C">C. Derechos Humanos y Libertades Civiles</option>
-          <option value="D">D. Transición Política y Proceso Electoral</option>
-          <option value="E">E. Justicia Transicional y Reconciliación</option>
-          <option value="F">F. Políticas Sociales y Servicios Públicos</option>
-          <option value="G">G. Relaciones Internacionales</option>
-          <option value="H">H. Modelo de Transición</option>
-          <option value="I">I. Derechos Animales y Bienestar Animal</option>
-          <option value="J">J. Medio Ambiente y Cambio Climático</option>
-          <option value="K">K. Género, Diversidad e Inclusión</option>
-          <option value="L">L. Juventud, Migración y Doble Nacionalidad</option>
-          <option value="M">M. Discapacidad, Tecnología y Privacidad Digital</option>
-          <option value="Z">Z. Otra / Nueva categoría (sin encaje claro)</option>
-        </select>
-        <textarea id="nt" style="padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:72px;resize:vertical;" placeholder="Escribe tu propuesta como una afirmación clara y neutral..."></textarea>
-        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
-          <input id="nn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)">><input id="nsocial" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:160px;" placeholder="Tu perfil: IG, Facebook, X... (opcional)">
-          <label style="display:flex;align-items:center;gap:4px;font-size:.76rem;color:var(--gt);cursor:pointer;"><input type="checkbox" id="na" onchange="document.getElementById('nn').disabled=this.checked"> Anónimo</label>
-          <button class="btn btn-p" onclick="submitNew()">Enviar propuesta</button>
+      <div class="sec-h"><i class="fi fi-br-bulb"></i> Propuestas Ciudadanas</div>
+      <p class="sec-sub">¿Tienes algo que aportar? Puedes escribir una propuesta individual o subir un documento completo (PDF, Word) y la IA lo clasificará automáticamente por categorías.</p>
+
+      <!-- TABS -->
+      <div class="import-tabs">
+        <button class="import-tab active" onclick="switchImportTab('manual',this)"><i class="fi fi-br-pencil"></i> Propuesta individual</button>
+        <button class="import-tab" onclick="switchImportTab('doc',this)"><i class="fi fi-br-file-upload"></i> Subir documento</button>
+      </div>
+
+      <!-- TAB: MANUAL -->
+      <div class="import-panel active" id="imp-manual">
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <select id="nc" style="padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Barlow,sans-serif;">
+            <option value="">Categoría más cercana (opcional)...</option>
+            <option value="N">N. Vías de Cambio</option>
+            <option value="A">A. Marco Constitucional y Legal</option>
+            <option value="B">B. Modelo Económico y Desarrollo</option>
+            <option value="C">C. Derechos Humanos y Libertades Civiles</option>
+            <option value="D">D. Transición Política y Proceso Electoral</option>
+            <option value="E">E. Justicia Transicional y Reconciliación</option>
+            <option value="F">F. Políticas Sociales y Servicios Públicos</option>
+            <option value="G">G. Relaciones Internacionales</option>
+            <option value="H">H. Modelo de Transición</option>
+            <option value="I">I. Derechos Animales y Bienestar Animal</option>
+            <option value="J">J. Medio Ambiente y Cambio Climático</option>
+            <option value="K">K. Género, Diversidad e Inclusión</option>
+            <option value="L">L. Juventud, Migración y Doble Nacionalidad</option>
+            <option value="M">M. Discapacidad, Tecnología y Privacidad Digital</option>
+            <option value="Z">Z. Otra / sin encaje claro</option>
+          </select>
+          <textarea id="nt" style="padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:72px;resize:vertical;" placeholder="Escribe tu propuesta como una afirmación clara y neutral..."></textarea>
+          <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
+            <input id="nn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)"><input id="nsocial" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:160px;" placeholder="Tu perfil: IG, Facebook, X... (opcional)">
+            <label style="display:flex;align-items:center;gap:4px;font-size:.76rem;color:var(--gt);cursor:pointer;"><input type="checkbox" id="na" onchange="document.getElementById('nn').disabled=this.checked"> Anónimo</label>
+            <button class="btn btn-p" onclick="submitNew()">Enviar propuesta</button>
+          </div>
+        </div>
+        <div id="new-list" style="margin-top:16px;"></div>
+      </div>
+
+      <!-- TAB: DOCUMENT IMPORT -->
+      <div class="import-panel" id="imp-doc">
+        <!-- Upload zone -->
+        <div class="upload-zone" id="imp-dropzone"
+          onclick="document.getElementById('imp-file').click()"
+          ondragover="event.preventDefault();this.classList.add('drag')"
+          ondragleave="this.classList.remove('drag')"
+          ondrop="handleImpDrop(event)">
+          <input type="file" id="imp-file" accept=".pdf,.doc,.docx,.txt" style="display:none" onchange="handleImpFile(this)">
+          <div class="uz-icon"><i class="fi fi-br-file-upload"></i></div>
+          <div class="uz-label" id="imp-filename">Clic aquí o arrastra tu documento</div>
+          <div class="uz-sub">PDF, Word (.docx) o texto (.txt) · máx. 10MB</div>
+        </div>
+
+        <!-- Author info -->
+        <div class="import-meta" style="margin-top:12px;">
+          <div>
+            <label>Tu nombre *</label>
+            <input id="imp-nombre" placeholder="Nombre del autor o proyecto">
+          </div>
+          <div>
+            <label>Organización (opcional)</label>
+            <input id="imp-org" placeholder="Nombre de la organización o proyecto">
+          </div>
+          <div>
+            <label>Sitio web (opcional)</label>
+            <input id="imp-web" placeholder="https://...">
+          </div>
+          <div>
+            <label>Teléfono (opcional, privado)</label>
+            <input id="imp-tel" placeholder="+1 305...">
+          </div>
+          <div class="full">
+            <label>Correo electrónico *</label>
+            <input id="imp-email" type="email" placeholder="Para contactarte si hay algún problema">
+          </div>
+          <div class="priv-note">
+            <i class="fi fi-br-lock"></i>
+            <span>Tu correo y teléfono son <strong>privados</strong> — solo el equipo de Entre Todos los verá. Nunca se publican.</span>
+          </div>
+        </div>
+
+        <!-- Classify button -->
+        <div style="margin-top:12px;">
+          <button class="btn btn-p" onclick="startImport()" style="width:100%;justify-content:center;display:flex;gap:7px;align-items:center;"><i class="fi fi-br-bolt"></i> Clasificar con IA y revisar</button>
+        </div>
+
+        <!-- Progress -->
+        <div class="import-progress" id="imp-progress">
+          <div class="prog-title"><i class="fi fi-br-bolt"></i> Procesando documento...</div>
+          <div class="prog-bar-wrap"><div class="prog-bar-fill" id="imp-prog-fill"></div></div>
+          <div class="prog-status" id="imp-prog-status">Leyendo archivo...</div>
+        </div>
+
+        <!-- Results preview -->
+        <div class="import-results" id="imp-results">
+          <div class="ir-header">
+            <i class="fi fi-br-checkbox"></i>
+            <span id="imp-results-count">0 propuestas identificadas</span>
+            <span style="font-size:.72rem;font-weight:400;color:var(--gt);text-transform:none;letter-spacing:0;">Puedes eliminar las que no quieras enviar</span>
+          </div>
+          <div id="imp-results-list"></div>
+          <div class="import-actions">
+            <button class="btn btn-p" onclick="submitImportedProposals()"><i class="fi fi-br-paper-plane"></i> Enviar para revisión</button>
+            <button class="btn" style="border-color:var(--gris-m);" onclick="clearImport()"><i class="fi fi-br-rotate-right"></i> Limpiar</button>
+          </div>
         </div>
       </div>
-      <div id="new-list" style="margin-top:16px;"></div>
     </div>
 
     <!-- ORG SUBMISSION -->
@@ -1683,6 +1807,7 @@ function _initAdminBar(){
   bar.innerHTML='<span><i class="fi fi-br-settings"></i> ADMIN</span>'
     +'<button onclick="resetMyToken()" style="background:#CF142B;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Reset token</button>'
     +'<button onclick="showAdminPanel()" style="background:#002A8F;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Ver backend</button>'
+    +\'<button onclick="loadPendingProposals()" style="background:#856404;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;"><i class="fi fi-br-time-check"></i> Pendientes</button>\'
     +'<button onclick="clearLocalVotes()" style="background:#555;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Limpiar votos locales</button>'
     +'<span id="atk" style="opacity:.5;font-size:.65rem;">Token: '+(localStorage.getItem('et_device_token')||'pendiente')+'</span>';
   document.body.appendChild(bar);
@@ -1728,6 +1853,445 @@ async function showAdminPanel(){
     b.innerHTML=h;
   }catch(e){b.innerHTML='<div style="color:red;">Error: '+e.message+'</div>';}
 }
+
+// ══════════════════════════════════════════════════════════════════════════
+// DOCUMENT IMPORT SYSTEM (IA + Groq)
+// ══════════════════════════════════════════════════════════════════════════
+
+const GROQ_KEY = window._GROQ_KEY || ''; // Configura tu clave en entre-todos-config.js o directamente aquí
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
+
+const CAT_NAMES_FULL = {
+  '0':'Mínimos Innegociables','N':'Vías de Cambio',
+  'A':'Marco Constitucional y Legal','B':'Modelo Económico y Desarrollo',
+  'C':'Derechos Humanos y Libertades','D':'Transición Política y Proceso Electoral',
+  'E':'Justicia Transicional y Reconciliación','F':'Políticas Sociales y Servicios Públicos',
+  'G':'Relaciones Internacionales','H':'Modelo de Transición',
+  'I':'Derechos Animales y Bienestar Animal','J':'Medio Ambiente y Cambio Climático',
+  'K':'Género, Diversidad e Inclusión','L':'Juventud, Migración y Educación',
+  'M':'Discapacidad, Tecnología y Privacidad','Z':'Sin categoría clara'
+};
+
+let impFile = null;
+let impProposals = []; // [{texto, categoria, razon}]
+
+function switchImportTab(tab, btn) {
+  document.querySelectorAll('.import-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.import-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('imp-' + tab).classList.add('active');
+}
+
+function handleImpDrop(e) {
+  e.preventDefault();
+  document.getElementById('imp-dropzone').classList.remove('drag');
+  const f = e.dataTransfer.files[0];
+  if (f) processImpFile(f);
+}
+
+function handleImpFile(input) {
+  const f = input.files[0];
+  if (f) processImpFile(f);
+}
+
+function processImpFile(f) {
+  if (f.size > 10 * 1024 * 1024) { toast('El archivo es demasiado grande (máx. 10MB)', 'e'); return; }
+  impFile = f;
+  document.getElementById('imp-filename').innerHTML =
+    '<i class="fi fi-br-file-check"></i> ' + f.name +
+    ' <span style="font-size:.72rem;color:var(--azul);font-weight:400;">(' + (f.size/1024).toFixed(0) + ' KB)</span>';
+}
+
+async function extractTextFromFile(file) {
+  const name = file.name.toLowerCase();
+  if (name.endsWith('.txt')) {
+    return await file.text();
+  }
+  if (name.endsWith('.pdf')) {
+    // Use PDF.js
+    const arrayBuffer = await file.arrayBuffer();
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    if (!pdfjsLib) throw new Error('PDF.js no cargó correctamente');
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+    let text = '';
+    for (let i = 1; i <= Math.min(pdf.numPages, 50); i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      text += content.items.map(item => item.str).join(' ') + '\n';
+    }
+    return text;
+  }
+  if (name.endsWith('.docx') || name.endsWith('.doc')) {
+    // For Word files, read as text (basic extraction)
+    try {
+      const text = await file.text();
+      // Strip XML tags if DOCX
+      return text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    } catch(e) {
+      throw new Error('No se pudo leer el archivo Word. Por favor conviértelo a PDF o TXT primero.');
+    }
+  }
+  throw new Error('Formato no soportado. Usa PDF, TXT o Word.');
+}
+
+function setProgress(pct, status) {
+  document.getElementById('imp-prog-fill').style.width = pct + '%';
+  document.getElementById('imp-prog-status').textContent = status;
+}
+
+async function callGroqClassify(text) {
+  // Truncate to avoid token limits (~8000 chars max)
+  const truncated = text.length > 8000 ? text.substring(0, 8000) + '\n[...texto truncado...]' : text;
+
+  const prompt = `Eres un asistente experto en política cubana. Analiza el siguiente documento y extrae TODAS las propuestas, artículos o puntos políticos concretos que contiene.
+
+Para cada propuesta:
+1. Redáctala como una afirmación clara y neutral (máximo 2 líneas)
+2. Asígnale la categoría más apropiada de esta lista:
+   0=Mínimos Innegociables, N=Vías de Cambio, A=Marco Constitucional, B=Modelo Económico, C=Derechos Humanos, D=Sistema Electoral, E=Justicia Transicional, F=Política Social, G=Relaciones Internacionales, H=Modelo de Transición, I=Bienestar Animal, J=Medio Ambiente, K=Género e Inclusión, L=Juventud y Educación, M=Discapacidad y Tecnología, Z=Sin categoría clara
+3. Da un número de orden lógico dentro de la categoría (1=más fundamental)
+
+Devuelve SOLO un JSON array, sin texto adicional, sin markdown:
+[{"texto":"propuesta redactada","categoria":"letra","razon":"por qué esta categoría","orden":1}]
+
+DOCUMENTO:
+${truncated}`;
+
+  const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + GROQ_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: GROQ_MODEL,
+      temperature: 0.1,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+
+  if (!resp.ok) {
+    const err = await resp.json();
+    throw new Error('Error IA: ' + (err.error?.message || resp.status));
+  }
+
+  const data = await resp.json();
+  const raw = data.choices[0].message.content.trim();
+
+  // Extract JSON from response (handle markdown code blocks)
+  let jsonStr = raw;
+  const match = raw.match(/\[.*\]/s);
+  if (match) jsonStr = match[0];
+
+  return JSON.parse(jsonStr);
+}
+
+async function startImport() {
+  if (!impFile) { toast('Primero selecciona un documento', 'e'); return; }
+  const nombre = document.getElementById('imp-nombre').value.trim();
+  const email = document.getElementById('imp-email').value.trim();
+  if (!nombre) { toast('Escribe tu nombre', 'e'); return; }
+  if (!email) { toast('Escribe tu correo de contacto', 'e'); return; }
+
+  // Show progress
+  const prog = document.getElementById('imp-progress');
+  prog.style.display = 'block';
+  document.getElementById('imp-results').style.display = 'none';
+  setProgress(10, 'Leyendo archivo...');
+
+  try {
+    const text = await extractTextFromFile(impFile);
+    if (!text || text.trim().length < 50) {
+      throw new Error('El documento parece estar vacío o no se pudo leer el texto.');
+    }
+    setProgress(35, 'Enviando a la IA para clasificar...');
+
+    const proposals = await callGroqClassify(text);
+    setProgress(80, 'Procesando resultados...');
+
+    if (!Array.isArray(proposals) || proposals.length === 0) {
+      throw new Error('La IA no encontró propuestas en el documento. Intenta con un texto más claro.');
+    }
+
+    impProposals = proposals;
+    renderImportResults(proposals);
+    setProgress(100, 'Listo.');
+
+    setTimeout(() => {
+      prog.style.display = 'none';
+      document.getElementById('imp-results').style.display = 'block';
+    }, 600);
+
+  } catch(e) {
+    prog.style.display = 'none';
+    toast('Error: ' + e.message, 'e');
+  }
+}
+
+function renderImportResults(proposals) {
+  const list = document.getElementById('imp-results-list');
+  document.getElementById('imp-results-count').textContent = proposals.length + ' propuesta' + (proposals.length !== 1 ? 's' : '') + ' identificada' + (proposals.length !== 1 ? 's' : '');
+  list.innerHTML = '';
+  proposals.forEach((p, i) => {
+    const catName = CAT_NAMES_FULL[p.categoria] || p.categoria;
+    const catColor = getCatColor(p.categoria);
+    const div = document.createElement('div');
+    div.className = 'ir-proposal';
+    div.id = 'irp-' + i;
+    div.innerHTML =
+      '<span class="ir-cat" style="background:' + catColor + ';">' + p.categoria + '. ' + catName + '</span>' +
+      '<button class="ir-del" onclick="removeIrProposal(' + i + ')" title="Eliminar"><i class="fi fi-br-trash"></i></button>' +
+      '<div class="ir-text">' + escHtml(p.texto) + '</div>' +
+      (p.razon ? '<div class="ir-reason">IA: ' + escHtml(p.razon) + '</div>' : '');
+    list.appendChild(div);
+  });
+}
+
+function removeIrProposal(i) {
+  impProposals[i] = null;
+  const el = document.getElementById('irp-' + i);
+  if (el) el.style.opacity = '0.3';
+  const remaining = impProposals.filter(p => p !== null).length;
+  document.getElementById('imp-results-count').textContent = remaining + ' propuesta' + (remaining !== 1 ? 's' : '') + ' seleccionada' + (remaining !== 1 ? 's' : '');
+}
+
+async function submitImportedProposals() {
+  const nombre = document.getElementById('imp-nombre').value.trim();
+  const org = document.getElementById('imp-org').value.trim();
+  const web = document.getElementById('imp-web').value.trim();
+  const email = document.getElementById('imp-email').value.trim();
+  const tel = document.getElementById('imp-tel').value.trim();
+  const fuente = impFile ? impFile.name : 'documento';
+
+  const toSend = impProposals.filter(p => p !== null);
+  if (toSend.length === 0) { toast('No hay propuestas para enviar', 'e'); return; }
+
+  let ok = 0, fail = 0;
+  for (const p of toSend) {
+    try {
+      await sbQuery('citizen_proposals', {
+        insert: true,
+        body: {
+          texto: p.texto,
+          categoria: p.categoria,
+          orden: p.orden || 999,
+          autor_nombre: nombre,
+          autor_org: org || null,
+          autor_web: web || null,
+          autor_email: email,
+          autor_tel: tel || null,
+          estado: 'pending',
+          fuente_nombre: fuente,
+          fuente_tipo: 'pdf'
+        }
+      });
+      ok++;
+    } catch(e) {
+      fail++;
+    }
+  }
+
+  if (ok > 0) {
+    toast(ok + ' propuesta' + (ok !== 1 ? 's' : '') + ' enviada' + (ok !== 1 ? 's' : '') + ' para revisión. Gracias.');
+    clearImport();
+  }
+  if (fail > 0) toast(fail + ' propuesta' + (fail !== 1 ? 's' : '') + ' no se pudo enviar', 'e');
+}
+
+function clearImport() {
+  impFile = null;
+  impProposals = [];
+  document.getElementById('imp-filename').innerHTML = '<i class="fi fi-br-file-upload"></i> Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:#aaa;">PDF, Word o texto · máx. 10MB</span>';
+  document.getElementById('imp-file').value = '';
+  document.getElementById('imp-results').style.display = 'none';
+  document.getElementById('imp-progress').style.display = 'none';
+}
+
+function getCatColor(cat) {
+  const colors = {'0':'#CF142B','N':'#7B2D8B','A':'#1565C0','B':'#2E7D32','C':'#C62828','D':'#00695C','E':'#4527A0','F':'#EF6C00','G':'#0277BD','H':'#558B2F','I':'#00838F','J':'#2E7D32','K':'#AD1457','L':'#1565C0','M':'#6A1B9A','Z':'#666'};
+  return colors[cat] || '#002A8F';
+}
+
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── ADMIN: Load pending proposals ────────────────────────────────────────
+async function loadPendingProposals() {
+  const ex = document.getElementById('adm-pending-panel');
+  if (ex) { ex.remove(); return; }
+  const d = document.createElement('div');
+  d.id = 'adm-pending-panel';
+  d.style.cssText = 'position:fixed;top:55px;left:8px;width:420px;max-height:82vh;overflow-y:auto;background:#fff;border:2px solid #856404;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.22);z-index:9998;padding:16px;font-size:.81rem;';
+  d.innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#856404;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;"><span><i class="fi fi-br-time-check"></i> PROPUESTAS PENDIENTES</span><button onclick="document.getElementById('adm-pending-panel').remove()" style="background:none;border:none;cursor:pointer;font-size:1rem;"><i class="fi fi-br-cross"></i></button></div><div id="adm-pend-list">Cargando...</div>';
+  document.body.appendChild(d);
+
+  try {
+    // We need service role or RLS bypass — use anon key with admin param trick
+    const rows = await fetch(
+      'https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?estado=eq.pending&order=created_at.asc',
+      { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY } }
+    ).then(r => r.json());
+
+    const list = document.getElementById('adm-pend-list');
+    if (!rows || rows.length === 0) {
+      list.innerHTML = '<div style="color:#666;font-size:.82rem;text-align:center;padding:20px;">No hay propuestas pendientes</div>';
+      return;
+    }
+    list.innerHTML = '';
+    rows.forEach(row => {
+      const div = document.createElement('div');
+      div.className = 'adm-pending-item';
+      div.id = 'adm-pend-' + row.id;
+      div.innerHTML =
+        '<span class="apc" style="background:' + getCatColor(row.categoria||row.category) + ';">' + (row.categoria||row.category||'?') + '</span>' +
+        (row.fuente_nombre ? '<span style="font-size:.65rem;color:#999;margin-left:6px;"><i class="fi fi-br-file"></i> ' + escHtml(row.fuente_nombre) + '</span>' : '') +
+        '<div class="apt">' + escHtml(row.texto||row.content||'') + '</div>' +
+        '<div class="apa"><b>' + escHtml(row.autor_nombre||row.author_name||'Anónimo') + '</b>' +
+        (row.autor_org ? ' · ' + escHtml(row.autor_org) : '') +
+        (row.autor_email ? ' · <a href="mailto:' + escHtml(row.autor_email) + '" style="color:var(--azul);">' + escHtml(row.autor_email) + '</a>' : '') +
+        (row.autor_tel ? ' · ' + escHtml(row.autor_tel) : '') +
+        '</div>' +
+        '<div class="adm-pending-btns">' +
+        '<button class="btn-approve" onclick="approveProposal(' + row.id + ')"><i class="fi fi-br-check"></i> Aprobar</button>' +
+        '<button class="btn-reject" onclick="rejectProposal(' + row.id + ')"><i class="fi fi-br-cross"></i> Rechazar</button>' +
+        '</div>';
+      list.appendChild(div);
+    });
+  } catch(e) {
+    document.getElementById('adm-pend-list').innerHTML = '<div style="color:red;">Error: ' + e.message + '</div>';
+  }
+}
+
+async function approveProposal(id) {
+  try {
+    await fetch(
+      'https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?id=eq.' + id,
+      {
+        method: 'PATCH',
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ estado: 'approved', approved_at: new Date().toISOString() })
+      }
+    );
+    const el = document.getElementById('adm-pend-' + id);
+    if (el) { el.style.opacity = '0.4'; el.querySelector('.adm-pending-btns').innerHTML = '<span style="color:#2D7A4F;font-weight:700;font-size:.75rem;"><i class="fi fi-br-check"></i> Aprobada</span>'; }
+    toast('Propuesta aprobada');
+  } catch(e) { toast('Error al aprobar: ' + e.message, 'e'); }
+}
+
+async function rejectProposal(id) {
+  try {
+    await fetch(
+      'https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?id=eq.' + id,
+      {
+        method: 'PATCH',
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ estado: 'rejected' })
+      }
+    );
+    const el = document.getElementById('adm-pend-' + id);
+    if (el) { el.style.opacity = '0.4'; el.querySelector('.adm-pending-btns').innerHTML = '<span style="color:#CF142B;font-weight:700;font-size:.75rem;"><i class="fi fi-br-cross"></i> Rechazada</span>'; }
+    toast('Propuesta rechazada');
+  } catch(e) { toast('Error al rechazar: ' + e.message, 'e'); }
+}
+
+
+// ── CITIZEN PROPOSALS: load approved and inject into categories ──────────
+let citizenLoaded = {};  // cat → [proposals]
+
+async function loadApprovedCitizenProposals() {
+  try {
+    const rows = await sbQuery('citizen_proposals', {
+      select: 'id,texto,categoria,autor_nombre,autor_org,autor_web,votos_suma,votos_cnt,es_nueva,created_at',
+      // Note: RLS policy only returns approved rows for anon key
+      order: 'orden.asc,created_at.asc'
+    });
+    if (!rows || !rows.length) return;
+
+    // Group by category
+    const byCat = {};
+    rows.forEach(r => {
+      const cat = r.categoria || 'Z';
+      if (!byCat[cat]) byCat[cat] = [];
+      byCat[cat].push(r);
+    });
+
+    citizenLoaded = byCat;
+
+    // Inject into rendered categories
+    Object.keys(byCat).forEach(cat => {
+      injectCitizenCards(cat, byCat[cat]);
+    });
+
+    // Also update "new proposals" counter if user has a last-visit timestamp
+    updateNewBadge(rows);
+  } catch(e) {
+    // Silently fail — citizen proposals are optional
+  }
+}
+
+function injectCitizenCards(cat, proposals) {
+  const container = document.getElementById('cat-' + cat);
+  if (!container) return;
+
+  // Remove existing citizen section if any (for refresh)
+  const existing = container.querySelector('.citizen-section');
+  if (existing) existing.remove();
+
+  const section = document.createElement('div');
+  section.className = 'citizen-section';
+  section.style.cssText = 'margin-top:18px;border-top:2px solid #F5B8C0;padding-top:14px;';
+
+  const header = document.createElement('div');
+  header.style.cssText = 'font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:#C62828;margin-bottom:10px;display:flex;align-items:center;gap:6px;';
+  header.innerHTML = '<i class="fi fi-br-users"></i> Propuestas Ciudadanas <span style="background:#F5B8C0;color:#C62828;padding:1px 6px;border-radius:10px;font-size:.65rem;">' + proposals.length + '</span>';
+  section.appendChild(header);
+
+  proposals.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card citizen';
+    card.style.marginBottom = '8px';
+    const stars = p.votos_cnt > 0 ? (p.votos_suma / p.votos_cnt).toFixed(1) : null;
+    const starsHtml = stars ? '<span style="color:#f5a623;font-size:.8rem;">★ ' + stars + '</span> <span style="font-size:.7rem;color:#aaa;">(' + p.votos_cnt + ' votos)</span>' : '';
+    const newHtml = p.es_nueva ? '<span class="new-badge"><i class="fi fi-br-sparkles"></i> Nueva</span>' : '';
+    const orgHtml = p.autor_org ? ' · <a href="' + (p.autor_web||'#') + '" target="_blank" rel="noopener noreferrer" style="color:var(--rojo);text-decoration:none;">' + escHtml(p.autor_org) + '</a>' : '';
+    card.innerHTML =
+      '<div class="card-top" style="padding:12px 14px;">' +
+        '<span class="citizen-badge"><i class="fi fi-br-user"></i> Ciudadano</span>' + newHtml +
+        '<div style="font-size:.87rem;color:#222;line-height:1.55;margin-top:5px;">' + escHtml(p.texto) + '</div>' +
+        '<div class="citizen-author">— ' + escHtml(p.autor_nombre||'Anónimo') + orgHtml + ' · ' + new Date(p.created_at).toLocaleDateString('es-ES', {year:'numeric',month:'short',day:'numeric'}) + '</div>' +
+      '</div>' +
+      (starsHtml ? '<div style="padding:4px 14px 10px;font-size:.8rem;">' + starsHtml + '</div>' : '');
+    section.appendChild(card);
+  });
+
+  // Insert before the "next category" button if it exists
+  const nextBtn = container.querySelector('#next-btn-' + cat);
+  if (nextBtn) {
+    container.insertBefore(section, nextBtn);
+  } else {
+    container.appendChild(section);
+  }
+}
+
+function updateNewBadge(rows) {
+  try {
+    const lastVisit = parseInt(localStorage.getItem('et_last_visit') || '0');
+    const newCount = rows.filter(r => new Date(r.created_at).getTime() > lastVisit).length;
+    if (newCount > 0) {
+      const catGrid = document.getElementById('cgrid-NEW');
+      if (catGrid) {
+        const badge = document.createElement('span');
+        badge.className = 'new-badge';
+        badge.innerHTML = '+' + newCount + ' nuevas';
+        catGrid.querySelector('.clabel')?.appendChild(badge);
+      }
+    }
+    // Update last visit
+    localStorage.setItem('et_last_visit', Date.now().toString());
+  } catch(e) {}
+}
 // ── END ADMIN MODE ────────────────────────────────────────────────────────
 
 window.addEventListener('DOMContentLoaded',()=>{
@@ -1746,6 +2310,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('back-to-grid').style.display='none';
   _initAdminBar();
   loadAllFromBackend();
+  loadApprovedCitizenProposals();
 });
 
 function buildCat(cat){
