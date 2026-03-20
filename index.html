@@ -317,6 +317,24 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .hero-copy .hero-cta{margin-top:14px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Barlow Condensed",sans-serif;font-size:1.05rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 @media (max-width:900px){.hero-copy h1{font-size:1.25rem;letter-spacing:1.2px}.hero-copy p{font-size:.95rem}.hero-copy .hero-cta{font-size:.95rem;padding:10px 14px}}
 
+/* Mobile brand banner fix (clean corners) */
+@media (max-width: 768px){
+  .hero{
+    padding: 8px 10px 4px;
+    overflow: visible;
+  }
+  .hero-banner{
+    width: 100%;
+    border-radius: 22px;
+    clip-path: none !important;
+    transform: none !important;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+  }
+}
+
+
 .roadmap{max-width:1080px;margin:10px auto 14px;padding:0 12px}
 .roadmap-title{font-family:"Barlow Condensed",sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:4px}
 .roadmap-sub{font-size:.92rem;color:#4f4f55;margin:0 0 10px}
