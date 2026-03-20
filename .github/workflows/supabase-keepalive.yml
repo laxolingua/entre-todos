@@ -8,10 +8,12 @@ workflow_dispatch:
 jobs:
 ping:
 runs-on: ubuntu-latest
+env:
+SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 steps:
 - name: Ping active Supabase project
 run: |
 curl -sS "https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?select=id&limit=1" \
--H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
--H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+-H "apikey: $SUPABASE_ANON_KEY" \
+-H "Authorization: Bearer $SUPABASE_ANON_KEY" \
 -H "Accept: application/json"
