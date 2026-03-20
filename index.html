@@ -74,7 +74,8 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .cat-card:hover{border-color:var(--azul);background:var(--azul-light);color:var(--azul);}
 .cat-card.active{border-color:var(--azul);background:var(--azul);color:#fff;}
 .cat-card .cico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff;flex-shrink:0;}
-.cat-card .clabel{flex:1;line-height:1.2;}
+.cat-card .clabel{flex:1;line-height:1.2;font-size:.82rem;}
+.cat-card .clabel .cinciso{font-size:.82rem;font-weight:700;margin-right:4px;}
 .cat-card .cpct{font-size:.75rem;opacity:.7;margin-left:auto;white-space:nowrap;}
 
 /* LAYOUT */
@@ -485,7 +486,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <button class="chip" onclick="filterCards('high',this)">Más apoyadas</button>
     <button class="chip" onclick="filterCards('unvoted',this)">Sin votar</button>
     <input class="srch" type="text" placeholder="Buscar..." oninput="searchCards(this.value)" style="margin-left:0;">
-    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--azul);color:var(--azul);border-radius:20px;padding:4px 12px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;"><i class="fi fi-br-question" style="font-size:.85em;"></i> ¿Cómo votar?</button>
+    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:none;color:var(--azul);padding:0;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;"><span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--azul);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;line-height:1;">?</span>&nbsp;¿Cómo votar?</button>
   </div>
   <div id="howto-panel" style="display:none;background:#EEF2FF;border:1px solid rgba(0,42,143,.15);border-radius:0 0 10px 10px;padding:14px 18px;margin-top:-4px;font-size:.82rem;color:#333;line-height:1.9;">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 20px;">
@@ -510,20 +511,20 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <div class="cat-grid-title">Selecciona una categoría para votar:</div>
     <div class="cat-grid" id="cat-grid">
     <button class="cat-card" id="cgrid-0" onclick="selectCatCard('0')"><span class="cico" style="background:var(--rojo);"><i class="fi fi-br-bolt" style="font-size:.85em;color:#fff;"></i></span><span class="clabel">Mínimos Innegociables</span><span class="cpct" id="pg-0">—</span></button>
-    <button class="cat-card" id="cgrid-N" onclick="selectCatCard('N')"><span class="cico" style="background:#7B2D8B;">N</span><span class="clabel">Vías de Cambio</span><span class="cpct" id="pg-N">—</span></button>
-    <button class="cat-card" id="cgrid-A" onclick="selectCatCard('A')"><span class="cico" style="background:#1565C0;">A</span><span class="clabel">Constitucional</span><span class="cpct" id="pg-A">—</span></button>
-    <button class="cat-card" id="cgrid-B" onclick="selectCatCard('B')"><span class="cico" style="background:#2E7D32;">B</span><span class="clabel">Economía</span><span class="cpct" id="pg-B">—</span></button>
-    <button class="cat-card" id="cgrid-C" onclick="selectCatCard('C')"><span class="cico" style="background:#C62828;">C</span><span class="clabel">Derechos Humanos</span><span class="cpct" id="pg-C">—</span></button>
-    <button class="cat-card" id="cgrid-D" onclick="selectCatCard('D')"><span class="cico" style="background:#00695C;">D</span><span class="clabel">Electoral</span><span class="cpct" id="pg-D">—</span></button>
-    <button class="cat-card" id="cgrid-E" onclick="selectCatCard('E')"><span class="cico" style="background:#4527A0;">E</span><span class="clabel">Justicia</span><span class="cpct" id="pg-E">—</span></button>
-    <button class="cat-card" id="cgrid-F" onclick="selectCatCard('F')"><span class="cico" style="background:#EF6C00;">F</span><span class="clabel">Social</span><span class="cpct" id="pg-F">—</span></button>
-    <button class="cat-card" id="cgrid-G" onclick="selectCatCard('G')"><span class="cico" style="background:#0277BD;">G</span><span class="clabel">Internacional</span><span class="cpct" id="pg-G">—</span></button>
-    <button class="cat-card" id="cgrid-H" onclick="selectCatCard('H')"><span class="cico" style="background:#558B2F;">H</span><span class="clabel">Modelo Transición</span><span class="cpct" id="pg-H">—</span></button>
-    <button class="cat-card" id="cgrid-I" onclick="selectCatCard('I')"><span class="cico" style="background:#00838F;">I</span><span class="clabel">Animales</span><span class="cpct" id="pg-I">—</span></button>
-    <button class="cat-card" id="cgrid-J" onclick="selectCatCard('J')"><span class="cico" style="background:#2E7D32;">J</span><span class="clabel">Ambiente</span><span class="cpct" id="pg-J">—</span></button>
-    <button class="cat-card" id="cgrid-K" onclick="selectCatCard('K')"><span class="cico" style="background:#AD1457;">K</span><span class="clabel">Género</span><span class="cpct" id="pg-K">—</span></button>
-    <button class="cat-card" id="cgrid-L" onclick="selectCatCard('L')"><span class="cico" style="background:#1565C0;">L</span><span class="clabel">Juventud</span><span class="cpct" id="pg-L">—</span></button>
-    <button class="cat-card" id="cgrid-M" onclick="selectCatCard('M')"><span class="cico" style="background:#6A1B9A;">M</span><span class="clabel">Discapacidad y Tech</span><span class="cpct" id="pg-M">—</span></button>
+    <button class="cat-card" id="cgrid-N" onclick="selectCatCard('N')"><span class="cico" style="background:#7B2D8B;"><i class="fi fi-br-road" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#7B2D8B;">N.</span>Vías de Cambio</span><span class="cpct" id="pg-N">—</span></button>
+    <button class="cat-card" id="cgrid-A" onclick="selectCatCard('A')"><span class="cico" style="background:#1565C0;"><i class="fi fi-br-scale" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#1565C0;">A.</span>Constitucional</span><span class="cpct" id="pg-A">—</span></button>
+    <button class="cat-card" id="cgrid-B" onclick="selectCatCard('B')"><span class="cico" style="background:#2E7D32;"><i class="fi fi-br-coins" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#2E7D32;">B.</span>Economía</span><span class="cpct" id="pg-B">—</span></button>
+    <button class="cat-card" id="cgrid-C" onclick="selectCatCard('C')"><span class="cico" style="background:#C62828;"><i class="fi fi-br-shield" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#C62828;">C.</span>Derechos Humanos</span><span class="cpct" id="pg-C">—</span></button>
+    <button class="cat-card" id="cgrid-D" onclick="selectCatCard('D')"><span class="cico" style="background:#00695C;"><i class="fi fi-br-vote-yea" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#00695C;">D.</span>Electoral</span><span class="cpct" id="pg-D">—</span></button>
+    <button class="cat-card" id="cgrid-E" onclick="selectCatCard('E')"><span class="cico" style="background:#4527A0;"><i class="fi fi-br-gavel" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#4527A0;">E.</span>Justicia</span><span class="cpct" id="pg-E">—</span></button>
+    <button class="cat-card" id="cgrid-F" onclick="selectCatCard('F')"><span class="cico" style="background:#EF6C00;"><i class="fi fi-br-people" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#EF6C00;">F.</span>Social</span><span class="cpct" id="pg-F">—</span></button>
+    <button class="cat-card" id="cgrid-G" onclick="selectCatCard('G')"><span class="cico" style="background:#0277BD;"><i class="fi fi-br-globe" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#0277BD;">G.</span>Internacional</span><span class="cpct" id="pg-G">—</span></button>
+    <button class="cat-card" id="cgrid-H" onclick="selectCatCard('H')"><span class="cico" style="background:#558B2F;"><i class="fi fi-br-compass-alt" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#558B2F;">H.</span>Modelo Transición</span><span class="cpct" id="pg-H">—</span></button>
+    <button class="cat-card" id="cgrid-I" onclick="selectCatCard('I')"><span class="cico" style="background:#00838F;"><i class="fi fi-br-paw" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#00838F;">I.</span>Animales</span><span class="cpct" id="pg-I">—</span></button>
+    <button class="cat-card" id="cgrid-J" onclick="selectCatCard('J')"><span class="cico" style="background:#2E7D32;"><i class="fi fi-br-leaf" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#2E7D32;">J.</span>Ambiente</span><span class="cpct" id="pg-J">—</span></button>
+    <button class="cat-card" id="cgrid-K" onclick="selectCatCard('K')"><span class="cico" style="background:#AD1457;"><i class="fi fi-br-female" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#AD1457;">K.</span>Género</span><span class="cpct" id="pg-K">—</span></button>
+    <button class="cat-card" id="cgrid-L" onclick="selectCatCard('L')"><span class="cico" style="background:#1565C0;"><i class="fi fi-br-graduation-cap" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#1565C0;">L.</span>Juventud</span><span class="cpct" id="pg-L">—</span></button>
+    <button class="cat-card" id="cgrid-M" onclick="selectCatCard('M')"><span class="cico" style="background:#6A1B9A;"><i class="fi fi-br-wheelchair" style="font-size:1em;color:#fff;"></i></span><span class="clabel"><span class="cinciso" style="color:#6A1B9A;">M.</span>Discapacidad y Tech</span><span class="cpct" id="pg-M">—</span></button>
   </div>
   </div>
 </div>
@@ -922,21 +923,21 @@ const PROPS=[
 
 
 const CAT={
-  "0":{name:"Requisitos Mínimos Innegociables",sub:"Condiciones sine qua non — no negociables, no sometibles a votación",c:"var(--rojo)"},
-  N:{name:"Vías de Cambio",sub:"¿Cómo llegar al cambio? Posiciones sobre el proceso previo a la transición",c:"#7B2D8B"},
-  A:{name:"Marco Constitucional y Legal",sub:"Estructura jurídica del Estado en transición",c:"var(--azul)"},
-  B:{name:"Modelo Económico y Desarrollo",sub:"Propiedad, mercado y bienestar económico",c:"var(--rojo)"},
-  C:{name:"Derechos Humanos y Libertades Civiles",sub:"Libertades fundamentales, presos, expresión",c:"var(--azul)"},
-  D:{name:"Transición Política y Proceso Electoral",sub:"Elecciones, partidos, gobierno provisional",c:"var(--rojo)"},
-  E:{name:"Justicia Transicional y Reconciliación",sub:"Verdad, justicia, amnistía, reparación",c:"var(--azul)"},
-  F:{name:"Políticas Sociales y Servicios Públicos",sub:"Salud, educación, bienestar social",c:"var(--rojo)"},
-  G:{name:"Relaciones Internacionales",sub:"Embargo, OEA, diáspora, sanciones",c:"var(--azul)"},
-  H:{name:"Modelo de Transición",sub:"Velocidad, método y vía del cambio",c:"var(--rojo)"},
-  I:{name:"Derechos Animales y Bienestar Animal",sub:"Protección, refugios, tenencia responsable, experimentación",c:"var(--azul)"},
-  J:{name:"Medio Ambiente y Cambio Climático",sub:"Energía, ecosistemas, adaptación climática",c:"var(--rojo)"},
-  K:{name:"Género, Diversidad e Inclusión",sub:"LGBTQ+, igualdad de género, no discriminación",c:"var(--azul)"},
-  L:{name:"Juventud, Migración y Doble Nacionalidad",sub:"Retorno, diáspora, derechos de emigrados",c:"var(--rojo)"},
-  M:{name:"Discapacidad, Tecnología y Privacidad Digital",sub:"Accesibilidad, datos personales, IA en servicios públicos",c:"var(--azul)"},
+  "0":{name:"Requisitos Mínimos Innegociables",sub:"Condiciones sine qua non — no negociables, no sometibles a votación",c:"var(--rojo)",icon:"bolt"},
+  N:{name:"Vías de Cambio",sub:"¿Cómo llegar al cambio? Posiciones sobre el proceso previo a la transición",c:"#7B2D8B",icon:"road"},
+  A:{name:"Marco Constitucional y Legal",sub:"Estructura jurídica del Estado en transición",c:"var(--azul)",icon:"scale"},
+  B:{name:"Modelo Económico y Desarrollo",sub:"Propiedad, mercado y bienestar económico",c:"var(--rojo)",icon:"coins"},
+  C:{name:"Derechos Humanos y Libertades Civiles",sub:"Libertades fundamentales, presos, expresión",c:"var(--azul)",icon:"shield"},
+  D:{name:"Transición Política y Proceso Electoral",sub:"Elecciones, partidos, gobierno provisional",c:"var(--rojo)",icon:"vote-yea"},
+  E:{name:"Justicia Transicional y Reconciliación",sub:"Verdad, justicia, amnistía, reparación",c:"var(--azul)",icon:"gavel"},
+  F:{name:"Políticas Sociales y Servicios Públicos",sub:"Salud, educación, bienestar social",c:"var(--rojo)",icon:"people"},
+  G:{name:"Relaciones Internacionales",sub:"Embargo, OEA, diáspora, sanciones",c:"var(--azul)",icon:"globe"},
+  H:{name:"Modelo de Transición",sub:"Velocidad, método y vía del cambio",c:"var(--rojo)",icon:"compass-alt"},
+  I:{name:"Derechos Animales y Bienestar Animal",sub:"Protección, refugios, tenencia responsable, experimentación",c:"var(--azul)",icon:"paw"},
+  J:{name:"Medio Ambiente y Cambio Climático",sub:"Energía, ecosistemas, adaptación climática",c:"var(--rojo)",icon:"leaf"},
+  K:{name:"Género, Diversidad e Inclusión",sub:"LGBTQ+, igualdad de género, no discriminación",c:"var(--azul)",icon:"female"},
+  L:{name:"Juventud, Migración y Doble Nacionalidad",sub:"Retorno, diáspora, derechos de emigrados",c:"var(--rojo)",icon:"graduation-cap"},
+  M:{name:"Discapacidad, Tecnología y Privacidad Digital",sub:"Accesibilidad, datos personales, IA en servicios públicos",c:"var(--azul)",icon:"wheelchair"},
 };
 
 const FAQ=[
@@ -1740,10 +1741,9 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('sp').textContent=PROPS.length;
   document.getElementById('res-date').textContent=new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'});
   window.addEventListener('scroll',()=>document.getElementById('scrT').classList.toggle('vis',scrollY>400));
-  // Open Sobre E/T as home
+  // Open Sobre E/T as home (category grid always visible)
   switchTab('SOBRE',null);
-  document.getElementById('cat-grid-wrap-inner').style.display='none';
-  document.getElementById('back-to-grid').style.display='block';
+  document.getElementById('back-to-grid').style.display='none';
   _initAdminBar();
   loadAllFromBackend();
 });
@@ -1753,7 +1753,7 @@ function buildCat(cat){
   const m=CAT[cat], ps=PROPS.filter(p=>p.cat===cat);
   const isMin=(cat==='0');
   const catCount=isMin?ps.length+' condiciones':ps.length+' propuestas';
-  el.innerHTML=`<div class="cat-hdr"><div class="cat-lt" style="background:${m.c}">${isMin?'&#9889;':cat}</div><div><div class="cat-title" style="color:${m.c}">${m.name}</div><div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div><div class="cat-count">${catCount}</div></div>${isMin?`<div style="background:var(--rojo);color:#fff;border-radius:8px;padding:16px 18px;margin-bottom:16px;font-size:.86rem;line-height:1.65;font-weight:300;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Umbral mínimo de legitimidad democrática</strong>Estas son las condiciones <em>sine qua non</em>. No son negociables, no requieren votación. Son lo que cualquier gobierno de transición —lento o rápido— debe garantizar desde el primer día. Al cumplirse estas condiciones se generan automáticamente las condiciones para el levantamiento del embargo.</div>`:''}`;
+  el.innerHTML=`<div class="cat-hdr"><div class="cat-lt" style="background:${m.c};"><i class="fi fi-br-${m.icon||'folder'}" style="color:#fff;font-size:1em;"></i></div><div><div class="cat-title" style="color:${m.c}"><span style="font-family:Barlow Condensed,sans-serif;font-weight:700;margin-right:5px;">${cat==='0'?'0':cat}.</span>${m.name}</div><div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div><div class="cat-count">${catCount}</div></div>${isMin?`<div style="background:var(--rojo);color:#fff;border-radius:8px;padding:16px 18px;margin-bottom:16px;font-size:.86rem;line-height:1.65;font-weight:300;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Umbral mínimo de legitimidad democrática</strong>Estas son las condiciones <em>sine qua non</em>. No son negociables, no requieren votación. Son lo que cualquier gobierno de transición —lento o rápido— debe garantizar desde el primer día. Al cumplirse estas condiciones se generan automáticamente las condiciones para el levantamiento del embargo.</div>`:''}`;
   ps.forEach(p=>el.appendChild(mkCard(p)));
   // Next category button
   // For cat-0: add "propose new minimum" form
@@ -2092,13 +2092,11 @@ function selectCatCard(id){
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
   var card=document.getElementById('cgrid-'+id);
   if(card)card.classList.add('active');
-  // Hide grid, show content
-  document.getElementById('cat-grid-wrap-inner').style.display='none';
+  // Show grid + content (categories always visible)
   document.getElementById('back-to-grid').style.display='block';
   switchTab(id,null);
 }
 function showCatGrid(){
-  document.getElementById('cat-grid-wrap-inner').style.display='';
   document.getElementById('back-to-grid').style.display='none';
   document.querySelectorAll('.cat-sec,.pg-sec,.res-sec,.doc-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
@@ -2110,12 +2108,11 @@ function toggleHowTo(){
   var b=document.getElementById('howto-btn');
   var open=p.style.display==='none';
   p.style.display=open?'block':'none';
-  b.textContent=open?'▲ Cerrar':'<i class="fi fi-br-question"></i> ¿Cómo votar?';
+  b.innerHTML=open?'<span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--azul);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;line-height:1;">✕</span>&nbsp;Cerrar':'<span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--azul);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;line-height:1;">?</span>&nbsp;¿Cómo votar?';
 }
 
 // HERO BUTTON HANDLERS
 function heroComentar(){
-  document.getElementById('cat-grid-wrap-inner').style.display='';
   document.getElementById('back-to-grid').style.display='none';
   document.querySelectorAll('.cat-sec,.pg-sec,.res-sec,.doc-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
