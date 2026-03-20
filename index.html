@@ -380,6 +380,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   .card.citizen.retired{opacity:.55;border-style:dashed!important;}
   .retired-badge{display:inline-flex;align-items:center;gap:4px;background:#999;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
 </style>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 </head>
 <body>
 <div class="flag"></div>
@@ -398,14 +399,14 @@ input.nin:focus{outline:none;border-color:var(--azul);}
         <span></span><span></span><span></span>
       </button>
       <div class="hdr-ham-menu" id="hdr-ham-menu">
-        <button class="hdr-ham-item" onclick="switchTab('SOBRE',null);closeHdrHam();"><span class="hico">🏠</span>Sobre E/T</button>
-        <button class="hdr-ham-item" onclick="switchTab('REFS',null);closeHdrHam();"><span class="hico">📋</span>Referencias</button>
-        <button class="hdr-ham-item" onclick="switchTab('FAQ',null);closeHdrHam();"><span class="hico">❓</span>FAQ</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();"><span class="hico">🗳️</span>Ver propuestas</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('NEW');closeHdrHam();"><span class="hico">💡</span>Propuestas ciudadanas</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('RES');closeHdrHam();"><span class="hico">📊</span>Ver resultados</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('DOC');closeHdrHam();"><span class="hico">📜</span>Propuesta Plural</button>
-        <button class="hdr-ham-item" onclick="switchTab('ORG',null);closeHdrHam();"><span class="hico">📤</span>Registrar organización</button>
+        <button class="hdr-ham-item" onclick="switchTab('SOBRE',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-home"></i></span>Sobre E/T</button>
+        <button class="hdr-ham-item" onclick="switchTab('REFS',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-clipboard"></i></span>Referencias</button>
+        <button class="hdr-ham-item" onclick="switchTab('FAQ',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-question"></i></span>FAQ</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();"><span class="hico"><i class="fi fi-br-ballot-check"></i></span>Ver propuestas</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('NEW');closeHdrHam();"><span class="hico"><i class="fi fi-br-bulb"></i></span>Propuestas ciudadanas</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('RES');closeHdrHam();"><span class="hico"><i class="fi fi-br-chart-pie"></i></span>Ver resultados</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('DOC');closeHdrHam();"><span class="hico"><i class="fi fi-br-scroll"></i></span>Propuesta Plural</button>
+        <button class="hdr-ham-item" onclick="switchTab('ORG',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-paper-plane"></i></span>Registrar organización</button>
       </div>
     </div>
   </div>
@@ -418,9 +419,9 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <p style="font-size:1.1rem;font-weight:600;color:var(--azul);margin-bottom:4px;">Construyamos la Cuba que soñamos, ENTRE TODOS.</p>
     <p style="font-size:.95rem;color:#555;">Propuestas de transición democrática de más de 40 organizaciones, organizadas por puntos.<br/>Vota, marca los matices que prefieres, critica, añade. Nadie se queda fuera.</p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
-      <button class="hero-cta" style="background:var(--azul);" onclick="heroComentar();">▶ COMENZAR A VOTAR</button>
-      <button class="hero-cta" style="background:var(--rojo);" onclick="heroResultados();">📊 VER RESULTADOS</button>
-      <button class="hero-cta" style="background:#fff;color:var(--rojo);border:2px solid var(--rojo);" onclick="selectCatCard('DOC');">📜 PROPUESTA PLURAL</button>
+      <button class="hero-cta" style="background:var(--azul);" onclick="heroComentar();"><i class="fi fi-br-ballot-check" style="font-size:.9em;"></i> COMENZAR A VOTAR</button>
+      <button class="hero-cta" style="background:var(--rojo);" onclick="heroResultados();"><i class="fi fi-br-chart-pie" style="font-size:.9em;"></i> VER RESULTADOS</button>
+      <button class="hero-cta" style="background:#fff;color:var(--rojo);border:2px solid var(--rojo);" onclick="selectCatCard('DOC');"><i class="fi fi-br-scroll" style="font-size:.9em;"></i> PROPUESTA PLURAL</button>
     </div>
   </div>
 </div>
@@ -483,16 +484,16 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <button class="chip sel" onclick="filterCards('all',this)">Todas</button>
     <button class="chip" onclick="filterCards('high',this)">Más apoyadas</button>
     <button class="chip" onclick="filterCards('unvoted',this)">Sin votar</button>
-    <input class="srch" type="text" placeholder="🔍 Buscar..." oninput="searchCards(this.value)" style="margin-left:0;">
-    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--azul);color:var(--azul);border-radius:20px;padding:4px 12px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;">❓ ¿Cómo votar?</button>
+    <input class="srch" type="text" placeholder="Buscar..." oninput="searchCards(this.value)" style="margin-left:0;">
+    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--azul);color:var(--azul);border-radius:20px;padding:4px 12px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;"><i class="fi fi-br-question" style="font-size:.85em;"></i> ¿Cómo votar?</button>
   </div>
   <div id="howto-panel" style="display:none;background:#EEF2FF;border:1px solid rgba(0,42,143,.15);border-radius:0 0 10px 10px;padding:14px 18px;margin-top:-4px;font-size:.82rem;color:#333;line-height:1.9;">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 20px;">
-      <div>⭐ <b>Vota</b> de 1 a 5 estrellas — 1 muy en desacuerdo, 5 muy de acuerdo</div>
-      <div>☑ <b>Incisos</b> — marca los matices que quieres incluir (varios a la vez)</div>
-      <div>💬 <b>Aporta</b> críticas, adiciones o nuevos puntos</div>
-      <div>✅ <b>Aportes con 3+★</b> quedan integrados a la propuesta</div>
-      <div>➕ <b>Propón</b> algo nuevo en "+ Mi propuesta"</div>
+      <div><i class="fi fi-br-star"></i> <b>Vota</b> de 1 a 5 estrellas — 1 muy en desacuerdo, 5 muy de acuerdo</div>
+      <div><i class="fi fi-br-check-double"></i> <b>Incisos</b> — marca los matices que quieres incluir (varios a la vez)</div>
+      <div><i class="fi fi-br-comment-alt"></i> <b>Aporta</b> críticas, adiciones o nuevos puntos</div>
+      <div><i class="fi fi-br-check-circle"></i> <b>Aportes con 3+<i class="fi fi-br-star" style="font-size:.85em;vertical-align:middle;"></i></b> quedan integrados a la propuesta</div>
+      <div><i class="fi fi-br-add"></i> <b>Propón</b> algo nuevo en "+ Mi propuesta"</div>
       <div style="color:#888;font-style:italic;">Los números en cada propuesta son las organizaciones que la respaldan — pincha para verlas</div>
     </div>
     <button onclick="toggleHowTo()" style="margin-top:10px;background:none;border:none;color:var(--azul);font-family:Barlow Condensed,sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;">▲ Cerrar</button>
@@ -503,12 +504,12 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 <div class="cat-grid-wrap" id="tabs">
   <div id="back-to-grid" style="display:none;padding-bottom:10px;">
-    <button onclick="showCatGrid()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azul);color:#fff;border:none;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:8px 16px;border-radius:6px;">← Todas las categorías</button>
+    <button onclick="showCatGrid()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azul);color:#fff;border:none;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:8px 16px;border-radius:6px;"><i class="fi fi-br-arrow-left" style="font-size:.85em;"></i> Todas las categorías</button>
   </div>
   <div id="cat-grid-wrap-inner">
     <div class="cat-grid-title">Selecciona una categoría para votar:</div>
     <div class="cat-grid" id="cat-grid">
-    <button class="cat-card" id="cgrid-0" onclick="selectCatCard('0')"><span class="cico" style="background:var(--rojo);">⚡</span><span class="clabel">Mínimos Innegociables</span><span class="cpct" id="pg-0">—</span></button>
+    <button class="cat-card" id="cgrid-0" onclick="selectCatCard('0')"><span class="cico" style="background:var(--rojo);"><i class="fi fi-br-bolt" style="font-size:.85em;color:#fff;"></i></span><span class="clabel">Mínimos Innegociables</span><span class="cpct" id="pg-0">—</span></button>
     <button class="cat-card" id="cgrid-N" onclick="selectCatCard('N')"><span class="cico" style="background:#7B2D8B;">N</span><span class="clabel">Vías de Cambio</span><span class="cpct" id="pg-N">—</span></button>
     <button class="cat-card" id="cgrid-A" onclick="selectCatCard('A')"><span class="cico" style="background:#1565C0;">A</span><span class="clabel">Constitucional</span><span class="cpct" id="pg-A">—</span></button>
     <button class="cat-card" id="cgrid-B" onclick="selectCatCard('B')"><span class="cico" style="background:#2E7D32;">B</span><span class="clabel">Economía</span><span class="cpct" id="pg-B">—</span></button>
@@ -582,7 +583,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
     <!-- ORG SUBMISSION -->
     <div class="pg-sec" id="cat-ORG">
-      <div class="sec-h">📤 Enviar organización o propuesta</div>
+      <div class="sec-h"><i class="fi fi-br-paper-plane"></i> Enviar organización o propuesta</div>
       <p class="sec-sub">¿Representas una organización con un plan de transición que no está incluido? Completa este formulario. El equipo de ENTRE TODOS revisará tu envío, integrará la organización a la lista de referencias y añadirá los puntos nuevos según su categoría temática.</p>
       <div class="org-form">
         <div>
@@ -613,7 +614,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
           <label>Sube el documento de propuesta (PDF, Word, imagen)</label>
           <div class="upload-area" onclick="document.getElementById('of-file').click()">
             <input type="file" id="of-file" accept=".pdf,.doc,.docx,.jpg,.png" onchange="handleFile(this)">
-            <div id="of-file-label">📄 Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:#aaa;">PDF, Word o imagen · máx. 10MB</span></div>
+            <div id="of-file-label"><i class="fi fi-br-file-upload"></i> Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:#aaa;">PDF, Word o imagen · máx. 10MB</span></div>
           </div>
         </div>
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
@@ -636,7 +637,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
     <!-- FAQ -->
     <div class="pg-sec" id="cat-FAQ">
-      <div class="sec-h">❓ Preguntas Frecuentes</div>
+      <div class="sec-h"><i class="fi fi-br-question"></i> Preguntas Frecuentes</div>
       <div id="faq-list"></div>
     </div>
 
@@ -658,7 +659,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <div class="doc-page" id="doc-page-content">
         <!-- Rendered by renderPropuestaPlural() -->
         <div class="doc-empty">
-          <div class="de-ico">📜</div>
+          <div class="de-ico"><i class="fi fi-br-scroll"></i></div>
           <div class="de-txt">Cargando documento...</div>
         </div>
       </div>
@@ -668,10 +669,10 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   <!-- SIDEBAR: PROPUESTA PLURAL LINK -->
   <div>
     <div class="sb-card" style="position:sticky;top:80px;text-align:center;">
-      <h3 style="color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:10px;">📜 Propuesta Plural</h3>
+      <h3 style="color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:10px;"><i class="fi fi-br-scroll"></i> Propuesta Plural</h3>
       <p style="font-size:.78rem;color:#666;line-height:1.55;margin-bottom:14px;">El documento de consenso ciudadano se construye en tiempo real desde los votos. Todas las propuestas más apoyadas aparecen como artículos del documento oficial.</p>
-      <button onclick="selectCatCard('DOC')" style="width:100%;background:var(--azul);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:8px;">📜 Ver Propuesta Plural</button>
-      <button onclick="selectCatCard('RES')" style="width:100%;background:transparent;color:var(--rojo);border:1.5px solid var(--rojo);padding:8px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">📊 Ver Resultados</button>
+      <button onclick="selectCatCard('DOC')" style="width:100%;background:var(--azul);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:8px;"><i class="fi fi-br-scroll" style="font-size:.9em;"></i> Ver Propuesta Plural</button>
+      <button onclick="selectCatCard('RES')" style="width:100%;background:transparent;color:var(--rojo);border:1.5px solid var(--rojo);padding:8px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;"><i class="fi fi-br-chart-pie" style="font-size:.9em;"></i> Ver Resultados</button>
       <div style="font-size:.65rem;color:#bbb;margin-top:10px;font-style:italic;">Se actualiza con cada voto</div>
     </div>
   </div>
@@ -1054,15 +1055,15 @@ function buildSobre(){
   const grid=document.createElement('div');
   grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;';
   const pillars=[
-    {icon:'🗳',t:'Voto de 1 a 5',d:'No solo sí o no. El grado de apoyo importa tanto como la dirección.'},
-    {icon:'📋',t:'13 categorías',d:'Constitución, economía, DDHH, transición, justicia, social, internacional y más.'},
-    {icon:'⚡',t:'10 mínimos innegociables',d:'El piso que ningún gobierno de transición puede ignorar.'},
-    {icon:'🌍',t:'Para todos los cubanos',d:'Dentro y fuera de la isla. Sin importar ideología, religión o posición política.'},
+    {icon:'ballot-check',t:'Voto de 1 a 5',d:'No solo sí o no. El grado de apoyo importa tanto como la dirección.'},
+    {icon:'clipboard',t:'13 categorías',d:'Constitución, economía, DDHH, transición, justicia, social, internacional y más.'},
+    {icon:'bolt',t:'10 mínimos innegociables',d:'El piso que ningún gobierno de transición puede ignorar.'},
+    {icon:'globe',t:'Para todos los cubanos',d:'Dentro y fuera de la isla. Sin importar ideología, religión o posición política.'},
   ];
   pillars.forEach(function(c){
     const card=document.createElement('div');
     card.style.cssText='background:#f8f9ff;border-radius:6px;padding:12px 14px;border-left:3px solid var(--azul);';
-    card.innerHTML='<div style="font-size:1.1rem;margin-bottom:4px;">'+c.icon+'</div>'
+    card.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px;"><i class="fi fi-br-'+c.icon+'" style="color:var(--azul);"></i></div>'
       +'<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">'+c.t+'</div>'
       +'<div style="font-size:.77rem;color:var(--gt);line-height:1.45;">'+c.d+'</div>';
     grid.appendChild(card);
@@ -1109,7 +1110,7 @@ function buildRefs(){
   // Header
   const hdr=document.createElement('div');
   hdr.className='cat-hdr';
-  hdr.innerHTML='<div class="cat-lt" style="background:var(--azul);font-size:.8rem;">📋</div>'
+  hdr.innerHTML='<div class="cat-lt" style="background:var(--azul);font-size:.8rem;"><i class="fi fi-br-clipboard" style="color:#fff;"></i></div>'
     +'<div><div class="cat-title" style="color:var(--azul);">Organizaciones con Propuesta de Transición</div>'
     +'<div style="font-size:.74rem;color:#999;margin-top:1px;">Solo organizaciones que tienen un documento concreto — enlace directo a la propuesta</div></div>';
   wrap.appendChild(hdr);
@@ -1149,7 +1150,7 @@ function buildRefs(){
   // Directorio section header
   const dirSec=document.createElement('div');
   dirSec.innerHTML='<div class="cat-hdr" style="margin-bottom:12px;">'
-    +'<div class="cat-lt" style="background:#6B7280;font-size:.8rem;">🗂</div>'
+    +'<div class="cat-lt" style="background:#6B7280;font-size:.8rem;"><i class="fi fi-br-folder" style="color:#fff;"></i></div>'
     +'<div><div class="cat-title" style="color:#374151;">Directorio de Organizaciones Disidentes y Opositoras</div>'
     +'<div style="font-size:.74rem;color:#999;margin-top:1px;">Organizaciones activas en DDHH, resistencia cívica y activismo democrático — sin propuesta formal de transición aún publicada</div></div>'
     +'</div>';
@@ -1678,7 +1679,7 @@ function _initAdminBar(){
   if(!IS_ADMIN)return;
   const bar=document.createElement('div');
   bar.style.cssText='position:fixed;bottom:0;left:0;right:0;background:#111;color:#0f0;font-family:monospace;font-size:.75rem;padding:5px 12px;z-index:9999;display:flex;gap:10px;align-items:center;flex-wrap:wrap;';
-  bar.innerHTML='<span>🔧 ADMIN</span>'
+  bar.innerHTML='<span><i class="fi fi-br-settings"></i> ADMIN</span>'
     +'<button onclick="resetMyToken()" style="background:#CF142B;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Reset token</button>'
     +'<button onclick="showAdminPanel()" style="background:#002A8F;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Ver backend</button>'
     +'<button onclick="clearLocalVotes()" style="background:#555;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;font-size:.72rem;">Limpiar votos locales</button>'
@@ -1704,7 +1705,7 @@ async function showAdminPanel(){
   const ex=document.getElementById('adm-panel');if(ex){ex.remove();return;}
   const d=document.createElement('div');d.id='adm-panel';
   d.style.cssText='position:fixed;top:55px;right:8px;width:400px;max-height:82vh;overflow-y:auto;background:#fff;border:2px solid #002A8F;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.22);z-index:9998;padding:16px;font-size:.81rem;';
-  d.innerHTML="<div style=\"font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#002A8F;margin-bottom:10px;display:flex;justify-content:space-between;\">📊 DATOS BACKEND <button onclick=\"document.getElementById(&apos;adm-panel&apos;).remove()\" style=\"background:none;border:none;cursor:pointer;font-size:1rem;\">✕</button></div><div id=\"apb\">Cargando...</div>";
+  d.innerHTML="<div style=\"font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#002A8F;margin-bottom:10px;display:flex;justify-content:space-between;\"><i class=\"fi fi-br-chart-bar-holding-hand\"></i> DATOS BACKEND <button onclick=\"document.getElementById(&apos;adm-panel&apos;).remove()\" style=\"background:none;border:none;cursor:pointer;font-size:1rem;\"><i class=\"fi fi-br-cross\"></i></button></div><div id=\"apb\">Cargando...</div>";
   document.body.appendChild(d);
   const b=document.getElementById('apb');
   try{
@@ -1720,9 +1721,9 @@ async function showAdminPanel(){
       <div style="background:#EEF2FF;border-radius:6px;padding:8px;text-align:center;"><div style="font-size:1.2rem;font-weight:700;color:#002A8F;">${tp}</div><div style="font-size:.65rem;color:#666;">PARTICIPANTES</div></div>
       <div style="background:#EEF2FF;border-radius:6px;padding:8px;text-align:center;"><div style="font-size:1.2rem;font-weight:700;color:#002A8F;">${pr?pr.length:0}</div><div style="font-size:.65rem;color:#666;">PROPUESTAS</div></div>
     </div>`;
-    if(pr&&pr.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;">💡 Propuestas ciudadanas</div>';pr.forEach(p=>{h+=`<div style="border-left:3px solid #002A8F;padding:4px 7px;margin-bottom:4px;background:#f8f9ff;border-radius:0 4px 4px 0;"><div>${p.content.substring(0,100)}${p.content.length>100?'...':''}</div><div style="color:#aaa;font-size:.67rem;">— ${p.author_name} · ${p.category} · ${new Date(p.created_at).toLocaleDateString('es-ES')}</div></div>`;})}
-    if(fr&&fr.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;margin-top:10px;">💬 Aportes</div>';fr.forEach(f=>{const c=f.type==='critica'?'#CF142B':f.type==='adicion'?'#2D7A4F':'#002A8F';h+=`<div style="border-left:3px solid ${c};padding:4px 7px;margin-bottom:4px;background:#f8f9ff;"><div style="color:${c};font-size:.67rem;font-weight:700;text-transform:uppercase;">${f.type}·${f.proposal_id}</div><div>${f.content.substring(0,90)}...</div><div style="color:#aaa;font-size:.67rem;">— ${f.author_name} · ${new Date(f.created_at).toLocaleDateString('es-ES')}</div></div>`;})}
-    if(or&&or.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;margin-top:10px;">🏛️ Organizaciones</div>';or.forEach(o=>{h+=`<div style="padding:4px 7px;margin-bottom:3px;background:#f0fff4;border-radius:4px;"><div style="font-weight:600;">${o.org_name} <span style="font-size:.68rem;color:#777;">${o.country||''}</span></div><div style="color:#aaa;font-size:.67rem;">${o.email||''} · ${o.status}</div></div>`;})}
+    if(pr&&pr.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;"><i class=\"fi fi-br-bulb\"></i> Propuestas ciudadanas</div>';pr.forEach(p=>{h+=`<div style="border-left:3px solid #002A8F;padding:4px 7px;margin-bottom:4px;background:#f8f9ff;border-radius:0 4px 4px 0;"><div>${p.content.substring(0,100)}${p.content.length>100?'...':''}</div><div style="color:#aaa;font-size:.67rem;">— ${p.author_name} · ${p.category} · ${new Date(p.created_at).toLocaleDateString('es-ES')}</div></div>`;})}
+    if(fr&&fr.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;margin-top:10px;"><i class=\"fi fi-br-comment-alt\"></i> Aportes</div>';fr.forEach(f=>{const c=f.type==='critica'?'#CF142B':f.type==='adicion'?'#2D7A4F':'#002A8F';h+=`<div style="border-left:3px solid ${c};padding:4px 7px;margin-bottom:4px;background:#f8f9ff;"><div style="color:${c};font-size:.67rem;font-weight:700;text-transform:uppercase;">${f.type}·${f.proposal_id}</div><div>${f.content.substring(0,90)}...</div><div style="color:#aaa;font-size:.67rem;">— ${f.author_name} · ${new Date(f.created_at).toLocaleDateString('es-ES')}</div></div>`;})}
+    if(or&&or.length){h+='<div style="font-weight:700;color:#002A8F;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px;margin-top:10px;"><i class="fi fi-br-building"></i> Organizaciones</div>';or.forEach(o=>{h+=`<div style="padding:4px 7px;margin-bottom:3px;background:#f0fff4;border-radius:4px;"><div style="font-weight:600;">${o.org_name} <span style="font-size:.68rem;color:#777;">${o.country||''}</span></div><div style="color:#aaa;font-size:.67rem;">${o.email||''} · ${o.status}</div></div>`;})}
     b.innerHTML=h;
   }catch(e){b.innerHTML='<div style="color:red;">Error: '+e.message+'</div>';}
 }
@@ -1881,7 +1882,7 @@ function mkCard(p){
         +'</div>';
     }
   }
-  const retiredBadge = (p.citizen && p.status==='retired') ? '<span class="retired-badge">📦 Retirada</span><br>' : '';
+  const retiredBadge = (p.citizen && p.status==='retired') ? '<span class="retired-badge"><i class="fi fi-br-archive"></i> Retirada</span><br>' : '';
   if(p.status==='retired') d.classList.add('retired');
   d.innerHTML = '<div class="card-top">'
     +'<span class="pid">'+p.id+'</span>'
@@ -2109,7 +2110,7 @@ function toggleHowTo(){
   var b=document.getElementById('howto-btn');
   var open=p.style.display==='none';
   p.style.display=open?'block':'none';
-  b.textContent=open?'▲ Cerrar':'❓ ¿Cómo votar?';
+  b.textContent=open?'▲ Cerrar':'<i class="fi fi-br-question"></i> ¿Cómo votar?';
 }
 
 // HERO BUTTON HANDLERS
@@ -2187,7 +2188,7 @@ function updLiveDoc(){
     </div>`;
   });
   if(!h){
-    el.innerHTML='<div style="text-align:center;padding:30px 0;color:#ccc;"><div style="font-size:2rem;margin-bottom:6px;">🗳</div><div style="font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Empieza a votar<br>para ver el consenso</div></div>';
+    el.innerHTML='<div style="text-align:center;padding:30px 0;color:#ccc;"><div style="font-size:2rem;margin-bottom:6px;"><i class="fi fi-br-ballot-check" style="font-size:1.6rem;color:#ccc;"></i></div><div style="font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Empieza a votar<br>para ver el consenso</div></div>';
     if(dot){dot.style.background='#ccc';dot.title='Sin votos aún';}
   } else {
     el.innerHTML=h;
@@ -2240,7 +2241,7 @@ async function renderRes(){
   const catsWithVotes=cats.filter(cat=>PROPS.filter(p=>p.cat===cat&&votes[p.id]&&votes[p.id].count>0).length>0);
   if(catsWithVotes.length>0){
     h+=`<div style="background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:16px 18px;margin-bottom:24px;">
-      <div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">📊 Aprobación por categoría</div>
+      <div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;"><i class="fi fi-br-chart-pie"></i> Aprobación por categoría</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;">
         ${catsWithVotes.map(cat=>{
           const ps=PROPS.filter(p=>p.cat===cat&&votes[p.id]&&votes[p.id].count>0);
