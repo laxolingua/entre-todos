@@ -455,23 +455,25 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <div class="logo-sub" style="font-size:.78rem">ENTRE TODOS · Consenso Ciudadano</div>
     </div>
     <div class="hdr-stats">
-      <div class="stat"><div class="stat-n" id="sp">0</div><div class="stat-l">Propuestas</div></div>
-      <div class="stat"><div class="stat-n" id="sv">0</div><div class="stat-l">Votos</div></div>
-      <div class="stat"><div class="stat-n" id="sf">0</div><div class="stat-l">Fuentes</div></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="background:#EEF2FF;color:var(--azul);font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding:5px 11px;border-radius:20px;border:1.5px solid rgba(0,42,143,.2);">&#9679;&nbsp;Beta Funcional</span>
+        <span style="color:var(--gt);font-size:.68rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;">Marzo 2026</span>
+      </div>
     </div>
     <div class="hdr-ham">
       <button class="hdr-ham-btn" id="hdr-ham-btn" onclick="toggleHdrHam()" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
       <div class="hdr-ham-menu" id="hdr-ham-menu">
-        <button class="hdr-ham-item" onclick="switchTab('SOBRE',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-home"></i></span>Sobre E/T</button>
-        <button class="hdr-ham-item" onclick="switchTab('REFS',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-clipboard"></i></span>Referencias</button>
+        <button class="hdr-ham-item" onclick="switchTab('SOBRE',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-info"></i></span>¿Qué es Entre Todos?</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();"><span class="hico"><i class="fi fi-br-ballot-check"></i></span>¿Cómo participar?</button>
+        <button class="hdr-ham-item" onclick="switchTab('ROADMAP',null);closeHdrHam();" style="color:var(--azul);"><span class="hico"><i class="fi fi-br-map"></i></span>Hoja de Ruta</button>
+        <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();" style="background:#FFF0F2;color:var(--rojo);font-weight:900;border-left:3px solid var(--rojo);"><span class="hico"><i class="fi fi-br-rocket-lunch"></i></span>&#9733;&nbsp;Proyecto Activo: Transición</button>
+        <div style="height:1px;background:var(--gris-m);margin:4px 0;"></div>
+        <button class="hdr-ham-item" onclick="switchTab('ORGS',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-building"></i></span>Organizaciones Cubanas</button>
+        <button class="hdr-ham-item" onclick="switchTab('QUIENES',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-user"></i></span>Quiénes Somos</button>
         <button class="hdr-ham-item" onclick="switchTab('FAQ',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-question"></i></span>FAQ</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('0');closeHdrHam();"><span class="hico"><i class="fi fi-br-ballot-check"></i></span>Ver propuestas</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('NEW');closeHdrHam();"><span class="hico"><i class="fi fi-br-bulb"></i></span>Propuestas ciudadanas</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('RES');closeHdrHam();"><span class="hico"><i class="fi fi-br-chart-pie"></i></span>Ver resultados</button>
-        <button class="hdr-ham-item" onclick="selectCatCard('DOC');closeHdrHam();"><span class="hico"><i class="fi fi-br-scroll"></i></span>Propuesta Plural</button>
-        <button class="hdr-ham-item" onclick="switchTab('ORG',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-paper-plane"></i></span>Registrar organización</button>
+        <button class="hdr-ham-item" onclick="switchTab('CONTACTO',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-envelope"></i></span>Contacto</button>
       </div>
     </div>
   </div>
@@ -542,6 +544,55 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   </div>
 </div>
 
+<!-- HERRAMIENTAS DEL PORTAL -->
+<div style="max-width:1080px;margin:10px auto 18px;padding:0 12px;">
+  <div style="background:#fff;border:1px solid var(--gris-m);border-radius:12px;padding:20px 22px;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--azul);margin-bottom:4px;">HERRAMIENTAS DEL PORTAL — PRÓXIMAMENTE</div>
+    <p style="font-size:.88rem;color:#4f4f55;margin:0 0 16px;line-height:1.5;">Funciones que se irán activando para hacer de ENTRE TODOS un portal integral de participación ciudadana.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">📋 Padrón Electoral</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Registro verificado de participantes para dar validez oficial a las consultas y votaciones del portal.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">📣 Campañas Ciudadanas</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Impulsa causas concretas, reúne apoyos y da seguimiento público a cada iniciativa ciudadana.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">💬 Foro Ciudadano</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Espacio de debate abierto por temas, moderado y con votación de ideas. Un lugar propio para la conversación cubana.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">🗳 Plebiscitos y Consultas</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Votaciones rápidas sobre temas urgentes y concretos. Datos reales del sentir ciudadano en tiempo real.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">✉️ Cartas y Peticiones</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Redacta y firma cartas abiertas dirigidas a gobiernos, instituciones u organismos internacionales.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">🏢 Directorio de Organizaciones</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Mapa y listado de organizaciones cubanas dentro y fuera de la isla — con misión, proyectos y contacto verificado.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">📰 Boletín Ciudadano</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Resumen semanal de propuestas nuevas, campañas activas y resultados de votaciones. Mantente informado sin entrar al portal.</p>
+      </div>
+      <div style="background:#f7f8fc;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 14px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:2px;">✅ Perfil Verificado</div>
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--rojo);font-weight:700;margin-bottom:6px;">Próximamente</div>
+        <p style="font-size:.8rem;color:#555;line-height:1.5;margin:0;">Identidad verificada para personas y organizaciones. Mayor confianza, acceso a herramientas avanzadas y participación con peso oficial.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div style="max-width:1080px;margin:0 auto 6px;padding:0 12px;">
   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:10px 14px;">
