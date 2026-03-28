@@ -590,9 +590,8 @@ function validarCI(val) {
   }
   const base = aa<=25?2000:1900;
   const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  const sex = parseInt(clean[10])%2===0?'Femenino':'Masculino';
   input.className = 'form-input valido'; dec.className = 'ci-decode visible';
-  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${base+aa}</strong> · Género: <strong>${sex}</strong> · Tu número no será almacenado.`;
+  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${base+aa}</strong> · Tu número no será almacenado.`;
   hint.className = 'form-hint verde'; hint.textContent = 'Formato válido. Puedes continuar.';
   credValida = true; validarFormulario();
 }
