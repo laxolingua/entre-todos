@@ -212,7 +212,11 @@
     .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border: 2px solid var(--azul); color: var(--azul); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; background: none; transition: all .2s; text-decoration: none; }
     .btn-outline:hover { background: var(--azul); color: #fff; }
 
-    .share-cta { margin-top:18px; border-top:1px solid var(--borde); padding-top:14px; }
+    
+    .momentum-box{margin:10px 0 14px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:10px 12px;}
+    .momentum-count{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1px;color:var(--azul);line-height:1;}
+    .momentum-sub{font-size:.8rem;color:#1E3A8A;margin-top:4px;}
+.share-cta { margin-top:18px; border-top:1px solid var(--borde); padding-top:14px; }
     .share-title{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;}
     .share-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
     .share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--borde);border-radius:6px;background:#fff;color:var(--negro);font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;}
@@ -432,6 +436,10 @@
           <strong>Identificador anónimo (SHA-256)</strong>
           <span id="hash-display">—</span>
         </div>
+        <div class="momentum-box">
+          <div class="momentum-count"><span id="momentum-total">0</span> votos registrados</div>
+          <div class="momentum-sub">Objetivo inmediato: llegar a <strong>100 votos hoy</strong>. Compártelo para sumar participación.</div>
+        </div>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
           <button class="btn-outline" onclick="mostrarPantalla('resultados');actualizarResultados();">
             <i class="fi fi-br-chart-histogram"></i> Ver resultados
@@ -450,7 +458,7 @@
             <a class="share-btn" target="_blank" rel="noopener" href="#" onclick="return shareFacebook()"><i class="fi fi-brands-facebook"></i> Facebook</a>
             <button class="share-btn" onclick="copyConsultaLink()"><i class="fi fi-br-link"></i> Copiar enlace</button>
           </div>
-          <div class="share-note" id="share-note">Invita a otras personas a votar.</div>
+          <div class="share-note" id="share-note">Cada persona que comparte puede sumar nuevos votos hoy.</div>
         </div>
       </div>
     </div>
@@ -708,6 +716,8 @@ async function actualizarResultados() {
   },80);
   document.getElementById('pct-continuidad').textContent=pC+'%';
   document.getElementById('pct-cambio').textContent=pCh+'%';
+  const m=document.getElementById('momentum-total');
+  if(m) m.textContent = total;
 }
 
 function exportarCSV() {
