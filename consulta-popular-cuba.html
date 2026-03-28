@@ -193,6 +193,18 @@
     .opcion-card.cambio .opcion-titulo, .opcion-card.sel-cambio .opcion-titulo { color: var(--rojo); }
     .opcion-desc { font-size: .83rem; color: #374151; line-height: 1.55; }
     .opcion-check { position: absolute; top: 9px; right: 10px; font-size: 14px; display: none; color: var(--verde); }
+    .opcion-card.continuidad{border-color:#7aa9ff;background:#EFF6FF;}
+    .opcion-card.cambio{border-color:#ff9aa4;background:#FFF1F2;}
+    .opcion-card.sel-continuidad{border-color:var(--azul)!important;background:#DBEAFE;}
+    .opcion-card.sel-cambio{border-color:var(--rojo)!important;background:#FFE4E6;}
+    .opcion-card.continuidad .opcion-titulo{color:var(--azul);font-weight:800;font-size:1.2rem;}
+    .opcion-card.cambio .opcion-titulo{color:var(--rojo);font-weight:800;font-size:1.2rem;}
+    .res-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+    .res-split .mini{border:1px solid var(--borde);border-radius:6px;padding:10px;background:#fff;}
+    .res-split .mini b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.5px;text-transform:uppercase;color:var(--gris);}
+    .res-split .mini span{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.8px;}
+    .admin-on{outline:2px dashed #f59e0b;outline-offset:4px;}
+
     .opcion-card.sel-continuidad .opcion-check, .opcion-card.sel-cambio .opcion-check { display: block; }
 
     .declaracion-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: .84rem; line-height: 1.6; color: var(--negro); padding: 12px 14px; background: var(--gris-bg); border: 1px solid var(--borde); border-radius: 6px; margin-bottom: 20px; transition: border-color .2s; }
@@ -341,8 +353,12 @@
     <button class="main-tab-btn activo" id="tab-votar" onclick="mostrarPantalla('voto')">
       <i class="fi fi-br-ballot"></i> Emitir voto
     </button>
-    <button class="main-tab-btn" id="tab-resultados" onclick="mostrarPantalla('resultados');actualizarResultados();">
+    <button class="main-tab-btn" id="tab-resultados" onclick="mostrarPantalla('resultados');initAdminMode();
+actualizarResultados();">
       <i class="fi fi-br-chart-histogram"></i> Resultados
+    </button>
+    <button class="main-tab-btn" id="tab-admin" onclick="toggleAdminMode()" style="margin-left:auto;">
+      <i class="fi fi-br-shield"></i> Admin test
     </button>
   </div>
 
@@ -391,10 +407,28 @@
       </div>
     </div>
 
+    
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-marker"></i>Residencia actual</div>
+      <div class="opciones-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="opcion-card" id="card-cuba" onclick="seleccionarResidencia('cuba')">
+          <i class="fi fi-br-house-blank opcion-icono"></i>
+          <div class="opcion-titulo" style="font-size:1rem;">Vivo en Cuba</div>
+          <p class="opcion-desc">Resido actualmente dentro de Cuba.</p>
+        </div>
+        <div class="opcion-card" id="card-extranjero" onclick="seleccionarResidencia('extranjero')">
+          <i class="fi fi-br-globe opcion-icono"></i>
+          <div class="opcion-titulo" style="font-size:1rem;">Vivo en el extranjero</div>
+          <p class="opcion-desc">Resido actualmente fuera de Cuba.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="panel">
       <div class="panel-titulo"><i class="fi fi-br-vote-yea"></i>Tu posición</div>
+
       <div class="opciones-grid">
-        <div class="opcion-card" id="card-continuidad"
+        <div class="opcion-card continuidad" id="card-continuidad" class="opcion-card continuidad"
           onclick="seleccionarVoto('continuidad')" role="radio" tabindex="0"
           onkeydown="if(event.key==='Enter'||event.key===' ')seleccionarVoto('continuidad')">
           <i class="fi fi-br-flag opcion-icono"></i>
@@ -402,7 +436,7 @@
           <p class="opcion-desc">Apoyo la continuidad del presidente Díaz-Canel y del sistema de gobierno actual.</p>
           <i class="fi fi-br-check-circle opcion-check"></i>
         </div>
-        <div class="opcion-card" id="card-cambio"
+        <div class="opcion-card cambio" id="card-cambio" class="opcion-card cambio"
           onclick="seleccionarVoto('cambio')" role="radio" tabindex="0"
           onkeydown="if(event.key==='Enter'||event.key===' ')seleccionarVoto('cambio')">
           <i class="fi fi-br-rotate-right opcion-icono"></i>
@@ -495,6 +529,12 @@
         <i class="fi fi-br-info"></i>
         <span>Resultados almacenados en este dispositivo (prototipo). Para consulta nacional distribuida se requiere servidor. Exporta el CSV para auditoría independiente.</span>
       </div>
+      
+      <div class="res-split">
+        <div class="mini"><b>Votos desde Cuba</b><span id="val-cuba">0</span></div>
+        <div class="mini"><b>Votos desde el extranjero</b><span id="val-extranjero">0</span></div>
+      </div>
+
       <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
         <button class="btn-outline" onclick="exportarCSV()"><i class="fi fi-br-download"></i> Exportar CSV</button>
         <button class="btn-outline" onclick="mostrarPantalla('voto')" style="border-color:var(--gris);color:var(--gris);"><i class="fi fi-br-arrow-left"></i> Volver al voto</button>
@@ -518,8 +558,11 @@ const SUPABASE_KEY  = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
 const TABLA         = 'consulta_continuidad_votos';
 const STORAGE_KEY   = 'et_cuba_2026_v2';
 const HASH_LOG_KEY  = 'et_cuba_2026_hashes';
+const RES_KEY       = 'et_cuba_2026_residencia';
+const ADMIN_KEY     = 'et_cuba_admin_mode';
+const ADMIN_CODE    = 'MITCH-ET-ADMIN-2026';
 
-let votoSel = null, tipoId = 'ci', credValida = false;
+let votoSel = null, tipoId = 'ci', credValida = false, residenciaSel = null, adminMode = false;
 
 async function sha256(msg) {
   const data = new TextEncoder().encode(msg.trim().toUpperCase());
@@ -578,15 +621,22 @@ function cambiarTipoId(tipo) {
   validarFormulario();
 }
 
+function seleccionarResidencia(r){
+  residenciaSel=r;
+  document.getElementById('card-cuba').className='opcion-card'+(r==='cuba'?' sel-continuidad':'');
+  document.getElementById('card-extranjero').className='opcion-card'+(r==='extranjero'?' sel-cambio':'');
+  validarFormulario();
+}
+
 function seleccionarVoto(o) {
   votoSel = o;
-  document.getElementById('card-continuidad').className='opcion-card'+(o==='continuidad'?' sel-continuidad':'');
-  document.getElementById('card-cambio').className='opcion-card'+(o==='cambio'?' sel-cambio':'');
+  document.getElementById('card-continuidad').className='opcion-card continuidad'+(o==='continuidad'?' sel-continuidad':'');
+  document.getElementById('card-cambio').className='opcion-card cambio'+(o==='cambio'?' sel-cambio':'');
   validarFormulario();
 }
 
 function validarFormulario() {
-  const ok = credValida && votoSel && document.getElementById('declaracion').checked;
+  const ok = credValida && votoSel && residenciaSel && document.getElementById('declaracion').checked;
   document.getElementById('btn-votar').disabled = !ok;
 }
 
@@ -595,6 +645,7 @@ async function enviarVoto() {
   const eEl  = document.getElementById('error-msg');
   const eTxt = document.getElementById('error-texto');
   if (!credValida){eTxt.textContent='La credencial no es válida.';eEl.classList.add('visible');return;}
+  if (!residenciaSel){eTxt.textContent='Selecciona si vives en Cuba o en el extranjero.';eEl.classList.add('visible');return;}
   if (!votoSel){eTxt.textContent='Selecciona una opción.';eEl.classList.add('visible');return;}
   if (!document.getElementById('declaracion').checked){eTxt.textContent='Acepta la declaración de honor.';eEl.classList.add('visible');return;}
   eEl.classList.remove('visible');
@@ -602,7 +653,7 @@ async function enviarVoto() {
   const hash = await sha256(cred+tipoId);
 
   // Verificar doble voto — primero local (rápido), luego Supabase
-  if (hashYaVotoLocal(hash)) {
+  if (!adminMode && hashYaVotoLocal(hash)) {
     eTxt.textContent='Esta credencial ya fue utilizada para votar.';eEl.classList.add('visible');return;
   }
 
@@ -614,7 +665,7 @@ async function enviarVoto() {
   try {
     // Verificar en Supabase
     const existeRemoto = await sbHashExiste(hash);
-    if (existeRemoto) {
+    if (!adminMode && existeRemoto) {
       eTxt.textContent='Esta credencial ya fue utilizada para votar.';
       eEl.classList.add('visible');
       btn.disabled=false;
@@ -623,7 +674,7 @@ async function enviarVoto() {
     }
 
     // Guardar en Supabase
-    await sbInsertarVoto(hash, votoSel, tipoId);
+    await sbInsertarVoto(hash, votoSel, tipoId, residenciaSel);
   } catch (err) {
     // Fallback: si Supabase falla, guardar solo en local con nota
     console.warn('Supabase no disponible, guardando localmente:', err);
@@ -668,30 +719,33 @@ async function sbHashExiste(hash) {
   } catch { return false; }
 }
 
-async function sbInsertarVoto(hash, opcion, tipo) {
+async function sbInsertarVoto(hash, opcion, tipo, residencia) {
   await sbFetch('POST', TABLA, {
     credential_hash: hash,
     opcion,
     tipo_credencial: tipo,
+    residencia,
     consulta_id: 'continuidad_2026_03_27'
   });
 }
 
 async function sbContarVotos() {
   try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion`
-    );
-    const c = { continuidad: 0, cambio: 0 };
-    rows.forEach(r => { if (c[r.opcion] !== undefined) c[r.opcion]++; });
+    const rows = await sbFetch('GET', `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion,residencia`);
+    const c = { continuidad:0, cambio:0, cuba:0, extranjero:0 };
+    rows.forEach(r=>{ if(c[r.opcion]!==undefined) c[r.opcion]++; if(r.residencia==='cuba') c.cuba++; if(r.residencia==='extranjero') c.extranjero++; });
     return c;
-  } catch { return cargarVotosLocal(); }
+  } catch {
+    const v=cargarVotosLocal(), h=cargarHashesLocal();
+    let cuba=0, extranjero=0; Object.values(h).forEach(d=>{ if(d.residencia==='cuba') cuba++; if(d.residencia==='extranjero') extranjero++; });
+    return {continuidad:v.continuidad||0,cambio:v.cambio||0,cuba,extranjero};
+  }
 }
 
 /* ── ALMACENAMIENTO LOCAL (fallback) ──────────────────────── */
 function cargarVotosLocal(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{continuidad:0,cambio:0};}catch{return{continuidad:0,cambio:0};} }
 function cargarHashesLocal(){ try{return JSON.parse(localStorage.getItem(HASH_LOG_KEY))||{};}catch{return{};} }
-function guardarVotoLocal(hash,op){ const v=cargarVotosLocal(),h=cargarHashesLocal(); v[op]++; h[hash]={opcion:op,ts:new Date().toISOString(),tipo:tipoId}; localStorage.setItem(STORAGE_KEY,JSON.stringify(v)); localStorage.setItem(HASH_LOG_KEY,JSON.stringify(h)); }
+function guardarVotoLocal(hash,op){ const v=cargarVotosLocal(),h=cargarHashesLocal(); v[op]++; h[hash]={opcion:op,ts:new Date().toISOString(),tipo:tipoId,residencia:residenciaSel}; localStorage.setItem(STORAGE_KEY,JSON.stringify(v)); localStorage.setItem(HASH_LOG_KEY,JSON.stringify(h)); }
 function hashYaVotoLocal(hash){ return !!cargarHashesLocal()[hash]; }
 /* alias for compatibility */
 function cargarVotos(){ return cargarVotosLocal(); }
@@ -712,6 +766,8 @@ async function actualizarResultados() {
   document.getElementById('total-votos').textContent = total;
   document.getElementById('val-continuidad').textContent = v.continuidad;
   document.getElementById('val-cambio').textContent = v.cambio;
+  document.getElementById('val-cuba').textContent = v.cuba||0;
+  document.getElementById('val-extranjero').textContent = v.extranjero||0;
   const pC = total?Math.round(v.continuidad/total*100):0;
   const pCh= total?Math.round(v.cambio/total*100):0;
   setTimeout(()=>{
@@ -741,6 +797,21 @@ function limpiarDatos() {
 }
 
 actualizarResultados();
+
+
+
+function toggleAdminMode(){
+  const on = localStorage.getItem(ADMIN_KEY)==='1';
+  if(on){ localStorage.removeItem(ADMIN_KEY); adminMode=false; document.body.classList.remove('admin-on'); alert('Modo admin desactivado.'); return; }
+  const code = prompt('Código admin de prueba:');
+  if(code===ADMIN_CODE){ localStorage.setItem(ADMIN_KEY,'1'); adminMode=true; document.body.classList.add('admin-on'); alert('Modo admin activado (testing).'); }
+  else if(code!==null){ alert('Código incorrecto.'); }
+}
+
+function initAdminMode(){
+  adminMode = localStorage.getItem(ADMIN_KEY)==='1';
+  if(adminMode) document.body.classList.add('admin-on');
+}
 
 /* ── SHARE AFTER VOTE ─────────────────────────────────────── */
 const CONSULTA_URL = 'https://entre-todos.org/consulta-popular-cuba.html';
