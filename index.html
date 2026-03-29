@@ -269,6 +269,118 @@ footer a:hover{color:#fff;}
   </div>
 </section>
 
+<!-- ══ ANUNCIOS CAROUSEL ══ -->
+<style>
+@keyframes pulse-r{0%,100%{opacity:1}50%{opacity:.3}}
+/* CAROUSEL */
+.anuncios-wrap{background:#001d63;overflow:hidden;position:relative;}
+.anuncios-track-outer{overflow:hidden;}
+.anuncios-track{display:flex;transition:transform .52s cubic-bezier(.4,0,.2,1);}
+.anuncio-slide{min-width:100%;padding:0;display:flex;align-items:stretch;}
+.anuncio-inner{max-width:1100px;margin:0 auto;padding:20px 22px 22px;width:100%;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.anuncio-icon-wrap{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;}
+.anuncio-content{flex:1;min-width:220px;}
+.anuncio-tag{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+.anuncio-tag::before{content:'';display:inline-block;width:20px;height:2px;background:var(--rojo,#CF142B);border-radius:2px;}
+.anuncio-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,2.5vw,1.5rem);letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:5px;}
+.anuncio-title span{color:#CF142B;}
+.anuncio-desc{font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.55;max-width:520px;}
+.anuncio-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:#CF142B;color:#fff;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .18s;white-space:nowrap;}
+.anuncio-cta:hover{background:#a8101f;}
+/* dots + arrows */
+.anuncios-controls{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 22px 14px;background:#001d63;}
+.anuncio-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+.anuncio-dot.active{background:#CF142B;transform:scale(1.3);}
+.anuncio-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:background .18s;}
+.anuncio-arrow:hover{background:rgba(255,255,255,.18);}
+/* slide accent per type */
+.anuncio-slide.tipo-candidato .anuncio-wrap-accent{background:linear-gradient(135deg,transparent 60%,rgba(207,20,43,.12) 60%);}
+.anuncio-slide.tipo-consulta  .anuncio-wrap-accent{background:linear-gradient(135deg,transparent 60%,rgba(255,255,255,.04) 60%);}
+</style>
+
+<div class="anuncios-wrap" id="anuncios-carousel">
+  <div class="anuncios-track-outer">
+    <div class="anuncios-track" id="anuncios-track">
+
+      <!-- SLIDE 1: Candidatura Armando Labrador -->
+      <div class="anuncio-slide tipo-candidato">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-ballot"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Nuevo · Fase 4 — Sistema Electoral</div>
+            <div class="anuncio-title">Primera candidatura declarada: <span>Armando Labrador</span></div>
+            <div class="anuncio-desc">Cuba Primero anuncia la candidatura presidencial de Armando Labrador para un escenario de transición democrática. Conoce su plataforma y posicionamiento.</div>
+          </div>
+          <a href="candidaturas-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver candidato</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Transición Democrática -->
+      <div class="anuncio-slide tipo-propuestas">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-shuffle"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Activo · Fase 1 — Hoja de Ruta</div>
+            <div class="anuncio-title">129 propuestas de <span>transición democrática</span></div>
+            <div class="anuncio-desc">Más de 40 organizaciones cubanas reunidas en un solo documento. Lee cada propuesta, vota, matiza, añade. El proceso constituyente comienza con consenso.</div>
+          </div>
+          <a href="propuestas-transicion-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver propuestas</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Consulta Popular -->
+      <div class="anuncio-slide tipo-consulta">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-vote-yea"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Urgente · Consulta Popular — Cuba 2026</div>
+            <div class="anuncio-title">¿Apoyas la continuidad de <span>Díaz-Canel</span>?</div>
+            <div class="anuncio-desc">El régimen condiciona la permanencia de Díaz-Canel a la voluntad popular. ENTRE TODOS habilita un voto libre, anónimo y sin censura para la diáspora y cubanos de adentro.</div>
+          </div>
+          <a href="consulta-popular-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Emitir voto</a>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+  </div>
+  <div class="anuncios-controls">
+    <button class="anuncio-arrow" id="anuncio-prev" aria-label="Anterior"><i class="fi fi-br-angle-left"></i></button>
+    <button class="anuncio-dot active" data-idx="0"></button>
+    <button class="anuncio-dot" data-idx="1"></button>
+    <button class="anuncio-dot" data-idx="2"></button>
+    <button class="anuncio-arrow" id="anuncio-next" aria-label="Siguiente"><i class="fi fi-br-angle-right"></i></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById('anuncios-track');
+  var dots=document.querySelectorAll('.anuncio-dot');
+  var total=3, cur=0, timer;
+  function go(n){
+    cur=(n+total)%total;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  }
+  function next(){go(cur+1);}
+  function startTimer(){timer=setInterval(next,5000);}
+  function resetTimer(){clearInterval(timer);startTimer();}
+  document.getElementById('anuncio-next').addEventListener('click',function(){go(cur+1);resetTimer();});
+  document.getElementById('anuncio-prev').addEventListener('click',function(){go(cur-1);resetTimer();});
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+this.dataset.idx);resetTimer();});});
+  document.getElementById('anuncios-carousel').addEventListener('mouseenter',function(){clearInterval(timer);});
+  document.getElementById('anuncios-carousel').addEventListener('mouseleave',startTimer);
+  // touch swipe
+  var tx=0;
+  track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40){go(dx<0?cur+1:cur-1);resetTimer();}
+  },{passive:true});
+  startTimer();
+})();
+</script>
+
 <!-- ══ PROYECTOS ACTIVOS ══ -->
 <style>@keyframes pulse-r{0%,100%{opacity:1}50%{opacity:.3}}</style>
 <section id="proyectos-activos" style="background:#fff;border-bottom:1px solid #D1D5DB;position:relative;z-index:10;">
