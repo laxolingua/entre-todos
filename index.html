@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ENTRE TODOS — Plataforma de Gobernanza Ciudadana</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
 :root{
@@ -20,7 +21,7 @@ body{font-family:Barlow,sans-serif;background:#fff;color:var(--negro);min-height
 header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
 .hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:14px;}
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-img{height:52px;width:52px;display:block;flex-shrink:0;object-fit:contain;border-radius:8px;}
+.logo-img{height:52px;width:52px;display:block;flex-shrink:0;object-fit:contain;border-radius:8px;background:#fff;}
 .hdr-version{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gt);opacity:.7;}
 @media(max-width:640px){.hdr-version{display:none;}}
 
@@ -43,21 +44,12 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .hdr-ham-divider{border:none;border-top:1px solid var(--gris-m);margin:4px 0;}
 
 /* ── HERO ── */
-.hero{padding:0;background:none;color:#fff;position:relative;margin:14px 20px 0;}
-.hero-banner-img{width:100%;display:block;max-width:100%;}
-/* Texto superpuesto: empieza cerca del logo, respira bien en bordes */
-.hero-in{position:absolute;top:0;left:20%;right:4%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:8% 5% 5% 3%;gap:0;}
+.hero{padding:0;background:linear-gradient(135deg,var(--azul) 0%,#001a6e 100%);color:#fff;position:relative;}
 .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;opacity:.7;margin-bottom:8px;}
 .hero-votos{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:12px;}
 .hero-votos span{color:var(--rojo);background:rgba(207,20,43,.2);padding:0 4px;border-radius:2px;}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.2vw,2.9rem);letter-spacing:3px;line-height:1.08;margin-bottom:14px;}
 .hero p{font-size:clamp(.78rem,.9vw,.94rem);line-height:1.75;opacity:.9;font-weight:300;margin:0 0 20px;}
-.hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
-.hero-project-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:rgba(255,255,255,.7);}
-.hero-cta-main{display:inline-flex;align-items:center;gap:8px;background:var(--rojo);color:#fff;padding:10px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;}
-.hero-cta-main:hover{background:#a80e22;}
-.hero-cta-sec{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.72);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);}
-.hero-cta-sec:hover{color:#fff;}
 .hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
 .hero-project-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;opacity:.65;margin-bottom:2px;}
 .hero-cta-main{display:inline-flex;align-items:center;gap:10px;background:var(--rojo);color:#fff;padding:10px 20px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
@@ -68,9 +60,9 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .hero-cta-sec:hover{color:#fff;}
 /* Mobile */
 @media(max-width:700px){
-  .hero{background:linear-gradient(135deg,var(--azul) 0%,#001a6e 100%);padding:36px 20px;margin:0;}
-  .hero-banner-img{display:none;}
-  .hero-in{position:static;padding:0;height:auto;text-align:center;}
+  .hero > div{grid-template-columns:1fr !important;text-align:center;}
+  .hero > div > div:first-child{justify-content:center;}
+  .hero > div > div:first-child img{width:130px !important;}
   .hero-ctas{align-items:center;}
 }
 
@@ -103,6 +95,8 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .stage{width:32px;height:32px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;flex-shrink:0;}
 .roadmap-card.active .stage{background:var(--rojo);color:#fff;}
 .roadmap-card h3{margin:0;font-size:.85rem;color:var(--azul);font-family:'Barlow Condensed',sans-serif;letter-spacing:.8px;text-transform:uppercase;font-weight:700;line-height:1.2;}
+.roadmap-icon{font-size:1.1rem;color:var(--azul);flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;}
+.roadmap-card.active .roadmap-icon{color:var(--rojo);}
 .roadmap-card.active h3{color:var(--rojo);}
 .roadmap-card .status{font-size:.63rem;color:var(--azul);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;opacity:.7;}
 .roadmap-card.active .status{color:var(--rojo);font-weight:700;}
@@ -137,7 +131,7 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .met-steps{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
 .met-step{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--gris-m);border-radius:6px;}
 .met-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--azul);line-height:1;flex-shrink:0;width:30px;}
-.met-title{font-weight:700;font-size:.86rem;color:var(--negro);margin-bottom:3px;}
+.met-title{font-weight:700;font-size:.86rem;color:var(--azul);margin-bottom:3px;}
 .met-desc{font-size:.8rem;color:var(--gt);line-height:1.5;}
 
 /* ── ORG FORM ── */
@@ -203,7 +197,7 @@ footer a:hover{color:#fff;}
   <div class="hdr">
     <div class="logo-wrap">
       <a href="#inicio" style="display:block;line-height:0;">
-        <img src="logo-icon.png" alt="Entre Todos" class="logo-img">
+        <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.src='entre-todos-logo.jpg'">
       </a>
     </div>
     <div class="hdr-version">Versión Beta &nbsp;·&nbsp; Funcional &nbsp;·&nbsp; Marzo 2026</div>
@@ -227,10 +221,9 @@ footer a:hover{color:#fff;}
           <span class="hico"><svg viewBox="0 0 24 24"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>
           Hoja de Ruta
         </a>
-        <hr class="hdr-ham-divider">
-        <!-- 4. Proyectos Activos → star/bolt icon — highlighted -->
-        <a class="hdr-ham-item destacado" href="#proyectos" onclick="closeHam()">
-          <span class="hico"><svg viewBox="0 0 24 24" style="stroke:var(--rojo);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="var(--rojo)" stroke="none"/></svg></span>
+        <!-- PROYECTOS ACTIVOS -->
+        <a class="hdr-ham-item destacado" href="#proyectos-activos" onclick="closeHam()" style="background:#FFF1F2;">
+          <span class="hico"><svg viewBox="0 0 24 24" style="stroke:#CF142B;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="var(--rojo)" stroke="none"/></svg></span>
           Proyectos Activos
         </a>
         <hr class="hdr-ham-divider">
@@ -260,19 +253,69 @@ footer a:hover{color:#fff;}
 </header>
 
 <!-- ══ HERO ══ -->
-<section class="hero" id="inicio">
-  <!-- Banner PNG — logo ya incluido, nunca modificado -->
-  <img src="hero-banner.png" alt="Entre Todos - Consenso Ciudadano" class="hero-banner-img">
-  <!-- Texto superpuesto en el área azul derecha -->
-  <div class="hero-in">
-    <div class="hero-eyebrow">Plataforma de Participación Ciudadana · Cuba</div>
-    <div class="hero-votos">TU VOZ &nbsp;<span>·</span>&nbsp; TU APORTE &nbsp;<span>·</span>&nbsp; TU VOTO</div>
-    <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
-    <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
-    <div class="hero-ctas">
-      <div class="hero-project-label">Consulta activa</div>
-      <a class="hero-cta-main" href="consulta-popular-cuba.html">Consulta Popular · Continuidad o Cambio</a>
-      <a class="hero-cta-sec" href="transicion/">Ir a Propuesta de Transición</a>
+<section class="hero" id="inicio" style="margin:0;border-radius:0;">
+  <div style="max-width:1100px;margin:0 auto;padding:36px 22px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;min-height:280px;">
+    <div style="flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+      <img src="entre-todos-logo.png" alt="Entre Todos — Consenso Ciudadano"
+           style="width:200px;display:block;"
+           onerror="this.src='entre-todos-logo.jpg'">
+    </div>
+    <div>
+      <div class="hero-eyebrow">Plataforma de Participación Ciudadana · Cuba</div>
+      <div class="hero-votos">TU VOZ &nbsp;<span>·</span>&nbsp; TU APORTE &nbsp;<span>·</span>&nbsp; TU VOTO</div>
+      <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
+      <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROYECTOS ACTIVOS ══ -->
+<style>@keyframes pulse-r{0%,100%{opacity:1}50%{opacity:.3}}</style>
+<section id="proyectos-activos" style="background:#fff;border-bottom:1px solid #D1D5DB;position:relative;z-index:10;">
+  <div style="max-width:1100px;margin:0 auto;padding:28px 22px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:#002A8F;display:flex;align-items:center;gap:10px;"><i class="fi fi-br-megaphone" style="font-size:1.1rem;color:#CF142B;"></i>PROYECTOS ACTIVOS</div>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CF142B;">
+        <span style="width:7px;height:7px;background:#CF142B;border-radius:50%;animation:pulse-r 1.5s infinite;display:inline-block;"></span>
+        2 Proyectos Activos — Participa ahora
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;">
+
+      <!-- CARD 1: TRANSICIÓN DEMOCRÁTICA -->
+      <a href="propuestas-transicion-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#fff;border:2px solid #CF142B;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(207,20,43,.12);transition:box-shadow .2s;">
+          <div style="background:#CF142B;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;flex-shrink:0;">1</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);">Fase 1 · Hoja de Ruta Nacional</div>
+          </div>
+          <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#CF142B;line-height:1.1;">TRANSICIÓN DEMOCRÁTICA</div>
+            <div style="font-size:.84rem;color:#444;line-height:1.6;">Propuestas de más de 40 organizaciones organizadas por puntos. Lee, vota, matiza y añade. Nadie se queda afuera.</div>
+            <div style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#CF142B;color:#fff;padding:9px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;">
+              Ver propuestas →
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 2: CONSULTA POPULAR CUBA -->
+      <a href="consulta-popular-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#002A8F;border-radius:8px;overflow:hidden;box-shadow:0 6px 32px rgba(0,42,143,.20);transition:box-shadow .2s;">
+          <div style="display:grid;grid-template-columns:120px 1fr;flex:1;">
+            <div style="background:url('diaz-canel.jpg') center top/cover no-repeat;transform:scaleX(-1);min-height:160px;" aria-hidden="true"></div>
+            <div style="padding:20px;">
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px;">Urgente · Consulta Popular · Cuba 2026</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,2vw,1.35rem);letter-spacing:1.5px;color:#fff;line-height:1.15;margin-bottom:10px;">CONSULTA POPULAR: CONTINUIDAD DE DÍAZ-CANEL</div>
+              <div style="font-style:italic;font-size:.8rem;color:rgba(224,234,255,.8);line-height:1.5;margin-bottom:14px;border-left:3px solid #CF142B;padding-left:10px;">"Mi continuidad... depende del pueblo..."</div>
+              <div style="display:inline-flex;align-items:center;gap:8px;background:#CF142B;color:#fff;padding:8px 16px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                Emitir mi voto →
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -315,15 +358,9 @@ footer a:hover{color:#fff;}
     <div class="sec-title">Hoja de Ruta Nacional E/TODOS</div>
     <div class="sec-sub">Proceso por fases para construir acuerdos, reglas, representación e implementación democrática. Cada fase es un proyecto independiente.</div>
     <div class="roadmap-grid" id="proyectos">
-      <a class="roadmap-card active" href="consulta-popular-cuba.html">
-        <div class="stage">0</div>
-        <div>
-          <h3>Consulta Popular (Urgente)</h3>
-          <span class="status">&#9679; Activa — Vota ahora</span>
-        </div>
-      </a>
-      <a class="roadmap-card" href="transicion/">
+      <a class="roadmap-card active" href="propuestas-transicion-cuba.html">
         <div class="stage">1</div>
+        <div class="roadmap-icon"><i class="fi fi-br-shuffle"></i></div>
         <div>
           <h3>Transición Democrática</h3>
           <span class="status">&#9679; Activa — Entra a votar</span>
@@ -331,22 +368,27 @@ footer a:hover{color:#fff;}
       </a>
       <div class="roadmap-card">
         <div class="stage">2</div>
+        <div class="roadmap-icon"><i class="fi fi-br-scroll"></i></div>
         <div><h3>Proceso Constituyente</h3><span class="status">Próximamente</span></div>
       </div>
       <div class="roadmap-card">
         <div class="stage">3</div>
+        <div class="roadmap-icon"><i class="fi fi-br-bank"></i></div>
         <div><h3>Plataforma de Gobierno</h3><span class="status">Próximamente</span></div>
       </div>
       <div class="roadmap-card">
         <div class="stage">4</div>
+        <div class="roadmap-icon"><i class="fi fi-br-ballot"></i></div>
         <div><h3>Sistema Electoral y Candidaturas</h3><span class="status">Próximamente</span></div>
       </div>
       <div class="roadmap-card">
         <div class="stage">5</div>
+        <div class="roadmap-icon"><i class="fi fi-br-flag"></i></div>
         <div><h3>Elecciones y Conformación Institucional</h3><span class="status">Próximamente</span></div>
       </div>
       <div class="roadmap-card">
         <div class="stage">6</div>
+        <div class="roadmap-icon"><i class="fi fi-br-chart-line-up"></i></div>
         <div><h3>Implementación y Rendición de Cuentas</h3><span class="status">Próximamente</span></div>
       </div>
     </div>
