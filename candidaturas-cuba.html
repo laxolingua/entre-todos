@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -122,6 +121,9 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 /* ── PENDING NOTICE ── */
 .pending-notice{background:#FFF9E6;border:1px solid #F0D060;border-left:4px solid #D97706;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;font-size:.84rem;line-height:1.6;color:#7c5a00;}
 .pending-notice i{color:#D97706;font-size:1rem;flex-shrink:0;margin-top:2px;}
+/* ── STATUS NOTICE ── */
+.status-notice{background:#FFF9E6;border:1px solid #E8C84A;border-left:4px solid #B8860B;border-radius:0 8px 8px 0;padding:13px 18px;margin-bottom:0;display:flex;align-items:flex-start;gap:11px;font-size:.82rem;line-height:1.65;color:#5a3e00;}
+.status-notice i{color:#B8860B;font-size:.9rem;flex-shrink:0;margin-top:2px;}
 
 /* ── PLACEHOLDER CANDIDATE ── */
 .placeholder-card{background:var(--gris-bg);border:2px dashed var(--borde);border-radius:10px;padding:28px;text-align:center;color:var(--gris);}
@@ -166,14 +168,13 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 </head>
 <body>
 
-
 <div class="flag-bar"></div>
 
 <header>
   <div class="hdr">
     <div class="hdr-left">
       <a href="index.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo-20260330.png" alt="Entre Todos" style="height:44px;width:auto;display:block;background:#fff;border-radius:6px;" onerror="this.style.display='none'">
+        <img src="entre-todos-logo.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
       </a>
       <a href="index.html" class="back-btn">
         <i class="fi fi-br-arrow-left"></i> Página Principal
@@ -230,8 +231,8 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
   <div class="photo-gallery" id="photo-gallery">
 
     <!-- Armando Labrador -->
-    <div class="photo-circle-wrap" onclick="openLightbox('armando-labrador.jpeg','Armando Labrador','https://armandolabrador.com')">
-      <div class="photo-circle"><img src="armando-labrador.jpeg" alt="Armando Labrador"></div>
+    <div class="photo-circle-wrap" onclick="openLightbox('Armando Labrador.jpeg','Armando Labrador','https://armandolabrador.com')">
+      <div class="photo-circle"><img src="Armando Labrador.jpeg" alt="Armando Labrador"></div>
       <div class="photo-circle-name">Armando<br>Labrador</div>
     </div>
 
@@ -257,10 +258,10 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 
     <!-- HEADER -->
     <div class="detail-header">
-      <div class="detail-avatar"><img src="armando-labrador.jpeg" alt="Armando Labrador"></div>
+      <div class="detail-avatar"><img src="Armando Labrador.jpeg" alt="Armando Labrador"></div>
       <div>
         <div class="detail-name">Armando Labrador</div>
-        <div class="detail-movement"><i class="fi fi-br-flag" style="font-size:.7rem;margin-right:4px;"></i> Cuba Primero &nbsp;·&nbsp; Aspiración presidencial anunciada</div>
+        <div class="detail-movement"><i class="fi fi-br-flag" style="font-size:.7rem;margin-right:4px;"></i> Cuba Primero &nbsp;·&nbsp; Aspiración Presidencial Anunciada</div>
       </div>
       <div class="detail-badge">
         <div class="detail-badge-n">Mar 2026</div>
@@ -268,9 +269,12 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
       </div>
     </div>
 
-    <div style="margin:0 0 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px 12px;color:#9a3412;font-size:.84rem;line-height:1.45;">
-      <strong>Aclaración de estado:</strong> Este perfil documenta una <strong>aspiración presidencial anunciada públicamente</strong>.
-      Está <strong>pendiente de verificación formal de nominación</strong>. Su inclusión no implica respaldo de ENTRE TODOS.
+    <!-- STATUS NOTICE -->
+    <div style="padding:14px 20px;border-bottom:1px solid var(--borde);">
+      <div class="status-notice">
+        <i class="fi fi-br-info"></i>
+        <span><strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:.78rem;">Aclaración de estado:</strong> Este perfil documenta una <strong>aspiración presidencial expresada públicamente</strong>. No constituye una candidatura formal declarada. Está pendiente de verificación. Su inclusión no implica respaldo de ENTRE TODOS. Si el perfil contiene inexactitudes, <a href="mailto:entretodos@sosplanet.org?subject=Corrección perfil Labrador" style="color:#B8860B;font-weight:700;">escríbenos</a>.</span>
+      </div>
     </div>
 
     <!-- BIO -->
@@ -397,6 +401,23 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
     <p>Cuba no tiene elecciones libres. Cualquier candidatura declarada hoy opera en un <strong>escenario hipotético de transición democrática</strong> — no en un proceso electoral formal. ENTRE TODOS documenta estas declaraciones porque forman parte del debate político real y merecen ser evaluadas por la ciudadanía con los mismos criterios que cualquier propuesta de gobierno.</p>
     <p>El registro en esta página <strong>no equivale a reconocimiento, legitimación ni apoyo</strong> por parte de ENTRE TODOS. Cualquier candidato declarado puede someter su plataforma completa para que sea organizada por categorías temáticas y evaluada punto por punto por la ciudadanía cubana — usando el mismo sistema de votación de la Fase 1.</p>
     <p>Cuando existan dos o más candidatos con plataformas publicadas, ENTRE TODOS activará la <strong>vista de comparación</strong> para que los ciudadanos puedan evaluar propuestas lado a lado por categoría temática.</p>
+  </div>
+</div>
+
+<!-- ══ SOLUCIONARIO BRIDGE ══ -->
+<div style="background:linear-gradient(135deg,#001a5c,var(--azul));padding:40px 22px;margin-top:0;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:20px;height:2px;background:#E8C84A;border-radius:2px;"></span>Gobernanza Solucionaria · Candidatura Alternativa</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:3px;color:#fff;margin-bottom:8px;line-height:1.1;">¿Y si el candidato<br>no llega con un programa?</div>
+      <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:520px;">El Candidato Solucionario no trae un plan cerrado. Trae un sistema donde la plataforma de gobierno la construye la ciudadanía, punto por punto. Firma un juramento de neutralidad ideológica. Es garante del proceso — no protagonista de la narrativa.</div>
+    </div>
+    <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+      <a href="candidato-solucionario-cuba.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#E8C84A;color:#1a0f00;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .18s;">
+        <i class="fi fi-br-settings-sliders"></i> Ver Candidatura Solucionaria
+      </a>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);">Nominación abierta · Plataforma plural</div>
+    </div>
   </div>
 </div>
 
