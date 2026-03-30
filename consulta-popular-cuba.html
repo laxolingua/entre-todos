@@ -229,7 +229,7 @@
 <header>
   <div class="hdr">
     <a href="index.html" class="hdr-logo">
-      <img src="entre-todos-logo-final.png" alt="Entre Todos" onerror="this.style.display='none'">
+      <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.onerror=null;this.style.display='none'">
       <div class="hdr-logo-text">
         <span class="t-azul">ENTRE </span><span class="t-rojo">TODOS</span>
       </div>
@@ -445,6 +445,26 @@
         <div class="barra-track"><div class="barra-fill barra-fill-rojo" id="barra-cambio" style="width:0%"></div></div>
         <p class="barra-pct" id="pct-cambio">0%</p>
       </div>
+
+      <!-- DESGLOSE CUBA vs. EXTRANJERO -->
+      <div style="margin-top:22px;padding-top:16px;border-top:1px solid var(--gris-m);">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:12px;">
+          <i class="fi fi-br-earth-americas"></i> &nbsp;Participación por origen
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:#F0F4FF;border:1px solid rgba(0,42,143,.15);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--azul);line-height:1;" id="val-cuba">0</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-top:4px;"><i class="fi fi-br-id-card"></i> &nbsp;Desde Cuba</div>
+            <div style="font-size:.68rem;color:var(--gt);margin-top:2px;">Carné de identidad</div>
+          </div>
+          <div style="background:#FFF0F2;border:1px solid rgba(207,20,43,.15);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--rojo);line-height:1;" id="val-extranjero">0</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);margin-top:4px;"><i class="fi fi-br-passport"></i> &nbsp;Desde el extranjero</div>
+            <div style="font-size:.68rem;color:var(--gt);margin-top:2px;">Pasaporte / doc. extranjero</div>
+          </div>
+        </div>
+      </div>
+
       <div class="info-box amarillo" style="margin-top:20px;">
         <i class="fi fi-br-info"></i>
         <span>Resultados almacenados en este dispositivo (prototipo). Para consulta nacional distribuida se requiere servidor. Exporta el CSV para auditoría independiente.</span>
@@ -634,12 +654,16 @@ async function sbInsertarVoto(hash, opcion, tipo) {
 async function sbContarVotos() {
   try {
     const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion`
+      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion,tipo_credencial`
     );
-    const c = { continuidad: 0, cambio: 0 };
-    rows.forEach(r => { if (c[r.opcion] !== undefined) c[r.opcion]++; });
+    const c = { continuidad: 0, cambio: 0, cuba: 0, extranjero: 0 };
+    rows.forEach(r => {
+      if (c[r.opcion] !== undefined) c[r.opcion]++;
+      if (r.tipo_credencial === 'ci') c.cuba++;
+      else c.extranjero++;
+    });
     return c;
-  } catch { return cargarVotosLocal(); }
+  } catch { return { ...cargarVotosLocal(), cuba: 0, extranjero: 0 }; }
 }
 
 /* ── ALMACENAMIENTO LOCAL (fallback) ──────────────────────── */
@@ -674,6 +698,9 @@ async function actualizarResultados() {
   },80);
   document.getElementById('pct-continuidad').textContent=pC+'%';
   document.getElementById('pct-cambio').textContent=pCh+'%';
+  // Cuba vs. Extranjero breakdown
+  if(document.getElementById('val-cuba')) document.getElementById('val-cuba').textContent = v.cuba || 0;
+  if(document.getElementById('val-extranjero')) document.getElementById('val-extranjero').textContent = v.extranjero || 0;
 }
 
 function exportarCSV() {

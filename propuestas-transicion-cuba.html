@@ -202,6 +202,49 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .doc-empty .de-txt{font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;}
 .doc-dl-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
 
+/* PROPUESTA PLURAL — BRANDED COVER FRAME */
+.doc-cover-frame{margin:-54px -62px 36px;border-radius:4px 4px 0 0;overflow:hidden;position:relative;}
+@media(max-width:640px){.doc-cover-frame{margin:-28px -20px 24px;}}
+.doc-cover-flags{display:flex;height:5px;}
+.dcf-s{flex:1;}
+.dcf-s1,.dcf-s3,.dcf-s5{background:var(--azul);}
+.dcf-s2,.dcf-s4{background:#fff;border-top:1px solid rgba(0,42,143,.18);border-bottom:1px solid rgba(0,42,143,.18);}
+.doc-cover-brand{background:linear-gradient(120deg,#001340 0%,#002A8F 60%,#001d6a 100%);padding:20px 28px;display:flex;align-items:center;gap:16px;color:#fff;position:relative;overflow:hidden;}
+.doc-cover-brand::after{content:'ENTRE TODOS';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:5rem;letter-spacing:.08em;color:rgba(255,255,255,.04);pointer-events:none;white-space:nowrap;}
+.doc-cover-logo{width:46px;height:46px;object-fit:contain;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,.08);padding:4px;}
+.doc-cover-orgname{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:4px;color:#fff;line-height:1;}
+.doc-cover-tagline{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.58);margin-top:3px;}
+.doc-cover-seal{margin-left:auto;text-align:right;flex-shrink:0;}
+.doc-cover-seal-badge{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--azul);background:#fff;padding:3px 10px;border-radius:2px;font-weight:700;display:inline-block;margin-bottom:4px;}
+.doc-cover-seal-live{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);display:block;}
+.doc-cover-rojo{height:3px;background:var(--rojo);}
+@media(max-width:640px){.doc-cover-brand{padding:14px 16px;gap:12px;}.doc-cover-brand::after{display:none;}}
+
+/* PRINT */
+@media print{
+  .flag-bar,header,.page-banner,.anuncios-wrap,.cat-tabs-outer,
+  #filter-bar,#ham-btn,#ham-menu,footer,.doc-dl-row,
+  .hero-band,.cat-tabs,.filter-bar{display:none!important;}
+  body,html{background:#fff!important;}
+  .doc-sec{display:block!important;}
+  .doc-sec.active{padding:0!important;}
+  .doc-page{
+    box-shadow:none!important;border:none!important;
+    max-width:100%!important;padding:15mm 22mm!important;
+    margin:0!important;font-size:9pt!important;line-height:1.6!important;
+  }
+  .doc-cover-frame{margin:-15mm -22mm 10mm!important;border-radius:0!important;}
+  .doc-cover-brand::after{display:none!important;}
+  .doc-chapter{page-break-inside:avoid;}
+  .doc-article{page-break-inside:avoid;}
+  .doc-art-text{font-size:8.5pt!important;}
+  .doc-chapter-name{font-size:10pt!important;}
+  .doc-preamble{font-size:8.5pt!important;}
+  .doc-stat-bar{margin-bottom:12mm!important;}
+  .doc-divider{border-color:#000!important;}
+  a{text-decoration:none!important;color:inherit!important;}
+}
+
 /* FAQ */
 .faq-item{border:1px solid var(--gris-m);border-radius:6px;margin-bottom:8px;overflow:hidden;}
 .faq-q{padding:12px 16px;font-family:Barlow Condensed,sans-serif;font-weight:600;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--azul);background:#FAFAFA;}
@@ -434,7 +477,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   <div class="hdr">
     <div style="display:flex;align-items:center;gap:14px;">
       <a href="index.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;background:#fff;border-radius:6px;" onerror="this.style.display='none'">
+        <img src="entre-todos-logo.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
       </a>
       <a href="index.html" class="back-btn">
         <i class="fi fi-br-arrow-left"></i> Página Principal
@@ -517,56 +560,6 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   </div>
 </div>
 
-<div style="max-width:980px;margin:0 auto 18px;padding:0 14px;">
-  <div style="background:#fff;border:1px solid #D8E0EC;border-left:4px solid var(--rojo);border-radius:0 8px 8px 0;padding:20px 24px;">
-    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rojo);font-weight:700;margin-bottom:10px;">¿Qué es ENTRE TODOS?</p>
-    <p style="font-size:.93rem;line-height:1.75;color:#1a1a2e;margin-bottom:12px;">Cuba no necesita otro acuerdo firmado por un grupo reducido. Necesita un mecanismo donde <strong>todas las voces relevantes puedan sentarse en la misma sala</strong> — el activista interno, el exilio histórico, la juventud digital, el empresario emergente, el religioso, el intelectual crítico, el moderado y el radical. Eso es ENTRE TODOS.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:14px;">
-      <div style="background:#F2F4F7;border-radius:6px;padding:12px 14px;">
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-weight:700;margin-bottom:4px;">Mesa amplia</p>
-        <p style="font-size:.82rem;color:#5A6A82;line-height:1.5;">Cualquier cubano participa — sin importar dónde vive, qué organización lo representa o qué ideología tiene. El peso de cada voz es igual.</p>
-      </div>
-      <div style="background:#F2F4F7;border-radius:6px;padding:12px 14px;">
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-weight:700;margin-bottom:4px;">Deliberación real</p>
-        <p style="font-size:.82rem;color:#5A6A82;line-height:1.5;">No solo votas sí o no. Puedes matizar, criticar, añadir, proponer. Los aportes con más apoyo se integran al documento de consenso.</p>
-      </div>
-      <div style="background:#F2F4F7;border-radius:6px;padding:12px 14px;">
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-weight:700;margin-bottom:4px;">Sin cúpulas</p>
-        <p style="font-size:.82rem;color:#5A6A82;line-height:1.5;">Las ideas se juzgan por su mérito, no por quién las propone. Los nombres de las organizaciones no aparecen — solo los números de referencia.</p>
-      </div>
-      <div style="background:#F2F4F7;border-radius:6px;padding:12px 14px;">
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-weight:700;margin-bottom:4px;">Sectores invisibles</p>
-        <p style="font-size:.82rem;color:#5A6A82;line-height:1.5;">Por primera vez, propuestas sobre bienestar animal, medio ambiente, género, juventud y discapacidad forman parte de un plan de transición cubano.</p>
-      </div>
-    </div>
-    <p style="font-size:.8rem;color:#5A6A82;margin-top:14px;font-style:italic;">La transición no se decreta desde arriba. Se construye entre todos.</p>
-  </div>
-</div>
-
-<div class="roadmap">
-  <div class="roadmap-title">Hoja de Ruta Nacional E/TODOS</div>
-  <p class="roadmap-sub">Proceso por fases para construir acuerdos, reglas, representación e implementación democrática.</p>
-  <div class="roadmap-grid six">
-    <a class="roadmap-card active" href="#" onclick="switchTab('0',null);window.scrollTo({top:0,behavior:'smooth'});return false;">
-      <div class="stage">1</div><div class="roadmap-icon"><i class="fi fi-br-shuffle"></i></div><div><h3>Transición</h3><span class="status">Activa</span></div>
-    </a>
-    <div class="roadmap-card">
-      <div class="stage">2</div><div class="roadmap-icon"><i class="fi fi-br-scroll"></i></div><div><h3>Proceso Constituyente</h3><span class="status">Próximamente</span></div>
-    </div>
-    <div class="roadmap-card">
-      <div class="stage">3</div><div class="roadmap-icon"><i class="fi fi-br-bank"></i></div><div><h3>Plataforma de Gobierno</h3><span class="status">Próximamente</span></div>
-    </div>
-    <div class="roadmap-card">
-      <div class="stage">4</div><div class="roadmap-icon"><i class="fi fi-br-ballot"></i></div><div><h3>Sistema Electoral y Candidaturas</h3><span class="status">Próximamente</span></div>
-    </div>
-    <div class="roadmap-card">
-      <div class="stage">5</div><div class="roadmap-icon"><i class="fi fi-br-flag"></i></div><div><h3>Elecciones y Conformación Institucional</h3><span class="status">Próximamente</span></div>
-    </div>
-    <div class="roadmap-card">
-      <div class="stage">6</div><div class="roadmap-icon"><i class="fi fi-br-chart-line-up"></i></div><div><h3>Implementación, Control y Rendición de Cuentas</h3><span class="status">Próximamente</span></div>
-    </div>
-  </div>
-</div>
 
 
 <div style="max-width:1080px;margin:0 auto 6px;padding:0 12px;">
@@ -1748,13 +1741,15 @@ async function loadAllFromBackend(){
 
     // Load citizen proposals
     const cpRows = await sbQuery('citizen_proposals', {
-      select: 'id,content,category,author_name,social_link,device_token,status,created_at',
+      select: 'id,content,category,author_name,social_link,device_token,estado,created_at',
       order: 'created_at.asc'
     });
     if(cpRows && Array.isArray(cpRows) && cpRows.length > 0){
       cpRows.forEach((r, i) => {
         const nid = 'CP_' + i;
         if(newProps.some(p => p.text === r.content)) return;
+        // Skip rejected proposals
+        if(r.estado === 'rejected') return;
         // If category is Z, try auto-reclassify client-side
         const resolvedCat = (r.category === 'Z' || !r.category)
           ? detectCategory(r.content || '')
@@ -1769,7 +1764,7 @@ async function loadAllFromBackend(){
           social: r.social_link || '',
           citizen: true,
           ownerToken: r.device_token || '',
-          status: r.status || 'active',
+          status: r.estado || 'active',
           refs: []
         };
         newProps.push(prop);
@@ -3115,7 +3110,7 @@ async function retireCpProposal(propId){
     sbQuery('citizen_proposals',{
       update: true,
       match: {id: p.sbId},
-      body: {status: 'retired', updated_at: new Date().toISOString()}
+      body: {estado: 'retired', updated_at: new Date().toISOString()}
     }).catch(()=>{ toast('Retirada localmente — error de red al sincronizar','e'); });
   }
 }
@@ -3206,13 +3201,34 @@ function renderPropuestaPlural(){
   });
 
   container.innerHTML = `
+    <div class="doc-cover-frame">
+      <div class="doc-cover-flags">
+        <div class="dcf-s dcf-s1"></div>
+        <div class="dcf-s dcf-s2"></div>
+        <div class="dcf-s dcf-s3"></div>
+        <div class="dcf-s dcf-s4"></div>
+        <div class="dcf-s dcf-s5"></div>
+      </div>
+      <div class="doc-cover-brand">
+        <img src="entre-todos-logo.png" class="doc-cover-logo" alt="ENTRE TODOS" onerror="this.style.display='none'">
+        <div>
+          <div class="doc-cover-orgname">ENTRE TODOS</div>
+          <div class="doc-cover-tagline">Gobernanza Solucionaria para Cuba</div>
+        </div>
+        <div class="doc-cover-seal">
+          <span class="doc-cover-seal-badge">Documento Vivo</span>
+          <span class="doc-cover-seal-live">República de Cuba</span>
+        </div>
+      </div>
+      <div class="doc-cover-rojo"></div>
+    </div>
     <div class="doc-emblem">
-      <div class="doc-country">República de Cuba — Transición Democrática</div>
+      <div class="doc-country">Transición Democrática — Consenso Ciudadano</div>
     </div>
     <hr class="doc-divider">
     <div class="doc-main-title">Propuesta Plural para la Transición en Cuba</div>
-    <div class="doc-subtitle">Documento de Consenso Ciudadano</div>
-    <div class="doc-edition" id="doc-edition-date">Edición del ${dateStr} · Documento vivo</div>
+    <div class="doc-subtitle">Documento de Plataforma Colectiva</div>
+    <div class="doc-edition" id="doc-edition-date">Edición del ${dateStr} · Actualización en tiempo real</div>
     <hr class="doc-divider">
 
     <div class="doc-stat-bar">
@@ -3247,7 +3263,7 @@ function renderPropuestaPlural(){
       <span style="color:var(--azul);font-weight:700;">entre-todos.org</span> — Gobernanza Solucionaria para Cuba
     </p>
     <div class="doc-dl-row">
-      <button class="btn btn-p" onclick="dlDocPDF ? dlDocPDF() : dlJSON()">⬇ Descargar PDF</button>
+      <button class="btn btn-p" onclick="window.print ? window.print() : (dlDocPDF ? dlDocPDF() : dlJSON())"><i class="fi fi-br-print" style="font-size:.85em;vertical-align:middle;margin-right:4px;"></i>Imprimir / Exportar PDF</button>
       <button class="btn btn-s" onclick="dlJSON()">⬇ Descargar JSON</button>
     </div>
   `;
