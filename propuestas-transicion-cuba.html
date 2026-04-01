@@ -301,6 +301,44 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 /* TOAST / FAB */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--azul);color:#fff;padding:10px 15px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:600;font-size:.84rem;letter-spacing:.5px;box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateY(80px);opacity:0;transition:all .3s;z-index:999;}
 .toast.show{transform:translateY(0);opacity:1;}
+/* ── REGISTRO CIUDADANO MODAL ── */
+#reg-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;display:none;align-items:flex-end;justify-content:center;}
+#reg-modal-overlay.open{display:flex;}
+#reg-modal{background:#fff;width:100%;max-width:560px;border-radius:12px 12px 0 0;padding:28px 24px 32px;max-height:85vh;overflow-y:auto;box-shadow:0 -8px 40px rgba(0,0,0,.25);}
+.reg-m-handle{width:40px;height:4px;background:#D1D5DB;border-radius:2px;margin:0 auto 20px;}
+.reg-m-titulo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--azul);margin-bottom:6px;}
+.reg-m-sub{font-size:.83rem;color:#666;line-height:1.6;margin-bottom:18px;}
+.reg-m-telegram{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;border:none;border-radius:6px;padding:12px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s;width:100%;margin-bottom:14px;}
+.reg-m-telegram:hover{background:#1a8bb8;}
+.reg-m-toggle{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;width:100%;justify-content:center;padding:8px;opacity:.7;}
+.reg-m-toggle:hover{opacity:1;}
+.reg-m-form{display:none;margin-top:16px;}
+.reg-m-form.abierto{display:block;}
+.reg-m-label{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#111;margin-bottom:8px;display:block;}
+.reg-m-checks{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.reg-m-check-item{display:flex;align-items:center;gap:10px;font-size:.84rem;color:#111;cursor:pointer;}
+.reg-m-check-item input{width:16px;height:16px;cursor:pointer;accent-color:var(--azul);}
+.reg-m-canales{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.reg-m-canal-btn{padding:10px 6px;border:2px solid #E5E7EB;border-radius:6px;background:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#888;cursor:pointer;transition:all .2s;text-align:center;}
+.reg-m-canal-btn.sel{border-color:var(--azul);color:var(--azul);background:#F0F4FF;}
+.reg-m-input{width:100%;padding:10px 13px;border:1.5px solid #E5E7EB;border-radius:4px;font-family:'Barlow',sans-serif;font-size:.88rem;color:#111;margin-bottom:14px;outline:none;transition:border-color .2s;}
+.reg-m-input:focus{border-color:var(--azul);}
+.reg-m-padron-box{background:#F5F8FF;border:1.5px solid rgba(0,42,143,.15);border-radius:6px;padding:13px 15px;margin-bottom:16px;}
+.reg-m-padron-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
+.reg-m-padron-check input{width:16px;height:16px;margin-top:2px;cursor:pointer;accent-color:var(--azul);flex-shrink:0;}
+.reg-m-padron-label{font-size:.83rem;color:#111;line-height:1.5;}
+.reg-m-padron-label strong{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);display:block;margin-bottom:2px;}
+.reg-m-padron-extra{display:none;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,42,143,.12);}
+.reg-m-padron-extra.visible{display:block;}
+.reg-m-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.reg-m-privacidad{font-size:.72rem;color:#888;text-align:center;line-height:1.5;margin-bottom:12px;}
+.reg-m-submit{width:100%;padding:12px;background:var(--azul);color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.reg-m-submit:hover{background:#001f6b;}
+.reg-m-submit:disabled{opacity:.45;cursor:not-allowed;}
+.reg-m-cerrar{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888;line-height:1;}
+.reg-m-exito{text-align:center;padding:14px;background:#F0FFF4;border:1.5px solid #22C55E;border-radius:6px;}
+.reg-m-exito-icon{font-size:26px;color:#22C55E;display:block;margin-bottom:6px;}
+.reg-m-exito-txt{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#166534;}
 .fab{position:fixed;bottom:24px;left:24px;background:var(--rojo);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.35rem;cursor:pointer;box-shadow:0 4px 16px rgba(207,20,43,.4);transition:all .2s;border:none;z-index:200;font-weight:700;}
 .fab:hover{background:#a80e22;transform:scale(1.08);}
 .scrT{position:fixed;bottom:80px;left:24px;background:var(--azul);color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;box-shadow:var(--sh);border:none;z-index:200;opacity:0;transition:opacity .3s;}
@@ -1260,7 +1298,7 @@ function buildSobre(){
   const foot=document.createElement('div');
   foot.style.cssText='text-align:center;padding:12px 0 4px;color:#aaa;font-size:.73rem;font-style:italic;';
   foot.innerHTML='ENTRE TODOS · Tu voz. Sin filtros. Sin líderes. Sin exclusiones.<br>'
-    +'<span style="font-size:.66rem;"><a href="gobernanza-solucionaria-v4.html" style="color:inherit;">Gobernanza Solucionaria</a> · Cubanos por el Cambio · Michel Estopiñán · 2026</span>';
+    +'<span style="font-size:.66rem;"><a href="gobernanza-solucionaria-v5.html" style="color:inherit;">Gobernanza Solucionaria</a> · Cubanos por el Cambio · Michel Estopiñán · 2026</span>';
   wrap.appendChild(foot);
 
   el.appendChild(wrap);
@@ -2642,7 +2680,7 @@ function submitNew(){
   document.getElementById('nt').value=''; document.getElementById('nn').value=''; document.getElementById('nc').value='';
   document.getElementById('sp').textContent=PROPS.length+newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
-  toast('Propuesta enviada. Gracias.');
+  toast('Propuesta enviada. Gracias.'); regMMostrar('propuestas');
   sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name,social_link:social}})
     .then(rows=>{ if(rows&&rows[0]&&rows[0].id){ const p=newProps.find(x=>x.id===nid); if(p) p.sbId=rows[0].id; } })
     .catch(()=>{});
@@ -3269,6 +3307,115 @@ function renderPropuestaPlural(){
   `;
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   REGISTRO CIUDADANO MODAL
+══════════════════════════════════════════════════════════════ */
+const REG_SHOWN_KEY = 'et_reg_shown';
+let regMCanalSel = null;
+
+function regMMostrar(fuente) {
+  if (localStorage.getItem(REG_SHOWN_KEY)) return; // Solo mostrar una vez
+  window._regMFuente = fuente || 'propuestas';
+  document.getElementById('reg-modal-overlay').classList.add('open');
+}
+
+function regMCerrar() {
+  document.getElementById('reg-modal-overlay').classList.remove('open');
+  localStorage.setItem(REG_SHOWN_KEY, '1');
+}
+
+function regMCerrarSiOverlay(e) {
+  if (e.target === document.getElementById('reg-modal-overlay')) regMCerrar();
+}
+
+function regMToggleForm() {
+  const form = document.getElementById('reg-m-form');
+  const btn  = document.getElementById('reg-m-toggle-btn');
+  const abierto = form.classList.toggle('abierto');
+  btn.innerHTML = abierto
+    ? '<i class="fi fi-br-minus-small"></i> Ocultar formulario'
+    : '<i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio';
+}
+
+function regMSelCanal(canal) {
+  regMCanalSel = canal;
+  ['email','whatsapp','telegram'].forEach(c => {
+    document.getElementById('m-canal-'+c).classList.toggle('sel', c === canal);
+  });
+  const input = document.getElementById('reg-m-contacto');
+  input.style.display = 'block';
+  const placeholders = {
+    email: 'Tu dirección de email',
+    whatsapp: 'Tu número de WhatsApp (con código de país, ej: +5312345678)',
+    telegram: 'Tu @usuario de Telegram o número de teléfono'
+  };
+  input.placeholder = placeholders[canal];
+  input.value = '';
+  regMValidar();
+}
+
+function regMPadronToggle() {
+  const checked = document.getElementById('m-opt-padron').checked;
+  document.getElementById('reg-m-padron-extra').classList.toggle('visible', checked);
+}
+
+function regMValidar() {
+  const tieneCanal    = regMCanalSel !== null;
+  const tieneContacto = document.getElementById('reg-m-contacto').value.trim().length > 3;
+  const btn = document.getElementById('reg-m-submit');
+  if (btn) btn.disabled = !(tieneCanal && tieneContacto);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ci = document.getElementById('reg-m-contacto');
+  if (ci) ci.addEventListener('input', regMValidar);
+});
+
+const SBASE_URL2 = 'https://pfjcumyygdwslwtrlebr.supabase.co';
+const SBASE_KEY2 = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+
+async function regMGuardar() {
+  const btn = document.getElementById('reg-m-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fi fi-br-spinner" style="animation:spin .8s linear infinite;"></i> Guardando...';
+
+  const payload = {
+    fuente:              window._regMFuente || 'propuestas',
+    opt_causas_nuevas:   document.getElementById('m-opt-causas').checked,
+    opt_actualizaciones: document.getElementById('m-opt-actualizaciones').checked,
+    opt_resultados:      document.getElementById('m-opt-resultados').checked,
+    opt_padron:          document.getElementById('m-opt-padron').checked,
+    canal_preferido:     regMCanalSel,
+    contacto:            document.getElementById('reg-m-contacto').value.trim(),
+    nombre:              document.getElementById('reg-m-nombre').value.trim() || null,
+    pais_residencia:     document.getElementById('reg-m-pais').value.trim() || null,
+    es_cubano:           true
+  };
+
+  try {
+    await fetch(`${SBASE_URL2}/rest/v1/ciudadanos_opt_in`, {
+      method: 'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SBASE_KEY2,
+        'Authorization': `Bearer ${SBASE_KEY2}`,
+        'Prefer':        'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById('reg-m-submit-wrap').innerHTML = `
+      <div class="reg-m-exito">
+        <i class="fi fi-br-check-circle reg-m-exito-icon"></i>
+        <div class="reg-m-exito-txt">Registro guardado. Gracias por quedarte con nosotros.</div>
+      </div>`;
+    localStorage.setItem(REG_SHOWN_KEY, '1');
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fi fi-br-check"></i> Guardar mis preferencias';
+  }
+}
+
 </script>
 
 <!-- HAMBURGER -->
@@ -3331,6 +3478,60 @@ function renderPropuestaPlural(){
     </div>
   </div>
 </div>
+
+<!-- ── REGISTRO CIUDADANO MODAL POST-ACCIÓN ── -->
+<div id="reg-modal-overlay" onclick="regMCerrarSiOverlay(event)">
+  <div id="reg-modal" style="position:relative;">
+    <button class="reg-m-cerrar" onclick="regMCerrar()" title="Cerrar"><i class="fi fi-br-cross-small"></i></button>
+    <div class="reg-m-handle"></div>
+    <div class="reg-m-titulo">Tu voz no termina aquí</div>
+    <p class="reg-m-sub">Únete al canal de ENTRE TODOS y entérate cuando haya nuevas causas, consultas y propuestas.</p>
+    <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="reg-m-telegram">
+      <i class="fi fi-br-paper-plane"></i> Unirme al canal de Telegram
+    </a>
+    <button class="reg-m-toggle" onclick="regMToggleForm()" id="reg-m-toggle-btn">
+      <i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio
+    </button>
+    <div class="reg-m-form" id="reg-m-form">
+      <label class="reg-m-label" style="margin-top:4px;">Quiero recibir notificaciones de:</label>
+      <div class="reg-m-checks">
+        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-causas" checked> Causas nuevas y nuevas consultas</label>
+        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-actualizaciones"> Actualizaciones de la plataforma</label>
+        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-resultados"> Resultados de votaciones</label>
+      </div>
+      <label class="reg-m-label">Canal preferido:</label>
+      <div class="reg-m-canales">
+        <button class="reg-m-canal-btn" id="m-canal-email" onclick="regMSelCanal('email')"><i class="fi fi-br-envelope"></i><br>Email</button>
+        <button class="reg-m-canal-btn" id="m-canal-whatsapp" onclick="regMSelCanal('whatsapp')"><i class="fi fi-br-comment"></i><br>WhatsApp</button>
+        <button class="reg-m-canal-btn" id="m-canal-telegram" onclick="regMSelCanal('telegram')"><i class="fi fi-br-paper-plane"></i><br>Telegram</button>
+      </div>
+      <input type="text" class="reg-m-input" id="reg-m-contacto" placeholder="Tu email, número o @usuario de Telegram" style="display:none;">
+      <div class="reg-m-padron-box">
+        <label class="reg-m-padron-check">
+          <input type="checkbox" id="m-opt-padron" onchange="regMPadronToggle()">
+          <span class="reg-m-padron-label">
+            <strong><i class="fi fi-br-id-card"></i> &nbsp;Quiero ser parte del Padrón Electoral Ciudadano</strong>
+            Registro independiente del gobierno cubano. Voluntario y gratuito.
+          </span>
+        </label>
+        <div class="reg-m-padron-extra" id="reg-m-padron-extra">
+          <label class="reg-m-label">Datos opcionales para el Padrón</label>
+          <div class="reg-m-row">
+            <input type="text" class="reg-m-input" id="reg-m-nombre" placeholder="Nombre (opcional)" style="margin-bottom:0;">
+            <input type="text" class="reg-m-input" id="reg-m-pais" placeholder="País de residencia" style="margin-bottom:0;">
+          </div>
+        </div>
+      </div>
+      <p class="reg-m-privacidad"><i class="fi fi-br-shield-check"></i> &nbsp;Tu información es confidencial. No será compartida ni usada con fines comerciales.</p>
+      <div id="reg-m-submit-wrap">
+        <button class="reg-m-submit" id="reg-m-submit" onclick="regMGuardar()" disabled>
+          <i class="fi fi-br-check"></i> Guardar mis preferencias
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ── FIN REGISTRO CIUDADANO MODAL ── -->
 </body>
 </html<!-- AUTH BAR -->
 <div id="auth-bar">

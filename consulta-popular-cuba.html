@@ -220,6 +220,41 @@
     footer strong { color: #fff; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1.5px; }
     footer a { color: rgba(255,255,255,.5); text-decoration: none; }
     footer a:hover { color: #fff; }
+
+    /* ── REGISTRO CIUDADANO POST-VOTO ── */
+    .reg-seccion { margin-top: 28px; padding-top: 24px; border-top: 2px solid var(--borde); text-align: left; }
+    .reg-titulo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--azul); margin-bottom: 6px; text-align: center; }
+    .reg-sub { font-size: .83rem; color: var(--gris); text-align: center; margin-bottom: 18px; line-height: 1.6; }
+    .reg-telegram { display: flex; align-items: center; justify-content: center; gap: 10px; background: #229ED9; color: #fff; border: none; border-radius: 6px; padding: 12px 22px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .95rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background .2s; width: 100%; margin-bottom: 14px; }
+    .reg-telegram:hover { background: #1a8bb8; }
+    .reg-toggle { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--azul); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; width: 100%; justify-content: center; padding: 8px; opacity: .7; }
+    .reg-toggle:hover { opacity: 1; }
+    .reg-form { display: none; margin-top: 18px; }
+    .reg-form.abierto { display: block; }
+    .reg-label { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--negro); margin-bottom: 8px; display: block; }
+    .reg-checks { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+    .reg-check-item { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--negro); cursor: pointer; }
+    .reg-check-item input { width: 16px; height: 16px; cursor: pointer; accent-color: var(--azul); }
+    .reg-canales { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+    .reg-canal-btn { padding: 10px 6px; border: 2px solid var(--borde); border-radius: 6px; background: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gris); cursor: pointer; transition: all .2s; text-align: center; }
+    .reg-canal-btn.sel { border-color: var(--azul); color: var(--azul); background: #F0F4FF; }
+    .reg-input { width: 100%; padding: 10px 13px; border: 1.5px solid var(--borde); border-radius: 4px; font-family: 'Barlow', sans-serif; font-size: .88rem; color: var(--negro); margin-bottom: 16px; outline: none; transition: border-color .2s; }
+    .reg-input:focus { border-color: var(--azul); }
+    .reg-padron-box { background: #F5F8FF; border: 1.5px solid rgba(0,42,143,.15); border-radius: 6px; padding: 14px 16px; margin-bottom: 18px; }
+    .reg-padron-check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+    .reg-padron-check input { width: 16px; height: 16px; margin-top: 2px; cursor: pointer; accent-color: var(--azul); flex-shrink: 0; }
+    .reg-padron-label { font-size: .84rem; color: var(--negro); line-height: 1.5; }
+    .reg-padron-label strong { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; text-transform: uppercase; letter-spacing: .5px; color: var(--azul); display: block; margin-bottom: 3px; }
+    .reg-padron-extra { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(0,42,143,.12); }
+    .reg-padron-extra.visible { display: block; }
+    .reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .reg-privacidad { font-size: .72rem; color: var(--gris); text-align: center; line-height: 1.5; margin-bottom: 14px; }
+    .reg-btn-submit { width: 100%; padding: 12px; background: var(--azul); color: #fff; border: none; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background .2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .reg-btn-submit:hover { background: #001f6b; }
+    .reg-btn-submit:disabled { opacity: .45; cursor: not-allowed; }
+    .reg-exito { text-align: center; padding: 16px; background: #F0FFF4; border: 1.5px solid #22C55E; border-radius: 6px; }
+    .reg-exito-icon { font-size: 28px; color: #22C55E; display: block; margin-bottom: 8px; }
+    .reg-exito-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #166534; }
   </style>
 </head>
 <body>
@@ -418,6 +453,83 @@
             <i class="fi fi-br-home"></i> Volver a ENTRE TODOS
           </a>
         </div>
+
+        <!-- ── SECCIÓN RETENCIÓN / REGISTRO CIUDADANO ── -->
+        <div class="reg-seccion" id="reg-seccion">
+          <div class="reg-titulo">Tu voz no termina aquí</div>
+          <p class="reg-sub">Únete al canal de ENTRE TODOS y entérate cuando haya nuevas causas, consultas y actualizaciones.</p>
+
+          <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="reg-telegram">
+            <i class="fi fi-br-paper-plane"></i> Unirme al canal de Telegram
+          </a>
+
+          <button class="reg-toggle" onclick="regToggleForm()" id="reg-toggle-btn">
+            <i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio
+          </button>
+
+          <div class="reg-form" id="reg-form">
+
+            <label class="reg-label" style="margin-top:4px;">Quiero recibir notificaciones de:</label>
+            <div class="reg-checks">
+              <label class="reg-check-item">
+                <input type="checkbox" id="opt-causas" checked>
+                Causas nuevas y nuevas consultas
+              </label>
+              <label class="reg-check-item">
+                <input type="checkbox" id="opt-actualizaciones">
+                Actualizaciones de la plataforma
+              </label>
+              <label class="reg-check-item">
+                <input type="checkbox" id="opt-resultados">
+                Resultados de votaciones
+              </label>
+            </div>
+
+            <label class="reg-label">Canal de contacto preferido:</label>
+            <div class="reg-canales">
+              <button class="reg-canal-btn" id="canal-email" onclick="regSelCanal('email')">
+                <i class="fi fi-br-envelope"></i><br>Email
+              </button>
+              <button class="reg-canal-btn" id="canal-whatsapp" onclick="regSelCanal('whatsapp')">
+                <i class="fi fi-br-comment"></i><br>WhatsApp
+              </button>
+              <button class="reg-canal-btn" id="canal-telegram" onclick="regSelCanal('telegram')">
+                <i class="fi fi-br-paper-plane"></i><br>Telegram
+              </button>
+            </div>
+
+            <input type="text" class="reg-input" id="reg-contacto" placeholder="Tu email, número o @usuario de Telegram" style="display:none;">
+
+            <div class="reg-padron-box">
+              <label class="reg-padron-check">
+                <input type="checkbox" id="opt-padron" onchange="regPadronToggle()">
+                <span class="reg-padron-label">
+                  <strong><i class="fi fi-br-id-card"></i> &nbsp;Quiero ser parte del Padrón Electoral Ciudadano</strong>
+                  Registro independiente del gobierno cubano para ejercer el voto con carácter ciudadano. Voluntario y gratuito.
+                </span>
+              </label>
+              <div class="reg-padron-extra" id="reg-padron-extra">
+                <label class="reg-label">Datos opcionales para el Padrón</label>
+                <div class="reg-row">
+                  <input type="text" class="reg-input" id="reg-nombre" placeholder="Nombre (opcional)" style="margin-bottom:0;">
+                  <input type="text" class="reg-input" id="reg-pais" placeholder="País de residencia" style="margin-bottom:0;">
+                </div>
+              </div>
+            </div>
+
+            <p class="reg-privacidad">
+              <i class="fi fi-br-shield-check"></i> &nbsp;Tu información es confidencial. No será compartida ni usada con fines comerciales. Solo para notificaciones de ENTRE TODOS.
+            </p>
+
+            <div id="reg-form-content">
+              <button class="reg-btn-submit" id="reg-submit-btn" onclick="sbGuardarRegistro()" disabled>
+                <i class="fi fi-br-check"></i> Guardar mis preferencias
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- ── FIN REGISTRO CIUDADANO ── -->
+
       </div>
     </div>
   </div>
@@ -479,7 +591,7 @@
 </main>
 
 <footer>
-  <strong>ENTRE TODOS</strong> — <a href="gobernanza-solucionaria-v4.html" style="color:inherit;">Gobernanza Solucionaria</a> &nbsp;·&nbsp; Consulta Popular Cuba 2026 &nbsp;·&nbsp;
+  <strong>ENTRE TODOS</strong> — <a href="gobernanza-solucionaria-v5.html" style="color:inherit;">Gobernanza Solucionaria</a> &nbsp;·&nbsp; Consulta Popular Cuba 2026 &nbsp;·&nbsp;
   Voto anónimo verificado por SHA-256 &nbsp;·&nbsp;
   <a href="index.html">Volver a la plataforma</a> &nbsp;·&nbsp;
   <a href="#" onclick="limpiarDatos();return false;">Reiniciar datos de prueba</a>
@@ -720,6 +832,92 @@ function limpiarDatos() {
 }
 
 actualizarResultados();
+
+/* ══════════════════════════════════════════════════════════════
+   REGISTRO CIUDADANO — OPT-IN POST-VOTO
+══════════════════════════════════════════════════════════════ */
+const TABLA_REGISTRO = 'ciudadanos_opt_in';
+let regCanalSel = null;
+
+function regToggleForm() {
+  const form = document.getElementById('reg-form');
+  const btn  = document.getElementById('reg-toggle-btn');
+  const abierto = form.classList.toggle('abierto');
+  btn.innerHTML = abierto
+    ? '<i class="fi fi-br-minus-small"></i> Ocultar formulario'
+    : '<i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio';
+}
+
+function regSelCanal(canal) {
+  regCanalSel = canal;
+  ['email','whatsapp','telegram'].forEach(c => {
+    document.getElementById('canal-'+c).classList.toggle('sel', c === canal);
+  });
+  const input = document.getElementById('reg-contacto');
+  input.style.display = 'block';
+  const placeholders = {
+    email: 'Tu dirección de email',
+    whatsapp: 'Tu número de WhatsApp (con código de país, ej: +5312345678)',
+    telegram: 'Tu @usuario de Telegram o número de teléfono'
+  };
+  input.placeholder = placeholders[canal];
+  input.value = '';
+  regValidarSubmit();
+}
+
+function regPadronToggle() {
+  const checked = document.getElementById('opt-padron').checked;
+  document.getElementById('reg-padron-extra').classList.toggle('visible', checked);
+}
+
+function regValidarSubmit() {
+  const tieneCanal   = regCanalSel !== null;
+  const tieneContacto = document.getElementById('reg-contacto').value.trim().length > 3;
+  const btn = document.getElementById('reg-submit-btn');
+  if (btn) btn.disabled = !(tieneCanal && tieneContacto);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contactoInput = document.getElementById('reg-contacto');
+  if (contactoInput) contactoInput.addEventListener('input', regValidarSubmit);
+});
+
+async function sbGuardarRegistro() {
+  const btn = document.getElementById('reg-submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fi fi-br-spinner" style="animation:spin .8s linear infinite;"></i> Guardando...';
+
+  const payload = {
+    fuente:              'consulta',
+    opt_causas_nuevas:   document.getElementById('opt-causas').checked,
+    opt_actualizaciones: document.getElementById('opt-actualizaciones').checked,
+    opt_resultados:      document.getElementById('opt-resultados').checked,
+    opt_padron:          document.getElementById('opt-padron').checked,
+    canal_preferido:     regCanalSel,
+    contacto:            document.getElementById('reg-contacto').value.trim(),
+    nombre:              document.getElementById('reg-nombre').value.trim() || null,
+    pais_residencia:     document.getElementById('reg-pais').value.trim() || null,
+    es_cubano:           true
+  };
+
+  try {
+    await sbFetch('POST', TABLA_REGISTRO, payload);
+    document.getElementById('reg-form-content').innerHTML = `
+      <div class="reg-exito">
+        <i class="fi fi-br-check-circle reg-exito-icon"></i>
+        <div class="reg-exito-txt">Registro guardado. Gracias por quedarte con nosotros.</div>
+      </div>`;
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fi fi-br-check"></i> Guardar mis preferencias';
+    console.warn('Error al guardar registro:', err);
+    document.getElementById('reg-form-content').innerHTML = `
+      <div class="reg-exito" style="background:#FFF5F5;border-color:#EF4444;">
+        <i class="fi fi-br-exclamation reg-exito-icon" style="color:#EF4444;"></i>
+        <div class="reg-exito-txt" style="color:#991B1B;">Error al guardar. Intenta de nuevo en un momento.</div>
+      </div>`;
+  }
+}
 </script>
 </body>
 </html>

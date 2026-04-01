@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gobernanza Solucionaria — Un sistema de gobierno post-ideológico basado en evidencia, ética y participación ciudadana real. El marco teórico del ecosistema cívico cubano.">
+<meta property="og:title" content="Gobernanza Solucionaria · Gobernar es Resolver">
+<meta property="og:description" content="Más allá de los partidos. Por el bien de todos.">
+<title>Gobernanza Solucionaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<style>
+:root {
+  --navy:      #1B3A6B;
+  --navy-dark: #0F2347;
+  --navy-mid:  #254E8F;
+  --red:       #C8102E;
+  --red-light: #E8213F;
+  --bg:        #F2F4F7;
+  --white:     #FFFFFF;
+  --text:      #1a1a2e;
+  --muted:     #5A6A82;
+  --border:    #D8E0EC;
+  --active-bg: #EBF0FA;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--navy-dark);
+  padding: 0.45rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.topbar-brand span { color: rgba(255,255,255,0.85); }
+.topbar-eco {
+  display: flex; gap: 1.5rem;
+}
+.topbar-eco a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); text-decoration: none;
+  transition: color 0.2s;
+}
+.topbar-eco a:hover { color: rgba(255,255,255,0.85); }
+.topbar-eco a.eco-active { color: rgba(255,255,255,0.85); }
+
+/* ── NAV ── */
+nav {
+  background: var(--navy); padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(15,35,71,0.35);
+}
+.nav-logo {
+  display: flex; align-items: center;
+  padding: 0.65rem 0;
+  text-decoration: none;
+}
+.nav-logo-img {
+  height: 36px; width: auto; display: block;
+}
+.hero-logo {
+  display: flex; justify-content: center;
+  margin-bottom: 1.6rem;
+}
+.hero-logo-img {
+  width: 190px; height: auto;
+  max-width: 90%;
+  display: block; margin: 0 auto;
+}
+.footer-logo-img {
+  height: 38px; width: auto; display: block;
+  border-radius: 6px;
+}
+.nav-links {
+  display: flex; list-style: none; gap: 0;
+}
+.nav-links a {
+  display: block; padding: 1.2rem 1.1rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.7);
+  transition: all 0.2s; border-bottom: 3px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--white); border-bottom-color: var(--red);
+}
+.nav-links a.nav-cta {
+  color: var(--white); background: var(--red);
+  margin: 0.6rem 0 0.6rem 0.6rem;
+  border-radius: 4px; border-bottom: 3px solid transparent;
+  padding: 0.5rem 1rem;
+}
+.nav-links a.nav-cta:hover { background: var(--red-light); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.85rem 2rem;
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+}
+.stat-item { display: flex; align-items: baseline; gap: 0.4rem; }
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.55rem; font-weight: 800; color: var(--navy); line-height: 1;
+}
+.stat-label {
+  font-size: 0.67rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.stats-divider { width: 1px; height: 26px; background: var(--border); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--white); border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  max-width: 860px; margin: 0 auto;
+  padding: 4.5rem 2rem 4rem; text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  background: var(--active-bg); color: var(--navy);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 2px;
+  margin-bottom: 1.5rem; border-left: 3px solid var(--red);
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+  line-height: 1.08; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+.hero-title .accent { color: var(--red); }
+.hero-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem); font-weight: 700;
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 1.8rem;
+}
+.hero-desc {
+  font-size: 1rem; line-height: 1.78; color: var(--muted);
+  max-width: 56ch; margin: 0 auto 2.5rem; font-weight: 400;
+}
+.hero-btns {
+  display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
+}
+.hero-quote {
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.hero-quote blockquote {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.05em; font-style: normal;
+}
+.hero-quote cite {
+  display: block; margin-top: 0.4rem;
+  font-size: 0.8rem; color: var(--muted);
+  font-style: normal; letter-spacing: 0.1em;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.88rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; padding: 0.85rem 1.8rem;
+  border-radius: 6px; transition: all 0.2s;
+  border: 2px solid transparent;
+}
+.btn-navy {
+  background: var(--navy); color: var(--white);
+  border-color: var(--navy);
+}
+.btn-navy:hover {
+  background: var(--navy-dark); border-color: var(--navy-dark);
+  transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27,58,107,0.3);
+}
+.btn-red {
+  background: var(--red); color: var(--white); border-color: var(--red);
+}
+.btn-red:hover {
+  background: var(--red-light); border-color: var(--red-light);
+  transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,16,46,0.3);
+}
+.btn-outline {
+  background: transparent; color: var(--navy);
+  border-color: var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--navy-mid); transform: translateY(-2px);
+}
+.btn-outline-white {
+  background: transparent; color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.3);
+}
+.btn-outline-white:hover {
+  border-color: rgba(255,255,255,0.7); color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ── SECTION WRAPPERS ── */
+.section-wrap { padding: 4rem 2rem; }
+.section-wrap-white {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.container { max-width: 960px; margin: 0 auto; }
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem; font-weight: 800; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-title::before {
+  content: ''; display: block;
+  width: 4px; height: 1.4em; background: var(--red);
+  border-radius: 2px; flex-shrink: 0;
+}
+.section-desc {
+  font-size: 0.93rem; color: var(--muted);
+  margin-bottom: 2.2rem; padding-left: 1.15rem;
+  line-height: 1.65; max-width: 70ch;
+}
+
+/* ── ORIGEN / TIMELINE ── */
+.origen-layout {
+  display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem;
+}
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: flex; gap: 1.2rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline-item:last-child { border-bottom: none; }
+.tl-dot {
+  width: 56px; min-width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.04em; text-align: center;
+  line-height: 1.1; flex-shrink: 0;
+}
+.tl-dot-navy { background: var(--navy); color: var(--white); }
+.tl-dot-red  { background: var(--red);  color: var(--white); }
+.tl-body { padding-top: 0.5rem; }
+.tl-body strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 700; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  display: block; margin-bottom: 0.5rem;
+}
+.tl-body p { font-size: 0.9rem; line-height: 1.72; color: var(--muted); }
+.tl-body em { font-style: normal; color: var(--navy); font-weight: 500; }
+
+.autor-box {
+  background: var(--active-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.8rem 1.5rem;
+  align-self: start; position: sticky; top: 80px;
+}
+.autor-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 0.6rem;
+}
+.autor-nombre {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem; font-weight: 900;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 1rem;
+}
+.autor-bio {
+  font-size: 0.87rem; line-height: 1.7; color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+.autor-quote {
+  border-top: 1px solid var(--border); padding-top: 1.2rem;
+}
+.autor-quote p {
+  font-size: 0.88rem; line-height: 1.72; color: var(--navy);
+  font-style: italic;
+}
+
+/* ── QUÉ ES ── */
+.que-es-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.que-es-text { font-size: 0.93rem; line-height: 1.78; color: var(--text); }
+.que-es-text p { margin-bottom: 1rem; }
+.que-es-text strong { color: var(--navy); }
+.no-es-box {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.6rem 1.5rem;
+}
+.no-es-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+}
+.no-es-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.no-es-list li {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.9rem; color: var(--text);
+  padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+}
+.no-es-list li:last-child { border-bottom: none; }
+.no-es-x {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 800; color: var(--red);
+}
+
+/* ── COMPARE TABLE ── */
+.compare-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--white); border-radius: 8px;
+  overflow: hidden; border: 1.5px solid var(--border);
+}
+.compare-table thead tr { background: var(--navy); }
+.compare-table th {
+  padding: 1rem 1.4rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65); text-align: left;
+}
+.compare-table th:nth-child(3) { color: #FFD0D6; }
+.compare-table td {
+  padding: 0.95rem 1.4rem;
+  font-size: 0.88rem; border-bottom: 1px solid var(--border);
+  color: var(--text); vertical-align: top; line-height: 1.5;
+}
+.compare-table td:first-child {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); width: 22%;
+}
+.compare-table td:nth-child(2) { color: var(--muted); font-weight: 300; }
+.compare-table td:nth-child(3) { color: var(--navy); font-weight: 500; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: var(--active-bg); }
+
+/* ── PROBLEMA / 15 FALLAS ── */
+.section-sublabel {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.2rem;
+  padding-left: 1.15rem;
+}
+.diag-featured {
+  background: var(--active-bg); border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0; padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem; font-size: 0.93rem; line-height: 1.72; color: var(--text);
+}
+.diag-featured strong { color: var(--navy); }
+.falla-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem;
+  margin-bottom: 2.5rem;
+}
+.falla-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.3rem 1.2rem;
+  transition: all 0.2s;
+}
+.falla-card:hover {
+  border-color: var(--navy-mid);
+  box-shadow: 0 4px 14px rgba(27,58,107,0.09);
+  transform: translateY(-2px);
+}
+.falla-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 800;
+  letter-spacing: 0.18em; color: var(--red);
+  display: block; margin-bottom: 0.5rem;
+}
+.falla-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 0.5rem;
+}
+.falla-desc { font-size: 0.84rem; line-height: 1.65; color: var(--muted); }
+
+/* ── GAUGE ── */
+.gauge-section {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.8rem; margin-bottom: 2rem;
+}
+.gauge-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.4rem;
+}
+.gauge-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.gauge-row { display: flex; align-items: center; gap: 1rem; }
+.gauge-label {
+  font-size: 0.85rem; color: var(--text);
+  min-width: 180px; flex-shrink: 0;
+}
+.gauge-track {
+  flex: 1; height: 6px; background: var(--bg);
+  border-radius: 3px; overflow: hidden;
+}
+.gauge-fill { height: 100%; background: var(--navy); border-radius: 3px; }
+.gauge-pct {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--navy); min-width: 36px; text-align: right;
+}
+
+/* ── SUMA CERO ── */
+.sumacero-layout { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; }
+.sc-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.8rem 1.6rem;
+}
+.sc-card-red { border-color: var(--red); }
+.sc-card-navy { border-color: var(--navy); }
+.sc-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.sc-label-red { color: var(--red); }
+.sc-label-navy { color: var(--navy); }
+.sc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem; font-weight: 800;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 0.8rem;
+}
+.sc-desc { font-size: 0.88rem; line-height: 1.7; color: var(--muted); margin-bottom: 1rem; }
+.sc-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.sc-list li {
+  font-size: 0.85rem; color: var(--text); padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border); line-height: 1.4;
+}
+.sc-list li:last-child { border-bottom: none; }
+.sumacero-vs {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem; font-weight: 900;
+  color: var(--muted); letter-spacing: 0.1em; text-align: center;
+}
+.paradoja-box {
+  background: var(--navy-dark); color: var(--white);
+  border-radius: 8px; padding: 1.8rem 1.8rem;
+  margin-top: 2rem;
+}
+.paradoja-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 0.8rem;
+}
+.paradoja-box p { font-size: 0.9rem; line-height: 1.72; color: rgba(255,255,255,0.75); }
+
+/* ── VACUNA ESTRUCTURAL ── */
+.vacuna-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; margin-bottom: 2rem; }
+.vacuna-pregunta {
+  background: var(--active-bg); border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0; padding: 1.4rem 1.6rem; margin-bottom: 1.5rem;
+}
+.vacuna-q-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 0.6rem;
+}
+.vacuna-q-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.03em; line-height: 1.3;
+}
+.vacuna-respuesta { font-size: 0.9rem; line-height: 1.72; color: var(--text); }
+.vacuna-respuesta p { margin-bottom: 0.9rem; }
+.vacuna-respuesta strong { color: var(--navy); }
+.vacuna-respuesta em { font-style: italic; color: var(--muted); }
+.reinv-items { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; }
+.reinv-item {
+  display: flex; gap: 1rem;
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1rem 1.2rem;
+}
+.reinv-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 800;
+  color: var(--red); min-width: 28px;
+}
+.reinv-body strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  display: block; margin-bottom: 0.3rem;
+}
+.reinv-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+.arq-box {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.5rem;
+}
+.arq-box-navy { border-color: var(--navy); }
+.arq-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.5rem;
+}
+.arq-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem; font-weight: 800;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.arq-title.red { color: var(--red); }
+.arq-title.navy { color: var(--navy); }
+.arq-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.arq-list li {
+  font-size: 0.83rem; color: var(--text);
+  padding: 0.3rem 0; border-bottom: 1px solid var(--border); line-height: 1.4;
+}
+.arq-list li:last-child { border-bottom: none; }
+.arq-vs {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.88rem; font-weight: 800;
+  color: var(--muted); text-align: center;
+  margin: 0.8rem 0; letter-spacing: 0.15em;
+}
+.arq-insight {
+  background: var(--active-bg); border-radius: 6px;
+  padding: 1rem 1.2rem; margin-top: 1rem;
+  font-size: 0.85rem; line-height: 1.65; color: var(--navy);
+}
+.vacuna-final {
+  background: var(--active-bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.8rem;
+  display: flex; gap: 1.2rem; align-items: flex-start;
+}
+.vacuna-final-icon {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--navy); flex-shrink: 0;
+}
+.vacuna-final-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 0.6rem;
+}
+.vacuna-final-body p {
+  font-size: 0.88rem; line-height: 1.72; color: var(--text);
+  margin-bottom: 0.7rem;
+}
+.vacuna-final-body p:last-child { margin-bottom: 0; }
+.vacuna-final-body strong { color: var(--navy); }
+
+/* ── PRINCIPIOS ── */
+.principles-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;
+}
+.principle-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.6rem 1.4rem;
+  transition: all 0.2s;
+}
+.principle-card:hover {
+  border-color: var(--navy-mid);
+  box-shadow: 0 4px 16px rgba(27,58,107,0.1);
+  transform: translateY(-2px);
+}
+.badge {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 800;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 3px;
+  margin-bottom: 0.9rem; color: var(--white);
+}
+.badge-navy { background: var(--navy); }
+.badge-red  { background: var(--red); }
+.badge-green { background: #2E7D32; }
+.badge-teal { background: #00695C; }
+.badge-blue { background: var(--navy-mid); }
+.badge-gold { background: #B8860B; }
+.card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 0.6rem;
+}
+.card-desc { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
+
+/* ── PROCESO ── */
+.proceso-list { display: flex; flex-direction: column; }
+.proceso-step {
+  display: flex; gap: 1.2rem;
+  padding: 1.4rem 0; border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.proceso-step:last-child { border-bottom: none; }
+.proceso-num {
+  width: 38px; height: 38px; min-width: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem; font-weight: 800; color: var(--navy);
+  transition: all 0.2s;
+}
+.proceso-step:hover .proceso-num {
+  background: var(--navy); color: var(--white);
+}
+.proceso-body { padding-top: 0.45rem; flex: 1; }
+.proceso-body strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.06em; display: block; margin-bottom: 0.35rem;
+}
+.proceso-body p { font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
+
+/* ── ECOSISTEMA ── */
+.eco-intro {
+  background: var(--navy-dark); border-radius: 8px;
+  padding: 2rem 2rem; margin-bottom: 2rem; color: var(--white);
+  display: flex; gap: 2rem; align-items: center;
+}
+.eco-intro-text { flex: 1; }
+.eco-intro-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 0.6rem;
+}
+.eco-intro-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+}
+.eco-intro-title span { color: var(--red); }
+.eco-intro-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+.eco-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+.eco-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.4rem 1.6rem;
+  display: grid; grid-template-columns: 200px 1fr auto;
+  gap: 1.5rem; align-items: center;
+  transition: all 0.2s;
+}
+.eco-card:hover {
+  border-color: var(--navy-mid);
+  box-shadow: 0 4px 14px rgba(27,58,107,0.09);
+}
+.eco-card.eco-mother {
+  border-color: var(--red); background: #fff5f7;
+  border-width: 2px;
+}
+.eco-card-meta {}
+.eco-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.35rem;
+}
+.eco-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem; font-weight: 900;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.eco-card.eco-mother .eco-name { color: var(--red); }
+.eco-desc { font-size: 0.88rem; line-height: 1.68; color: var(--muted); }
+.eco-desc strong { color: var(--navy); }
+.eco-link {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+  white-space: nowrap; padding: 0.5rem 1rem;
+  border: 1.5px solid var(--border); border-radius: 4px;
+  transition: all 0.2s;
+}
+.eco-link:hover { border-color: var(--navy); }
+
+/* ── ICONOS DE SECCIÓN ── */
+.eco-card-icon {
+  font-size: 1.45rem; color: var(--navy);
+  margin-bottom: 0.45rem; line-height: 1; display: block;
+}
+.eco-card.eco-mother .eco-card-icon { color: var(--red); }
+.eco-card-logo {
+  height: 46px; width: auto; display: block;
+  margin-bottom: 0.45rem; border-radius: 6px;
+}
+.principle-icon {
+  font-size: 1.55rem; color: var(--navy);
+  margin-bottom: 0.55rem; line-height: 1; display: block;
+}
+.falla-icon {
+  font-size: 1.15rem; color: var(--navy-mid);
+  margin-bottom: 0.35rem; line-height: 1; display: block;
+}
+.proceso-body strong .fi {
+  font-size: 0.9rem; margin-right: 0.35rem;
+  color: var(--red); vertical-align: middle;
+}
+.no-es-x .fi { font-size: 0.82rem; }
+
+.eco-layer-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); padding: 0.5rem 0 0.3rem;
+}
+
+/* ── REFERENTES ── */
+.ref-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem;
+}
+.ref-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.4rem 1.3rem;
+  transition: all 0.2s;
+}
+.ref-card:hover {
+  border-color: var(--navy-mid);
+  box-shadow: 0 4px 14px rgba(27,58,107,0.09);
+  transform: translateY(-2px);
+}
+.ref-area {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 0.4rem;
+}
+.ref-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 800;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 0.5rem;
+}
+.ref-obra { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; font-style: italic; }
+.ref-aporte { font-size: 0.84rem; line-height: 1.65; color: var(--text); }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.faq-item {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+}
+.faq-q {
+  padding: 1.1rem 1.4rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.98rem; font-weight: 700;
+  color: var(--navy); text-transform: uppercase;
+  letter-spacing: 0.05em; cursor: pointer;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 1rem; line-height: 1.3;
+  user-select: none;
+}
+.faq-q::after {
+  content: '−';
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem; color: var(--red); flex-shrink: 0; font-weight: 300;
+}
+.faq-a {
+  padding: 0 1.4rem 1.2rem;
+  font-size: 0.9rem; line-height: 1.75; color: var(--muted);
+  border-top: 1px solid var(--border); padding-top: 1rem;
+}
+
+/* ── VISION BANNER ── */
+.vision-banner {
+  background: var(--navy-dark); color: var(--white);
+  padding: 5rem 2rem; text-align: center;
+}
+.vision-inner { max-width: 680px; margin: 0 auto; }
+.vision-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 1.4rem;
+}
+.vision-quote {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  line-height: 1.12; margin-bottom: 1.2rem;
+}
+.vision-quote span { color: var(--red); }
+.vision-sub {
+  font-size: 0.95rem; line-height: 1.78;
+  color: rgba(255,255,255,0.5); margin-bottom: 2.5rem;
+}
+.vision-btns { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0A1628; padding: 2rem;
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 800;
+  color: rgba(255,255,255,0.75); text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.footer-brand span { color: var(--red); }
+.footer-eco {
+  display: flex; gap: 1.2rem;
+}
+.footer-eco a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-eco a:hover { color: rgba(255,255,255,0.75); }
+.footer-note {
+  font-size: 0.72rem; color: rgba(255,255,255,0.25);
+  letter-spacing: 0.05em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .topbar-eco { display: none; }
+  .stats-bar { gap: 1rem; }
+  .origen-layout { grid-template-columns: 1fr; }
+  .autor-box { position: static; }
+  .que-es-grid { grid-template-columns: 1fr; }
+  .falla-grid { grid-template-columns: repeat(2, 1fr); }
+  .principles-grid { grid-template-columns: 1fr; }
+  .ref-grid { grid-template-columns: 1fr; }
+  .sumacero-layout { grid-template-columns: 1fr; }
+  .sumacero-vs { padding: 0.5rem; }
+  .vacuna-layout { grid-template-columns: 1fr; }
+  .eco-card { grid-template-columns: 1fr; }
+  .eco-link { display: none; }
+  footer { flex-direction: column; text-align: center; }
+  .footer-eco { display: none; }
+}
+@media (max-width: 500px) {
+  .falla-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">GOBERNANZA <span>SOLUCIONARIA</span> · MARCO TEÓRICO DEL ECOSISTEMA CÍVICO CUBANO</div>
+  <div class="topbar-eco">
+    <a href="#" class="eco-active">GS</a>
+    <a href="#">Entre Todos</a>
+    <a href="#">CxC</a>
+    <a href="#">IA.Cuba</a>
+    <a href="#">Cuba.nos</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <img src="../Logos/GS Rectangular.png" alt="Gobernanza Solucionaria" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#origen">Origen</a></li>
+    <li><a href="#que-es">¿Qué es?</a></li>
+    <li><a href="#problema">El Problema</a></li>
+    <li><a href="#vacuna">La Vacuna</a></li>
+    <li><a href="#principios">Principios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#ecosistema">Ecosistema</a></li>
+    <li><a href="#ecosistema" class="nav-cta">Únete</a></li>
+  </ul>
+</nav>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Pasos del proceso</div>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Pilares PAM</div>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">350K+</div>
+    <div class="stat-label">Palabras del corpus</div>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">56</div>
+    <div class="stat-label">Documentos fundacionales</div>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Plataformas del ecosistema</div>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">MOGO</div>
+    <div class="stat-label">Mayor bien, menor daño</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <img src="../Logos/GS Ecosystem Main Oficial sin fondo.png" alt="Gobernanza Solucionaria" class="hero-logo-img">
+    </div>
+    <div class="hero-tag">PARADIGMA POST-IDEOLÓGICO · BASADO EN EVIDENCIA · SIGLO XXI</div>
+    <h1 class="hero-title">GOBERNAR ES <span class="accent">RESOLVER.</span></h1>
+    <div class="hero-subtitle">No es ganar. No es un bando. Es la mejor solución para todos.</div>
+    <p class="hero-desc">La Gobernanza Solucionaria propone reemplazar la lógica del poder partidista por un proceso deliberativo basado en evidencia, ética y participación ciudadana real. El marco teórico que da origen a un ecosistema cívico completo.</p>
+    <div class="hero-btns">
+      <a href="#proceso" class="btn btn-red"><i class="fi fi-br-play"></i> Ver el proceso</a>
+      <a href="#que-es" class="btn btn-navy">Qué es GS</a>
+      <a href="#ecosistema" class="btn btn-outline">El ecosistema</a>
+    </div>
+    <div class="hero-quote">
+      <blockquote>"Con todos y para el bien de todos."</blockquote>
+      <cite>— José Martí</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ORIGEN -->
+<div class="section-wrap section-wrap-white" id="origen">
+  <div class="container">
+    <div class="section-title">El Origen del Proyecto</div>
+    <div class="section-desc">La Gobernanza Solucionaria no nació en la academia. Nació en el aula, y fue acelerada por la calle.</div>
+
+    <div class="origen-layout">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-dot tl-dot-navy">1999</div>
+          <div class="tl-body">
+            <strong>Del partido único a la democracia real</strong>
+            <p>Michel Estopiñán Cuba emigra de Cuba. Vive en Uruguay, Estados Unidos, Alemania y España. Observa democracias pluripartidistas desde adentro: campañas con descalificación mutua, el papel determinante del dinero, ciudadanos resignados a elegir al «menos peor». El desencanto no era con la democracia como ideal — era con su forma de implementación.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot tl-dot-navy">2009</div>
+          <div class="tl-body">
+            <strong>El aula como laboratorio político</strong>
+            <p>Trabajando en Miami-Dade Public Schools, Michel crea el <em>Club de Educación Humana</em> — fusión de tres grupos estudiantiles sobre justicia social, derechos de los animales y medio ambiente. En 2009 recibe reconocimiento nacional como mejor práctica en educación del carácter. Descubre a Zoe Weil y el concepto del <em>solutionary</em>: alguien que identifica problemas sistémicos y propone soluciones que no causan daño adicional. La pregunta surge sola: ¿por qué el gobierno no funciona con esa misma lógica?</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot tl-dot-red">11J · 2021</div>
+          <div class="tl-body">
+            <strong>El acelerador: las protestas en Cuba</strong>
+            <p>El 11 de julio de 2021, Cuba vive protestas históricas espontáneas. Michel y otros cubanos crean <em>Cubanos por el Cambio</em>. Al presentar la posibilidad de un gobierno no ideológico basado en soluciones, muchos encuentran esperanza — no solo ante la represión, sino ante el miedo a lo que vendría después. El proyecto deja de ser teoría: responde a una necesidad real.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot tl-dot-navy">2026</div>
+          <div class="tl-body">
+            <strong>De la teoría a la plataforma</strong>
+            <p>56 documentos de trabajo, dos papers académicos, y la plataforma <em>Entre Todos</em> en funcionamiento con propuestas de más de 46 organizaciones cubanas. La Gobernanza Solucionaria es hoy un corpus de más de 350.000 palabras y un ecosistema digital operativo de cinco plataformas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="autor-box">
+        <div class="autor-tag">AUTOR</div>
+        <div class="autor-nombre">Michel Estopiñán Cuba</div>
+        <p class="autor-bio">Educador, activista cívico y pensador político cubano. Ha vivido en Cuba, Uruguay, Estados Unidos, Alemania y España. Docente en instituciones públicas de Florida y Berlín. Fundador del proyecto Gobernanza Solucionaria y de la plataforma Entre Todos.</p>
+        <div class="autor-quote">
+          <p>«Si enseñamos a los niños a ser solucionarios, ¿por qué el gobierno no debería funcionar con la misma lógica? La transición fue conceptualmente lógica: del aula al Estado.»</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUÉ ES -->
+<div class="section-wrap" id="que-es">
+  <div class="container">
+    <div class="section-title">¿Qué es la Gobernanza Solucionaria?</div>
+    <div class="section-desc">Un sistema de gobierno que trasciende las divisiones ideológicas tradicionales para centrarse en la búsqueda de soluciones óptimas a problemas concretos.</div>
+
+    <div class="que-es-grid">
+      <div class="que-es-text">
+        <p>La GS no es una ideología más. Es un <strong>marco procedimental</strong> para la toma de decisiones colectivas, guiado por principios de eficiencia, transparencia, ética y participación ciudadana real.</p>
+        <p>Los gobernantes son seleccionados no por sus convicciones políticas, sino por su <strong>capacidad de gestión, integridad y compromiso con el bien común</strong>. Las decisiones se toman desde un proceso deliberativo transparente, ético y basado en evidencia.</p>
+        <p>Igual que un CEO no impone su agenda personal, sino que ejecuta la visión colectiva — el gobernante solucionario implementa el plan que el pueblo construyó.</p>
+        <p>No es antipartidista por principio. Es <strong>postpartidista por diseño</strong>: hace irrelevante la afiliación ideológica como mecanismo de acceso al poder, porque el único criterio es el resultado.</p>
+      </div>
+      <div class="no-es-box">
+        <div class="no-es-title">La GS no es…</div>
+        <ul class="no-es-list">
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Una ideología política</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Apolítica ni antipartidos</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Una utopía sin precedentes</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Antropocéntrica</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Un partido en sí misma</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Solo para Cuba</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Un gobierno sin liderazgo</li>
+          <li><span class="no-es-x"><i class="fi fi-br-times"></i></span> Una tecnocracia sin participación</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-sublabel" style="margin-top:2.5rem;">CONTRASTE DIRECTO: SISTEMA TRADICIONAL VS. GOBERNANZA SOLUCIONARIA</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Criterio</th>
+          <th>Sistema Partidista</th>
+          <th>Gobernanza Solucionaria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Criterio de acceso al poder</td>
+          <td>Ganar elecciones por afiliación ideológica</td>
+          <td>Capacidad demostrada + mandato ciudadano continuo</td>
+        </tr>
+        <tr>
+          <td>Filtro de propuestas</td>
+          <td>Lealtad ideológica del partido</td>
+          <td>Evidencia, ética e impacto real (MOGO)</td>
+        </tr>
+        <tr>
+          <td>Rol de la oposición</td>
+          <td>Obstaculizar para que el gobierno fracase</td>
+          <td>Proponer mejores soluciones — todos ganan si funciona</td>
+        </tr>
+        <tr>
+          <td>Horizonte temporal</td>
+          <td>El ciclo electoral (4 años)</td>
+          <td>El impacto a largo plazo sobre las generaciones</td>
+        </tr>
+        <tr>
+          <td>Participación ciudadana</td>
+          <td>Vota cada 4 años y espera</td>
+          <td>Delibera y evalúa de forma continua por problema</td>
+        </tr>
+        <tr>
+          <td>Alcance ético</td>
+          <td>Personas (votantes)</td>
+          <td>Personas + Animales + Medio Ambiente (PAM)</td>
+        </tr>
+        <tr>
+          <td>Temas técnicos</td>
+          <td>Se politizan según la narrativa del partido</td>
+          <td>Comités de expertos — la ciencia filtra, no la ideología</td>
+        </tr>
+        <tr>
+          <td>Transparencia</td>
+          <td>Estratégica: cuando conviene</td>
+          <td>Estructural: inherente al proceso en cada paso</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- EL PROBLEMA -->
+<div class="section-wrap section-wrap-white" id="problema">
+  <div class="container">
+    <div class="section-title">El Problema: El Sistema Partidista</div>
+    <div class="section-desc">El sistema de partidos no falla por accidente. Falla por diseño. Y ese diseño tiene nombre y consecuencias documentadas.</div>
+
+    <div class="diag-featured">
+      <p>Los partidos políticos no son malos por definición. El problema es estructural: <strong>un sistema donde ganar es más importante que gobernar produce, inevitablemente, estos resultados.</strong> No es un fallo de personas. Es un fallo de diseño. Y los fallos de diseño se resuelven con un diseño diferente.</p>
+    </div>
+
+    <div class="section-sublabel">15 FALLAS DOCUMENTADAS DEL SISTEMA PARTIDISTA</div>
+    <div class="falla-grid">
+      <div class="falla-card">
+        <span class="falla-num">01</span>
+        <i class="fi fi-br-expand falla-icon"></i>
+        <div class="falla-title">Polarización extrema</div>
+        <div class="falla-desc">Las posturas políticas se radicalizan progresivamente, convirtiendo cada debate en confrontación de identidades. Encontrar puntos en común se vuelve imposible cuando el oponente es el enemigo.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">02</span>
+        <i class="fi fi-br-users falla-icon"></i>
+        <div class="falla-title">Tribalismo político</div>
+        <div class="falla-desc">La lealtad al partido supera cualquier análisis racional. Las ideas del «otro lado» se rechazan automáticamente sin importar su mérito. El partido piensa; el seguidor obedece.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">03</span>
+        <i class="fi fi-br-angry falla-icon"></i>
+        <div class="falla-title">Demonización del oponente</div>
+        <div class="falla-desc">Los adversarios políticos dejan de ser ciudadanos con ideas distintas para convertirse en enemigos morales. Sin esta demonización no hay recaudación, no hay movilización, no hay victorias.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">04</span>
+        <i class="fi fi-br-ban falla-icon"></i>
+        <div class="falla-title">Parálisis legislativa</div>
+        <div class="falla-desc">Cuando cada propuesta del oponente debe bloquearse por principio, el resultado es el estancamiento total. Leyes urgentes y reformas necesarias quedan suspendidas indefinidamente.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">05</span>
+        <i class="fi fi-br-user-tag falla-icon"></i>
+        <div class="falla-title">Políticas de identidad</div>
+        <div class="falla-desc">La política fragmentada en identidades grupales maximiza la movilización electoral a costa de fracturar la sociedad. Las divisiones se amplifican porque convienen electoralmente.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">06</span>
+        <i class="fi fi-br-building falla-icon"></i>
+        <div class="falla-title">Erosión institucional</div>
+        <div class="falla-desc">La crítica partidista permanente a las instituciones las debilita progresivamente. La confianza pública en el gobierno, la justicia y los organismos democráticos cae sin parar.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">07</span>
+        <i class="fi fi-br-book falla-icon"></i>
+        <div class="falla-title">Ideología sobre evidencia</div>
+        <div class="falla-desc">Las decisiones se toman para ser coherentes con la doctrina del partido, no con los datos disponibles. La ciencia es bienvenida solo cuando confirma la posición ideológica previa.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">08</span>
+        <i class="fi fi-br-calendar falla-icon"></i>
+        <div class="falla-title">Cortoplacismo electoral</div>
+        <div class="falla-desc">Los ciclos electorales incentivan soluciones que generen titulares, no soluciones duraderas. Los problemas complejos requieren décadas. Las elecciones, cuatro años.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">09</span>
+        <i class="fi fi-br-newspaper falla-icon"></i>
+        <div class="falla-title">Manipulación informativa</div>
+        <div class="falla-desc">La desinformación prolifera porque beneficia a quienes la distribuyen. La narrativa importa más que los hechos, y la verdad se vuelve un instrumento táctico.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">10</span>
+        <i class="fi fi-br-lock falla-icon"></i>
+        <div class="falla-title">Obstrucción del progreso</div>
+        <div class="falla-desc">Iniciativas con amplio consenso ciudadano se bloquean porque beneficiar al oponente es peor que no resolver el problema. El partido gana; la sociedad pierde.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">11</span>
+        <i class="fi fi-br-sad falla-icon"></i>
+        <div class="falla-title">Desencanto democrático</div>
+        <div class="falla-desc">Cuando el sistema demuestra una y otra vez que no resuelve los problemas reales, la ciudadanía deja de creer en él. La abstención y el nihilismo político son síntomas, no causas.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">12</span>
+        <i class="fi fi-br-megaphone falla-icon"></i>
+        <div class="falla-title">Auge del populismo</div>
+        <div class="falla-desc">La frustración con la política tradicional alimenta extremismos que prometen soluciones simples a problemas complejos. El sistema fallido crea a sus propios verdugos.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">13</span>
+        <i class="fi fi-br-handshake falla-icon"></i>
+        <div class="falla-title">El acuerdo como debilidad</div>
+        <div class="falla-desc">En la cultura partidista, el compromiso se percibe como traición. La intransigencia se celebra como fortaleza. Ninguna sociedad puede funcionar sin capacidad de acordar.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">14</span>
+        <i class="fi fi-br-flask falla-icon"></i>
+        <div class="falla-title">Politización de lo técnico</div>
+        <div class="falla-desc">Vacunas, clima, economía, salud pública: temas que requieren criterio científico se convierten en campos de batalla ideológica donde importa quién propone, no si funciona.</div>
+      </div>
+      <div class="falla-card">
+        <span class="falla-num">15</span>
+        <i class="fi fi-br-comment falla-icon"></i>
+        <div class="falla-title">Degradación del discurso</div>
+        <div class="falla-desc">El debate político se vuelve más agresivo, personal e improductivo. La retórica combativa genera audiencia y financiamiento. El intercambio racional de ideas no da votos.</div>
+      </div>
+    </div>
+
+    <div class="gauge-section">
+      <div class="gauge-title">Intensidad de cada falla en sistemas partidistas actuales</div>
+      <div class="gauge-list">
+        <div class="gauge-row">
+          <div class="gauge-label">Polarización extrema</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:95%"></div></div>
+          <div class="gauge-pct">95%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Tribalismo político</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:90%"></div></div>
+          <div class="gauge-pct">90%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Desencanto democrático</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:88%"></div></div>
+          <div class="gauge-pct">88%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Parálisis legislativa</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div>
+          <div class="gauge-pct">85%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Ideología sobre evidencia</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:82%"></div></div>
+          <div class="gauge-pct">82%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Manipulación informativa</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:80%"></div></div>
+          <div class="gauge-pct">80%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Erosión institucional</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:78%"></div></div>
+          <div class="gauge-pct">78%</div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-label">Cortoplacismo electoral</div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:75%"></div></div>
+          <div class="gauge-pct">75%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-sublabel" style="margin-top:2.5rem;">LA LÓGICA DEL JUEGO: SUMA CERO VS. SUMA POSITIVA</div>
+    <div class="sumacero-layout">
+      <div class="sc-card sc-card-red">
+        <div class="sc-label sc-label-red">SISTEMA ACTUAL</div>
+        <div class="sc-title">Juego de Suma Cero</div>
+        <p class="sc-desc">Lo que gana un bando, lo pierde el otro. Colaborar con el adversario se percibe como debilidad. El criterio no es si funciona — es quién lo propone. Las elecciones son juegos <strong>finitos</strong>: hay ganador, hay fin, hay botín.</p>
+        <ul class="sc-list">
+          <li>Las propuestas se evalúan por su origen, no por su mérito</li>
+          <li>La oposición tiene incentivos para que el gobierno fracase</li>
+          <li>El talento colectivo se desperdicia en confrontación permanente</li>
+          <li>El ciudadano elige al «menos peor» cada 4 años</li>
+        </ul>
+      </div>
+      <div class="sumacero-vs">VS</div>
+      <div class="sc-card sc-card-navy">
+        <div class="sc-label sc-label-navy">GOBERNANZA SOLUCIONARIA</div>
+        <div class="sc-title">Juego de Suma Positiva</div>
+        <p class="sc-desc">Diferentes actores contribuyen a generar soluciones que benefician al conjunto. El criterio pasa de «quién gana» a «qué solución funciona». La sociedad es un juego <strong>infinito</strong>: un proceso continuo que debe sostenerse, no ganarse.</p>
+        <ul class="sc-list">
+          <li>Las propuestas compiten por calidad, sin importar su bandera</li>
+          <li>La oposición tiene incentivos para proponer mejores soluciones</li>
+          <li>El talento colectivo se orienta a resolver problemas reales</li>
+          <li>El ciudadano delibera y evalúa de forma continua</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paradoja-box">
+      <div class="paradoja-label">LA PARADOJA DEL DESPERDICIO HUMANO</div>
+      <p>Cuando la energía política se orienta principalmente a ganar batallas contra el adversario, la sociedad pierde una proporción enorme de su capacidad colectiva de resolución de problemas. Cada problema que permanece sin resolver mientras los partidos se confrontan es un costo real: en vidas, en recursos, en oportunidades perdidas. La Gobernanza Solucionaria propone redirigir esa energía directamente hacia soluciones constructivas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VACUNA ESTRUCTURAL -->
+<div class="section-wrap" id="vacuna">
+  <div class="container">
+    <div class="section-title">La Vacuna Estructural</div>
+    <div class="section-desc">Por qué eliminar el sistema partidista es la única forma de impedir que un totalitarismo se disfrace, cambie de nombre y vuelva al poder.</div>
+
+    <div class="vacuna-layout">
+      <div>
+        <div class="vacuna-pregunta">
+          <div class="vacuna-q-label">LA PREGUNTA FUNDAMENTAL</div>
+          <div class="vacuna-q-text">¿Cómo se le impide a una dictadura que lleva décadas en el poder volver a gobernar después de una transición?</div>
+        </div>
+        <div class="vacuna-respuesta">
+          <p>La respuesta instintiva es: <em>no permitas que su partido participe en elecciones.</em> Pero esa respuesta falla. Siempre.</p>
+          <p>Los partidos se disuelven en papel y se reconstituyen con otro nombre. Los cuadros cambian de chaqueta. Las ideas se empaquetan en discurso nuevo. Si el mecanismo para acceder al poder sigue siendo ganar una elección partidista, <strong>el instrumento de retorno sigue intacto</strong>.</p>
+          <p>La pregunta correcta no es cuál partido prohíbes. Es: ¿cómo diseñas un sistema donde la maquinaria totalitaria no tiene puerta de entrada?</p>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <div class="section-sublabel">CÓMO SE REINVENTA UN TOTALITARISMO</div>
+          <div class="reinv-items">
+            <div class="reinv-item">
+              <div class="reinv-num">01</div>
+              <div class="reinv-body">
+                <strong>Cambio de nombre</strong>
+                <p>El partido oficial se disuelve, pero los mismos cuadros forman «movimientos ciudadanos» o «partidos independientes».</p>
+              </div>
+            </div>
+            <div class="reinv-item">
+              <div class="reinv-num">02</div>
+              <div class="reinv-body">
+                <strong>Apropiación del discurso opositor</strong>
+                <p>Adoptan el lenguaje de la libertad, la reforma y la democracia. La diferencia entre ellos y la oposición se vuelve indistinguible para el votante desinformado.</p>
+              </div>
+            </div>
+            <div class="reinv-item">
+              <div class="reinv-num">03</div>
+              <div class="reinv-body">
+                <strong>Captura institucional residual</strong>
+                <p>Controlan el registro electoral, los medios, la burocracia y las fuerzas armadas. Cuando llegan las elecciones, las condiciones del juego ya están manipuladas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="arq-box">
+          <div class="arq-label">SISTEMA PARTIDISTA</div>
+          <div class="arq-title red">Puerta abierta</div>
+          <ul class="arq-list">
+            <li>Acceso al poder = ganar elecciones</li>
+            <li>Sin filtro de resultados o comportamiento previo</li>
+            <li>El poder se acumula en quien controla la narrativa</li>
+            <li>Un partido disuelto hoy puede presentarse mañana con otro nombre</li>
+            <li>La ideología es el pasaporte: cámbiala y pasas</li>
+          </ul>
+        </div>
+        <div class="arq-vs">VS</div>
+        <div class="arq-box arq-box-navy">
+          <div class="arq-label">GOBERNANZA SOLUCIONARIA</div>
+          <div class="arq-title navy">Cerrojo estructural</div>
+          <ul class="arq-list">
+            <li>Acceso al poder = capacidad demostrada + mandato ciudadano continuo</li>
+            <li>Sin partidos = sin vehículo de retorno ideológico</li>
+            <li>Las propuestas se evalúan por resultados, no por quién las hace</li>
+            <li>La ciudadanía retira el mandato si el desempeño falla</li>
+            <li>La ideología no es pasaporte: los hechos son el único criterio</li>
+          </ul>
+        </div>
+        <div class="arq-insight">
+          <strong>La GS no prohíbe ideologías. Las hace irrelevantes como mecanismo de poder.</strong> Cuando el criterio de acceso y permanencia es el desempeño real, ningún aparato ideológico puede capturar el Estado a largo plazo.
+        </div>
+      </div>
+    </div>
+
+    <div class="vacuna-final">
+      <div class="vacuna-final-icon">GS</div>
+      <div>
+        <div class="vacuna-final-label">POR QUÉ ESTO IMPORTA ESPECIALMENTE PARA CUBA</div>
+        <div class="vacuna-final-body">
+          <p>Cuba no tiene partidos de oposición con décadas de historia institucional. No tiene sociedad civil consolidada. Tiene una maquinaria de partido único que conoce cada grieta del sistema. En una transición que desemboque en elecciones partidistas, esa maquinaria llevaría ventaja estructural absoluta.</p>
+          <p>La Gobernanza Solucionaria no parte de cero ideológico. <strong>Parte de cero partidista.</strong> Y esa diferencia lo cambia todo: en lugar de preguntar «¿cuál partido ganará?», la pregunta pasa a ser «¿qué soluciones funcionan para los cubanos?».</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCIPIOS -->
+<div class="section-wrap section-wrap-white" id="principios">
+  <div class="container">
+    <div class="section-title">Fundamentos Filosóficos y Éticos</div>
+    <div class="section-desc">Todo el sistema descansa sobre principios éticos claros que actúan como brújula en cada decisión de gobierno.</div>
+
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="badge badge-blue">MOGO</div>
+        <i class="fi fi-br-heart principle-icon"></i>
+        <div class="card-title">Most Good, Least Harm</div>
+        <div class="card-desc">El principio ético central. Criterio último de evaluación cuando las propuestas generan tensión. Se aplica a todos los niveles: selección de candidatos, evaluación de propuestas y resolución de conflictos entre intereses legítimos.</div>
+      </div>
+      <div class="principle-card">
+        <div class="badge badge-green">PAM</div>
+        <i class="fi fi-br-leaf principle-icon"></i>
+        <div class="card-title">Personas · Animales · Medio Ambiente</div>
+        <div class="card-desc">El triple alcance ético. Toda propuesta debe considerar su impacto sobre las tres dimensiones simultáneamente. El gobierno no es solo para humanos — el bienestar animal y la salud ecosistémica son responsabilidades institucionales.</div>
+      </div>
+      <div class="principle-card">
+        <div class="badge badge-navy">TRANSPOL</div>
+        <i class="fi fi-br-arrows-h principle-icon"></i>
+        <div class="card-title">Transpoliticismo</div>
+        <div class="card-desc">Ni izquierda ni derecha. Ni apolítico ni antipolítico: <em>postpartidista</em>. Acepta la política como práctica colectiva necesaria pero rechaza la lógica del poder ideológico como mecanismo de selección y gobierno.</div>
+      </div>
+      <div class="principle-card">
+        <div class="badge badge-red">LEAST HARM</div>
+        <i class="fi fi-br-shield principle-icon"></i>
+        <div class="card-title">Principio de Menor Daño</div>
+        <div class="card-desc">Cuando no es posible eliminar completamente el daño, la acción elegida debe producir el menor daño posible. Requiere finalidad benéfica, inexistencia de alternativas menos dañinas y proporcionalidad estricta.</div>
+      </div>
+      <div class="principle-card">
+        <div class="badge badge-teal">SOLUTIONARY</div>
+        <i class="fi fi-br-bulb principle-icon"></i>
+        <div class="card-title">El Pensamiento Solucionario</div>
+        <div class="card-desc">Inspirado en Zoe Weil: un solutionary identifica problemas sistémicos y propone soluciones que no generan daños colaterales en otros sistemas. El gobierno solucionario aplica esta lógica a escala institucional.</div>
+      </div>
+      <div class="principle-card">
+        <div class="badge badge-gold">POST-IDEOLÓGICO</div>
+        <i class="fi fi-br-chart-histogram principle-icon"></i>
+        <div class="card-title">Evaluación por Evidencia</div>
+        <div class="card-desc">Las políticas se seleccionan por su capacidad demostrada de resolver problemas, no por su alineación ideológica. La ciencia, los datos y el impacto medible son la brújula — no la doctrina ni la tradición partidista.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESO -->
+<div class="section-wrap" id="proceso">
+  <div class="container">
+    <div class="section-title">El Proceso Solucionario</div>
+    <div class="section-desc">Siete pasos estructurados que reemplazan la deliberación ideológica por un ciclo de resolución de problemas basado en evidencia y participación ciudadana real.</div>
+
+    <div class="proceso-list">
+      <div class="proceso-step">
+        <div class="proceso-num">1</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-search"></i> Identificación del problema</strong>
+          <p>El proceso comienza con la definición precisa del problema — no de la solución preferida. Cualquier ciudadano, organización o experto puede proponer un problema para la agenda pública. La identificación incluye alcance, poblaciones afectadas e impacto estimado.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">2</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-microscope"></i> Investigación y diagnóstico</strong>
+          <p>Comités técnicos independientes elaboran un diagnóstico basado en evidencia disponible — datos, estudios comparados, experiencias internacionales. El diagnóstico es público y auditable. Sin ideología que filtre los datos.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">3</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-document"></i> Generación de propuestas</strong>
+          <p>Cualquier actor — ciudadano, partido, ONG, experto, think tank — puede presentar propuestas de solución. No hay restricción por origen ideológico. Una propuesta de un partido de izquierda compite en igualdad con una propuesta de un partido de derecha o de la sociedad civil.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">4</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-shield"></i> Evaluación ética (MOGO + PAM)</strong>
+          <p>Cada propuesta se evalúa con el filtro ético del sistema: ¿produce el mayor bien posible con el menor daño posible? ¿Considera el impacto sobre personas, animales y ecosistemas? Las propuestas que no superan este filtro son descartadas o reformuladas.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">5</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-comments"></i> Deliberación ciudadana</strong>
+          <p>Las propuestas que superan el filtro ético se abren a deliberación ciudadana a través de la plataforma Entre Todos. Los ciudadanos pueden informarse, debatir, votar y priorizar. El proceso garantiza acceso universal y protección contra manipulación.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">6</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-check"></i> Decisión e implementación</strong>
+          <p>La propuesta con mayor respaldo ciudadano verificado y mejor evaluación técnica se convierte en política pública. La implementación queda en manos de gestores seleccionados por capacidad — no por afiliación política. El proceso es completamente transparente.</p>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">7</div>
+        <div class="proceso-body">
+          <strong><i class="fi fi-br-refresh"></i> Evaluación y mejora continua</strong>
+          <p>Cada política implementada es evaluada periódicamente en función de los resultados reales. Si los resultados no coinciden con los objetivos, el ciclo se reinicia. El sistema aprende. No hay dogma que proteger — solo problemas que resolver.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ECOSISTEMA -->
+<div class="section-wrap section-wrap-white" id="ecosistema">
+  <div class="container">
+    <div class="section-title">El Ecosistema Cívico</div>
+    <div class="section-desc">La Gobernanza Solucionaria es el marco teórico que da origen a un ecosistema de cinco plataformas complementarias. Cada una cumple un rol específico en el proceso de transformación democrática.</div>
+
+    <div class="eco-intro">
+      <div class="eco-intro-text">
+        <div class="eco-intro-tag">ARQUITECTURA DEL ECOSISTEMA</div>
+        <div class="eco-intro-title">Cinco plataformas. <span>Un solo objetivo.</span></div>
+        <div class="eco-intro-desc">Desde el marco teórico hasta la comunidad, desde las propuestas hasta la visión — cada pieza del ecosistema tiene un rol que ninguna otra cumple. Juntas forman el sistema completo de participación cívica cubana.</div>
+      </div>
+    </div>
+
+    <div class="eco-grid">
+
+      <div class="eco-layer-label">CAPA 1 — MARCO TEÓRICO</div>
+
+      <div class="eco-card eco-mother">
+        <div class="eco-card-meta">
+          <img src="../Logos/GS Ecosystem Main Oficial sin fondo.png" alt="Gobernanza Solucionaria" class="eco-card-logo">
+          <div class="eco-tag">Fundamento · Teoría</div>
+          <div class="eco-name">Gobernanza Solucionaria</div>
+        </div>
+        <div class="eco-desc">
+          El marco teórico y filosófico que da origen a todo el ecosistema. Define los principios, el proceso de toma de decisiones, la ética pública (MOGO + PAM) y la arquitectura de gobierno post-ideológica. <strong>No es una plataforma de acción — es la brújula que orienta a todas las demás.</strong>
+        </div>
+        <a href="#inicio" class="eco-link">Estás aquí</a>
+      </div>
+
+      <div class="eco-layer-label">CAPA 2 — EJECUCIÓN</div>
+
+      <div class="eco-card">
+        <div class="eco-card-meta">
+          <img src="../Logos/GS Ecosystem ENTRE TODOS.png" alt="Entre Todos" class="eco-card-logo">
+          <div class="eco-tag">Plataforma · Consenso</div>
+          <div class="eco-name">Entre Todos</div>
+        </div>
+        <div class="eco-desc">
+          La herramienta de participación ciudadana donde la GS se ejecuta. Plataforma de deliberación y consenso que permite a los cubanos — dentro y fuera de la isla — votar, debatir y priorizar propuestas concretas. <strong>Es donde el marco teórico se convierte en acción colectiva.</strong>
+        </div>
+        <a href="#" class="eco-link">Visitar</a>
+      </div>
+
+      <div class="eco-layer-label">CAPA 3 — PROPUESTAS Y PROYECTOS</div>
+
+      <div class="eco-card">
+        <div class="eco-card-meta">
+          <img src="../Logos/GS Ecosystem Cubanos por el Cambio.png" alt="Cubanos por el Cambio" class="eco-card-logo">
+          <div class="eco-tag">Plataforma · Proyectos</div>
+          <div class="eco-name">Cubanos por el Cambio</div>
+        </div>
+        <div class="eco-desc">
+          Plataforma cívica, ética y plural que visibiliza y contabiliza a los cubanos que desean un cambio profundo de sistema. Presenta propuestas concretas para la plataforma Entre Todos. <strong>Los proyectos, las razones y la articulación del cambio necesario.</strong>
+        </div>
+        <a href="#" class="eco-link">Visitar</a>
+      </div>
+
+      <div class="eco-layer-label">CAPA 4 — VISIÓN Y CULTURA</div>
+
+      <div class="eco-card">
+        <div class="eco-card-meta">
+          <i class="fi fi-br-robot eco-card-icon"></i>
+          <div class="eco-tag">Comunidad · IA Generativa</div>
+          <div class="eco-name">IA.Cuba</div>
+        </div>
+        <div class="eco-desc">
+          Comunidad en Facebook que usa inteligencia artificial generativa para visualizar y compartir la Cuba posible. Imágenes, narrativas y visiones de la nueva Cuba que se construye desde el imaginario colectivo. <strong>El puente entre el análisis político y la esperanza cultural.</strong>
+        </div>
+        <a href="#" class="eco-link">Visitar</a>
+      </div>
+
+      <div class="eco-layer-label">CAPA 5 — COMUNIDAD Y SOCIEDAD CIVIL</div>
+
+      <div class="eco-card">
+        <div class="eco-card-meta">
+          <img src="../Logos/GS Ecosystem CUBANOS.png" alt="Cuba.nos" class="eco-card-logo">
+          <div class="eco-tag">Hub · Sociedad Civil</div>
+          <div class="eco-name">Cuba.nos</div>
+        </div>
+        <div class="eco-desc">
+          El espacio de encuentro de todos los cubanos. Foros de debate, organización comunitaria, engagement cívico, programas sin fines de lucro, think tanks y redes de colaboración. <strong>Por un gobierno donde quepamos todos.</strong> La capa de la sociedad civil que da base y legitimidad a todo el ecosistema.
+        </div>
+        <a href="#" class="eco-link">Visitar</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- REFERENTES -->
+<div class="section-wrap" id="referentes">
+  <div class="container">
+    <div class="section-title">Referentes Académicos</div>
+    <div class="section-desc">La Gobernanza Solucionaria dialoga con el pensamiento más riguroso en teoría política, ética, ciencias cognitivas y gobernanza. Estos son los pensadores que informan su marco teórico.</div>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-area">Teoría Política · Ética Comunicativa</div>
+        <div class="ref-name">Jürgen Habermas</div>
+        <div class="ref-obra">Teoría de la Acción Comunicativa, 1981</div>
+        <div class="ref-aporte">La democracia deliberativa como base del proceso GS. Las decisiones legítimas emergen de la argumentación racional en condiciones de igualdad.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Gobernanza de Bienes Comunes</div>
+        <div class="ref-name">Elinor Ostrom</div>
+        <div class="ref-obra">Governing the Commons, 1990</div>
+        <div class="ref-aporte">Premio Nobel de Economía. Demuestra que los grupos humanos pueden gestionar recursos colectivos sin colapsar ni privatizar — base del modelo de gestión GS.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Justicia · Filosofía Política</div>
+        <div class="ref-name">John Rawls</div>
+        <div class="ref-obra">A Theory of Justice, 1971</div>
+        <div class="ref-aporte">El «velo de ignorancia» como mecanismo de equidad. Las estructuras justas son aquellas que cualquier persona elegiría sin saber qué posición ocupará en la sociedad.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Ética Animal · Filosofía Moral</div>
+        <div class="ref-name">Peter Singer</div>
+        <div class="ref-obra">Animal Liberation, 1975</div>
+        <div class="ref-aporte">Fundamento del pilar Animal (PAM). La capacidad de sufrir, no la especie, determina la relevancia moral. El gobierno ético no puede ignorar el bienestar animal.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Teoría de Juegos · Cooperación</div>
+        <div class="ref-name">Robert Axelrod</div>
+        <div class="ref-obra">The Evolution of Cooperation, 1984</div>
+        <div class="ref-aporte">La cooperación emerge naturalmente cuando los actores interactúan repetidamente y los resultados son transparentes — base del modelo de suma positiva de la GS.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Ciencia Política · Populismo</div>
+        <div class="ref-name">Cas Mudde</div>
+        <div class="ref-obra">Populism, 2017</div>
+        <div class="ref-aporte">Diagnóstico del populismo como síntoma del fallo del sistema partidista liberal. La GS propone una solución estructural al vacío que el populismo explota.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Cognición · Sesgos Políticos</div>
+        <div class="ref-name">Shanto Iyengar</div>
+        <div class="ref-obra">Media Politics, 2010</div>
+        <div class="ref-aporte">Los medios y la estructura política amplifican los sesgos tribales. El diseño GS incorpora salvaguardas estructurales para reducir el impacto de la desinformación en la deliberación.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Educación Humana · Solutionary</div>
+        <div class="ref-name">Zoe Weil</div>
+        <div class="ref-obra">The World Becomes What We Teach, 2016</div>
+        <div class="ref-aporte">Fundadora del concepto <em>solutionary</em>. El pensamiento solucionario como metodología que el sistema de gobierno adopta y escala: identificar el problema sistémico y proponer soluciones que no generan daños colaterales.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-area">Liderazgo · Juego Infinito</div>
+        <div class="ref-name">Simon Sinek</div>
+        <div class="ref-obra">The Infinite Game, 2019</div>
+        <div class="ref-aporte">Las organizaciones sostenibles operan con una causa justa y visión de largo plazo, no para ganar batallas finitas. La GS aplica la lógica del juego infinito a la gobernanza pública.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section-wrap section-wrap-white" id="faq">
+  <div class="container">
+    <div class="section-title">Preguntas Frecuentes</div>
+    <div class="section-desc">Las dudas más comunes sobre el modelo. La GS no huye del debate — lo necesita.</div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">¿La Gobernanza Solucionaria es aplicable solo a Cuba?</div>
+        <div class="faq-a">No. El marco teórico es universal. Cuba es el contexto de mayor urgencia porque combina los peores elementos del sistema actual: partido único, transición inminente y ausencia de sociedad civil consolidada. Pero los principios — MOGO, PAM, transpoliticismo, deliberación basada en evidencia — son aplicables a cualquier democracia en crisis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿No es esto una forma de tecnocracia sin democracia?</div>
+        <div class="faq-a">No. La diferencia es fundamental: la tecnocracia delega las decisiones en los expertos. La GS utiliza a los expertos para informar las opciones, pero la decisión final recae en la ciudadanía a través de deliberación estructurada. Los técnicos evalúan; los ciudadanos deciden.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cómo se evita que el sistema sea capturado por intereses económicos?</div>
+        <div class="faq-a">El proceso GS no elimina el riesgo de captura — ningún sistema puede garantizarlo al 100%. Pero reduce estructuralmente su probabilidad: la transparencia obligatoria de cada paso, la evaluación continua de resultados y la posibilidad de retirar el mandato a los gestores en cualquier momento crea incentivos contrarios a la captura.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa con los partidos políticos existentes en una transición?</div>
+        <div class="faq-a">No se eliminan. Pueden participar proponiendo soluciones en el proceso deliberativo. La diferencia es que su afiliación ideológica no les garantiza ningún acceso preferencial al poder. Compiten por la calidad de sus propuestas — igual que cualquier otro actor. Si tienen buenas ideas, ganan. Si no, no.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cómo funciona Entre Todos dentro del sistema GS?</div>
+        <div class="faq-a">Entre Todos es la plataforma digital de deliberación ciudadana — el paso 5 del proceso GS. Es donde los ciudadanos cubanos pueden informarse sobre propuestas filtradas éticamente, debatir sus implicaciones, votar y generar el consenso que orienta las decisiones de gobierno. Es la GS en acción.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Por qué incluye animales y medio ambiente en los principios de gobierno?</div>
+        <div class="faq-a">Porque el bienestar no es solo humano. Un gobierno que destruye ecosistemas o institucionaliza el sufrimiento animal no puede reclamar ser ético. El principio PAM (Personas, Animales, Medio Ambiente) reconoce que la capacidad de sufrir — no la especie — es la base de la relevancia moral. Es coherente con el pensamiento ético contemporáneo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISION BANNER -->
+<div class="vision-banner">
+  <div class="vision-inner">
+    <div class="vision-tag">GOBERNANZA SOLUCIONARIA · ECOSISTEMA CÍVICO CUBANO</div>
+    <div class="vision-quote">
+      Un gobierno donde <span>quepamos todos</span> — personas, animales, ecosistemas y generaciones futuras.
+    </div>
+    <div class="vision-sub">
+      No es un partido. No es una ideología. Es un marco para gobernar mejor — construido desde Cuba, aplicable al mundo.
+    </div>
+    <div class="vision-btns">
+      <a href="#" class="btn btn-red">Entrar a Entre Todos</a>
+      <a href="#ecosistema" class="btn btn-outline-white">Ver el ecosistema</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="../Logos/GS Main Oficial.png" alt="Gobernanza Solucionaria" class="footer-logo-img">
+  </div>
+  <div class="footer-eco">
+    <a href="#">Entre Todos</a>
+    <a href="#">Cubanos por el Cambio</a>
+    <a href="#">IA.Cuba</a>
+    <a href="#">Cuba.nos</a>
+  </div>
+  <div class="footer-note">Marco teórico por Michel Estopiñán Cuba · gobernanzasolucionaria.org · 2026</div>
+</footer>
+
+</body>
+</html>
