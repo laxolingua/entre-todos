@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ENTRE TODOS">
+<meta name="theme-color" content="#002A8F">
+<meta name="description" content="Plataforma de Gobernanza Ciudadana para Cuba. Vota, propone y decide.">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="entre-todos-logo.png">
+<title>ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+:root {
+  --azul: #002A8F;
+  --rojo: #CF142B;
+  --blanco: #fff;
+  --gris: #5A6A82;
+  --bg: #F0F3FA;
+  --borde: #D8E0EC;
+  --card-bg: #fff;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: #111;
+  min-height: 100vh;
+  padding-bottom: calc(64px + var(--safe-bottom));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.app-header {
+  background: var(--azul);
+  padding: calc(var(--safe-top) + 12px) 18px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.app-logo img {
+  height: 36px;
+  width: 36px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.app-logo-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.app-logo-text span { color: var(--rojo); }
+.app-ham-btn {
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.12);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.app-ham-btn span {
+  display: block;
+  width: 18px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all .25s;
+}
+
+/* ── DRAWER MENU ── */
+.app-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+.app-drawer.open { pointer-events: all; }
+.app-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.app-drawer.open .app-drawer-overlay { opacity: 1; }
+.app-drawer-panel {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 80%;
+  max-width: 300px;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--safe-top) + 16px) 0 0;
+}
+.app-drawer.open .app-drawer-panel { transform: translateX(0); }
+.app-drawer-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gris);
+  padding: 12px 20px 8px;
+}
+.app-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #111;
+  text-decoration: none;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background .15s;
+}
+.app-drawer-item:hover { background: var(--bg); }
+.app-drawer-item i { font-size: 1rem; color: var(--azul); width: 22px; }
+.app-drawer-item.rojo { color: var(--rojo); }
+.app-drawer-item.rojo i { color: var(--rojo); }
+.app-drawer-divider { border: none; border-top: 1px solid var(--borde); margin: 6px 0; }
+.app-drawer-close {
+  margin-top: auto;
+  padding: 16px 20px calc(var(--safe-bottom) + 16px);
+  border-top: 1px solid var(--borde);
+}
+
+/* ── MAIN SCROLL AREA ── */
+.app-main { padding: 0 16px 16px; }
+
+/* ── HERO STRIP ── */
+.app-hero-strip {
+  background: linear-gradient(135deg, var(--azul), #001a6e);
+  border-radius: 0 0 16px 16px;
+  padding: 18px 18px 20px;
+  margin: 0 -16px 20px;
+  color: #fff;
+}
+.app-hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-bottom: 6px;
+}
+.app-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.app-hero-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.app-hero-counter .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4ADE80;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+
+/* ── SECTION LABEL ── */
+.app-sec-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gris);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-sec-label::after { content:''; flex:1; height:1px; background: var(--borde); }
+
+/* ── VOTE CARDS ── */
+.app-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.app-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1.5px solid var(--borde);
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform .15s, box-shadow .15s;
+  -webkit-user-select: none;
+}
+.app-card:active { transform: scale(.98); }
+.app-card.primary { border-color: var(--rojo); box-shadow: 0 2px 16px rgba(207,20,43,.12); }
+.app-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  color: #fff;
+}
+.app-card.primary .app-card-icon { background: var(--rojo); }
+.app-card-body { flex: 1; min-width: 0; }
+.app-card-fase {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gris);
+  margin-bottom: 3px;
+}
+.app-card.primary .app-card-fase { color: var(--rojo); }
+.app-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--azul);
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.app-card.primary .app-card-title { color: var(--rojo); }
+.app-card-desc {
+  font-size: .75rem;
+  color: var(--gris);
+  line-height: 1.4;
+}
+.app-card-arrow {
+  font-size: 1rem;
+  color: var(--borde);
+  flex-shrink: 0;
+}
+.app-card.primary .app-card-arrow { color: var(--rojo); }
+
+/* ── LIVE BADGE ── */
+.app-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #DCFCE7;
+  color: #166534;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-top: 5px;
+}
+.app-live-badge .live-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #16A34A;
+  animation: pulse-dot 2s infinite;
+}
+
+/* ── INFO ON DEMAND ── */
+.app-info-btn {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--azul);
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background .15s;
+}
+.app-info-btn:active { background: var(--bg); }
+.app-info-btn i { font-size: .85rem; color: var(--gris); transition: transform .25s; }
+.app-info-btn.open i { transform: rotate(180deg); }
+.app-info-panel {
+  display: none;
+  background: var(--card-bg);
+  border: 1px solid var(--borde);
+  border-radius: 0 0 10px 10px;
+  padding: 16px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: .85rem;
+  line-height: 1.7;
+  color: #333;
+}
+.app-info-panel.open { display: block; }
+
+/* ── BOTTOM NAV ── */
+.app-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  height: calc(64px + var(--safe-bottom));
+  background: var(--blanco);
+  border-top: 1px solid var(--borde);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 100;
+  padding-bottom: var(--safe-bottom);
+}
+.app-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--gris);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 8px 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color .15s;
+}
+.app-nav-item i { font-size: 1.2rem; }
+.app-nav-item.activo { color: var(--azul); }
+.app-nav-item.activo i { color: var(--azul); }
+
+/* ── INSTALL BANNER ── */
+.app-install-banner {
+  display: none;
+  background: var(--azul);
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  align-items: center;
+  gap: 12px;
+}
+.app-install-banner.show { display: flex; }
+.app-install-body { flex: 1; }
+.app-install-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+.app-install-sub { font-size: .75rem; opacity: .8; }
+.app-install-btn {
+  background: var(--rojo);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.app-install-dismiss {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px;
+}
+
+/* ── FLAG BAR ── */
+.flag-bar {
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--azul) 0%, var(--azul) 40%,
+    #fff 40%, #fff 60%,
+    var(--rojo) 60%, var(--rojo) 100%
+  );
+}
+</style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<!-- ── HEADER ── -->
+<header class="app-header">
+  <a href="app.html" class="app-logo">
+    <img src="entre-todos-logo.png" alt="ENTRE TODOS" onerror="this.style.display='none'">
+    <span class="app-logo-text">ENTRE <span>TODOS</span></span>
+  </a>
+  <button class="app-ham-btn" onclick="openDrawer()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ── DRAWER ── -->
+<div class="app-drawer" id="app-drawer">
+  <div class="app-drawer-overlay" onclick="closeDrawer()"></div>
+  <div class="app-drawer-panel">
+    <div class="app-drawer-title">ENTRE TODOS</div>
+    <a href="app.html" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-home"></i> Inicio
+    </a>
+    <a href="consulta-popular-cuba.html" class="app-drawer-item rojo" onclick="closeDrawer()">
+      <i class="fi fi-br-ballot"></i> Consulta Popular
+    </a>
+    <a href="propuestas-transicion-cuba.html" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-shuffle"></i> Propuestas Transición
+    </a>
+    <a href="candidaturas-cuba.html" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-user-trust"></i> Candidatos
+    </a>
+    <hr class="app-drawer-divider">
+    <a href="gobernanza-solucionaria-v4.html" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-book-open-cover"></i> Gobernanza Solucionaria
+    </a>
+    <a href="index.html" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-apps"></i> Plataforma completa
+    </a>
+    <hr class="app-drawer-divider">
+    <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-drawer-item" onclick="closeDrawer()">
+      <i class="fi fi-br-paper-plane"></i> Canal de Telegram
+    </a>
+    <div class="app-drawer-close">
+      <button class="app-drawer-item" onclick="closeDrawer()" style="color:var(--gris);">
+        <i class="fi fi-br-cross-small"></i> Cerrar menú
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<main class="app-main">
+
+  <!-- HERO STRIP -->
+  <div class="app-hero-strip">
+    <div class="app-hero-eyebrow">Gobernanza Ciudadana · Cuba</div>
+    <div class="app-hero-title">Tu voz cuenta.<br>Aquí se construye el cambio.</div>
+    <div class="app-hero-counter">
+      <span class="dot"></span>
+      <span id="counter-live">Cargando votos...</span>
+    </div>
+  </div>
+
+  <!-- INSTALL BANNER (se muestra solo si no está instalada) -->
+  <div class="app-install-banner" id="install-banner">
+    <div class="app-install-body">
+      <div class="app-install-title">Instala la app</div>
+      <div class="app-install-sub">Acceso directo desde tu teléfono</div>
+    </div>
+    <button class="app-install-btn" id="install-btn">Instalar</button>
+    <button class="app-install-dismiss" onclick="dismissInstall()"><i class="fi fi-br-cross-small"></i></button>
+  </div>
+
+  <!-- ACTIVO AHORA -->
+  <div class="app-sec-label">Activo ahora</div>
+  <div class="app-cards">
+
+    <!-- Consulta Popular — PRIMARY -->
+    <a href="consulta-popular-cuba.html" class="app-card primary">
+      <div class="app-card-icon">
+        <i class="fi fi-br-ballot"></i>
+      </div>
+      <div class="app-card-body">
+        <div class="app-card-fase">Consulta Popular</div>
+        <div class="app-card-title">¿Continuidad o Cambio?</div>
+        <div class="app-card-desc">Voto anónimo — Carné o pasaporte</div>
+        <div class="app-live-badge"><span class="live-dot"></span> Votando ahora</div>
+      </div>
+      <i class="fi fi-br-arrow-right app-card-arrow"></i>
+    </a>
+
+    <!-- Propuestas Transición -->
+    <a href="propuestas-transicion-cuba.html" class="app-card">
+      <div class="app-card-icon">
+        <i class="fi fi-br-shuffle"></i>
+      </div>
+      <div class="app-card-body">
+        <div class="app-card-fase">Fase 1 — Transición</div>
+        <div class="app-card-title">129 Propuestas</div>
+        <div class="app-card-desc">Evalúa y propone soluciones para Cuba</div>
+        <div class="app-live-badge"><span class="live-dot"></span> Activo</div>
+      </div>
+      <i class="fi fi-br-arrow-right app-card-arrow"></i>
+    </a>
+
+    <!-- Candidatos -->
+    <a href="candidaturas-cuba.html" class="app-card">
+      <div class="app-card-icon">
+        <i class="fi fi-br-user-trust"></i>
+      </div>
+      <div class="app-card-body">
+        <div class="app-card-fase">Fase 4 — Candidatos</div>
+        <div class="app-card-title">Candidaturas Presidenciales</div>
+        <div class="app-card-desc">Evalúa las plataformas de los candidatos</div>
+        <div class="app-live-badge"><span class="live-dot"></span> Activo</div>
+      </div>
+      <i class="fi fi-br-arrow-right app-card-arrow"></i>
+    </a>
+
+  </div>
+
+  <!-- TELEGRAM CTA -->
+  <div class="app-sec-label">Comunidad</div>
+  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener"
+     style="display:flex;align-items:center;gap:14px;background:#229ED9;border-radius:12px;padding:14px 16px;text-decoration:none;margin-bottom:24px;">
+    <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;">
+      <i class="fi fi-br-paper-plane"></i>
+    </div>
+    <div style="flex:1;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:#fff;margin-bottom:2px;">Canal de Telegram</div>
+      <div style="font-size:.75rem;color:rgba(255,255,255,.8);">Actualizaciones, nuevas causas y resultados</div>
+    </div>
+    <i class="fi fi-br-arrow-right" style="color:rgba(255,255,255,.6);font-size:.9rem;"></i>
+  </a>
+
+  <!-- DIFERENCIADORES -->
+  <div class="app-sec-label">Por qué ENTRE TODOS</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;">
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-id-card"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Verificación real</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">Carné cubano o pasaporte. Un voto por persona. Imposible manipular el conteo.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-shield-check"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Anonimato real</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">Tu identidad se convierte en un hash SHA-256. No se guarda ningún dato personal.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-chart-histogram"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Resultados auditables</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">Cada voto tiene un identificador verificable. Los resultados son públicos y exportables.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-road"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Ecosistema completo</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">No es solo una consulta. Es una hoja de ruta de 6 fases con propuestas, candidatos y gobernanza.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-bulb"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Propuestas ciudadanas</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">Cualquier cubano puede proponer. Las ideas más apoyadas se integran al documento de consenso.</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--borde);border-radius:10px;padding:14px 12px;">
+      <div style="font-size:1.2rem;color:var(--azul);margin-bottom:6px;"><i class="fi fi-br-flag"></i></div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;">Sin banderas políticas</div>
+      <div style="font-size:.74rem;color:var(--gris);line-height:1.5;">No somos un partido. No tomamos partido. Somos la infraestructura para que el pueblo decida.</div>
+    </div>
+
+  </div>
+
+  <!-- INFO ON DEMAND -->
+  <div class="app-sec-label">Información</div>
+
+  <button class="app-info-btn" id="btn-que-es" onclick="toggleInfo('que-es')">
+    <span><i class="fi fi-br-info" style="margin-right:8px;font-size:.85rem;"></i>¿Qué es ENTRE TODOS?</span>
+    <i class="fi fi-br-angle-down"></i>
+  </button>
+  <div class="app-info-panel" id="panel-que-es">
+    ENTRE TODOS es una plataforma de Gobernanza Solucionaria para Cuba. Un espacio donde cualquier cubano, dentro o fuera de la isla, puede votar, proponer y evaluar soluciones para el futuro del país — de forma anónima, verificada y sin intermediarios políticos.
+    <br><br>
+    No es un partido. No toma posición. Es la infraestructura para que el pueblo decida.
+  </div>
+
+  <button class="app-info-btn" id="btn-como-funciona" onclick="toggleInfo('como-funciona')">
+    <span><i class="fi fi-br-question" style="margin-right:8px;font-size:.85rem;"></i>¿Cómo funciona el voto?</span>
+    <i class="fi fi-br-angle-down"></i>
+  </button>
+  <div class="app-info-panel" id="panel-como-funciona">
+    <strong>3 pasos:</strong>
+    <br><br>
+    1. Selecciona la consulta o propuesta activa.<br>
+    2. Ingresa tu carné de identidad o pasaporte — se convierte en un código anónimo (SHA-256) y nunca se almacena.<br>
+    3. Vota. Tu participación queda registrada de forma anónima e irreversible.
+    <br><br>
+    Tu identidad nunca se guarda. Solo el hash criptográfico para evitar votos dobles.
+  </div>
+
+  <button class="app-info-btn" id="btn-hoja-de-ruta" onclick="toggleInfo('hoja-de-ruta')">
+    <span><i class="fi fi-br-map" style="margin-right:8px;font-size:.85rem;"></i>Hoja de ruta — 6 fases</span>
+    <i class="fi fi-br-angle-down"></i>
+  </button>
+  <div class="app-info-panel" id="panel-hoja-de-ruta">
+    La plataforma está organizada en 6 fases de transición democrática:<br><br>
+    <strong>1. Transición Democrática</strong> — Activa · 129 propuestas<br>
+    <strong>2. Proceso Constituyente</strong> — Próximamente<br>
+    <strong>3. Plataforma de Gobierno</strong> — Próximamente<br>
+    <strong>4. Sistema Electoral y Candidaturas</strong> — Activa<br>
+    <strong>5. Elecciones e Instituciones</strong> — Próximamente<br>
+    <strong>6. Implementación y Rendición</strong> — Próximamente<br><br>
+    <a href="index.html" style="color:var(--azul);font-weight:600;">Ver plataforma completa →</a>
+  </div>
+
+</main>
+
+<!-- ── BOTTOM NAV ── -->
+<nav class="app-bottom-nav">
+  <a href="app.html" class="app-nav-item activo">
+    <i class="fi fi-br-home"></i>
+    Inicio
+  </a>
+  <a href="consulta-popular-cuba.html" class="app-nav-item">
+    <i class="fi fi-br-ballot"></i>
+    Votar
+  </a>
+  <a href="propuestas-transicion-cuba.html" class="app-nav-item">
+    <i class="fi fi-br-shuffle"></i>
+    Propuestas
+  </a>
+  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-nav-item">
+    <i class="fi fi-br-paper-plane"></i>
+    Telegram
+  </a>
+</nav>
+
+<script>
+/* ── SERVICE WORKER ── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
+/* ── DRAWER ── */
+function openDrawer() {
+  document.getElementById('app-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('app-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── INFO TOGGLES ── */
+function toggleInfo(id) {
+  const panel = document.getElementById('panel-' + id);
+  const btn   = document.getElementById('btn-' + id);
+  const isOpen = panel.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+
+/* ── INSTALL PROMPT (Android Chrome) ── */
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!localStorage.getItem('et_install_dismissed')) {
+    document.getElementById('install-banner').classList.add('show');
+  }
+});
+document.getElementById('install-btn').addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') localStorage.setItem('et_install_dismissed', '1');
+  deferredPrompt = null;
+  document.getElementById('install-banner').classList.remove('show');
+});
+function dismissInstall() {
+  localStorage.setItem('et_install_dismissed', '1');
+  document.getElementById('install-banner').classList.remove('show');
+}
+
+/* ── LIVE COUNTER desde Supabase ── */
+const SB_URL = 'https://pfjcumyygdwslwtrlebr.supabase.co';
+const SB_KEY = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+
+async function loadCounter() {
+  try {
+    const r = await fetch(`${SB_URL}/rest/v1/consulta_continuidad_votos?select=id`, {
+      headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'count=exact', 'Range': '0-0' }
+    });
+    const count = r.headers.get('content-range')?.split('/')?.[1];
+    if (count) {
+      document.getElementById('counter-live').textContent = `${count} cubanos han participado`;
+    } else {
+      document.getElementById('counter-live').textContent = 'Participación activa';
+    }
+  } catch {
+    document.getElementById('counter-live').textContent = 'Participación activa';
+  }
+}
+loadCounter();
+</script>
+</body>
+</html>
