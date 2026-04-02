@@ -11,18 +11,22 @@
   "lang": "es",
   "icons": [
     {
-      "src": "entre-todos-logo.png",
+      "src": "thumbnail-logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "entre-todos-logo.png",
+      "src": "thumbnail-logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["politics", "government", "social"],
+  "categories": [
+    "politics",
+    "government",
+    "social"
+  ],
   "screenshots": []
 }
