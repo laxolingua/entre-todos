@@ -11,10 +11,18 @@
   --azul-light:#EEF2FF;--rojo-light:#FFF0F2;
   --gris:#F5F5F5;--gris-m:#E0E0E0;--gt:#555;--negro:#111;
   --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 4px 32px rgba(0,42,143,.18);
+  --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Barlow,sans-serif;background:#F7F8FC;color:var(--negro);min-height:100vh;}
+body{font-family:Barlow,sans-serif;background:#F7F8FC;color:var(--negro);min-height:100vh;padding-bottom:calc(64px + var(--safe-bottom));-webkit-tap-highlight-color:transparent;}
 
+
+/* ── APP BOTTOM NAV ── */
+.app-bottom-nav{position:fixed;bottom:0;left:0;right:0;height:calc(64px + var(--safe-bottom));background:#fff;border-top:1px solid #D1D5DB;display:grid;grid-template-columns:repeat(4,1fr);z-index:200;padding-bottom:var(--safe-bottom);}
+.app-nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6B7280;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:8px 4px;transition:color .15s;}
+.app-nav-item i{font-size:1.2rem;}
+.app-nav-item.activo{color:#002A8F;}
+.app-nav-item.activo i{color:#002A8F;}
 /* HEADER */
 header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0;z-index:100;box-shadow:var(--sh);}
 .hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:14px;flex-wrap:wrap;}
@@ -514,11 +522,11 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 <header>
   <div class="hdr">
     <div style="display:flex;align-items:center;gap:14px;">
-      <a href="index.html" style="display:block;line-height:0;">
+      <a href="app.html" style="display:block;line-height:0;">
         <img src="entre-todos-logo.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
       </a>
-      <a href="index.html" class="back-btn">
-        <i class="fi fi-br-arrow-left"></i> Página Principal
+      <a href="app.html" class="back-btn">
+        <i class="fi fi-br-arrow-left"></i> Inicio
       </a>
     </div>
     <div class="hdr-ham">
@@ -3532,6 +3540,25 @@ async function regMGuardar() {
   </div>
 </div>
 <!-- ── FIN REGISTRO CIUDADANO MODAL ── -->
+<!-- ── APP BOTTOM NAV ── -->
+<nav class="app-bottom-nav">
+  <a href="app.html" class="app-nav-item">
+    <i class="fi fi-br-home"></i>
+    Inicio
+  </a>
+  <a href="consulta-popular-cuba.html" class="app-nav-item">
+    <i class="fi fi-br-ballot"></i>
+    Votar
+  </a>
+  <a href="propuestas-transicion-cuba.html" class="app-nav-item activo">
+    <i class="fi fi-br-shuffle"></i>
+    Propuestas
+  </a>
+  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-nav-item">
+    <i class="fi fi-br-paper-plane"></i>
+    Telegram
+  </a>
+</nav>
 </body>
 </html<!-- AUTH BAR -->
 <div id="auth-bar">

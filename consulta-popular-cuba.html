@@ -21,10 +21,45 @@
       --amarillo: #D97706;
       --sh:       0 2px 16px rgba(0,42,143,.10);
       --shf:      0 6px 32px rgba(0,42,143,.20);
+      --safe-top:    env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', sans-serif; background: #fff; color: var(--negro); min-height: 100vh; }
+    body { font-family: 'Barlow', sans-serif; background: #fff; color: var(--negro); min-height: 100vh; padding-bottom: calc(64px + var(--safe-bottom)); }
+
+    /* ── APP BOTTOM NAV ── */
+    .app-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      height: calc(64px + var(--safe-bottom));
+      background: #fff;
+      border-top: 1px solid var(--borde);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 200;
+      padding-bottom: var(--safe-bottom);
+    }
+    .app-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--gris);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      padding: 8px 4px;
+      transition: color .15s;
+    }
+    .app-nav-item i { font-size: 1.2rem; }
+    .app-nav-item.activo { color: var(--azul); }
+    .app-nav-item.activo i { color: var(--azul); }
 
     .flag-bar { height: 4px; background: linear-gradient(90deg, var(--azul) 33.3%, #fff 33.3%, #fff 66.6%, var(--rojo) 66.6%); }
 
@@ -263,13 +298,13 @@
 
 <header>
   <div class="hdr">
-    <a href="index.html" class="hdr-logo">
+    <a href="app.html" class="hdr-logo">
       <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.onerror=null;this.style.display='none'">
       <div class="hdr-logo-text">
         <span class="t-azul">ENTRE </span><span class="t-rojo">TODOS</span>
       </div>
     </a>
-    <a href="index.html" class="hdr-back">
+    <a href="app.html" class="hdr-back">
       <i class="fi fi-br-arrow-left"></i>
       Página principal
     </a>
@@ -449,7 +484,7 @@
           <button class="btn-outline" onclick="mostrarPantalla('resultados');actualizarResultados();">
             <i class="fi fi-br-chart-histogram"></i> Ver resultados
           </button>
-          <a href="index.html" class="btn-outline">
+          <a href="app.html" class="btn-outline">
             <i class="fi fi-br-home"></i> Volver a ENTRE TODOS
           </a>
         </div>
@@ -593,7 +628,7 @@
 <footer>
   <strong>ENTRE TODOS</strong> — <a href="gobernanza-solucionaria-v5.html" style="color:inherit;">Gobernanza Solucionaria</a> &nbsp;·&nbsp; Consulta Popular Cuba 2026 &nbsp;·&nbsp;
   Voto anónimo verificado por SHA-256 &nbsp;·&nbsp;
-  <a href="index.html">Volver a la plataforma</a> &nbsp;·&nbsp;
+  <a href="app.html">Volver a la app</a> &nbsp;·&nbsp;
   <a href="#" onclick="limpiarDatos();return false;">Reiniciar datos de prueba</a>
 </footer>
 
@@ -919,5 +954,25 @@ async function sbGuardarRegistro() {
   }
 }
 </script>
+
+<!-- ── APP BOTTOM NAV ── -->
+<nav class="app-bottom-nav">
+  <a href="app.html" class="app-nav-item">
+    <i class="fi fi-br-home"></i>
+    Inicio
+  </a>
+  <a href="consulta-popular-cuba.html" class="app-nav-item activo">
+    <i class="fi fi-br-ballot"></i>
+    Votar
+  </a>
+  <a href="propuestas-transicion-cuba.html" class="app-nav-item">
+    <i class="fi fi-br-shuffle"></i>
+    Propuestas
+  </a>
+  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-nav-item">
+    <i class="fi fi-br-paper-plane"></i>
+    Telegram
+  </a>
+</nav>
 </body>
 </html>
