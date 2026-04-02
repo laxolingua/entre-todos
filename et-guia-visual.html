@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ET · Guía Visual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root{--azul:#002A8F;--rojo:#CF142B;--bg:#f2f3f5;--txt:#21242b;--muted:#6a6f79;}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Barlow,sans-serif;color:var(--txt)}
+    .top{background:#fff;position:sticky;top:0;z-index:10;padding:14px 16px;border-bottom:1px solid #eceef2;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.5px;font-size:1.9rem}
+    .wrap{max-width:980px;margin:0 auto;padding:0 14px 24px}
+    .hero{background:#fff;border-radius:0 0 16px 16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+    .hero .band{background:var(--azul);color:#fff;text-align:center;padding:8px 12px;font-family:'Barlow Condensed';letter-spacing:4px;font-size:.78rem}
+    .hero .inner{padding:20px 16px 16px;text-align:center}
+    .hero img{width:120px;max-width:34vw}
+    .kicker{margin-top:10px;font-family:'Barlow Condensed';letter-spacing:4px;color:#3a3f49}
+    h1{font-family:'Bebas Neue';letter-spacing:3px;color:var(--azul);font-size:clamp(1.8rem,4.8vw,2.5rem);margin:10px 0 4px}
+    .sub{color:var(--muted);max-width:680px;margin:0 auto 10px;font-size:1.04rem}
+    .line{height:5px;background:var(--rojo);margin-top:14px}
+    .section{margin:18px 0 10px;text-align:center;font-family:'Barlow Condensed';letter-spacing:4px;font-size:1.1rem;color:#222}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .card{background:#fff;border:1px solid #e4e7ee;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+    .card.hi{border-color:#cf142b;box-shadow:0 0 0 1px rgba(207,20,43,.2) inset}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .ic{width:38px;height:38px;border-radius:10px;background:rgba(0,42,143,.08)}
+    .n{font-family:'Barlow Condensed';font-size:1.9rem;color:#c7cbd6}
+    h3{margin:0 0 6px;font-family:'Barlow Condensed';font-size:1.8rem;line-height:1;letter-spacing:1px;text-transform:uppercase}
+    p{margin:0;color:#434a57;font-size:1.02rem;line-height:1.45}
+    .full{grid-column:1/-1}
+    .cta{margin-top:14px;background:var(--azul);color:#fff;border-radius:14px;padding:16px}
+    .cta b{display:block;font-family:'Barlow Condensed';font-size:1.55rem;margin-bottom:6px}
+    .btn{display:inline-block;margin-top:8px;background:#0f3cb0;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-family:'Barlow Condensed';letter-spacing:1px}
+    @media (max-width:560px){.top{font-size:1.7rem}.grid{grid-template-columns:1fr}.card,.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <div class="top">et-guia-visual</div>
+  <div class="wrap">
+    <section class="hero">
+      <div class="band">ENTRE-TODOS.ORG</div>
+      <div class="inner">
+        <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.style.display='none'">
+        <div class="kicker">CONSENSO CIUDADANO</div>
+        <h1>¿Qué puedes hacer aquí?</h1>
+        <p class="sub">9 acciones concretas para participar en el proceso democrático de Cuba</p>
+      </div>
+      <div class="line"></div>
+    </section>
+
+    <div class="section">ACCIONES DEL CIUDADANO</div>
+    <section class="grid">
+      <article class="card"><div class="meta"><div class="ic"></div><div class="n">1</div></div><h3>Leer propuestas</h3><p>Navega por categorías y lee soluciones concretas presentadas por organizaciones reales de la sociedad civil cubana.</p></article>
+      <article class="card"><div class="meta"><div class="ic" style="background:rgba(207,20,43,.08)"></div><div class="n">2</div></div><h3>Votar por estrellas</h3><p>Evalúa cada propuesta del 1 al 5. No es un like: es una valoración real de calidad.</p></article>
+      <article class="card"><div class="meta"><div class="ic"></div><div class="n">3</div></div><h3>Marcar incisos</h3><p>Dentro de cada propuesta hay variantes. Marca cuáles aceptas y cuáles no.</p></article>
+      <article class="card hi"><div class="meta"><div class="ic" style="background:rgba(207,20,43,.08)"></div><div class="n">4</div></div><h3>Dejar feedback</h3><p>Agrega críticas, adiciones o ideas nuevas sobre propuestas existentes.</p></article>
+      <article class="card"><div class="meta"><div class="ic"></div><div class="n">5</div></div><h3>Calificar aportes</h3><p>Valora comentarios de otros ciudadanos. Los mejores emergen por mérito.</p></article>
+      <article class="card"><div class="meta"><div class="ic" style="background:rgba(207,20,43,.08)"></div><div class="n">6</div></div><h3>Proponer algo nuevo</h3><p>Si no existe la propuesta que buscas, envíala y pasa revisión.</p></article>
+      <article class="card full"><div class="meta"><div class="ic" style="background:rgba(207,20,43,.08)"></div><div class="n">7</div></div><h3>Consulta popular</h3><p>Responde la pregunta directa sobre el futuro del gobierno de Cuba. Registro anónimo y trazable.</p></article>
+      <article class="card"><div class="meta"><div class="ic"></div><div class="n">8</div></div><h3>Ver resultados</h3><p>Observa en tiempo real qué propuestas tienen más respaldo ciudadano.</p></article>
+      <article class="card hi"><div class="meta"><div class="ic" style="background:rgba(207,20,43,.08)"></div><div class="n">9</div></div><h3>Descargar datos</h3><p>Exporta resultados en JSON o CSV. Transparencia total.</p></article>
+    </section>
+
+    <section class="cta">
+      <b>Sin partido. Sin afiliación. Sin nombre obligatorio.</b>
+      <div>ENTRE TODOS no te pide que sigas a nadie ni que esperes una elección para participar. Tu voz cuenta ahora.</div>
+      <a class="btn" href="https://entre-todos.org/">ENTRE-TODOS.ORG</a>
+    </section>
+  </div>
+</body>
+</html>
