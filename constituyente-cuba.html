@@ -3,25 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 2: Proceso Constituyente — ENTRE TODOS</title>
+<title>ENTRE TODOS — Proceso Constituyente de Cuba</title>
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
 :root{
   --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
-  --negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;
-  --sh:0 2px 16px rgba(0,42,143,.10);
+  --azul-light:#EEF2FF;--rojo-light:#FFF0F2;
+  --gris:#F5F5F5;--gris-m:#E0E0E0;--gt:#555;--negro:#111;
+  --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 4px 32px rgba(0,42,143,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);min-height:100vh;}
+body{font-family:Barlow,sans-serif;background:#F7F8FC;color:var(--negro);min-height:100vh;}
+
+/* FLAG + HEADER */
 .flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
-header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
-.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;}
-.hdr-left{display:flex;align-items:center;gap:14px;}
-.logo-img{height:44px;width:auto;display:block;background:#fff;border-radius:6px;}
+header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:14px;}
+.logo-img{height:44px;width:auto;display:block;border-radius:6px;}
 .back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
 .back-btn:hover{background:var(--azul);color:#fff;}
+.hdr-left{display:flex;align-items:center;gap:14px;}
+.hdr-ham{position:relative;}
+.hdr-ham-btn{width:38px;height:38px;border-radius:6px;background:var(--azul);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+.hdr-ham-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s;}
+.hdr-ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hdr-ham-btn.open span:nth-child(2){opacity:0;}
+.hdr-ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.hdr-ham-menu{position:absolute;top:46px;right:0;z-index:2000;background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);min-width:220px;display:none;flex-direction:column;padding:8px 0;border:1px solid var(--gris-m);}
+.hdr-ham-menu.open{display:flex;}
+.hdr-ham-item{display:flex;align-items:center;gap:10px;padding:11px 18px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;}
+.hdr-ham-item:hover{background:#f0f4ff;color:var(--azul);}
+.hdr-ham-item .hico{font-size:1rem;width:22px;text-align:center;}
+.hdr-ham-divider{border:none;border-top:1px solid var(--gris-m);margin:4px 0;}
+
 /* BANNER */
 .page-banner{background:var(--azul);position:relative;overflow:hidden;}
 .page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}
@@ -32,29 +48,100 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .page-banner-phase::before{content:'';display:inline-block;width:28px;height:2px;background:var(--rojo);border-radius:2px;flex-shrink:0;}
 .page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);letter-spacing:4px;color:#fff;line-height:1.0;margin-bottom:14px;}
 .page-banner-title span{color:var(--rojo);}
-.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:580px;margin-bottom:22px;}
-.page-banner-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
-/* CONTENT */
-.sec{max-width:1100px;margin:0 auto;padding:44px 22px;}
-.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--azul);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--borde);}
-.coming-box{background:var(--gris-bg);border-radius:12px;padding:40px 36px;text-align:center;margin-bottom:40px;}
-.coming-icon{font-size:3rem;color:var(--azul);opacity:.25;margin-bottom:16px;}
-.coming-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:3px;color:var(--azul);margin-bottom:10px;}
-.coming-badge{display:inline-block;background:rgba(0,42,143,.08);border:1px solid rgba(0,42,143,.15);border-radius:20px;padding:4px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:16px;}
-.coming-desc{font-size:.9rem;color:var(--gris);line-height:1.75;max-width:600px;margin:0 auto;}
-/* PREVIEW BLOCKS */
-.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:32px;}
-.preview-block{background:#fff;border:1.5px solid var(--borde);border-radius:8px;padding:20px;display:flex;gap:14px;align-items:flex-start;opacity:.6;}
-.preview-block-icon{width:38px;height:38px;border-radius:8px;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:1rem;flex-shrink:0;}
-.preview-block-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;}
-.preview-block-desc{font-size:.8rem;color:var(--gris);line-height:1.55;}
-.notify-box{background:#EEF2FF;border-left:4px solid var(--azul);border-radius:0 8px 8px 0;padding:18px 22px;margin-top:40px;display:flex;align-items:flex-start;gap:14px;}
-.notify-box i{color:var(--azul);font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-.notify-box p{font-size:.85rem;line-height:1.65;color:var(--negro);}
-.notify-box strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;}
-footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:60px;}
+.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:620px;margin-bottom:22px;}
+.page-banner-stats{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;}
+.page-banner-stat{display:flex;flex-direction:column;gap:2px;}
+.page-banner-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#fff;letter-spacing:2px;line-height:1;}
+.page-banner-stat-l{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.page-banner-stat-sep{width:1px;height:36px;background:rgba(255,255,255,.15);}
+
+/* CATEGORY GRID */
+.cat-grid-wrap{max-width:1100px;margin:0 auto;padding:16px 22px 8px;}
+.cat-grid-title{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:10px;}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+@media(max-width:700px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:400px){.cat-grid{grid-template-columns:1fr;}}
+.cat-card{background:#fff;border:2px solid var(--gris-m);border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);}
+.cat-card:hover{border-color:var(--azul);background:var(--azul-light);color:var(--azul);}
+.cat-card.active{border-color:var(--azul);background:var(--azul);color:#fff;}
+.cat-card .cico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#fff;flex-shrink:0;}
+.cat-card.active .cico{background:rgba(255,255,255,.2) !important;}
+.cat-card .clabel{flex:1;line-height:1.2;}
+
+/* CONTENT AREA */
+.cat-tabs{max-width:1100px;margin:0 auto;padding:0 22px;}
+.cat-sec{display:none;}
+.cat-sec.active{display:block;}
+.cat-hdr{display:flex;align-items:center;gap:12px;padding:18px 0 14px;}
+.cat-lt{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;}
+.cat-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.5px;}
+.cat-count{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);background:var(--gris);padding:4px 10px;border-radius:12px;}
+
+/* CARDS */
+.card{background:#fff;border-radius:8px;border:1px solid var(--gris-m);margin-bottom:12px;box-shadow:var(--sh);overflow:hidden;transition:box-shadow .2s;}
+.card:hover{box-shadow:var(--shf);}
+.card-top{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 10px;}
+.pid{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;color:var(--gt);flex-shrink:0;background:var(--gris);padding:3px 7px;border-radius:4px;margin-top:2px;}
+.pbody{flex:1;}
+.ptxt{font-size:.94rem;line-height:1.6;color:var(--negro);font-weight:500;}
+.prefs{font-size:.7rem;color:#bbb;margin-top:3px;font-style:italic;}
+.vote-row{padding:8px 16px 10px;border-top:1px solid var(--gris-m);background:#FAFAFA;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.vlbl{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);white-space:nowrap;}
+.stars{display:flex;gap:2px;}
+.star{font-size:1.3rem;cursor:pointer;color:#ddd;transition:color .12s,transform .1s;line-height:1;user-select:none;}
+.star:hover,.star.hov,.star.on{color:#F5C518;}
+.vcnt{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;color:var(--gt);margin-left:2px;}
+.bwrap{flex:1;min-width:60px;height:4px;background:var(--gris-m);border-radius:2px;overflow:hidden;}
+.bar{height:100%;background:var(--azul);border-radius:2px;transition:width .4s;}
+.vpct{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;color:var(--azul);font-weight:700;min-width:30px;}
+.vitem{display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-radius:5px;cursor:pointer;transition:background .15s;margin-bottom:4px;border:1px solid transparent;}
+.vitem:hover{background:#f5f7ff;border-color:var(--gris-m);}
+.vitem.chk{background:var(--azul-light);border-color:var(--azul);}
+.vcb{margin-top:3px;flex-shrink:0;accent-color:var(--azul);}
+.vlabel{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);margin-right:4px;}
+.vtxt{font-size:.86rem;line-height:1.55;color:var(--negro);}
+.vsels{font-size:.7rem;color:var(--gt);margin-top:2px;}
+.variants-wrap{padding:6px 16px 12px;border-top:1px solid var(--gris-m);}
+.var-title{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:6px;}
+
+/* REFS SECTION */
+.refs-section{max-width:1100px;margin:0 auto;padding:16px 22px 40px;}
+.refs-title{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gt);border-bottom:1px solid var(--gris-m);padding-bottom:8px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ref-item{display:flex;gap:8px;margin-bottom:8px;font-size:.82rem;line-height:1.5;color:var(--gt);}
+.ref-n{font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--azul);min-width:22px;}
+.ref-item a{color:var(--azul);text-decoration:none;}
+.ref-item a:hover{text-decoration:underline;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:9px 20px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.5px;z-index:9999;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;}
+
+/* FOOTER */
+footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}
 footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+
+@media(max-width:600px){.page-banner-stats{gap:14px;}}
+
+/* CITIZEN PROPOSAL SECTION */
+.prop-section{max-width:1100px;margin:0 auto;padding:0 22px 40px;}
+.prop-section-title{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gt);border-bottom:1px solid var(--gris-m);padding-bottom:8px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.prop-box{background:#fff;border:2px dashed var(--azul);border-radius:10px;padding:20px 22px 18px;}
+.prop-box-head{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+.prop-box-sub{font-size:.82rem;color:var(--gt);line-height:1.6;margin-bottom:14px;}
+.prop-input-row{display:flex;flex-direction:column;gap:9px;}
+.prop-input-row select,.prop-input-row input{padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Barlow,sans-serif;color:var(--negro);background:#fff;}
+.prop-input-row select:focus,.prop-input-row input:focus,.prop-textarea:focus{outline:none;border-color:var(--azul);}
+.prop-textarea{width:100%;padding:9px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:80px;resize:vertical;color:var(--negro);}
+.prop-anon-row{display:flex;align-items:center;gap:9px;font-size:.81rem;color:var(--gt);}
+.prop-submit-btn{padding:9px 22px;background:var(--azul);color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:background .18s;}
+.prop-submit-btn:hover{background:#001d6a;}
+.citizen-list{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+.citizen-card{background:#F5F7FF;border:1.5px solid var(--azul);border-radius:7px;padding:12px 16px 10px;position:relative;}
+.citizen-badge{display:inline-block;background:var(--azul);color:#fff;padding:2px 8px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.citizen-text{font-size:.9rem;line-height:1.6;color:var(--negro);margin-bottom:4px;}
+.citizen-author{font-size:.72rem;color:#aaa;margin-bottom:8px;}
+.citizen-vote-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+
 </style>
 </head>
 <body>
@@ -65,11 +152,27 @@ footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacin
   <div class="hdr">
     <div class="hdr-left">
       <a href="index.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo-final.png" alt="Entre Todos" class="logo-img" onerror="this.style.display='none'">
+        <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.style.display='none'">
       </a>
-      <a href="index.html" class="back-btn">
-        <i class="fi fi-br-arrow-left"></i> Página Principal
-      </a>
+      <a href="index.html" class="back-btn"><i class="fi fi-br-arrow-left"></i> Página Principal</a>
+    </div>
+    <div class="hdr-ham">
+      <button class="hdr-ham-btn" id="hdr-ham-btn" onclick="toggleHam()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="hdr-ham-menu" id="hdr-ham-menu">
+        <button class="hdr-ham-item" onclick="selectCat('A');closeHam()"><span class="hico"><i class="fi fi-br-scroll"></i></span>Fundamentos</button>
+        <button class="hdr-ham-item" onclick="selectCat('B');closeHam()"><span class="hico"><i class="fi fi-br-shield"></i></span>Derechos Individuales</button>
+        <button class="hdr-ham-item" onclick="selectCat('C');closeHam()"><span class="hico"><i class="fi fi-br-people"></i></span>Derechos Sociales</button>
+        <button class="hdr-ham-item" onclick="selectCat('D');closeHam()"><span class="hico"><i class="fi fi-br-vote-yea"></i></span>Participación</button>
+        <button class="hdr-ham-item" onclick="selectCat('E');closeHam()"><span class="hico"><i class="fi fi-br-bank"></i></span>Estructura del Estado</button>
+        <button class="hdr-ham-item" onclick="selectCat('F');closeHam()"><span class="hico"><i class="fi fi-br-scale"></i></span>Poderes</button>
+        <button class="hdr-ham-item" onclick="selectCat('G');closeHam()"><span class="hico"><i class="fi fi-br-coins"></i></span>Economía</button>
+        <button class="hdr-ham-item" onclick="selectCat('H');closeHam()"><span class="hico"><i class="fi fi-br-globe"></i></span>Internacional</button>
+        <button class="hdr-ham-item" onclick="selectCat('I');closeHam()"><span class="hico"><i class="fi fi-br-refresh"></i></span>Reforma</button>
+        <hr class="hdr-ham-divider">
+        <a class="hdr-ham-item" href="propuestas-transicion-cuba.html"><span class="hico"><i class="fi fi-br-shuffle"></i></span>Fase 1 — Transición</a>
+      </nav>
     </div>
   </div>
 </header>
@@ -78,63 +181,1102 @@ footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacin
 <div class="page-banner">
   <div class="page-banner-flag"></div>
   <div class="page-banner-accent"></div>
-  <div class="page-banner-watermark"><i class="fi-br-scroll"></i></div>
+  <div class="page-banner-watermark"><i class="fi fi-br-scroll"></i></div>
   <div class="page-banner-inner">
-    <div class="page-banner-phase">Fase 2 · Hoja de Ruta Nacional E/TODOS</div>
+    <div class="page-banner-phase">Fase 2 &nbsp;·&nbsp; Hoja de Ruta Nacional E/TODOS</div>
     <div class="page-banner-title">Proceso<br><span>Constituyente</span><br>de Cuba</div>
-    <div class="page-banner-sub">Una asamblea constituyente redacta la nueva Constitución de Cuba a partir de los consensos construidos en la Fase 1. Delegación de voto, representación proporcional y deliberación abierta.</div>
-    <div class="page-banner-badge"><i class="fi fi-br-time-forward" style="font-size:.8rem;"></i> &nbsp;Próximamente — En desarrollo</div>
+    <div class="page-banner-sub">Propuestas de organizaciones y ciudadanos sobre el marco constitucional de la Cuba futura. Organizadas por bloque constitucional. El texto es el protagonista — lee, compara, vota. Ninguna propuesta llega con jerarquía de origen.</div>
+    <div class="page-banner-stats">
+      <div class="page-banner-stat">
+        <div class="page-banner-stat-n" id="banner-total">95</div>
+        <div class="page-banner-stat-l">Propuestas</div>
+      </div>
+      <div class="page-banner-stat-sep"></div>
+      <div class="page-banner-stat">
+        <div class="page-banner-stat-n">9</div>
+        <div class="page-banner-stat-l">Bloques constitucionales</div>
+      </div>
+      <div class="page-banner-stat-sep"></div>
+      <div class="page-banner-stat">
+        <div class="page-banner-stat-n" id="banner-votos">0</div>
+        <div class="page-banner-stat-l">Votos emitidos</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- CONTENT -->
-<div class="sec">
+<!-- CATEGORY GRID -->
+<div class="cat-grid-wrap">
+  <div class="cat-grid-title">Selecciona un bloque constitucional:</div>
+  <div class="cat-grid" id="cat-grid"></div>
+</div>
 
-  <div class="sec-label">Estado · Fase 2</div>
+<!-- CONTENT TABS -->
+<div class="cat-tabs">
+  <div class="cat-sec active" id="cat-A"></div>
+  <div class="cat-sec" id="cat-B"></div>
+  <div class="cat-sec" id="cat-C"></div>
+  <div class="cat-sec" id="cat-D"></div>
+  <div class="cat-sec" id="cat-E"></div>
+  <div class="cat-sec" id="cat-F"></div>
+  <div class="cat-sec" id="cat-G"></div>
+  <div class="cat-sec" id="cat-H"></div>
+  <div class="cat-sec" id="cat-I"></div>
+</div>
 
-  <div class="coming-box">
-    <div class="coming-icon"><i class="fi-br-scroll"></i></div>
-    <div class="coming-badge">Próximamente</div>
-    <div class="coming-title">Proceso Constituyente</div>
-    <div class="coming-desc">Esta fase abre cuando exista un marco mínimo de transición acordado y una convocatoria formal a asamblea constituyente. ENTRE TODOS habilitará aquí la deliberación por artículo, la delegación de voto y el seguimiento en tiempo real del texto constitucional.</div>
-  </div>
+<!-- REFERENCIAS -->
 
-  <div class="sec-label">Lo que encontrarás aquí</div>
-
-  <div class="preview-grid">
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-users"></i></div>
-      <div>
-        <div class="preview-block-title">Asamblea Constituyente</div>
-        <div class="preview-block-desc">Composición, método de elección de delegados y reglas de deliberación.</div>
+<!-- CITIZEN PROPOSAL SECTION -->
+<div class="prop-section" id="prop-section">
+  <div class="prop-section-title"><i class="fi fi-br-pen-clip"></i> Proponer una cláusula</div>
+  <div class="prop-box">
+    <div class="prop-box-head"><i class="fi fi-br-add"></i> Añadir una propuesta o matiz</div>
+    <div class="prop-box-sub">¿Conoces una cláusula constitucional relevante que no aparece aquí, o quieres añadir un matiz a una propuesta existente? Cualquier cubano puede proponer. Si tu propuesta recibe 3 o más estrellas de apoyo ciudadano, se integrará al documento oficial.</div>
+    <div class="prop-input-row">
+      <select id="nc">
+        <option value="">Bloque constitucional más cercano (opcional)...</option>
+        <option value="A">A. Fundamentos y Principios</option>
+        <option value="B">B. Derechos Fundamentales Individuales</option>
+        <option value="C">C. Derechos Sociales y Culturales</option>
+        <option value="D">D. Derechos Políticos y Participación</option>
+        <option value="E">E. Organización del Estado</option>
+        <option value="F">F. Poderes del Estado</option>
+        <option value="G">G. Economía y Propiedad</option>
+        <option value="H">H. Relaciones Internacionales</option>
+        <option value="I">I. Reforma Constitucional</option>
+        <option value="J">J. Innovaciones Institucionales</option>
+      </select>
+      <textarea id="nt" class="prop-textarea" placeholder="Escribe tu propuesta constitucional como una afirmación clara y neutral. Ejemplo: 'La pena de muerte estará prohibida en todas las circunstancias y por cualquier autoridad.'"></textarea>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <input id="nn" style="flex:1;min-width:130px;" placeholder="Tu nombre (opcional)">
+        <label class="prop-anon-row"><input type="checkbox" id="na"> Publicar como Anónimo</label>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:10px;align-items:center;flex-wrap:wrap;">
+        <span style="font-size:.75rem;color:#bbb;font-style:italic;">Propuesta moderada antes de integrarse al documento</span>
+        <button class="prop-submit-btn" onclick="submitNew()"><i class="fi fi-br-paper-plane"></i> Enviar propuesta</button>
       </div>
     </div>
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-scroll"></i></div>
-      <div>
-        <div class="preview-block-title">Borrador Constitucional</div>
-        <div class="preview-block-desc">Artículo por artículo, abierto a propuestas ciudadanas y evaluación de organizaciones.</div>
-      </div>
-    </div>
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-check"></i></div>
-      <div>
-        <div class="preview-block-title">Ratificación</div>
-        <div class="preview-block-desc">Mecanismo de referéndum para aprobación del texto final por la ciudadanía.</div>
-      </div>
-    </div>
   </div>
+  <div class="citizen-list" id="citizen-list"></div>
+</div>
 
-  <div class="notify-box">
-    <i class="fi fi-br-info"></i>
-    <p><strong>¿Quieres saber cuándo se activa esta fase?</strong> Esta página se activa automáticamente cuando la fase anterior genera los consensos necesarios para avanzar. Puedes seguir el progreso desde la <a href="index.html" style="color:var(--azul);font-weight:700;">Hoja de Ruta en la página principal</a>.</p>
+<!-- IA PROPOSAL SECTION -->
+<div class="prop-section" id="ia-section">
+  <div class="prop-section-title"><i class="fi fi-br-sparkles"></i> Propuestas sugeridas por IA</div>
+  <div class="prop-box">
+    <div class="prop-box-head"><i class="fi fi-br-processor"></i> Bloque IA (transparente y votable)</div>
+    <div class="prop-box-sub">Estas propuestas son sugerencias técnicas de IA para cubrir vacíos detectados entre bloques o resolver contradicciones. No tienen privilegios: se someten al mismo voto ciudadano y al mismo umbral (3+ estrellas) para integración.</div>
   </div>
+  <div class="citizen-list" id="ia-list"></div>
+</div>
 
+<div class="refs-section" id="refs-section" style="display:none;">
+  <div class="refs-title"><i class="fi fi-br-link-alt"></i> Referencias</div>
+  <div id="refs-list"></div>
 </div>
 
 <footer>
-  <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Consenso Ciudadano &nbsp;·&nbsp; Fase 2: Proceso Constituyente &nbsp;·&nbsp; 2026
+  <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Proceso Constituyente &nbsp;·&nbsp; Gobernanza Solucionaria para Cuba &nbsp;·&nbsp; 2026
 </footer>
 
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// SUPABASE
+// ═══════════════════════════════════════════════════════════
+const SUPABASE_ENABLED = true;
+const SUPABASE_URL = 'https://pfjcumyygdwslwtrlebr.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+
+async function sbQuery(table, opts={}){
+  if(!SUPABASE_ENABLED) return null;
+  const url=`${SUPABASE_URL}/rest/v1/${table}${opts.params?'?'+opts.params:''}`;
+  const headers={'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
+  if(opts.upsert) headers['Prefer']='resolution=merge-duplicates,return=representation';
+  try{
+    const r=await fetch(url,{method:opts.method||'GET',headers,body:opts.body?JSON.stringify(opts.body):undefined});
+    return r.ok?r.json():null;
+  }catch(e){return null;}
+}
+
+function getOrCreateDeviceToken(){
+  let t=localStorage.getItem('et_device_token');
+  if(!t){t='dt_'+Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('et_device_token',t);}
+  return t;
+}
+
+// ═══════════════════════════════════════════════════════════
+// ORGANIZACIONES Y REFERENCIAS
+// — Los votos son acumulados: el mismo proposal_id que en
+//   propuestas-transicion-cuba.html comparte su contador.
+// ═══════════════════════════════════════════════════════════
+const ORGS=[
+  {n:1,  name:"Cuban American National Foundation (CANF)"},
+  {n:2,  name:"Directorio Democrático Cubano (DDC)"},
+  {n:6,  name:"Archivo Cuba — Cuba Libre: Compromiso Cívico de Transición"},
+  {n:7,  name:"Cuba Decide (Rosa María Payá)"},
+  {n:8,  name:"Asamblea de la Resistencia Cubana (ARC) — Proyecto Salvación Nacional"},
+  {n:9,  name:"Consejo para la Transición Democrática (CTDC)"},
+  {n:10, name:"Cuba Transition Project — Universidad de Miami"},
+  {n:11, name:"Movimiento Cristiano Liberación / Proyecto Varela"},
+  {n:12, name:"UNPACU — Acuerdo por la Democracia"},
+  {n:13, name:"MovimientoC40 / GCCT — Constitución de 1940"},
+  {n:14, name:"Espacio Común — Plataforma Comparativa de Proyectos"},
+  {n:16, name:"Centro de Estudios Convivencia (CEC)"},
+  {n:27, name:"Iniciativa Cívica Cubana — Pacto Social (Faisel Iglesias y firmantes)"},
+  {n:28, name:"Cuba Próxima / Cuba Posible — Propuesta de Constitución para la República de Cuba"},
+  {n:29, name:"Javier Puig Santos — Proyecto Constitución Cubana Sostenibilismo (en proceso)"},
+  {n:35, name:"Constitución de la República de Cuba (1940)"},
+];
+
+const ORG_LINKS={
+  1:"https://www.canf.org",
+  2:"https://espacio-comun.org/organizacion/directorio-democratico-cubano-3/",
+  6:"https://cubaarchive.org/wp-content/uploads/2022/08/Compromiso-de-transicion-Final-with-signatures-8.24.2022.pdf",
+  7:"https://cubadecide.org/the-plebiscite/",
+  8:"https://www.directorio.org/article/press-releases-asamblea-resistencia-cubana",
+  9:"https://diariodecuba.com/cuba/1628507604_33260.html",
+  10:"https://www.iccas.miami.edu",
+  11:"https://espacio-comun.org/organizacion/movimiento-cristiano-de-liberacion-3/",
+  12:"https://espacio-comun.org/organizacion/union-patriotica-de-cuba-unpacu/",
+  13:"https://www.constitucion1940.org",
+  14:"https://espacio-comun.org/iniciativa/comparativa-de-los-principales-proyectos-para-cuba/",
+  16:"https://centroconvivencia.org/la-transicion-en-cuba-propuesta-de-convivencia/",
+  27:"CONSTITUYENTE/Comunicado-de-prensa-Iniciativa-civica-de-intelectuales-cubanos.pdf",
+  28:"CONSTITUYENTE/Propuesta-de-Constitucion-para-la-Republica-de-Cuba.pdf",
+  29:"CONSTITUYENTE/PROYECTO CONSTITUCIÓN CUBANA SOSTENIBILISMO Versión 1.00 2014 a 14 octubre 2018.pdf",
+  35:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+};
+
+// ═══════════════════════════════════════════════════════════
+// CATEGORÍAS — 9 BLOQUES CONSTITUCIONALES
+// ═══════════════════════════════════════════════════════════
+const CAT={
+  A:{name:"Fundamentos y Principios",         sub:"Soberanía, modelo de pacto, preámbulo filosófico, fuente del poder",         c:"var(--azul)", icon:"scroll"},
+  B:{name:"Derechos Fundamentales Individuales", sub:"Libertad de expresión, conciencia, movimiento, propiedad, privacidad",    c:"var(--rojo)", icon:"shield"},
+  C:{name:"Derechos Sociales y Culturales",   sub:"Salud, educación, vivienda, trabajo, seguridad social, cultura",             c:"var(--azul)", icon:"people"},
+  D:{name:"Derechos Políticos y Participación",sub:"Sufragio, iniciativa popular, referéndum, revocatoria",                     c:"var(--rojo)", icon:"vote-yea"},
+  E:{name:"Organización del Estado",          sub:"Forma de gobierno, descentralización, autonomía territorial",                c:"var(--azul)", icon:"bank"},
+  F:{name:"Poderes del Estado",               sub:"Ejecutivo, Legislativo, Judicial: composición, límites y controles mutuos", c:"var(--rojo)", icon:"scale"},
+  G:{name:"Economía y Propiedad",             sub:"Modelo económico, tipos de propiedad, empresa privada, cooperativas",        c:"var(--azul)", icon:"coins"},
+  H:{name:"Relaciones Internacionales",       sub:"Política exterior, tratados, organismos internacionales, no injerencia",     c:"var(--rojo)", icon:"globe"},
+  I:{name:"Reforma Constitucional",           sub:"Quórum, procesos, límites, protección de derechos frente a mayorías",       c:"var(--azul)", icon:"refresh"},
+  J:{name:"Innovaciones Institucionales",     sub:"Nuevos poderes, órganos técnicos, gobernanza vecinal, controles cualitativos", c:"var(--rojo)", icon:"settings"},
+};
+
+// ═══════════════════════════════════════════════════════════
+// PROPUESTAS
+// IDs que coinciden con propuestas-transicion-cuba.html
+// comparten el mismo contador de votos en Supabase.
+// ═══════════════════════════════════════════════════════════
+const PROPS=[
+
+  // ── BLOQUE A: FUNDAMENTOS Y PRINCIPIOS ────────────────
+  {id:"SOST-A1", cat:"A",
+   text:"La Constitución debe declarar explícitamente que Cuba se organiza sobre un modelo de Estado social, democrático y de derecho con sostenibilidad intergeneracional como principio rector. Toda política pública deberá evaluar su impacto económico, social y ambiental antes de su aprobación.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El principio de sostenibilidad intergeneracional obliga a no transferir deuda ecológica, institucional o fiscal a las generaciones futuras sin control parlamentario y ciudadano."},
+   ]},
+
+  {id:"CON-A1", cat:"A",
+   text:"El pacto social —a diferencia del contrato social— parte de que los derechos no los crean ni otorgan los políticos: existen antes, por el hecho de ser humano. El Estado no los concede; está obligado a respetarlos. La soberanía reside en el ciudadano y no se delega. Una constituyente ciudadana digital permite que los cubanos suscriban directamente el marco jurídico de la República sin intermediarios políticos.",
+   refs:[27],
+   variants:[
+     {label:"a", text:"El pacto debe establecer cuatro pilares: ciudadano como soberano, derechos inalienables inviolables, justicia y equidad como fin supremo del derecho, separación de poderes."},
+     {label:"b", text:"Alcanzada una mayoría ciudadana verificable, el pacto adquiere fuerza de Ley Primera de la República, inaugurando así un proceso constituyente ciudadano capaz de resolver el conflicto de forma pacífica e institucional."},
+   ]},
+
+  {id:"CON-A2", cat:"A",
+   text:"La República de Cuba debe constituirse como un Estado de Derecho que garantiza la supremacía de la ley, el disfrute de las libertades y los derechos humanos, la democracia política, la justicia social, el progreso económico y el desarrollo humano integral y equitativo.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"La soberanía reside en el pueblo, del cual emana todo el poder del Estado; se ejerce directamente o por medio de las instituciones del Estado, en la forma que establezcan la Constitución y las leyes."},
+     {label:"b", text:"Los símbolos nacionales que han presidido más de cien años las luchas cubanas —bandera de la estrella solitaria, himno de Bayamo y escudo de la palma real— son los símbolos del Estado."},
+   ]},
+
+  {id:"A1", cat:"A",
+   text:"Cuba debe convocar una Asamblea Constituyente elegida democráticamente para redactar una nueva Constitución.",
+   refs:[1,8,10,12,28],
+   variants:[
+     {label:"a", text:"La Asamblea debe elegirse por voto directo, universal y secreto antes de cualquier otro proceso electoral permanente."},
+     {label:"b", text:"La Asamblea debe incluir representantes de la diáspora en proporción a su peso demográfico."},
+   ]},
+
+  {id:"A2", cat:"A",
+   text:"La Constitución de 1940 debe restaurarse como marco legal inmediato de la transición, en lugar de redactar una nueva.",
+   refs:[13],
+   variants:[
+     {label:"a", text:"La restauración sería provisional (máximo 4 años) hasta que el pueblo apruebe una nueva constitución mediante referendo."},
+     {label:"b", text:"Algunos artículos de la C-40 requieren actualización antes de su restauración dado el contexto del siglo XXI."},
+   ]},
+
+  {id:"A3", cat:"A",
+   text:"Debe reformarse la Constitución de 2019 eliminando el Artículo 5, que establece el monopolio del PCC como fuerza dirigente superior de la sociedad y el Estado.",
+   refs:[9]},
+
+  {id:"A5", cat:"A",
+   text:"Debe establecerse un período de transición constitucional limitado de 18 a 24 meses antes de las primeras elecciones democráticas.",
+   refs:[8,7,9]},
+
+  {id:"CON-A3", cat:"A",
+   text:"La soberanía reside en el pueblo y de él emana todo poder del Estado. Ninguna persona, grupo ni partido puede atribuirse su ejercicio. Todo acto de fuerza que pretenda alterar el orden constitucional surgido de la soberanía popular es nulo e ineficaz.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"El Estado cubano se organiza como república unitaria, independiente y democrática. La forma de gobierno no puede ser alterada sin consulta soberana del pueblo."},
+   ]},
+
+  {id:"CON-A4", cat:"A",
+   text:"El territorio nacional —Isla de Cuba, Isla de Pinos y cayos adyacentes— es inalienable e indivisible. Cuba no puede ceder, arrendar ni comprometer en forma alguna su soberanía sobre ninguna parte de su territorio.",
+   refs:[35]},
+  // ── BLOQUE B: DERECHOS FUNDAMENTALES INDIVIDUALES ─────
+  {id:"SOST-B1", cat:"B",
+   text:"Toda persona tiene derecho a la identidad digital, a la protección de sus datos personales y al control informado sobre su uso por el Estado o por actores privados. La vigilancia masiva sin autorización judicial específica queda prohibida.",
+   refs:[29]},
+
+  {id:"CON-B1", cat:"B",
+   text:"Los derechos inalienables del ser humano son inviolables: derecho a la vida, a la dignidad, a la libertad y a la propiedad. Ninguna persona será privada de su libertad sin debido proceso y orden judicial competente. No existirá la pena de muerte.",
+   refs:[27,28],
+   variants:[
+     {label:"a", text:"Todo detenido debe recibir asistencia legal inmediata. La detención debe comunicarse a un familiar en el momento mismo del arresto. El detenido tiene derecho a permanecer en silencio."},
+     {label:"b", text:"Todo detenido será puesto en libertad o entregado a autoridad judicial dentro de las 24 horas siguientes a su detención. La prisión preventiva no excederá de seis meses."},
+   ]},
+
+  {id:"CON-B2", cat:"B",
+   text:"Se garantizan las libertades de opinión y expresión, de culto religioso, de movimiento y residencia, de reunión pacífica, de prensa e imprenta, y de organización y asociación para cualquier fin lícito.",
+   refs:[27,28],
+   variants:[
+     {label:"a", text:"Habrá completa separación de la Iglesia y el Estado. Ninguna religión ni ideología será declarada oficial del Estado. No se podrá prohibir practicar ninguna religión libremente."},
+     {label:"b", text:"No se aprobará ley alguna que restrinja la libertad de palabra o de prensa. Los medios de comunicación públicos no podrán ser controlados por partido político alguno. Las organizaciones políticas tienen derecho a crear sus propios medios."},
+   ]},
+
+  {id:"CON-B3", cat:"B",
+   text:"Toda persona tiene derecho al acceso a Internet de alta velocidad. Se prohíbe la censura de contenidos y el bloqueo de plataformas por razones políticas o ideológicas.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"El Estado garantizará infraestructura de telecomunicaciones accesible a toda la población sin discriminación territorial."},
+   ]},
+
+  {id:"CON-B4", cat:"B",
+   text:"La discriminación por motivo de raza, color de piel, sexo, orientación sexual, identidad de género, pasado judicial, origen nacional, creencias religiosas, ideas políticas, enfermedad o discapacidad está proscrita y es sancionada por la ley.",
+   refs:[28]},
+
+  {id:"CON-B5", cat:"B",
+   text:"Todas las personas tienen derecho a vivir en un medio ambiente sano que respete el mantenimiento y regeneración de sus ecosistemas, así como al agua suficiente y salubre para uso personal y doméstico, y a una alimentación sana.",
+   refs:[28]},
+
+  {id:"CON-B6", cat:"B",
+   text:"Se admite la múltiple ciudadanía. No existe la condición jurídica de emigrante: todos los cubanos gozan de los mismos derechos sin distinción de su lugar de residencia. Los hijos de cubanos nacidos en el extranjero son cubanos automáticamente.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"Para ejercer cargos públicos electos se requerirá residir en el territorio nacional durante un período establecido por la ley."},
+     {label:"b", text:"La ciudadanía no puede ser negada por ninguna razón, salvo causas legalmente establecidas. La nacionalidad no se perderá por el matrimonio ni su disolución."},
+   ]},
+
+  {id:"CON-B7", cat:"B",
+   text:"La adicción a drogas y sustancias estupefacientes es tratada como problema de salud pública y no como delito. Ninguna persona puede ser encarcelada exclusivamente por el consumo de sustancias. El Estado destina recursos a programas de prevención, rehabilitación y reinserción social.",
+   refs:[29]},
+
+  {id:"CON-B8", cat:"B",
+   text:"El miembro de las Fuerzas Armadas o cuerpos de seguridad que muera en servicio activo genera para su familia inmediata el derecho a un salario vitalicio equivalente al sueldo que percibía. Este derecho es irrevocable e intransferible.",
+   refs:[29]},
+
+  {id:"CON-B9", cat:"B",
+   text:"Todas las personas son iguales ante la ley. La discriminación por motivo de sexo, raza, color u origen social queda proscrita y tipificada como delito. Ninguna ley puede establecer privilegios ni restricciones basados en estos criterios.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"Los derechos con efecto retroactivo favorable al reo son aplicables de pleno derecho. Las leyes penales que reduzcan penas o eliminen delitos se aplican a los casos en curso o pendientes de cumplimiento."},
+   ]},
+
+  {id:"CON-B10", cat:"B",
+   text:"Queda prohibida la confiscación de bienes como sanción. La expropiación solo procede por utilidad pública, mediante ley y previa indemnización. La pena de muerte queda abolida para delitos civiles; solo puede aplicarse a militares o traidores en tiempo de guerra exterior declarada.",
+   refs:[35]},
+
+  {id:"CON-B11", cat:"B",
+   text:"Nadie puede ser detenido sin orden judicial salvo en flagrante delito. El detenido debe ser puesto en libertad o presentado ante juez en un máximo de 24 horas. Ninguna persona puede ser obligada a declarar contra sí misma. La declaración obtenida mediante violencia o coacción es nula de pleno derecho.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"Se garantiza el habeas corpus mediante procedimiento sumarísimo obligatorio. Todo juez competente debe tramitarlo sin demora ante cualquier detención, sin importar la autoridad que la ordenó."},
+     {label:"b", text:"Queda prohibida toda forma de tortura o trato degradante a detenidos. Los procesados por delitos políticos serán alojados en establecimientos separados de los comunes."},
+   ]},
+
+  {id:"CON-B12", cat:"B",
+   text:"Todo ciudadano cubano tiene derecho a residir, circular y abandonar libremente el territorio nacional. Ningún cubano puede ser expatriado ni privado del derecho a retornar a su patria. El derecho de asilo político es garantizado; no procede la extradición por delitos políticos.",
+   refs:[35]},
+
+  {id:"CON-B13", cat:"B",
+   text:"El domicilio es inviolable. Nadie puede penetrar en él sin consentimiento del morador o mandamiento judicial, salvo casos de incendio u otros desastres urgentes. La correspondencia y las comunicaciones privadas son inviolables; su interceptación o revelación ilegal constituye delito.",
+   refs:[35]},
+
+  {id:"CON-B14", cat:"B",
+   text:"Toda persona tiene derecho a emitir libremente su pensamiento de palabra o por escrito, a través de cualquier medio de difusión, sin sujeción a censura previa. Este derecho solo puede limitarse mediante ley en casos de ataque al honor, la vida privada o la seguridad del Estado, con responsabilidad civil y penal exigible.",
+   refs:[35]},
+
+  {id:"CON-B15", cat:"B",
+   text:"Se garantiza la libertad de conciencia y religión. Las iglesias y demás organizaciones religiosas están separadas del Estado. Nadie puede ser discriminado ni perseguido por sus creencias religiosas, ni ser obligado a declarar su fe o a participar en actos religiosos.",
+   refs:[35]},
+
+  {id:"CON-B16", cat:"B",
+   text:"Se garantizan los derechos de reunión y asociación pacífica sin armas. Todo acto de una autoridad pública que limite ilegítimamente la participación ciudadana en la vida política es punible. Las disposiciones que mengüen, restrinjan o adulteren los derechos constitucionales son nulas; frente a ellas cabe la resistencia legítima.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"Todo ciudadano tiene derecho de petición ante cualquier autoridad pública. La autoridad está obligada a resolver y notificar en un plazo máximo de 45 días."},
+   ]},
+  // ── BLOQUE C: DERECHOS SOCIALES Y CULTURALES ──────────
+  {id:"SOST-C1", cat:"C",
+   text:"El Estado garantizará un piso universal de bienestar compuesto por salud primaria, educación, nutrición básica y acceso mínimo a energía y conectividad, financiado con reglas fiscales transparentes y auditables.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El piso universal no puede ser reducido por decreto de emergencia sin control legislativo y revisión judicial."},
+   ]},
+
+  {id:"CON-C1", cat:"C",
+   text:"Todas las personas tienen derecho al acceso a la salud pública gratuita y de calidad, y a una educación integral, gratuita, democrática y de calidad.",
+   refs:[27,28],
+   variants:[
+     {label:"a", text:"El derecho a la educación incluye la investigación científica, la educación física, el deporte y la recreación."},
+     {label:"b", text:"Toda persona tiene derecho al acceso a la cultura y a la producción cultural. No podrá ser censurada por razones políticas o ideológicas."},
+   ]},
+
+  {id:"CON-C2", cat:"C",
+   text:"Toda persona tiene derecho al trabajo digno: condiciones de trabajo justas, salario adecuado y descanso. El Estado trabajará por garantizar una renta básica mínima a todos los cubanos, para que nadie sea excluido de la vida política y social por necesidad de supervivencia.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"Jornada laboral de 7 horas diarias, 24 días de vacaciones anuales pagadas, descanso semanal de 2 días. Las horas extra serán pagadas. Estas regulaciones aplican para el empleo público, privado y familiar."},
+     {label:"b", text:"La ley regula la sindicalización, las condiciones de seguridad laboral, la seguridad social y los salarios mínimo y promedio del país."},
+   ]},
+
+  {id:"CON-C3", cat:"C",
+   text:"A partir de la jubilación, las personas gozarán de un régimen especial de protección del Estado: reducción del precio de todos los servicios públicos y atención singular y prioritaria en salud, transporte, cultura, deporte y alimentación.",
+   refs:[28]},
+
+  {id:"CON-C4", cat:"C",
+   text:"Todas las personas tienen derecho al matrimonio o a la unión legal —dos figuras jurídicas diferentes que garantizan la potestad de dos personas para unir sus vidas— con iguales garantías, derechos, deberes y obligaciones legales.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"El Estado y la familia protegen a la infancia. La patria potestad no incluye el derecho a agredir física ni psicológicamente a los hijos ni imponer condiciones lesivas a su dignidad e identidad."},
+     {label:"b", text:"Todas las personas tienen derecho al divorcio y a la separación legal. El Estado garantiza protección a personas sin recursos que carezcan de familiares en condiciones de ayudar."},
+   ]},
+
+  {id:"CON-C5", cat:"C",
+   text:"El Estado garantiza Capital Social en sectores estratégicos vitales: salud, educación, agua, energía, transporte y seguridad social. La privatización total de estos sectores es antisocial porque priva a los sectores vulnerables del acceso a servicios esenciales. Pueden gestionarse con Capital Mixto o Personal de forma temporal y acotada, pero nunca abandonarse completamente a la lógica del mercado.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El neoliberalismo como doctrina que niega el Capital Social y promueve la privatización total conduce a situaciones de crisis social y desprotección de sectores vulnerables. El Estado puede y debe intervenir para equilibrar el mercado cuando la autorregulación sobrepasa los márgenes de tolerancia social."},
+   ]},
+
+  {id:"CON-C6", cat:"C",
+   text:"La familia, la maternidad y el matrimonio están bajo la protección del Estado. El matrimonio garantiza igualdad jurídica plena de ambos cónyuges. El divorcio es regulado por ley. Las uniones de hecho estables y públicas tienen los mismos efectos civiles que el matrimonio. Las pensiones alimenticias son deuda privilegiada del deudor.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"Los hijos nacidos dentro y fuera del matrimonio tienen iguales derechos. Los padres tienen idénticas obligaciones respecto a todos sus hijos, independientemente de su origen. La ley garantiza la investigación de la paternidad."},
+     {label:"b", text:"El régimen fiscal, el seguro social y la legislación civil protegen a la familia como célula fundamental de la sociedad. La niñez y la juventud gozan de protección especial del Estado contra toda forma de explotación."},
+   ]},
+
+  {id:"CON-C7", cat:"C",
+   text:"La instrucción primaria es obligatoria y gratuita. La segunda enseñanza y la enseñanza técnica y profesional también son gratuitas. El Estado garantiza becas a estudiantes sin recursos para cursar enseñanza superior. Las escuelas de adultos, escuelas rurales y escuelas de artes y oficios son gratuitas.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"La educación impartida en escuelas públicas es laica. La enseñanza en escuelas privadas es libre, pero el Estado supervisa e inspecciona para garantizar los principios democráticos, la higiene y la idoneidad de la enseñanza."},
+     {label:"b", text:"Las universidades son autónomas en su vida académica, administrativa y económica. La libertad de cátedra está garantizada. La cultura es interés primordial del Estado; la investigación científica y la expresión artística son libres."},
+   ]},
+
+  {id:"CON-C8", cat:"C",
+   text:"El trabajo es un derecho inalienable del individuo. El Estado garantizará su acceso a quienes lo necesiten. Se establece igual salario por igual trabajo, sin distinción de sexo, raza o nacionalidad. El salario mínimo vital es fijado por ley; el pago de salarios en vales, fichas o cualquier forma no monetaria está prohibido.",
+   refs:[35]},
+
+  {id:"CON-C9", cat:"C",
+   text:"La jornada laboral máxima es de 8 horas. Los trabajadores tienen derecho a un descanso retribuido mínimo de un mes al año. Se establecen seguros sociales obligatorios para vejez, enfermedad, maternidad y accidentes de trabajo. La licencia de maternidad es retribuida. El derecho de huelga es reconocido y regulado por ley.",
+   refs:[35]},
+
+  {id:"CON-C10", cat:"C",
+   text:"Los contratos colectivos de trabajo son obligatorios en las empresas. Las asociaciones obreras y las organizaciones patronales son reconocidas. Ningún trabajador puede ser despedido sin expediente previo y audiencia. El trabajo nocturno de menores de 14 años está prohibido; los menores de 18 no pueden trabajar en labores insalubres o peligrosas.",
+   refs:[35]},
+  // ── BLOQUE D: DERECHOS POLÍTICOS Y PARTICIPACIÓN ──────
+  {id:"SOST-D1", cat:"D",
+   text:"Se establece la iniciativa legislativa ciudadana digital verificable y el referendo revocatorio para cargos ejecutivos nacionales y locales, con umbrales de firmas proporcionales y auditoría pública del padrón.",
+   refs:[29]},
+
+  {id:"CON-D1", cat:"D",
+   text:"El poder constituyente reside en el pueblo. Es originario, indelegable, indivisible e ilimitado. Se ejerce directamente mediante asambleas constituyentes y referendo. No puede ser captado permanentemente por partido, casta ni aparato de poder.",
+   refs:[27,28],
+   variants:[
+     {label:"a", text:"(Iniciativa Cívica) La constituyente ciudadana digital permite suscribir el pacto directamente mediante la revolución informática, sin depender de estructuras políticas centralizadas ni de negociaciones con el régimen."},
+     {label:"b", text:"(Cuba Próxima) El poder constituyente se ejerce por la vía de asambleas constituyentes y referendo, garantizando la representación de todos los sectores de la sociedad civil."},
+   ]},
+
+  {id:"CON-D2", cat:"D",
+   text:"Todos los ciudadanos desde los 16 años de edad —cuando no posean límites legales debidamente impuestos— pueden ejercer el derecho al voto y a revocar a las autoridades.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"El derecho a ser electo para cargos públicos corresponde a todos los ciudadanos desde los 18 años. Todos los procesos de contratación con bienes públicos deben ser licitados y bajo observación popular."},
+   ]},
+
+  {id:"CON-D3", cat:"D",
+   text:"Todos los ciudadanos tienen derecho a interponer quejas o dirigir peticiones ante la Administración Pública y recibir respuesta en un plazo no mayor de 30 días. El Estado tiene la obligación de garantizar acceso fácil de todo el pueblo a la información del propio Estado y el Gobierno.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"El pueblo tiene el derecho a oponerse a decisiones del Gobierno de forma directa mediante la resistencia, el exilio o la huelga política."},
+   ]},
+
+  {id:"CON-D4", cat:"D",
+   text:"Se reconoce el derecho a la creación de partidos políticos. El multipartidismo es garantía de democracia efectiva; ningún partido puede orientar, dirigir ni controlar al Estado ni a la sociedad.",
+   refs:[28]},
+
+  {id:"CON-D5", cat:"D",
+   text:"El Plebiscito Incremental del Pueblo es el mecanismo por el cual la ciudadanía acumula firmas verificadas para convocar referendos vinculantes sobre cualquier ley o política pública, sin necesidad de intermediación parlamentaria. Al alcanzar el umbral constitucional de firmas, el referendo es obligatorio.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El plebiscito también puede ser convocado por iniciativa legislativa popular, con un porcentaje mínimo del padrón electoral definido por ley."},
+   ]},
+
+  {id:"CON-D6", cat:"D",
+   text:"El sufragio es universal, directo y secreto. Todo ciudadano mayor de 20 años tiene derecho y obligación de votar. El voto es igualitario: un ciudadano, un voto. El carnet de identidad electoral es obligatorio y garantizado por el Estado.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"Se garantiza el derecho al referendo popular y a la iniciativa legislativa ciudadana. La ciudadanía puede promover directamente leyes ante el poder legislativo mediante el apoyo de un porcentaje mínimo del padrón electoral."},
+   ]},
+
+  {id:"CON-D7", cat:"D",
+   text:"Los partidos políticos son libres de constituirse y actuar. Ningún partido puede establecer discriminaciones por motivo de raza, sexo, clase o condición social en el ejercicio de los derechos cívicos. Los partidos políticos no pueden recibir financiamiento de gobiernos, personas o entidades extranjeras.",
+   refs:[35]},
+
+  {id:"CON-D8", cat:"D",
+   text:"El servicio civil del Estado se organiza sobre bases de mérito, eficiencia y estabilidad. Los empleados públicos no pueden ser removidos por razones político-partidistas. Solo los cargos de confianza, claramente definidos por ley, son de libre nombramiento y remoción. La burocracia permanente está protegida de la alternancia política.",
+   refs:[35]},
+  // ── BLOQUE E: ORGANIZACIÓN DEL ESTADO ─────────────────
+  {id:"SOST-E1", cat:"E",
+   text:"Se crea un Sistema Nacional de Planeación Estratégica con participación ciudadana y revisión anual pública, para alinear presupuestos, metas territoriales y políticas de largo plazo con indicadores verificables.",
+   refs:[29]},
+
+  {id:"CON-E1", cat:"E",
+   text:"El territorio de la República, para fines político-administrativos, se divide en provincias y municipios con personalidad jurídica propia y atribuciones para cumplir sus deberes. Los gobiernos locales ejercen funciones propias y coadyuvan a los fines del Estado.",
+   refs:[28]},
+
+  {id:"CON-E2", cat:"E",
+   text:"El Defensor del Pueblo es una institución autónoma e independiente del poder ejecutivo, con derecho de veto sobre decisiones de la administración pública violatorias de derechos humanos y con capacidad de convocatoria popular en defensa de los ciudadanos.",
+   refs:[28]},
+
+  {id:"CON-E3", cat:"E",
+   text:"Todas las instituciones del Estado, sus autoridades, funcionarios y empleados actúan dentro de los límites de sus respectivas competencias y tienen la obligación de observar estrictamente la legalidad y velar por su respeto en toda la sociedad.",
+   refs:[28]},
+
+  {id:"CON-E4", cat:"E",
+   text:"El Tribunal de Garantías Constitucionales y Sociales es un órgano permanente, integrado por juristas, científicos, economistas y representantes de la sociedad civil. Vela por la aplicación efectiva de los derechos constitucionales y puede anular normas que los vulneren, con carácter vinculante para todos los poderes del Estado.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"Su composición multidisciplinaria garantiza que las decisiones sobre derechos sociales incorporen perspectivas técnicas y científicas, no solo jurídicas."},
+   ]},
+
+  {id:"CON-E5", cat:"E",
+   text:"La Confesión Bajo Amnistía es el mecanismo por el cual cualquier funcionario público que revele voluntariamente actos de corrupción propios o ajenos recibe inmunidad judicial parcial. La información aportada es vinculante para iniciar investigaciones y recuperar activos del Estado.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El mecanismo se activa durante los primeros 180 días de cada nuevo gobierno, como instrumento de limpieza institucional consensuada."},
+   ]},
+
+  {id:"CON-E6", cat:"E",
+   text:"Los gobiernos provinciales y municipales son autónomos en su esfera de acción. Los gobernadores provinciales y los alcaldes municipales son elegidos directamente por los ciudadanos. Los ayuntamientos tienen potestad tributaria y administrativa propia. La ley garantiza recursos suficientes a los municipios para el cumplimiento de sus funciones.",
+   refs:[35]},
+  // ── BLOQUE F: PODERES DEL ESTADO ──────────────────────
+  {id:"SOST-F1", cat:"F",
+   text:"El control constitucional ex ante y ex post será obligatorio para toda ley orgánica. El Tribunal Constitucional podrá suspender provisionalmente normas con riesgo grave para derechos fundamentales hasta decisión de fondo.",
+   refs:[29]},
+
+  {id:"A4", cat:"F",
+   text:"Debe declararse la separación efectiva de poderes ejecutivo, legislativo y judicial, con un poder judicial completamente independiente.",
+   refs:[16,27,28]},
+
+  {id:"CON-F1", cat:"F",
+   text:"El Presidente de la República es el Jefe del Estado y del Gobierno; es electo a través de elecciones directas, universales y secretas. Los períodos de mandato de todas las autoridades públicas son de 5 años. La reelección para un mismo cargo solo puede intentarse una vez y para el período inmediatamente posterior.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"Es incompatible que una misma persona ejerza cargos de autoridad en diversas instituciones del poder público simultáneamente."},
+     {label:"b", text:"Las instituciones del Estado se rigen por los principios de democracia, eficiencia, eficacia, autonomía y coordinación entre los poderes a través de un modelo semiparlamentario."},
+   ]},
+
+  {id:"CON-F2", cat:"F",
+   text:"Se garantiza el habeas corpus: recurso para recuperar la libertad de quien esté privado de ella de forma ilegal o arbitraria. El juez convocará audiencia dentro de las 24 horas siguientes a la interposición.",
+   refs:[27,28],
+   variants:[
+     {label:"a", text:"El habeas data garantiza el derecho de toda persona a conocer y rectificar sus datos personales en poder de instituciones públicas o privadas."},
+     {label:"b", text:"El amparo constitucional procede ante vulneraciones de derechos y libertades reconocidos en la Constitución, originadas por actos u omisiones de los poderes públicos."},
+   ]},
+
+  {id:"CON-F3", cat:"F",
+   text:"El Estado garantiza el acceso a los tribunales, sin excepción, para todas las cuestiones civiles, familiares, económicas y penales. Agotada la vía nacional, los ciudadanos tienen derecho a recurrir a instituciones internacionales de protección de derechos humanos. El Estado está obligado a cumplir sus decisiones.",
+   refs:[28]},
+
+  {id:"CON-F4", cat:"F",
+   text:"El Poder Legislativo reside en el Congreso, compuesto por dos cámaras: la Cámara de Representantes y el Senado. Los congresistas gozan de inmunidad parlamentaria; no pueden ser detenidos ni juzgados sin autorización de su cámara, salvo flagrante delito. Los cargos legislativos son incompatibles con el ejercicio de funciones ejecutivas o judiciales.",
+   refs:[35]},
+
+  {id:"CON-F5", cat:"F",
+   text:"El Presidente de la República es elegido por sufragio directo y secreto. Su mandato es de cuatro años; no puede ser reelegido para el período inmediatamente siguiente. El Presidente tiene facultad de veto sobre las leyes aprobadas por el Congreso, el cual puede superar dicho veto por mayoría calificada.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"El Consejo de Ministros es responsable solidariamente ante el Congreso. Cada ministro es individualmente responsable de los actos de su departamento. El Congreso puede interpelar a ministros y exigir su comparecencia."},
+   ]},
+
+  {id:"CON-F6", cat:"F",
+   text:"El Poder Judicial es independiente. Los jueces son inamovibles mientras observen buena conducta y son responsables de sus actos con arreglo a la ley. El Ministerio Fiscal actúa con plena autonomía funcional. En los juicios por delitos graves se garantiza el derecho al jurado popular.",
+   refs:[35]},
+  // ── BLOQUE G: ECONOMÍA Y PROPIEDAD ────────────────────
+  {id:"GS-G-INT-1", cat:"G",
+   text:"La Constitución económica de Cuba se funda en un modelo mixto, plural y de función social, que reconoce la coexistencia de propiedad pública, privada, cooperativa, comunitaria y mixta, bajo reglas de competencia leal, transparencia fiscal, sostenibilidad intergeneracional y protección de bienes estratégicos. La propiedad privada se garantiza, pero condicionada al interés social; se proscribe el latifundio y toda concentración especulativa contraria al bienestar colectivo. Los recursos estratégicos —subsuelo, aguas, costas, biodiversidad y demás capital natural crítico— quedan bajo tutela pública con acceso regulado, concesiones transparentes y revisión periódica obligatoria. Toda expropiación requiere causa pública comprobada, procedimiento judicial y justa indemnización previa. El sistema tributario será progresivo, trazable y orientado al desarrollo productivo y social, con incentivos a formas empresariales de mayor impacto social. El endeudamiento público tendrá límites constitucionales por nivel de gobierno y control parlamentario reforzado para deuda extraordinaria. Toda contratación pública y uso de recursos colectivos deberá ser auditable en datos abiertos, con evaluación de eficiencia, impacto social y ambiental. Este marco integra libertad económica con responsabilidad pública, garantizando crecimiento, equidad y sostenibilidad.",
+   refs:[28,29,35],
+   note:"Propuesta Solucionaria Integrada (IC+IA) construida a partir de CON-G1...CON-G13 + SOST-G1.",
+   variants:[
+     {label:"a", text:"Régimen de tierras: se prohíbe el latifundio; la ley fija límites de tenencia y activa mecanismos de redistribución productiva. La pequeña parcela familiar trabajada directamente por su titular mantiene protección reforzada (inembargable/intransferible según ley especial)."},
+     {label:"b", text:"Concesiones y recursos estratégicos: toda concesión exige licitación pública, publicación íntegra de contrato, cláusulas ambientales y laborales obligatorias, y auditoría independiente cada 24 meses."},
+     {label:"c", text:"Disciplina fiscal: déficit operativo máximo por nivel (nacional/provincial/municipal) con revisión técnica anual; deuda extraordinaria solo con mayoría legislativa calificada y motivación pública."},
+     {label:"d", text:"Transparencia tributaria y presupuestaria: registro público de recaudación y ejecución por territorio/programa, con protección de datos personales cuando corresponda; publicación trimestral en formato abierto."},
+     {label:"e", text:"Regla de coherencia social del mercado: se permite empresa privada y capital extranjero, pero bajo límites antimonopolio, obligaciones de competencia leal y contribución efectiva al desarrollo nacional y local."}
+   ]},
+
+  {id:"SOST-G1", cat:"G",
+   text:"El modelo económico reconoce la coexistencia de propiedad pública, privada, cooperativa, comunitaria y mixta, bajo reglas de competencia leal y responsabilidad social. Los monopolios estatales o privados sin control regulatorio quedan prohibidos.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"Toda concesión de recursos estratégicos requerirá licitación pública, cláusulas de transparencia y revisión periódica por órgano independiente."},
+   ]},
+
+  {id:"CON-G1", cat:"G",
+   text:"El modelo económico es mixto y pluralista: coexisten empresas estatales y públicas, cooperativas, empresas individuales y familiares, empresas mixtas, y asociaciones de empresas privadas. Ninguna forma de propiedad puede subordinar a las demás por decreto.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"Las empresas estatales no son administradas directamente por el gobierno; son gerenciadas desde los principios fundamentales de la conducción empresarial, con autonomía de gestión."},
+     {label:"b", text:"Cada 30 meses sesiona una Comisión Trisectorial (Estado, sindicatos, empresas) que consensúa y fija estándares económicos vinculantes para todas las partes."},
+   ]},
+
+  {id:"CON-G2", cat:"G",
+   text:"El Estado solo podrá expropiar empresas o bienes cuando el interés público o social prevalezca sobre el interés privado, con la debida indemnización y mediante procedimiento judicial. No procederá la expropiación arbitraria.",
+   refs:[28]},
+
+  {id:"CON-G3", cat:"G",
+   text:"El Estado garantiza un sistema de impuestos proporcionales y progresivos sobre las ganancias de todas las personas naturales y jurídicas, sean estatales o no. Se patrocina el desarrollo de instituciones financieras y crediticias públicas, sociales y privadas.",
+   refs:[28]},
+
+  {id:"CON-G4", cat:"G",
+   text:"Se reconocen todas las formas de propiedad —privada, colectiva, mixta y pública— para satisfacer las necesidades del ser humano en armonía con la sociedad. El derecho a heredar y a testar sin condiciones está garantizado.",
+   refs:[27,28]},
+
+  {id:"CON-G5", cat:"G",
+   text:"El modelo económico se fundamenta en cuatro categorías de capital: Capital Social (infraestructura y servicios públicos), Capital Productivo (medios de producción), Capital Trabajador (capacidades humanas) y Capital Natural (recursos ecosistémicos). La política económica debe preservar y desarrollar todos ellos de forma equilibrada.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El Capital Natural incluye tierra, agua, biodiversidad y atmósfera. Su degradación constituye una deuda pública inter-generacional que el Estado debe registrar y reparar."},
+     {label:"b", text:"El Capital Trabajador reconoce el conocimiento, la salud y las competencias de la ciudadanía como activo nacional que el Estado tiene la obligación de desarrollar."},
+   ]},
+
+  {id:"CON-G6", cat:"G",
+   text:"La Constitución reconoce seis tipos de propiedad con régimen jurídico diferenciado: propiedad personal, propiedad familiar, propiedad cooperativa, propiedad empresarial privada, propiedad mixta y propiedad pública. Ningún tipo puede ser discriminado ni favorecido sistemáticamente por la ley.",
+   refs:[29]},
+
+  {id:"CON-G7", cat:"G",
+   text:"El Capital Natural —tierra, agua, biodiversidad, recursos energéticos y atmósfera— es una categoría constitucional protegida. Su explotación está sujeta a límites de sostenibilidad definidos por organismos técnicos independientes. El Estado garantiza que las generaciones futuras hereden un entorno natural funcional.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"La propiedad agrícola privada tiene un límite de 70 hectáreas por familia. Las tierras no explotadas revierten al Estado como usufructo transferible."},
+   ]},
+
+  {id:"CON-G8", cat:"G",
+   text:"El endeudamiento público tiene límites constitucionales por nivel de gobierno: el nivel nacional no puede superar el 5% del PIB anual en déficit operativo, el nivel provincial el 10%, y el nivel municipal el 20%. Todo endeudamiento extraordinario requiere aprobación parlamentaria con mayoría calificada.",
+   refs:[29]},
+
+  {id:"CON-G9", cat:"G",
+   text:"El impuesto sobre el Capital Productivo es inversamente proporcional al grado de socialización de la entidad: a mayor carácter social, menor tasa impositiva. Ningún impuesto puede sobrepasar el límite del 50% para personas ni organizaciones. Las organizaciones sociales no gubernamentales pagan el impuesto mínimo; las empresas extranjeras, el máximo.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El sistema fiscal diferenciado incentiva la creación de empresas sociales y cooperativas por sobre las puramente privadas o extranjeras, promoviendo el equilibrio económico y social sin prohibir ninguna forma de empresa."},
+     {label:"b", text:"Las utilidades que permanezcan como reinversión dentro de la misma entidad o en Capital Productivo solo reciben el impuesto al Capital Productivo. Solo se aplica el impuesto al consumo cuando el accionista retira el dinero para uso personal o familiar."},
+   ]},
+
+  {id:"CON-G10", cat:"G",
+   text:"Todos los impuestos recaudados son públicos. El Estado debe llevar el registro y brindar acceso a la información por contribuyente y organización. Los fondos se identifican por Barrio y por persona cuando el monto sea significativo. Los excedentes anuales de un destino se distribuyen entre las provincias proporcionalmente a su aporte y pueden emplearse en proyectos de desarrollo local.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"Las compras realizadas con presupuesto social deben cumplir criterios de eficiencia, transparencia, calidad, responsabilidad ambiental y social. Se priorizan los productos y servicios nacionales."},
+   ]},
+
+  {id:"CON-G11", cat:"G",
+   text:"La propiedad privada es garantizada, pero está condicionada a su función social. El propietario tiene el deber de emplear los bienes productivos de modo que favorezcan el bienestar colectivo. El subsuelo, las minas, las aguas territoriales, los recursos del mar y las costas pertenecen al Estado.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"El Estado tiene derecho de tanteo —adquisición preferente— en toda venta o traspaso de finca rústica, para orientar la redistribución de tierras y evitar la concentración especulativa."},
+   ]},
+
+  {id:"CON-G12", cat:"G",
+   text:"Se proscribe el latifundio. La ley fijará la extensión máxima de tierra que cada persona o entidad puede poseer, promoviendo la distribución de la tierra en unidades productivas accesibles. La pequeña parcela familiar cultivada directamente por su propietario es inembargable, inalienable e imprescriptible.",
+   refs:[35]},
+
+  {id:"CON-G13", cat:"G",
+   text:"La propiedad intelectual —obras literarias, artísticas, científicas e inventos— está protegida por tiempo determinado. Toda expropiación debe realizarse mediante proceso judicial, con causa pública comprobada y justa indemnización previa. Los bienes de beneficencia y los afectos a servicios públicos son imprescriptibles.",
+   refs:[35]},
+  // ── BLOQUE H: RELACIONES INTERNACIONALES ──────────────
+  {id:"SOST-H1", cat:"H",
+   text:"La política exterior de Cuba se regirá por la defensa de los derechos humanos, la no injerencia, la cooperación regional y la integración económica sostenible. Todo tratado que afecte soberanía regulatoria o recursos estratégicos requerirá control parlamentario reforzado.",
+   refs:[29]},
+
+  {id:"CON-H1", cat:"H",
+   text:"Cuba adoptará como parte de su marco jurídico los fundamentos del Derecho Internacional, los principios proclamados en la Carta de la ONU y los tratados internacionales de derechos humanos de los cuales Cuba sea parte. El Estado está obligado a cumplir las decisiones de instituciones internacionales de derechos humanos.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"El Estado incorporará en sus normativas los derechos suscritos por Tratados y Convenios internacionales en un plazo no mayor de seis meses desde su ratificación."},
+   ]},
+
+  {id:"CON-H2", cat:"H",
+   text:"Cuba debe explorar su integración plena al sistema constitucional de las Américas, participando en el orden hemisférico que ha permitido a los Estados Unidos y otras naciones consolidar democracias estables y prósperas, sin renunciar a su identidad nacional.",
+   refs:[27]},
+
+  {id:"CON-H3", cat:"H",
+   text:"No se permitirá el establecimiento de bases militares extranjeras en territorio cubano, salvo instalaciones bajo mandato expreso de Naciones Unidas o acuerdo multilateral de seguridad colectiva aprobado por referendo ciudadano. Cuba promoverá activamente zonas de paz en el Caribe.",
+   refs:[29]},
+
+  {id:"CON-H4", cat:"H",
+   text:"Cuba condena la guerra de agresión como instrumento de política exterior. Se compromete a resolver las controversias internacionales por medios pacíficos: negociación, mediación, arbitraje y jurisdicción de organismos internacionales. El principio de no intervención en los asuntos internos de otros Estados es norma vinculante.",
+   refs:[35]},
+
+  {id:"CON-H5", cat:"H",
+   text:"Cuba garantiza el asilo político a toda persona perseguida por razones de conciencia o de ideario político-social. No procede la extradición de personas procesadas o condenadas por delitos políticos ni por delitos conexos. El Estado no puede extraditarla aunque el acto imputado sea considerado delito en el país reclamante.",
+   refs:[35]},
+  // ── BLOQUE I: REFORMA CONSTITUCIONAL ──────────────────
+  {id:"SOST-I1", cat:"I",
+   text:"Las reformas constitucionales deberán incluir memoria de impacto en derechos, sostenibilidad fiscal y gobernabilidad institucional. Las cláusulas de derechos fundamentales, separación de poderes y pluralismo político solo podrán reformarse mediante referendo con mayoría cualificada.",
+   refs:[29]},
+
+  {id:"CON-I1", cat:"I",
+   text:"El catálogo de derechos constitucionales actúa como imperativo para todo el funcionamiento del Estado y la sociedad civil, y no puede quedar sujeto a la discrecionalidad del poder. Los principios de progresividad, universalidad, indivisibilidad e inalienabilidad de los derechos son inviolables.",
+   refs:[28],
+   variants:[
+     {label:"a", text:"Todo lo que no esté expresamente prohibido por ley está permitido. La ley no puede ser usada como instrumento de coerción al servicio del poder."},
+     {label:"b", text:"Solo tienen efecto retroactivo las leyes penales cuando sean favorables al encausado o sancionado. Las demás leyes no tienen efecto retroactivo."},
+   ]},
+
+  {id:"CON-I2", cat:"I",
+   text:"El Estado está obligado a incorporar en sus normativas jurídicas, en un plazo máximo de seis meses, todos los derechos que suscriba mediante Tratados y Convenios internacionales. El incumplimiento de esta obligación puede ser impugnado judicialmente.",
+   refs:[28]},
+
+  {id:"CON-I3", cat:"I",
+   text:"La Constitución solo puede reformarse por el Congreso con mayoría calificada, seguida de convención constituyente especialmente elegida para tal efecto o de referendo ciudadano. Ninguna reforma puede menoscabar los derechos fundamentales. Toda disposición legal que los disminuya, restrinja o adultere es nula de pleno derecho; los ciudadanos pueden resistir legítimamente su aplicación.",
+   refs:[35]},
+  // ── BLOQUE J: INNOVACIONES INSTITUCIONALES (Sostenibilismo) ──
+  {id:"SOST-J1", cat:"J",
+   text:"Se crea un Consejo de Integridad Pública y Datos Abiertos, autónomo, encargado de auditar contrataciones, publicar trazabilidad presupuestaria en tiempo real y activar alertas tempranas de corrupción con protección a denunciantes.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El Consejo publicará un índice trimestral de riesgo institucional por ministerio, provincia y municipio, de acceso libre para toda la ciudadanía."},
+   ]},
+
+  {id:"CON-J1", cat:"J",
+   text:"El Estado cubano se organiza en siete poderes independientes: Poder Ciudadano (soberanía directa), Poder Ejecutivo, Poder Legislativo, Poder Judicial, Poder Electoral, Poder de Calidad (veedor técnico del funcionamiento estatal) y Poder de Contraloría (auditoría y patrimonio público). Cada poder tiene origen, mandato y mecanismos de rendición de cuentas autónomos.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"La separación en siete poderes rompe la concentración histórica ejecutivo-legislativo y añade controles técnicos y ciudadanos que los sistemas tripartitos tradicionales no contemplan."},
+   ]},
+
+  {id:"CON-J2", cat:"J",
+   text:"El Senado de los Sabios es una cámara consultiva integrada por ciudadanos de reconocida trayectoria científica, filosófica, artística o cívica, elegidos por méritos y no por afiliación política. Emite dictámenes vinculantes sobre la constitucionalidad de leyes de alto impacto social y sobre la ética pública de los funcionarios electos.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"Los senadores son designados por un período de 10 años no renovable, con mecanismo de revocación ciudadana si su desempeño es calificado negativamente por referendo."},
+     {label:"b", text:"El Senado de los Sabios no legisla; su función es deliberativa, ética y constitucional. Sus dictámenes negativos suspenden una ley hasta su revisión parlamentaria."},
+   ]},
+
+  {id:"CON-J3", cat:"J",
+   text:"El Consejo de Gerentes es el órgano técnico-ejecutivo responsable de la administración eficiente del aparato estatal. Sus miembros son seleccionados por concurso de méritos y desempeño, no por elección política. Responde al Poder Ejecutivo pero puede ser auditado y removido por el Poder de Calidad.",
+   refs:[29]},
+
+  {id:"CON-J4", cat:"J",
+   text:"La Vecindad es la unidad constitucional básica de gobernanza local, conformada por grupos de familias residentes en un radio geográfico definido. El Comité de Vecinos tiene personalidad jurídica, presupuesto propio y capacidad de iniciativa legislativa ante el municipio. Es el primer nivel de contacto ciudadano con el poder público.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El sistema de gobernanza tiene seis niveles jerárquicos ascendentes: Vecindad → Barrio → Municipio → Provincia → Región → Nación. Cada nivel tiene competencias exclusivas y compartidas definidas constitucionalmente."},
+   ]},
+
+  {id:"CON-J5", cat:"J",
+   text:"El Regente de la Calidad es el titular del Poder de Calidad: fiscaliza el rendimiento de todas las instituciones públicas mediante indicadores técnicos y estándares internacionales. El Protector del Patrimonio es el titular del Poder de Contraloría: audita, custodia y recupera los bienes del Estado. Ambos son elegidos por el Senado de los Sabios con ratificación ciudadana.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El Regente de la Calidad puede iniciar procesos de remoción de funcionarios públicos cuyo desempeño sea sistemáticamente deficiente, con independencia del partido o poder que los respalde."},
+     {label:"b", text:"El Protector del Patrimonio tiene potestad para congelar activos públicos ante indicios de malversación, sin necesidad de orden judicial previa, con revisión obligatoria en 72 horas."},
+   ]},
+
+  {id:"CON-J6", cat:"J",
+   text:"El Estado establece los Indicadores de Desarrollo Humano Sostenible (IDHS) como sistema constitucional de medición obligatoria del desempeño estatal. Los IDHS miden: vida, salud y alimentación; orden social y cumplimiento de derechos; educación; situación económica; realización personal y familiar; condiciones sociales; medio ambiente y ecología. Cada instancia registra los datos que le corresponden y toma medidas para la mejora.",
+   refs:[29],
+   variants:[
+     {label:"a", text:"El Sistema de Gestión Social debe auditarse por una organización internacional al menos una vez en cada período de Gobierno, con el objetivo de verificar el grado de conformidad y transparencia."},
+     {label:"b", text:"Los IDHS incluyen indicadores ecológicos específicos: porcentaje de especies protegidas en peligro de extinción, porcentaje de deforestación/reforestación, calidad del agua y del aire, energías renovables sobre consumo total, y planificación de fauna y flora marina."},
+   ]},
+
+  {id:"CON-J7", cat:"J",
+   text:"Se crea el Tribunal de Garantías Constitucionales y Sociales, primera institución de esta naturaleza en América Latina. Tiene competencia exclusiva para declarar la inconstitucionalidad de leyes, decretos y reglamentos, y para proteger los derechos sociales consagrados en la Constitución. Sus resoluciones son de obligatorio cumplimiento por todos los poderes del Estado.",
+   refs:[35],
+   variants:[
+     {label:"a", text:"El Tribunal de Garantías actúa a instancia de parte o de oficio cuando detecte una violación flagrante. Todo ciudadano puede recurrir ante él directamente sin necesidad de patrocinio letrado previo."},
+   ]},
+
+  {id:"CON-J8", cat:"J",
+   text:"El Tribunal de Cuentas es el órgano fiscalizador supremo de los fondos públicos. Audita todos los organismos del Estado y rinde cuenta pública anual. El Ministerio Fiscal actúa con plena independencia del ejecutivo. En causas penales graves, el jurado popular interviene como garante de la justicia ciudadana frente al poder del Estado.",
+   refs:[35]},
+];
+
+// ═══════════════════════════════════════════════════════════
+// ESTADO DE VOTOS Y CHECKBOXES
+// ═══════════════════════════════════════════════════════════
+const votes={};
+const checks={};
+let tV=0;
+
+// ═══════════════════════════════════════════════════════════
+// BUILD UI
+// ═══════════════════════════════════════════════════════════
+function buildAll(){
+  buildCatGrid();
+  Object.keys(CAT).forEach(buildCat);
+  loadVotesFromBackend();
+  loadCitizenProposals();
+  loadIAProposals();
+  buildRefsSection();
+}
+
+function buildCatGrid(){
+  const grid=document.getElementById('cat-grid');
+  Object.keys(CAT).forEach((k,i)=>{
+    const m=CAT[k], count=PROPS.filter(p=>p.cat===k).length;
+    const card=document.createElement('div');
+    card.className='cat-card'+(i===0?' active':'');
+    card.id='cc-'+k;
+    card.onclick=()=>selectCat(k);
+    card.innerHTML=`<div class="cico" style="background:${m.c};"><i class="fi fi-br-${m.icon}"></i></div>
+      <div class="clabel">${k}. ${m.name.split(' ').slice(0,2).join(' ')}<br><span style="font-size:.68rem;font-weight:400;opacity:.7;">${count} propuesta${count!==1?'s':''}</span></div>`;
+    grid.appendChild(card);
+  });
+}
+
+function buildCat(cat){
+  const el=document.getElementById('cat-'+cat);
+  const m=CAT[cat], ps=PROPS.filter(p=>p.cat===cat);
+  el.innerHTML=`<div class="cat-hdr">
+    <div class="cat-lt" style="background:${m.c};"><i class="fi fi-br-${m.icon}" style="color:#fff;font-size:1.1rem;"></i></div>
+    <div><div class="cat-title" style="color:${m.c};">${cat}. ${m.name}</div>
+    <div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div>
+    <div class="cat-count">${ps.length} propuesta${ps.length!==1?'s':''}</div>
+  </div>`;
+  if(ps.length===0){
+    const empty=document.createElement('div');
+    empty.style.cssText='background:#fff;border:2px dashed var(--gris-m);border-radius:8px;padding:28px 22px;text-align:center;color:var(--gt);font-size:.88rem;line-height:1.65;margin-bottom:16px;';
+    empty.innerHTML='<i class="fi fi-br-document" style="font-size:1.8rem;color:var(--gris-m);display:block;margin-bottom:8px;"></i>Aún no hay propuestas en este bloque.<br><span style="font-size:.8rem;">¿Conoces una? El equipo de ENTRE TODOS la incorpora con el mismo formato.</span>';
+    el.appendChild(empty);
+  } else {
+    ps.forEach(p=>el.appendChild(mkCard(p)));
+
+    // Referencias al final del bloque
+    const used=[...new Set(ps.flatMap(x=>x.refs||[]))].sort((a,b)=>a-b);
+    if(used.length){
+      const r=document.createElement('div');
+      r.className='refs-section';
+      r.style.cssText='padding:10px 0 0;';
+      r.innerHTML='<div class="refs-title"><i class="fi fi-br-link-alt"></i> Referencias del bloque '+cat+'</div>';
+      const list=document.createElement('div');
+      used.forEach(n=>{
+        const org=ORGS.find(o=>o.n===n)||{name:'Referencia '+n};
+        const url=ORG_LINKS[n]||'#';
+        const item=document.createElement('div');
+        item.className='ref-item';
+        item.innerHTML=`<span class="ref-n">${n}.</span><span>${org.name} — <a href="${url}" target="_blank" rel="noopener noreferrer">ver documento</a></span>`;
+        list.appendChild(item);
+      });
+      r.appendChild(list);
+      el.appendChild(r);
+    }
+  }
+}
+
+function mkCard(p){
+  const d=document.createElement('div');
+  d.className='card'; d.dataset.id=p.id;
+  const vd=votes[p.id]||{my:0,count:0,total:0};
+  const pct=vd.count>0?Math.round(vd.total/vd.count/5*100):0;
+
+  const refsHtml=p.refs&&p.refs.length
+    ?'<div class="prefs">Ref: ('+p.refs.map(n=>{
+        const org=ORGS.find(o=>o.n===n)||{name:'Org '+n};
+        const url=ORG_LINKS[n]||'#';
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${org.name}" style="color:inherit;text-decoration:none;cursor:pointer;">${n}</a>`;
+      }).join(', ')+')</div>'
+    :'';
+
+  const noteHtml=p.note?`<div style="font-size:.78rem;color:var(--rojo);margin-top:5px;font-style:italic;line-height:1.4;">${p.note}</div>`:'';
+
+  const stH=[1,2,3,4,5].map(s=>`<span class="star ${s<=vd.my?'on':''}" data-pid="${p.id}" data-s="${s}"
+    onmouseenter="hvr('${p.id}',${s})" onmouseleave="uHvr('${p.id}')"
+    onclick="castV('${p.id}',${s})">&#9733;</span>`).join('');
+
+  let varH='';
+  if(p.variants&&p.variants.length){
+    const rows=p.variants.map((v,vi)=>{
+      const key=p.id+'-'+vi, cnt=checks[key]||0;
+      return `<div class="vitem ${cnt?'chk':''}" id="vi-${p.id}-${vi}" onclick="togChk('${p.id}',${vi})">
+        <input type="checkbox" class="vcb" id="cb-${p.id}-${vi}" ${cnt?'checked':''} onclick="event.stopPropagation();togChk('${p.id}',${vi})">
+        <div class="vright">
+          <span class="vlabel">${v.label})</span><span class="vtxt">${v.text}</span>
+          <div class="vsels" id="vs-${p.id}-${vi}">${cnt} selección${cnt!==1?'es':''}</div>
+        </div></div>`;
+    }).join('');
+    varH=`<div class="variants-wrap"><div class="var-title"><i class="fi fi-br-list-check"></i> Variantes — puedes marcar las que apoyas</div>${rows}</div>`;
+  }
+
+  d.innerHTML=`<div class="card-top">
+    <span class="pid">${p.id}</span>
+    <div class="pbody"><div class="ptxt">${p.text}</div>${refsHtml}${noteHtml}</div>
+  </div>
+  ${varH}
+  <div class="vote-row">
+    <span class="vlbl">Votar:</span>
+    <div class="stars" id="st-${p.id}">${stH}</div>
+    <span class="vcnt" id="vc-${p.id}">${vd.count} voto${vd.count!==1?'s':''}</span>
+    <div class="bwrap"><div class="bar" id="bar-${p.id}" style="width:${pct}%"></div></div>
+    <span class="vpct" id="pct-${p.id}">${pct}%</span>
+  </div>`;
+  return d;
+}
+
+// ═══════════════════════════════════════════════════════════
+// VOTE FUNCTIONS
+// ═══════════════════════════════════════════════════════════
+function hvr(pid,s){
+  document.querySelectorAll(`#st-${pid} .star`).forEach((el,i)=>el.classList.toggle('hov',i<s));
+}
+function uHvr(pid){
+  const vd=votes[pid]||{my:0};
+  document.querySelectorAll(`#st-${pid} .star`).forEach((el,i)=>{
+    el.classList.remove('hov');
+    el.classList.toggle('on',i<vd.my);
+  });
+}
+
+function castV(pid,s){
+  if(!votes[pid])votes[pid]={my:0,count:0,total:0};
+  const vd=votes[pid],prev=vd.my;
+  if(prev===s){vd.total-=s;vd.count=Math.max(0,vd.count-1);vd.my=0;if(vd.count===0)tV=Math.max(0,tV-1);}
+  else{if(prev>0)vd.total-=prev;else{vd.count++;tV++;}vd.my=s;vd.total+=s;}
+  uHvr(pid);
+  const pct=vd.count>0?Math.round(vd.total/vd.count/5*100):0;
+  document.getElementById('bar-'+pid).style.width=pct+'%';
+  document.getElementById('pct-'+pid).textContent=pct+'%';
+  document.getElementById('vc-'+pid).textContent=`${vd.count} voto${vd.count!==1?'s':''}`;
+  document.getElementById('banner-votos').textContent=tV;
+  toast(vd.my===0?'Voto eliminado':`Votaste ${vd.my} estrella${vd.my!==1?'s':''}`);
+  // Sync to Supabase (mismo votes table que transición — ID compartido)
+  const _dt=getOrCreateDeviceToken();
+  const _sc=Object.keys(checks).filter(k=>k.startsWith(pid+'-')&&checks[k]>0).map(k=>k.replace(pid+'-',''));
+  sbQuery('votes',{upsert:true,body:{device_token:_dt,proposal_id:pid,score:vd.my,selected_clauses:_sc,updated_at:new Date().toISOString()}}).catch(()=>{});
+}
+
+function togChk(pid,vi){
+  const key=pid+'-'+vi;
+  checks[key]=(checks[key]||0)+1;
+  const el=document.getElementById('vi-'+pid+'-'+vi);
+  const cb=document.getElementById('cb-'+pid+'-'+vi);
+  const vs=document.getElementById('vs-'+pid+'-'+vi);
+  const on=checks[key]%2===1;
+  el.classList.toggle('chk',on);
+  cb.checked=on;
+  vs.textContent=checks[key]+' selección'+(checks[key]!==1?'es':'');
+}
+
+// ═══════════════════════════════════════════════════════════
+// LOAD VOTES FROM SUPABASE
+// ═══════════════════════════════════════════════════════════
+async function loadVotesFromBackend(){
+  const dt=getOrCreateDeviceToken();
+  const ids=PROPS.map(p=>`"${p.id}"`).join(',');
+  // All votes for these proposals
+  const all=await sbQuery('votes',{params:`proposal_id=in.(${ids})&select=proposal_id,score`});
+  if(all&&Array.isArray(all)){
+    all.forEach(r=>{
+      if(!votes[r.proposal_id])votes[r.proposal_id]={my:0,count:0,total:0};
+      votes[r.proposal_id].count++;
+      votes[r.proposal_id].total+=r.score;
+    });
+  }
+  // My votes
+  const mine=await sbQuery('votes',{params:`device_token=eq.${dt}&proposal_id=in.(${ids})&select=proposal_id,score`});
+  if(mine&&Array.isArray(mine)){
+    mine.forEach(r=>{
+      if(!votes[r.proposal_id])votes[r.proposal_id]={my:0,count:0,total:0};
+      votes[r.proposal_id].my=r.score;
+    });
+  }
+  // Update UI
+  tV=0;
+  PROPS.forEach(p=>{
+    const vd=votes[p.id]||{my:0,count:0,total:0};
+    if(vd.my>0)tV++;
+    const pct=vd.count>0?Math.round(vd.total/vd.count/5*100):0;
+    const barEl=document.getElementById('bar-'+p.id);
+    const pctEl=document.getElementById('pct-'+p.id);
+    const vcEl=document.getElementById('vc-'+p.id);
+    if(barEl)barEl.style.width=pct+'%';
+    if(pctEl)pctEl.textContent=pct+'%';
+    if(vcEl)vcEl.textContent=`${vd.count} voto${vd.count!==1?'s':''}`;
+    const stEl=document.getElementById('st-'+p.id);
+    if(stEl)stEl.querySelectorAll('.star').forEach((el,i)=>el.classList.toggle('on',i<vd.my));
+  });
+  document.getElementById('banner-votos').textContent=tV;
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// CITIZEN PROPOSALS
+// ═══════════════════════════════════════════════════════════
+let newProps=[];
+
+function submitNew(){
+  const txt=document.getElementById('nt').value.trim();
+  let cat=document.getElementById('nc').value;
+  const anon=document.getElementById('na').checked;
+  const name=anon?'Anónimo':(document.getElementById('nn').value.trim()||'Anónimo');
+  if(!txt){toast('Escribe tu propuesta primero','e');return;}
+  const nid='CON-C'+(newProps.length+1);
+  const myToken=getOrCreateDeviceToken();
+  newProps.push({id:nid,cat,text:txt,author:name,citizen:true,ownerToken:myToken});
+  votes[nid]={my:0,count:0,total:0};
+  renderCitizenCard({id:nid,cat,text:txt,author:name},document.getElementById('citizen-list'));
+  document.getElementById('nt').value='';
+  document.getElementById('nn').value='';
+  document.getElementById('nc').value='';
+  if(document.getElementById('banner-total'))
+    document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
+  toast('Propuesta enviada. Gracias.');
+  sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name}})
+    .catch(()=>{});
+}
+
+function renderCitizenCard(p,list){
+  const nid=p.id;
+  if(!votes[nid])votes[nid]={my:0,count:0,total:0};
+  const stH=[1,2,3,4,5].map(s=>`<span class="star" data-pid="${nid}" data-s="${s}" onmouseenter="hvr('${nid}',${s})" onmouseleave="uHvr('${nid}')" onclick="castV('${nid}',${s})">&#9733;</span>`).join('');
+  const card=document.createElement('div');
+  card.className='citizen-card'; card.dataset.id=nid;
+  card.innerHTML=
+    `<div class="citizen-badge">${p.cat?'Bloque '+p.cat+' · ':''}<i class="fi fi-br-user"></i> Ciudadano</div>`
+    +`<div class="citizen-text">${p.text}</div>`
+    +`<div class="citizen-author">— ${p.author} · Necesita 3+ estrellas para integrarse al documento</div>`
+    +`<div class="citizen-vote-row">`
+    +`<span style="font-family:'Barlow Condensed',sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);">Apoyo:</span>`
+    +`<div class="stars" id="st-${nid}">${stH}</div>`
+    +`<span class="vcnt" id="vc-${nid}">0 votos</span>`
+    +`<div class="bwrap"><div class="bar" id="bar-${nid}" style="width:0%"></div></div>`
+    +`<span class="vpct" id="pct-${nid}">0%</span></div>`;
+  list.prepend(card);
+}
+
+async function loadCitizenProposals(){
+  const rows=await sbQuery('citizen_proposals',{params:'select=id,content,category,author_name,estado&estado=neq.rejected&order=created_at.desc&limit=50'})
+    .catch(()=>null);
+  if(!rows||!Array.isArray(rows)||rows.length===0)return;
+  const list=document.getElementById('citizen-list');
+  const dt=getOrCreateDeviceToken();
+  rows.forEach(r=>{
+    const nid='SB-'+r.id;
+    if(newProps.find(p=>p.id===nid))return; // already rendered
+    newProps.push({id:nid,cat:r.category||'',text:r.content,author:r.author_name||'Anónimo',citizen:true});
+    votes[nid]={my:0,count:0,total:0};
+    renderCitizenCard({id:nid,cat:r.category||'',text:r.content,author:r.author_name||'Anónimo'},list);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// IA PROPOSALS (transparent, same visual voting)
+// ═══════════════════════════════════════════════════════════
+const IA_PROPS=[
+  {id:'IA-A1',cat:'A',text:'La Constitución debe incorporar una cláusula de evaluación periódica de impacto institucional, social y ambiental para toda política de Estado de largo plazo.',author:'Motor IA · E/T'},
+  {id:'IA-D1',cat:'D',text:'Cuando existan propuestas ciudadanas incompatibles sobre un mismo punto, debe abrirse una síntesis comparada con voto ciudadano entre alternativas A/B/C y opción de rechazo total.',author:'Motor IA · E/T'},
+  {id:'IA-G1',cat:'G',text:'Los contratos sobre recursos estratégicos deben publicarse íntegros en datos abiertos, con auditoría independiente y revisión obligatoria por desempeño cada 24 meses.',author:'Motor IA · E/T'}
+];
+
+function renderIACard(p,list){
+  const nid=p.id;
+  if(!votes[nid])votes[nid]={my:0,count:0,total:0};
+  const stH=[1,2,3,4,5].map(s=>`<span class="star" data-pid="${nid}" data-s="${s}" onmouseenter="hvr('${nid}',${s})" onmouseleave="uHvr('${nid}')" onclick="castV('${nid}',${s})">&#9733;</span>`).join('');
+  const card=document.createElement('div');
+  card.className='citizen-card'; card.dataset.id=nid;
+  card.innerHTML=
+    `<div class="citizen-badge">${p.cat?'Bloque '+p.cat+' · ':''}<i class="fi fi-br-sparkles"></i> IA</div>`
+    +`<div class="citizen-text">${p.text}</div>`
+    +`<div class="citizen-author">— ${p.author} · Propuesta IA (votable) · Necesita 3+ estrellas para integrarse al documento</div>`
+    +`<div class="citizen-vote-row">`
+    +`<span style="font-family:'Barlow Condensed',sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);">Apoyo:</span>`
+    +`<div class="stars" id="st-${nid}">${stH}</div>`
+    +`<span class="vcnt" id="vc-${nid}">0 votos</span>`
+    +`<div class="bwrap"><div class="bar" id="bar-${nid}" style="width:0%"></div></div>`
+    +`<span class="vpct" id="pct-${nid}">0%</span></div>`;
+  list.prepend(card);
+}
+
+function loadIAProposals(){
+  const list=document.getElementById('ia-list');
+  if(!list) return;
+  IA_PROPS.forEach(p=>renderIACard(p,list));
+}
+
+// ═══════════════════════════════════════════════════════════
+// REFS SECTION — solo muestra refs usadas
+// ═══════════════════════════════════════════════════════════
+function buildRefsSection(){
+  const used=new Set();
+  PROPS.forEach(p=>(p.refs||[]).forEach(n=>used.add(n)));
+  if(!used.size)return;
+  const list=document.getElementById('refs-list');
+  [...used].sort((a,b)=>a-b).forEach(n=>{
+    const org=ORGS.find(o=>o.n===n)||{name:'Referencia '+n};
+    const url=ORG_LINKS[n]||'#';
+    const item=document.createElement('div');
+    item.className='ref-item';
+    item.innerHTML=`<span class="ref-n">${n}.</span><span>${org.name} — <a href="${url}" target="_blank" rel="noopener noreferrer">ver documento</a></span>`;
+    list.appendChild(item);
+  });
+  document.getElementById('refs-section').style.display='';
+}
+
+// ═══════════════════════════════════════════════════════════
+// NAV HELPERS
+// ═══════════════════════════════════════════════════════════
+function selectCat(cat){
+  document.querySelectorAll('.cat-sec').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.cat-card').forEach(el=>el.classList.remove('active'));
+  document.getElementById('cat-'+cat).classList.add('active');
+  document.getElementById('cc-'+cat).classList.add('active');
+  window.scrollTo({top:document.querySelector('.cat-grid-wrap').offsetTop-70,behavior:'smooth'});
+}
+
+function toggleHam(){
+  document.getElementById('hdr-ham-btn').classList.toggle('open');
+  document.getElementById('hdr-ham-menu').classList.toggle('open');
+}
+function closeHam(){
+  document.getElementById('hdr-ham-btn').classList.remove('open');
+  document.getElementById('hdr-ham-menu').classList.remove('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.hdr-ham'))closeHam();
+});
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid=setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', buildAll);
+</script>
 </body>
 </html>
