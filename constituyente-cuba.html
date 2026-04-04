@@ -142,6 +142,99 @@ footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacin
 .citizen-author{font-size:.72rem;color:#aaa;margin-bottom:8px;}
 .citizen-vote-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 
+
+/* ── IC+IA FRAMEWORK ───────────────────────── */
+.icaia-frame{background:var(--azul);padding:0;}
+.icaia-frame-inner{max-width:1100px;margin:0 auto;padding:18px 22px 16px;}
+.icaia-label-row{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px;}
+.icaia-cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.icaia-card{flex:1;min-width:240px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;}
+.icaia-card-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.icaia-card-icon.ic{background:#1a3d6b;}
+.icaia-card-icon.ia{background:rgba(207,20,43,.25);}
+.icaia-card-icon i{color:#fff;font-size:.95rem;}
+.icaia-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:3px;}
+.icaia-card-desc{font-size:.78rem;color:rgba(255,255,255,.75);line-height:1.45;}
+.icaia-rule{background:rgba(255,255,255,.07);border-radius:5px;padding:9px 13px;font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
+.icaia-rule i{flex-shrink:0;margin-top:2px;}
+
+/* ── BORRADOR CONSTITUCIONAL v0.1 ─────────── */
+.borrador-section{background:#fff;border-top:3px solid var(--azul);margin-bottom:0;}
+.borrador-section-inner{max-width:1100px;margin:0 auto;padding:22px 22px 28px;}
+.borrador-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;gap:12px;flex-wrap:wrap;}
+.borrador-badge-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px;}
+.borrador-badge{background:var(--rojo);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;}
+.borrador-ver{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;color:var(--azul);letter-spacing:.05em;border:1.5px solid var(--azul);padding:1px 7px;border-radius:3px;}
+.borrador-fecha{font-size:.72rem;color:#888;}
+.borrador-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--azul);line-height:1.1;margin-bottom:3px;}
+.borrador-sub{font-size:.78rem;color:#666;}
+.borrador-toggle{background:none;border:1.5px solid #ccc;color:#555;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:4px;cursor:pointer;display:flex;gap:5px;align-items:center;white-space:nowrap;}
+.borrador-toggle:hover{border-color:var(--azul);color:var(--azul);}
+.borrador-preamble{background:#f9f9f9;border-left:3px solid #ccc;padding:12px 16px;margin-bottom:16px;border-radius:0 4px 4px 0;}
+.bor-section-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-bottom:6px;}
+.borrador-preamble-txt{font-size:.84rem;color:#444;line-height:1.6;font-style:italic;}
+.borrador-titulo{border:1.5px solid #e8e8e8;border-radius:6px;overflow:hidden;margin-bottom:10px;}
+.borrador-titulo-bar{background:var(--azul);padding:8px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.bor-t-num{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.06em;color:rgba(255,255,255,.6);flex-shrink:0;}
+.bor-t-name{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;flex:1;}
+.bor-t-bloque{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);background:rgba(255,255,255,.1);padding:2px 7px;border-radius:3px;}
+.borrador-art{padding:14px 14px 10px;}
+.bor-art-head{display:flex;gap:8px;align-items:center;margin-bottom:6px;}
+.bor-art-num{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;color:var(--azul);letter-spacing:.03em;}
+.bor-art-estado{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border-radius:3px;}
+.bor-art-estado.prelim{background:#fff7e6;color:#b45309;border:1px solid #fed7aa;}
+.bor-art-estado.revision{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
+.bor-art-estado.consolidado{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
+.bor-art-txt{font-size:.87rem;color:#222;line-height:1.65;margin-bottom:10px;}
+.bor-art-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;padding-top:8px;border-top:1px solid #f0f0f0;}
+.bor-trace{font-size:.72rem;color:#888;display:flex;gap:5px;align-items:center;}
+.bor-trace i{font-size:.65rem;}
+.bor-update{font-size:.7rem;color:#aaa;}
+
+
+/* ── IA LANE STYLES ── */
+.ia-lane{margin:18px 0 6px;border-top:2px solid #f3f4f6;padding-top:14px;}
+.ia-lane-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.ia-lane-badge{background:var(--rojo);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px;}
+.ia-lane-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#666;}
+.ia-lane-sub{font-size:.7rem;color:#aaa;margin-left:auto;}
+
+.ia-gap-list{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
+.ia-gap-card{background:#fff8f8;border:1.5px dashed #e8b4b8;border-radius:7px;padding:10px 13px;display:flex;gap:10px;align-items:flex-start;}
+.ia-gap-icon{width:26px;height:26px;border-radius:50%;background:rgba(207,20,43,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ia-gap-icon i{color:var(--rojo);font-size:.75rem;}
+.ia-gap-body{}
+.ia-gap-title{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;color:#222;letter-spacing:.02em;margin-bottom:3px;}
+.ia-gap-why{font-size:.73rem;color:#888;line-height:1.4;}
+.ia-gap-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#fef2f2;color:#c0392b;border:1px solid #f5c6c6;border-radius:3px;padding:1px 5px;margin-top:4px;}
+
+.ia-int-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ia-int-badge{background:rgba(207,20,43,.1);color:var(--rojo);font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px;border:1px solid rgba(207,20,43,.25);}
+
+/* ── OBJECTION / COMMENT PANEL ─────────────── */
+.obj-btn{background:none;border:1.5px solid #ddd;color:#888;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:4px;cursor:pointer;display:inline-flex;gap:5px;align-items:center;margin-top:6px;}
+.obj-btn:hover{border-color:var(--azul);color:var(--azul);}
+.obj-btn .obj-count{background:var(--azul);color:#fff;border-radius:9px;padding:0 5px;font-size:.65rem;min-width:16px;text-align:center;}
+.obj-panel{display:none;margin-top:8px;background:#fafafa;border:1.5px solid #e8e8e8;border-radius:5px;padding:10px 12px;}
+.obj-panel.open{display:block;}
+.obj-panel-title{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:8px;}
+.obj-list{margin-bottom:10px;}
+.obj-item{background:#fff;border:1px solid #ebebeb;border-radius:4px;padding:7px 10px;margin-bottom:6px;font-size:.8rem;color:#333;line-height:1.45;}
+.obj-item-meta{font-size:.68rem;color:#aaa;margin-top:3px;}
+.obj-tipo{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-right:5px;}
+.obj-tipo.tecnica{background:#eff6ff;color:#1d4ed8;}
+.obj-tipo.etica{background:#fff7e6;color:#b45309;}
+.obj-tipo.juridica{background:#f0fdf4;color:#15803d;}
+.obj-tipo.otra{background:#f5f5f5;color:#666;}
+.obj-empty{font-size:.78rem;color:#bbb;font-style:italic;margin-bottom:8px;}
+.obj-form{display:flex;flex-direction:column;gap:6px;}
+.obj-form select,.obj-form textarea,.obj-form input{font-family:'Barlow',sans-serif;font-size:.8rem;border:1.5px solid #ddd;border-radius:4px;padding:5px 8px;color:#333;background:#fff;}
+.obj-form select:focus,.obj-form textarea:focus,.obj-form input:focus{outline:none;border-color:var(--azul);}
+.obj-form textarea{resize:vertical;min-height:56px;}
+.obj-submit-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.obj-submit-btn{background:var(--azul);color:#fff;border:none;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:4px;cursor:pointer;}
+.obj-submit-btn:hover{background:#001f6b;}
+.obj-cancel{background:none;border:none;font-size:.75rem;color:#aaa;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -188,18 +281,253 @@ footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacin
     <div class="page-banner-sub">Propuestas de organizaciones y ciudadanos sobre el marco constitucional de la Cuba futura. Organizadas por bloque constitucional. El texto es el protagonista — lee, compara, vota. Ninguna propuesta llega con jerarquía de origen.</div>
     <div class="page-banner-stats">
       <div class="page-banner-stat">
-        <div class="page-banner-stat-n" id="banner-total">95</div>
+        <div class="page-banner-stat-n" id="banner-total">127</div>
         <div class="page-banner-stat-l">Propuestas</div>
       </div>
       <div class="page-banner-stat-sep"></div>
       <div class="page-banner-stat">
-        <div class="page-banner-stat-n">9</div>
+        <div class="page-banner-stat-n">10</div>
         <div class="page-banner-stat-l">Bloques constitucionales</div>
       </div>
       <div class="page-banner-stat-sep"></div>
       <div class="page-banner-stat">
         <div class="page-banner-stat-n" id="banner-votos">0</div>
         <div class="page-banner-stat-l">Votos emitidos</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IC+IA FRAMEWORK -->
+<div class="icaia-frame">
+  <div class="icaia-frame-inner">
+    <div class="icaia-label-row">Marco de Deliberación Constitucional IC + IA &nbsp;·&nbsp; v1.1</div>
+    <div class="icaia-cards">
+      <div class="icaia-card">
+        <div class="icaia-card-icon ic"><i class="fi fi-br-users"></i></div>
+        <div class="icaia-card-body">
+          <div class="icaia-card-title">IC — Inteligencia Colectiva</div>
+          <div class="icaia-card-desc">Aportes de ciudadanos, organizaciones de oposición, juristas, expertos y diáspora cubana. Extraídos de documentos fuente verificables, trazables a sus autores de origen.</div>
+        </div>
+      </div>
+      <div class="icaia-card">
+        <div class="icaia-card-icon ia"><i class="fi fi-br-robot"></i></div>
+        <div class="icaia-card-body">
+          <div class="icaia-card-title">IA — Inteligencia Artificial</div>
+          <div class="icaia-card-desc">Sugerencias técnicas para detectar vacíos, sintetizar propuestas IC y plantear alternativas. La IA propone — la ciudadanía decide mediante voto por estrellas.</div>
+        </div>
+      </div>
+    </div>
+    <div class="icaia-rule">
+      <i class="fi fi-br-star" style="color:#f59e0b;flex-shrink:0;margin-top:1px;"></i>
+      <span><strong>Regla común:</strong> Toda propuesta —IC o IA— se vota con el mismo sistema (1–5 estrellas). <strong>3+ estrellas = incluida en el Borrador Constitucional.</strong> La IA no tiene peso superior al ciudadano.</span>
+    </div>
+  </div>
+</div>
+
+<!-- BORRADOR CONSTITUCIONAL v0.1 -->
+<div class="borrador-section">
+  <div class="borrador-section-inner">
+    <div class="borrador-hdr">
+      <div>
+        <div class="borrador-badge-row">
+          <span class="borrador-badge">Documento Constitucional en Construcción</span>
+          <span class="borrador-ver">v0.1</span>
+          <span class="borrador-fecha">2026-04-03</span>
+        </div>
+        <div class="borrador-title">Constitución de la República de Cuba</div>
+        <div class="borrador-sub">Borrador Colectivo IC + IA &nbsp;·&nbsp; Proceso Constituyente ENTRE TODOS</div>
+      </div>
+      <button class="borrador-toggle" id="borrador-toggle" onclick="toggleBorrador()">
+        <i class="fi fi-br-angle-right" id="borrador-toggle-icon"></i> Ver documento
+      </button>
+    </div>
+
+    <div id="borrador-content" style="display:none;">
+      <div class="borrador-preamble">
+        <div class="bor-section-lbl">Preámbulo</div>
+        <div class="borrador-preamble-txt">El pueblo de Cuba, en ejercicio de su soberanía constituyente e irrenunciable, adopta la presente Constitución como expresión colectiva de su voluntad de construir una república libre, democrática, sostenible y justa para todas las personas. Este documento es un borrador vivo construido a través del debate ciudadano, la deliberación experta y la síntesis IC+IA. No es definitivo hasta que el pueblo lo ratifique mediante referendo.</div>
+      </div>
+
+      <div class="borrador-titulo" id="bd-A">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título I</span>
+          <span class="bor-t-name">Fundamentos y Principios del Estado</span>
+          <span class="bor-t-bloque">Bloque A</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 1.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">La República de Cuba es un Estado social, democrático y de derecho. La sostenibilidad intergeneracional es principio rector: toda ley, política pública y actuación del Estado debe evaluarse por su impacto económico, social y ambiental antes de su adopción, y está sujeta a revisión permanente en función del bienestar colectivo presente y futuro.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-A1, CON-A1–A5 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-B">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título II</span>
+          <span class="bor-t-name">Derechos Fundamentales Individuales</span>
+          <span class="bor-t-bloque">Bloque B</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 2.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">Toda persona tiene derecho a la identidad digital, a la protección de sus datos personales y al control informado sobre su uso por el Estado o por actores privados. La vigilancia masiva sin autorización judicial específica queda prohibida. El matrimonio es la unión voluntaria entre dos personas con igualdad plena de derechos y deberes. La vivienda principal es inviolable y está protegida de desalojo sin orden judicial y solución habitacional alternativa.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-B1, CON-B1–B20 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-C">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título III</span>
+          <span class="bor-t-name">Derechos Sociales y Culturales</span>
+          <span class="bor-t-bloque">Bloque C</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 3.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">El Estado garantiza un piso universal de bienestar compuesto por salud primaria gratuita, educación universal, nutrición básica, acceso mínimo a energía y conectividad, y vivienda digna, financiado con reglas fiscales transparentes y auditables. La madre trabajadora tiene derecho a doce meses de licencia de maternidad remunerada; el padre, a dos semanas. Ningún ciudadano puede ser limitado en su atención médica por razones económicas.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-C1, CON-C1–C13 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-D">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título IV</span>
+          <span class="bor-t-name">Derechos Políticos y Participación</span>
+          <span class="bor-t-bloque">Bloque D</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 4.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">Se garantiza la iniciativa legislativa ciudadana digital verificable: todo grupo ciudadano con diez mil firmas puede presentar proyectos de ley. Se establece el referendo revocatorio para cargos ejecutivos con umbrales proporcionales y auditoría pública del padrón. Ninguna persona, empresa o entidad estatal puede controlar más del treinta por ciento de los medios de comunicación de cobertura nacional.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-D1, CON-D1–D10 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-E">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título V</span>
+          <span class="bor-t-name">Organización del Estado</span>
+          <span class="bor-t-bloque">Bloque E</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 5.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">El Estado se organiza en seis niveles territoriales: Nación, Provincia, Municipio, Barrio, Circunscripción y Vecindad. Cada nivel tiene asamblea representativa, consejo ejecutivo y presupuesto propio. Rige el principio de subsidiariedad. Un Sistema Nacional de Planeación Estratégica con participación ciudadana y revisión anual pública alinea presupuestos y políticas de largo plazo con indicadores verificables.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-E1, CON-E1–E8 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-F">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título VI</span>
+          <span class="bor-t-name">Poderes del Estado</span>
+          <span class="bor-t-bloque">Bloque F</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 6.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">La Asamblea Nacional es bicameral: un Senado de los Sabios de cincuenta senadores y una Cámara de Representantes de cuatrocientos cincuenta diputados. El control constitucional ex ante y ex post es obligatorio para toda ley orgánica. Ningún miembro del poder judicial ni de la policía puede pertenecer a partido político alguno. El Poder Judicial es independiente y sus decisiones no pueden ser revertidas por el ejecutivo.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-F1, CON-F1–F8 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-G">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título VII</span>
+          <span class="bor-t-name">Economía y Propiedad</span>
+          <span class="bor-t-bloque">Bloque G</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 7.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">El modelo económico de Cuba es mixto, plural y de función social. Se reconoce la coexistencia de propiedad pública, privada, cooperativa, comunitaria y mixta bajo reglas de competencia leal, transparencia fiscal y sostenibilidad intergeneracional. Los monopolios estatales o privados sin control regulatorio quedan prohibidos. El endeudamiento público no puede exceder el veinte por ciento del PIB a nivel nacional.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: GS-G-INT-1, SOST-G1, CON-G1–G14 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-H">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título VIII</span>
+          <span class="bor-t-name">Relaciones Internacionales</span>
+          <span class="bor-t-bloque">Bloque H</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 8.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">La política exterior de Cuba se rige por la defensa de los derechos humanos, la no injerencia, la cooperación regional y la integración económica sostenible. Todo tratado que afecte soberanía regulatoria o recursos estratégicos requiere control parlamentario reforzado. Los ciudadanos cubanos residentes en el exterior tienen derecho a votar para Presidente de la República y Senadores a través de sedes diplomáticas o por vía digital certificada.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-H1, CON-H1–H6 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-I">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título IX</span>
+          <span class="bor-t-name">Reforma Constitucional</span>
+          <span class="bor-t-bloque">Bloque I</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 9.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">El pueblo de Cuba es el único titular del poder constituyente. Toda reforma constitucional debe incluir memoria de impacto en derechos, sostenibilidad fiscal y gobernabilidad, y ser ratificada mediante referendo por mayoría de los ciudadanos con derecho al voto. Las cláusulas de derechos fundamentales, separación de poderes y pluralismo político solo pueden reformarse con mayoría cualificada en referendo.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-I1, CON-I1–I4 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
+      </div>
+      <div class="borrador-titulo" id="bd-J">
+        <div class="borrador-titulo-bar">
+          <span class="bor-t-num">Título X</span>
+          <span class="bor-t-name">Innovaciones Institucionales</span>
+          <span class="bor-t-bloque">Bloque J</span>
+        </div>
+        <div class="borrador-art">
+          <div class="bor-art-head">
+            <span class="bor-art-num">Artículo 10.</span>
+            <span class="bor-art-estado prelim">Preliminar</span>
+          </div>
+          <div class="bor-art-txt">Se crea un Consejo de Integridad Pública y Datos Abiertos, autónomo, que audita contrataciones, publica trazabilidad presupuestaria en tiempo real y activa alertas tempranas de corrupción con protección a denunciantes. Todo el que se encuentre detenido sin las formalidades constitucionales será puesto en libertad inmediata por habeas corpus. Ningún juez puede declinar esta jurisdicción. La adicción a drogas se trata como problema de salud pública, no como delito.</div>
+          <div class="bor-art-meta">
+            <span class="bor-trace"><i class="fi fi-br-link"></i> IC: SOST-J1, CON-J1–J10 · IA: Propuesta integrada</span>
+            <span class="bor-update">Actualizado: 2026-04-03</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -328,6 +656,14 @@ const ORGS=[
   {n:28, name:"Cuba Próxima / Cuba Posible — Propuesta de Constitución para la República de Cuba"},
   {n:29, name:"Javier Puig Santos — Proyecto Constitución Cubana Sostenibilismo (en proceso)"},
   {n:35, name:"Constitución de la República de Cuba (1940)"},
+  {n:36, name:"Constitución de Guáimaro (1869) — Primera Constitución cubana, Guerra de los Diez Años"},
+  {n:37, name:"Constitución de Baraguá (1878) — Protesta de Antonio Maceo contra el Pacto del Zanjón"},
+  {n:38, name:"Constitución de Jimaguayú (1895) — Inspirada en José Martí, inicio de la Guerra del 95"},
+  {n:39, name:"Constitución de La Yaya (1897) — La más completa de las constituciones mambisas, 48 artículos"},
+  {n:40, name:"Constitución de la República de Cuba (1901) — Primera constitución republicana independiente"},
+  {n:41, name:"Ley Fundamental de 1959 — Proclamada el 7 de febrero de 1959, basada en la C-40"},
+  {n:42, name:"Constitución Socialista de Cuba (1976) — Estableció el partido único y el Estado socialista"},
+  {n:43, name:"Constitución de la República de Cuba (2019) — Constitución vigente, aprobada en referendo"},
 ];
 
 const ORG_LINKS={
@@ -347,11 +683,78 @@ const ORG_LINKS={
   28:"CONSTITUYENTE/Propuesta-de-Constitucion-para-la-Republica-de-Cuba.pdf",
   29:"CONSTITUYENTE/PROYECTO CONSTITUCIÓN CUBANA SOSTENIBILISMO Versión 1.00 2014 a 14 octubre 2018.pdf",
   35:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  36:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  37:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  38:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  39:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  40:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  41:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  42:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
+  43:"CONSTITUYENTE/Constituciones_de_Cuba_1869-2019.pdf",
 };
 
 // ═══════════════════════════════════════════════════════════
 // CATEGORÍAS — 9 BLOQUES CONSTITUCIONALES
 // ═══════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════
+// IA — VACÍOS CONSTITUCIONALES DETECTADOS POR BLOQUE
+// Puntos que ninguna propuesta IC cubre todavía.
+// Fuente: análisis comparativo de constituciones democráticas
+// contemporáneas (ES, DE, PT, UY, CR) vs. propuestas recibidas.
+// ═══════════════════════════════════════════════════════════
+const GAPS = {
+  A:[
+    {g:"Laicidad del Estado y separación formal Iglesia-Estado", why:"La mayoría de propuestas invocan valores sin definir explícitamente el carácter laico de la república."},
+    {g:"Principio de supremacía constitucional y control de constitucionalidad", why:"Ninguna propuesta IC define qué órgano verifica la conformidad de leyes con la Constitución."},
+    {g:"Cláusula de inderogabilidad: núcleo de derechos no suspendible ni en estado de excepción", why:"Las propuestas sobre emergencia no establecen qué derechos son absolutamente inviolables."}
+  ],
+  B:[
+    {g:"Derecho a la identidad de género y cambio de nombre legal", why:"Las propuestas de derechos individuales no incluyen autodeterminación de género ni procedimiento de rectificación registral."},
+    {g:"Protección constitucional de datos personales y autodeterminación informativa", why:"No existe propuesta IC que eleve la privacidad de datos a rango constitucional explícito."},
+    {g:"Prohibición expresa de tortura y tratos degradantes con mecanismo de denuncia independiente", why:"Las propuestas sobre habeas corpus y detención no incluyen un mecanismo de supervisión externo."},
+    {g:"Derecho al acceso a internet como servicio esencial", why:"Ninguna propuesta IC contempla conectividad digital como derecho fundamental."}
+  ],
+  C:[
+    {g:"Derecho a la alimentación adecuada y soberanía alimentaria", why:"Las propuestas de derechos sociales no cubren el acceso garantizado a nutrición suficiente."},
+    {g:"Derecho al cuidado: reconocimiento constitucional del trabajo de cuidados no remunerado", why:"Ninguna propuesta IC aborda el cuidado familiar como trabajo con valor social y jurídico."},
+    {g:"Derecho a la cultura digital y acceso al patrimonio cultural en formato abierto", why:"Las propuestas culturales no contemplan el entorno digital ni el acceso abierto a bienes culturales."}
+  ],
+  D:[
+    {g:"Derecho de acceso a la información pública (transparencia activa del Estado)", why:"Las propuestas de participación no incluyen obligación del Estado de publicar proactivamente sus datos."},
+    {g:"Protección constitucional del denunciante (whistleblower)", why:"Ninguna propuesta IC protege a quienes revelan corrupción o abusos de poder frente a represalias."},
+    {g:"Derecho a la objeción de conciencia frente a mandatos del Estado", why:"Las propuestas de derechos políticos no incluyen objeción de conciencia como límite a obligaciones estatales."}
+  ],
+  E:[
+    {g:"Principio de subsidiariedad constitucionalizado con criterios de transferencia de competencias", why:"Las propuestas de organización territorial mencionan niveles de gobierno pero no definen reglas de distribución de poder."},
+    {g:"Estatuto constitucional de la capital y zonas metropolitanas", why:"Ninguna propuesta IC define régimen especial para La Habana o áreas de alta densidad urbana."},
+    {g:"Mecanismo de coordinación interinstitucional obligatoria entre poderes y territorios", why:"Las propuestas de organización del Estado no previenen conflictos de competencia entre niveles de gobierno."}
+  ],
+  F:[
+    {g:"Límites constitucionales a los decretos de emergencia del Ejecutivo (duración, control legislativo)", why:"Las propuestas sobre el Ejecutivo no definen plazos ni contrapesos para el estado de excepción."},
+    {g:"Carrera judicial con concurso público, evaluación periódica y causales taxativas de remoción", why:"Las propuestas sobre el Judicial mencionan independencia pero no el mecanismo concreto de selección y control."},
+    {g:"Defensor del Pueblo (Ombudsman) con rango constitucional e independencia del Ejecutivo", why:"Ninguna propuesta IC crea un órgano de supervisión ciudadana de derechos humanos independiente."}
+  ],
+  G:[
+    {g:"Constitucionalización del banco central independiente con mandato dual (estabilidad + empleo)", why:"Las propuestas económicas no definen el estatuto del banco central ni su independencia del gobierno."},
+    {g:"Derecho constitucional al trabajo decente con criterios mínimos (salario digno, seguridad, no discriminación)", why:"Las propuestas laborales no elevan estándares OIT a rango constitucional."},
+    {g:"Prohibición de monopolios estatales en sectores no estratégicos", why:"Las propuestas de propiedad no definen cuáles sectores son monopolio legítimo del Estado y cuáles no."}
+  ],
+  H:[
+    {g:"Cláusula democrática: Cuba no puede suscribir tratados con regímenes que violan derechos humanos", why:"Las propuestas de relaciones internacionales no establecen condicionalidad democrática en alianzas."},
+    {g:"Derecho de asilo y no-devolución (non-refoulement) con rango constitucional", why:"Ninguna propuesta IC garantiza protección a solicitantes de asilo ni prohíbe extradición a países sin garantías."},
+    {g:"Reconocimiento constitucional de la deuda histórica con la diáspora cubana", why:"Las propuestas sobre diáspora abordan votos pero no el reconocimiento del exilio como fenómeno político."}
+  ],
+  I:[
+    {g:"Quórum diferenciado para reformar el núcleo intangible de la Constitución (cláusulas pétreas)", why:"Las propuestas de reforma no distinguen entre cambios procedimentales y modificaciones al núcleo de derechos."},
+    {g:"Asamblea Constituyente permanente vs. convocatoria puntual: la Constitución debe definir cuál aplica", why:"Las propuestas de reforma no resuelven si el poder constituyente es continuo o episódico."}
+  ],
+  J:[
+    {g:"Acción constitucional de amparo accesible sin necesidad de abogado (amparo popular)", why:"Las propuestas de garantías procesales no incluyen un mecanismo ágil de defensa de derechos sin costo."},
+    {g:"Reparación integral a víctimas del régimen: verdad, justicia, reparación y garantías de no repetición", why:"Ninguna propuesta IC establece un marco constitucional de justicia transicional para Cuba."},
+    {g:"Inconstitucionalidad por omisión: el poder judicial puede obligar al legislativo a actuar", why:"Las garantías constitucionales no cubren la inacción del Estado como vulneración de derechos."}
+  ]
+};
 const CAT={
   A:{name:"Fundamentos y Principios",         sub:"Soberanía, modelo de pacto, preámbulo filosófico, fuente del poder",         c:"var(--azul)", icon:"scroll"},
   B:{name:"Derechos Fundamentales Individuales", sub:"Libertad de expresión, conciencia, movimiento, propiedad, privacidad",    c:"var(--rojo)", icon:"shield"},
@@ -430,6 +833,26 @@ const PROPS=[
   {id:"CON-A4", cat:"A",
    text:"El territorio nacional —Isla de Cuba, Isla de Pinos y cayos adyacentes— es inalienable e indivisible. Cuba no puede ceder, arrendar ni comprometer en forma alguna su soberanía sobre ninguna parte de su territorio.",
    refs:[35]},
+  {id:"CON-A5", cat:"A",
+   text:"Cuba se funda en los principios republicanos de José Martí: la dignidad humana como eje de la patria, la libertad con orden, la justicia social por encima del privilegio de clase y la patria como bien común de todos. Ninguna institución puede arrogarse derechos por encima de la soberanía del pueblo.",
+   refs:[29]},
+
+  {id:"CON-A6", cat:"A",
+   text:"La Constitución de Guáimaro (1869), primera carta magna cubana, declaró que 'todos los habitantes de la República son enteramente libres'. La nueva constitución debe reafirmar esta declaración universal de libertad como principio fundacional absoluto — sin excepción por origen, ideología, condición social ni lugar de residencia.",
+   vars:["Libertad universal como principio intangible del preámbulo constitucional.","Incorporación de la fórmula histórica de 1869 como cita fundacional en el nuevo texto."],
+   refs:[36]},
+  {id:"CON-A7", cat:"A",
+   text:"La Constitución de Baraguá (1878) nació del rechazo de Antonio Maceo al Pacto del Zanjón porque no garantizaba la abolición de la esclavitud ni la independencia real. Principio derivado: una constitución sin mecanismos efectivos de garantía de derechos no tiene legitimidad popular. La nueva constitución debe incluir cláusulas de justiciabilidad directa para todos sus derechos.",
+   vars:["Los derechos constitucionales sin mecanismos de exigibilidad son proclamaciones vacías — cláusula de justiciabilidad directa.","Cualquier ciudadano puede impugnar el incumplimiento de garantías constitucionales sin necesidad de ley reglamentaria."],
+   refs:[37]},
+  {id:"CON-A8", cat:"A",
+   text:"La Constitución de Jimaguayú (1895), inspirada en José Martí, estableció la voluntad de 'constituir en Cuba una República Democrática'. La nueva constitución debe declarar la forma democrática de gobierno como principio irrevocable: ninguna ley, decreto o reforma puede suspender, reducir o eliminar el carácter democrático de la república cubana.",
+   vars:["La república democrática como cláusula pétrea no sujeta a reforma.","La democracia definida con criterios operativos: pluripartidismo, elecciones libres, separación de poderes."],
+   refs:[38]},
+  {id:"CON-A9", cat:"A",
+   text:"La Ley Fundamental de 1959 (Art. 1) declaró: 'Cuba es un Estado independiente y soberano organizado como república unitaria y democrática, para el disfrute de la libertad política, la justicia social, el bienestar individual y colectivo y la solidaridad humana.' Este es el mejor texto fundacional del siglo XX cubano y debe retomarse como base del artículo primero de la nueva constitución.",
+   vars:["Retomar el Art. 1 de la Ley Fundamental de 1959 como artículo primero de la nueva constitución.","Actualizar el texto de 1959 añadiendo: sostenibilidad ambiental, equidad intergeneracional y no discriminación por orientación sexual o identidad de género."],
+   refs:[41]},
   // ── BLOQUE B: DERECHOS FUNDAMENTALES INDIVIDUALES ─────
   {id:"SOST-B1", cat:"B",
    text:"Toda persona tiene derecho a la identidad digital, a la protección de sus datos personales y al control informado sobre su uso por el Estado o por actores privados. La vigilancia masiva sin autorización judicial específica queda prohibida.",
@@ -523,6 +946,30 @@ const PROPS=[
    variants:[
      {label:"a", text:"Todo ciudadano tiene derecho de petición ante cualquier autoridad pública. La autoridad está obligada a resolver y notificar en un plazo máximo de 45 días."},
    ]},
+  {id:"CON-B17", cat:"B",
+   text:"El matrimonio es la unión voluntariamente concertada entre dos personas con aptitud legal para ello, a fin de hacer vida en común. Descansa en la igualdad absoluta de derechos y deberes de los cónyuges, quienes deben atender al mantenimiento del hogar y a la formación integral de los hijos mediante esfuerzo común.",
+   refs:[29]},
+
+  {id:"CON-B18", cat:"B",
+   text:"Toda persona tiene derecho a vivir en un ambiente sano, ecológicamente equilibrado y sostenible. El Estado garantiza la protección del medioambiente y el uso racional de los recursos naturales como condición para la vida digna de las generaciones presentes y futuras.",
+   refs:[29]},
+
+  {id:"CON-B19", cat:"B",
+   text:"Todo ciudadano cubano, independientemente de su lugar de residencia, tiene derecho a entrar, residir y circular libremente en el territorio nacional. Ninguna restricción migratoria puede fundarse en razones políticas, ideológicas o de participación cívica en el exterior.",
+   refs:[29]},
+
+  {id:"CON-B20", cat:"B",
+   text:"El domicilio es inviolable. Ningún juez puede autorizar la grabación secreta de audio o video dentro de la vivienda. El registro domiciliario solo procede mediante orden judicial escrita, de la que se entrega copia auténtica al morador. Toda persona detenida tiene derecho inmediato a comunicarse con su abogado y un familiar por cinco minutos cada uno antes del traslado.",
+   refs:[29]},
+
+  {id:"CON-B21", cat:"B",
+   text:"La Constitución de La Yaya (1897), artículos 11 y 13, garantizó la inviolabilidad del domicilio y el derecho a 'emitir con libertad sus ideas y a reunirse y asociarse para los fines lícitos de la vida'. Estos derechos mambises de 1897 deben mantenerse en la nueva constitución con plenas garantías de ejecución y sin restricciones por razones políticas, ideológicas o de seguridad nacional.",
+   vars:["Retomar los artículos 11 y 13 de La Yaya como base del catálogo de libertades civiles.","Extender estas garantías al espacio digital: libertad de expresión e inviolabilidad de comunicaciones digitales."],
+   refs:[39]},
+  {id:"CON-B22", cat:"B",
+   text:"La Constitución de 2019 (Art. 42) prohíbe la discriminación por motivos de sexo, género, orientación sexual, identidad de género, edad, origen étnico, color de la piel, creencia religiosa, discapacidad u origen nacional. Esta cláusula de no discriminación es la más avanzada de la historia constitucional cubana y debe preservarse íntegramente en la nueva constitución.",
+   vars:["Mantener la cláusula de no discriminación del Art. 42 de C2019 sin modificación.","Ampliar el Art. 42 de C2019 añadiendo: condición migratoria, situación de vulnerabilidad económica y origen socioeconómico."],
+   refs:[43]},
   // ── BLOQUE C: DERECHOS SOCIALES Y CULTURALES ──────────
   {id:"SOST-C1", cat:"C",
    text:"El Estado garantizará un piso universal de bienestar compuesto por salud primaria, educación, nutrición básica y acceso mínimo a energía y conectividad, financiado con reglas fiscales transparentes y auditables.",
@@ -593,6 +1040,18 @@ const PROPS=[
   {id:"CON-C10", cat:"C",
    text:"Los contratos colectivos de trabajo son obligatorios en las empresas. Las asociaciones obreras y las organizaciones patronales son reconocidas. Ningún trabajador puede ser despedido sin expediente previo y audiencia. El trabajo nocturno de menores de 14 años está prohibido; los menores de 18 no pueden trabajar en labores insalubres o peligrosas.",
    refs:[35]},
+  {id:"CON-C11", cat:"C",
+   text:"La madre trabajadora tiene derecho a doce meses de licencia de maternidad remunerada. El padre trabajador tiene derecho a dos semanas de licencia de paternidad remunerada. Ambos derechos son financiados por el Estado y no afectan el contrato laboral ni los derechos previsionales del trabajador.",
+   refs:[29]},
+
+  {id:"CON-C12", cat:"C",
+   text:"El sistema de salud es de acceso universal, gratuito en el punto de servicio y financiado íntegramente por el Estado. Ningún ciudadano puede ser discriminado ni limitado en su atención médica por razones económicas. No se establecerá un sistema de seguro médico privado obligatorio que sustituya la garantía pública de salud.",
+   refs:[29]},
+
+  {id:"CON-C13", cat:"C",
+   text:"La vivienda principal de cada familia está exenta del impuesto sobre la propiedad mientras sea habitada como residencia permanente. Ninguna persona puede ser desalojada de su vivienda sin orden judicial, audiencia previa y oferta de solución habitacional alternativa por parte del Estado.",
+   refs:[29]},
+
   // ── BLOQUE D: DERECHOS POLÍTICOS Y PARTICIPACIÓN ──────
   {id:"SOST-D1", cat:"D",
    text:"Se establece la iniciativa legislativa ciudadana digital verificable y el referendo revocatorio para cargos ejecutivos nacionales y locales, con umbrales de firmas proporcionales y auditoría pública del padrón.",
@@ -645,6 +1104,18 @@ const PROPS=[
   {id:"CON-D8", cat:"D",
    text:"El servicio civil del Estado se organiza sobre bases de mérito, eficiencia y estabilidad. Los empleados públicos no pueden ser removidos por razones político-partidistas. Solo los cargos de confianza, claramente definidos por ley, son de libre nombramiento y remoción. La burocracia permanente está protegida de la alternancia política.",
    refs:[35]},
+  {id:"CON-D9", cat:"D",
+   text:"Ninguna persona física, jurídica o entidad estatal puede controlar más del 30% de los medios de comunicación de cobertura nacional. El Estado garantiza a todos los candidatos y partidos acceso equitativo e igualitario a los medios públicos durante los períodos electorales. Se prohíbe la contratación de publicidad política en medios privados.",
+   refs:[29]},
+
+  {id:"CON-D10", cat:"D",
+   text:"Todo grupo ciudadano que reúna al menos diez mil firmas verificadas puede presentar un proyecto de ley ante la Cámara de Representantes. El coordinador de la propuesta tiene derecho a exponerla ante la Cámara en sesión ordinaria. Las firmas se recogen mediante sufragio voluntario y se publican en el sitio web de la Asamblea Nacional.",
+   refs:[29]},
+
+  {id:"CON-D11", cat:"D",
+   text:"La Constitución de La Yaya (1897), artículo 10, estableció que 'el derecho electoral se regulará por el Gobierno sobre la base del sufragio universal.' Cuba reconoció el sufragio universal hace 127 años. La nueva constitución debe garantizarlo con condiciones plenas: voto secreto, padrón independiente del Ejecutivo, organismos electorales autónomos y acceso igualitario de candidatos al espacio público.",
+   vars:["Sufragio universal con garantías operativas: padrón independiente, organismos electorales autónomos, acceso igualitario de candidatos.","Sufragio universal extensivo a la diáspora, con voto consular para elecciones presidenciales y legislativas."],
+   refs:[39]},
   // ── BLOQUE E: ORGANIZACIÓN DEL ESTADO ─────────────────
   {id:"SOST-E1", cat:"E",
    text:"Se crea un Sistema Nacional de Planeación Estratégica con participación ciudadana y revisión anual pública, para alinear presupuestos, metas territoriales y políticas de largo plazo con indicadores verificables.",
@@ -679,6 +1150,14 @@ const PROPS=[
   {id:"CON-E6", cat:"E",
    text:"Los gobiernos provinciales y municipales son autónomos en su esfera de acción. Los gobernadores provinciales y los alcaldes municipales son elegidos directamente por los ciudadanos. Los ayuntamientos tienen potestad tributaria y administrativa propia. La ley garantiza recursos suficientes a los municipios para el cumplimiento de sus funciones.",
    refs:[35]},
+  {id:"CON-E7", cat:"E",
+   text:"La organización político-administrativa reconoce seis niveles territoriales: Nación, Provincia, Municipio, Barrio, Circunscripción y Vecindad. Cada nivel posee asamblea representativa, consejo ejecutivo y presupuesto propio. Rige el principio de subsidiariedad: los asuntos que puedan resolverse al nivel más próximo al ciudadano no son absorbidos por niveles superiores.",
+   refs:[29]},
+
+  {id:"CON-E8", cat:"E",
+   text:"El Consejo de Sufragio y Electoral es un organismo autónomo e independiente del poder ejecutivo, legislativo y judicial. Está integrado por representantes del poder judicial, del magisterio, de organizaciones comunitarias, del sector empresarial y del estudiantado universitario. Organiza, supervisa y certifica todos los procesos electorales y referendarios.",
+   refs:[29]},
+
   // ── BLOQUE F: PODERES DEL ESTADO ──────────────────────
   {id:"SOST-F1", cat:"F",
    text:"El control constitucional ex ante y ex post será obligatorio para toda ley orgánica. El Tribunal Constitucional podrá suspender provisionalmente normas con riesgo grave para derechos fundamentales hasta decisión de fondo.",
@@ -722,11 +1201,27 @@ const PROPS=[
   {id:"CON-F6", cat:"F",
    text:"El Poder Judicial es independiente. Los jueces son inamovibles mientras observen buena conducta y son responsables de sus actos con arreglo a la ley. El Ministerio Fiscal actúa con plena autonomía funcional. En los juicios por delitos graves se garantiza el derecho al jurado popular.",
    refs:[35]},
+  {id:"CON-F7", cat:"F",
+   text:"La Asamblea Nacional se compone de dos cámaras: el Senado de los Sabios —cincuenta senadores— y la Cámara de Representantes —cuatrocientos cincuenta diputados. Las leyes se inician en la Cámara y son revisadas por el Senado. Ambas cámaras deben aprobar toda legislación ordinaria. El Senado actúa como cámara de balance entre los intereses populares y la capacidad real de la nación.",
+   refs:[29]},
+
+  {id:"CON-F8", cat:"F",
+   text:"Ningún miembro del poder judicial ni de las fuerzas policiales puede ejercer cargo en ningún otro poder del Estado ni pertenecer a partido político alguno. Esta prohibición es condición para mantener la independencia e imparcialidad de sus funciones. La violación de esta norma conlleva la separación inmediata e irrecurrible del cargo.",
+   refs:[29]},
+
+  {id:"CON-F9", cat:"F",
+   text:"La Constitución de Guáimaro (1869) estableció por primera vez en Cuba la separación del poder civil del poder militar. La nueva constitución debe constitucionalizar esta separación de manera explícita e irrevocable: las fuerzas armadas no pueden ejercer funciones ejecutivas, legislativas ni judiciales, y están subordinadas en todo momento al poder civil electo.",
+   vars:["Separación civil-militar como principio constitucional: Fuerzas Armadas exclusivamente bajo mando civil electo, sin funciones de gobierno.","Cláusula de neutralidad política de las fuerzas de seguridad: militares y policías sin afiliación partidaria activa durante el servicio."],
+   refs:[36]},
+  {id:"CON-F10", cat:"F",
+   text:"La Constitución de 2019 introdujo por primera vez en Cuba la figura del Primer Ministro separada del Presidente de la República. Este avance institucional debe preservarse en la nueva constitución: Presidente como jefe de Estado con funciones de representación y dirección estratégica; Primer Ministro como jefe de gobierno con gestión ejecutiva cotidiana, sujeto a moción de censura legislativa.",
+   vars:["Mantener la separación Presidente/Primer Ministro de C2019 con moción de censura parlamentaria para el PM.","Modelo presidencialista puro: concentrar la rendición de cuentas ejecutiva en el Presidente electo directamente, suprimiendo el PM."],
+   refs:[43]},
   // ── BLOQUE G: ECONOMÍA Y PROPIEDAD ────────────────────
   {id:"GS-G-INT-1", cat:"G",
-   text:"La Constitución económica de Cuba se funda en un modelo mixto, plural y de función social, que reconoce la coexistencia de propiedad pública, privada, cooperativa, comunitaria y mixta, bajo reglas de competencia leal, transparencia fiscal, sostenibilidad intergeneracional y protección de bienes estratégicos. La propiedad privada se garantiza, pero condicionada al interés social; se proscribe el latifundio y toda concentración especulativa contraria al bienestar colectivo. Los recursos estratégicos —subsuelo, aguas, costas, biodiversidad y demás capital natural crítico— quedan bajo tutela pública con acceso regulado, concesiones transparentes y revisión periódica obligatoria. Toda expropiación requiere causa pública comprobada, procedimiento judicial y justa indemnización previa. El sistema tributario será progresivo, trazable y orientado al desarrollo productivo y social, con incentivos a formas empresariales de mayor impacto social. El endeudamiento público tendrá límites constitucionales por nivel de gobierno y control parlamentario reforzado para deuda extraordinaria. Toda contratación pública y uso de recursos colectivos deberá ser auditable en datos abiertos, con evaluación de eficiencia, impacto social y ambiental. Este marco integra libertad económica con responsabilidad pública, garantizando crecimiento, equidad y sostenibilidad.",
+   text:"La Constitución económica de Cuba se funda en un modelo mixto, plural y de función social, que reconoce la coexistencia de propiedad pública, privada, cooperativa, comunitaria y mixta, bajo reglas de competencia leal, transparencia fiscal, sostenibilidad intergeneracional y protección de bienes estratégicos. La propiedad privada se garantiza, pero condicionada al interés social; se proscribe el latifundio y toda concentración especulativa contraria al bienestar colectivo. Los recursos estratégicos —subsuelo, aguas, costas, biodiversidad y demás capital natural crítico— quedan bajo tutela pública con acceso regulado, concesiones transparentes y revisión periódica obligatoria. Toda expropiación requiere causa pública comprobada, procedimiento judicial y justa indemnización previa. El sistema tributario será progresivo, trazable y orientado al desarrollo productivo y social, con incentivos a formas empresariales de mayor impacto social. El endeudamiento público tendrá límites constitucionales por nivel de gobierno y control parlamentario reforzado para deuda extraordinaria. Toda contratación pública y uso de recursos colectivos deberá ser auditable en datos abiertos, con evaluación de eficiencia, impacto social y ambiental. Este marco integra libertad económica con responsabilidad pública, garantizando crecimiento, equidad, bienestar animal y sostenibilidad ecológica.",
    refs:[28,29,35],
-   note:"Propuesta Solucionaria Integrada (IC+IA) construida a partir de CON-G1...CON-G13 + SOST-G1.",
+   note:"Propuesta Solucionaria Integrada (IC+IA) construida a partir de CON-G1...CON-G13 + SOST-G1, bajo la tríada solucionaria: personas, animales y medio ambiente.",
    variants:[
      {label:"a", text:"Régimen de tierras: se prohíbe el latifundio; la ley fija límites de tenencia y activa mecanismos de redistribución productiva. La pequeña parcela familiar trabajada directamente por su titular mantiene protección reforzada (inembargable/intransferible según ley especial)."},
      {label:"b", text:"Concesiones y recursos estratégicos: toda concesión exige licitación pública, publicación íntegra de contrato, cláusulas ambientales y laborales obligatorias, y auditoría independiente cada 24 meses."},
@@ -814,6 +1309,14 @@ const PROPS=[
   {id:"CON-G13", cat:"G",
    text:"La propiedad intelectual —obras literarias, artísticas, científicas e inventos— está protegida por tiempo determinado. Toda expropiación debe realizarse mediante proceso judicial, con causa pública comprobada y justa indemnización previa. Los bienes de beneficencia y los afectos a servicios públicos son imprescriptibles.",
    refs:[35]},
+  {id:"CON-G14", cat:"G",
+   text:"El endeudamiento o financiamiento a cargo del gobierno no podrá exceder el 5% del PIB a nivel municipal, el 10% a nivel provincial y el 20% a nivel nacional. La Asamblea Nacional puede aprobar hasta un 10% adicional transitorio. Si se requiere un 10% adicional sobre ese techo, debe convocarse plebiscito popular.",
+   refs:[29]},
+
+  {id:"CON-G15", cat:"G",
+   text:"La Constitución de 2019 reconoció formalmente la propiedad privada junto a la estatal, cooperativa y mixta. La nueva constitución debe profundizar este reconocimiento: propiedad privada con garantías plenas de no expropiación sin compensación justa, igualdad de trato fiscal con la empresa estatal, y acceso a financiamiento sin discriminación por sector de propiedad.",
+   vars:["Economía mixta constitucionalizada: propiedad privada, cooperativa, estatal y comunitaria con igualdad de condiciones legales.","Protección constitucional reforzada: no expropiación sin compensación previa, justa e inmediata en cualquier sector de propiedad."],
+   refs:[43]},
   // ── BLOQUE H: RELACIONES INTERNACIONALES ──────────────
   {id:"SOST-H1", cat:"H",
    text:"La política exterior de Cuba se regirá por la defensa de los derechos humanos, la no injerencia, la cooperación regional y la integración económica sostenible. Todo tratado que afecte soberanía regulatoria o recursos estratégicos requerirá control parlamentario reforzado.",
@@ -841,6 +1344,14 @@ const PROPS=[
   {id:"CON-H5", cat:"H",
    text:"Cuba garantiza el asilo político a toda persona perseguida por razones de conciencia o de ideario político-social. No procede la extradición de personas procesadas o condenadas por delitos políticos ni por delitos conexos. El Estado no puede extraditarla aunque el acto imputado sea considerado delito en el país reclamante.",
    refs:[35]},
+  {id:"CON-H6", cat:"H",
+   text:"Los ciudadanos cubanos residentes en el exterior tienen derecho a votar para Presidente de la República y Senadores nacionales a través de las sedes diplomáticas cubanas o por vía digital certificada. Este derecho es irrenunciable e inalienable y no puede condicionarse al retorno físico al territorio nacional.",
+   refs:[29]},
+
+  {id:"CON-H7", cat:"H",
+   text:"La Ley Fundamental de 1959 declaró que 'Cuba condena la guerra de agresión como instrumento de política internacional.' Este principio de paz activa, presente desde 1959, debe mantenerse en la nueva constitución y ampliarse: rechazo a participar en guerras de agresión, reconocimiento del derecho internacional como fuente directa del derecho interno en materia de derechos humanos, y compromiso con la resolución pacífica de conflictos.",
+   vars:["Constitucionalizar el principio de no agresión y primacía del derecho internacional en materia de derechos humanos.","Cláusula de rechazo a bases militares extranjeras en territorio cubano, aplicable a cualquier potencia."],
+   refs:[41]},
   // ── BLOQUE I: REFORMA CONSTITUCIONAL ──────────────────
   {id:"SOST-I1", cat:"I",
    text:"Las reformas constitucionales deberán incluir memoria de impacto en derechos, sostenibilidad fiscal y gobernabilidad institucional. Las cláusulas de derechos fundamentales, separación de poderes y pluralismo político solo podrán reformarse mediante referendo con mayoría cualificada.",
@@ -861,6 +1372,14 @@ const PROPS=[
   {id:"CON-I3", cat:"I",
    text:"La Constitución solo puede reformarse por el Congreso con mayoría calificada, seguida de convención constituyente especialmente elegida para tal efecto o de referendo ciudadano. Ninguna reforma puede menoscabar los derechos fundamentales. Toda disposición legal que los disminuya, restrinja o adultere es nula de pleno derecho; los ciudadanos pueden resistir legítimamente su aplicación.",
    refs:[35]},
+  {id:"CON-I4", cat:"I",
+   text:"El pueblo de Cuba es el único titular del poder constituyente. Toda reforma constitucional deberá ser ratificada en plebiscito por la mayoría de los ciudadanos con derecho al voto. Ningún órgano del Estado puede reformar la Constitución sin someterse a la aprobación popular directa. La soberanía constituyente es inalienable.",
+   refs:[29]},
+
+  {id:"CON-I5", cat:"I",
+   text:"La Constitución de 1976 fue reformada en 1978, 1992 y 2002 por decisión del Partido Comunista sin referendo popular. La Constitución de 2019, aunque sometida a referendo, fue redactada sin asamblea constituyente pluralista. La nueva constitución debe exigir para toda reforma sustancial: asamblea constituyente elegida pluralmente o referendo, mayoría calificada del 60%, y cláusulas pétreas no reformables por ningún mecanismo.",
+   vars:["Reforma con doble candado: mayoría calificada en asamblea elegida + referendo ratificatorio obligatorio.","Distinguir reforma parcial (legislatura + referendo) de reforma total (asamblea constituyente convocada por el pueblo)."],
+   refs:[42,43]},
   // ── BLOQUE J: INNOVACIONES INSTITUCIONALES (Sostenibilismo) ──
   {id:"SOST-J1", cat:"J",
    text:"Se crea un Consejo de Integridad Pública y Datos Abiertos, autónomo, encargado de auditar contrataciones, publicar trazabilidad presupuestaria en tiempo real y activar alertas tempranas de corrupción con protección a denunciantes.",
@@ -921,6 +1440,18 @@ const PROPS=[
   {id:"CON-J8", cat:"J",
    text:"El Tribunal de Cuentas es el órgano fiscalizador supremo de los fondos públicos. Audita todos los organismos del Estado y rinde cuenta pública anual. El Ministerio Fiscal actúa con plena independencia del ejecutivo. En causas penales graves, el jurado popular interviene como garante de la justicia ciudadana frente al poder del Estado.",
    refs:[35]},
+  {id:"CON-J9", cat:"J",
+   text:"Todo el que se encuentre detenido fuera de los casos o sin las formalidades previstas en esta Constitución será puesto en libertad a petición propia o de cualquier persona, sin necesidad de representación legal. El Tribunal Supremo no puede declinar jurisdicción ni aplazar resolución de habeas corpus. Los jueces que se negaren a admitir la solicitud serán separados de sus cargos de forma inmediata.",
+   refs:[29]},
+
+  {id:"CON-J10", cat:"J",
+   text:"Nadie puede ser procesado sino por juez competente, en virtud de leyes anteriores al delito y con las garantías establecidas. Ninguna persona puede ser obligada a declarar contra sí misma. Toda declaración obtenida bajo coacción o amenaza es nula. Toda persona detenida debe ser puesta en libertad o entregada al juez dentro de las 24 horas; el juez debe resolver en 72 horas adicionales.",
+   refs:[29]},
+{id:"CON-J11", cat:"J",
+   text:"La Constitución de 1901 incorporó el habeas corpus y garantías del debido proceso al primer texto republicano cubano — garantías que la Constitución de 1976 debilitó y la de 2019 no restableció plenamente. La nueva constitución debe recuperar y expandir estas garantías: habeas corpus irrestricto ejecutable en 24 horas, nulidad de confesiones obtenidas bajo coacción, y derecho a defensa desde el momento de la detención.",
+   vars:["Habeas corpus irrestricto (24h), nulidad de confesiones coercionadas, defensa desde detención — recuperar el estándar republicano de 1901.","Añadir al estándar de 1901 la prohibición de incomunicación superior a 24h y la obligación del Estado de informar a familiar designado."],
+   refs:[40]},
+
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -951,7 +1482,7 @@ function buildCatGrid(){
     card.id='cc-'+k;
     card.onclick=()=>selectCat(k);
     card.innerHTML=`<div class="cico" style="background:${m.c};"><i class="fi fi-br-${m.icon}"></i></div>
-      <div class="clabel">${k}. ${m.name.split(' ').slice(0,2).join(' ')}<br><span style="font-size:.68rem;font-weight:400;opacity:.7;">${count} propuesta${count!==1?'s':''}</span></div>`;
+      <div class="clabel">${k}. ${m.name}<br><span style="font-size:.68rem;font-weight:400;opacity:.7;">${count} propuesta${count!==1?'s':''}</span></div>`;
     grid.appendChild(card);
   });
 }
@@ -965,13 +1496,56 @@ function buildCat(cat){
     <div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div>
     <div class="cat-count">${ps.length} propuesta${ps.length!==1?'s':''}</div>
   </div>`;
-  if(ps.length===0){
+  // Split IC vs IA proposals
+  const icPs = ps.filter(p => !p.id.startsWith('SOST-') && !p.id.startsWith('GS-'));
+  const iaPs = ps.filter(p => p.id.startsWith('SOST-') || p.id.startsWith('GS-'));
+  const gaps = (GAPS && GAPS[cat]) || [];
+
+  if(icPs.length===0 && iaPs.length===0){
     const empty=document.createElement('div');
     empty.style.cssText='background:#fff;border:2px dashed var(--gris-m);border-radius:8px;padding:28px 22px;text-align:center;color:var(--gt);font-size:.88rem;line-height:1.65;margin-bottom:16px;';
     empty.innerHTML='<i class="fi fi-br-document" style="font-size:1.8rem;color:var(--gris-m);display:block;margin-bottom:8px;"></i>Aún no hay propuestas en este bloque.<br><span style="font-size:.8rem;">¿Conoces una? El equipo de ENTRE TODOS la incorpora con el mismo formato.</span>';
     el.appendChild(empty);
   } else {
-    ps.forEach(p=>el.appendChild(mkCard(p)));
+    // ── IC proposals ──
+    if(icPs.length>0){
+      const icHdr=document.createElement('div');
+      icHdr.className='ia-lane ia-ic-hdr';
+      icHdr.innerHTML=`<div class="ia-lane-hdr"><span class="ia-lane-badge" style="background:var(--azul);">IC</span><span class="ia-lane-lbl">Inteligencia Colectiva</span><span class="ia-lane-sub">${icPs.length} propuesta${icPs.length!==1?'s':''} de organizaciones y ciudadanía</span></div>`;
+      el.appendChild(icHdr);
+      icPs.forEach(p=>el.appendChild(mkCard(p)));
+    }
+
+    // ── IA integrated proposals ──
+    if(iaPs.length>0){
+      const iaHdr=document.createElement('div');
+      iaHdr.className='ia-lane';
+      iaHdr.innerHTML=`<div class="ia-lane-hdr"><span class="ia-lane-badge">IA</span><span class="ia-lane-lbl">Propuesta Integrada — Inteligencia Artificial</span><span class="ia-lane-sub">síntesis de todas las fuentes IC del bloque</span></div>`;
+      el.appendChild(iaHdr);
+      iaPs.forEach(p=>el.appendChild(mkCard(p)));
+    }
+
+    // ── IA gaps ──
+    if(gaps.length>0){
+      const gapSec=document.createElement('div');
+      gapSec.className='ia-lane';
+      gapSec.innerHTML=`<div class="ia-lane-hdr">
+        <span class="ia-lane-badge" style="background:#6b7280;">IA</span>
+        <span class="ia-lane-lbl">Vacíos detectados</span>
+        <span class="ia-lane-sub">puntos sin cobertura IC en este bloque</span>
+      </div>
+      <div class="ia-gap-list">${gaps.map(g=>`
+        <div class="ia-gap-card">
+          <div class="ia-gap-icon"><i class="fi fi-br-search"></i></div>
+          <div class="ia-gap-body">
+            <div class="ia-gap-title">${g.g}</div>
+            <div class="ia-gap-why">${g.why}</div>
+            <span class="ia-gap-tag">sin propuesta IC</span>
+          </div>
+        </div>`).join('')}
+      </div>`;
+      el.appendChild(gapSec);
+    }
 
     // Referencias al final del bloque
     const used=[...new Set(ps.flatMap(x=>x.refs||[]))].sort((a,b)=>a-b);
@@ -1040,6 +1614,27 @@ function mkCard(p){
     <span class="vcnt" id="vc-${p.id}">${vd.count} voto${vd.count!==1?'s':''}</span>
     <div class="bwrap"><div class="bar" id="bar-${p.id}" style="width:${pct}%"></div></div>
     <span class="vpct" id="pct-${p.id}">${pct}%</span>
+  </div>
+  <button class="obj-btn" onclick="toggleObj('${p.id}')">
+    <i class="fi fi-br-comment-alt"></i> Objetar / Comentar &nbsp;<span class="obj-count" id="obj-count-${p.id}">0</span>
+  </button>
+  <div class="obj-panel" id="obj-panel-${p.id}">
+    <div class="obj-panel-title"><i class="fi fi-br-comment-alt"></i> Objeciones y comentarios</div>
+    <div class="obj-list" id="obj-list-${p.id}"></div>
+    <div class="obj-form">
+      <select id="obj-tipo-${p.id}">
+        <option value="tecnica">Técnica — error o inconsistencia técnica</option>
+        <option value="etica">Ética — conflicto con principios éticos o derechos</option>
+        <option value="juridica">Jurídica — incompatibilidad legal o constitucional</option>
+        <option value="otra">Otra observación</option>
+      </select>
+      <textarea id="obj-texto-${p.id}" placeholder="Describe tu objeción o comentario con claridad..."></textarea>
+      <div class="obj-submit-row">
+        <input id="obj-autor-${p.id}" placeholder="Tu nombre (opcional)">
+        <button class="obj-submit-btn" onclick="submitObj('${p.id}')"><i class="fi fi-br-paper-plane"></i> Enviar</button>
+        <button class="obj-cancel" onclick="toggleObj('${p.id}')">Cancelar</button>
+      </div>
+    </div>
   </div>`;
   return d;
 }
@@ -1276,7 +1871,155 @@ function toast(msg){
 // ═══════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', buildAll);
+document.addEventListener('DOMContentLoaded', function(){ buildAll(); initObjCounts(); });
+
+// ── BORRADOR TOGGLE ─────────────────────────
+function toggleBorrador(){
+  const c=document.getElementById('borrador-content');
+  const btn=document.getElementById('borrador-toggle');
+  if(!c||!btn)return;
+  const hidden=c.style.display==='none'||c.style.display==='';
+  // treat empty (CSS default none) same as explicitly none
+  const isHidden=c.offsetHeight===0;
+  c.style.display=isHidden?'block':'none';
+  btn.innerHTML=isHidden?'<i class="fi fi-br-angle-down"></i> Ocultar':'<i class="fi fi-br-angle-right"></i> Ver documento';
+}
+
+// ── OBJECTIONS (localStorage) ────────────────
+const OBJ_KEY=id=>'et_obj_'+id;
+
+function toggleObj(id){
+  const p=document.getElementById('obj-panel-'+id);
+  if(!p)return;
+  const open=p.classList.contains('open');
+  if(!open){loadObjList(id);}
+  p.classList.toggle('open',!open);
+}
+
+/* ── Supabase helper for objections ── */
+async function sbObjFetch(proposal_id){
+  if(!SUPABASE_ENABLED) return null;
+  try{
+    const res=await fetch(
+      `${SUPABASE_URL}/rest/v1/objections?proposal_id=eq.${encodeURIComponent(proposal_id)}&order=fecha.asc&select=tipo,texto,autor,fecha`,
+      {headers:{'apikey':SUPABASE_ANON_KEY,'Content-Type':'application/json'}}
+    );
+    if(!res.ok) return null;
+    return await res.json();
+  }catch(e){return null;}
+}
+
+async function sbObjInsert(row){
+  if(!SUPABASE_ENABLED) return false;
+  try{
+    const res=await fetch(
+      `${SUPABASE_URL}/rest/v1/objections`,
+      {method:'POST',
+       headers:{'apikey':SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+       body:JSON.stringify(row)}
+    );
+    return res.status===201;
+  }catch(e){return false;}
+}
+
+async function sbObjCounts(ids){
+  /* Returns {proposal_id: count} map for all ids in one query */
+  if(!SUPABASE_ENABLED||!ids.length) return {};
+  try{
+    const filter='proposal_id=in.('+ids.map(i=>encodeURIComponent(i)).join(',')+')'+'&select=proposal_id';
+    const res=await fetch(
+      `${SUPABASE_URL}/rest/v1/objections?${filter}`,
+      {headers:{'apikey':SUPABASE_ANON_KEY,'Content-Type':'application/json'}}
+    );
+    if(!res.ok) return {};
+    const rows=await res.json();
+    const map={};
+    rows.forEach(r=>{map[r.proposal_id]=(map[r.proposal_id]||0)+1;});
+    return map;
+  }catch(e){return {};}
+}
+
+/* ── Render helpers ── */
+function _renderObjItems(items, list, cnt){
+  if(cnt) cnt.textContent=items.length;
+  if(!items.length){
+    list.innerHTML='<div class="obj-empty">No hay objeciones registradas aún. Sé el primero.</div>';
+    return;
+  }
+  list.innerHTML=items.map(o=>{
+    const tipo=o.tipo||'otra';
+    const fecha=o.fecha
+      ? new Date(o.fecha).toLocaleDateString('es-ES')
+      : (o.fecha_local||'');
+    return `<div class="obj-item">
+      <span class="obj-tipo ${tipo}">${tipo.charAt(0).toUpperCase()+tipo.slice(1)}</span>
+      ${o.texto}
+      <div class="obj-item-meta">${o.autor||'Anónimo'} · ${fecha}</div>
+    </div>`;
+  }).join('');
+}
+
+async function loadObjList(id){
+  const list=document.getElementById('obj-list-'+id);
+  if(!list)return;
+  const cnt=document.getElementById('obj-count-'+id);
+
+  /* Try Supabase first */
+  const sbItems=await sbObjFetch(id);
+  if(sbItems!==null){
+    _renderObjItems(sbItems,list,cnt);
+    return;
+  }
+
+  /* Fallback: localStorage */
+  const items=JSON.parse(localStorage.getItem(OBJ_KEY(id))||'[]');
+  _renderObjItems(items,list,cnt);
+}
+
+async function submitObj(id){
+  const tipoEl=document.getElementById('obj-tipo-'+id);
+  const textoEl=document.getElementById('obj-texto-'+id);
+  const autorEl=document.getElementById('obj-autor-'+id);
+  const tipo=tipoEl.value;
+  const texto=textoEl.value.trim();
+  const autor=autorEl.value.trim()||'Anónimo';
+  if(!texto){alert('Escribe tu objeción antes de enviar.');return;}
+
+  const row={proposal_id:id,tipo,texto,autor,plataforma:'constituyente'};
+
+  /* Try Supabase */
+  const ok=await sbObjInsert(row);
+  if(!ok){
+    /* Fallback: localStorage */
+    const items=JSON.parse(localStorage.getItem(OBJ_KEY(id))||'[]');
+    items.push({tipo,texto,autor,fecha_local:new Date().toLocaleDateString('es-ES')});
+    localStorage.setItem(OBJ_KEY(id),JSON.stringify(items));
+  }
+
+  textoEl.value='';
+  loadObjList(id);
+}
+
+/* init obj counts on page load — single batch query */
+async function initObjCounts(){
+  const els=[...document.querySelectorAll('[id^="obj-count-"]')];
+  if(!els.length)return;
+  const ids=els.map(el=>el.id.replace('obj-count-',''));
+
+  /* Try Supabase batch */
+  const map=await sbObjCounts(ids);
+  els.forEach(el=>{
+    const id=el.id.replace('obj-count-','');
+    if(map[id]){
+      el.textContent=map[id];
+    } else {
+      /* Fallback: localStorage */
+      const local=JSON.parse(localStorage.getItem(OBJ_KEY(id))||'[]');
+      if(local.length) el.textContent=local.length;
+    }
+  });
+}
+
 </script>
 </body>
 </html>
