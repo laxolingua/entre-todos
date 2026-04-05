@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTRE TODOS — Plataforma de Gobernanza Ciudadana</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+:root{
+  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
+  --azul-light:#fff;--rojo-light:#fff;
+  --gris:#fff;--gris-m:#002A8F;--gt:#002A8F;--negro:#111;
+  --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 6px 32px rgba(0,42,143,.20);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Barlow,sans-serif;background:#fff;color:var(--negro);min-height:100vh;}
+
+/* ── HEADER ── */
+header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:14px;}
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.logo-img{height:52px;width:52px;display:block;flex-shrink:0;object-fit:contain;border-radius:8px;}
+.hdr-version{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gt);opacity:.7;}
+@media(max-width:640px){.hdr-version{display:none;}}
+
+/* Hamburger */
+.hdr-ham{position:relative;}
+.hdr-ham-btn{width:38px;height:38px;border-radius:6px;background:var(--azul);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+.hdr-ham-btn span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .25s;}
+.hdr-ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hdr-ham-btn.open span:nth-child(2){opacity:0;}
+.hdr-ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.hdr-ham-menu{position:absolute;top:46px;right:0;z-index:2000;background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);min-width:240px;display:none;flex-direction:column;padding:8px 0;border:1px solid var(--gris-m);}
+.hdr-ham-menu.open{display:flex;}
+.hdr-ham-item{display:flex;align-items:center;gap:10px;padding:11px 18px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;text-decoration:none;}
+.hdr-ham-item:hover{background:#fff;color:var(--azul);}
+.hdr-ham-item.destacado{color:var(--rojo);}
+.hdr-ham-item.destacado:hover{background:var(--rojo-light);color:var(--rojo);}
+.hdr-ham-item .hico{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.hdr-ham-item .hico svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.hdr-ham-item.destacado .hico svg{stroke:var(--rojo);}
+.hdr-ham-divider{border:none;border-top:1px solid var(--gris-m);margin:4px 0;}
+
+/* ── HERO ── */
+.hero{padding:0;background:linear-gradient(135deg,var(--azul) 0%,#001a6e 100%);color:#fff;position:relative;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;opacity:.7;margin-bottom:8px;}
+.hero-votos{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:12px;}
+.hero-votos span{color:var(--rojo);background:rgba(207,20,43,.2);padding:0 4px;border-radius:2px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.2vw,2.9rem);letter-spacing:3px;line-height:1.08;margin-bottom:14px;}
+.hero p{font-size:clamp(.78rem,.9vw,.94rem);line-height:1.75;opacity:.9;font-weight:300;margin:0 0 20px;}
+.hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
+.hero-project-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;opacity:.65;margin-bottom:2px;}
+.hero-cta-main{display:inline-flex;align-items:center;gap:10px;background:var(--rojo);color:#fff;padding:10px 20px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.hero-cta-main:hover{background:#a80e22;}
+.hero-cta-main .cta-arrow{font-size:.9rem;opacity:.8;}
+.hero-cta-sep{font-size:.7rem;opacity:.4;letter-spacing:2px;}
+.hero-cta-sec{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:1px;transition:color .2s;}
+.hero-cta-sec:hover{color:#fff;}
+/* Mobile */
+@media(max-width:700px){
+  .hero > div{grid-template-columns:1fr !important;text-align:center;}
+  .hero > div > div:first-child{justify-content:center;}
+  .hero > div > div:first-child img{width:130px !important;}
+  .hero-ctas{align-items:center;}
+}
+
+/* ── QUE ES ── */
+.que-es{max-width:980px;margin:36px auto 0;padding:0 22px 36px;}
+.que-es-box{background:#fff;border:1px solid #D8E0EC;border-left:4px solid var(--rojo);border-radius:0 8px 8px 0;padding:22px 26px;}
+.que-es-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rojo);font-weight:700;margin-bottom:10px;}
+.que-es-body{font-size:.93rem;line-height:1.78;color:var(--negro);margin-bottom:16px;}
+.que-es-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px;}
+.que-es-card{background:#fff;border:1px solid var(--azul);border-radius:6px;padding:13px 15px;}
+.que-es-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-weight:700;margin-bottom:5px;}
+.que-es-card p{font-size:.82rem;color:var(--negro);line-height:1.55;}
+.que-es-tagline{font-size:.82rem;color:var(--azul);font-style:italic;}
+
+/* ── SECTION WRAPPER ── */
+.sec{max-width:1100px;margin:0 auto;padding:40px 22px;}
+.sec-divider{border:none;border-top:1px solid var(--gris-m);margin:0 22px;}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gt);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--gris-m);}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--azul);margin-bottom:6px;line-height:1.1;}
+.sec-sub{font-size:.88rem;color:var(--gt);margin-bottom:24px;line-height:1.6;}
+
+/* ── ROADMAP ── */
+.roadmap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+@media(max-width:900px){.roadmap-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.roadmap-grid{grid-template-columns:1fr;}}
+.roadmap-card{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--gris-m);border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;transition:box-shadow .18s,border-color .18s;}
+.roadmap-card:hover{box-shadow:var(--shf);}
+.roadmap-card.active{border:2px solid var(--rojo);box-shadow:0 2px 12px rgba(207,20,43,.12);}
+.stage{width:32px;height:32px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;flex-shrink:0;}
+.roadmap-card.active .stage{background:var(--rojo);color:#fff;}
+.roadmap-card h3{margin:0;font-size:.85rem;color:var(--azul);font-family:'Barlow Condensed',sans-serif;letter-spacing:.8px;text-transform:uppercase;font-weight:700;line-height:1.2;}
+.roadmap-icon{font-size:1.1rem;color:var(--azul);flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;}
+.roadmap-card.active .roadmap-icon{color:var(--rojo);}
+.roadmap-card.active h3{color:var(--rojo);}
+.roadmap-card .status{font-size:.63rem;color:var(--azul);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;opacity:.7;}
+.roadmap-card.active .status{color:var(--rojo);font-weight:700;}
+
+/* ── HERRAMIENTAS ── */
+.herr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+@media(max-width:1000px){.herr-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.herr-grid{grid-template-columns:1fr;}}
+.herr-card{background:#fff;border:1px solid var(--gris-m);border-radius:8px;padding:18px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sh);}
+.herr-card.current{border-color:var(--azul);border-width:2px;}
+.herr-icon{width:40px;height:40px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.herr-icon svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.herr-card.current .herr-icon{background:var(--rojo);}
+.herr-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);}
+.herr-desc{font-size:.8rem;color:var(--gt);line-height:1.55;flex:1;}
+.herr-badge{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:3px;display:inline-block;align-self:flex-start;}
+.herr-badge.live{background:var(--azul);color:#fff;}
+.herr-badge.soon{background:#fff;color:var(--azul);border:1px solid var(--azul);}
+.herr-vision{background:#fff;border:1px solid var(--azul);border-left:4px solid var(--azul);border-radius:0 8px 8px 0;color:var(--negro);padding:20px 22px;margin-top:20px;}
+.herr-vision-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;margin-bottom:8px;color:var(--azul);}
+.herr-vision p{font-size:.84rem;line-height:1.7;color:var(--negro);}
+
+/* ── COMO SURGIO / METODOLOGIA ── */
+.origin-box{background:var(--rojo);color:#fff;border-radius:8px;padding:24px 26px;margin-bottom:16px;}
+.origin-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;margin-bottom:10px;}
+.origin-body{font-size:.87rem;line-height:1.78;opacity:.92;font-weight:300;}
+.origin-body p{margin-bottom:12px;}
+.origin-body p:last-child{margin:0;font-style:italic;font-weight:400;opacity:.95;}
+.principle-box{background:#fff;border-radius:8px;border:2px solid var(--rojo);padding:18px 22px;margin-bottom:14px;}
+.principle-label{font-family:'Barlow Condensed',sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:8px;}
+.principle-txt{font-size:.87rem;line-height:1.72;color:var(--negro);font-style:italic;}
+.met-steps{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.met-step{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--gris-m);border-radius:6px;}
+.met-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--azul);line-height:1;flex-shrink:0;width:30px;}
+.met-title{font-weight:700;font-size:.86rem;color:var(--azul);margin-bottom:3px;}
+.met-desc{font-size:.8rem;color:var(--gt);line-height:1.5;}
+
+/* ── ORG FORM ── */
+.org-form{display:flex;flex-direction:column;gap:10px;}
+.org-form input,.org-form textarea,.org-form select{padding:8px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.86rem;font-family:Barlow,sans-serif;color:var(--negro);width:100%;}
+.org-form input:focus,.org-form textarea:focus,.org-form select:focus{outline:none;border-color:var(--azul);}
+.org-form label{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);margin-bottom:2px;display:block;}
+.upload-area{border:2px dashed var(--gris-m);border-radius:6px;padding:20px;text-align:center;font-size:.84rem;color:var(--gt);cursor:pointer;transition:border-color .15s,background .15s;}
+.upload-area:hover{border-color:var(--azul);background:var(--azul-light);}
+.upload-area input{display:none;}
+.btn{padding:7px 14px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.btn-p{background:var(--azul);color:#fff;border-color:var(--azul);}
+.btn-p:hover{background:#001f6b;}
+
+/* ── FAQ ── */
+.faq-item{border:1px solid var(--gris-m);border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.faq-q{padding:13px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--azul);background:#fff;user-select:none;}
+.faq-q:hover{background:var(--azul-light);}
+.faq-q .faq-arrow{font-size:.8rem;transition:transform .2s;color:var(--azul);}
+.faq-a{display:none;padding:12px 16px;font-size:.86rem;line-height:1.68;color:var(--negro);border-top:1px solid var(--gris-m);background:#fff;}
+.faq-a.open{display:block;}
+
+/* ── CONTACTO ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:640px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info{display:flex;flex-direction:column;gap:12px;}
+.contact-item{display:flex;gap:10px;align-items:flex-start;}
+.contact-icon{width:34px;height:34px;border-radius:50%;background:var(--azul-light);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;color:var(--azul);font-weight:700;font-family:'Barlow Condensed',sans-serif;}
+.contact-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);margin-bottom:2px;}
+.contact-val{font-size:.88rem;color:var(--negro);}
+.contact-val a{color:var(--azul);text-decoration:none;}
+.contact-val a:hover{text-decoration:underline;}
+.contact-form input,.contact-form textarea{width:100%;padding:8px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.85rem;font-family:Barlow,sans-serif;margin-bottom:8px;}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--azul);}
+.contact-form textarea{min-height:80px;resize:vertical;}
+
+/* ── QUIENES SOMOS ── */
+.quien-card{background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:24px 26px;display:flex;gap:22px;align-items:flex-start;box-shadow:var(--sh);}
+@media(max-width:600px){.quien-card{flex-direction:column;}}
+.quien-avatar{width:64px;height:64px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;flex-shrink:0;}
+.quien-name{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:3px;}
+.quien-role{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:10px;}
+.quien-bio{font-size:.85rem;line-height:1.68;color:var(--gt);}
+.transparency-box{background:var(--azul-light);border-left:4px solid var(--azul);border-radius:0 6px 6px 0;padding:14px 18px;margin-top:18px;font-size:.82rem;line-height:1.65;color:var(--negro);}
+.transparency-box strong{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);}
+
+/* ── FOOTER ── */
+footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}
+footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+footer a{color:rgba(255,255,255,.6);text-decoration:none;}
+footer a:hover{color:#fff;}
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
+
+/* ── PENDING BADGE ── */
+.pending-badge{font-size:.68rem;background:#FFF3CD;color:#856404;border:1px solid #FFEAA7;padding:2px 6px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;display:inline-block;margin-bottom:4px;}
+</style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <div class="logo-wrap">
+      <a href="#inicio" style="display:block;line-height:0;">
+        <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.onerror=null;this.style.display='none'">
+      </a>
+    </div>
+    <div class="hdr-version">Versión Beta &nbsp;·&nbsp; Funcional &nbsp;·&nbsp; Marzo 2026</div>
+    <div class="hdr-ham">
+      <button class="hdr-ham-btn" id="hdr-ham-btn" onclick="toggleHam()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="hdr-ham-menu" id="hdr-ham-menu">
+        <!-- 1. ¿Qué es E/T? → house icon -->
+        <a class="hdr-ham-item" href="#que-es" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
+          ¿Qué es ENTRE TODOS?
+        </a>
+        <!-- 2. Cómo participar → steps/play icon -->
+        <a class="hdr-ham-item" href="#metodologia" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg></span>
+          ¿Cómo participar?
+        </a>
+        <!-- 3. Hoja de Ruta → map icon -->
+        <a class="hdr-ham-item" href="#hoja-de-ruta" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>
+          Hoja de Ruta
+        </a>
+        <!-- PROYECTOS ACTIVOS -->
+        <a class="hdr-ham-item destacado" href="#proyectos-activos" onclick="closeHam()" style="background:#FFF1F2;">
+          <span class="hico"><svg viewBox="0 0 24 24" style="stroke:#CF142B;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="var(--rojo)" stroke="none"/></svg></span>
+          Proyectos Activos
+        </a>
+        <hr class="hdr-ham-divider">
+        <!-- 5. Organizaciones → building icon -->
+        <a class="hdr-ham-item" href="#organizaciones" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></span>
+          Organizaciones
+        </a>
+        <!-- 6. Quiénes Somos → person icon -->
+        <a class="hdr-ham-item" href="#quienes-somos" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg></span>
+          Quiénes Somos
+        </a>
+        <!-- 7. FAQ → question circle icon -->
+        <a class="hdr-ham-item" href="#faq" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></span>
+          FAQ
+        </a>
+        <!-- 8. Contacto → envelope icon -->
+        <a class="hdr-ham-item" href="#contacto" onclick="closeHam()">
+          <span class="hico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span>
+          Contacto
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="inicio" style="margin:0;border-radius:0;">
+  <div style="max-width:1100px;margin:0 auto;padding:36px 22px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;min-height:280px;">
+    <div style="flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+      <img src="entre-todos-logo.png" alt="Entre Todos — Consenso Ciudadano"
+           style="width:200px;display:block;"
+           onerror="this.onerror=null;this.style.display='none'">
+    </div>
+    <div>
+      <div class="hero-eyebrow">Plataforma de Participación Ciudadana · Cuba</div>
+      <div class="hero-votos">TU VOZ &nbsp;<span>·</span>&nbsp; TU APORTE &nbsp;<span>·</span>&nbsp; TU VOTO</div>
+      <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
+      <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANUNCIOS CAROUSEL ══ -->
+<style>
+@keyframes pulse-r{0%,100%{opacity:1}50%{opacity:.3}}
+/* CAROUSEL */
+.anuncios-wrap{background:#001d63;overflow:hidden;position:relative;}
+.anuncios-track-outer{overflow:hidden;}
+.anuncios-track{display:flex;transition:transform .52s cubic-bezier(.4,0,.2,1);}
+.anuncio-slide{min-width:100%;padding:0;display:flex;align-items:stretch;}
+.anuncio-inner{max-width:1100px;margin:0 auto;padding:20px 22px 22px;width:100%;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.anuncio-icon-wrap{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;}
+.anuncio-content{flex:1;min-width:220px;}
+.anuncio-tag{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+.anuncio-tag::before{content:'';display:inline-block;width:20px;height:2px;background:var(--rojo,#CF142B);border-radius:2px;}
+.anuncio-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,2.5vw,1.5rem);letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:5px;}
+.anuncio-title span{color:#CF142B;}
+.anuncio-desc{font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.55;max-width:520px;}
+.anuncio-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:#CF142B;color:#fff;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .18s;white-space:nowrap;}
+.anuncio-cta:hover{background:#a8101f;}
+/* dots + arrows */
+.anuncios-controls{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 22px 14px;background:#001d63;}
+.anuncio-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+.anuncio-dot.active{background:#CF142B;transform:scale(1.3);}
+.anuncio-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:background .18s;}
+.anuncio-arrow:hover{background:rgba(255,255,255,.18);}
+/* slide accent per type */
+.anuncio-slide.tipo-candidato .anuncio-wrap-accent{background:linear-gradient(135deg,transparent 60%,rgba(207,20,43,.12) 60%);}
+.anuncio-slide.tipo-consulta  .anuncio-wrap-accent{background:linear-gradient(135deg,transparent 60%,rgba(255,255,255,.04) 60%);}
+</style>
+
+<div class="anuncios-wrap" id="anuncios-carousel">
+  <div class="anuncios-track-outer">
+    <div class="anuncios-track" id="anuncios-track">
+
+      <!-- SLIDE 1: Candidatura Armando Labrador -->
+      <div class="anuncio-slide tipo-candidato">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-ballot"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Nuevo · Fase 4 — Sistema Electoral</div>
+            <div class="anuncio-title">Primera candidatura declarada: <span>Armando Labrador</span></div>
+            <div class="anuncio-desc">Cuba Primero anuncia la candidatura presidencial de Armando Labrador para un escenario de transición democrática. Conoce su plataforma y posicionamiento.</div>
+          </div>
+          <a href="candidaturas-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver candidato</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Transición Democrática -->
+      
+      <!-- FASE 2 — CONSTITUYENTE -->
+      <div class="anuncio-slide tipo-constituyente">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-scroll"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Activo · Fase 2 — Proceso Constituyente</div>
+            <div class="anuncio-title">114 propuestas constitucionales de <span>4 fuentes</span></div>
+            <div class="anuncio-desc">Lee, vota y objeta propuestas de organizaciones, juristas y ciudadanos para la futura Constitución de Cuba. IA detecta vacíos — la ciudadanía decide.</div>
+          </div>
+          <a href="constituyente-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver propuestas</a>
+        </div>
+      </div>
+
+      <div class="anuncio-slide tipo-propuestas">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-shuffle"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Activo · Fase 1 — Hoja de Ruta</div>
+            <div class="anuncio-title">129 propuestas de <span>transición democrática</span></div>
+            <div class="anuncio-desc">Más de 40 organizaciones cubanas reunidas en un solo documento. Lee cada propuesta, vota, matiza, añade. El proceso constituyente comienza con consenso.</div>
+          </div>
+          <a href="propuestas-transicion-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver propuestas</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Consulta Popular -->
+      <div class="anuncio-slide tipo-consulta">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-vote-yea"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Urgente · Consulta Popular — Cuba 2026</div>
+            <div class="anuncio-title">¿Apoyas la continuidad de <span>Díaz-Canel</span>?</div>
+            <div class="anuncio-desc">El régimen condiciona la permanencia de Díaz-Canel a la voluntad popular. ENTRE TODOS habilita un voto libre, anónimo y sin censura para la diáspora y cubanos de adentro.</div>
+          </div>
+          <a href="consulta-popular-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Emitir voto</a>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+  </div>
+  <div class="anuncios-controls">
+    <button class="anuncio-arrow" id="anuncio-prev" aria-label="Anterior"><i class="fi fi-br-angle-left"></i></button>
+    <button class="anuncio-dot active" data-idx="0"></button>
+    <button class="anuncio-dot" data-idx="1"></button>
+    <button class="anuncio-dot" data-idx="2"></button>
+    <button class="anuncio-dot" data-idx="3"></button>
+    <button class="anuncio-arrow" id="anuncio-next" aria-label="Siguiente"><i class="fi fi-br-angle-right"></i></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById('anuncios-track');
+  var dots=document.querySelectorAll('.anuncio-dot');
+  var total=4, cur=0, timer;
+  function go(n){
+    cur=(n+total)%total;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  }
+  function next(){go(cur+1);}
+  function startTimer(){timer=setInterval(next,5000);}
+  function resetTimer(){clearInterval(timer);startTimer();}
+  document.getElementById('anuncio-next').addEventListener('click',function(){go(cur+1);resetTimer();});
+  document.getElementById('anuncio-prev').addEventListener('click',function(){go(cur-1);resetTimer();});
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+this.dataset.idx);resetTimer();});});
+  document.getElementById('anuncios-carousel').addEventListener('mouseenter',function(){clearInterval(timer);});
+  document.getElementById('anuncios-carousel').addEventListener('mouseleave',startTimer);
+  // touch swipe
+  var tx=0;
+  track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40){go(dx<0?cur+1:cur-1);resetTimer();}
+  },{passive:true});
+  startTimer();
+})();
+</script>
+
+<!-- ══ PROYECTOS ACTIVOS ══ -->
+<style>@keyframes pulse-r{0%,100%{opacity:1}50%{opacity:.3}}</style>
+<section id="proyectos-activos" style="background:#fff;border-bottom:1px solid #D1D5DB;position:relative;z-index:10;">
+  <div style="max-width:1100px;margin:0 auto;padding:28px 22px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:#002A8F;display:flex;align-items:center;gap:10px;"><i class="fi fi-br-megaphone" style="font-size:1.1rem;color:#CF142B;"></i>PROYECTOS ACTIVOS</div>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CF142B;">
+        <span style="width:7px;height:7px;background:#CF142B;border-radius:50%;animation:pulse-r 1.5s infinite;display:inline-block;"></span>
+        4 Proyectos Activos — Participa ahora
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;">
+
+      
+      <!-- CARD CONSTITUYENTE: PROCESO CONSTITUYENTE -->
+      <a href="constituyente-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#fff;border:2px solid #002A8F;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,42,143,.12);transition:box-shadow .2s;">
+          <div style="background:#002A8F;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;flex-shrink:0;">2</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);">Fase 2 · Proceso Constituyente</div>
+          </div>
+          <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#002A8F;line-height:1.1;">CONSTITUCIÓN PARA CUBA</div>
+            <div style="font-size:.84rem;color:#444;line-height:1.6;">114 propuestas constitucionales de 4 fuentes organizadas en 10 bloques. Vota, objeta y propone cláusulas. La IA detecta vacíos — la ciudadanía decide.</div>
+            <div style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#002A8F;color:#fff;padding:9px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;">
+              Ver propuestas →
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 1: TRANSICIÓN DEMOCRÁTICA -->
+      <a href="propuestas-transicion-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#fff;border:2px solid #CF142B;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(207,20,43,.12);transition:box-shadow .2s;">
+          <div style="background:#CF142B;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;flex-shrink:0;">1</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);">Fase 1 · Hoja de Ruta Nacional</div>
+          </div>
+          <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#CF142B;line-height:1.1;">TRANSICIÓN DEMOCRÁTICA</div>
+            <div style="font-size:.84rem;color:#444;line-height:1.6;">Propuestas de más de 40 organizaciones organizadas por puntos. Lee, vota, matiza y añade. Nadie se queda afuera.</div>
+            <div style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#CF142B;color:#fff;padding:9px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;">
+              Ver propuestas →
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 3: CANDIDATURAS -->
+      <a href="candidaturas-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#fff;border:2px solid #002A8F;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,42,143,.12);transition:box-shadow .2s;">
+          <div style="background:#002A8F;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;flex-shrink:0;">4</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);">Fase 4 · Sistema Electoral</div>
+          </div>
+          <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#002A8F;line-height:1.1;">CANDIDATURAS PRESIDENCIALES</div>
+            <div style="font-size:.84rem;color:#444;line-height:1.6;">Perfil, propuestas y posicionamiento de los candidatos declarados. El primero: Armando Labrador — Cuba Primero.</div>
+            <div style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#002A8F;color:#fff;padding:9px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;">
+              Ver candidatos →
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 2: CONSULTA POPULAR CUBA -->
+      <a href="consulta-popular-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#002A8F;border-radius:8px;overflow:hidden;box-shadow:0 6px 32px rgba(0,42,143,.20);transition:box-shadow .2s;">
+          <div style="display:grid;grid-template-columns:120px 1fr;flex:1;">
+            <div style="background:url('diaz-canel.jpg') center top/cover no-repeat;transform:scaleX(-1);min-height:160px;" aria-hidden="true"></div>
+            <div style="padding:20px;">
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px;">Urgente · Consulta Popular · Cuba 2026</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,2vw,1.35rem);letter-spacing:1.5px;color:#fff;line-height:1.15;margin-bottom:10px;">CONSULTA POPULAR: CONTINUIDAD DE DÍAZ-CANEL</div>
+              <div style="font-style:italic;font-size:.8rem;color:rgba(224,234,255,.8);line-height:1.5;margin-bottom:14px;border-left:3px solid #CF142B;padding-left:10px;">"Mi continuidad... depende del pueblo..."</div>
+              <div style="display:inline-flex;align-items:center;gap:8px;background:#CF142B;color:#fff;padding:8px 16px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                Emitir mi voto →
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUE ES ══ -->
+<section id="que-es">
+  <div class="que-es">
+    <div class="que-es-box">
+      <div class="que-es-label">¿Qué es ENTRE TODOS?</div>
+      <p class="que-es-body">Cuba no necesita otros acuerdos firmados por grupos reducidos. Necesita un mecanismo donde <strong>todas las voces relevantes puedan sentarse en la misma sala</strong> — el activista interno, el exilio histórico, la juventud digital, el empresario emergente, el religioso, el intelectual crítico, el moderado y el radical. ENTRE TODOS es ese mecanismo: una plataforma abierta donde cualquier cubano puede leer, comparar, votar y proponer — sin que el origen de una idea defina su valor.</p>
+      <div class="que-es-grid">
+        <div class="que-es-card">
+          <div class="que-es-card-title">Mesa amplia</div>
+          <p>Cualquier persona participa — sin importar dónde vive, qué organización la representa o qué ideología tiene. El peso de cada voz es igual.</p>
+        </div>
+        <div class="que-es-card">
+          <div class="que-es-card-title">Deliberación real</div>
+          <p>No solo votas sí o no. Puedes matizar, criticar, añadir y proponer. Los aportes con más apoyo se integran al documento de consenso.</p>
+        </div>
+        <div class="que-es-card">
+          <div class="que-es-card-title">Sin cúpulas</div>
+          <p>Las ideas se juzgan por su mérito, no por quién las propone. Las organizaciones no aparecen por nombre — solo por número de referencia.</p>
+        </div>
+        <div class="que-es-card">
+          <div class="que-es-card-title">Nadie se queda afuera</div>
+          <p>Personas, grupos, partidos — todos tienen trabajo valioso hecho. ENTRE TODOS lo reconoce, lo organiza y lo abre al voto popular para que toda propuesta tenga la oportunidad de ganar el apoyo de todos.</p>
+        </div>
+      </div>
+      <p class="que-es-tagline">No se construye desde arriba. Se construye ENTRE TODOS.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ HOJA DE RUTA ══ -->
+<section id="hoja-de-ruta">
+  <div class="sec">
+    <div class="sec-label">Hoja de Ruta Nacional</div>
+    <div class="sec-title">Hoja de Ruta Nacional E/TODOS</div>
+    <div class="sec-sub">Proceso por fases para construir acuerdos, reglas, representación e implementación democrática. Cada fase es un proyecto independiente.</div>
+    <div class="roadmap-grid" id="proyectos">
+      <a class="roadmap-card active" href="propuestas-transicion-cuba.html">
+        <div class="stage">1</div>
+        <div class="roadmap-icon"><i class="fi fi-br-shuffle"></i></div>
+        <div>
+          <h3>Transición Democrática</h3>
+          <span class="status">&#9679; Activa — Entra a votar</span>
+        </div>
+      </a>
+      <a class="roadmap-card active" href="constituyente-cuba.html">
+        <div class="stage">2</div>
+        <div class="roadmap-icon"><i class="fi fi-br-scroll"></i></div>
+        <div><h3>Proceso Constituyente</h3><span class="status">&#9679; Activa — Entra a proponer</span></div>
+      </a>
+      <a class="roadmap-card" href="gobierno-cuba.html">
+        <div class="stage">3</div>
+        <div class="roadmap-icon"><i class="fi fi-br-bank"></i></div>
+        <div><h3>Plataforma de Gobierno</h3><span class="status">Próximamente</span></div>
+      </a>
+      <a class="roadmap-card active" href="candidaturas-cuba.html">
+        <div class="stage">4</div>
+        <div class="roadmap-icon"><i class="fi fi-br-ballot"></i></div>
+        <div><h3>Sistema Electoral y Candidaturas</h3><span class="status">&#9679; Activa — Ver candidatos</span></div>
+      </a>
+      <a class="roadmap-card" href="elecciones-cuba.html">
+        <div class="stage">5</div>
+        <div class="roadmap-icon"><i class="fi fi-br-flag"></i></div>
+        <div><h3>Elecciones y Conformación Institucional</h3><span class="status">Próximamente</span></div>
+      </a>
+      <a class="roadmap-card" href="implementacion-cuba.html">
+        <div class="stage">6</div>
+        <div class="roadmap-icon"><i class="fi fi-br-chart-line-up"></i></div>
+        <div><h3>Implementación y Rendición de Cuentas</h3><span class="status">Próximamente</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ HERRAMIENTAS DEL PORTAL ══ -->
+<section id="herramientas">
+  <div class="sec">
+    <div class="sec-label">Lo que viene</div>
+    <div class="sec-title">Herramientas del Portal</div>
+    <div class="sec-sub">ENTRE TODOS es más que un sitio para votar. Es una plataforma de gestión de consenso democrático que irá incorporando herramientas de participación avanzadas — exportable a cualquier país, municipio, región u organización que quiera saber qué piensa su gente.</div>
+    <div class="herr-grid">
+
+      <!-- 1. Padrón Electoral -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/><path d="M16 17l2 2 4-4" stroke-width="2.2"/></svg>
+        </div>
+        <div class="herr-title">Padrón Electoral</div>
+        <div class="herr-desc">Registro verificado de participantes para dar validez oficial a las consultas y votaciones del portal.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 2. Campañas Ciudadanas -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div class="herr-title">Campañas Ciudadanas</div>
+        <div class="herr-desc">Impulsa causas concretas, reúne apoyos y da seguimiento público a cada iniciativa ciudadana.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 3. Foro Ciudadano -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="herr-title">Foro Ciudadano</div>
+        <div class="herr-desc">Espacio de debate abierto por temas, moderado y con votación de ideas. Un lugar propio para la conversación cubana.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 4. Plebiscitos y Consultas -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/><path d="M3 9h18"/></svg>
+        </div>
+        <div class="herr-title">Plebiscitos y Consultas</div>
+        <div class="herr-desc">Votaciones rápidas sobre temas urgentes y concretos. Datos reales del sentir ciudadano en tiempo real.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 5. Cartas y Peticiones -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/><line x1="8" y1="14" x2="6" y2="17"/><line x1="16" y1="14" x2="18" y2="17"/></svg>
+        </div>
+        <div class="herr-title">Cartas y Peticiones</div>
+        <div class="herr-desc">Redacta y firma cartas abiertas dirigidas a gobiernos, instituciones u organismos internacionales.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 6. Directorio de Organizaciones -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M3 21c0-3.314 2.686-6 6-6"/><path d="M13 21c0-3.314 2.686-6 6-6"/><line x1="12" y1="15" x2="12" y2="21"/></svg>
+        </div>
+        <div class="herr-title">Directorio de Organizaciones</div>
+        <div class="herr-desc">Mapa y listado de organizaciones cubanas dentro y fuera de la isla — con misión, proyectos y contacto verificado.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 7. Boletín Ciudadano -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="14" y2="12"/><path d="M4 4l8 5 8-5"/></svg>
+        </div>
+        <div class="herr-title">Boletín Ciudadano</div>
+        <div class="herr-desc">Resumen semanal de propuestas nuevas, campañas activas y resultados de votaciones. Mantente informado sin entrar al portal.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+      <!-- 8. Perfil Verificado -->
+      <div class="herr-card">
+        <div class="herr-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/><path d="M9 12l2 2 4-4" stroke-width="2.2"/></svg>
+        </div>
+        <div class="herr-title">Perfil Verificado</div>
+        <div class="herr-desc">Identidad verificada para personas y organizaciones. Mayor confianza, acceso a herramientas avanzadas y participación con peso oficial.</div>
+        <span class="herr-badge soon">Próximamente</span>
+      </div>
+
+    </div>
+    <div class="herr-vision">
+      <div class="herr-vision-title">Una plataforma para cualquier consenso</div>
+      <p>El modelo de ENTRE TODOS es exportable. Cualquier municipio, país, región, empresa o comunidad que necesite saber qué piensa su gente — y hacerlo de forma transparente, verificable y participativa — puede usar esta plataforma. ENTRE TODOS nació para Cuba, pero el consenso democrático no tiene fronteras.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ COMO SURGIO ══ -->
+<section id="como-surgio">
+  <div class="sec">
+    <div class="sec-label">Acerca de ENTRE TODOS</div>
+    <div class="origin-box">
+      <div class="origin-title">No es una propuesta más</div>
+      <div class="origin-body">
+        <p>Cuba no carece de propuestas. Durante décadas, organizaciones, académicos y activistas han producido documentos serios, trabajados con dedicación genuina y amor por el país. Ese trabajo existe, tiene valor — y en muchos casos ha permanecido invisible para la mayoría, conocido solo por los miembros de cada organización o por quienes estuvieron cerca de su redacción.</p>
+        <p>ENTRE TODOS no viene con agenda propia ni con ideas nuevas que imponer. Lo que hace es tomar ese trabajo colectivo que ya existía, reconocerlo, organizarlo y ponerlo frente a todos — para que cada quien pueda evaluarlo por lo que dice, no por quién lo dice. Para cada proyecto se explora primero lo que ya está escrito si existe, se toma como punto de partida, y de ahí se organiza en módulos, secciones o categorías para hacerlo accesible. Las personas entonces leen, comparan, votan y sugieren. Todo resulta en un documento adaptable que refleja la voluntad popular sobre los temas consultados.</p>
+        <p>Porque una buena idea no deja de serlo por haber nacido en una organización que no es la tuya. Y una propuesta que nadie conoce no puede construir el consenso que necesitamos. ENTRE TODOS es el espacio donde eso cambia.</p>
+      </div>
+    </div>
+    <div class="principle-box">
+      <div class="principle-label">Principio fundamental de participación</div>
+      <p class="principle-txt">Todo participante tiene derecho a involucrarse sin importar sus preferencias personales, ideológicas, políticas o religiosas — siempre que esté de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos. No tienen cabida organizaciones totalitarias, dictatoriales o que nieguen la soberanía del pueblo sobre su propio destino.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ METODOLOGIA ══ -->
+<section id="metodologia">
+  <div class="sec">
+    <div class="sec-label">¿Cómo participar?</div>
+    <div class="sec-title">Metodología</div>
+    <div class="sec-sub">Así funciona cada proyecto en ENTRE TODOS — desde la investigación inicial hasta el documento de consenso final.</div>
+    <div class="met-steps">
+      <div class="met-step">
+        <div class="met-num">01</div>
+        <div>
+          <div class="met-title">Exploración de lo existente</div>
+          <div class="met-desc">Antes de empezar, se recopila todo lo que ya ha sido escrito sobre el tema — propuestas, documentos, acuerdos, investigaciones. El punto de partida es siempre el trabajo que ya existe, no una hoja en blanco.</div>
+        </div>
+      </div>
+      <div class="met-step">
+        <div class="met-num">02</div>
+        <div>
+          <div class="met-title">Organización en módulos y categorías</div>
+          <div class="met-desc">El material se organiza en secciones temáticas accesibles. Los puntos similares de distintas fuentes se fusionan en una sola propuesta; los matices únicos se incorporan como opciones seleccionables individualmente.</div>
+        </div>
+      </div>
+      <div class="met-step">
+        <div class="met-num">03</div>
+        <div>
+          <div class="met-title">Fuentes como referencias, no como nombres</div>
+          <div class="met-desc">Las organizaciones o fuentes aparecen como números de referencia, no como nombres visibles. Así se evalúa la idea, no quién la propone — eliminando el filtro de la etiqueta.</div>
+        </div>
+      </div>
+      <div class="met-step">
+        <div class="met-num">04</div>
+        <div>
+          <div class="met-title">Leer, comparar, votar y sugerir</div>
+          <div class="met-desc">Las personas leen las propuestas, votan de 1 a 5 estrellas, marcan los matices que apoyan y pueden añadir puntos nuevos. No es un sí o no — es una conversación estructurada.</div>
+        </div>
+      </div>
+      <div class="met-step">
+        <div class="met-num">05</div>
+        <div>
+          <div class="met-title">Documento de consenso adaptable</div>
+          <div class="met-desc">Los resultados se consolidan en un documento vivo que refleja la voluntad popular. Las propuestas ciudadanas con 3 o más estrellas se integran a la lista oficial. El resultado es colectivo y verificable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ ORGANIZACIONES ══ -->
+<section id="organizaciones">
+  <div class="sec">
+    <div class="sec-label">Organizaciones</div>
+    <div class="sec-title">Registrar una Organización</div>
+    <div class="sec-sub">¿Representas una organización con un plan, propuesta o documento formal que deba estar incluido en alguno de los proyectos? Completa este formulario. El equipo de ENTRE TODOS revisará tu envío e integrará la organización como fuente de referencia verificada.</div>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start;">
+      <div class="org-form" id="org-form">
+        <div>
+          <label>Nombre de la organización *</label>
+          <input id="of-org" placeholder="Nombre completo de la organización">
+        </div>
+        <div>
+          <label>País / ciudad de la organización *</label>
+          <input id="of-pais" placeholder="Ej: Miami, EEUU / Madrid, España / La Habana, Cuba">
+        </div>
+        <div>
+          <label>Tu nombre y cargo *</label>
+          <input id="of-nombre" placeholder="Tu nombre completo y rol en la organización">
+        </div>
+        <div>
+          <label>Correo electrónico de contacto *</label>
+          <input id="of-email" type="email" placeholder="Para notificarte cuando tu envío sea integrado">
+        </div>
+        <div>
+          <label>Sitio web o red social de la organización</label>
+          <input id="of-web" placeholder="https://...">
+        </div>
+        <div>
+          <label>Proyecto al que aplica esta propuesta</label>
+          <select id="of-proj">
+            <option value="">Selecciona el proyecto más cercano...</option>
+            <option value="1">Fase 1 — Transición Democrática de Cuba</option>
+            <option value="2">Fase 2 — Proceso Constituyente</option>
+            <option value="3">Fase 3 — Plataforma de Gobierno</option>
+            <option value="otro">Otro / Nueva categoría</option>
+          </select>
+        </div>
+        <div>
+          <label>Resumen de las propuestas principales</label>
+          <textarea id="of-txt" style="min-height:80px;resize:vertical;" placeholder="Lista los puntos principales que propone tu organización..."></textarea>
+        </div>
+        <div>
+          <label>Sube el documento de propuesta (PDF, Word, imagen)</label>
+          <div class="upload-area" onclick="document.getElementById('of-file').click()">
+            <input type="file" id="of-file" accept=".pdf,.doc,.docx,.jpg,.png" onchange="handleOrgFile(this)">
+            <div id="of-file-label">Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">PDF, Word o imagen · máx. 10MB</span></div>
+          </div>
+        </div>
+        <div>
+          <label style="display:flex;align-items:flex-start;gap:6px;font-size:.8rem;color:var(--gt);cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0;flex:1;">
+            <input type="checkbox" id="of-consent" style="margin-top:2px;width:auto;"> Autorizo a ENTRE TODOS a revisar y publicar estas propuestas en la plataforma de forma neutral, sin atribuirlas ideológicamente.
+          </label>
+        </div>
+        <button class="btn btn-p" style="width:100%;padding:10px;" onclick="submitOrg()">Enviar para revisión</button>
+        <div id="org-pending" style="margin-top:10px;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--azul-light);border-radius:8px;padding:16px 18px;font-size:.82rem;color:var(--negro);line-height:1.68;">
+          <strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);display:block;margin-bottom:8px;">Criterio de inclusión</strong>
+          Para ser incluida como fuente de referencia, la organización debe haber publicado un documento formal con propuestas concretas relacionadas con el proyecto correspondiente. Los documentos se verifican antes de ser integrados.
+        </div>
+        <div style="background:#fff;border:1px solid var(--gris-m);border-radius:8px;padding:16px 18px;font-size:.82rem;color:var(--negro);line-height:1.68;">
+          <strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);display:block;margin-bottom:8px;">¿Qué pasa después?</strong>
+          1. Tu envío queda en revisión.<br>
+          2. El equipo verifica que sea una organización real con propuestas concretas.<br>
+          3. Se integra como fuente de referencia y sus puntos se añaden según la categoría correspondiente.<br>
+          4. Recibirás confirmación por correo cuando esté integrado.
+        </div>
+        <div style="background:var(--rojo-light);border-left:3px solid var(--rojo);border-radius:0 6px 6px 0;padding:12px 14px;font-size:.8rem;color:var(--negro);line-height:1.6;">
+          <strong style="font-family:'Barlow Condensed',sans-serif;color:var(--rojo);">Organizaciones verificadas</strong> tienen acceso para publicar propuestas directamente en la plataforma. El nivel de privilegio se determina en el proceso de revisión.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="sec">
+    <div class="sec-label">Preguntas frecuentes</div>
+    <div class="sec-title">FAQ</div>
+    <div id="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Quién puede participar en ENTRE TODOS?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">Cualquier persona puede participar — sin importar dónde vive, qué organización la representa o qué ideología tiene. El único requisito es estar de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Es necesario registrarse para votar?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">No es obligatorio. Puedes participar de forma anónima. Sin embargo, registrar un nombre o correo ayuda a darle más peso verificable a tu participación y permite que te notifiquemos cuando haya nuevas propuestas en las categorías que te interesan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cómo funciona el voto de estrellas?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">1 estrella significa que estás muy en desacuerdo con la propuesta. 5 estrellas significa que la apoyas completamente. Puedes votar en cualquier punto del espectro. Si cambias de opinión, puedes modificar tu voto. No es un sí o no — el grado de apoyo importa tanto como la dirección.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Qué pasa con las propuestas que añade la ciudadanía?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">Cualquier participante puede añadir nuevos puntos a la plataforma. Si una propuesta ciudadana recibe 3 o más estrellas de apoyo, se integra automáticamente a la lista oficial del proyecto. Las que no alcanzan ese umbral quedan visibles pero no se incorporan al documento de consenso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cómo se generan los documentos de consenso?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">El documento de consenso se genera automáticamente en tiempo real a partir de los resultados acumulados. Refleja cuáles propuestas tienen mayor apoyo, qué matices o incisos fueron más seleccionados, y qué nuevas propuestas ciudadanas fueron integradas. Es un documento vivo que evoluciona con la participación.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Qué significa el número junto a cada propuesta?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">Cada número es una referencia a una organización o fuente que ha publicado esa propuesta de forma oficial. Al hacer clic en el número verás el nombre y enlace a la fuente original. Las organizaciones no aparecen por nombre en las propuestas para que cada idea sea evaluada por su contenido, no por quién la propone.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Pueden participar organizaciones que apoyan posiciones ideológicas distintas?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">Sí. ENTRE TODOS acepta la participación de organizaciones con distintas ideologías — liberales, socialdemócratas, conservadoras, libertarias, demócratacristianas, civiles — siempre que acepten los principios democráticos fundamentales. La regla es de principios, no de ideologías: quien acepta las reglas del juego democrático puede participar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>¿Este sitio tiene fines comerciales o políticos?</span><span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">ENTRE TODOS no tiene afiliación política ni apoya candidaturas individuales. Su único propósito es organizar la participación ciudadana y producir documentos de consenso. A largo plazo, la plataforma busca ser financieramente sostenible como herramienta exportable de gestión de consenso democrático para cualquier proceso participativo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto">
+  <div class="sec">
+    <div class="sec-label">Contacto</div>
+    <div class="sec-title">Escríbenos</div>
+    <div class="sec-sub">¿Tienes una pregunta, una propuesta o quieres colaborar? Usa cualquiera de estos canales.</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">@</div>
+          <div>
+            <div class="contact-label">Correo electrónico</div>
+            <div class="contact-val"><a href="mailto:sosplanet@gmail.com">sosplanet@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">f</div>
+          <div>
+            <div class="contact-label">Grupo en Facebook</div>
+            <div class="contact-val"><a href="https://www.facebook.com/groups/cubanosporelcambio" target="_blank">Cubanos por el Cambio</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--azul)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div>
+            <div class="contact-label">Sobre la plataforma</div>
+            <div class="contact-val">Para consultas sobre la metodología, incorporación de organizaciones o colaboraciones técnicas.</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" id="ct-nombre" placeholder="Tu nombre">
+        <input type="email" id="ct-email" placeholder="Tu correo electrónico">
+        <textarea id="ct-msg" placeholder="Tu mensaje..."></textarea>
+        <button class="btn btn-p" style="width:100%;" onclick="submitContact()">Enviar mensaje</button>
+        <div id="ct-confirm" style="display:none;margin-top:8px;font-size:.82rem;color:var(--azul);font-family:'Barlow Condensed',sans-serif;font-weight:700;">Mensaje enviado. Te respondemos pronto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ QUIENES SOMOS ══ -->
+<section id="quienes-somos">
+  <div class="sec">
+    <div class="sec-label">Quiénes Somos</div>
+    <div class="sec-title">El creador de ENTRE TODOS</div>
+    <div class="sec-sub">La transparencia es un principio de esta plataforma. Aquí está la persona detrás de ella.</div>
+    <div class="quien-card">
+      <div class="quien-avatar">ME</div>
+      <div>
+        <div class="quien-name">Michel Estopiñán</div>
+        <div class="quien-role">Creador y desarrollador de ENTRE TODOS</div>
+        <p class="quien-bio">ENTRE TODOS es un proyecto de una sola persona: Michel Estopiñán, cubano, con el único propósito de crear el espacio que Cuba necesita para construir consensos democráticos amplios, verificables y sin exclusiones. La plataforma no tiene partido, no tiene financiador político y no apoya ninguna candidatura individual. Su agenda es únicamente metodológica: organizar la participación de todos.</p>
+        <div class="transparency-box">
+          <strong>Por qué la transparencia importa aquí:</strong> Aunque ENTRE TODOS está diseñado para que ninguna voz pese más que otra, es justo que los participantes sepan quién construyó el espacio y bajo qué principios. La plataforma está abierta a escrutinio: si encuentras un sesgo, un error o una mejora posible, escríbenos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>ENTRE TODOS</strong> · Plataforma de Gobernanza Ciudadana · Gobernanza Solucionaria<br>
+  <span style="font-size:.7rem;opacity:.6;margin-top:4px;display:block;">Página creada por Michel Estopiñán · Cuba · Todos los derechos reservados · 2026</span>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+function toggleHam(){
+  const btn=document.getElementById('hdr-ham-btn');
+  const menu=document.getElementById('hdr-ham-menu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+function closeHam(){
+  document.getElementById('hdr-ham-btn').classList.remove('open');
+  document.getElementById('hdr-ham-menu').classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  const ham=document.querySelector('.hdr-ham');
+  if(!ham.contains(e.target)) closeHam();
+});
+
+// ── FAQ TOGGLE ──
+function toggleFaq(el){
+  const ans=el.nextElementSibling;
+  const arrow=el.querySelector('.faq-arrow');
+  const isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow').forEach(a=>a.style.transform='');
+  if(!isOpen){
+    ans.classList.add('open');
+    arrow.style.transform='rotate(180deg)';
+  }
+}
+
+// ── ORG FORM ──
+function handleOrgFile(input){
+  const label=document.getElementById('of-file-label');
+  if(input.files&&input.files[0]) label.innerHTML='<strong>'+input.files[0].name+'</strong><br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">Archivo seleccionado</span>';
+}
+function submitOrg(){
+  const org=document.getElementById('of-org').value.trim();
+  const consent=document.getElementById('of-consent').checked;
+  if(!org){alert('Por favor ingresa el nombre de la organización.');return;}
+  if(!consent){alert('Por favor acepta los términos de envío.');return;}
+  const pending=document.getElementById('org-pending');
+  const div=document.createElement('div');
+  div.style.cssText='background:#EEF2FF;border:1px solid rgba(0,42,143,.2);border-radius:6px;padding:11px 13px;margin-bottom:8px;font-size:.83rem;';
+  div.innerHTML='<span class="pending-badge">&#8987; En revisión</span><br>'+org+' — Tu envío fue recibido y está pendiente de revisión.';
+  pending.appendChild(div);
+  ['of-org','of-pais','of-nombre','of-email','of-web','of-txt'].forEach(function(id){
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+  document.getElementById('of-consent').checked=false;
+  document.getElementById('of-file-label').innerHTML='Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">PDF, Word o imagen · máx. 10MB</span>';
+}
+
+// ── CONTACT ──
+function submitContact(){
+  const n=document.getElementById('ct-nombre').value.trim();
+  const m=document.getElementById('ct-msg').value.trim();
+  if(!n||!m){alert('Por favor completa tu nombre y mensaje.');return;}
+  document.getElementById('ct-confirm').style.display='block';
+  ['ct-nombre','ct-email','ct-msg'].forEach(function(id){
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+}
+</script>
+</body>
+</html>
