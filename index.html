@@ -2,23 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#002A8F">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="ENTRE TODOS">
-<meta name="description" content="Plataforma de Gobernanza Ciudadana para Cuba. Vota, propone, decide.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ENTRE TODOS — Plataforma de Gobernanza Ciudadana">
-<meta property="og:description" content="Plataforma de Gobernanza Ciudadana para Cuba. Vota, propone, decide.">
-<meta property="og:image" content="https://entre-todos.org/thumbnail-logo.png">
-<meta property="og:url" content="https://entre-todos.org/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ENTRE TODOS — Plataforma de Gobernanza Ciudadana">
-<meta name="twitter:description" content="Plataforma de Gobernanza Ciudadana para Cuba. Vota, propone, decide.">
-<meta name="twitter:image" content="https://entre-todos.org/thumbnail-logo.png">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="thumbnail-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ENTRE TODOS — Plataforma de Gobernanza Ciudadana</title>
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 <style>
@@ -281,11 +265,6 @@ footer a:hover{color:#fff;}
       <div class="hero-votos">TU VOZ &nbsp;<span>·</span>&nbsp; TU APORTE &nbsp;<span>·</span>&nbsp; TU VOTO</div>
       <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
       <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
-      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="app.html" style="display:inline-flex;align-items:center;gap:8px;background:#CF142B;color:#fff;padding:10px 16px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;text-decoration:none;">
-          <i class="fi fi-br-mobile-button"></i> Abrir versión app (light)
-        </a>
-      </div>
     </div>
   </div>
 </section>
@@ -337,6 +316,20 @@ footer a:hover{color:#fff;}
       </div>
 
       <!-- SLIDE 2: Transición Democrática -->
+      
+      <!-- FASE 2 — CONSTITUYENTE -->
+      <div class="anuncio-slide tipo-constituyente">
+        <div class="anuncio-inner">
+          <div class="anuncio-icon-wrap"><i class="fi fi-br-scroll"></i></div>
+          <div class="anuncio-content">
+            <div class="anuncio-tag">Activo · Fase 2 — Proceso Constituyente</div>
+            <div class="anuncio-title">114 propuestas constitucionales de <span>4 fuentes</span></div>
+            <div class="anuncio-desc">Lee, vota y objeta propuestas de organizaciones, juristas y ciudadanos para la futura Constitución de Cuba. IA detecta vacíos — la ciudadanía decide.</div>
+          </div>
+          <a href="constituyente-cuba.html" class="anuncio-cta"><i class="fi fi-br-arrow-right"></i> Ver propuestas</a>
+        </div>
+      </div>
+
       <div class="anuncio-slide tipo-propuestas">
         <div class="anuncio-inner">
           <div class="anuncio-icon-wrap"><i class="fi fi-br-shuffle"></i></div>
@@ -369,6 +362,7 @@ footer a:hover{color:#fff;}
     <button class="anuncio-dot active" data-idx="0"></button>
     <button class="anuncio-dot" data-idx="1"></button>
     <button class="anuncio-dot" data-idx="2"></button>
+    <button class="anuncio-dot" data-idx="3"></button>
     <button class="anuncio-arrow" id="anuncio-next" aria-label="Siguiente"><i class="fi fi-br-angle-right"></i></button>
   </div>
 </div>
@@ -377,7 +371,7 @@ footer a:hover{color:#fff;}
 (function(){
   var track=document.getElementById('anuncios-track');
   var dots=document.querySelectorAll('.anuncio-dot');
-  var total=3, cur=0, timer;
+  var total=4, cur=0, timer;
   function go(n){
     cur=(n+total)%total;
     track.style.transform='translateX(-'+cur*100+'%)';
@@ -410,10 +404,28 @@ footer a:hover{color:#fff;}
       <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:#002A8F;display:flex;align-items:center;gap:10px;"><i class="fi fi-br-megaphone" style="font-size:1.1rem;color:#CF142B;"></i>PROYECTOS ACTIVOS</div>
       <div style="display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CF142B;">
         <span style="width:7px;height:7px;background:#CF142B;border-radius:50%;animation:pulse-r 1.5s infinite;display:inline-block;"></span>
-        3 Proyectos Activos — Participa ahora
+        4 Proyectos Activos — Participa ahora
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;">
+
+      
+      <!-- CARD CONSTITUYENTE: PROCESO CONSTITUYENTE -->
+      <a href="constituyente-cuba.html" style="display:block;text-decoration:none;color:inherit;">
+        <div style="display:flex;flex-direction:column;height:100%;background:#fff;border:2px solid #002A8F;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,42,143,.12);transition:box-shadow .2s;">
+          <div style="background:#002A8F;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;flex-shrink:0;">2</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);">Fase 2 · Proceso Constituyente</div>
+          </div>
+          <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#002A8F;line-height:1.1;">CONSTITUCIÓN PARA CUBA</div>
+            <div style="font-size:.84rem;color:#444;line-height:1.6;">114 propuestas constitucionales de 4 fuentes organizadas en 10 bloques. Vota, objeta y propone cláusulas. La IA detecta vacíos — la ciudadanía decide.</div>
+            <div style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#002A8F;color:#fff;padding:9px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;">
+              Ver propuestas →
+            </div>
+          </div>
+        </div>
+      </a>
 
       <!-- CARD 1: TRANSICIÓN DEMOCRÁTICA -->
       <a href="propuestas-transicion-cuba.html" style="display:block;text-decoration:none;color:inherit;">
@@ -516,10 +528,10 @@ footer a:hover{color:#fff;}
           <span class="status">&#9679; Activa — Entra a votar</span>
         </div>
       </a>
-      <a class="roadmap-card" href="constituyente-cuba.html">
+      <a class="roadmap-card active" href="constituyente-cuba.html">
         <div class="stage">2</div>
         <div class="roadmap-icon"><i class="fi fi-br-scroll"></i></div>
-        <div><h3>Proceso Constituyente</h3><span class="status">Próximamente</span></div>
+        <div><h3>Proceso Constituyente</h3><span class="status">&#9679; Activa — Entra a proponer</span></div>
       </a>
       <a class="roadmap-card" href="gobierno-cuba.html">
         <div class="stage">3</div>
@@ -901,7 +913,7 @@ footer a:hover{color:#fff;}
 </section>
 
 <footer>
-  <strong>ENTRE TODOS</strong> · Plataforma de Gobernanza Ciudadana · <a href="gobernanza-solucionaria-v5.html" style="color:inherit;text-decoration:underline;">Gobernanza Solucionaria</a><br>
+  <strong>ENTRE TODOS</strong> · Plataforma de Gobernanza Ciudadana · Gobernanza Solucionaria<br>
   <span style="font-size:.7rem;opacity:.6;margin-top:4px;display:block;">Página creada por Michel Estopiñán · Cuba · Todos los derechos reservados · 2026</span>
 </footer>
 
