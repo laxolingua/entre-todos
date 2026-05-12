@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparencia — ENTRE TODOS · Cómo protegemos tu identidad</title>
+<meta name="description" content="Cómo ENTRE TODOS protege la identidad de quienes participan: hash SHA-256 local, sin nombres, sin registros, código auditable. Explicación clara, no legal.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Transparencia · ENTRE TODOS">
+<meta property="og:description" content="Reglas públicas de funcionamiento de ENTRE TODOS: cómo se manejan datos, cómo se publican resultados, cómo se garantiza la integridad del proceso.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/transparencia-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Transparencia · ENTRE TODOS">
+<meta name="twitter:description" content="Reglas públicas de funcionamiento de ENTRE TODOS: cómo se manejan datos, cómo se publican resultados, cómo se garantiza la integridad del proceso.">
+<meta name="twitter:image" content="img/og-default.png">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+:root{
+  --blue:#002F80;
+  --blue-deep:#001F5C;
+  --blue-hover:#00256B;
+  --blue-soft:#EEF3FB;
+  --red:#CE1126;
+  --red-hover:#A50D1E;
+  --red-soft:#FDECEE;
+  --bg:#FFFFFF;
+  --bg-gray:#F5F5F7;
+  --bg-gray-2:#FAFAFC;
+  --ink:#0B1F3F;
+  --ink-2:#3A4668;
+  --ink-3:#6B7489;
+  --ink-4:#9AA0B0;
+  --line:#E5E5E7;
+  --radius-sm:14px;
+  --radius:22px;
+  --radius-lg:30px;
+  --shadow-1:0 1px 2px rgba(11,31,63,.04);
+  --shadow-2:0 8px 28px rgba(11,31,63,.08);
+  --shadow-3:0 20px 48px rgba(11,31,63,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--bg-gray);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit}
+
+/* ── FLAG + HEADER ── */
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--red) 50% 100%)}
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid rgba(11,31,63,.08);
+  box-shadow:var(--shadow-1);
+}
+.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-img{height:46px;width:46px;display:block;flex-shrink:0;object-fit:contain;border-radius:12px}
+.hdr-breadcrumb{font-size:.8rem;font-weight:600;color:var(--ink-3)}
+.hdr-breadcrumb a{color:var(--ink-3);text-decoration:none}
+.hdr-breadcrumb a:hover{color:var(--blue)}
+.hdr-breadcrumb .sep{margin:0 8px;color:var(--ink-4)}
+.hdr-breadcrumb .current{color:var(--ink);font-weight:700}
+.hdr-back{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:var(--bg-gray);border-radius:999px;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:600;transition:background .18s,color .18s}
+.hdr-back:hover{background:var(--blue-soft);color:var(--blue)}
+
+/* ── LAYOUT ── */
+.shell{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+section:first-of-type{padding-top:56px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(180deg,#fff 0%,#f7f9fc 100%)}
+.hero-wrap{max-width:1100px;margin:0 auto;padding:64px 24px 48px;text-align:left}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:8px 14px;border-radius:999px;margin-bottom:22px}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.hero h1{font-size:clamp(2.2rem,4.6vw,4.2rem);line-height:1.02;letter-spacing:-.045em;font-weight:800;margin-bottom:20px;max-width:820px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero-sub{font-size:1.12rem;line-height:1.55;color:var(--ink-2);max-width:760px;margin:0 0 28px}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.82rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-1)}
+.hero-pill i{color:var(--blue)}
+
+/* ── CLAIMS ROW (4 claims adapted from yo decido, rewritten) ── */
+.claims{background:var(--bg-gray)}
+.claims-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.claim{background:#fff;border-radius:var(--radius);padding:22px 20px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.claim:hover{transform:translateY(-4px) scale(1.012)}
+.claim-icon{width:44px;height:44px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px}
+.claim-title{font-size:1.02rem;line-height:1.2;letter-spacing:-.02em;font-weight:700;color:var(--ink);margin-bottom:8px;min-height:48px}
+.claim-text{font-size:.87rem;line-height:1.5;color:var(--ink-2)}
+
+/* ── SECTION CONTAINERS ── */
+.sec-label{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.sec-title{font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.04;letter-spacing:-.035em;font-weight:800;color:var(--ink);margin-bottom:16px;max-width:820px}
+.sec-title em{font-style:normal;color:var(--red)}
+.sec-sub{font-size:1.02rem;line-height:1.6;color:var(--ink-2);max-width:760px;margin-bottom:36px}
+
+/* ── HASH PROCESS (steps) ── */
+.white-section{background:#fff}
+.hash-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:8px}
+.hash-step{background:var(--bg-gray-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative;overflow:hidden}
+.hash-step-num{position:absolute;right:18px;top:14px;font-size:3.4rem;line-height:1;font-weight:800;color:var(--blue);opacity:.08;letter-spacing:-.04em}
+.hash-step-icon{width:44px;height:44px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:16px;position:relative;z-index:1}
+.hash-step h3{font-size:1.02rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;position:relative;z-index:1}
+.hash-step p{font-size:.88rem;line-height:1.55;color:var(--ink-2);position:relative;z-index:1}
+.hash-example{margin-top:28px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:26px 28px;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88rem;line-height:1.8;overflow-x:auto}
+.hash-example .label{color:var(--ink-4);font-weight:700;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;display:block}
+.hash-example .value-in{color:#FDECEE}
+.hash-example .arrow{color:var(--ink-4);margin:10px 0;display:block}
+.hash-example .value-out{color:#a7c7ff;word-break:break-all}
+
+/* ── COMPARISON (qué SÍ / qué NO guarda) ── */
+.gray-section{background:var(--bg-gray)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.compare-card{background:#fff;border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06)}
+.compare-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.compare-header .badge{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.compare-card.yes .compare-header .badge{background:var(--blue-soft);color:var(--blue)}
+.compare-card.no .compare-header .badge{background:var(--red-soft);color:var(--red)}
+.compare-header h3{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}
+.compare-list{list-style:none;display:grid;gap:12px}
+.compare-list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:.95rem;line-height:1.5;color:var(--ink-2)}
+.compare-list li i{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;flex-shrink:0;margin-top:2px}
+.compare-card.yes .compare-list li i{background:var(--blue-soft);color:var(--blue)}
+.compare-card.no .compare-list li i{background:var(--red-soft);color:var(--red)}
+.compare-list li strong{color:var(--ink);font-weight:700}
+
+/* ── CONTRAINTUITIVE (por qué email es peor) ── */
+.contra{background:#fff}
+.contra-box{background:linear-gradient(180deg,var(--blue) 0%,var(--blue-deep) 100%);border-radius:var(--radius-lg);padding:48px;color:#fff;position:relative;overflow:hidden}
+.contra-watermark{position:absolute;right:-20px;bottom:-30px;font-size:320px;line-height:1;opacity:.06;color:#fff}
+.contra-label{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:14px;position:relative;z-index:1}
+.contra h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.06;letter-spacing:-.035em;font-weight:800;margin-bottom:16px;position:relative;z-index:1;max-width:740px}
+.contra h2 em{font-style:normal;color:#FDECEE}
+.contra-text{font-size:1rem;line-height:1.6;color:rgba(255,255,255,.86);max-width:720px;margin-bottom:24px;position:relative;z-index:1}
+.contra-list{list-style:none;display:grid;gap:14px;position:relative;z-index:1;max-width:720px}
+.contra-list li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;font-size:.96rem;line-height:1.55;color:rgba(255,255,255,.92)}
+.contra-list li i{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff;flex-shrink:0;margin-top:2px}
+.contra-list li strong{color:#fff}
+
+/* ── AUDIT / OPEN SOURCE ── */
+.audit-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+.audit-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06)}
+.audit-card h3{font-size:1.35rem;font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:12px}
+.audit-card p{font-size:.96rem;line-height:1.6;color:var(--ink-2);margin-bottom:16px}
+.audit-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.audit-link{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:999px;font-size:.84rem;font-weight:600;transition:background .18s}
+.audit-link:hover{background:var(--blue-deep)}
+.audit-link.outline{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.audit-link.outline:hover{background:var(--bg-gray)}
+.audit-side{background:var(--ink);color:#fff;border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.audit-side-watermark{position:absolute;right:-20px;bottom:-30px;font-size:220px;line-height:1;opacity:.07;color:#fff}
+.audit-side h3{font-size:1.15rem;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px;position:relative;z-index:1}
+.audit-side p{font-size:.9rem;line-height:1.55;color:rgba(255,255,255,.74);position:relative;z-index:1}
+.audit-side-foot{margin-top:18px;display:grid;gap:8px;position:relative;z-index:1;font-size:.85rem}
+.audit-side-foot div{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.88)}
+.audit-side-foot i{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.58rem;color:#fff;flex-shrink:0}
+
+/* ── RESPONSABLE / CONTACT ── */
+.resp-row{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:16px}
+.resp-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06)}
+.resp-title{font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.resp-name{font-size:1.55rem;line-height:1.1;letter-spacing:-.025em;font-weight:800;margin-bottom:8px}
+.resp-meta{font-size:.95rem;line-height:1.6;color:var(--ink-2)}
+.resp-meta strong{color:var(--ink);font-weight:600}
+.resp-contact{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.resp-contact a{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;background:var(--bg-gray);border-radius:var(--radius-sm);color:var(--ink);text-decoration:none;font-size:.92rem;font-weight:600;transition:background .18s,color .18s}
+.resp-contact a:hover{background:var(--blue-soft);color:var(--blue)}
+.resp-contact a i{color:var(--blue)}
+.resp-aside{background:var(--red-soft);border:1px solid rgba(206,17,38,.14);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;justify-content:center}
+.resp-aside h3{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;color:var(--red);margin-bottom:8px}
+.resp-aside p{font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.resp-aside p strong{color:var(--ink)}
+
+/* ── CTA FINAL ── */
+.cta-final{background:var(--red);padding:80px 0;color:#fff;text-align:center}
+.cta-final .shell{max-width:860px}
+.cta-final h2{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin-bottom:14px}
+.cta-final h2 .soft{color:rgba(255,255,255,.55)}
+.cta-final p{font-size:1.04rem;line-height:1.55;color:rgba(255,255,255,.86);margin-bottom:28px;max-width:700px;margin-left:auto;margin-right:auto}
+.cta-final-actions{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:999px;font-size:.95rem;font-weight:700;text-decoration:none;transition:transform .18s,background .18s,color .18s}
+.cta-btn.primary{background:#fff;color:var(--red)}
+.cta-btn.primary:hover{transform:translateY(-1px)}
+.cta-btn.outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.cta-btn.outline:hover{background:rgba(255,255,255,.1)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:#fff;padding:48px 24px 32px;text-align:center}
+footer .f-shell{max-width:1100px;margin:0 auto}
+footer .f-logo{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px}
+footer .f-logo strong{color:#fff}
+footer .f-meta{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;max-width:700px;margin:0 auto 12px}
+footer .f-meta a{color:rgba(255,255,255,.82);text-decoration:none}
+footer .f-meta a:hover{color:#fff;text-decoration:underline}
+footer .f-legal{font-size:.74rem;color:rgba(255,255,255,.42);letter-spacing:.02em;margin-top:10px}
+footer .f-gs{margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.72)}
+footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.4)}
+
+/* ── RESPONSIVE ── */
+@media (max-width:960px){
+  section{padding:56px 0}
+  .claims-grid{grid-template-columns:1fr 1fr}
+  .hash-steps{grid-template-columns:1fr 1fr}
+  .compare-row,.audit-grid,.resp-row{grid-template-columns:1fr}
+  .contra-box{padding:34px 26px}
+  .resp-card{padding:26px 22px}
+  .audit-card{padding:26px 22px}
+}
+@media (max-width:640px){
+  .hdr{padding:12px 18px}
+  .hdr-breadcrumb{display:none}
+  .hero-wrap{padding:40px 18px 28px}
+  .shell{padding:0 18px}
+  .claims-grid,.hash-steps{grid-template-columns:1fr}
+  .contra-box{padding:28px 22px}
+  .hero-pills{gap:8px}
+  .hero-pill{font-size:.78rem;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <div class="logo-wrap">
+      <a href="index.html" style="display:block;line-height:0;">
+        <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.onerror=null;this.style.display='none'">
+      </a>
+      <div class="hdr-breadcrumb">
+        <a href="index.html">Inicio</a><span class="sep">/</span><span class="current">Transparencia</span>
+      </div>
+    </div>
+    <a href="index.html" class="hdr-back"><i class="fi fi-br-angle-left"></i> Volver al inicio</a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-kicker"><span class="dot"></span> Transparencia &nbsp;·&nbsp; Cómo protegemos tu identidad</div>
+    <h1>Tu voto es tuyo. Tu identidad <em>nunca</em> sale de tu dispositivo.</h1>
+    <p class="hero-sub">Esta página explica, sin lenguaje legal, cómo ENTRE TODOS registra una participación sin aprender nunca quién la hizo. Es la respuesta concreta a una pregunta legítima: ¿por qué debería confiar en una plataforma que me pide el carné?</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><i class="fi fi-br-lock"></i> Hash SHA-256 local</div>
+      <div class="hero-pill"><i class="fi fi-br-cross-small"></i> Sin nombres, sin registros</div>
+      <div class="hero-pill"><i class="fi fi-br-globe"></i> Desde cualquier país</div>
+      <div class="hero-pill"><i class="fi fi-br-smartphone"></i> Cualquier dispositivo</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLAIMS ROW ══ -->
+<section class="claims">
+  <div class="shell">
+    <div class="claims-grid">
+      <div class="claim">
+        <div class="claim-icon"><i class="fi fi-br-shield-check"></i></div>
+        <div class="claim-title">Infraestructura encriptada de extremo a extremo</div>
+        <div class="claim-text">Tu conexión al servidor y cada pieza de datos viajan cifradas. Nadie puede interceptarlas en el camino.</div>
+      </div>
+      <div class="claim">
+        <div class="claim-icon"><i class="fi fi-br-eye-crossed"></i></div>
+        <div class="claim-title">Sin nombres. Sin registros.</div>
+        <div class="claim-text">No pedimos tu nombre. No creamos cuentas. Solo llega al servidor un código irreversible que no identifica a nadie.</div>
+      </div>
+      <div class="claim">
+        <div class="claim-icon"><i class="fi fi-br-globe"></i></div>
+        <div class="claim-title">Desde dentro y fuera de Cuba</div>
+        <div class="claim-text">Cubanos en la isla, en Miami, en Madrid o en cualquier lugar pueden participar igual. No hay geobloqueo.</div>
+      </div>
+      <div class="claim">
+        <div class="claim-icon"><i class="fi fi-br-smartphone"></i></div>
+        <div class="claim-title">Cualquier teléfono, cualquier navegador</div>
+        <div class="claim-text">Funciona en cualquier dispositivo conectado a Internet. No hay que instalar nada.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HASH PROCESS ══ -->
+<section class="white-section">
+  <div class="shell">
+    <div class="sec-label">01 · El proceso técnico</div>
+    <h2 class="sec-title">Qué pasa, paso a paso, cuando introduces tu <em>carné</em> o pasaporte</h2>
+    <p class="sec-sub">Estos cuatro pasos ocurren en tu propio navegador. El número original no se transmite a ningún servidor. Lo que llega a ENTRE TODOS es un código matemático del que no se puede recuperar el número.</p>
+
+    <div class="hash-steps">
+      <div class="hash-step">
+        <span class="hash-step-num">1</span>
+        <div class="hash-step-icon"><i class="fi fi-br-keyboard"></i></div>
+        <h3>Escribes el número</h3>
+        <p>Tu número de carné o pasaporte entra en el formulario. Solo existe en la memoria de tu navegador.</p>
+      </div>
+      <div class="hash-step">
+        <span class="hash-step-num">2</span>
+        <div class="hash-step-icon"><i class="fi fi-br-cogs"></i></div>
+        <h3>Tu navegador lo encripta</h3>
+        <p>El navegador aplica SHA-256 localmente. Esta operación no requiere conexión. El número se convierte en un código de 64 caracteres.</p>
+      </div>
+      <div class="hash-step">
+        <span class="hash-step-num">3</span>
+        <div class="hash-step-icon"><i class="fi fi-br-paper-plane"></i></div>
+        <h3>Solo viaja el código</h3>
+        <p>A nuestro servidor solo llega ese hash de 64 caracteres. El número original nunca sale de tu dispositivo.</p>
+      </div>
+      <div class="hash-step">
+        <span class="hash-step-num">4</span>
+        <div class="hash-step-icon"><i class="fi fi-br-trash"></i></div>
+        <h3>El original se descarta</h3>
+        <p>Cuando cierras la pestaña, el número desaparece con la memoria del navegador. No existe en ninguna base de datos.</p>
+      </div>
+    </div>
+
+    <div class="hash-example">
+      <span class="label">Ejemplo con un número ficticio</span>
+      <span class="value-in">83022712345</span>
+      <span class="arrow">─── SHA-256 local en tu navegador ───►</span>
+      <span class="label">Esto es lo único que recibe el servidor</span>
+      <span class="value-out">c0ff1e9a3b4d7e8f2a1b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON ══ -->
+<section class="gray-section">
+  <div class="shell">
+    <div class="sec-label">02 · Lo que existe y lo que no</div>
+    <h2 class="sec-title">Qué guardamos <em>y qué no guardamos</em> en el servidor</h2>
+    <p class="sec-sub">Si alguien accediera a nuestra base de datos hoy, esto es exactamente lo que vería y lo que nunca podría ver. Esta tabla es verificable en el código abierto.</p>
+
+    <div class="compare-row">
+      <div class="compare-card yes">
+        <div class="compare-header">
+          <div class="badge"><i class="fi fi-br-check"></i></div>
+          <h3>Lo que SÍ se almacena</h3>
+        </div>
+        <ul class="compare-list">
+          <li><i class="fi fi-br-check"></i><span><strong>Hash SHA-256</strong> — código de 64 caracteres, irreversible matemáticamente</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>Tipo de documento</strong> — carné o pasaporte (no el número)</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>Opción votada</strong> — la respuesta elegida en la consulta</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>País y provincia</strong> — solo si el usuario los aporta, opcional</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>Marca de tiempo</strong> — cuándo se registró la participación</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>Identificador de la consulta</strong> — a qué pregunta pertenece el voto</span></li>
+        </ul>
+      </div>
+      <div class="compare-card no">
+        <div class="compare-header">
+          <div class="badge"><i class="fi fi-br-cross-small"></i></div>
+          <h3>Lo que NUNCA se almacena</h3>
+        </div>
+        <ul class="compare-list">
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu número de carné</strong> — ni en texto, ni cifrado reversible</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu número de pasaporte</strong> — mismo principio</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu nombre</strong> — nunca se pide</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu correo electrónico</strong> — nunca se pide para votar</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu dirección IP</strong> — no se vincula al hash</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu ubicación precisa</strong> — no se recolecta</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTRAINTUITIVE ══ -->
+<section class="contra">
+  <div class="shell">
+    <div class="contra-box">
+      <i class="fi fi-br-interrogation contra-watermark"></i>
+      <div class="contra-label">03 · La pregunta incómoda</div>
+      <h2>¿Por qué pedir el carné y no simplemente un <em>correo electrónico</em> o un SMS?</h2>
+      <p class="contra-text">Es una objeción razonable que cualquier persona informada puede plantear. La respuesta puede parecer contraintuitiva: un email o un teléfono son, desde el punto de vista de privacidad, <strong>más invasivos</strong> que un hash de carné.</p>
+      <ul class="contra-list">
+        <li><i class="fi fi-br-check"></i><span>Un <strong>correo electrónico</strong> es un dato directamente identificable: es una cuenta real, ligada a un nombre, una empresa, un teléfono de recuperación. Queda almacenado en el servidor sin cifrar de manera irreversible.</span></li>
+        <li><i class="fi fi-br-check"></i><span>Un <strong>número de teléfono</strong> identifica incluso más: los operadores de telefonía conocen al titular, su dirección y su historial de llamadas. Queda vinculado al usuario para siempre.</span></li>
+        <li><i class="fi fi-br-check"></i><span>Un <strong>hash SHA-256 de un número de documento</strong>, al contrario, no identifica a nadie sin el número original. Y el número original no existe en nuestro servidor.</span></li>
+      </ul>
+      <p class="contra-text" style="margin-top:22px">El diseño de ENTRE TODOS ofrece <strong style="color:#fff">más protección real de la identidad</strong> que los sistemas convencionales de verificación por email o SMS. Esto es un hecho técnico verificable en el código, no una afirmación de marketing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AUDIT / OPEN SOURCE ══ -->
+<section class="white-section">
+  <div class="shell">
+    <div class="sec-label">04 · Verificación independiente</div>
+    <h2 class="sec-title">Todo esto es <em>auditable</em>. No tienes que creer en nuestra palabra.</h2>
+    <p class="sec-sub">El código que implementa el hasheo local, el esquema de base de datos y las reglas de validación están publicados. Cualquier persona con conocimientos técnicos puede reproducir el hash en su propio navegador y verificar que coincide con el que llega al servidor.</p>
+
+    <div class="audit-grid">
+      <div class="audit-card">
+        <h3>Cómo verificarlo tú mismo</h3>
+        <p>En cualquier navegador moderno, abre la consola de desarrollador (F12 en la mayoría). Ejecuta una línea de JavaScript con el mismo número que ingresaste en el formulario. Obtendrás exactamente el mismo hash de 64 caracteres. Eso demuestra que el proceso es puramente local y reproducible.</p>
+        <p>Los auditores externos no necesitan nuestra colaboración: pueden leer el código, ejecutar la función y confirmar de forma independiente que no hay transmisión oculta del número original.</p>
+        <div class="audit-links">
+          <a href="https://github.com/entre-todos-cuba" target="_blank" rel="noopener" class="audit-link"><i class="fi fi-brands-github"></i> Ver el código en GitHub</a>
+          <a href="politica-privacidad.html" class="audit-link outline"><i class="fi fi-br-document"></i> Política de privacidad completa</a>
+        </div>
+      </div>
+      <div class="audit-side">
+        <i class="fi fi-br-shield-check audit-side-watermark"></i>
+        <div>
+          <h3>Principio: el sistema debe imposibilitar el abuso</h3>
+          <p>No basta con prometer que no haremos algo. El diseño debe hacer técnicamente imposible que podamos hacerlo.</p>
+        </div>
+        <div class="audit-side-foot">
+          <div><i class="fi fi-br-check"></i>Sin número original, no hay identificación posible</div>
+          <div><i class="fi fi-br-check"></i>Sin registro de IP ligado al hash, no hay trazabilidad</div>
+          <div><i class="fi fi-br-check"></i>Sin nombres ni correos, no hay doxing posible</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESPONSABLE ══ -->
+<section class="gray-section">
+  <div class="shell">
+    <div class="sec-label">05 · Responsable del tratamiento</div>
+    <h2 class="sec-title">Quién responde legalmente por los datos de esta plataforma</h2>
+    <p class="sec-sub">ENTRE TODOS opera bajo el Reglamento General de Protección de Datos de la Unión Europea (RGPD), porque el responsable está ubicado en Alemania. Esto implica los estándares legales de privacidad más exigentes del mundo hoy.</p>
+
+    <div class="resp-row">
+      <div class="resp-card">
+        <div class="resp-title">Datos del responsable</div>
+        <div class="resp-name">ENTRE TODOS — Iniciativa Ciudadana</div>
+        <div class="resp-meta">
+          <strong>Ubicación:</strong> Potsdam, Brandenburg, Alemania<br>
+          <strong>Naturaleza:</strong> Iniciativa ciudadana sin ánimo de lucro, sin financiación política, sin afiliación partidista.<br>
+          <strong>Marco legal aplicable:</strong> RGPD (UE) · Considerando 26 sobre datos seudonimizados.<br>
+          <strong>Base legal del tratamiento:</strong> Consentimiento explícito del usuario (Art. 6.1.a RGPD).
+        </div>
+        <div class="resp-contact">
+          <a href="mailto:entretodos@entre-todos.org"><i class="fi fi-br-envelope"></i> entretodos@entre-todos.org</a>
+          <a href="politica-privacidad.html"><i class="fi fi-br-document"></i> Política de privacidad detallada</a>
+        </div>
+      </div>
+      <div class="resp-aside">
+        <h3>Tus derechos RGPD</h3>
+        <p>Tienes derecho a <strong>acceso, rectificación, supresión, oposición y portabilidad</strong>. Escríbenos al correo indicado para ejercerlos. Como no almacenamos datos que te identifiquen directamente, el ejercicio práctico es limitado — pero tu derecho a preguntar es total.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="cta-final">
+  <div class="shell">
+    <h2>Confianza no es promesa. <span class="soft">Es evidencia.</span></h2>
+    <p>Lee la política completa, inspecciona el código, reproduce el hash en tu navegador. ENTRE TODOS está diseñada para resistir escrutinio, no para pedirlo a ciegas.</p>
+    <div class="cta-final-actions">
+      <a href="politica-privacidad.html" class="cta-btn primary"><i class="fi fi-br-document"></i> Política de privacidad</a>
+      <a href="https://github.com/entre-todos-cuba" target="_blank" rel="noopener" class="cta-btn outline"><i class="fi fi-brands-github"></i> Código en GitHub</a>
+      <a href="index.html" class="cta-btn outline"><i class="fi fi-br-home"></i> Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="f-shell">
+    <div class="f-logo"><strong>ENTRE TODOS</strong></div>
+    <div class="f-meta">
+      Plataforma ciudadana para la transición democrática de Cuba.<br>
+      Iniciativa ciudadana sin ánimo de lucro · Potsdam, Alemania · RGPD<br>
+      <a href="index.html">Inicio</a> &nbsp;·&nbsp;
+      <a href="transparencia-cuba.html">Transparencia</a> &nbsp;·&nbsp;
+      <a href="politica-privacidad.html">Privacidad</a> &nbsp;·&nbsp;
+      <a href="mailto:entretodos@entre-todos.org">Contacto</a>
+    </div>
+    <div class="f-gs">
+      Metodología derivada de <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>.
+    </div>
+    <div class="f-legal">Michel Estopiñán · 2026 · Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>

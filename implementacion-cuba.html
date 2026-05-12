@@ -4,57 +4,160 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fase 6: Implementación y Rendición de Cuentas — ENTRE TODOS</title>
+<meta name="description" content="Fase 6 de la hoja de ruta nacional. Dashboard público de compromisos, evaluación ciudadana periódica y rendición de cuentas continua del nuevo gobierno.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Implementación y Rendición de Cuentas · ENTRE TODOS">
+<meta property="og:description" content="Cómo se implementan las propuestas votadas y cómo se rinde cuenta a la ciudadanía. Mecanismos concretos, no promesas vagas.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/implementacion-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Implementación y Rendición de Cuentas · ENTRE TODOS">
+<meta name="twitter:description" content="Cómo se implementan las propuestas votadas y cómo se rinde cuenta a la ciudadanía. Mecanismos concretos, no promesas vagas.">
+<meta name="twitter:image" content="img/og-default.png">
+<meta name="theme-color" content="#002F80">
+<link rel="icon" type="image/png" href="entre-todos-logo.png">
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root{
-  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
-  --negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;
-  --sh:0 2px 16px rgba(0,42,143,.10);
+  --blue:#002F80;--blue-deep:#001F5C;--blue-hover:#00256B;--blue-soft:#EEF3FB;
+  --red:#CE1126;--red-hover:#A50D1E;--red-soft:#FDECEE;
+  --bg:#FFFFFF;--bg-gray:#F5F5F7;--bg-gray-2:#FAFAFC;
+  --ink:#0B1F3F;--ink-2:#3A4668;--ink-3:#6B7489;--ink-4:#9AA0B0;
+  --line:#E5E5E7;--green:#0B8A4A;--green-soft:#E7F6EE;
+  --radius-sm:14px;--radius:22px;--radius-lg:30px;--radius-pill:999px;
+  --shadow-1:0 1px 2px rgba(11,31,63,.04);
+  --shadow-2:0 8px 28px rgba(11,31,63,.08);
+  --shadow-3:0 20px 48px rgba(11,31,63,.12);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);min-height:100vh;}
-.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
-header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
-.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;}
-.hdr-left{display:flex;align-items:center;gap:14px;}
-.logo-img{height:44px;width:auto;display:block;background:#fff;border-radius:6px;}
-.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
-.back-btn:hover{background:var(--azul);color:#fff;}
-/* BANNER */
-.page-banner{background:var(--azul);position:relative;overflow:hidden;}
-.page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}
-.page-banner-accent{position:absolute;top:0;right:-60px;width:320px;height:100%;background:linear-gradient(135deg,transparent 40%,rgba(207,20,43,.18) 40%);pointer-events:none;}
-.page-banner-watermark{position:absolute;right:-60px;bottom:-60px;font-size:340px;color:rgba(255,255,255,.06);line-height:1;transform:rotate(-20deg);pointer-events:none;z-index:1;display:flex;align-items:center;}
-.page-banner-inner{max-width:1100px;margin:0 auto;padding:32px 28px 36px;position:relative;z-index:2;}
-.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.page-banner-phase::before{content:'';display:inline-block;width:28px;height:2px;background:var(--rojo);border-radius:2px;flex-shrink:0;}
-.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);letter-spacing:4px;color:#fff;line-height:1.0;margin-bottom:14px;}
-.page-banner-title span{color:var(--rojo);}
-.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:580px;margin-bottom:22px;}
-.page-banner-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
-/* CONTENT */
-.sec{max-width:1100px;margin:0 auto;padding:44px 22px;}
-.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--azul);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--borde);}
-.coming-box{background:var(--gris-bg);border-radius:12px;padding:40px 36px;text-align:center;margin-bottom:40px;}
-.coming-icon{font-size:3rem;color:var(--azul);opacity:.25;margin-bottom:16px;}
-.coming-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:3px;color:var(--azul);margin-bottom:10px;}
-.coming-badge{display:inline-block;background:rgba(0,42,143,.08);border:1px solid rgba(0,42,143,.15);border-radius:20px;padding:4px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:16px;}
-.coming-desc{font-size:.9rem;color:var(--gris);line-height:1.75;max-width:600px;margin:0 auto;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* HEADER (shared) */
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--red) 50% 100%)}
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(11,31,63,.08);box-shadow:var(--shadow-1)}
+.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-img{height:46px;width:46px;display:block;flex-shrink:0;object-fit:contain;border-radius:10px}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-brand{font-size:.95rem;font-weight:800;letter-spacing:-.015em;color:var(--ink)}
+.logo-brand span{color:var(--red)}
+.logo-sub{font-size:.72rem;font-weight:500;color:var(--ink-3);margin-top:3px}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.hdr-breadcrumb{font-size:.8rem;font-weight:600;color:var(--ink-3)}
+.hdr-breadcrumb a{color:var(--ink-3)}
+.hdr-breadcrumb a:hover{color:var(--blue)}
+.hdr-breadcrumb .sep{margin:0 8px;color:var(--ink-4)}
+.hdr-breadcrumb .current{color:var(--ink);font-weight:700}
+.hdr-back{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:var(--bg-gray);border-radius:var(--radius-pill);font-size:.85rem;font-weight:600;color:var(--ink);transition:background .18s,color .18s}
+.hdr-back:hover{background:var(--blue-soft);color:var(--blue)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 60%,var(--blue-hover) 100%);color:#fff;padding:88px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(206,17,38,.24) 0%,transparent 68%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-80px;bottom:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);pointer-events:none}
+.hero-icon-watermark{position:absolute;right:-40px;bottom:-60px;font-size:440px;line-height:1;color:rgba(255,255,255,.06);transform:rotate(-10deg);pointer-events:none;z-index:0}
+.hero-wrap{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);padding:9px 16px;border-radius:var(--radius-pill);margin-bottom:24px}
+.hero-kicker .num{font-weight:700;color:var(--red);font-weight:800}
+.hero h1{font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin-bottom:22px;max-width:860px;color:#fff}
+.hero h1 em{font-style:normal;font-weight:700;color:var(--red)}
+.hero-sub{font-size:clamp(1rem,1.2vw,1.14rem);line-height:1.55;color:rgba(255,255,255,.88);max-width:680px;margin:0 0 28px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);font-size:.84rem;font-weight:700;color:#fff}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* SECTIONS */
+section{padding:88px 0}
+.shell{max-width:1100px;margin:0 auto;padding:0 24px}
+.sec-label{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.sec-title{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.06;letter-spacing:-.035em;font-weight:800;color:var(--ink);margin-bottom:16px;max-width:820px}
+.sec-title em{font-style:normal;color:var(--red)}
+.sec-sub{font-size:1.02rem;line-height:1.6;color:var(--ink-2);max-width:760px;margin-bottom:36px}
+
+/* OVERVIEW CARD */
+.overview-card{background:#fff;border-radius:var(--radius-lg);padding:44px 40px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06);position:relative;overflow:hidden}
+.overview-card::before{content:"";position:absolute;right:-30px;top:-30px;width:180px;height:180px;background:radial-gradient(circle,var(--blue-soft) 0%,transparent 70%);pointer-events:none}
+.overview-head{display:flex;align-items:center;gap:16px;margin-bottom:22px;position:relative;z-index:1}
+.overview-icon{width:60px;height:60px;border-radius:18px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.overview-status{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:var(--red-soft);padding:6px 14px;border-radius:var(--radius-pill);margin-bottom:10px}
+.overview-status .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+.overview-title{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;letter-spacing:-.025em;color:var(--ink);margin-bottom:4px}
+.overview-desc{font-size:1.02rem;line-height:1.62;color:var(--ink-2);position:relative;z-index:1}
+
 /* PREVIEW BLOCKS */
-.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:32px;}
-.preview-block{background:#fff;border:1.5px solid var(--borde);border-radius:8px;padding:20px;display:flex;gap:14px;align-items:flex-start;opacity:.6;}
-.preview-block-icon{width:38px;height:38px;border-radius:8px;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:1rem;flex-shrink:0;}
-.preview-block-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:4px;}
-.preview-block-desc{font-size:.8rem;color:var(--gris);line-height:1.55;}
-.notify-box{background:#EEF2FF;border-left:4px solid var(--azul);border-radius:0 8px 8px 0;padding:18px 22px;margin-top:40px;display:flex;align-items:flex-start;gap:14px;}
-.notify-box i{color:var(--azul);font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-.notify-box p{font-size:.85rem;line-height:1.65;color:var(--negro);}
-.notify-box strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;}
-footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:60px;}
-footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+.preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.preview-card{background:#fff;border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow-2);border:1px solid rgba(11,31,63,.06);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.preview-card:hover{transform:translateY(-4px) scale(1.012)}
+.preview-icon{width:46px;height:46px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:18px}
+.preview-title{font-size:1.05rem;font-weight:700;line-height:1.22;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+.preview-desc{font-size:.92rem;line-height:1.55;color:var(--ink-2)}
+
+/* NOTIFY BOX */
+.notify-box{background:var(--blue-soft);border-left:4px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:26px 30px;display:flex;gap:18px;align-items:flex-start;margin-top:44px}
+.notify-icon{width:44px;height:44px;border-radius:13px;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.notify-box h3{font-size:1.02rem;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin-bottom:6px}
+.notify-box p{font-size:.95rem;line-height:1.6;color:var(--ink-2)}
+.notify-box a{color:var(--blue);font-weight:700;border-bottom:1px dashed rgba(0,47,128,.4);transition:border-color .18s}
+.notify-box a:hover{border-bottom-color:var(--blue)}
+
+/* CTA BAND */
+.cta-band{background:var(--ink);color:#fff;padding:72px 0;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(206,17,38,.16) 0%,transparent 50%);pointer-events:none}
+.cta-band-inner{max-width:880px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.cta-band h2{font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.035em;font-weight:800;margin-bottom:14px;color:#fff}
+.cta-band p{font-size:1rem;line-height:1.55;color:rgba(255,255,255,.82);margin-bottom:28px;max-width:700px;margin-left:auto;margin-right:auto}
+.cta-band-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:var(--radius-pill);font-size:.92rem;font-weight:700;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .2s}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.22)}
+.btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-outline-w:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* FOOTER */
+footer{background:var(--ink);color:#fff;padding:60px 0 32px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-shell{max-width:1280px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.footer-brand{display:flex;flex-direction:column;gap:14px}
+.footer-logo-row{display:flex;align-items:center;gap:12px}
+.footer-logo-img{width:48px;height:48px;border-radius:12px;object-fit:contain;background:#fff;padding:5px}
+.footer-brand-name{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:#fff}
+.footer-brand-name span{color:#ff8f99}
+.footer-tag{font-size:.85rem;line-height:1.55;color:rgba(255,255,255,.72);max-width:280px}
+.footer-col h4{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.82);transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-legal{font-size:.78rem;color:rgba(255,255,255,.56)}
+.footer-gs{font-size:.82rem;color:rgba(255,255,255,.72)}
+.footer-gs a{font-weight:700;color:var(--red);font-weight:600;border-bottom:1px dashed rgba(255,179,189,.5)}
+.footer-gs a:hover{color:#fff}
+
+@media (max-width:1100px){
+  .preview-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  section{padding:56px 0}
+  .hero{padding:56px 0 48px}
+  .preview-grid{grid-template-columns:1fr}
+  .overview-card{padding:28px 24px}
+  .notify-box{padding:22px 24px;flex-direction:column}
+  .footer-grid{grid-template-columns:1fr}
+  .logo-sub{display:none}
+  .hdr-breadcrumb{display:none}
+}
 </style>
 </head>
 <body>
@@ -63,77 +166,133 @@ footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacin
 
 <header>
   <div class="hdr">
-    <div class="hdr-left">
-      <a href="index.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo-final.png" alt="Entre Todos" class="logo-img" onerror="this.style.display='none'">
-      </a>
-      <a href="index.html" class="back-btn">
-        <i class="fi fi-br-arrow-left"></i> Página Principal
-      </a>
+    <a href="index.html" class="logo-wrap">
+      <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.onerror=null;this.style.display='none'">
+      <div class="logo-txt">
+        <span class="logo-brand">ENTRE <span>TODOS</span></span>
+        <span class="logo-sub">Consulta y Consenso Ciudadano</span>
+      </div>
+    </a>
+    <div class="hdr-right">
+      <div class="hdr-breadcrumb"><a href="index.html">Inicio</a><span class="sep">·</span><a href="index.html#hoja-de-ruta">Hoja de ruta</a><span class="sep">·</span><span class="current">Fase 6</span></div>
+      <a href="index.html" class="hdr-back"><i class="fi fi-br-angle-left"></i> Volver</a>
     </div>
   </div>
 </header>
 
-<!-- BANNER -->
-<div class="page-banner">
-  <div class="page-banner-flag"></div>
-  <div class="page-banner-accent"></div>
-  <div class="page-banner-watermark"><i class="fi-br-chart-line-up"></i></div>
-  <div class="page-banner-inner">
-    <div class="page-banner-phase">Fase 6 · Hoja de Ruta Nacional E/TODOS</div>
-    <div class="page-banner-title">Implementación<br>y <span>Rendición</span><br>de Cuentas</div>
-    <div class="page-banner-sub">Seguimiento de los compromisos de la transición. Dashboard de indicadores, mecanismos de rendición de cuentas y evaluación ciudadana del nuevo gobierno.</div>
-    <div class="page-banner-badge"><i class="fi fi-br-time-forward" style="font-size:.8rem;"></i> &nbsp;Próximamente — En desarrollo</div>
+<section class="hero">
+  <i class="fi fi-br-chart-line-up hero-icon-watermark"></i>
+  <div class="hero-wrap">
+    <div class="hero-kicker"><span class="num">Fase 6</span> · Hoja de ruta nacional</div>
+    <h1>Implementación y <em>Rendición</em> de Cuentas</h1>
+    <p class="hero-sub">Seguimiento de los compromisos de la transición. Dashboard de indicadores, mecanismos de rendición de cuentas y evaluación ciudadana del nuevo gobierno.</p>
+    <div class="hero-badge"><span class="dot"></span>Próximamente — en desarrollo</div>
   </div>
-</div>
+</section>
 
-<!-- CONTENT -->
-<div class="sec">
-
-  <div class="sec-label">Estado · Fase 6</div>
-
-  <div class="coming-box">
-    <div class="coming-icon"><i class="fi-br-chart-line-up"></i></div>
-    <div class="coming-badge">Próximamente</div>
-    <div class="coming-title">Implementación y Rendición de Cuentas</div>
-    <div class="coming-desc">La transición no termina con las elecciones. Esta fase habilita el seguimiento ciudadano de cada compromiso asumido: qué se prometió, qué se cumplió, qué está pendiente. Dashboard público, evaluaciones periódicas y espacio para la denuncia ciudadana.</div>
-  </div>
-
-  <div class="sec-label">Lo que encontrarás aquí</div>
-
-  <div class="preview-grid">
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-chart-line-up"></i></div>
-      <div>
-        <div class="preview-block-title">Dashboard de Compromisos</div>
-        <div class="preview-block-desc">Seguimiento en tiempo real del cumplimiento de propuestas aprobadas en Fase 1.</div>
+<section>
+  <div class="shell">
+    <span class="sec-label">Estado · Fase 6</span>
+    <h2 class="sec-title">¿Qué es esta <em>fase</em>?</h2>
+    <div class="overview-card">
+      <div class="overview-head">
+        <div class="overview-icon"><i class="fi fi-br-chart-line-up"></i></div>
+        <div>
+          <span class="overview-status"><span class="dot"></span>Próximamente</span>
+          <h3 class="overview-title">Implementación y Rendición de Cuentas</h3>
+        </div>
       </div>
-    </div>
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-megaphone"></i></div>
-      <div>
-        <div class="preview-block-title">Evaluación Ciudadana</div>
-        <div class="preview-block-desc">Voto periódico de desempeño institucional: ejecutivo, legislativo y judicial.</div>
-      </div>
-    </div>
-    <div class="preview-block">
-      <div class="preview-block-icon"><i class="fi fi-br-file-check"></i></div>
-      <div>
-        <div class="preview-block-title">Informes de Transparencia</div>
-        <div class="preview-block-desc">Publicación obligatoria de presupuestos, contratos y decisiones de gobierno.</div>
-      </div>
+      <p class="overview-desc">La transición no termina con las elecciones. Esta fase habilita el seguimiento ciudadano de cada compromiso asumido: qué se prometió, qué se cumplió, qué está pendiente. Dashboard público, evaluaciones periódicas y espacio para la denuncia ciudadana.</p>
     </div>
   </div>
+</section>
 
-  <div class="notify-box">
-    <i class="fi fi-br-info"></i>
-    <p><strong>¿Quieres saber cuándo se activa esta fase?</strong> Esta página se activa automáticamente cuando la fase anterior genera los consensos necesarios para avanzar. Puedes seguir el progreso desde la <a href="index.html" style="color:var(--azul);font-weight:700;">Hoja de Ruta en la página principal</a>.</p>
+<section style="background:var(--bg-gray);padding-top:72px">
+  <div class="shell">
+    <span class="sec-label">Lo que encontrarás aquí</span>
+    <h2 class="sec-title">Componentes <em>principales</em>.</h2>
+    <p class="sec-sub">Cuando esta fase se active, estos serán los bloques de contenido y participación disponibles en la página.</p>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <div class="preview-icon"><i class="fi fi-br-chart-simple"></i></div>
+        <h3 class="preview-title">Dashboard de compromisos</h3>
+        <p class="preview-desc">Seguimiento en tiempo real del cumplimiento de propuestas aprobadas en Fase 1.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-icon"><i class="fi fi-br-star"></i></div>
+        <h3 class="preview-title">Evaluación ciudadana</h3>
+        <p class="preview-desc">Voto periódico de desempeño institucional: ejecutivo, legislativo y judicial.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-icon"><i class="fi fi-br-file-check"></i></div>
+        <h3 class="preview-title">Informes de transparencia</h3>
+        <p class="preview-desc">Publicación obligatoria de presupuestos, contratos y decisiones de gobierno.</p>
+      </div>
+    </div>
+    <div class="notify-box">
+      <div class="notify-icon"><i class="fi fi-br-info"></i></div>
+      <div>
+        <h3>¿Cuándo se activa esta fase?</h3>
+        <p>La fase se activa una vez conformadas las nuevas <a href="elecciones-cuba.html">instituciones electas</a> y empieza a operar en ciclos periódicos durante toda la vida del nuevo sistema. Puedes seguir el progreso desde la <a href="index.html#hoja-de-ruta">hoja de ruta en la página principal</a>.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Mientras tanto, participa en las fases <span style="font-weight:700;color:var(--red)">ya activas</span>.</h2>
+    <p>Tres de las seis fases de la hoja de ruta están abiertas ahora mismo para voto y propuesta ciudadana.</p>
+    <div class="cta-band-actions">
+      <a href="index.html#proyectos-activos" class="btn btn-white">Ver proyectos activos <i class="fi fi-br-arrow-right"></i></a>
+      <a href="index.html#hoja-de-ruta" class="btn btn-outline-w">Revisar hoja de ruta completa</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Consenso Ciudadano &nbsp;·&nbsp; Fase 6: Implementación y Rendición de Cuentas &nbsp;·&nbsp; 2026
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="entre-todos-logo.png" alt="" class="footer-logo-img" onerror="this.onerror=null;this.style.display='none'">
+          <span class="footer-brand-name">ENTRE <span>TODOS</span></span>
+        </div>
+        <p class="footer-tag">Plataforma ciudadana cubana de consulta y consenso. Iniciativa sin ánimo de lucro. Potsdam, Alemania. Cumplimiento RGPD.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="index.html#que-es">¿Qué es ENTRE TODOS?</a></li>
+          <li><a href="index.html#metodologia">Metodología</a></li>
+          <li><a href="index.html#hoja-de-ruta">Hoja de ruta</a></li>
+          <li><a href="index.html#herramientas">Herramientas futuras</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Proyectos activos</h4>
+        <ul>
+          <li><a href="consulta-popular-cuba.html">Consulta popular</a></li>
+          <li><a href="constituyente-cuba.html">Constituyente</a></li>
+          <li><a href="propuestas-transicion-cuba.html">Transición</a></li>
+          <li><a href="candidaturas-cuba.html">Candidaturas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Transparencia</h4>
+        <ul>
+          <li><a href="transparencia-cuba.html">Cómo protegemos tu identidad</a></li>
+          <li><a href="politica-privacidad.html">Política de privacidad</a></li>
+          <li><a href="index.html#organizaciones">Registrar organización</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">Michel Estopiñán · Cuba · 2026 · Todos los derechos reservados</div>
+      <div class="footer-gs">Metodología derivada de <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a></div>
+    </div>
+  </div>
 </footer>
 
 </body>

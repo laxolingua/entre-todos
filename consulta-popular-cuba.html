@@ -1,296 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URGENTE: CONSULTA POPULAR POR LA CONTINUIDAD DE MIGUEL DÍAZ-CANEL BERMÚDEZ — ENTRE TODOS</title>
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --azul:     #002A8F;
-      --rojo:     #CF142B;
-      --blanco:   #FFFFFF;
-      --negro:    #111111;
-      --gris:     #6B7280;
-      --gris-bg:  #F4F6F9;
-      --borde:    #D1D5DB;
-      --verde:    #16A34A;
-      --amarillo: #D97706;
-      --sh:       0 2px 16px rgba(0,42,143,.10);
-      --shf:      0 6px 32px rgba(0,42,143,.20);
-      --safe-top:    env(safe-area-inset-top, 0px);
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', sans-serif; background: #fff; color: var(--negro); min-height: 100vh; padding-bottom: calc(64px + var(--safe-bottom)); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta Popular Díaz-Canel — Fase 0 · ENTRE TODOS</title>
+<meta name="description" content="Consulta ciudadana sobre la continuidad de Miguel Díaz-Canel. Voto anónimo verificado por SHA-256. Registro único y auditable — la única vía de constancia ciudadana estructurada.">
+<meta name="theme-color" content="#002F80">
 
-    /* ── APP BOTTOM NAV ── */
-    .app-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0; right: 0;
-      height: calc(64px + var(--safe-bottom));
-      background: #fff;
-      border-top: 1px solid var(--borde);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      z-index: 200;
-      padding-bottom: var(--safe-bottom);
-    }
-    .app-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      text-decoration: none;
-      color: var(--gris);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      padding: 8px 4px;
-      transition: color .15s;
-    }
-    .app-nav-item i { font-size: 1.2rem; }
-    .app-nav-item.activo { color: var(--azul); }
-    .app-nav-item.activo i { color: var(--azul); }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Consulta Popular Continuidad/Cambio · ENTRE TODOS">
+<meta property="og:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto anónimo, verificable, sin filtros. Suma tu voz al registro.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/consulta-popular-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
 
-    .flag-bar { height: 4px; background: linear-gradient(90deg, var(--azul) 33.3%, #fff 33.3%, #fff 66.6%, var(--rojo) 66.6%); }
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Consulta Popular Continuidad/Cambio · ENTRE TODOS">
+<meta name="twitter:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto anónimo, verificable, sin filtros. Suma tu voz al registro.">
+<meta name="twitter:image" content="img/og-default.png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#002F80; --blue-deep:#001F5C; --blue-hover:#00256B; --blue-soft:#EEF3FB;
+  --red:#CE1126; --red-hover:#A50D1E; --red-soft:#FDECEE;
+  --gold:#C29A1F; --gold-soft:#FBF3D9; --gold-border:#E8C84A;
+  --green:#0B8A4A; --green-soft:#E7F6EE;
+  --amber:#B87203; --amber-soft:#FFF6E1;
+  --bg:#FFFFFF; --bg-gray:#F5F5F7; --bg-gray-2:#FAFAFC;
+  --ink:#0B1F3F; --ink-2:#3A4668; --ink-3:#6B7489; --ink-4:#9AA0B0;
+  --line:#E5E5E7;
+  --radius-sm:14px; --radius:20px; --radius-lg:28px; --radius-pill:980px;
+  --shadow-1:0 1px 2px rgba(11,31,63,.04);
+  --shadow-2:0 4px 16px rgba(11,31,63,.06);
+  --shadow-3:0 16px 40px rgba(11,31,63,.10);
+  --ease:cubic-bezier(.2,.8,.2,1);
 
-    header { background: #fff; border-bottom: 4px solid var(--rojo); position: sticky; top: 0; z-index: 200; box-shadow: var(--sh); }
-    .hdr { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 9px 22px; gap: 14px; }
-    .hdr-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .hdr-logo img { height: 48px; width: auto; border-radius: 6px; display: block; }
-    .hdr-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; line-height: 1; }
-    .hdr-logo-text .t-azul { color: var(--azul); }
-    .hdr-logo-text .t-rojo { color: var(--rojo); }
-    .hdr-back { display: inline-flex; align-items: center; gap: 7px; font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--azul); text-decoration: none; padding: 7px 14px; border: 2px solid var(--azul); border-radius: 4px; transition: all .2s; }
-    .hdr-back:hover { background: var(--azul); color: #fff; }
+  /* legacy aliases for inline styles that use --azul, --rojo, etc. */
+  --azul:var(--blue); --rojo:var(--red); --blanco:#fff;
+  --negro:var(--ink); --gris:var(--ink-3); --gris-bg:var(--bg-gray);
+  --gris-m:var(--line); --gt:var(--ink-3); --borde:var(--line);
+  --verde:var(--green); --amarillo:var(--amber);
+  --sh:var(--shadow-2); --shf:var(--shadow-3);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
 
-    .alerta-urgente { background: var(--rojo); color: #fff; text-align: center; padding: 10px 22px; }
-    .alerta-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .alerta-badge { background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.4); border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 2px 8px; display: inline-flex; align-items: center; gap: 6px; }
-    .alerta-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-    .live-dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; animation: pulse 1.5s infinite; display: inline-block; }
+/* FLAG */
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 33.3%,#fff 33.3%,#fff 66.6%,var(--red) 66.6%);}
 
-    .main { max-width: 900px; margin: 0 auto; padding: 32px 22px; }
+/* HEADER */
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);}
+.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;height:64px;gap:14px;}
+.hdr-logo{display:flex;align-items:center;gap:10px;}
+.hdr-logo img{height:34px;width:auto;border-radius:7px;}
+.hdr-logo-text{font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink);}
+.hdr-logo-text .t-azul,.hdr-logo-text .t-rojo{color:var(--ink);}
+.breadcrumb{font-size:13px;color:var(--ink-3);font-weight:500;}
+.breadcrumb strong{color:var(--ink);font-weight:600;}
+.breadcrumb span{color:var(--ink-4);margin:0 8px;}
+.hdr-back{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:var(--radius-pill);border:1px solid var(--line);color:var(--ink-2);font-size:13px;font-weight:600;transition:all .25s var(--ease);}
+.hdr-back:hover{border-color:var(--ink-3);color:var(--ink);}
 
-    /* ── HERO UNIFICADO ───────────────────────────────────────── */
-    .consulta-live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(207,20,43,.3);
-      border: 1px solid rgba(207,20,43,.5);
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.85);
-      margin-bottom: 12px;
-    }
-    .consulta-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.4);
-      margin-bottom: 10px;
-    }
-    .consulta-h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.3rem, 2.5vw, 2rem);
-      letter-spacing: 2px;
-      line-height: 1.1;
-      color: #fff;
-      margin-bottom: 0;
-    }
-    .consulta-h1 .urgente {
-      color: var(--rojo);
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .consulta-fecha {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .72rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.35);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-    }
+/* ALERTA URGENTE */
+.alerta-urgente{background:var(--red);color:#fff;padding:12px 22px;position:relative;overflow:hidden;}
+.alerta-urgente::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 50%,transparent 100%);pointer-events:none;}
+.alerta-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1;}
+.alerta-badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.34);border-radius:var(--radius-pill);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;display:inline-flex;align-items:center;gap:7px;}
+.alerta-titulo{font-size:13.5px;font-weight:600;letter-spacing:-.005em;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.4);}}
+.live-dot{width:7px;height:7px;background:#fff;border-radius:50%;animation:pulse 1.8s infinite;display:inline-block;}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      overflow: hidden;
-      box-shadow: var(--shf);
-      margin-bottom: 24px;
-      border-bottom: 4px solid var(--rojo);
-    }
-    @media(max-width:640px){ .hero-grid { grid-template-columns: 1fr; } }
-    .hero-foto { position: relative; overflow: hidden; min-height: 380px; background: #001a5c; }
-    .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transform: scaleX(-1); }
-    .hero-foto-placeholder { width: 100%; height: 100%; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: rgba(255,255,255,.35); font-size: 12px; text-align: center; padding: 20px; }
-    .hero-foto-placeholder i { font-size: 36px; }
-    .hero-cita-panel { background: var(--azul); padding: 28px 32px; display: flex; flex-direction: column; justify-content: space-between; }
-    .hero-cita-texto { font-style: italic; font-size: 15px; line-height: 1.78; color: #E0EAFF; position: relative; padding-left: 18px; }
-    .hero-cita-texto::before { content: '"'; position: absolute; left: 0; top: -4px; font-size: 44px; color: rgba(207,20,43,.5); font-style: normal; line-height: 1; }
-    .hero-cita-sep { border: none; border-top: 1px solid rgba(255,255,255,.12); margin: 18px 0 14px; }
-    .hero-cita-autor { display: flex; align-items: center; gap: 10px; }
-    .hero-cita-avatar { width: 34px; height: 34px; border-radius: 50%; background: rgba(207,20,43,.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .hero-cita-avatar i { color: rgba(255,255,255,.8); font-size: 15px; }
-    .hero-cita-nombre { font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #fff; }
-    .hero-cita-cargo { font-size: .7rem; color: rgba(255,255,255,.5); margin-top: 2px; }
-    .hero-cita-fuente { margin-top: 12px; font-size: 11px; color: rgba(255,255,255,.35); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    .hero-cita-fuente a { color: rgba(207,20,43,.7); text-decoration: none; }
-    .hero-cita-fuente a:hover { color: var(--rojo); }
+.main{max-width:1100px;margin:0 auto;padding:56px 24px 72px;}
+@media(max-width:720px){.main{padding:40px 20px 56px;}}
 
-    .panel { background: #fff; border: 1px solid var(--borde); border-radius: 8px; box-shadow: var(--sh); padding: 28px 30px; margin-bottom: 20px; }
-    @media(max-width:600px){ .panel { padding: 20px 18px; } }
-    .panel-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--rojo); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-    .panel-titulo::after { content: ''; flex: 1; height: 1px; background: var(--borde); }
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:300px 1fr;gap:28px;background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 55%,#003ab5 100%);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-3);margin-bottom:36px;}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;}}
+.hero-foto{position:relative;min-height:360px;background:rgba(0,0,0,.2);}
+.hero-foto img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.hero-foto-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.4);gap:14px;padding:20px;text-align:center;}
+.hero-foto-placeholder i{font-size:56px;}
+.hero-foto-placeholder span{font-size:12px;font-weight:600;line-height:1.6;}
+.hero-cita-panel{padding:38px 40px;color:#fff;position:relative;}
+@media(max-width:820px){.hero-cita-panel{padding:30px 26px;}}
+.consulta-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(206,17,38,.22);border:1px solid rgba(206,17,38,.42);border-radius:var(--radius-pill);padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+.consulta-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;}
+.consulta-h1{font-size:clamp(22px,2.6vw,32px);font-weight:700;letter-spacing:-.025em;line-height:1.2;color:#fff;margin-bottom:16px;}
+.consulta-h1 .urgente{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:var(--radius-sm);margin-right:10px;vertical-align:middle;}
+.consulta-fecha{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.72);}
+.hero-cita-sep{border:none;border-top:1px solid rgba(255,255,255,.15);}
+.hero-cita-texto{font-size:15px;line-height:1.7;color:rgba(255,255,255,.82);font-style:italic;padding-left:18px;border-left:3px solid rgba(232,200,74,.5);}
+.hero-cita-autor{display:flex;align-items:center;gap:12px;}
+.hero-cita-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:14px;}
+.hero-cita-nombre{font-size:14px;font-weight:700;letter-spacing:-.01em;color:#fff;}
+.hero-cita-cargo{font-size:12px;font-weight:500;color:rgba(255,255,255,.6);}
+.hero-cita-fuente{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.65;margin-top:10px;}
+.hero-cita-fuente a{color:var(--gold-border);font-weight:600;border-bottom:1px solid rgba(232,200,74,.35);}
+.hero-cita-fuente em{font-style:italic;}
 
-    .info-box { display: flex; align-items: flex-start; gap: 10px; border-radius: 6px; padding: 13px 15px; margin-bottom: 16px; font-size: .84rem; line-height: 1.6; }
-    .info-box i { flex-shrink: 0; margin-top: 1px; font-size: 15px; }
-    .info-box.verde { background: #F0FDF4; border: 1px solid #86EFAC; color: #14532D; }
-    .info-box.verde i { color: var(--verde); }
-    .info-box.azul { background: #EFF6FF; border: 1px solid #BFDBFE; color: #1E3A8A; }
-    .info-box.azul i { color: var(--azul); }
-    .info-box.amarillo { background: #FFFBEB; border: 1px solid #FDE68A; color: #78350F; }
-    .info-box.amarillo i { color: var(--amarillo); }
+/* MAIN TABS */
+.main-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:var(--bg-gray);border-radius:var(--radius-pill);padding:6px;margin-bottom:24px;}
+@media(max-width:720px){.main-tabs{grid-template-columns:repeat(2,1fr);border-radius:var(--radius);padding:8px;}}
+.main-tab-btn{background:transparent;border:none;padding:12px 14px;border-radius:var(--radius-pill);font-family:inherit;font-size:13px;font-weight:600;letter-spacing:-.005em;color:var(--ink-3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .25s var(--ease);}
+.main-tab-btn:hover{color:var(--ink);}
+.main-tab-btn.activo{background:#fff;color:var(--blue);box-shadow:var(--shadow-2);}
 
-    .tabs-id { display: flex; gap: 0; border-bottom: 2px solid var(--borde); margin-bottom: 20px; }
-    .tab-id-btn { padding: 10px 18px; font-family: 'Barlow Condensed', sans-serif; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gris); background: none; border: none; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .2s; display: flex; align-items: center; gap: 6px; }
-    .tab-id-btn:hover { color: var(--azul); }
-    .tab-id-btn.activo { color: var(--azul); border-bottom-color: var(--azul); }
-    .tab-id-panel { display: none; }
-    .tab-id-panel.activo { display: block; }
+/* PANELS */
+.pantalla{display:none;}
+.pantalla.activa{display:block;}
+.panel{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-2);padding:32px 34px;margin-bottom:18px;}
+@media(max-width:720px){.panel{padding:24px 22px;border-radius:var(--radius);}}
+.panel-titulo{font-size:17px;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.panel-titulo i{width:36px;height:36px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;font-size:15px;}
 
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: flex; align-items: center; gap: 7px; font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--negro); margin-bottom: 7px; }
-    .form-label i { font-size: 13px; color: var(--azul); }
-    .form-input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--borde); border-radius: 4px; font-size: .95rem; font-family: 'Barlow', sans-serif; color: var(--negro); transition: border-color .2s; outline: none; background: #fff; }
-    .form-input:focus { border-color: var(--azul); }
-    .form-input.valido { border-color: var(--verde); }
-    .form-input.invalido { border-color: var(--rojo); }
-    .form-hint { font-size: .75rem; color: var(--gris); margin-top: 5px; line-height: 1.5; }
-    .form-hint.rojo { color: var(--rojo); }
-    .form-hint.verde { color: var(--verde); }
-    .ci-decode { display: none; background: var(--gris-bg); border: 1px solid var(--borde); border-radius: 6px; padding: 10px 14px; margin-top: 8px; font-size: .8rem; color: var(--negro); line-height: 1.6; }
-    .ci-decode.visible { display: block; }
-    .ci-decode strong { color: var(--azul); }
+/* INFO BOXES */
+.info-box{border-radius:var(--radius-sm);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:13.5px;line-height:1.68;}
+.info-box > i{flex-shrink:0;margin-top:2px;font-size:17px;}
+.info-box strong{font-weight:700;}
+.info-box a{font-weight:700;border-bottom:1px solid currentColor;padding-bottom:1px;}
+.info-box.azul{background:var(--blue-soft);color:var(--ink-2);border-left:3px solid var(--blue);}
+.info-box.azul > i, .info-box.azul strong{color:var(--blue);}
+.info-box.azul a{color:var(--blue);}
+.info-box.verde{background:var(--green-soft);color:#0a4a28;border-left:3px solid var(--green);}
+.info-box.verde > i, .info-box.verde strong{color:var(--green);}
+.info-box.verde a{color:var(--green);}
+.info-box.amarillo{background:var(--gold-soft);color:#5a3e00;border-left:3px solid var(--amber);}
+.info-box.amarillo > i, .info-box.amarillo strong{color:var(--amber);}
+.info-box.amarillo a{color:var(--amber);}
 
-    .opciones-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
-    @media(max-width:500px){ .opciones-grid { grid-template-columns: 1fr; } }
-    .opcion-card { border: 2px solid var(--borde); border-radius: 8px; padding: 20px 16px; cursor: pointer; transition: all .2s; text-align: center; user-select: none; position: relative; }
-    .opcion-card:hover { border-color: var(--azul); box-shadow: var(--sh); }
-    .opcion-card.sel-continuidad { border-color: var(--azul); background: #EFF6FF; }
-    .opcion-card.sel-cambio { border-color: var(--rojo); background: #FFF1F2; }
-    .opcion-icono { font-size: 28px; margin-bottom: 10px; display: block; color: var(--borde); }
-    .opcion-card.sel-continuidad .opcion-icono { color: var(--azul); }
-    .opcion-card.sel-cambio .opcion-icono { color: var(--rojo); }
-    .opcion-titulo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; color: var(--negro); }
-    .opcion-card.sel-continuidad .opcion-titulo { color: var(--azul); }
-    .opcion-card.sel-cambio .opcion-titulo { color: var(--rojo); }
-    .opcion-desc { font-size: .78rem; color: var(--gris); line-height: 1.5; }
-    .opcion-check { position: absolute; top: 9px; right: 10px; font-size: 14px; display: none; color: var(--verde); }
-    .opcion-card.sel-continuidad .opcion-check, .opcion-card.sel-cambio .opcion-check { display: block; }
+/* ID TABS */
+.tabs-id{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--bg-gray);border-radius:var(--radius);padding:6px;margin-bottom:18px;}
+@media(max-width:520px){.tabs-id{grid-template-columns:1fr;}}
+.tab-id-btn{background:transparent;border:none;padding:12px 16px;border-radius:var(--radius-sm);font-family:inherit;font-size:13px;font-weight:600;color:var(--ink-3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .25s var(--ease);}
+.tab-id-btn:hover{color:var(--ink);}
+.tab-id-btn.activo{background:#fff;color:var(--blue);box-shadow:var(--shadow-1);}
+.tab-id-panel{display:none;}
+.tab-id-panel.activo{display:block;}
 
-    .declaracion-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: .84rem; line-height: 1.6; color: var(--negro); padding: 12px 14px; background: var(--gris-bg); border: 1px solid var(--borde); border-radius: 6px; margin-bottom: 20px; transition: border-color .2s; }
-    .declaracion-label:hover { border-color: var(--azul); }
-    .declaracion-label input[type="checkbox"] { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--azul); cursor: pointer; }
+/* FORM */
+.form-group{margin-bottom:18px;}
+.form-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:-.005em;color:var(--ink);margin-bottom:8px;}
+.form-label i{color:var(--blue);font-size:14px;}
+.form-input, .form-select{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:var(--radius-sm);font-family:inherit;font-size:15px;color:var(--ink);background:#fff;transition:all .2s var(--ease);}
+.form-input:focus, .form-select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);}
+.form-input.valid{border-color:var(--green);background:var(--green-soft);}
+.form-input.invalid{border-color:var(--red);background:var(--red-soft);}
+.form-hint{font-size:12.5px;color:var(--ink-3);line-height:1.6;margin-top:8px;}
+.form-hint.valid{color:var(--green);}
+.form-hint.invalid{color:var(--red);}
+.ci-decode{margin-top:10px;font-size:12.5px;color:var(--ink-2);line-height:1.55;}
+.ci-decode strong{color:var(--ink);font-weight:700;}
+.loc-optional{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);}
+.loc-optional-lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 
-    .error-msg { display: none; align-items: center; gap: 8px; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 6px; padding: 11px 14px; font-size: .84rem; color: #991B1B; margin-bottom: 14px; }
-    .error-msg.visible { display: flex; }
+/* OPCIONES */
+.opciones-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+@media(max-width:520px){.opciones-grid{grid-template-columns:1fr;}}
+.opcion-card{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;cursor:pointer;text-align:center;position:relative;transition:all .25s var(--ease);}
+.opcion-card:hover{transform:translateY(-4px) scale(1.012);border-color:var(--ink-3);}
+.opcion-card.seleccionado{border-color:var(--blue);background:var(--blue-soft);}
+.opcion-card#card-cambio.seleccionado{border-color:var(--red);background:var(--red-soft);}
+.opcion-icono{font-size:28px;color:var(--ink-3);margin-bottom:10px;display:block;}
+.opcion-card.seleccionado .opcion-icono{color:var(--blue);}
+.opcion-card#card-cambio.seleccionado .opcion-icono{color:var(--red);}
+.opcion-titulo{font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px;}
+.opcion-desc{font-size:13px;line-height:1.6;color:var(--ink-2);}
+.opcion-check{position:absolute;top:14px;right:14px;font-size:18px;color:transparent;transition:color .2s;}
+.opcion-card.seleccionado .opcion-check{color:var(--blue);}
+.opcion-card#card-cambio.seleccionado .opcion-check{color:var(--red);}
 
-    .btn-votar { width: 100%; padding: 14px; background: var(--azul); color: #fff; border: none; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .1s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .btn-votar:hover:not(:disabled) { background: #001f6b; transform: translateY(-1px); }
-    .btn-votar:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.declaracion-label{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-gray);border-radius:var(--radius-sm);cursor:pointer;margin-bottom:14px;}
+.declaracion-label input{margin-top:2px;width:18px;height:18px;accent-color:var(--blue);cursor:pointer;}
+.declaracion-label span{font-size:13px;line-height:1.65;color:var(--ink-2);}
+.declaracion-label strong{color:var(--ink);font-weight:700;}
 
-    .confirmacion { text-align: center; padding: 16px 0; }
-    .conf-icono { font-size: 52px; color: var(--verde); margin-bottom: 14px; display: block; }
-    .conf-titulo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; color: var(--azul); margin-bottom: 8px; }
-    .conf-desc { font-size: .9rem; color: var(--gris); line-height: 1.7; margin-bottom: 20px; }
-    .conf-hash { background: var(--gris-bg); border: 1px solid var(--borde); border-radius: 6px; padding: 12px 16px; font-family: monospace; font-size: .7rem; color: var(--gris); word-break: break-all; text-align: left; margin-bottom: 22px; }
-    .conf-hash strong { font-size: .72rem; color: var(--negro); display: block; margin-bottom: 4px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .5px; text-transform: uppercase; }
+.error-msg{display:none;background:var(--red-soft);border-left:3px solid var(--red);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:14px;align-items:center;gap:10px;color:#6e0d17;font-size:13px;line-height:1.55;}
+.error-msg.activo{display:flex;}
+.error-msg i{color:var(--red);font-size:16px;flex-shrink:0;}
 
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border: 2px solid var(--azul); color: var(--azul); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; background: none; transition: all .2s; text-decoration: none; }
-    .btn-outline:hover { background: var(--azul); color: #fff; }
+.btn-votar{width:100%;background:var(--red);color:#fff;border:none;padding:16px 24px;border-radius:var(--radius-pill);font-family:inherit;font-size:15px;font-weight:700;letter-spacing:-.005em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:all .25s var(--ease);}
+.btn-votar:hover:not(:disabled){background:var(--red-hover);transform:translateY(-2px);}
+.btn-votar:disabled{background:var(--ink-4);cursor:not-allowed;opacity:.6;}
 
-    .main-tabs { display: flex; gap: 0; border-bottom: 3px solid var(--borde); margin-bottom: 24px; }
-    .main-tab-btn { padding: 12px 20px; font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gris); background: none; border: none; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all .2s; display: flex; align-items: center; gap: 7px; }
-    .main-tab-btn:hover { color: var(--azul); }
-    .main-tab-btn.activo { color: var(--azul); border-bottom-color: var(--azul); }
-    .pantalla { display: none; }
-    .pantalla.activa { display: block; }
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#fff;color:var(--blue);border:1px solid var(--blue);border-radius:var(--radius-pill);font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;transition:all .25s var(--ease);}
+.btn-outline:hover{background:var(--blue);color:#fff;}
 
-    .res-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-    .res-total { font-family: 'Barlow Condensed', sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--gris); display: flex; align-items: center; gap: 6px; }
-    .barra-row { margin-bottom: 18px; }
-    .barra-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-    .barra-etiqueta { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; color: var(--negro); display: flex; align-items: center; gap: 7px; }
-    .barra-num { font-size: .9rem; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; }
-    .barra-track { width: 100%; height: 22px; background: var(--gris-bg); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
-    .barra-fill { height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(.4,0,.2,1); }
-    .barra-fill-azul { background: linear-gradient(90deg, var(--azul), #1a4db5); }
-    .barra-fill-rojo { background: linear-gradient(90deg, var(--rojo), #e8394a); }
-    .barra-pct { font-size: .73rem; color: var(--gris); font-family: 'Barlow Condensed', sans-serif; }
+/* CONFIRMACIÓN */
+.confirmacion{text-align:center;padding:32px 20px;}
+.conf-icono{font-size:72px;color:var(--green);margin-bottom:18px;display:block;}
+.conf-titulo{font-size:32px;font-weight:700;letter-spacing:-.025em;color:var(--ink);margin-bottom:10px;}
+.conf-desc{font-size:15px;line-height:1.68;color:var(--ink-2);margin-bottom:24px;}
+.conf-hash{background:var(--bg-gray);border-radius:var(--radius-sm);padding:18px 22px;margin-bottom:24px;display:inline-block;max-width:100%;}
+.conf-hash strong{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.conf-hash span{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);word-break:break-all;}
 
-    footer { background: var(--azul); color: rgba(255,255,255,.6); text-align: center; padding: 18px 22px; font-size: .75rem; letter-spacing: .5px; margin-top: 48px; }
-    footer strong { color: #fff; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1.5px; }
-    footer a { color: rgba(255,255,255,.5); text-decoration: none; }
-    footer a:hover { color: #fff; }
+/* RESULTADOS */
+.res-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
+.res-total{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);padding:6px 14px;background:var(--bg-gray);border-radius:var(--radius-pill);}
+.res-total i{color:var(--blue);}
+.barra-row{margin-bottom:22px;}
+.barra-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.barra-etiqueta{font-size:14px;font-weight:700;letter-spacing:-.005em;color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
+.barra-num{font-size:22px;font-weight:800;letter-spacing:-.02em;}
+.barra-track{height:10px;background:var(--bg-gray);border-radius:var(--radius-pill);overflow:hidden;}
+.barra-fill{height:100%;border-radius:var(--radius-pill);transition:width .8s var(--ease);}
+.barra-fill-azul{background:linear-gradient(90deg,var(--blue-deep),var(--blue));}
+.barra-fill-rojo{background:linear-gradient(90deg,var(--red-hover),var(--red));}
+.barra-pct{font-size:13px;font-weight:600;color:var(--ink-3);margin-top:6px;}
 
-    /* ── REGISTRO CIUDADANO POST-VOTO ── */
-    .reg-seccion { margin-top: 28px; padding-top: 24px; border-top: 2px solid var(--borde); text-align: left; }
-    .reg-titulo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--azul); margin-bottom: 6px; text-align: center; }
-    .reg-sub { font-size: .83rem; color: var(--gris); text-align: center; margin-bottom: 18px; line-height: 1.6; }
-    .reg-telegram { display: flex; align-items: center; justify-content: center; gap: 10px; background: #229ED9; color: #fff; border: none; border-radius: 6px; padding: 12px 22px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .95rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background .2s; width: 100%; margin-bottom: 14px; }
-    .reg-telegram:hover { background: #1a8bb8; }
-    .reg-toggle { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--azul); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; width: 100%; justify-content: center; padding: 8px; opacity: .7; }
-    .reg-toggle:hover { opacity: 1; }
-    .reg-form { display: none; margin-top: 18px; }
-    .reg-form.abierto { display: block; }
-    .reg-label { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--negro); margin-bottom: 8px; display: block; }
-    .reg-checks { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-    .reg-check-item { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--negro); cursor: pointer; }
-    .reg-check-item input { width: 16px; height: 16px; cursor: pointer; accent-color: var(--azul); }
-    .reg-canales { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
-    .reg-canal-btn { padding: 10px 6px; border: 2px solid var(--borde); border-radius: 6px; background: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--gris); cursor: pointer; transition: all .2s; text-align: center; }
-    .reg-canal-btn.sel { border-color: var(--azul); color: var(--azul); background: #F0F4FF; }
-    .reg-input { width: 100%; padding: 10px 13px; border: 1.5px solid var(--borde); border-radius: 4px; font-family: 'Barlow', sans-serif; font-size: .88rem; color: var(--negro); margin-bottom: 16px; outline: none; transition: border-color .2s; }
-    .reg-input:focus { border-color: var(--azul); }
-    .reg-padron-box { background: #F5F8FF; border: 1.5px solid rgba(0,42,143,.15); border-radius: 6px; padding: 14px 16px; margin-bottom: 18px; }
-    .reg-padron-check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
-    .reg-padron-check input { width: 16px; height: 16px; margin-top: 2px; cursor: pointer; accent-color: var(--azul); flex-shrink: 0; }
-    .reg-padron-label { font-size: .84rem; color: var(--negro); line-height: 1.5; }
-    .reg-padron-label strong { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; text-transform: uppercase; letter-spacing: .5px; color: var(--azul); display: block; margin-bottom: 3px; }
-    .reg-padron-extra { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(0,42,143,.12); }
-    .reg-padron-extra.visible { display: block; }
-    .reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .reg-privacidad { font-size: .72rem; color: var(--gris); text-align: center; line-height: 1.5; margin-bottom: 14px; }
-    .reg-btn-submit { width: 100%; padding: 12px; background: var(--azul); color: #fff; border: none; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background .2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .reg-btn-submit:hover { background: #001f6b; }
-    .reg-btn-submit:disabled { opacity: .45; cursor: not-allowed; }
-    .reg-exito { text-align: center; padding: 16px; background: #F0FFF4; border: 1.5px solid #22C55E; border-radius: 6px; }
-    .reg-exito-icon { font-size: 28px; color: #22C55E; display: block; margin-bottom: 8px; }
-    .reg-exito-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #166534; }
-  </style>
+/* ENCUESTA TABLE */
+.encuesta-table{width:100%;border-collapse:collapse;font-size:13px;}
+.encuesta-table th{padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--bg-gray);border-bottom:1px solid var(--line);text-align:left;}
+.encuesta-table td{padding:14px;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.55;color:var(--ink-2);}
+.encuesta-table tr.referencia td{background:var(--blue-soft);}
+.encuesta-table tr.referencia strong{color:var(--blue);}
+.ref-badge{display:inline-block;background:var(--blue);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:var(--radius-pill);margin-left:4px;vertical-align:middle;}
+.pct-rechazo{color:var(--red);font-weight:700;}
+.pct-apoyo{color:var(--ink-3);font-weight:500;}
+
+/* METRICS */
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:16px;}
+.metric-card{background:var(--bg-gray);border-radius:var(--radius);padding:22px 20px;text-align:center;}
+.metric-val{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--blue);line-height:1.1;margin-bottom:4px;}
+.metric-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;}
+.metric-sub{font-size:11.5px;color:var(--ink-3);line-height:1.55;}
+
+/* MAPA */
+#mapa-leaflet{width:100%;height:460px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow-1);margin-bottom:14px;}
+.mapa-leyenda{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:12px 16px;background:var(--bg-gray);border-radius:var(--radius-sm);font-size:12px;color:var(--ink-2);}
+.mapa-leyenda span{display:inline-flex;align-items:center;gap:7px;}
+.mapa-dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.65);padding:40px 24px 32px;text-align:center;font-size:13px;line-height:1.7;}
+footer strong{color:#fff;font-weight:700;letter-spacing:-.005em;}
+footer a{color:rgba(255,255,255,.72);transition:color .2s;border-bottom:1px dotted rgba(255,255,255,.3);}
+footer a:hover{color:#fff;}
+.ft-gs-row{margin-top:14px;font-size:12px;color:rgba(255,255,255,.45);}
+.ft-gs-row a{color:rgba(255,255,255,.7);border-bottom:1px dashed rgba(255,255,255,.3);}
+
+@media(max-width:960px){.breadcrumb{display:none;}}
+</style>
 </head>
 <body>
 
@@ -298,16 +259,12 @@
 
 <header>
   <div class="hdr">
-    <a href="app.html" class="hdr-logo">
+    <a href="index.html" class="hdr-logo">
       <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.onerror=null;this.style.display='none'">
-      <div class="hdr-logo-text">
-        <span class="t-azul">ENTRE </span><span class="t-rojo">TODOS</span>
-      </div>
+      <div class="hdr-logo-text">ENTRE TODOS</div>
     </a>
-    <a href="app.html" class="hdr-back">
-      <i class="fi fi-br-arrow-left"></i>
-      Página principal
-    </a>
+    <span class="breadcrumb">Inicio <span>·</span> Fase 0 <span>·</span> <strong>Consulta popular</strong></span>
+    <a href="index.html" class="hdr-back"><i class="fi fi-br-arrow-left"></i> Inicio</a>
   </div>
 </header>
 
@@ -320,9 +277,8 @@
 
 <main class="main">
 
-  <!-- HERO UNIFICADO: foto izquierda, título+cita derecha, TODO en azul -->
+  <!-- HERO UNIFICADO -->
   <div class="hero-grid">
-    <!-- FOTO -->
     <div class="hero-foto">
       <img src="diaz-canel.jpg" alt="Miguel Díaz-Canel Bermúdez"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
@@ -331,36 +287,29 @@
         <span>Guardar foto como<br><strong>diaz-canel.jpg</strong></span>
       </div>
     </div>
-    <!-- TÍTULO + CITA -->
     <div class="hero-cita-panel">
-
-      <!-- Título integrado en el panel azul -->
       <div>
         <div class="consulta-live-badge">
           <span class="live-dot"></span>
           Consulta en curso — Resultados en tiempo real
         </div>
-        <div class="consulta-eyebrow">Cuba 2026 · Participación Ciudadana · ENTRE TODOS</div>
+        <div class="consulta-eyebrow">Cuba 2026 · Participación ciudadana</div>
         <h1 class="consulta-h1">
-          <span class="urgente">URGENTE</span>
-          CONSULTA POPULAR POR LA CONTINUIDAD DE
-          MIGUEL DÍAZ-CANEL BERMÚDEZ
-          SEGÚN SUS PROPIAS PALABRAS
+          <span class="urgente">Urgente</span>
+          Consulta popular por la continuidad de Miguel Díaz-Canel Bermúdez — según sus propias palabras
         </h1>
         <div class="consulta-fecha">
-          <i class="fi fi-br-calendar" style="font-size:10px;"></i>
+          <i class="fi fi-br-calendar"></i>
           Abierta desde el 27 de marzo de 2026
         </div>
       </div>
-
-      <!-- Cita -->
-      <div>
-        <hr class="hero-cita-sep" style="margin:20px 0 16px;">
-        <p class="hero-cita-texto">
-          Mi continuidad o la de cualquier otra persona que en determinado momento tenga una responsabilidad de este nivel en nuestro país, depende del pueblo..."
+      <div style="margin-top:24px;">
+        <hr class="hero-cita-sep">
+        <p class="hero-cita-texto" style="margin:18px 0;">
+          "Mi continuidad o la de cualquier otra persona que en determinado momento tenga una responsabilidad de este nivel en nuestro país, depende del pueblo..."
         </p>
-        <hr class="hero-cita-sep" style="margin:16px 0 14px;">
-        <div class="hero-cita-autor">
+        <hr class="hero-cita-sep">
+        <div class="hero-cita-autor" style="margin-top:14px;">
           <div class="hero-cita-avatar"><i class="fi fi-br-user"></i></div>
           <div>
             <div class="hero-cita-nombre">Miguel Díaz-Canel Bermúdez</div>
@@ -368,21 +317,26 @@
           </div>
         </div>
         <div class="hero-cita-fuente">
-          <i class="fi fi-br-link" style="font-size:10px;"></i>
+          <i class="fi fi-br-link"></i>
           Luis Hernández Navarro, <em>La Jornada</em> / CVInternacional, 27 mar 2026 —
           <a href="http://bit.ly/cviCuba" target="_blank" rel="noopener">bit.ly/cviCuba</a>
         </div>
       </div>
-
     </div>
   </div>
 
-  <div class="main-tabs">
+<div class="main-tabs">
     <button class="main-tab-btn activo" id="tab-votar" onclick="mostrarPantalla('voto')">
       <i class="fi fi-br-ballot"></i> Emitir voto
     </button>
     <button class="main-tab-btn" id="tab-resultados" onclick="mostrarPantalla('resultados');actualizarResultados();">
       <i class="fi fi-br-chart-histogram"></i> Resultados
+    </button>
+    <button class="main-tab-btn" id="tab-social" onclick="mostrarPantalla('social')">
+      <i class="fi fi-br-share"></i> Señal Social
+    </button>
+    <button class="main-tab-btn" id="tab-mapa" onclick="mostrarPantalla('mapa');initMapa()">
+      <i class="fi fi-br-earth-americas"></i> Mapa
     </button>
   </div>
 
@@ -393,7 +347,7 @@
 
       <div class="info-box verde">
         <i class="fi fi-br-lock"></i>
-        <span><strong>Anonimato garantizado.</strong> Tu credencial se convierte en un código SHA-256 irreversible directamente en tu dispositivo. El sistema almacena únicamente ese código — nunca tu nombre ni tu número real.</span>
+        <span><strong>Tu número de documento nunca sale de tu dispositivo.</strong> Antes de enviarse, se convierte en un código matemático irreversible (SHA-256) directamente en tu navegador. Nuestro servidor recibe únicamente ese código — nunca tu nombre ni tu número real. <a href="politica-privacidad.html#como-funciona" target="_blank" style="color:var(--verde);font-weight:700;">Cómo funciona</a></span>
       </div>
       <div class="info-box azul">
         <i class="fi fi-br-info"></i>
@@ -417,6 +371,18 @@
             oninput="validarCI(this.value)" />
           <p class="form-hint" id="hint-ci">Formato: 11 dígitos. Los primeros 6 son tu fecha de nacimiento (AAMMDD). Tu número no será almacenado.</p>
           <div class="ci-decode" id="ci-decode"></div>
+        <div class="loc-optional">
+          <div class="loc-optional-lbl"><i class="fi fi-br-map-marker" style="font-size:11px;"></i> Provincia (opcional — para el mapa)</div>
+          <select class="form-select" id="sel-provincia" onchange="ubicacion.provincia=this.value">
+            <option value="">— Selecciona tu provincia —</option>
+            <option>Pinar del Río</option><option>Artemisa</option><option>La Habana</option>
+            <option>Mayabeque</option><option>Matanzas</option><option>Cienfuegos</option>
+            <option>Villa Clara</option><option>Sancti Spíritus</option><option>Ciego de Ávila</option>
+            <option>Camagüey</option><option>Las Tunas</option><option>Holguín</option>
+            <option>Granma</option><option>Santiago de Cuba</option><option>Guantánamo</option>
+            <option>Isla de la Juventud</option>
+          </select>
+        </div>
         </div>
       </div>
 
@@ -427,6 +393,19 @@
             maxlength="30" autocomplete="off" spellcheck="false"
             oninput="validarPasaporte(this.value)" />
           <p class="form-hint" id="hint-pasaporte">Para cubanos en la diáspora. Mínimo 6 caracteres. No se almacenará tu documento.</p>
+        <div class="loc-optional">
+          <div class="loc-optional-lbl"><i class="fi fi-br-earth-americas" style="font-size:11px;"></i> País de residencia (opcional — para el mapa)</div>
+          <select class="form-select" id="sel-pais" onchange="ubicacion.pais=this.value">
+            <option value="">— Selecciona tu país —</option>
+            <option>Estados Unidos</option><option>España</option><option>México</option>
+            <option>Argentina</option><option>Italia</option><option>Canadá</option>
+            <option>Ecuador</option><option>Colombia</option><option>Chile</option>
+            <option>Venezuela</option><option>Puerto Rico</option><option>Costa Rica</option>
+            <option>Panamá</option><option>República Dominicana</option><option>Uruguay</option>
+            <option>Alemania</option><option>Francia</option><option>Reino Unido</option>
+            <option>Portugal</option><option>Brasil</option><option>Otro</option>
+          </select>
+        </div>
         </div>
       </div>
     </div>
@@ -452,6 +431,10 @@
         </div>
       </div>
 
+      <div style="font-size:.75rem;color:var(--gris);margin-bottom:10px;line-height:1.6;">
+        <i class="fi fi-br-shield-check" style="font-size:11px;color:var(--verde);"></i>
+        &nbsp;Al votar aceptas nuestra <a href="politica-privacidad.html" target="_blank" style="color:var(--azul);font-weight:600;">Política de Privacidad</a>. Tu número de documento no se almacena nunca — solo su hash SHA-256 irreversible.
+      </div>
       <label class="declaracion-label" for="declaracion">
         <input type="checkbox" id="declaracion" onchange="validarFormulario()">
         <span><strong>Declaración de honor:</strong> Certifico que los datos de identidad ingresados son los míos, que soy ciudadano cubano o de origen cubano, y que emito este voto por primera vez en esta consulta.</span>
@@ -484,87 +467,10 @@
           <button class="btn-outline" onclick="mostrarPantalla('resultados');actualizarResultados();">
             <i class="fi fi-br-chart-histogram"></i> Ver resultados
           </button>
-          <a href="app.html" class="btn-outline">
+          <a href="index.html" class="btn-outline">
             <i class="fi fi-br-home"></i> Volver a ENTRE TODOS
           </a>
         </div>
-
-        <!-- ── SECCIÓN RETENCIÓN / REGISTRO CIUDADANO ── -->
-        <div class="reg-seccion" id="reg-seccion">
-          <div class="reg-titulo">Tu voz no termina aquí</div>
-          <p class="reg-sub">Únete al canal de ENTRE TODOS y entérate cuando haya nuevas causas, consultas y actualizaciones.</p>
-
-          <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="reg-telegram">
-            <i class="fi fi-br-paper-plane"></i> Unirme al canal de Telegram
-          </a>
-
-          <button class="reg-toggle" onclick="regToggleForm()" id="reg-toggle-btn">
-            <i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio
-          </button>
-
-          <div class="reg-form" id="reg-form">
-
-            <label class="reg-label" style="margin-top:4px;">Quiero recibir notificaciones de:</label>
-            <div class="reg-checks">
-              <label class="reg-check-item">
-                <input type="checkbox" id="opt-causas" checked>
-                Causas nuevas y nuevas consultas
-              </label>
-              <label class="reg-check-item">
-                <input type="checkbox" id="opt-actualizaciones">
-                Actualizaciones de la plataforma
-              </label>
-              <label class="reg-check-item">
-                <input type="checkbox" id="opt-resultados">
-                Resultados de votaciones
-              </label>
-            </div>
-
-            <label class="reg-label">Canal de contacto preferido:</label>
-            <div class="reg-canales">
-              <button class="reg-canal-btn" id="canal-email" onclick="regSelCanal('email')">
-                <i class="fi fi-br-envelope"></i><br>Email
-              </button>
-              <button class="reg-canal-btn" id="canal-whatsapp" onclick="regSelCanal('whatsapp')">
-                <i class="fi fi-br-comment"></i><br>WhatsApp
-              </button>
-              <button class="reg-canal-btn" id="canal-telegram" onclick="regSelCanal('telegram')">
-                <i class="fi fi-br-paper-plane"></i><br>Telegram
-              </button>
-            </div>
-
-            <input type="text" class="reg-input" id="reg-contacto" placeholder="Tu email, número o @usuario de Telegram" style="display:none;">
-
-            <div class="reg-padron-box">
-              <label class="reg-padron-check">
-                <input type="checkbox" id="opt-padron" onchange="regPadronToggle()">
-                <span class="reg-padron-label">
-                  <strong><i class="fi fi-br-id-card"></i> &nbsp;Quiero ser parte del Padrón Electoral Ciudadano</strong>
-                  Registro independiente del gobierno cubano para ejercer el voto con carácter ciudadano. Voluntario y gratuito.
-                </span>
-              </label>
-              <div class="reg-padron-extra" id="reg-padron-extra">
-                <label class="reg-label">Datos opcionales para el Padrón</label>
-                <div class="reg-row">
-                  <input type="text" class="reg-input" id="reg-nombre" placeholder="Nombre (opcional)" style="margin-bottom:0;">
-                  <input type="text" class="reg-input" id="reg-pais" placeholder="País de residencia" style="margin-bottom:0;">
-                </div>
-              </div>
-            </div>
-
-            <p class="reg-privacidad">
-              <i class="fi fi-br-shield-check"></i> &nbsp;Tu información es confidencial. No será compartida ni usada con fines comerciales. Solo para notificaciones de ENTRE TODOS.
-            </p>
-
-            <div id="reg-form-content">
-              <button class="reg-btn-submit" id="reg-submit-btn" onclick="sbGuardarRegistro()" disabled>
-                <i class="fi fi-br-check"></i> Guardar mis preferencias
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- ── FIN REGISTRO CIUDADANO ── -->
-
       </div>
     </div>
   </div>
@@ -595,18 +501,18 @@
 
       <!-- DESGLOSE CUBA vs. EXTRANJERO -->
       <div style="margin-top:22px;padding-top:16px;border-top:1px solid var(--gris-m);">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:12px;">
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:12px;">
           <i class="fi fi-br-earth-americas"></i> &nbsp;Participación por origen
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
           <div style="background:#F0F4FF;border:1px solid rgba(0,42,143,.15);border-radius:8px;padding:14px 16px;text-align:center;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--azul);line-height:1;" id="val-cuba">0</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-top:4px;"><i class="fi fi-br-id-card"></i> &nbsp;Desde Cuba</div>
+            <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.9rem;color:var(--azul);line-height:1;" id="val-cuba">0</div>
+            <div style="font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-top:4px;"><i class="fi fi-br-id-card"></i> &nbsp;Desde Cuba</div>
             <div style="font-size:.68rem;color:var(--gt);margin-top:2px;">Carné de identidad</div>
           </div>
           <div style="background:#FFF0F2;border:1px solid rgba(207,20,43,.15);border-radius:8px;padding:14px 16px;text-align:center;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--rojo);line-height:1;" id="val-extranjero">0</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);margin-top:4px;"><i class="fi fi-br-passport"></i> &nbsp;Desde el extranjero</div>
+            <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.9rem;color:var(--rojo);line-height:1;" id="val-extranjero">0</div>
+            <div style="font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);margin-top:4px;"><i class="fi fi-br-passport"></i> &nbsp;Desde el extranjero</div>
             <div style="font-size:.68rem;color:var(--gt);margin-top:2px;">Pasaporte / doc. extranjero</div>
           </div>
         </div>
@@ -623,13 +529,194 @@
     </div>
   </div>
 
+  <!-- PANTALLA SEÑAL SOCIAL -->
+  <div id="pantalla-social" class="pantalla">
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-share"></i>La señal ciudadana en redes sociales</div>
+      <p style="font-size:.9rem;line-height:1.75;color:var(--negro);margin-bottom:16px;">
+        Días después de las declaraciones del presidente el 27 de marzo de 2026, ciudadanos cubanos y comunicadores independientes replicaron la misma pregunta en Facebook. De manera espontánea y distribuida, surgieron múltiples encuestas que generaron decenas de miles de participaciones — un fenómeno sin precedentes en la historia reciente de Cuba.
+      </p>
+      <div class="info-box azul">
+        <i class="fi fi-br-shield-check"></i>
+        <span><strong>¿Participaste en una de estas encuestas?</strong> Tu voto en Facebook no queda registrado de forma verificable, única ni acumulativa. <a href="#" onclick="mostrarPantalla('voto');return false;" style="color:var(--azul);font-weight:700;">Vota aquí en ENTRE TODOS</a> para que tu posición tenga constancia auditable — el único registro ciudadano estructurado sobre esta consulta.</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-table"></i>Comparativa de encuestas en redes (Facebook, mar–abr 2026)</div>
+      <div class="info-box amarillo" style="margin-bottom:18px;">
+        <i class="fi fi-br-info"></i>
+        <span><strong>Nota metodológica.</strong> Las audiencias de estos perfiles se solapan. Sumar los resultados produciría duplicación de votos. Se toma la encuesta de mayor volumen (Amelia Calzadilla, ~30.000 reacciones) como referencia representativa del fenómeno, siguiendo el principio estadístico de referencia de caso máximo.</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="encuesta-table">
+          <thead>
+            <tr>
+              <th>Perfil</th>
+              <th>Plataforma</th>
+              <th>Reacciones</th>
+              <th>Total interacciones</th>
+              <th>% Rechazo</th>
+              <th>% Apoyo</th>
+              <th>Margen error (95% IC)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="referencia">
+              <td><strong>Amelia Calzadilla</strong> <span class="ref-badge">Referencia</span></td>
+              <td>Facebook</td>
+              <td>~30.000</td>
+              <td>~40.000+</td>
+              <td class="pct-rechazo">96,6%</td>
+              <td class="pct-apoyo">3,4%</td>
+              <td>±0,2%</td>
+            </tr>
+            <tr>
+              <td>Eliecer El Bayardo</td>
+              <td>Facebook</td>
+              <td>Miles</td>
+              <td>Miles</td>
+              <td class="pct-rechazo">~96–98%</td>
+              <td class="pct-apoyo">~2–4%</td>
+              <td>Variable</td>
+            </tr>
+            <tr>
+              <td>Lara Crofs</td>
+              <td>Facebook</td>
+              <td>Miles</td>
+              <td>Miles</td>
+              <td class="pct-rechazo">~95–98,8%</td>
+              <td class="pct-apoyo">~1,2–5%</td>
+              <td>Variable</td>
+            </tr>
+            <tr>
+              <td>Ma Chete</td>
+              <td>Facebook</td>
+              <td>Miles</td>
+              <td>Miles</td>
+              <td class="pct-rechazo">~95–98,8%</td>
+              <td class="pct-apoyo">~1,2–5%</td>
+              <td>Variable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.72rem;color:var(--gris);margin-top:8px;">Fuentes: datos de publicaciones públicas documentados en período marzo–abril 2026. Cobertura: CiberCuba y otros medios independientes cubanos.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-stats"></i>Métricas de engagement — estándar internacional</div>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-val">~40.000+</div>
+          <div class="metric-label">Total interacciones</div>
+          <div class="metric-sub">Referencia: Amelia Calzadilla (reacciones + comentarios + shares)</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">96,6%</div>
+          <div class="metric-label">Tasa de rechazo</div>
+          <div class="metric-sub">Consistente en rango 95–98,8% entre todos los perfiles</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">±0,2%</div>
+          <div class="metric-label">Margen de error (95% IC)</div>
+          <div class="metric-sub">Calculado para n≈30.000 — la dirección es estadísticamente inamovible</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">h = 2,4</div>
+          <div class="metric-label">Efecto (h de Cohen)</div>
+          <div class="metric-sub">Umbral "alto": h > 0,8. El efecto observado es extraordinario.</div>
+        </div>
+      </div>
+      <div style="background:var(--gris-bg);border:1px solid var(--borde);border-radius:8px;padding:16px 18px;margin-top:4px;">
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--negro);margin-bottom:10px;"><i class="fi fi-br-info" style="color:var(--azul);"></i> &nbsp;Interpretación según estándares Meta / Facebook Analytics</div>
+        <div style="font-size:.83rem;line-height:1.8;color:var(--negro);">
+          <p style="margin-bottom:8px;"><strong>Tasa de engagement (ER)</strong> = Interacciones totales ÷ Alcance orgánico × 100. Para publicaciones de alto impacto político, un ER del 8–15% es excepcional. A 40.000 interacciones, el alcance estimado oscila entre 267.000 y 500.000 personas.</p>
+          <p style="margin-bottom:8px;"><strong>Distribución de reacciones</strong>: Las encuestas de Facebook usan la reacción "Me gusta" y sus variantes como proxy de voto. Los reportes de insights del perfil desglosan: Me gusta, Me encanta, Me divierte, Me sorprende, Me entristece, Me enoja. Para consultas de esta naturaleza, la reacción "Me enoja" suele ser la más usada en señal de rechazo político.</p>
+          <p><strong>Participación desde Cuba</strong>: CiberCuba señaló alta participación desde dentro de la isla — elemento de especial valor dado el costo personal y técnico que implica la expresión política digital en Cuba.</p>
+        </div>
+        <div class="info-box amarillo" style="margin-top:12px;margin-bottom:0;">
+          <i class="fi fi-br-info"></i>
+          <span><strong>Para los administradores de estos perfiles:</strong> Los reportes de Facebook Insights incluyen desglose de reacciones, alcance orgánico vs. pagado, y datos demográficos. Estos datos enriquecerían el análisis. Si participaste en estas encuestas o tienes acceso a esos reportes, contáctanos: <a href="mailto:entretodos@entre-todos.org" style="color:var(--azul);">entretodos@entre-todos.org</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-newspaper"></i>Validación mediática independiente</div>
+      <div class="info-box verde">
+        <i class="fi fi-br-check"></i>
+        <span><strong>CiberCuba</strong> documentó el carácter viral de estas encuestas y destacó elementos clave: participación masiva desde dentro de Cuba, consistencia de resultados entre perfiles distintos y correlación temporal con las declaraciones presidenciales del 27 de marzo.</span>
+      </div>
+      <p style="font-size:.83rem;color:var(--gris);line-height:1.7;margin-top:14px;">
+        La convergencia entre discurso político oficial, respuesta ciudadana distribuida y ausencia de mecanismos institucionales de canalización configura un escenario inédito: múltiples actores — desde ciudadanos individuales hasta plataformas estructuradas — explorando formas de expresar y registrar la voluntad colectiva cubana.
+      </p>
+    </div>
+
+    <div class="panel" style="background:linear-gradient(135deg,var(--azul) 0%,#001f6b 100%);border:none;">
+      <div style="text-align:center;padding:6px 0;">
+        <i class="fi fi-br-shield-check" style="font-size:2.5rem;color:rgba(255,255,255,.35);margin-bottom:12px;display:block;"></i>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:2px;color:#fff;margin-bottom:8px;">Si no votas aquí, no hay registro apropiado</div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.75;max-width:500px;margin:0 auto 22px;">
+          Las encuestas en redes reflejan el clima de opinión. ENTRE TODOS registra tu participación de forma única, criptográficamente anonimizada y auditable. Son complementarias — pero solo una deja constancia verificable.
+        </p>
+        <button class="btn-votar" style="max-width:340px;margin:0 auto;" onclick="mostrarPantalla('voto')">
+          <i class="fi fi-br-ballot"></i> Emitir mi voto verificado ahora
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /pantalla-social -->
+
+  <!-- PANTALLA MAPA -->
+  <div id="pantalla-mapa" class="pantalla">
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-earth-americas"></i>Distribución geográfica de participantes</div>
+      <div class="info-box azul" style="margin-bottom:16px;">
+        <i class="fi fi-br-info"></i>
+        <span>El mapa muestra la distribución de votantes por origen. <strong>La ubicación es declarada voluntariamente</strong> al emitir el voto (campo opcional). Los votos anteriores a la activación del campo de ubicación aparecen como Cuba/Diáspora en agregado.</span>
+      </div>
+      <div id="mapa-leaflet"></div>
+      <div class="mapa-leyenda">
+        <span><span class="mapa-dot" style="background:#002A8F;"></span>Votos desde Cuba (Carné de identidad)</span>
+        <span><span class="mapa-dot" style="background:#CF142B;"></span>Votos desde la diáspora</span>
+        <span style="margin-left:auto;font-size:.7rem;">El tamaño del círculo es proporcional al número de votos</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-titulo"><i class="fi fi-br-stats"></i>Resumen por origen</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" id="mapa-stats">
+        <div style="background:#F0F4FF;border:1px solid rgba(0,42,143,.15);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:2.2rem;color:var(--azul);line-height:1;" id="mapa-val-cuba">—</div>
+          <div style="font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-top:5px;"><i class="fi fi-br-id-card"></i> &nbsp;Desde Cuba</div>
+        </div>
+        <div style="background:#FFF0F2;border:1px solid rgba(207,20,43,.15);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:2.2rem;color:var(--rojo);line-height:1;" id="mapa-val-diaspora">—</div>
+          <div style="font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);margin-top:5px;"><i class="fi fi-br-passport"></i> &nbsp;Diáspora mundial</div>
+        </div>
+      </div>
+      <div id="mapa-pais-desglose" style="margin-top:16px;display:none;">
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--gris);margin-bottom:10px;">Desglose por país (diáspora)</div>
+        <div id="mapa-pais-lista"></div>
+      </div>
+    </div>
+
+  </div><!-- /pantalla-mapa -->
+
+
+
 </main>
 
 <footer>
-  <strong>ENTRE TODOS</strong> — <a href="gobernanza-solucionaria-v5.html" style="color:inherit;">Gobernanza Solucionaria</a> &nbsp;·&nbsp; Consulta Popular Cuba 2026 &nbsp;·&nbsp;
-  Voto anónimo verificado por SHA-256 &nbsp;·&nbsp;
-  <a href="app.html">Volver a la app</a> &nbsp;·&nbsp;
-  <a href="#" onclick="limpiarDatos();return false;">Reiniciar datos de prueba</a>
+  <strong>ENTRE TODOS</strong> · Gobernanza Solucionaria · Consulta Popular Cuba 2026<br>
+  Voto anónimo verificado por SHA-256 · <a href="index.html">Volver a la plataforma</a> · <a href="#" onclick="limpiarDatos();return false;">Reiniciar datos de prueba</a>
+  <div class="ft-gs-row">
+    Parte del ecosistema <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>
+    &nbsp;·&nbsp; Michel Estopiñán · Potsdam, Alemania
+  </div>
 </footer>
 
 <script>
@@ -668,9 +755,8 @@ function validarCI(val) {
   }
   const base = aa<=25?2000:1900;
   const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  const sex = parseInt(clean[10])%2===0?'Femenino':'Masculino';
   input.className = 'form-input valido'; dec.className = 'ci-decode visible';
-  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${base+aa}</strong> · Género: <strong>${sex}</strong> · Tu número no será almacenado.`;
+  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${base+aa}</strong> · Tu número no será almacenado.`;
   hint.className = 'form-hint verde'; hint.textContent = 'Formato válido. Puedes continuar.';
   credValida = true; validarFormulario();
 }
@@ -790,12 +876,15 @@ async function sbHashExiste(hash) {
 }
 
 async function sbInsertarVoto(hash, opcion, tipo) {
-  await sbFetch('POST', TABLA, {
+  const payload = {
     credential_hash: hash,
     opcion,
     tipo_credencial: tipo,
     consulta_id: 'continuidad_2026_03_27'
-  });
+  };
+  if (ubicacion.pais)     payload.pais     = ubicacion.pais;
+  if (ubicacion.provincia) payload.provincia = ubicacion.provincia;
+  await sbFetch('POST', TABLA, payload);
 }
 
 async function sbContarVotos() {
@@ -823,11 +912,13 @@ function cargarVotos(){ return cargarVotosLocal(); }
 function hashYaVoto(hash){ return hashYaVotoLocal(hash); }
 
 function mostrarPantalla(p) {
-  ['voto','confirmacion','resultados'].forEach(id=>document.getElementById('pantalla-'+id).classList.remove('activa'));
+  ['voto','confirmacion','resultados','social','mapa'].forEach(id=>document.getElementById('pantalla-'+id).classList.remove('activa'));
   document.getElementById('pantalla-'+p).classList.add('activa');
   document.querySelectorAll('.main-tab-btn').forEach(b=>b.classList.remove('activo'));
   if(p==='voto')document.getElementById('tab-votar').classList.add('activo');
   if(p==='resultados')document.getElementById('tab-resultados').classList.add('activo');
+  if(p==='social')document.getElementById('tab-social').classList.add('activo');
+  if(p==='mapa')document.getElementById('tab-mapa').classList.add('activo');
 }
 
 async function actualizarResultados() {
@@ -866,113 +957,112 @@ function limpiarDatos() {
   localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(HASH_LOG_KEY); location.reload();
 }
 
-actualizarResultados();
+/* ── UBICACIÓN OPCIONAL ───────────────────────────────────── */
+let ubicacion = { pais: null, provincia: null };
 
-/* ══════════════════════════════════════════════════════════════
-   REGISTRO CIUDADANO — OPT-IN POST-VOTO
-══════════════════════════════════════════════════════════════ */
-const TABLA_REGISTRO = 'ciudadanos_opt_in';
-let regCanalSel = null;
+/* ── MAPA LEAFLET ─────────────────────────────────────────── */
+let mapaIniciado = false;
+let mapaObj = null;
 
-function regToggleForm() {
-  const form = document.getElementById('reg-form');
-  const btn  = document.getElementById('reg-toggle-btn');
-  const abierto = form.classList.toggle('abierto');
-  btn.innerHTML = abierto
-    ? '<i class="fi fi-br-minus-small"></i> Ocultar formulario'
-    : '<i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio';
+async function initMapa() {
+  // Actualizar stats
+  const v = await sbContarVotos();
+  const cuba = v.cuba || 0;
+  const diaspora = v.extranjero || 0;
+  if(document.getElementById('mapa-val-cuba'))   document.getElementById('mapa-val-cuba').textContent   = cuba;
+  if(document.getElementById('mapa-val-diaspora'))document.getElementById('mapa-val-diaspora').textContent = diaspora;
+
+  if (mapaIniciado) return;
+  mapaIniciado = true;
+
+  setTimeout(() => {
+    try {
+      if (typeof L === 'undefined') return;
+      mapaObj = L.map('mapa-leaflet', { zoomControl: true, scrollWheelZoom: false })
+                 .setView([15, -20], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(mapaObj);
+
+      // Cuba marker
+      const cubaR = Math.max(14, Math.min(60, Math.sqrt(cuba) * 5));
+      L.circleMarker([21.5, -79.5], {
+        radius: cubaR, color: '#002A8F', fillColor: '#002A8F',
+        fillOpacity: 0.7, weight: 2
+      }).bindPopup(`<strong>Cuba</strong><br>${cuba} votos (Carné de identidad)`).addTo(mapaObj);
+
+      // Diaspora aggregate marker
+      if (diaspora > 0) {
+        const diasR = Math.max(10, Math.min(50, Math.sqrt(diaspora) * 4));
+        L.circleMarker([25.7, -80.3], {
+          radius: diasR, color: '#CF142B', fillColor: '#CF142B',
+          fillOpacity: 0.6, weight: 2
+        }).bindPopup(`<strong>Diáspora</strong><br>${diaspora} votos (Pasaporte/doc. extranjero)<br><em>Dato agregado — ubicación exacta pendiente de datos</em>`).addTo(mapaObj);
+      }
+
+      // Cargar datos de país si existen en Supabase
+      cargarDesglosePais();
+    } catch(e) { console.warn('Mapa no disponible:', e); }
+  }, 300);
 }
 
-function regSelCanal(canal) {
-  regCanalSel = canal;
-  ['email','whatsapp','telegram'].forEach(c => {
-    document.getElementById('canal-'+c).classList.toggle('sel', c === canal);
-  });
-  const input = document.getElementById('reg-contacto');
-  input.style.display = 'block';
-  const placeholders = {
-    email: 'Tu dirección de email',
-    whatsapp: 'Tu número de WhatsApp (con código de país, ej: +5312345678)',
-    telegram: 'Tu @usuario de Telegram o número de teléfono'
-  };
-  input.placeholder = placeholders[canal];
-  input.value = '';
-  regValidarSubmit();
-}
-
-function regPadronToggle() {
-  const checked = document.getElementById('opt-padron').checked;
-  document.getElementById('reg-padron-extra').classList.toggle('visible', checked);
-}
-
-function regValidarSubmit() {
-  const tieneCanal   = regCanalSel !== null;
-  const tieneContacto = document.getElementById('reg-contacto').value.trim().length > 3;
-  const btn = document.getElementById('reg-submit-btn');
-  if (btn) btn.disabled = !(tieneCanal && tieneContacto);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const contactoInput = document.getElementById('reg-contacto');
-  if (contactoInput) contactoInput.addEventListener('input', regValidarSubmit);
-});
-
-async function sbGuardarRegistro() {
-  const btn = document.getElementById('reg-submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fi fi-br-spinner" style="animation:spin .8s linear infinite;"></i> Guardando...';
-
-  const payload = {
-    fuente:              'consulta',
-    opt_causas_nuevas:   document.getElementById('opt-causas').checked,
-    opt_actualizaciones: document.getElementById('opt-actualizaciones').checked,
-    opt_resultados:      document.getElementById('opt-resultados').checked,
-    opt_padron:          document.getElementById('opt-padron').checked,
-    canal_preferido:     regCanalSel,
-    contacto:            document.getElementById('reg-contacto').value.trim(),
-    nombre:              document.getElementById('reg-nombre').value.trim() || null,
-    pais_residencia:     document.getElementById('reg-pais').value.trim() || null,
-    es_cubano:           true
-  };
-
+async function cargarDesglosePais() {
   try {
-    await sbFetch('POST', TABLA_REGISTRO, payload);
-    document.getElementById('reg-form-content').innerHTML = `
-      <div class="reg-exito">
-        <i class="fi fi-br-check-circle reg-exito-icon"></i>
-        <div class="reg-exito-txt">Registro guardado. Gracias por quedarte con nosotros.</div>
-      </div>`;
-  } catch (err) {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fi fi-br-check"></i> Guardar mis preferencias';
-    console.warn('Error al guardar registro:', err);
-    document.getElementById('reg-form-content').innerHTML = `
-      <div class="reg-exito" style="background:#FFF5F5;border-color:#EF4444;">
-        <i class="fi fi-br-exclamation reg-exito-icon" style="color:#EF4444;"></i>
-        <div class="reg-exito-txt" style="color:#991B1B;">Error al guardar. Intenta de nuevo en un momento.</div>
-      </div>`;
-  }
+    const rows = await sbFetch('GET',
+      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=pais,provincia&pais=not.is.null`
+    );
+    if (!rows || rows.length === 0) return;
+
+    // Aggregate by country
+    const paises = {};
+    rows.forEach(r => {
+      if (r.pais) paises[r.pais] = (paises[r.pais] || 0) + 1;
+    });
+
+    // Show breakdown
+    const desglose = document.getElementById('mapa-pais-desglose');
+    const lista    = document.getElementById('mapa-pais-lista');
+    if (!desglose || !lista) return;
+
+    const sorted = Object.entries(paises).sort((a,b)=>b[1]-a[1]);
+    if (sorted.length === 0) return;
+
+    lista.innerHTML = sorted.map(([p,n]) =>
+      `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--borde);font-size:.83rem;">
+        <span>${p}</span>
+        <strong style="color:var(--rojo);">${n}</strong>
+      </div>`
+    ).join('');
+    desglose.style.display = 'block';
+
+    // Add country markers to map (approximate coords)
+    const COORDS = {
+      'Estados Unidos': [27, -82], 'España': [40, -3], 'México': [23, -102],
+      'Argentina': [-34, -64], 'Italia': [41.9, 12.5], 'Canadá': [56, -96],
+      'Ecuador': [-2, -77.5], 'Colombia': [4, -74], 'Chile': [-33.5, -70],
+      'Venezuela': [8, -66], 'Puerto Rico': [18.2, -66.4], 'Costa Rica': [10, -84],
+      'Panamá': [9, -80], 'República Dominicana': [19, -70.7], 'Uruguay': [-33, -56],
+      'Alemania': [51, 10], 'Francia': [46, 2], 'Reino Unido': [54, -2],
+      'Portugal': [39.5, -8], 'Brasil': [-10, -52]
+    };
+
+    if (mapaObj) {
+      sorted.forEach(([p, n]) => {
+        const c = COORDS[p];
+        if (!c) return;
+        const r = Math.max(8, Math.min(35, Math.sqrt(n) * 5));
+        L.circleMarker(c, {
+          radius: r, color: '#CF142B', fillColor: '#CF142B',
+          fillOpacity: 0.5, weight: 1.5
+        }).bindPopup(`<strong>${p}</strong><br>${n} votos`).addTo(mapaObj);
+      });
+    }
+  } catch(e) { console.warn('Desglose por país no disponible:', e); }
 }
+
+actualizarResultados();
 </script>
 
-<!-- ── APP BOTTOM NAV ── -->
-<nav class="app-bottom-nav">
-  <a href="app.html" class="app-nav-item">
-    <i class="fi fi-br-home"></i>
-    Inicio
-  </a>
-  <a href="consulta-popular-cuba.html" class="app-nav-item activo">
-    <i class="fi fi-br-ballot"></i>
-    Votar
-  </a>
-  <a href="propuestas-transicion-cuba.html" class="app-nav-item">
-    <i class="fi fi-br-shuffle"></i>
-    Propuestas
-  </a>
-  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-nav-item">
-    <i class="fi fi-br-paper-plane"></i>
-    Telegram
-  </a>
-</nav>
 </body>
 </html>

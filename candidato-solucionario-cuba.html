@@ -4,143 +4,211 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candidatura Solucionaria — ENTRE TODOS · Gobernanza Solucionaria</title>
+<meta name="description" content="Un nuevo tipo de candidato: marco abierto en lugar de programa cerrado. Juramento de neutralidad ideológica. Plataforma construida por la ciudadanía, punto por punto.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Candidato Solucionario · ENTRE TODOS">
+<meta property="og:description" content="Un nuevo tipo de candidato: marco abierto en lugar de programa cerrado. Juramento de neutralidad ideológica. Plataforma construida por la ciudadanía punto por punto.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/candidato-solucionario-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Candidato Solucionario · ENTRE TODOS">
+<meta name="twitter:description" content="Un nuevo tipo de candidato: marco abierto en lugar de programa cerrado. Juramento de neutralidad ideológica. Plataforma construida por la ciudadanía punto por punto.">
+<meta name="twitter:image" content="img/og-default.png">
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
-  --negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;
-  --oro:#B8860B;--oro-bg:#FFF9E6;--oro-borde:#E8C84A;
-  --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 6px 32px rgba(0,42,143,.18);
+  --blue:#002F80; --blue-deep:#001F5C; --blue-hover:#00256B; --blue-soft:#EEF3FB;
+  --red:#CE1126; --red-hover:#A50D1E; --red-soft:#FDECEE;
+  --gold:#C29A1F; --gold-soft:#FBF3D9; --gold-border:#E8C84A;
+  --bg:#FFFFFF; --bg-gray:#F5F5F7; --bg-gray-2:#FAFAFC;
+  --ink:#0B1F3F; --ink-2:#3A4668; --ink-3:#6B7489; --ink-4:#9AA0B0;
+  --line:#E5E5E7;
+  --radius-sm:14px; --radius:20px; --radius-lg:28px; --radius-pill:980px;
+  --shadow-1:0 1px 2px rgba(11,31,63,.04);
+  --shadow-2:0 4px 16px rgba(11,31,63,.06);
+  --shadow-3:0 16px 40px rgba(11,31,63,.10);
+  --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);min-height:100vh;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
 
-/* ── FLAG BAR ── */
-.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
+/* ── FLAG ── */
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 33.3%,#fff 33.3%,#fff 66.6%,var(--red) 66.6%);}
 
 /* ── HEADER ── */
-header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
-.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;}
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);}
+.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;height:64px;}
 .hdr-left{display:flex;align-items:center;gap:14px;}
-.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
-.back-btn:hover{background:var(--azul);color:#fff;}
-.back-candidatos{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--gris);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);text-decoration:none;transition:all .18s;white-space:nowrap;}
-.back-candidatos:hover{border-color:var(--azul);color:var(--azul);}
+.logo-lockup{display:flex;align-items:center;gap:10px;}
+.logo-lockup img{height:34px;width:auto;border-radius:7px;}
+.logo-text{font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink);}
+.breadcrumb{font-size:13px;color:var(--ink-3);font-weight:500;}
+.breadcrumb strong{color:var(--ink);font-weight:600;}
+.breadcrumb span{color:var(--ink-4);margin:0 8px;}
+.hdr-right{display:flex;align-items:center;gap:10px;}
+.btn-back{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:var(--radius-pill);border:1px solid var(--line);color:var(--ink-2);font-size:13px;font-weight:600;transition:all .25s var(--ease);}
+.btn-back:hover{border-color:var(--ink-3);color:var(--ink);}
+.btn-back.ghost{border-color:var(--blue-soft);color:var(--blue);}
+.btn-back.ghost:hover{background:var(--blue-soft);}
 
-/* ── BANNER ── */
-.page-banner{background:linear-gradient(135deg,#001a5c 0%,var(--azul) 60%,#003ab5 100%);position:relative;overflow:hidden;}
-.page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}
-.page-banner-accent{position:absolute;top:0;right:-60px;width:380px;height:100%;background:linear-gradient(135deg,transparent 40%,rgba(184,134,11,.15) 40%);pointer-events:none;}
-.page-banner-watermark{position:absolute;right:-40px;bottom:-70px;font-size:340px;color:rgba(255,255,255,.05);line-height:1;transform:rotate(-20deg);pointer-events:none;z-index:1;display:flex;align-items:center;}
-.page-banner-inner{max-width:1100px;margin:0 auto;padding:32px 28px 40px;position:relative;z-index:2;}
-.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.page-banner-phase::before{content:'';display:inline-block;width:28px;height:2px;background:var(--oro-borde);border-radius:2px;flex-shrink:0;}
-.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);letter-spacing:4px;color:#fff;line-height:1.0;margin-bottom:14px;}
-.page-banner-title span{color:var(--oro-borde);}
-.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.82rem,1vw,.95rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.7;max-width:600px;margin-bottom:24px;}
-.page-banner-tags{display:flex;gap:10px;flex-wrap:wrap;}
-.banner-tag{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-.banner-tag.gold{background:rgba(184,134,11,.2);border:1px solid rgba(232,200,74,.35);color:rgba(255,255,255,.8);}
-.banner-tag.white{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);}
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 55%,#003ab5 100%);color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold-border) 0%,rgba(232,200,74,.3) 55%,transparent 100%);}
+.hero-wm{position:absolute;right:-80px;bottom:-120px;font-size:460px;color:rgba(255,255,255,.055);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.hero-inner{max-width:1280px;margin:0 auto;padding:92px 24px 88px;position:relative;z-index:2;}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid rgba(232,200,74,.35);background:rgba(232,200,74,.12);border-radius:var(--radius-pill);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--gold-border);margin-bottom:22px;}
+.hero-kicker i{font-size:11px;}
+.hero h1{font-size:clamp(44px,6vw,76px);line-height:1.04;letter-spacing:-.035em;font-weight:700;margin-bottom:22px;max-width:16ch;}
+.hero h1 em{font-style:normal;color:var(--gold-border);display:block;}
+.hero-sub{font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:rgba(255,255,255,.78);max-width:62ch;margin-bottom:32px;font-weight:400;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:var(--radius-pill);font-size:12.5px;font-weight:600;letter-spacing:.01em;}
+.tag.gold{background:rgba(232,200,74,.15);border:1px solid rgba(232,200,74,.38);color:var(--gold-border);}
+.tag.white{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);}
 
-/* ── SECTIONS ── */
-.sec{max-width:1100px;margin:0 auto;padding:44px 22px;}
-.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--azul);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--borde);}
-.sec-label.gold{color:var(--oro);}
-.sec-label.gold::after{background:var(--oro-borde);}
-.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--azul);margin-bottom:8px;}
-.sec-sub{font-size:.9rem;color:var(--gris);line-height:1.7;margin-bottom:32px;max-width:700px;}
-hr.sec-div{border:none;border-top:1px solid var(--borde);margin:0;}
+/* ── SECTION CORE ── */
+section{padding:88px 0;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+.sec-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;}
+.sec-kicker::before{content:"";width:22px;height:2px;background:var(--blue);border-radius:2px;}
+.sec-kicker.gold{color:var(--gold);}
+.sec-kicker.gold::before{background:var(--gold);}
+h2{font-size:clamp(32px,3.3vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:700;color:var(--ink);margin-bottom:14px;max-width:22ch;}
+h2 em{font-style:normal;color:var(--red);font-weight:700;}
+.sec-sub{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:68ch;margin-bottom:44px;}
+.sec-sub strong{color:var(--ink);font-weight:600;}
 
-/* ── PILLARS ── */
-.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:44px;}
-.pillar-card{background:#fff;border:1.5px solid var(--borde);border-radius:10px;padding:24px;position:relative;overflow:hidden;transition:box-shadow .2s;}
-.pillar-card:hover{box-shadow:var(--shf);}
-.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--azul);}
-.pillar-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(0,42,143,.07);line-height:1;position:absolute;top:10px;right:18px;}
-.pillar-icon{width:44px;height:44px;border-radius:10px;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:1.1rem;margin-bottom:14px;}
-.pillar-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--azul);margin-bottom:8px;}
-.pillar-text{font-size:.84rem;line-height:1.7;color:var(--negro);}
+/* ── PILLAR GRID ── */
+.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.pillar{background:#fff;border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-2);position:relative;overflow:hidden;transition:transform .3s var(--ease);}
+.pillar:hover{transform:translateY(-4px) scale(1.012);}
+.pillar::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);}
+.pillar-num{position:absolute;top:18px;right:22px;font-size:52px;font-weight:800;color:var(--blue-soft);line-height:1;letter-spacing:-.04em;}
+.pillar-icon{width:48px;height:48px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:18px;}
+.pillar-title{font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px;min-height:46px;}
+.pillar-text{font-size:14px;line-height:1.7;color:var(--ink-2);}
 
 /* ── CONTRAST TABLE ── */
-.contrast-wrap{margin-bottom:44px;overflow-x:auto;}
-.contrast-table{width:100%;border-collapse:collapse;font-size:.84rem;}
-.contrast-table th{padding:14px 18px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid var(--borde);}
-.contrast-table th.col-sol{background:var(--azul);color:#fff;border-radius:8px 8px 0 0;}
-.contrast-table th.col-par{background:var(--gris-bg);color:var(--gris);border-radius:8px 8px 0 0;}
-.contrast-table th.col-dim{color:var(--gris);text-align:left;}
-.contrast-table td{padding:14px 18px;border-bottom:1px solid var(--borde);vertical-align:top;line-height:1.6;}
+.contrast-wrap{overflow-x:auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-2);background:#fff;}
+.contrast-table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px;}
+.contrast-table th{padding:18px 22px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--line);}
+.contrast-table th.col-dim{color:var(--ink-3);background:var(--bg-gray-2);width:18%;}
+.contrast-table th.col-sol{background:var(--blue);color:#fff;width:41%;}
+.contrast-table th.col-sol i{color:var(--gold-border);margin-right:6px;}
+.contrast-table th.col-par{background:var(--bg-gray);color:var(--ink-3);width:41%;}
+.contrast-table td{padding:18px 22px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.65;}
 .contrast-table tr:last-child td{border-bottom:none;}
-.contrast-table td.col-dim{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:.72rem;letter-spacing:.5px;color:var(--gris);white-space:nowrap;}
-.contrast-table td.col-sol{background:rgba(0,42,143,.04);color:var(--negro);}
-.contrast-table td.col-par{color:var(--gris);font-style:italic;}
-.contrast-table tr:hover td.col-sol{background:rgba(0,42,143,.07);}
-.sol-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(0,42,143,.1);color:var(--azul);border-radius:3px;padding:2px 7px;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.contrast-table td.col-dim{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--bg-gray-2);white-space:nowrap;}
+.contrast-table td.col-sol{background:rgba(0,47,128,.03);color:var(--ink);}
+.contrast-table td.col-par{color:var(--ink-3);font-style:italic;}
+.contrast-table tr:hover td.col-sol{background:rgba(0,47,128,.055);}
+.sol-chip{display:inline-flex;align-items:center;gap:5px;background:var(--blue);color:#fff;border-radius:var(--radius-pill);padding:3px 10px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.sol-chip i{font-size:10px;}
 
 /* ── OATH ── */
-.oath-wrap{background:linear-gradient(135deg,#001a5c,var(--azul));border-radius:12px;padding:40px 44px;position:relative;overflow:hidden;margin-bottom:44px;}
-.oath-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--oro-borde),rgba(232,200,74,.3),transparent);}
-.oath-watermark{position:absolute;right:-20px;bottom:-30px;font-size:200px;color:rgba(255,255,255,.04);transform:rotate(-10deg);pointer-events:none;}
-.oath-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--oro-borde);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.oath-label::before{content:'';display:inline-block;width:24px;height:2px;background:var(--oro-borde);}
-.oath-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:3px;color:#fff;margin-bottom:24px;line-height:1.1;}
-.oath-text{font-family:'Barlow',sans-serif;font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.75);font-style:italic;border-left:3px solid rgba(232,200,74,.4);padding-left:20px;margin-bottom:20px;}
-.oath-text strong{color:#fff;font-style:normal;}
-.oath-clauses{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:28px;}
-.oath-clause{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
-.oath-clause-num{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--oro-borde);line-height:1;flex-shrink:0;width:28px;}
-.oath-clause-text{font-size:.8rem;line-height:1.6;color:rgba(255,255,255,.65);}
-.oath-clause-text strong{color:#fff;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:.72rem;letter-spacing:.5px;display:block;margin-bottom:3px;}
-.oath-note{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:24px;}
+.oath-wrap{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 55%,#003ab5 100%);border-radius:var(--radius-lg);padding:56px 56px 48px;color:#fff;position:relative;overflow:hidden;}
+.oath-wrap::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold-border),rgba(232,200,74,.3),transparent);}
+.oath-wm{position:absolute;right:-30px;bottom:-40px;font-size:280px;color:rgba(255,255,255,.04);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.oath-wrap-in{position:relative;z-index:2;}
+.oath-kicker{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-border);margin-bottom:16px;}
+.oath-kicker::before{content:"";width:22px;height:2px;background:var(--gold-border);}
+.oath-title{font-size:clamp(28px,3.2vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:#fff;margin-bottom:26px;max-width:22ch;}
+.oath-text{font-size:16px;line-height:1.8;color:rgba(255,255,255,.82);font-style:italic;border-left:3px solid rgba(232,200,74,.5);padding:6px 22px;margin-bottom:32px;max-width:70ch;}
+.oath-text strong{color:#fff;font-style:normal;font-weight:600;}
+
+.oath-clauses{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px;}
+.oath-clause{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:20px 22px;display:flex;gap:14px;align-items:flex-start;}
+.oath-clause-num{font-size:22px;font-weight:800;color:var(--gold-border);line-height:1;flex-shrink:0;width:32px;letter-spacing:-.02em;}
+.oath-clause-body strong{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:4px;}
+.oath-clause-body-t{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.7);}
+.oath-note{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);padding-top:20px;border-top:1px solid rgba(255,255,255,.1);}
+
+@media(max-width:720px){
+  .oath-wrap{padding:36px 28px;}
+  .oath-text{padding:4px 16px;font-size:14.5px;}
+}
 
 /* ── NOMINATION ── */
-.nomination-box{background:var(--gris-bg);border-radius:12px;padding:36px;margin-bottom:44px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
-@media(max-width:700px){.nomination-box{grid-template-columns:1fr;}}
-.nom-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;color:var(--azul);margin-bottom:10px;line-height:1.1;}
-.nom-desc{font-size:.86rem;line-height:1.75;color:var(--negro);margin-bottom:18px;}
-.nom-req-title{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--azul);margin-bottom:12px;}
-.nom-req-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.83rem;line-height:1.55;color:var(--negro);}
-.nom-req-item i{color:var(--azul);font-size:.9rem;flex-shrink:0;margin-top:2px;}
-.nom-placeholder{background:#fff;border:2px dashed var(--borde);border-radius:10px;padding:28px;text-align:center;}
-.nom-placeholder-icon{font-size:2.5rem;color:var(--borde);display:block;margin-bottom:12px;}
-.nom-placeholder-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--azul);margin-bottom:8px;}
-.nom-placeholder-desc{font-size:.82rem;color:var(--gris);line-height:1.65;margin-bottom:18px;}
-.btn-primary{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:var(--azul);color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .18s;}
-.btn-primary:hover{background:#001f6b;}
-.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#fff;color:var(--azul);border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .18s;}
-.btn-outline:hover{background:var(--azul);color:#fff;}
-
-/* ── PLATFORM MECHANICS ── */
-.mechanics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:44px;}
-.mech-card{background:#fff;border:1.5px solid var(--borde);border-radius:8px;padding:20px;position:relative;}
-.mech-step{position:absolute;top:-12px;left:18px;background:var(--azul);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:1px;padding:3px 10px;border-radius:10px;}
-.mech-icon{font-size:1.4rem;color:var(--azul);margin:10px 0 10px;}
-.mech-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:6px;}
-.mech-text{font-size:.8rem;line-height:1.6;color:var(--gris);}
-
-/* ── BRIDGE CARD ── */
-.bridge-card{background:linear-gradient(135deg,var(--azul),#003ab5);border-radius:10px;padding:28px 32px;display:flex;align-items:center;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
-.bridge-icon{font-size:2.5rem;color:rgba(255,255,255,.3);flex-shrink:0;}
-.bridge-text{flex:1;min-width:200px;}
-.bridge-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff;margin-bottom:6px;}
-.bridge-desc{font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.65;}
-.bridge-cta{flex-shrink:0;}
-.btn-white{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#fff;color:var(--azul);border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .18s;}
-.btn-white:hover{background:var(--gris-bg);}
+.nom-box{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:stretch;margin-bottom:40px;}
+@media(max-width:820px){.nom-box{grid-template-columns:1fr;}}
+.nom-left{background:#fff;border-radius:var(--radius-lg);padding:36px 40px;box-shadow:var(--shadow-2);}
+.nom-title{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;line-height:1.15;}
+.nom-desc{font-size:15px;line-height:1.72;color:var(--ink-2);margin-bottom:22px;}
+.nom-req-label{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.nom-req{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:14px;line-height:1.6;color:var(--ink-2);}
+.nom-req i{color:var(--blue);font-size:16px;flex-shrink:0;margin-top:2px;}
+.nom-btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.nom-right{background:var(--bg-gray);border:2px dashed var(--line);border-radius:var(--radius-lg);padding:36px 32px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.nom-right i.big{font-size:52px;color:var(--ink-4);margin-bottom:18px;}
+.nom-right-title{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px;}
+.nom-right-desc{font-size:14px;line-height:1.68;color:var(--ink-2);margin-bottom:22px;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--blue);color:#fff;border-radius:var(--radius-pill);font-size:14px;font-weight:600;letter-spacing:-.005em;transition:all .25s var(--ease);}
+.btn-primary:hover{background:var(--blue-hover);transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#fff;color:var(--blue);border:1px solid var(--blue);border-radius:var(--radius-pill);font-size:14px;font-weight:600;letter-spacing:-.005em;transition:all .25s var(--ease);}
+.btn-outline:hover{background:var(--blue);color:#fff;}
 
 /* ── PARTISAN BRIDGE ── */
-.partisan-box{background:var(--oro-bg);border:1px solid var(--oro-borde);border-left:4px solid var(--oro);border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:44px;}
-.partisan-box-title{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--oro);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-.partisan-box p{font-size:.86rem;line-height:1.72;color:#5a3e00;}
-.partisan-box strong{color:#3d2900;}
+.partisan{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:22px 28px;margin-bottom:44px;}
+.partisan-title{display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.partisan p{font-size:14.5px;line-height:1.72;color:#5a3e00;}
+.partisan strong{color:#3d2900;font-weight:700;}
+.partisan a{color:var(--gold);font-weight:700;border-bottom:1px solid var(--gold-border);}
+
+/* ── MECHANICS ── */
+.mech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.mech{background:#fff;border-radius:var(--radius);padding:26px 26px 24px;box-shadow:var(--shadow-2);position:relative;transition:transform .3s var(--ease);}
+.mech:hover{transform:translateY(-4px) scale(1.012);}
+.mech-step{position:absolute;top:-14px;left:22px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 13px;border-radius:var(--radius-pill);}
+.mech-icon{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:17px;margin:8px 0 14px;}
+.mech-title{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px;}
+.mech-text{font-size:13.5px;line-height:1.65;color:var(--ink-2);}
+
+/* ── BRIDGE TO GOBIERNO ── */
+.gob-bridge{background:linear-gradient(135deg,var(--blue) 0%,#003ab5 100%);border-radius:var(--radius-lg);padding:40px 44px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;color:#fff;margin-top:44px;overflow:hidden;position:relative;}
+@media(max-width:820px){.gob-bridge{grid-template-columns:1fr;text-align:center;padding:32px 28px;}}
+.gob-bridge-icon{width:72px;height:72px;border-radius:20px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,.8);}
+.gob-bridge-title{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;color:#fff;}
+.gob-bridge-desc{font-size:14.5px;line-height:1.68;color:rgba(255,255,255,.75);max-width:62ch;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#fff;color:var(--blue);border-radius:var(--radius-pill);font-size:14px;font-weight:700;letter-spacing:-.005em;transition:all .25s var(--ease);}
+.btn-white:hover{background:var(--bg-gray);transform:translateY(-2px);}
 
 /* ── FOOTER ── */
-footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}
-footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
-footer a{color:rgba(255,255,255,.6);text-decoration:none;}
+footer{background:var(--ink);color:rgba(255,255,255,.65);padding:72px 0 36px;}
+.ft-grid{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+@media(max-width:780px){.ft-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+.ft-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.ft-brand img{height:32px;width:auto;border-radius:7px;}
+.ft-brand-text{font-size:16px;font-weight:700;color:#fff;letter-spacing:-.01em;}
+.ft-tag{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.6);max-width:38ch;margin-bottom:18px;}
+.ft-gs{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px dashed rgba(255,255,255,.22);border-radius:var(--radius-pill);font-size:12px;font-weight:600;letter-spacing:.01em;color:rgba(255,255,255,.82);transition:all .25s var(--ease);}
+.ft-gs:hover{border-color:#fff;color:#fff;}
+.ft-col h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ft-col a{font-size:14px;color:rgba(255,255,255,.72);transition:color .2s;}
+.ft-col a:hover{color:#fff;}
+.ft-bottom{max-width:1280px;margin:0 auto;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:12px;}
+.ft-bottom a{color:rgba(255,255,255,.6);}
+.ft-bottom a:hover{color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .breadcrumb{display:none;}
+  section{padding:64px 0;}
+  .hero-inner{padding:64px 24px 60px;}
+}
 </style>
 </head>
 <body>
@@ -150,251 +218,288 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 <header>
   <div class="hdr">
     <div class="hdr-left">
-      <a href="index.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
+      <a href="index.html" class="logo-lockup">
+        <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.style.display='none'">
+        <span class="logo-text">ENTRE TODOS</span>
       </a>
-      <a href="index.html" class="back-btn">
-        <i class="fi fi-br-arrow-left"></i> Página Principal
-      </a>
-      <a href="candidaturas-cuba.html" class="back-candidatos">
-        <i class="fi fi-br-ballot"></i> Ver Candidaturas
-      </a>
+      <span class="breadcrumb">Inicio <span>·</span> Fase 4 <span>·</span> <strong>Candidatura Solucionaria</strong></span>
+    </div>
+    <div class="hdr-right">
+      <a href="candidaturas-cuba.html" class="btn-back ghost"><i class="fi fi-br-list-check"></i> Candidaturas</a>
+      <a href="index.html" class="btn-back"><i class="fi fi-br-arrow-left"></i> Inicio</a>
     </div>
   </div>
 </header>
 
-<!-- ══ BANNER ══ -->
-<div class="page-banner">
-  <div class="page-banner-flag"></div>
-  <div class="page-banner-accent"></div>
-  <div class="page-banner-watermark"><i class="fi fi-br-settings-sliders"></i></div>
-  <div class="page-banner-inner">
-    <div class="page-banner-phase">Fase 4 · Sistema Electoral &nbsp;·&nbsp; Gobernanza Solucionaria</div>
-    <div class="page-banner-title">Candidatura<br><span>Solucionaria</span></div>
-    <div class="page-banner-sub">Un nuevo tipo de candidato que no llega con un programa cerrado, sino con un marco abierto. Su plataforma no la escribe él — la construye la ciudadanía, punto por punto, con evidencia y votación.</div>
-    <div class="page-banner-tags">
-      <div class="banner-tag gold"><i class="fi fi-br-shield" style="font-size:.8rem;"></i> Juramento de Neutralidad</div>
-      <div class="banner-tag white"><i class="fi fi-br-users" style="font-size:.8rem;"></i> Plataforma Plural</div>
-      <div class="banner-tag white"><i class="fi fi-br-puzzle" style="font-size:.8rem;"></i> Votación por Puntos</div>
+<!-- ── HERO ── -->
+<section class="hero" style="padding:0;">
+  <i class="fi fi-br-settings-sliders hero-wm"></i>
+  <div class="hero-inner">
+    <div class="hero-kicker"><i class="fi fi-br-shield-check"></i> Fase 4 · Gobernanza Solucionaria</div>
+    <h1>Candidatura<em>Solucionaria.</em></h1>
+    <p class="hero-sub">Un nuevo tipo de candidato que no llega con un programa cerrado, sino con un marco abierto. Su plataforma no la escribe él — la construye la ciudadanía, punto por punto, con evidencia y votación.</p>
+    <div class="hero-tags">
+      <span class="tag gold"><i class="fi fi-br-shield-check"></i> Juramento de neutralidad</span>
+      <span class="tag white"><i class="fi fi-br-users-alt"></i> Plataforma plural</span>
+      <span class="tag white"><i class="fi fi-br-apps"></i> Votación por puntos</span>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ══ MAIN ══ -->
-<div class="sec">
+<!-- ── CONCEPTO ── -->
+<section>
+  <div class="container">
+    <div class="sec-kicker">El candidato solucionario</div>
+    <h2>Un facilitador, no un <em>líder</em>.</h2>
+    <p class="sec-sub">El candidato solucionario no se presenta como portador de una verdad ni representante de una ideología. Se presenta como garante del proceso colectivo — el que asegura que el sistema funcione, que las mejores ideas emerjan y que las decisiones se tomen con transparencia.</p>
 
-  <!-- SECTION 1: CONCEPTO -->
-  <div class="sec-label">El Candidato Solucionario</div>
-  <div class="sec-title">Un facilitador, no un líder</div>
-  <div class="sec-sub">El candidato solucionario no se presenta como portador de una verdad ni representante de una ideología. Se presenta como garante del proceso colectivo — el que asegura que el sistema funcione, que las mejores ideas emerjan y que las decisiones se tomen con transparencia.</div>
-
-  <div class="pillar-grid">
-    <div class="pillar-card">
-      <div class="pillar-num">1</div>
-      <div class="pillar-icon"><i class="fi fi-br-shield"></i></div>
-      <div class="pillar-title">Integridad Ética</div>
-      <div class="pillar-text">No instrumentaliza el poder. Somete su propia conducta a los mismos criterios de evaluación que aplica a las políticas: evidencia, transparencia y rendición de cuentas permanente.</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">2</div>
-      <div class="pillar-icon"><i class="fi fi-br-settings-sliders"></i></div>
-      <div class="pillar-title">Competencia Sistémica</div>
-      <div class="pillar-text">Comprende cómo diseñar y sostener procesos complejos de decisión colectiva. No necesita tener todas las respuestas — necesita construir el sistema que las produce.</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">3</div>
-      <div class="pillar-icon"><i class="fi fi-br-user-check"></i></div>
-      <div class="pillar-title">Madurez Personal</div>
-      <div class="pillar-text">Opera sin necesidad de protagonismo ni validación ideológica. Es reemplazable por diseño. El sistema — la plataforma plural, el mecanismo de consenso — es lo que permanece.</div>
-    </div>
-  </div>
-
-  <!-- SECTION 2: CONTRASTE -->
-  <div class="sec-label">Contraste</div>
-  <div class="sec-title">Solucionario vs Partidista</div>
-  <div class="sec-sub">No son incompatibles — son modelos distintos. Un candidato partidista puede adoptar el marco solucionario sin abandonar su partido.</div>
-
-  <div class="contrast-wrap">
-    <table class="contrast-table">
-      <thead>
-        <tr>
-          <th class="col-dim"></th>
-          <th class="col-sol"><i class="fi fi-br-settings-sliders" style="font-size:.8rem;margin-right:6px;"></i>Candidato Solucionario</th>
-          <th class="col-par">Candidato Partidista</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-dim">Qué trae</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> Marco abierto</span><br>Un sistema de participación, no un programa cerrado. La plataforma se construye con la ciudadanía.</td>
-          <td class="col-par">Un programa de gobierno definido antes de la campaña, elaborado por el partido o su equipo.</td>
-        </tr>
-        <tr>
-          <td class="col-dim">Su plataforma</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> Sistema vivo</span><br>Cada punto es propuesto, evaluado y votado por la ciudadanía de forma independiente. Ningún punto arrastra a los demás.</td>
-          <td class="col-par">Un bloque ideológico. Votar al candidato implica aceptar todo el programa. Los puntos no se separan.</td>
-        </tr>
-        <tr>
-          <td class="col-dim">A quién representa</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> Al proceso</span><br>No representa a una base ideológica. Su legitimidad nace de la calidad del proceso que garantiza.</td>
-          <td class="col-par">A su partido, su base electoral y la corriente ideológica que lo respalda.</td>
-        </tr>
-        <tr>
-          <td class="col-dim">Su promesa</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> Proceso transparente</span><br>"Esto es lo que vamos a decidir juntos, bajo reglas claras, verificables y públicas."</td>
-          <td class="col-par">"Esto es lo que voy a hacer." Promesas de resultados, que pueden o no depender de su sola voluntad.</td>
-        </tr>
-        <tr>
-          <td class="col-dim">Ideología</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> Neutra por juramento</span><br>No favorece ninguna corriente por afinidad. Compromiso operativo, no simbólico.</td>
-          <td class="col-par">Anclada a una corriente política específica. Es parte de su identidad como candidato.</td>
-        </tr>
-        <tr>
-          <td class="col-dim">Si es reemplazado</td>
-          <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check" style="font-size:.65rem;"></i> El sistema continúa</span><br>La plataforma plural, los consensos y las reglas de participación sobreviven al candidato.</td>
-          <td class="col-par">El programa puede cambiar sustancialmente con un nuevo candidato del mismo partido.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div><!-- /sec -->
-
-<hr class="sec-div">
-
-<!-- ══ OATH ══ -->
-<div style="background:linear-gradient(180deg,#fff 0%,var(--gris-bg) 100%);">
-<div class="sec" style="padding-top:48px;padding-bottom:48px;">
-
-  <div class="sec-label gold">Juramento de Neutralidad</div>
-
-  <div class="oath-wrap">
-    <div class="oath-watermark"><i class="fi fi-br-diploma"></i></div>
-    <div class="oath-label">Compromiso operativo — No simbólico</div>
-    <div class="oath-title">Juramento de Neutralidad<br>Ideológica y Política</div>
-    <div class="oath-text">
-      "Me comprometo a ejercer esta función como <strong>garante del proceso colectivo</strong>, no como portador de verdades propias. No favoreceré ninguna corriente, partido, grupo ni agenda por afinidad personal, presión política o conveniencia. Mi única lealtad es al proceso de construcción del mayor bien con el menor daño posible, basado en evidencia, participación ciudadana y evaluación continua."
-    </div>
-
-    <div class="oath-clauses">
-      <div class="oath-clause">
-        <div class="oath-clause-num">I</div>
-        <div class="oath-clause-text"><strong>Neutralidad Activa</strong>No adoptaré posiciones ideológicas en ejercicio de mis funciones. Evaluaré cada propuesta por su evidencia y mérito, no por su origen político.</div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-num">1</div>
+        <div class="pillar-icon"><i class="fi fi-br-shield-check"></i></div>
+        <div class="pillar-title">Integridad ética</div>
+        <div class="pillar-text">No instrumentaliza el poder. Somete su propia conducta a los mismos criterios de evaluación que aplica a las políticas: evidencia, transparencia y rendición de cuentas permanente.</div>
       </div>
-      <div class="oath-clause">
-        <div class="oath-clause-num">II</div>
-        <div class="oath-clause-text"><strong>Transparencia Total</strong>Todas las decisiones del proceso serán públicas, documentadas y abiertas al escrutinio ciudadano sin excepción.</div>
+      <div class="pillar">
+        <div class="pillar-num">2</div>
+        <div class="pillar-icon"><i class="fi fi-br-settings-sliders"></i></div>
+        <div class="pillar-title">Competencia sistémica</div>
+        <div class="pillar-text">Comprende cómo diseñar y sostener procesos complejos de decisión colectiva. No necesita tener todas las respuestas — necesita construir el sistema que las produce.</div>
       </div>
-      <div class="oath-clause">
-        <div class="oath-clause-num">III</div>
-        <div class="oath-clause-text"><strong>Sometimiento al Consenso</strong>Las propuestas que integran la plataforma no son mías. Son el resultado del proceso participativo. No las defenderé como propias; las implementaré como mandato ciudadano.</div>
-      </div>
-      <div class="oath-clause">
-        <div class="oath-clause-num">IV</div>
-        <div class="oath-clause-text"><strong>Reemplazabilidad Aceptada</strong>El sistema es más importante que yo. Acepto que el marco de participación, los consensos y las reglas del proceso son permanentes e independientes de mi persona.</div>
-      </div>
-      <div class="oath-clause">
-        <div class="oath-clause-num">V</div>
-        <div class="oath-clause-text"><strong>Rendición de Cuentas Continua</strong>Me someto a evaluación ciudadana periódica durante el ejercicio de mis funciones, con posibilidad de revocación basada en incumplimiento de este juramento.</div>
-      </div>
-      <div class="oath-clause">
-        <div class="oath-clause-num">VI</div>
-        <div class="oath-clause-text"><strong>No Instrumentalización</strong>No usaré el acceso al poder para favorecer intereses propios, de mi grupo, familia o red de relaciones por encima del mandato ciudadano.</div>
-      </div>
-    </div>
-
-    <div class="oath-note">Este juramento es condición necesaria para ser reconocido como Candidato Solucionario dentro de ENTRE TODOS. Su incumplimiento es causa de descalificación del registro.</div>
-  </div>
-
-</div>
-</div>
-
-<hr class="sec-div">
-
-<!-- ══ NOMINATION ══ -->
-<div class="sec">
-
-  <div class="sec-label">Nominación Abierta</div>
-  <div class="sec-title">¿Quién puede ser candidato solucionario?</div>
-
-  <div class="nomination-box">
-    <div>
-      <div class="nom-title">Requisitos para la nominación</div>
-      <div class="nom-desc">El candidato solucionario no es designado por un partido. Puede ser nominado por cualquier persona u organización que cumpla los criterios del marco — incluyendo candidatos que ya corren por un partido y desean abrir su plataforma al sistema de votación por puntos.</div>
-      <div class="nom-req-title">Criterios de elegibilidad</div>
-      <div class="nom-req-item"><i class="fi fi-br-check-circle"></i>Firma y publicación del Juramento de Neutralidad Ideológica y Política</div>
-      <div class="nom-req-item"><i class="fi fi-br-check-circle"></i>Presentación de perfil público verificable (trayectoria, competencias, referencias)</div>
-      <div class="nom-req-item"><i class="fi fi-br-check-circle"></i>Aceptación del mecanismo de evaluación ciudadana periódica</div>
-      <div class="nom-req-item"><i class="fi fi-br-check-circle"></i>Declaración de ausencia de conflictos de interés conocidos</div>
-      <div class="nom-req-item"><i class="fi fi-br-check-circle"></i>Compromiso explícito de someter decisiones de gobierno al proceso de plataforma plural</div>
-      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="mailto:entretodos@sosplanet.org?subject=Nominación Candidato Solucionario" class="btn-primary"><i class="fi fi-br-envelope"></i> Nominar un candidato</a>
-      </div>
-    </div>
-    <div>
-      <div class="nom-placeholder">
-        <i class="fi fi-br-user-add nom-placeholder-icon"></i>
-        <div class="nom-placeholder-title">Nominación Abierta</div>
-        <div class="nom-placeholder-desc">Aún no hay un candidato solucionario declarado para Cuba. Esta página se activará con el perfil completo, el juramento firmado y el estado actual de la plataforma plural cuando se reciba la primera nominación válida.</div>
-        <a href="mailto:entretodos@sosplanet.org?subject=Nominación Candidato Solucionario" class="btn-outline"><i class="fi fi-br-add"></i> Presentar nominación</a>
+      <div class="pillar">
+        <div class="pillar-num">3</div>
+        <div class="pillar-icon"><i class="fi fi-br-user-check"></i></div>
+        <div class="pillar-title">Madurez personal</div>
+        <div class="pillar-text">Opera sin necesidad de protagonismo ni validación ideológica. Es reemplazable por diseño. El sistema — la plataforma plural, el mecanismo de consenso — es lo que permanece.</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PARTISAN BRIDGE -->
-  <div class="partisan-box">
-    <div class="partisan-box-title"><i class="fi fi-br-info"></i> Candidatos Partidistas y el Marco Solucionario</div>
-    <p>Un candidato que ya corre por un partido puede <strong>adoptar el marco solucionario</strong> sin abandonar su candidatura. Al hacerlo, su plataforma deja de ser un bloque cerrado y se convierte en un sistema modular: cada punto puede ser evaluado y aprobado o rechazado de forma independiente por la ciudadanía. El partido conserva su identidad; el candidato gana legitimidad participativa. Cualquier aspirante registrado en <a href="candidaturas-cuba.html" style="color:var(--oro);font-weight:700;">la página de candidaturas</a> puede solicitar su incorporación a este marco.</p>
+<!-- ── CONTRASTE ── -->
+<section style="background:var(--bg-gray);padding-top:72px;padding-bottom:72px;">
+  <div class="container">
+    <div class="sec-kicker">Contraste</div>
+    <h2>Solucionario <em>vs</em> partidista.</h2>
+    <p class="sec-sub">No son incompatibles — son modelos distintos. Un candidato partidista puede adoptar el marco solucionario sin abandonar su partido.</p>
+
+    <div class="contrast-wrap">
+      <table class="contrast-table">
+        <thead>
+          <tr>
+            <th class="col-dim"></th>
+            <th class="col-sol"><i class="fi fi-br-settings-sliders"></i>Candidato Solucionario</th>
+            <th class="col-par">Candidato Partidista</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-dim">Qué trae</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> Marco abierto</span><br>Un sistema de participación, no un programa cerrado. La plataforma se construye con la ciudadanía.</td>
+            <td class="col-par">Un programa de gobierno definido antes de la campaña, elaborado por el partido o su equipo.</td>
+          </tr>
+          <tr>
+            <td class="col-dim">Su plataforma</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> Sistema vivo</span><br>Cada punto es propuesto, evaluado y votado por la ciudadanía de forma independiente. Ningún punto arrastra a los demás.</td>
+            <td class="col-par">Un bloque ideológico. Votar al candidato implica aceptar todo el programa. Los puntos no se separan.</td>
+          </tr>
+          <tr>
+            <td class="col-dim">A quién representa</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> Al proceso</span><br>No representa a una base ideológica. Su legitimidad nace de la calidad del proceso que garantiza.</td>
+            <td class="col-par">A su partido, su base electoral y la corriente ideológica que lo respalda.</td>
+          </tr>
+          <tr>
+            <td class="col-dim">Su promesa</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> Proceso transparente</span><br>"Esto es lo que vamos a decidir juntos, bajo reglas claras, verificables y públicas."</td>
+            <td class="col-par">"Esto es lo que voy a hacer." Promesas de resultados, que pueden o no depender de su sola voluntad.</td>
+          </tr>
+          <tr>
+            <td class="col-dim">Ideología</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> Neutra por juramento</span><br>No favorece ninguna corriente por afinidad. Compromiso operativo, no simbólico.</td>
+            <td class="col-par">Anclada a una corriente política específica. Es parte de su identidad como candidato.</td>
+          </tr>
+          <tr>
+            <td class="col-dim">Si es reemplazado</td>
+            <td class="col-sol"><span class="sol-chip"><i class="fi fi-br-check"></i> El sistema continúa</span><br>La plataforma plural, los consensos y las reglas de participación sobreviven al candidato.</td>
+            <td class="col-par">El programa puede cambiar sustancialmente con un nuevo candidato del mismo partido.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+</section>
 
-  <!-- HOW THE PLATFORM WORKS -->
-  <div class="sec-label">La Plataforma Plural</div>
-  <div class="sec-title">¿Cómo se construye la plataforma de gobierno?</div>
-  <div class="sec-sub">No la escribe el candidato. La construye la ciudadanía, punto por punto. El candidato solucionario la administra como resultado del consenso dinámico, no como propia.</div>
+<!-- ── JURAMENTO ── -->
+<section>
+  <div class="container">
+    <div class="sec-kicker gold">Juramento de neutralidad</div>
+    <h2>Compromiso operativo — <em>no simbólico</em>.</h2>
+    <p class="sec-sub">Este juramento es condición necesaria para ser reconocido como Candidato Solucionario dentro de ENTRE TODOS. Su incumplimiento es causa de descalificación del registro.</p>
 
-  <div class="mechanics-grid">
-    <div class="mech-card">
-      <div class="mech-step">Paso 1</div>
-      <div class="mech-icon"><i class="fi fi-br-megaphone"></i></div>
-      <div class="mech-title">Cualquiera propone</div>
-      <div class="mech-text">Personas, organizaciones o partidos presentan propuestas de política pública. Cada propuesta es un punto independiente con su contexto, evidencia y justificación.</div>
-    </div>
-    <div class="mech-card">
-      <div class="mech-step">Paso 2</div>
-      <div class="mech-icon"><i class="fi fi-br-file-check"></i></div>
-      <div class="mech-title">Se organiza y valida</div>
-      <div class="mech-text">ENTRE TODOS categoriza las propuestas, elimina duplicados y verifica que sean evaluables. Nada desaparece — todo queda registrado con su fuente.</div>
-    </div>
-    <div class="mech-card">
-      <div class="mech-step">Paso 3</div>
-      <div class="mech-icon"><i class="fi fi-br-vote-yea"></i></div>
-      <div class="mech-title">La ciudadanía vota por puntos</div>
-      <div class="mech-text">Cada punto se evalúa de forma independiente: acuerdo, desacuerdo o matizo. Un voto en contra de un punto no afecta a los demás. La plataforma refleja lo que realmente tiene consenso.</div>
-    </div>
-    <div class="mech-card">
-      <div class="mech-step">Paso 4</div>
-      <div class="mech-icon"><i class="fi fi-br-chart-line-up"></i></div>
-      <div class="mech-title">La plataforma emerge</div>
-      <div class="mech-text">Los puntos con mayor consenso forman la plataforma de gobierno. El candidato solucionario no defiende esos puntos como propios — los implementa como mandato ciudadano verificable.</div>
+    <div class="oath-wrap">
+      <i class="fi fi-br-diploma oath-wm"></i>
+      <div class="oath-wrap-in">
+        <div class="oath-kicker">Juramento de Neutralidad Ideológica y Política</div>
+        <div class="oath-title">"Me comprometo a ejercer esta función como garante del proceso colectivo."</div>
+        <div class="oath-text">"Me comprometo a ejercer esta función como <strong>garante del proceso colectivo</strong>, no como portador de verdades propias. No favoreceré ninguna corriente, partido, grupo ni agenda por afinidad personal, presión política o conveniencia. Mi única lealtad es al proceso de construcción del mayor bien con el menor daño posible, basado en evidencia, participación ciudadana y evaluación continua."</div>
+
+        <div class="oath-clauses">
+          <div class="oath-clause">
+            <div class="oath-clause-num">I</div>
+            <div class="oath-clause-body"><strong>Neutralidad activa</strong><div class="oath-clause-body-t">No adoptaré posiciones ideológicas en ejercicio de mis funciones. Evaluaré cada propuesta por su evidencia y mérito, no por su origen político.</div></div>
+          </div>
+          <div class="oath-clause">
+            <div class="oath-clause-num">II</div>
+            <div class="oath-clause-body"><strong>Transparencia total</strong><div class="oath-clause-body-t">Todas las decisiones del proceso serán públicas, documentadas y abiertas al escrutinio ciudadano sin excepción.</div></div>
+          </div>
+          <div class="oath-clause">
+            <div class="oath-clause-num">III</div>
+            <div class="oath-clause-body"><strong>Sometimiento al consenso</strong><div class="oath-clause-body-t">Las propuestas que integran la plataforma no son mías. Son el resultado del proceso participativo. No las defenderé como propias; las implementaré como mandato ciudadano.</div></div>
+          </div>
+          <div class="oath-clause">
+            <div class="oath-clause-num">IV</div>
+            <div class="oath-clause-body"><strong>Reemplazabilidad aceptada</strong><div class="oath-clause-body-t">El sistema es más importante que yo. Acepto que el marco de participación, los consensos y las reglas del proceso son permanentes e independientes de mi persona.</div></div>
+          </div>
+          <div class="oath-clause">
+            <div class="oath-clause-num">V</div>
+            <div class="oath-clause-body"><strong>Rendición de cuentas continua</strong><div class="oath-clause-body-t">Me someto a evaluación ciudadana periódica durante el ejercicio de mis funciones, con posibilidad de revocación basada en incumplimiento de este juramento.</div></div>
+          </div>
+          <div class="oath-clause">
+            <div class="oath-clause-num">VI</div>
+            <div class="oath-clause-body"><strong>No instrumentalización</strong><div class="oath-clause-body-t">No usaré el acceso al poder para favorecer intereses propios, de mi grupo, familia o red de relaciones por encima del mandato ciudadano.</div></div>
+          </div>
+        </div>
+
+        <div class="oath-note">Condición necesaria — su incumplimiento es causa de descalificación del registro.</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- BRIDGE TO GOBIERNO -->
-  <div class="bridge-card">
-    <div class="bridge-icon"><i class="fi fi-br-bank"></i></div>
-    <div class="bridge-text">
-      <div class="bridge-title">Plataforma de Gobierno Solucionaria</div>
-      <div class="bridge-desc">La Fase 3 de la Hoja de Ruta construye el marco institucional. La plataforma plural del candidato solucionario se conecta directamente con ese proceso — los puntos aprobados aquí informan las decisiones de estructura del Estado.</div>
+<!-- ── NOMINACIÓN ── -->
+<section style="background:var(--bg-gray);padding-top:72px;padding-bottom:72px;">
+  <div class="container">
+    <div class="sec-kicker">Nominación abierta</div>
+    <h2>¿Quién puede ser <em>candidato solucionario</em>?</h2>
+
+    <div class="nom-box">
+      <div class="nom-left">
+        <div class="nom-title">Requisitos para la nominación</div>
+        <div class="nom-desc">El candidato solucionario no es designado por un partido. Puede ser nominado por cualquier persona u organización que cumpla los criterios del marco — incluyendo candidatos que ya corren por un partido y desean abrir su plataforma al sistema de votación por puntos.</div>
+        <div class="nom-req-label">Criterios de elegibilidad</div>
+        <div class="nom-req"><i class="fi fi-br-check-circle"></i> Firma y publicación del Juramento de Neutralidad Ideológica y Política.</div>
+        <div class="nom-req"><i class="fi fi-br-check-circle"></i> Presentación de perfil público verificable (trayectoria, competencias, referencias).</div>
+        <div class="nom-req"><i class="fi fi-br-check-circle"></i> Aceptación del mecanismo de evaluación ciudadana periódica.</div>
+        <div class="nom-req"><i class="fi fi-br-check-circle"></i> Declaración de ausencia de conflictos de interés conocidos.</div>
+        <div class="nom-req"><i class="fi fi-br-check-circle"></i> Compromiso explícito de someter decisiones de gobierno al proceso de plataforma plural.</div>
+        <div class="nom-btn-row">
+          <a href="mailto:entretodos@sosplanet.org?subject=Nominación Candidato Solucionario" class="btn-primary"><i class="fi fi-br-envelope"></i> Nominar un candidato</a>
+        </div>
+      </div>
+      <div class="nom-right">
+        <i class="fi fi-br-user-add big"></i>
+        <div class="nom-right-title">Nominación abierta</div>
+        <div class="nom-right-desc">Aún no hay un candidato solucionario declarado para Cuba. Esta página se activará con el perfil completo, el juramento firmado y el estado actual de la plataforma plural cuando se reciba la primera nominación válida.</div>
+        <a href="mailto:entretodos@sosplanet.org?subject=Nominación Candidato Solucionario" class="btn-outline"><i class="fi fi-br-plus"></i> Presentar nominación</a>
+      </div>
     </div>
-    <div class="bridge-cta">
-      <a href="gobierno-cuba.html" class="btn-white"><i class="fi fi-br-arrow-right"></i> Ver Plataforma de Gobierno</a>
+
+    <div class="partisan">
+      <div class="partisan-title"><i class="fi fi-br-info"></i> Candidatos partidistas y el marco solucionario</div>
+      <p>Un candidato que ya corre por un partido puede <strong>adoptar el marco solucionario</strong> sin abandonar su candidatura. Al hacerlo, su plataforma deja de ser un bloque cerrado y se convierte en un sistema modular: cada punto puede ser evaluado y aprobado o rechazado de forma independiente por la ciudadanía. El partido conserva su identidad; el candidato gana legitimidad participativa. Cualquier aspirante registrado en <a href="candidaturas-cuba.html">la página de candidaturas</a> puede solicitar su incorporación a este marco.</p>
     </div>
   </div>
+</section>
 
-</div>
+<!-- ── PLATAFORMA PLURAL ── -->
+<section>
+  <div class="container">
+    <div class="sec-kicker">La plataforma plural</div>
+    <h2>¿Cómo se construye la plataforma de <em>gobierno</em>?</h2>
+    <p class="sec-sub">No la escribe el candidato. La construye la ciudadanía, punto por punto. El candidato solucionario la administra como resultado del consenso dinámico, no como propia.</p>
 
+    <div class="mech-grid">
+      <div class="mech">
+        <div class="mech-step">Paso 1</div>
+        <div class="mech-icon"><i class="fi fi-br-megaphone-announcement-leader"></i></div>
+        <div class="mech-title">Cualquiera propone</div>
+        <div class="mech-text">Personas, organizaciones o partidos presentan propuestas de política pública. Cada propuesta es un punto independiente con su contexto, evidencia y justificación.</div>
+      </div>
+      <div class="mech">
+        <div class="mech-step">Paso 2</div>
+        <div class="mech-icon"><i class="fi fi-br-file-check"></i></div>
+        <div class="mech-title">Se organiza y valida</div>
+        <div class="mech-text">ENTRE TODOS categoriza las propuestas, elimina duplicados y verifica que sean evaluables. Nada desaparece — todo queda registrado con su fuente.</div>
+      </div>
+      <div class="mech">
+        <div class="mech-step">Paso 3</div>
+        <div class="mech-icon"><i class="fi fi-br-checkbox"></i></div>
+        <div class="mech-title">La ciudadanía vota por puntos</div>
+        <div class="mech-text">Cada punto se evalúa de forma independiente: acuerdo, desacuerdo o matizo. Un voto en contra de un punto no afecta a los demás. La plataforma refleja lo que realmente tiene consenso.</div>
+      </div>
+      <div class="mech">
+        <div class="mech-step">Paso 4</div>
+        <div class="mech-icon"><i class="fi fi-br-chart-line-up"></i></div>
+        <div class="mech-title">La plataforma emerge</div>
+        <div class="mech-text">Los puntos con mayor consenso forman la plataforma de gobierno. El candidato solucionario no defiende esos puntos como propios — los implementa como mandato ciudadano verificable.</div>
+      </div>
+    </div>
+
+    <!-- BRIDGE TO GOBIERNO -->
+    <div class="gob-bridge">
+      <div class="gob-bridge-icon"><i class="fi fi-br-bank"></i></div>
+      <div>
+        <div class="gob-bridge-title">Plataforma de gobierno solucionaria</div>
+        <div class="gob-bridge-desc">La Fase 3 de la Hoja de Ruta construye el marco institucional. La plataforma plural del candidato solucionario se conecta directamente con ese proceso — los puntos aprobados aquí informan las decisiones de estructura del Estado.</div>
+      </div>
+      <div><a href="gobierno-cuba.html" class="btn-white"><i class="fi fi-br-arrow-right"></i> Ver plataforma de gobierno</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
 <footer>
-  <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Gobernanza Solucionaria &nbsp;·&nbsp; Candidatura Solucionaria &nbsp;·&nbsp; 2026
+  <div class="ft-grid">
+    <div class="ft-col">
+      <div class="ft-brand">
+        <img src="entre-todos-logo.png" alt="ENTRE TODOS" onerror="this.style.display='none'">
+        <div class="ft-brand-text">ENTRE TODOS</div>
+      </div>
+      <p class="ft-tag">Plataforma ciudadana de gobernanza abierta. Consenso verificable, propuestas organizadas, evaluación punto por punto.</p>
+      <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener" class="ft-gs"><i class="fi fi-br-apps"></i> Gobernanza Solucionaria</a>
+    </div>
+    <div class="ft-col">
+      <h4>Plataforma</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="constituyente-cuba.html">Constituyente</a></li>
+        <li><a href="propuestas-transicion-cuba.html">Propuestas</a></li>
+        <li><a href="candidaturas-cuba.html">Candidaturas</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Proceso</h4>
+      <ul>
+        <li><a href="consulta-popular-cuba.html">Consulta popular</a></li>
+        <li><a href="gobierno-cuba.html">Gobierno</a></li>
+        <li><a href="elecciones-cuba.html">Elecciones</a></li>
+        <li><a href="implementacion-cuba.html">Implementación</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="presos-politicos-cuba.html">Presos políticos</a></li>
+        <li><a href="transparencia-cuba.html">Transparencia</a></li>
+        <li><a href="politica-privacidad.html">Privacidad</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div>&copy; 2026 ENTRE TODOS · Michel Estopiñán · Potsdam, Alemania</div>
+    <div>Parte del ecosistema <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a></div>
+  </div>
 </footer>
 
 </body>

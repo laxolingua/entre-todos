@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — ENTRE TODOS</title>
+  <meta name="description" content="Política de privacidad formal de ENTRE TODOS: qué datos procesamos, base legal RGPD, derechos del interesado, terceros y contacto.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Política de Privacidad · ENTRE TODOS">
+<meta property="og:description" content="Cómo ENTRE TODOS recolecta, usa y protege tus datos. Tu participación es anónima por defecto y verificable por ti misma.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/politica-privacidad.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Política de Privacidad · ENTRE TODOS">
+<meta name="twitter:description" content="Cómo ENTRE TODOS recolecta, usa y protege tus datos. Tu participación es anónima por defecto y verificable por ti misma.">
+<meta name="twitter:image" content="img/og-default.png">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+    :root{
+      --blue:#002F80;
+      --blue-deep:#001F5C;
+      --blue-hover:#00256B;
+      --blue-soft:#EEF3FB;
+      --red:#CE1126;
+      --red-hover:#A50D1E;
+      --red-soft:#FDECEE;
+      --bg:#FFFFFF;
+      --bg-gray:#F5F5F7;
+      --bg-gray-2:#FAFAFC;
+      --ink:#0B1F3F;
+      --ink-2:#3A4668;
+      --ink-3:#6B7489;
+      --ink-4:#9AA0B0;
+      --line:#E5E5E7;
+      --green:#0B8A4A;
+      --green-soft:#E7F6EE;
+      --radius-sm:14px;
+      --radius:22px;
+      --radius-lg:30px;
+      --shadow-1:0 1px 2px rgba(11,31,63,.04);
+      --shadow-2:0 8px 28px rgba(11,31,63,.08);
+      --shadow-3:0 20px 48px rgba(11,31,63,.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+      background:var(--bg-gray);
+      color:var(--ink);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+
+    /* ── FLAG + HEADER ── */
+    .flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--red) 50% 100%)}
+    header{
+      position:sticky;top:0;z-index:200;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:saturate(180%) blur(18px);
+      -webkit-backdrop-filter:saturate(180%) blur(18px);
+      border-bottom:1px solid rgba(11,31,63,.08);
+      box-shadow:var(--shadow-1);
+    }
+    .hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+    .logo-wrap{display:flex;align-items:center;gap:12px}
+    .logo-img{height:46px;width:46px;display:block;flex-shrink:0;object-fit:contain;border-radius:12px}
+    .hdr-breadcrumb{font-size:.8rem;font-weight:600;color:var(--ink-3)}
+    .hdr-breadcrumb a{color:var(--ink-3);text-decoration:none}
+    .hdr-breadcrumb a:hover{color:var(--blue)}
+    .hdr-breadcrumb .sep{margin:0 8px;color:var(--ink-4)}
+    .hdr-breadcrumb .current{color:var(--ink);font-weight:700}
+    .hdr-back{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:var(--bg-gray);border-radius:999px;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:600;transition:background .18s,color .18s}
+    .hdr-back:hover{background:var(--blue-soft);color:var(--blue)}
+
+    /* ── HERO ── */
+    .hero{background:linear-gradient(180deg,#fff 0%,#f7f9fc 100%);padding:64px 24px 40px}
+    .hero-wrap{max-width:980px;margin:0 auto}
+    .hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:8px 14px;border-radius:999px;margin-bottom:22px}
+    .hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--red)}
+    .hero h1{font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.04;letter-spacing:-.045em;font-weight:800;margin-bottom:14px;max-width:760px}
+    .hero-sub{font-size:1.02rem;line-height:1.55;color:var(--ink-2);max-width:720px;margin:0}
+    .update-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.78rem;font-weight:600;color:var(--ink-3);margin-top:22px;box-shadow:var(--shadow-1)}
+    .update-badge i{color:var(--blue)}
+
+    /* ── LAYOUT ── */
+    .main{max-width:980px;margin:0 auto;padding:40px 24px 64px}
+
+    /* ── SUMMARY BOX ── */
+    .summary-box{background:var(--green-soft);border:1px solid rgba(11,138,74,.16);border-radius:var(--radius);padding:26px 30px;margin-bottom:34px;box-shadow:var(--shadow-1)}
+    .summary-box-label{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:8px;display:inline-flex;align-items:center;gap:8px}
+    .summary-box p{font-size:.98rem;line-height:1.65;color:var(--ink);margin:0}
+    .summary-box strong{color:var(--ink);font-weight:700}
+
+    /* ── TOC ── */
+    .toc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 30px;margin-bottom:40px;box-shadow:var(--shadow-1)}
+    .toc-title{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:inline-flex;align-items:center;gap:8px}
+    .toc ol{list-style:none;counter-reset:item;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;padding:0}
+    .toc ol li{counter-increment:item;padding-left:28px;position:relative;font-size:.94rem;line-height:1.55}
+    .toc ol li::before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:1px;font-size:.78rem;font-weight:700;color:var(--blue);background:var(--blue-soft);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+    .toc ol li a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .18s}
+    .toc ol li a:hover{color:var(--blue)}
+
+    /* ── SECTIONS ── */
+    .section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;margin-bottom:20px;box-shadow:var(--shadow-1);scroll-margin-top:90px}
+    .section h2{
+      font-size:1.55rem;line-height:1.1;letter-spacing:-.025em;font-weight:800;color:var(--ink);
+      margin-bottom:14px;display:flex;align-items:center;gap:12px;
+    }
+    .section h2 .num{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:36px;height:36px;border-radius:12px;
+      background:var(--blue-soft);color:var(--blue);
+      font-size:.82rem;font-weight:700;letter-spacing:.04em;flex-shrink:0;
+    }
+    .section p{font-size:.95rem;line-height:1.7;color:var(--ink-2);margin-bottom:12px}
+    .section p:last-child{margin-bottom:0}
+    .section ul, .section ol{font-size:.95rem;line-height:1.7;color:var(--ink-2);padding-left:22px;margin-bottom:14px}
+    .section ul li, .section ol li{margin-bottom:8px}
+    .section strong{color:var(--ink);font-weight:600}
+    .section a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(0,47,128,.24);transition:border-color .18s}
+    .section a:hover{border-bottom-color:var(--blue)}
+
+    /* ── HIGHLIGHT BOXES ── */
+    .hl{border-radius:var(--radius-sm);padding:18px 22px;margin:16px 0;font-size:.94rem;line-height:1.6;border:1px solid}
+    .hl strong{color:inherit;font-weight:700}
+    .hl.blue{background:var(--blue-soft);border-color:rgba(0,47,128,.16);color:var(--ink)}
+    .hl.red{background:var(--red-soft);border-color:rgba(206,17,38,.16);color:var(--ink)}
+    .hl.green{background:var(--green-soft);border-color:rgba(11,138,74,.16);color:var(--ink)}
+
+    /* ── TECH BLOCK ── */
+    .tech-block{
+      background:var(--ink);border-radius:var(--radius-sm);padding:20px 24px;
+      font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.84rem;color:#a7c7ff;line-height:1.85;
+      margin:16px 0;overflow-x:auto;
+    }
+    .tech-block .comment{color:var(--ink-4)}
+    .tech-block .value-in{color:#FDECEE}
+    .tech-block .value-out{color:#a7c7ff}
+
+    /* ── DATA TABLES ── */
+    .dato-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.88rem;margin:14px 0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+    .dato-table th{background:var(--bg-gray);padding:12px 16px;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-align:left;border-bottom:1px solid var(--line)}
+    .dato-table td{padding:12px 16px;vertical-align:top;line-height:1.6;border-bottom:1px solid var(--line);color:var(--ink-2)}
+    .dato-table tr:last-child td{border-bottom:none}
+    .dato-table td:first-child{font-weight:600;white-space:nowrap;color:var(--ink)}
+    @media (max-width:640px){
+      .dato-table td:first-child{white-space:normal}
+    }
+
+    /* ── FOOTER ── */
+    footer{background:var(--ink);color:#fff;padding:48px 24px 32px;text-align:center}
+    footer .f-shell{max-width:1100px;margin:0 auto}
+    footer .f-logo{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px}
+    footer .f-logo strong{color:#fff}
+    footer .f-meta{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;max-width:700px;margin:0 auto 12px}
+    footer .f-meta a{color:rgba(255,255,255,.82);text-decoration:none}
+    footer .f-meta a:hover{color:#fff;text-decoration:underline}
+    footer .f-gs{margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.72)}
+    footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.4)}
+    footer .f-legal{font-size:.74rem;color:rgba(255,255,255,.42);letter-spacing:.02em;margin-top:14px}
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:760px){
+      .hdr{padding:12px 18px}
+      .hdr-breadcrumb{display:none}
+      .hero{padding:44px 18px 28px}
+      .main{padding:28px 18px 48px}
+      .toc ol{grid-template-columns:1fr}
+      .section{padding:26px 22px}
+      .section h2{font-size:1.3rem}
+    }
+  </style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <div class="logo-wrap">
+      <a href="index.html" style="display:block;line-height:0;">
+        <img src="entre-todos-logo.png" alt="Entre Todos" class="logo-img" onerror="this.onerror=null;this.style.display='none'">
+      </a>
+      <div class="hdr-breadcrumb">
+        <a href="index.html">Inicio</a><span class="sep">/</span><span class="current">Privacidad</span>
+      </div>
+    </div>
+    <a href="index.html" class="hdr-back"><i class="fi fi-br-angle-left"></i> Volver al inicio</a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-kicker"><span class="dot"></span> Marco legal RGPD &nbsp;·&nbsp; Documento vigente</div>
+    <h1>Política de Privacidad</h1>
+    <p class="hero-sub">ENTRE TODOS opera bajo el Reglamento General de Protección de Datos de la Unión Europea. Esta página detalla qué datos procesamos, por qué, durante cuánto tiempo y cómo ejercer tus derechos.</p>
+    <div class="update-badge"><i class="fi fi-br-calendar"></i> Última actualización: abril de 2026</div>
+  </div>
+</section>
+
+<main class="main">
+
+  <div class="summary-box">
+    <div class="summary-box-label"><i class="fi fi-br-info"></i> Resumen sin tecnicismos</div>
+    <p>ENTRE TODOS <strong>no almacena</strong> tu número de carné ni tu número de pasaporte. Nunca. Ese número se convierte en un código matemático irreversible directamente en tu dispositivo, y solo ese código llega a nuestro sistema. Esta página explica eso con detalle y describe todos tus derechos. Si buscas la explicación visual en lenguaje cotidiano, ve a <a href="transparencia-cuba.html" style="color:var(--green);border-bottom:1px solid rgba(11,138,74,.4)">Transparencia</a>.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title"><i class="fi fi-br-list"></i> Contenido</div>
+    <ol>
+      <li><a href="#responsable">Responsable del tratamiento</a></li>
+      <li><a href="#que-datos">Qué datos procesamos (y cuáles NO)</a></li>
+      <li><a href="#como-funciona">Cómo funciona el sistema de anonimización</a></li>
+      <li><a href="#base-legal">Base legal del tratamiento</a></li>
+      <li><a href="#finalidad">Finalidad del tratamiento</a></li>
+      <li><a href="#conservacion">Período de conservación</a></li>
+      <li><a href="#tus-derechos">Tus derechos (RGPD)</a></li>
+      <li><a href="#terceros">Terceros y transferencias internacionales</a></li>
+      <li><a href="#menores">Menores de edad</a></li>
+      <li><a href="#cambios">Cambios en esta política</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. RESPONSABLE -->
+  <div class="section" id="responsable">
+    <h2><span class="num">01</span> Responsable del tratamiento</h2>
+    <table class="dato-table">
+      <tr><td>Nombre del proyecto</td><td>ENTRE TODOS — Iniciativa Ciudadana</td></tr>
+      <tr><td>Naturaleza</td><td>Iniciativa ciudadana cívica, sin ánimo de lucro y sin personalidad jurídica propia</td></tr>
+      <tr><td>Web</td><td>https://entre-todos.org</td></tr>
+      <tr><td>Correo de contacto</td><td><a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a></td></tr>
+      <tr><td>Ubicación del responsable</td><td>Potsdam, Brandeburgo, Alemania</td></tr>
+    </table>
+    <p>Al estar el responsable establecido en Alemania (Estado miembro de la Unión Europea), el tratamiento de datos está sujeto al <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y a la legislación nacional alemana de protección de datos (<em>Bundesdatenschutzgesetz</em>, BDSG).</p>
+  </div>
+
+  <!-- 2. QUÉ DATOS -->
+  <div class="section" id="que-datos">
+    <h2><span class="num">02</span> Qué datos procesamos (y cuáles NO)</h2>
+
+    <div class="hl red">
+      <strong>Lo que NUNCA se almacena en nuestros servidores:</strong> tu número de Carné de Identidad cubano, tu número de pasaporte u otro documento, tu nombre, tu dirección, tu correo electrónico o cualquier otro dato que permita identificarte directamente.
+    </div>
+
+    <p>Los datos que sí se almacenan en nuestra base de datos son:</p>
+    <table class="dato-table">
+      <thead>
+        <tr><th>Dato almacenado</th><th>Descripción</th><th>¿Identifica a la persona?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hash SHA-256 de la credencial</td>
+          <td>Código matemático de 64 caracteres generado de forma irreversible a partir del número de documento. El número original no puede deducirse del hash.</td>
+          <td>No. Es un seudónimo criptográfico.</td>
+        </tr>
+        <tr>
+          <td>Tipo de credencial</td>
+          <td>Indica si el participante usó Carné de Identidad cubano ("ci") o pasaporte/documento extranjero ("pasaporte"). No incluye el número.</td>
+          <td>No directamente.</td>
+        </tr>
+        <tr>
+          <td>Opción votada</td>
+          <td>"Continuidad" o "Cambio" en la consulta popular. "Firma" en la petición de solidaridad.</td>
+          <td>No, salvo en combinación con el hash.</td>
+        </tr>
+        <tr>
+          <td>País / Provincia (opcional)</td>
+          <td>País de residencia o provincia cubana declarada voluntariamente por el participante para el mapa geográfico. No se recoge si no se selecciona.</td>
+          <td>No directamente.</td>
+        </tr>
+        <tr>
+          <td>Marca de tiempo</td>
+          <td>Fecha y hora del registro.</td>
+          <td>No.</td>
+        </tr>
+        <tr>
+          <td>Identificador de consulta</td>
+          <td>Etiqueta interna que indica a qué consulta corresponde el registro (ej. "continuidad_2026_03_27").</td>
+          <td>No.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>El conjunto de datos almacenado es, por diseño, <strong>pseudónimo</strong> en el sentido del Considerando 26 del RGPD: no permite identificar directamente a una persona sin información adicional (el número de documento original, que no poseemos).</p>
+  </div>
+
+  <!-- 3. CÓMO FUNCIONA -->
+  <div class="section" id="como-funciona">
+    <h2><span class="num">03</span> Cómo funciona el sistema de anonimización</h2>
+    <p>El proceso de anonimización ocurre íntegramente en tu dispositivo, antes de que ningún dato salga hacia nuestros servidores. El funcionamiento es el siguiente:</p>
+    <ol>
+      <li>Introduces tu número de carné o pasaporte en el formulario.</li>
+      <li>El navegador aplica la función criptográfica SHA-256 al número introducido. Esta operación ocurre <strong>localmente en tu dispositivo</strong>.</li>
+      <li>El resultado es un código de 64 caracteres (el hash). <strong>El número original se descarta</strong>.</li>
+      <li>Solo el hash — nunca el número — se envía a nuestro servidor.</li>
+    </ol>
+    <div class="tech-block">
+      <span class="comment">// Ejemplo ilustrativo — no son datos reales</span><br>
+      Número introducido: <span class="value-in">85030312345</span><br>
+      <span class="comment">// La función SHA-256 produce:</span><br>
+      Hash almacenado: <span class="value-out">a3f8c21d9e4b7056...</span><br>
+      <span class="comment">// El número original NUNCA se almacena ni transmite.</span>
+    </div>
+    <p>Esta arquitectura garantiza que, aunque nuestra base de datos fuera comprometida, ningún atacante podría obtener números de documentos de identidad. El hash no es reversible.</p>
+    <div class="hl blue">
+      <strong>Nota comparativa:</strong> Los sistemas de verificación por correo electrónico o SMS — habitualmente propuestos como alternativa — almacenan direcciones de email y números de teléfono, que son datos directamente identificables. El sistema de hashing de ENTRE TODOS ofrece mayor protección real de la identidad, a costa de requerir que el participante introduzca su número de documento una sola vez, localmente.
+    </div>
+  </div>
+
+  <!-- 4. BASE LEGAL -->
+  <div class="section" id="base-legal">
+    <h2><span class="num">04</span> Base legal del tratamiento</h2>
+    <p>El tratamiento de los datos pseudónimos descritos se sustenta en las siguientes bases legales del RGPD:</p>
+    <ul>
+      <li><strong>Consentimiento explícito (Art. 6.1.a y Art. 9.2.a RGPD):</strong> Antes de emitir su voto o firma, el participante marca una casilla de declaración de honor en la que acepta expresamente el tratamiento de sus datos para los fines de la consulta. Este consentimiento es específico, informado y libre.</li>
+      <li><strong>Interés legítimo (Art. 6.1.f RGPD):</strong> El interés en garantizar la integridad del proceso (evitar votos duplicados) es legítimo y proporcional al diseño técnico adoptado, que minimiza al máximo el tratamiento de datos.</li>
+    </ul>
+    <p>Dado que los datos almacenados son de naturaleza pseudónima y no permiten la identificación directa, el nivel de riesgo para los derechos y libertades de los participantes es bajo.</p>
+  </div>
+
+  <!-- 5. FINALIDAD -->
+  <div class="section" id="finalidad">
+    <h2><span class="num">05</span> Finalidad del tratamiento</h2>
+    <p>Los datos se procesan exclusivamente para:</p>
+    <ul>
+      <li>Garantizar que cada participante vote o firme una sola vez (control de duplicados mediante hash).</li>
+      <li>Mostrar resultados agregados y estadísticos de la consulta o petición.</li>
+      <li>Generar visualizaciones geográficas agregadas (mapa) cuando el participante proporciona voluntariamente su ubicación.</li>
+      <li>Permitir auditoría externa del proceso mediante exportación de datos pseudónimos.</li>
+    </ul>
+    <p>Los datos no se utilizan para elaboración de perfiles, para fines comerciales, ni se ceden a terceros con finalidades de marketing o análisis conductual.</p>
+  </div>
+
+  <!-- 6. CONSERVACIÓN -->
+  <div class="section" id="conservacion">
+    <h2><span class="num">06</span> Período de conservación</h2>
+    <p>Los datos pseudónimos (hashes) se conservan durante el tiempo que la consulta o petición permanezca activa y abierta al público. Una vez cerrada la consulta, los registros se anonimizarán completamente o se eliminarán en un plazo máximo de <strong>12 meses</strong> desde el cierre, salvo obligación legal en contrario.</p>
+    <p>Los datos de ubicación opcionales (país/provincia) se eliminan en los mismos plazos.</p>
+  </div>
+
+  <!-- 7. TUS DERECHOS -->
+  <div class="section" id="tus-derechos">
+    <h2><span class="num">07</span> Tus derechos (RGPD)</h2>
+    <p>Como interesado, tienes los siguientes derechos reconocidos por el RGPD:</p>
+    <table class="dato-table">
+      <thead>
+        <tr><th>Derecho</th><th>Descripción</th><th>Aplicación en ENTRE TODOS</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Acceso (Art. 15)</td>
+          <td>Saber qué datos tuyos tenemos.</td>
+          <td>Puedes solicitarlo por email. Solo podremos identificar tu registro si nos proporcionas el hash SHA-256 generado por tu dispositivo al votar (disponible en tu pantalla de confirmación).</td>
+        </tr>
+        <tr>
+          <td>Rectificación (Art. 16)</td>
+          <td>Corregir datos inexactos.</td>
+          <td>Aplicable a los datos opcionales de ubicación. El hash en sí no puede rectificarse sin revocar el voto.</td>
+        </tr>
+        <tr>
+          <td>Supresión (Art. 17)</td>
+          <td>Eliminar tus datos ("derecho al olvido").</td>
+          <td>Puedes solicitar la eliminación de tu registro proporcionando el hash de confirmación. El hash se eliminará, lo que invalidará tu voto del recuento.</td>
+        </tr>
+        <tr>
+          <td>Oposición (Art. 21)</td>
+          <td>Oponerte al tratamiento.</td>
+          <td>Puedes retirarte de la consulta en cualquier momento mediante solicitud con tu hash de confirmación.</td>
+        </tr>
+        <tr>
+          <td>Portabilidad (Art. 20)</td>
+          <td>Recibir tus datos en formato estructurado.</td>
+          <td>El sistema permite exportar el CSV público de resultados. Los datos individuales identificados por hash se facilitan a petición.</td>
+        </tr>
+        <tr>
+          <td>Limitación (Art. 18)</td>
+          <td>Restringir el tratamiento mientras se resuelve una reclamación.</td>
+          <td>Aplicable. Contacta por email.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Para ejercer cualquiera de estos derechos, escribe a <a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a> indicando el hash SHA-256 de confirmación que recibiste al votar o firmar. Responderemos en el plazo máximo de 30 días naturales.</p>
+    <p>Si no estás satisfecho con nuestra respuesta, tienes derecho a presentar una reclamación ante la autoridad de control competente. En Alemania: <strong>Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI)</strong>, <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener">www.bfdi.bund.de</a>.</p>
+  </div>
+
+  <!-- 8. TERCEROS -->
+  <div class="section" id="terceros">
+    <h2><span class="num">08</span> Terceros y transferencias internacionales</h2>
+    <p>ENTRE TODOS utiliza los siguientes servicios de terceros para el funcionamiento técnico de la plataforma:</p>
+    <table class="dato-table">
+      <thead>
+        <tr><th>Proveedor</th><th>Función</th><th>Datos transferidos</th><th>Garantías</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase, Inc. (EE. UU.)</td>
+          <td>Almacenamiento de base de datos (hashes de votos y firmas)</td>
+          <td>Hash SHA-256, tipo de credencial, opción, ubicación opcional, marca de tiempo</td>
+          <td>Supabase actúa como encargado del tratamiento. Los datos pueden alojarse en servidores de la UE. Cláusulas contractuales tipo de la Comisión Europea aplicables.</td>
+        </tr>
+        <tr>
+          <td>Netlify / GitHub Pages</td>
+          <td>Alojamiento de la web estática</td>
+          <td>Datos de acceso estándar (IP, navegador) en logs de servidor — no vinculados a votos</td>
+          <td>Política de privacidad propia del proveedor.</td>
+        </tr>
+        <tr>
+          <td>Google Fonts</td>
+          <td>Tipografía web</td>
+          <td>Solicitud de fuentes (puede incluir IP)</td>
+          <td>Política de privacidad de Google aplicable.</td>
+        </tr>
+        <tr>
+          <td>OpenStreetMap / Leaflet.js</td>
+          <td>Mapa interactivo</td>
+          <td>Solicitudes de teselas de mapa (puede incluir IP)</td>
+          <td>Política de OpenStreetMap Foundation aplicable.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>No cedemos datos a ningún gobierno, partido político, organización de inteligencia ni entidad comercial. La misión de ENTRE TODOS es exclusivamente cívica y sin ánimo de lucro.</p>
+  </div>
+
+  <!-- 9. MENORES -->
+  <div class="section" id="menores">
+    <h2><span class="num">09</span> Menores de edad</h2>
+    <p>Los formularios de ENTRE TODOS están dirigidos a personas mayores de 16 años. El sistema de validación del Carné de Identidad cubano incluye la fecha de nacimiento codificada, lo que permite detectar documentos de menores. Los registros identificados como pertenecientes a personas menores de 16 años se eliminan del sistema.</p>
+  </div>
+
+  <!-- 10. CAMBIOS -->
+  <div class="section" id="cambios">
+    <h2><span class="num">10</span> Cambios en esta política</h2>
+    <p>Esta política puede actualizarse para reflejar cambios técnicos, legales o en el alcance de la plataforma. La fecha de la última actualización aparece al inicio del documento. Los cambios sustanciales se comunicarán mediante un aviso visible en la página principal durante al menos 14 días.</p>
+  </div>
+
+  <!-- 11. CONTACTO -->
+  <div class="section" id="contacto">
+    <h2><span class="num">11</span> Contacto</h2>
+    <div class="hl blue">
+      Para cualquier consulta sobre esta política, para ejercer tus derechos o para reportar una incidencia de privacidad:<br><br>
+      <strong>Correo electrónico:</strong> <a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a><br>
+      <strong>Proyecto:</strong> ENTRE TODOS — Iniciativa Ciudadana<br>
+      <strong>Ubicación del responsable:</strong> Potsdam, Brandeburgo, Alemania<br><br>
+      Tiempo de respuesta habitual: entre 5 y 30 días naturales.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="f-shell">
+    <div class="f-logo"><strong>ENTRE TODOS</strong></div>
+    <div class="f-meta">
+      Plataforma ciudadana para la transición democrática de Cuba.<br>
+      Iniciativa ciudadana sin ánimo de lucro · Potsdam, Alemania · RGPD<br>
+      <a href="index.html">Inicio</a> &nbsp;·&nbsp;
+      <a href="transparencia-cuba.html">Transparencia</a> &nbsp;·&nbsp;
+      <a href="politica-privacidad.html">Privacidad</a> &nbsp;·&nbsp;
+      <a href="mailto:entretodos@entre-todos.org">Contacto</a>
+    </div>
+    <div class="f-gs">
+      Metodología derivada de <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>.
+    </div>
+    <div class="f-legal">Michel Estopiñán · 2026 · Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>

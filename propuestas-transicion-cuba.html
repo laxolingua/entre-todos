@@ -4,25 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- build:20260320-175600 --><title>ENTRE TODOS — Plataforma de Transición Democrática de Cuba</title>
+<meta name="description" content="129 propuestas en 14 categorías de más de 40 organizaciones. Vota, matiza, propone. Construye el documento de consenso vivo.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Propuestas de Transición · ENTRE TODOS">
+<meta property="og:description" content="129 propuestas en 14 categorías de más de 40 organizaciones. Vota, matiza, propone. Construye el documento de consenso vivo.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/propuestas-transicion-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Propuestas de Transición · ENTRE TODOS">
+<meta name="twitter:description" content="129 propuestas en 14 categorías de más de 40 organizaciones. Vota, matiza, propone. Construye el documento de consenso vivo.">
+<meta name="twitter:image" content="img/og-default.png">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 :root{
-  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
-  --azul-light:#EEF2FF;--rojo-light:#FFF0F2;
-  --gris:#F5F5F5;--gris-m:#E0E0E0;--gt:#555;--negro:#111;
-  --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 4px 32px rgba(0,42,143,.18);
-  --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+  /* Design System v1 — Apple-clean + gov moderno */
+  --blue:#002F80;--blue-deep:#001F5C;--blue-hover:#00256B;--blue-soft:#EEF3FB;
+  --red:#CE1126;--red-hover:#A50D1E;--red-soft:#FDECEE;
+  --gold:#C29A1F;--gold-soft:#FBF3D9;--gold-border:#E8C84A;
+  --ink:#0B1F3F;--ink-2:#3A4668;--ink-3:#6B7489;--ink-4:#9AA0B0;
+  --bg-gray:#F5F5F7;--bg-gray-2:#FAFAFC;--line:#E5E5E7;
+  --green:#0B8A4A;--green-soft:#E7F6EE;--amber:#B87203;
+  --radius-sm:14px;--radius:20px;--radius-lg:28px;--radius-pill:980px;
+  --shadow-1:0 2px 8px rgba(11,31,63,.04);
+  --shadow-2:0 6px 20px rgba(11,31,63,.06);
+  --shadow-3:0 20px 50px rgba(11,31,63,.10);
+  /* Legacy aliases so inline styles + existing CSS keep working */
+  --azul:var(--blue);--rojo:var(--red);--blanco:#fff;
+  --azul-light:var(--blue-soft);--rojo-light:var(--red-soft);
+  --gris:var(--bg-gray);--gris-m:var(--line);--gt:var(--ink-3);--negro:var(--ink);
+  --sh:var(--shadow-2);--shf:var(--shadow-3);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Barlow,sans-serif;background:#F7F8FC;color:var(--negro);min-height:100vh;padding-bottom:calc(64px + var(--safe-bottom));-webkit-tap-highlight-color:transparent;}
+body{font-family:Inter,sans-serif;background:#F7F8FC;color:var(--negro);min-height:100vh;}
 
-
-/* ── APP BOTTOM NAV ── */
-.app-bottom-nav{position:fixed;bottom:0;left:0;right:0;height:calc(64px + var(--safe-bottom));background:#fff;border-top:1px solid #D1D5DB;display:grid;grid-template-columns:repeat(4,1fr);z-index:200;padding-bottom:var(--safe-bottom);}
-.app-nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6B7280;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:8px 4px;transition:color .15s;}
-.app-nav-item i{font-size:1.2rem;}
-.app-nav-item.activo{color:#002A8F;}
-.app-nav-item.activo i{color:#002A8F;}
 /* HEADER */
 header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0;z-index:100;box-shadow:var(--sh);}
 .hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:14px;flex-wrap:wrap;}
@@ -30,10 +51,10 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .logo-tag{font-size:.68rem;color:var(--gt);font-weight:500;letter-spacing:1px;text-transform:uppercase;max-width:170px;line-height:1.35;}
 .hdr-stats{display:flex;gap:16px;}
 .stat{text-align:center;}
-.stat-n{font-family:Barlow Condensed,sans-serif;font-size:1.4rem;font-weight:700;color:var(--azul);line-height:1;}
+.stat-n{font-family:Inter,sans-serif;font-size:1.4rem;font-weight:700;color:var(--azul);line-height:1;}
 .stat-l{font-size:.65rem;text-transform:uppercase;color:var(--gt);letter-spacing:.5px;}
 .hdr-btns{display:flex;gap:6px;flex-wrap:wrap;}
-.btn{padding:6px 13px;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.btn{padding:6px 13px;border-radius:4px;font-family:Inter,sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:2px solid transparent;transition:all .2s;}
 .btn-p{background:var(--azul);color:#fff;border-color:var(--azul);}
 .btn-p:hover{background:#001f6b;}
 .btn-s{background:transparent;color:var(--rojo);border-color:var(--rojo);}
@@ -45,18 +66,18 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px);pointer-events:none;}
 .hero-in{max-width:740px;margin:0 auto;position:relative;}
-.hero h1{font-family:Barlow Condensed,sans-serif;font-size:1.05rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;opacity:.8;margin-bottom:8px;}
+.hero h1{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;opacity:.8;margin-bottom:8px;}
 .hero p{font-size:.95rem;line-height:1.7;opacity:.9;font-weight:300;max-width:620px;margin:0 auto 15px;}
-.hero-cta{display:inline-flex;align-items:center;gap:7px;background:var(--rojo);color:#fff;padding:9px 20px;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;}
+.hero-cta{display:inline-flex;align-items:center;gap:7px;background:var(--rojo);color:#fff;padding:9px 20px;border-radius:4px;font-family:Inter,sans-serif;font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;}
 .hero-cta:hover{background:#a80e22;}
 
 /* FILTER */
 .flt{display:flex;gap:6px;align-items:center;padding:9px 22px;background:var(--gris);border-bottom:1px solid var(--gris-m);flex-wrap:wrap;}
-.flt-lbl{font-family:Barlow Condensed,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);}
-.chip{padding:4px 10px;border-radius:20px;border:1.5px solid var(--gris-m);font-size:.72rem;font-family:Barlow Condensed,sans-serif;font-weight:600;text-transform:uppercase;cursor:pointer;color:var(--gt);background:#fff;transition:all .15s;}
+.flt-lbl{font-family:Inter,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);}
+.chip{padding:4px 10px;border-radius:20px;border:1.5px solid var(--gris-m);font-size:.72rem;font-family:Inter,sans-serif;font-weight:600;text-transform:uppercase;cursor:pointer;color:var(--gt);background:#fff;transition:all .15s;}
 .chip:hover,.chip.sel{border-color:var(--azul);color:var(--azul);}
 .chip.sel{background:var(--azul);color:#fff;}
-.srch{padding:6px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.82rem;font-family:Barlow,sans-serif;margin-left:auto;width:200px;}
+.srch{padding:6px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.82rem;font-family:Inter,sans-serif;margin-left:auto;width:200px;}
 .srch:focus{outline:none;border-color:var(--azul);}
 
 /* HEADER HAMBURGER */
@@ -68,17 +89,17 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .hdr-ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .hdr-ham-menu{position:absolute;top:46px;right:0;z-index:2000;background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);min-width:220px;display:none;flex-direction:column;padding:8px 0;border:1px solid var(--gris-m);}
 .hdr-ham-menu.open{display:flex;}
-.hdr-ham-item{display:flex;align-items:center;gap:10px;padding:11px 18px;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;}
+.hdr-ham-item{display:flex;align-items:center;gap:10px;padding:11px 18px;cursor:pointer;font-family:Inter,sans-serif;font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;}
 .hdr-ham-item:hover{background:#f0f4ff;color:var(--azul);}
 .hdr-ham-item .hico{font-size:1rem;width:22px;text-align:center;}
 
 /* CATEGORY GRID */
 .cat-grid-wrap{max-width:1100px;margin:0 auto;padding:16px 22px 8px;}
-.cat-grid-title{font-family:Barlow Condensed,sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:10px;}
+.cat-grid-title{font-family:Inter,sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:10px;}
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
 @media(max-width:700px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:400px){.cat-grid{grid-template-columns:1fr;}}
-.cat-card{background:#fff;border:2px solid var(--gris-m);border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:8px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);}
+.cat-card{background:#fff;border:2px solid var(--gris-m);border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:8px;font-family:Inter,sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);}
 .cat-card:hover{border-color:var(--azul);background:var(--azul-light);color:var(--azul);}
 .cat-card.active{border-color:var(--azul);background:var(--azul);color:#fff;}
 .cat-card .cico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff;flex-shrink:0;}
@@ -92,8 +113,8 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 
 /* CATEGORY */
 .cat-hdr{display:flex;align-items:center;gap:12px;margin-bottom:15px;padding-bottom:10px;border-bottom:3px solid var(--azul);}
-.cat-lt{width:38px;height:38px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:1.15rem;flex-shrink:0;}
-.cat-title{font-family:Barlow Condensed,sans-serif;font-size:1.2rem;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:1px;}
+.cat-lt{width:38px;height:38px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-weight:800;font-size:1.15rem;flex-shrink:0;}
+.cat-title{font-family:Inter,sans-serif;font-size:1.2rem;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:1px;}
 .cat-count{margin-left:auto;font-size:.72rem;color:var(--gt);font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
 
 /* CARD */
@@ -101,14 +122,14 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .card:hover{box-shadow:var(--shf);}
 .card.hidden{display:none;}
 .card-top{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 10px;}
-.pid{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.78rem;color:var(--gt);flex-shrink:0;background:var(--gris);padding:3px 7px;border-radius:4px;margin-top:2px;}
+.pid{font-family:Inter,sans-serif;font-weight:700;font-size:.78rem;color:var(--gt);flex-shrink:0;background:var(--gris);padding:3px 7px;border-radius:4px;margin-top:2px;}
 .pbody{flex:1;}
 .ptxt{font-size:.94rem;line-height:1.6;color:var(--negro);font-weight:500;}
 .prefs{font-size:.7rem;color:#bbb;margin-top:3px;font-style:italic;}
 
 /* VOTE ROW */
 .vote-row{padding:8px 16px 10px;border-top:1px solid var(--gris);background:#FAFAFA;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.vlbl{font-family:Barlow Condensed,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);white-space:nowrap;}
+.vlbl{font-family:Inter,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);white-space:nowrap;}
 .stars{display:flex;gap:2px;}
 .star{font-size:1.3rem;cursor:pointer;color:#ddd;transition:color .12s,transform .1s;line-height:1;user-select:none;}
 .star:hover,.star.hov,.star.on{color:#F5C518;}
@@ -116,13 +137,13 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .vcnt{font-size:.74rem;color:var(--gt);white-space:nowrap;}
 .bwrap{flex:1;min-width:60px;max-width:150px;background:var(--gris-m);border-radius:4px;height:6px;overflow:hidden;}
 .bar{height:100%;background:linear-gradient(90deg,var(--azul),var(--rojo));border-radius:4px;transition:width .5s;}
-.vpct{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;color:var(--azul);min-width:30px;}
-.fbt{margin-left:auto;font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:600;color:var(--rojo);cursor:pointer;text-transform:uppercase;letter-spacing:.5px;background:none;border:none;white-space:nowrap;}
+.vpct{font-family:Inter,sans-serif;font-weight:700;font-size:.88rem;color:var(--azul);min-width:30px;}
+.fbt{margin-left:auto;font-family:Inter,sans-serif;font-size:.72rem;font-weight:600;color:var(--rojo);cursor:pointer;text-transform:uppercase;letter-spacing:.5px;background:none;border:none;white-space:nowrap;}
 .fbt:hover{color:var(--azul);}
 
 /* VARIANTS */
 .vwrap{border-top:1px dashed var(--gris-m);background:#F8FAFF;}
-.vtog{width:100%;text-align:left;padding:7px 16px;font-family:Barlow Condensed,sans-serif;font-size:.74rem;font-weight:700;color:var(--azul);cursor:pointer;text-transform:uppercase;letter-spacing:.5px;background:none;border:none;display:flex;align-items:center;gap:5px;}
+.vtog{width:100%;text-align:left;padding:7px 16px;font-family:Inter,sans-serif;font-size:.74rem;font-weight:700;color:var(--azul);cursor:pointer;text-transform:uppercase;letter-spacing:.5px;background:none;border:none;display:flex;align-items:center;gap:5px;}
 .vtog:hover{color:var(--rojo);}
 .vpanel{display:none;padding:5px 16px 12px;}
 .vpanel.open{display:block;}
@@ -132,16 +153,16 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .vitem:hover,.vitem.chk{border-color:var(--azul);background:#EEF2FF;}
 .vcb{width:16px;height:16px;margin-top:2px;accent-color:var(--azul);cursor:pointer;flex-shrink:0;}
 .vright{flex:1;}
-.vlabel{font-family:Barlow Condensed,sans-serif;font-weight:700;color:var(--azul);font-size:.8rem;margin-right:4px;}
+.vlabel{font-family:Inter,sans-serif;font-weight:700;color:var(--azul);font-size:.8rem;margin-right:4px;}
 .vtxt{font-size:.84rem;color:#333;line-height:1.5;}
 .vsels{font-size:.68rem;color:#aaa;margin-top:2px;}
 
 /* FEEDBACK */
 .fbsec{display:none;border-top:1px dashed var(--gris-m);padding:12px 16px;background:#FFFDF8;}
 .fbsec.open{display:block;}
-.fbtitle{font-family:Barlow Condensed,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:8px;}
+.fbtitle{font-family:Inter,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gt);margin-bottom:8px;}
 .fbitem{background:#fff;border:1px solid var(--gris-m);border-radius:6px;padding:8px 10px;margin-bottom:6px;display:flex;align-items:flex-start;gap:8px;}
-.fbbadge{font-size:.64rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 5px;border-radius:3px;flex-shrink:0;margin-top:1px;}
+.fbbadge{font-size:.64rem;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 5px;border-radius:3px;flex-shrink:0;margin-top:1px;}
 .bc{background:#FFF0F2;color:var(--rojo);}
 .ba{background:#EEF2FF;color:var(--azul);}
 .bn{background:#F0FFF4;color:#2D7A4F;}
@@ -151,16 +172,16 @@ header{background:#fff;border-bottom:4px solid var(--rojo);position:sticky;top:0
 .fbstars{display:flex;gap:2px;flex-shrink:0;}
 .fbstar{font-size:.86rem;cursor:pointer;color:#ddd;transition:color .1s;}
 .fbstar.on{color:#F5C518;}
-.intg{font-size:.61rem;background:#E8F5E9;color:#2E7D32;padding:1px 5px;border-radius:2px;font-weight:700;font-family:Barlow Condensed,sans-serif;text-transform:uppercase;margin-left:4px;}
+.intg{font-size:.61rem;background:#E8F5E9;color:#2E7D32;padding:1px 5px;border-radius:2px;font-weight:700;font-family:Inter,sans-serif;text-transform:uppercase;margin-left:4px;}
 .fb-form{margin-top:10px;padding-top:10px;border-top:1px solid var(--gris);}
 .type-row{display:flex;gap:5px;margin-bottom:6px;flex-wrap:wrap;}
-textarea.fbi{width:100%;padding:7px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.83rem;resize:vertical;min-height:50px;color:var(--negro);margin-bottom:5px;}
+textarea.fbi{width:100%;padding:7px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Inter,sans-serif;font-size:.83rem;resize:vertical;min-height:50px;color:var(--negro);margin-bottom:5px;}
 textarea.fbi:focus{outline:none;border-color:var(--azul);}
 .nrow{display:flex;gap:6px;align-items:center;}
-input.nin{flex:1;padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;}
+input.nin{flex:1;padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Inter,sans-serif;}
 input.nin:focus{outline:none;border-color:var(--azul);}
 .anlbl{display:flex;align-items:center;gap:4px;font-size:.74rem;color:var(--gt);cursor:pointer;white-space:nowrap;}
-.btnfb{background:var(--rojo);color:#fff;border:none;padding:6px 12px;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.77rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;}
+.btnfb{background:var(--rojo);color:#fff;border:none;padding:6px 12px;border-radius:4px;font-family:Inter,sans-serif;font-weight:700;font-size:.77rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;}
 .btnfb:hover{background:#a80e22;}
 
 /* SECTIONS */
@@ -177,24 +198,24 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 @media(max-width:640px){.doc-page{padding:28px 20px 32px;}}
 .doc-emblem{text-align:center;margin-bottom:6px;}
 .doc-flag{width:54px;height:auto;margin:0 auto 4px;display:block;}
-.doc-country{font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#777;margin-bottom:18px;text-align:center;}
-.doc-main-title{font-family:Barlow Condensed,sans-serif;font-size:1.55rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--azul);text-align:center;line-height:1.2;margin-bottom:4px;}
-.doc-subtitle{font-family:Barlow Condensed,sans-serif;font-size:.95rem;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;color:#666;text-align:center;margin-bottom:6px;}
-.doc-edition{font-family:Barlow Condensed,sans-serif;font-size:.72rem;color:#aaa;text-align:center;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.doc-country{font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#777;margin-bottom:18px;text-align:center;}
+.doc-main-title{font-family:Inter,sans-serif;font-size:1.55rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--azul);text-align:center;line-height:1.2;margin-bottom:4px;}
+.doc-subtitle{font-family:Inter,sans-serif;font-size:.95rem;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;color:#666;text-align:center;margin-bottom:6px;}
+.doc-edition{font-family:Inter,sans-serif;font-size:.72rem;color:#aaa;text-align:center;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .doc-divider{border:none;border-top:2.5px double var(--azul);margin:18px 0;}
 .doc-divider-thin{border:none;border-top:1px solid #d0d5dd;margin:14px 0;}
 .doc-preamble{font-size:.9rem;color:#444;text-align:justify;margin-bottom:22px;line-height:1.85;}
-.doc-preamble strong{font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);}
+.doc-preamble strong{font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);}
 .doc-chapter{margin-bottom:28px;}
-.doc-chapter-title{font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--azul);padding:4px 12px;display:inline-block;border-radius:2px;margin-bottom:10px;}
-.doc-chapter-name{font-family:Barlow Condensed,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:2px;}
-.doc-chapter-sub{font-size:.75rem;color:#888;font-family:Barlow Condensed,sans-serif;margin-bottom:10px;font-style:italic;}
+.doc-chapter-title{font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--azul);padding:4px 12px;display:inline-block;border-radius:2px;margin-bottom:10px;}
+.doc-chapter-name{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:2px;}
+.doc-chapter-sub{font-size:.75rem;color:#888;font-family:Inter,sans-serif;margin-bottom:10px;font-style:italic;}
 .doc-article{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f0f0f0;}
 .doc-article:last-child{border-bottom:none;}
-.doc-art-num{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.72rem;color:var(--azul);flex-shrink:0;padding-top:3px;min-width:36px;text-transform:uppercase;letter-spacing:.5px;}
+.doc-art-num{font-family:Inter,sans-serif;font-weight:700;font-size:.72rem;color:var(--azul);flex-shrink:0;padding-top:3px;min-width:36px;text-transform:uppercase;letter-spacing:.5px;}
 .doc-art-text{font-size:.85rem;color:#222;line-height:1.7;flex:1;}
 .doc-art-text em{color:#888;font-size:.78rem;}
-.doc-support{font-family:Barlow Condensed,sans-serif;font-size:.7rem;font-weight:700;flex-shrink:0;padding-top:3px;min-width:38px;text-align:right;}
+.doc-support{font-family:Inter,sans-serif;font-size:.7rem;font-weight:700;flex-shrink:0;padding-top:3px;min-width:38px;text-align:right;}
 .doc-support.high{color:#2D7A4F;}
 .doc-support.mid{color:var(--azul);}
 .doc-support.low{color:var(--rojo);}
@@ -203,11 +224,11 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .doc-footer-note{font-size:.75rem;color:#999;text-align:center;margin-top:24px;font-style:italic;border-top:1px solid #eee;padding-top:14px;}
 .doc-stat-bar{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
 .doc-stat{text-align:center;}
-.doc-stat .dsn{font-family:Barlow Condensed,sans-serif;font-size:1.5rem;font-weight:700;color:var(--azul);display:block;}
-.doc-stat .dsl{font-family:Barlow Condensed,sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:#aaa;}
+.doc-stat .dsn{font-family:Inter,sans-serif;font-size:1.5rem;font-weight:700;color:var(--azul);display:block;}
+.doc-stat .dsl{font-family:Inter,sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:#aaa;}
 .doc-empty{text-align:center;padding:40px 0;color:#ccc;}
 .doc-empty .de-ico{font-size:2rem;margin-bottom:8px;}
-.doc-empty .de-txt{font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;}
+.doc-empty .de-txt{font-family:Inter,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;}
 .doc-dl-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
 
 /* PROPUESTA PLURAL — BRANDED COVER FRAME */
@@ -218,13 +239,13 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .dcf-s1,.dcf-s3,.dcf-s5{background:var(--azul);}
 .dcf-s2,.dcf-s4{background:#fff;border-top:1px solid rgba(0,42,143,.18);border-bottom:1px solid rgba(0,42,143,.18);}
 .doc-cover-brand{background:linear-gradient(120deg,#001340 0%,#002A8F 60%,#001d6a 100%);padding:20px 28px;display:flex;align-items:center;gap:16px;color:#fff;position:relative;overflow:hidden;}
-.doc-cover-brand::after{content:'ENTRE TODOS';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:5rem;letter-spacing:.08em;color:rgba(255,255,255,.04);pointer-events:none;white-space:nowrap;}
+.doc-cover-brand::after{content:'ENTRE TODOS';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:Inter,sans-serif;font-weight:800;font-size:5rem;letter-spacing:.08em;color:rgba(255,255,255,.04);pointer-events:none;white-space:nowrap;}
 .doc-cover-logo{width:46px;height:46px;object-fit:contain;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,.08);padding:4px;}
-.doc-cover-orgname{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:4px;color:#fff;line-height:1;}
-.doc-cover-tagline{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.58);margin-top:3px;}
+.doc-cover-orgname{font-family:Inter,sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:4px;color:#fff;line-height:1;}
+.doc-cover-tagline{font-family:Inter,sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.58);margin-top:3px;}
 .doc-cover-seal{margin-left:auto;text-align:right;flex-shrink:0;}
-.doc-cover-seal-badge{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--azul);background:#fff;padding:3px 10px;border-radius:2px;font-weight:700;display:inline-block;margin-bottom:4px;}
-.doc-cover-seal-live{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);display:block;}
+.doc-cover-seal-badge{font-family:Inter,sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--azul);background:#fff;padding:3px 10px;border-radius:2px;font-weight:700;display:inline-block;margin-bottom:4px;}
+.doc-cover-seal-live{font-family:Inter,sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);display:block;}
 .doc-cover-rojo{height:3px;background:var(--rojo);}
 @media(max-width:640px){.doc-cover-brand{padding:14px 16px;gap:12px;}.doc-cover-brand::after{display:none;}}
 
@@ -255,98 +276,60 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 /* FAQ */
 .faq-item{border:1px solid var(--gris-m);border-radius:6px;margin-bottom:8px;overflow:hidden;}
-.faq-q{padding:12px 16px;font-family:Barlow Condensed,sans-serif;font-weight:600;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--azul);background:#FAFAFA;}
+.faq-q{padding:12px 16px;font-family:Inter,sans-serif;font-weight:600;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--azul);background:#FAFAFA;}
 .faq-q:hover{background:var(--azul-light);}
 .faq-a{display:none;padding:12px 16px;font-size:.86rem;line-height:1.65;color:#333;border-top:1px solid var(--gris-m);background:#fff;}
 .faq-a.open{display:block;}
 
 /* ORG SUBMISSION */
 .org-form{display:flex;flex-direction:column;gap:10px;}
-.org-form input,.org-form textarea,.org-form select{padding:8px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.86rem;font-family:Barlow,sans-serif;color:var(--negro);width:100%;}
+.org-form input,.org-form textarea,.org-form select{padding:8px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.86rem;font-family:Inter,sans-serif;color:var(--negro);width:100%;}
 .org-form input:focus,.org-form textarea:focus,.org-form select:focus{outline:none;border-color:var(--azul);}
-.org-form label{font-family:Barlow Condensed,sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);margin-bottom:2px;display:block;}
+.org-form label{font-family:Inter,sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gt);margin-bottom:2px;display:block;}
 .upload-area{border:2px dashed var(--gris-m);border-radius:6px;padding:20px;text-align:center;font-size:.84rem;color:var(--gt);cursor:pointer;transition:border-color .15s,background .15s;}
 .upload-area:hover{border-color:var(--azul);background:var(--azul-light);}
 .upload-area input{display:none;}
 .pending-item{background:var(--azul-light);border:1px solid rgba(0,42,143,.2);border-radius:6px;padding:11px 13px;margin-bottom:8px;}
-.pending-badge{font-size:.68rem;background:#FFF3CD;color:#856404;border:1px solid #FFEAA7;padding:2px 6px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;display:inline-block;margin-bottom:4px;}
+.pending-badge{font-size:.68rem;background:#FFF3CD;color:#856404;border:1px solid #FFEAA7;padding:2px 6px;border-radius:3px;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;display:inline-block;margin-bottom:4px;}
 
 /* NEW PROPOSALS */
 .new-item{background:var(--azul-light);border:1px solid rgba(0,42,143,.2);border-radius:6px;padding:11px 13px;margin-bottom:8px;}
-.ncbadge{font-size:.67rem;background:var(--azul);color:#fff;padding:2px 6px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;margin-bottom:4px;display:inline-block;}
+.ncbadge{font-size:.67rem;background:var(--azul);color:#fff;padding:2px 6px;border-radius:3px;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;margin-bottom:4px;display:inline-block;}
 
 /* RESULTS */
 .res-hdr{text-align:center;padding:18px 0;border-bottom:3px solid var(--azul);margin-bottom:20px;}
-.res-title{font-family:Bebas Neue,sans-serif;font-size:1.8rem;color:var(--azul);letter-spacing:3px;}
+.res-title{font-family:Inter,sans-serif;font-weight:800;font-size:1.8rem;color:var(--azul);letter-spacing:3px;}
 .res-sub{font-size:.78rem;color:var(--gt);margin-top:3px;}
 .res-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--gris);align-items:flex-start;}
-.rid{font-family:Barlow Condensed,sans-serif;font-weight:700;color:var(--gt);font-size:.78rem;min-width:28px;padding-top:2px;}
+.rid{font-family:Inter,sans-serif;font-weight:700;color:var(--gt);font-size:.78rem;min-width:28px;padding-top:2px;}
 .rbody{flex:1;}
 .rtxt{font-size:.84rem;color:#333;line-height:1.4;}
 .rvar{font-size:.74rem;color:var(--azul);margin-top:2px;}
-.rpct{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.98rem;min-width:40px;text-align:right;}
+.rpct{font-family:Inter,sans-serif;font-weight:700;font-size:.98rem;min-width:40px;text-align:right;}
 .rpct.hi{color:#2D7A4F;}
 .rpct.mid{color:var(--azul);}
 .rpct.lo{color:var(--rojo);}
 
 /* SIDEBAR */
 .sb-card{background:#fff;border-radius:8px;border:1px solid var(--gris-m);padding:16px;margin-bottom:16px;box-shadow:var(--sh);}
-.sb-card h3{font-family:Barlow Condensed,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:10px;border-bottom:2px solid var(--azul);padding-bottom:6px;}
+.sb-card h3{font-family:Inter,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:10px;border-bottom:2px solid var(--azul);padding-bottom:6px;}
 .org-ref{display:flex;gap:6px;padding:4px 0;font-size:.75rem;border-bottom:1px solid var(--gris);align-items:flex-start;line-height:1.4;}
-.orn{font-family:Barlow Condensed,sans-serif;font-weight:700;color:var(--azul);flex-shrink:0;min-width:17px;}
+.orn{font-family:Inter,sans-serif;font-weight:700;color:var(--azul);flex-shrink:0;min-width:17px;}
 .prg-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:.77rem;border-bottom:1px solid var(--gris);}
 .prg-row:last-child{border-bottom:none;}
-.prg-pct{font-family:Barlow Condensed,sans-serif;font-weight:700;color:var(--azul);font-size:.88rem;}
+.prg-pct{font-family:Inter,sans-serif;font-weight:700;color:var(--azul);font-size:.88rem;}
 
 /* MODAL */
 .mov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:none;align-items:center;justify-content:center;padding:18px;}
 .mov.open{display:flex;}
 .modal{background:#fff;border-radius:10px;max-width:520px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:85vh;overflow-y:auto;}
-.modal h2{font-family:Barlow Condensed,sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:10px;border-bottom:2px solid var(--azul);padding-bottom:6px;}
+.modal h2{font-family:Inter,sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:10px;border-bottom:2px solid var(--azul);padding-bottom:6px;}
 .modal p{font-size:.85rem;color:#444;line-height:1.65;margin-bottom:8px;}
 .mx{float:right;background:none;border:none;font-size:1.15rem;cursor:pointer;color:var(--gt);margin-top:-2px;}
 
 /* TOAST / FAB */
-.toast{position:fixed;bottom:20px;right:20px;background:var(--azul);color:#fff;padding:10px 15px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:600;font-size:.84rem;letter-spacing:.5px;box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateY(80px);opacity:0;transition:all .3s;z-index:999;}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--azul);color:#fff;padding:10px 15px;border-radius:6px;font-family:Inter,sans-serif;font-weight:600;font-size:.84rem;letter-spacing:.5px;box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateY(80px);opacity:0;transition:all .3s;z-index:999;}
 .toast.show{transform:translateY(0);opacity:1;}
-/* ── REGISTRO CIUDADANO MODAL ── */
-#reg-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;display:none;align-items:flex-end;justify-content:center;}
-#reg-modal-overlay.open{display:flex;}
-#reg-modal{background:#fff;width:100%;max-width:560px;border-radius:12px 12px 0 0;padding:28px 24px 32px;max-height:85vh;overflow-y:auto;box-shadow:0 -8px 40px rgba(0,0,0,.25);}
-.reg-m-handle{width:40px;height:4px;background:#D1D5DB;border-radius:2px;margin:0 auto 20px;}
-.reg-m-titulo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--azul);margin-bottom:6px;}
-.reg-m-sub{font-size:.83rem;color:#666;line-height:1.6;margin-bottom:18px;}
-.reg-m-telegram{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;border:none;border-radius:6px;padding:12px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s;width:100%;margin-bottom:14px;}
-.reg-m-telegram:hover{background:#1a8bb8;}
-.reg-m-toggle{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;width:100%;justify-content:center;padding:8px;opacity:.7;}
-.reg-m-toggle:hover{opacity:1;}
-.reg-m-form{display:none;margin-top:16px;}
-.reg-m-form.abierto{display:block;}
-.reg-m-label{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#111;margin-bottom:8px;display:block;}
-.reg-m-checks{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-.reg-m-check-item{display:flex;align-items:center;gap:10px;font-size:.84rem;color:#111;cursor:pointer;}
-.reg-m-check-item input{width:16px;height:16px;cursor:pointer;accent-color:var(--azul);}
-.reg-m-canales{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
-.reg-m-canal-btn{padding:10px 6px;border:2px solid #E5E7EB;border-radius:6px;background:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#888;cursor:pointer;transition:all .2s;text-align:center;}
-.reg-m-canal-btn.sel{border-color:var(--azul);color:var(--azul);background:#F0F4FF;}
-.reg-m-input{width:100%;padding:10px 13px;border:1.5px solid #E5E7EB;border-radius:4px;font-family:'Barlow',sans-serif;font-size:.88rem;color:#111;margin-bottom:14px;outline:none;transition:border-color .2s;}
-.reg-m-input:focus{border-color:var(--azul);}
-.reg-m-padron-box{background:#F5F8FF;border:1.5px solid rgba(0,42,143,.15);border-radius:6px;padding:13px 15px;margin-bottom:16px;}
-.reg-m-padron-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
-.reg-m-padron-check input{width:16px;height:16px;margin-top:2px;cursor:pointer;accent-color:var(--azul);flex-shrink:0;}
-.reg-m-padron-label{font-size:.83rem;color:#111;line-height:1.5;}
-.reg-m-padron-label strong{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);display:block;margin-bottom:2px;}
-.reg-m-padron-extra{display:none;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,42,143,.12);}
-.reg-m-padron-extra.visible{display:block;}
-.reg-m-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.reg-m-privacidad{font-size:.72rem;color:#888;text-align:center;line-height:1.5;margin-bottom:12px;}
-.reg-m-submit{width:100%;padding:12px;background:var(--azul);color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.reg-m-submit:hover{background:#001f6b;}
-.reg-m-submit:disabled{opacity:.45;cursor:not-allowed;}
-.reg-m-cerrar{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888;line-height:1;}
-.reg-m-exito{text-align:center;padding:14px;background:#F0FFF4;border:1.5px solid #22C55E;border-radius:6px;}
-.reg-m-exito-icon{font-size:26px;color:#22C55E;display:block;margin-bottom:6px;}
-.reg-m-exito-txt{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#166534;}
 .fab{position:fixed;bottom:24px;left:24px;background:var(--rojo);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.35rem;cursor:pointer;box-shadow:0 4px 16px rgba(207,20,43,.4);transition:all .2s;border:none;z-index:200;font-weight:700;}
 .fab:hover{background:#a80e22;transform:scale(1.08);}
 .scrT{position:fixed;bottom:80px;left:24px;background:var(--azul);color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;box-shadow:var(--sh);border:none;z-index:200;opacity:0;transition:opacity .3s;}
@@ -354,7 +337,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 .flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
 
 /* SECTION HEADERS */
-.sec-h{font-family:Barlow Condensed,sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:14px;border-bottom:2px solid var(--azul);padding-bottom:7px;}
+.sec-h{font-family:Inter,sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin-bottom:14px;border-bottom:2px solid var(--azul);padding-bottom:7px;}
 .sec-sub{font-size:.85rem;color:var(--gt);margin-bottom:18px;line-height:1.6;}
 
 /* HAMBURGER MENU */
@@ -365,17 +348,17 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 #ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 #ham-menu{position:fixed;bottom:132px;right:16px;z-index:1099;background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);min-width:200px;max-height:70vh;overflow-y:auto;display:none;flex-direction:column;padding:8px 0;}
 #ham-menu.open{display:flex;}
-.ham-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;}
+.ham-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;font-family:Inter,sans-serif;font-weight:700;font-size:.88rem;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);border:none;background:none;width:100%;text-align:left;transition:background .15s;}
 .ham-item:hover{background:#f0f4ff;}
 .ham-item .hbadge{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;flex-shrink:0;}
 .ham-item.active-item{color:var(--azul);}
 .ham-divider{height:1px;background:var(--gris);margin:4px 0;}
 
 /* AUTH LAYER (offline - ready for Supabase) */
-#auth-bar{display:flex;align-items:center;gap:8px;padding:5px 12px;background:#f0f4ff;border-bottom:1px solid #dce4ff;font-size:.76rem;font-family:Barlow Condensed,sans-serif;}
+#auth-bar{display:flex;align-items:center;gap:8px;padding:5px 12px;background:#f0f4ff;border-bottom:1px solid #dce4ff;font-size:.76rem;font-family:Inter,sans-serif;}
 #auth-bar .auth-status{flex:1;color:var(--gt);}
 #auth-bar .auth-status b{color:var(--azul);}
-.auth-btn{padding:4px 12px;border-radius:4px;border:1.5px solid var(--azul);background:transparent;color:var(--azul);font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;}
+.auth-btn{padding:4px 12px;border-radius:4px;border:1.5px solid var(--azul);background:transparent;color:var(--azul);font-family:Inter,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;}
 .auth-btn:hover{background:var(--azul);color:#fff;}
 .auth-btn.anon{border-color:var(--gt);color:var(--gt);}
 .auth-btn.anon:hover{background:var(--gt);color:#fff;}
@@ -385,32 +368,32 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 #auth-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;align-items:center;justify-content:center;}
 #auth-modal.open{display:flex;}
 #auth-modal .am-box{background:#fff;border-radius:10px;padding:28px 24px;max-width:360px;width:90%;position:relative;}
-#auth-modal .am-title{font-family:Bebas Neue,sans-serif;font-size:1.5rem;color:var(--azul);margin-bottom:4px;letter-spacing:1px;}
+#auth-modal .am-title{font-family:Inter,sans-serif;font-weight:800;font-size:1.5rem;color:var(--azul);margin-bottom:4px;letter-spacing:1px;}
 #auth-modal .am-sub{font-size:.8rem;color:var(--gt);margin-bottom:18px;line-height:1.5;}
-#auth-modal input[type=email]{width:100%;padding:10px 12px;border:1.5px solid var(--gris-m);border-radius:6px;font-size:.9rem;font-family:Barlow,sans-serif;margin-bottom:10px;box-sizing:border-box;}
+#auth-modal input[type=email]{width:100%;padding:10px 12px;border:1.5px solid var(--gris-m);border-radius:6px;font-size:.9rem;font-family:Inter,sans-serif;margin-bottom:10px;box-sizing:border-box;}
 #auth-modal input[type=email]:focus{outline:none;border-color:var(--azul);}
 .am-divider{display:flex;align-items:center;gap:10px;margin:12px 0;color:#bbb;font-size:.75rem;}
 .am-divider::before,.am-divider::after{content:'';flex:1;height:1px;background:#eee;}
 #auth-modal .am-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#aaa;}
-.review-badge{display:inline-block;background:var(--rojo);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;font-family:Barlow Condensed,sans-serif;font-weight:700;margin-left:5px;vertical-align:middle;}
+.review-badge{display:inline-block;background:var(--rojo);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;font-family:Inter,sans-serif;font-weight:700;margin-left:5px;vertical-align:middle;}
 .logo-wrap{display:flex;align-items:center;min-width:0;overflow:hidden}
 .logo-wrap img{display:block;height:56px;width:auto;max-width:none;object-fit:contain}
 .logo-wrap{display:flex;align-items:center;gap:10px;min-width:0;overflow:hidden}
-.logo-textmark{font-family:"Bebas Neue",sans-serif;font-size:2rem;letter-spacing:.8px;color:var(--azul);line-height:1}
+.logo-textmark{font-family:Inter,sans-serif;font-weight:800;font-size:2rem;letter-spacing:.8px;color:var(--azul);line-height:1}
 .logo-sub{font-size:.72rem;color:var(--gt);font-weight:600;letter-spacing:.7px;text-transform:uppercase;white-space:nowrap}
 
 .hero-copy{max-width:980px;margin:0 auto;text-align:center;padding:16px 20px 20px;background:#F7F8FC;border:none;border-radius:0;box-shadow:none}
-.hero-copy h1{font-family:"Barlow Condensed",sans-serif;font-size:2rem;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin:6px 0 8px}
+.hero-copy h1{font-family:Inter,sans-serif;font-size:2rem;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin:6px 0 8px}
 .hero-copy p{color:var(--azul);font-size:1.05rem;line-height:1.55;margin:0 auto;max-width:860px;text-align:center}
-.hero-copy .hero-cta{margin-top:14px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Barlow Condensed",sans-serif;font-size:1.05rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.hero-copy .hero-cta{margin-top:14px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:Inter,sans-serif;font-size:1.05rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 @media (max-width:900px){.hero-copy h1{font-size:1.25rem;letter-spacing:1.2px}.hero-copy p{font-size:.95rem}.hero-copy .hero-cta{font-size:.95rem;padding:10px 14px}}
 
 .roadmap{max-width:1080px;margin:10px auto 14px;padding:0 12px}
-.roadmap-title{font-family:"Barlow Condensed",sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:4px}
+.roadmap-title{font-family:Inter,sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:4px}
 .roadmap-sub{font-size:.92rem;color:#4f4f55;margin:0 0 10px}
 .roadmap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .roadmap-card{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:12px 12px;text-decoration:none}
-.roadmap-card h3{margin:0;font-size:1rem;color:var(--azul);font-family:"Barlow Condensed",sans-serif;letter-spacing:.5px;text-transform:uppercase}
+.roadmap-card h3{margin:0;font-size:1rem;color:var(--azul);font-family:Inter,sans-serif;letter-spacing:.5px;text-transform:uppercase}
 .roadmap-card .status{font-size:.75rem;color:#6b6b73;text-transform:uppercase;letter-spacing:.6px}
 .roadmap-card .stage{width:28px;height:28px;border-radius:999px;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
 .roadmap-card.active{border:1px solid var(--rojo)}
@@ -423,19 +406,19 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 .minimos-wrap{max-width:1080px;margin:12px auto 16px;padding:0 12px}
 .minimos-card{background:#fff;border:1px solid var(--gris-m);border-radius:12px;padding:14px 14px 10px;margin-bottom:10px}
-.minimos-title{font-family:"Barlow Condensed",sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin:0 0 6px}
+.minimos-title{font-family:Inter,sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin:0 0 6px}
 .minimos-sub{font-size:.93rem;color:#555;margin:0 0 10px}
 .minimos-list{margin:0;padding-left:18px}
 .minimos-list li{margin:6px 0;color:#1f1f24;line-height:1.45}
 .minimos-list b{color:var(--azul)}
 .scenarios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .scenario{border:1px solid #dce3f3;border-radius:10px;padding:10px;background:#fafcff}
-.scenario h4{margin:0 0 6px;color:var(--azul);font-family:"Barlow Condensed",sans-serif;letter-spacing:.5px;text-transform:uppercase}
+.scenario h4{margin:0 0 6px;color:var(--azul);font-family:Inter,sans-serif;letter-spacing:.5px;text-transform:uppercase}
 .rule-box{background:#eef3ff;border:1px solid #cfdbfb;color:#123b8a;border-radius:10px;padding:10px;font-size:.92rem;line-height:1.45;margin-top:8px}
 @media (max-width:900px){.scenarios{grid-template-columns:1fr}}
 
 .escenarios-minimos-inline{margin-top:10px;background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:12px}
-.escenarios-minimos-inline h3{margin:0 0 6px;color:#002A8F;font-family:Barlow Condensed,sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:1.1rem}
+.escenarios-minimos-inline h3{margin:0 0 6px;color:#002A8F;font-family:Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:1.1rem}
 .escenarios-minimos-inline p{margin:0 0 8px;color:#555;font-size:.9rem;line-height:1.45}
 .esc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .esc-item{border:1px solid #dce3f3;border-radius:8px;padding:8px;background:#fafcff;font-size:.9rem;line-height:1.35;color:#30343a}
@@ -445,7 +428,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 /* CITIZEN PROPOSAL CARDS */
 .card.citizen { background:#FFF5F6; border:1.5px solid #F5B8C0 !important; }
 .card.citizen .card-top { background:#FFF5F6; }
-.citizen-badge { display:inline-flex;align-items:center;gap:4px;background:var(--rojo);color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px; }
+.citizen-badge { display:inline-flex;align-items:center;gap:4px;background:var(--rojo);color:#fff;padding:2px 8px;border-radius:3px;font-family:Inter,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px; }
 .citizen-author { font-size:.72rem;color:#999;margin-top:4px;font-style:italic; }
 .citizen-author a { color:var(--rojo);text-decoration:none;font-style:normal;font-weight:600; }
 .citizen-author a:hover { text-decoration:underline; }
@@ -454,48 +437,48 @@ input.nin:focus{outline:none;border-color:var(--azul);}
   #cp-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9000;align-items:center;justify-content:center;}
   #cp-modal-overlay.open{display:flex;}
   #cp-modal{background:#fff;border-radius:10px;padding:24px 22px 20px;width:min(94vw,520px);box-shadow:0 8px 32px rgba(0,0,0,.18);position:relative;}
-  #cp-modal h3{font-family:Barlow Condensed,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin:0 0 14px;}
-  #cp-modal textarea{width:100%;box-sizing:border-box;min-height:90px;padding:8px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Barlow,sans-serif;font-size:.85rem;resize:vertical;}
-  #cp-modal select,#cp-modal input[type=text]{width:100%;box-sizing:border-box;padding:7px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Barlow,sans-serif;font-size:.84rem;margin-top:8px;}
+  #cp-modal h3{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul);margin:0 0 14px;}
+  #cp-modal textarea{width:100%;box-sizing:border-box;min-height:90px;padding:8px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Inter,sans-serif;font-size:.85rem;resize:vertical;}
+  #cp-modal select,#cp-modal input[type=text]{width:100%;box-sizing:border-box;padding:7px 10px;border:1.5px solid #ddd;border-radius:6px;font-family:Inter,sans-serif;font-size:.84rem;margin-top:8px;}
   #cp-modal .modal-row{display:flex;gap:9px;margin-top:12px;justify-content:flex-end;flex-wrap:wrap;}
-  #cp-modal .btn-save{background:var(--azul);color:#fff;border:none;padding:8px 20px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
-  #cp-modal .btn-cancel{background:#eee;color:#555;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-size:.84rem;cursor:pointer;}
-  #cp-modal .btn-delete{background:#C62828;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
-  #cp-modal .btn-retire{background:#EF6C00;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  #cp-modal .btn-save{background:var(--azul);color:#fff;border:none;padding:8px 20px;border-radius:5px;font-family:Inter,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  #cp-modal .btn-cancel{background:#eee;color:#555;border:none;padding:8px 16px;border-radius:5px;font-family:Inter,sans-serif;font-size:.84rem;cursor:pointer;}
+  #cp-modal .btn-delete{background:#C62828;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Inter,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
+  #cp-modal .btn-retire{background:#EF6C00;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:Inter,sans-serif;font-weight:700;font-size:.84rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;}
   .cp-owner-actions{display:flex;gap:7px;margin-top:6px;flex-wrap:wrap;}
-  .cp-owner-actions .cp-edit-btn{background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
+  .cp-owner-actions .cp-edit-btn{background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
   .cp-owner-actions .cp-edit-btn:hover{background:var(--azul);color:#fff;}
-  .cp-owner-actions .cp-del-btn{background:none;border:1px solid #C62828;color:#C62828;border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
+  .cp-owner-actions .cp-del-btn{background:none;border:1px solid #C62828;color:#C62828;border-radius:4px;padding:3px 10px;font-size:.7rem;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;}
   .cp-owner-actions .cp-del-btn:hover{background:#C62828;color:#fff;}
   .card.citizen.retired{opacity:.55;border-style:dashed!important;}
-  .retired-badge{display:inline-flex;align-items:center;gap:4px;background:#999;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .retired-badge{display:inline-flex;align-items:center;gap:4px;background:#999;color:#fff;padding:2px 8px;border-radius:3px;font-family:Inter,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
 
 /* DOCUMENT IMPORT SYSTEM */
 .import-tabs{display:flex;gap:0;margin-bottom:14px;border-bottom:2px solid var(--gris-m);}
-.import-tab{padding:7px 16px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:none;background:none;color:var(--gt);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;}
+.import-tab{padding:7px 16px;font-family:Inter,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:none;background:none;color:var(--gt);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;}
 .import-tab.active{color:var(--azul);border-bottom-color:var(--azul);}
 .import-panel{display:none;}.import-panel.active{display:block;}
 .upload-zone{border:2px dashed var(--gris-m);border-radius:8px;padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fafbff;}
 .upload-zone:hover,.upload-zone.drag{border-color:var(--azul);background:#EEF2FF;}
 .upload-zone .uz-icon{font-size:2rem;color:var(--azul);margin-bottom:6px;}
-.upload-zone .uz-label{font-family:Barlow Condensed,sans-serif;font-size:.84rem;font-weight:700;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;}
+.upload-zone .uz-label{font-family:Inter,sans-serif;font-size:.84rem;font-weight:700;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;}
 .upload-zone .uz-sub{font-size:.74rem;color:var(--gt);margin-top:4px;}
 .import-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
 @media(max-width:600px){.import-meta{grid-template-columns:1fr;}}
-.import-meta input,.import-meta textarea{padding:7px 10px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.82rem;font-family:Barlow,sans-serif;width:100%;box-sizing:border-box;}
+.import-meta input,.import-meta textarea{padding:7px 10px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.82rem;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;}
 .import-meta textarea{grid-column:1/-1;min-height:58px;resize:vertical;}
 .import-meta .full{grid-column:1/-1;}
-.import-meta label{font-size:.72rem;font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gt);display:block;margin-bottom:3px;}
+.import-meta label{font-size:.72rem;font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gt);display:block;margin-bottom:3px;}
 .import-meta .priv-note{grid-column:1/-1;font-size:.72rem;color:#999;background:#fff8e1;border:1px solid #ffe082;border-radius:4px;padding:6px 10px;display:flex;align-items:center;gap:6px;}
 .import-progress{background:#EEF2FF;border-radius:8px;padding:14px 16px;margin-top:10px;display:none;}
-.import-progress .prog-title{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.import-progress .prog-title{font-family:Inter,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
 .prog-bar-wrap{background:#dde2f0;border-radius:20px;height:6px;overflow:hidden;margin-bottom:6px;}
 .prog-bar-fill{height:100%;background:var(--azul);border-radius:20px;transition:width .3s;width:0%;}
 .prog-status{font-size:.75rem;color:var(--gt);}
 .import-results{margin-top:12px;display:none;}
-.import-results .ir-header{font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.85rem;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.import-results .ir-header{font-family:Inter,sans-serif;font-weight:700;font-size:.85rem;color:var(--negro);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .ir-proposal{background:#fff;border:1.5px solid var(--gris-m);border-radius:6px;padding:10px 12px;margin-bottom:7px;position:relative;}
-.ir-proposal .ir-cat{display:inline-flex;align-items:center;gap:4px;background:var(--azul);color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.ir-proposal .ir-cat{display:inline-flex;align-items:center;gap:4px;background:var(--azul);color:#fff;padding:2px 8px;border-radius:3px;font-family:Inter,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
 .ir-proposal .ir-text{font-size:.84rem;color:#222;line-height:1.5;}
 .ir-proposal .ir-reason{font-size:.72rem;color:#999;margin-top:4px;font-style:italic;}
 .ir-proposal .ir-del{position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;color:#ccc;font-size:.9rem;}
@@ -504,31 +487,86 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 /* PENDING PROPOSALS IN ADMIN */
 .adm-pending-item{border:1.5px solid #ffe082;background:#fff8e1;border-radius:6px;padding:10px 12px;margin-bottom:7px;}
-.adm-pending-item .apc{display:inline-flex;align-items:center;gap:4px;background:#856404;color:#fff;padding:2px 8px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;}
+.adm-pending-item .apc{display:inline-flex;align-items:center;gap:4px;background:#856404;color:#fff;padding:2px 8px;border-radius:3px;font-family:Inter,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;}
 .adm-pending-item .apt{font-size:.83rem;color:#222;line-height:1.5;margin-bottom:4px;}
 .adm-pending-item .apa{font-size:.71rem;color:#777;margin-bottom:6px;}
 .adm-pending-btns{display:flex;gap:6px;}
-.btn-approve{padding:4px 12px;background:#2D7A4F;color:#fff;border:none;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
-.btn-reject{padding:4px 12px;background:#CF142B;color:#fff;border:none;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
+.btn-approve{padding:4px 12px;background:#2D7A4F;color:#fff;border:none;border-radius:4px;font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
+.btn-reject{padding:4px 12px;background:#CF142B;color:#fff;border:none;border-radius:4px;font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;cursor:pointer;}
 
 /* NEW badge in category */
-.new-badge{display:inline-flex;align-items:center;gap:3px;background:#F5B8C0;color:#C62828;padding:1px 6px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-left:6px;vertical-align:middle;}
+.new-badge{display:inline-flex;align-items:center;gap:3px;background:#F5B8C0;color:#C62828;padding:1px 6px;border-radius:3px;font-family:Inter,sans-serif;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-left:6px;vertical-align:middle;}
+
+
+/* ╔═══════════════════════════════════════════════════════════════╗
+   ║  DESIGN SYSTEM v1 — SHELL (header + hero + footer)           ║
+   ╚═══════════════════════════════════════════════════════════════╝ */
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-.01em;background:var(--bg-gray-2);color:var(--ink);}
+
+.v1-header{background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:200;}
+.v1-header-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:22px;}
+.v1-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.v1-brand img{height:32px;width:auto;border-radius:6px;}
+.v1-brand-text{font-weight:800;letter-spacing:.05em;font-size:.9rem;}
+.v1-brand-text em{color:var(--red);font-style:normal;}
+.v1-breadcrumb{font-size:.82rem;color:var(--ink-3);display:flex;align-items:center;gap:8px;flex:1;justify-content:center;}
+.v1-breadcrumb a{color:var(--ink-3);text-decoration:none;transition:color .2s;}
+.v1-breadcrumb a:hover{color:var(--blue);}
+.v1-breadcrumb .v1-crumb-active{color:var(--ink);font-weight:600;}
+@media(max-width:780px){.v1-breadcrumb{display:none;}}
+
+.hdr-ham-btn{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--blue);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all .2s;}
+.hdr-ham-btn:hover{background:var(--blue-hover);transform:translateY(-1px);}
+
+/* HERO v1 */
+.v1-hero{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 100%);color:#fff;position:relative;overflow:hidden;}
+.v1-hero::before{content:"";position:absolute;top:0;right:-100px;width:520px;height:100%;background:radial-gradient(circle at 50% 50%,rgba(206,17,38,.18),transparent 65%);pointer-events:none;}
+.v1-hero-inner{max-width:1160px;margin:0 auto;padding:72px 28px 72px;position:relative;z-index:2;}
+.v1-hero-kicker{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+.v1-kicker-dot{width:30px;height:3px;background:var(--red);border-radius:2px;display:inline-block;}
+.v1-hero-title{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:800;letter-spacing:-.035em;line-height:1.02;margin-bottom:20px;color:#fff;}
+.v1-hero-title span{color:var(--red);}
+.v1-hero-sub{font-size:clamp(.95rem,1.05vw,1.08rem);color:rgba(255,255,255,.75);font-weight:400;line-height:1.65;max-width:680px;margin-bottom:34px;}
+.v1-hero-stats{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;}
+.v1-hero-stat{display:flex;flex-direction:column;gap:4px;}
+.v1-hero-stat-n{font-size:2.1rem;font-weight:800;letter-spacing:-.025em;color:#fff;line-height:1;}
+.v1-hero-stat-l{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.56);}
+.v1-hero-stat-sep{width:1px;align-self:stretch;background:rgba(255,255,255,.16);}
+@media(max-width:720px){.v1-hero-inner{padding:52px 22px 54px;}.v1-hero-stats{gap:18px;}.v1-hero-stat-n{font-size:1.7rem;}}
+
+/* FOOTER v1 */
+.v1-footer{background:var(--ink);color:rgba(255,255,255,.68);margin-top:72px;padding:56px 28px 36px;}
+.v1-footer-inner{max-width:1160px;margin:0 auto;}
+.v1-footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;margin-bottom:38px;}
+@media(max-width:760px){.v1-footer-cols{grid-template-columns:repeat(2,1fr);gap:28px;}}
+@media(max-width:460px){.v1-footer-cols{grid-template-columns:1fr;}}
+.v1-footer-col{display:flex;flex-direction:column;gap:10px;}
+.v1-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.v1-footer-brand img{height:30px;width:auto;border-radius:5px;}
+.v1-footer-brand span{font-weight:800;color:#fff;letter-spacing:.04em;}
+.v1-footer-tag{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.55);}
+.v1-footer-h{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.v1-footer-col a{color:rgba(255,255,255,.72);text-decoration:none;font-size:.88rem;transition:color .2s;}
+.v1-footer-col a:hover{color:#fff;}
+.v1-footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.42);}
+.v1-footer-bottom em{font-style:italic;color:rgba(255,255,255,.56);}
+
+/* Minor v1 tuning on existing components — soften radius */
+.roadmap-card{border-radius:var(--radius-sm);}
+.hero-copy{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-2);}
+
 </style>
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
-<div class="flag"></div>
-<header>
-  <div class="hdr">
-    <div style="display:flex;align-items:center;gap:14px;">
-      <a href="app.html" style="display:block;line-height:0;">
-        <img src="entre-todos-logo.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
-      </a>
-      <a href="app.html" class="back-btn">
-        <i class="fi fi-br-arrow-left"></i> Inicio
-      </a>
-    </div>
+<header class="v1-header">
+  <div class="v1-header-inner">
+    <a href="index.html" class="v1-brand">
+      <img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.style.display='none'">
+      <span class="v1-brand-text">ENTRE <em>TODOS</em></span>
+    </a>
+    <div class="v1-breadcrumb"><a href="index.html">Inicio</a> <span>·</span> <span class="v1-crumb-active">Fase 1 · Transición Democrática</span></div>
     <div class="hdr-ham">
       <button class="hdr-ham-btn" id="hdr-ham-btn" onclick="toggleHdrHam()" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -542,58 +580,29 @@ input.nin:focus{outline:none;border-color:var(--azul);}
         <button class="hdr-ham-item" onclick="selectCatCard('RES');closeHdrHam();"><span class="hico"><i class="fi fi-br-chart-pie"></i></span>Ver resultados</button>
         <button class="hdr-ham-item" onclick="selectCatCard('DOC');closeHdrHam();"><span class="hico"><i class="fi fi-br-scroll"></i></span>Propuesta Plural</button>
         <button class="hdr-ham-item" onclick="switchTab('ORG',null);closeHdrHam();"><span class="hico"><i class="fi fi-br-paper-plane"></i></span>Registrar organización</button>
+        <hr class="hdr-ham-divider">
+        <a class="hdr-ham-item" href="constituyente-cuba.html"><span class="hico"><i class="fi fi-br-scroll"></i></span>Fase 2 — Constituyente</a>
       </div>
     </div>
   </div>
 </header>
 
-<style>
-.page-banner{background:#002A8F;position:relative;overflow:hidden;}
-.page-banner-flag{height:5px;background:linear-gradient(90deg,#002A8F 33.3%,#fff 33.3%,#fff 66.6%,#CF142B 66.6%);opacity:.35;}
-.page-banner-accent{position:absolute;top:0;right:-60px;width:320px;height:100%;background:linear-gradient(135deg,transparent 40%,rgba(207,20,43,.18) 40%);pointer-events:none;}
-.page-banner-inner{max-width:1100px;margin:0 auto;padding:32px 28px 36px;position:relative;z-index:2;}
-.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.page-banner-phase::before{content:'';display:inline-block;width:28px;height:2px;background:#CF142B;border-radius:2px;flex-shrink:0;}
-.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);letter-spacing:4px;color:#fff;line-height:1.0;margin-bottom:14px;}
-.page-banner-title span{color:#CF142B;}
-.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:560px;margin-bottom:22px;}
-.page-banner-stats{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;}
-.page-banner-stat{display:flex;flex-direction:column;gap:2px;}
-.page-banner-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#fff;letter-spacing:2px;line-height:1;}
-.page-banner-stat-l{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);}
-.page-banner-stat-sep{width:1px;height:36px;background:rgba(255,255,255,.15);}
-.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
-.back-btn:hover{background:var(--azul);color:#fff;}
-.page-banner-watermark{position:absolute;right:-60px;bottom:-60px;font-size:340px;color:rgba(255,255,255,.06);line-height:1;transform:rotate(-20deg);pointer-events:none;z-index:1;display:flex;align-items:center;}
 
-.roadmap-icon{font-size:1.05rem;color:var(--azul);flex-shrink:0;display:flex;align-items:center;justify-content:center;width:22px;}
-.roadmap-card.active .roadmap-icon{color:var(--rojo);}</style>
-<div class="page-banner">
-  <div class="page-banner-flag"></div>
-  <div class="page-banner-accent"></div>
-  <div class="page-banner-inner">
-    <div class="page-banner-phase">Fase 1 &nbsp;·&nbsp; Hoja de Ruta Nacional E/TODOS</div>
-  <div class="page-banner-watermark"><i class="fi fi-br-shuffle"></i></div>
-    <div class="page-banner-title">Transición<br><span>Democrática</span><br>de Cuba</div>
-    <div class="page-banner-sub">Propuestas de más de 40 organizaciones del exilio y la sociedad civil cubana, organizadas por categorías temáticas. Lee, compara, vota y añade. Nadie se queda afuera.</div>
-    <div class="page-banner-stats">
-      <div class="page-banner-stat">
-        <div class="page-banner-stat-n">40+</div>
-        <div class="page-banner-stat-l">Organizaciones</div>
-      </div>
-      <div class="page-banner-stat-sep"></div>
-      <div class="page-banner-stat">
-        <div class="page-banner-stat-n">15</div>
-        <div class="page-banner-stat-l">Categorías</div>
-      </div>
-      <div class="page-banner-stat-sep"></div>
-      <div class="page-banner-stat">
-        <div class="page-banner-stat-n" id="banner-total">129</div>
-        <div class="page-banner-stat-l">Propuestas</div>
-      </div>
+<!-- HERO v1 -->
+<section class="v1-hero">
+  <div class="v1-hero-inner">
+    <div class="v1-hero-kicker"><span class="v1-kicker-dot"></span>Fase 1 · Hoja de Ruta Nacional E/TODOS</div>
+    <h1 class="v1-hero-title">Transición<br><span>Democrática</span><br>de Cuba</h1>
+    <p class="v1-hero-sub">Propuestas de más de 40 organizaciones del exilio y la sociedad civil cubana, organizadas por categorías temáticas. Lee, compara, vota y añade. Nadie se queda afuera.</p>
+    <div class="v1-hero-stats">
+      <div class="v1-hero-stat"><div class="v1-hero-stat-n" id="hero-orgs">40+</div><div class="v1-hero-stat-l">Organizaciones</div></div>
+      <div class="v1-hero-stat-sep"></div>
+      <div class="v1-hero-stat"><div class="v1-hero-stat-n">15</div><div class="v1-hero-stat-l">Categorías</div></div>
+      <div class="v1-hero-stat-sep"></div>
+      <div class="v1-hero-stat"><div class="v1-hero-stat-n" id="hero-total-props">129</div><div class="v1-hero-stat-l">Propuestas</div></div>
     </div>
   </div>
-</div>
+</section>
 <div class="hero-copy">
     <h1>TU VOZ. TU APORTE. TU VOTO.</h1>
     <p style="font-size:1.1rem;font-weight:600;color:var(--azul);margin-bottom:4px;">Construyamos la Cuba que soñamos, ENTRE TODOS.</p>
@@ -604,7 +613,6 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <button class="hero-cta" style="background:#fff;color:var(--rojo);border:2px solid var(--rojo);" onclick="selectCatCard('DOC');"><i class="fi fi-br-scroll" style="font-size:.9em;"></i> PROPUESTA PLURAL</button>
     </div>
   </div>
-</div>
 
 
 
@@ -615,7 +623,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <button class="chip" onclick="filterCards('high',this)">Más apoyadas</button>
     <button class="chip" onclick="filterCards('unvoted',this)">Sin votar</button>
     <input class="srch" type="text" placeholder="Buscar..." oninput="searchCards(this.value)" style="margin-left:0;">
-    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:none;color:var(--azul);padding:0;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;"><span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--azul);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;line-height:1;">?</span>&nbsp;¿Cómo votar?</button>
+    <button onclick="toggleHowTo()" id="howto-btn" style="margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:none;color:var(--azul);padding:0;font-family:Inter,sans-serif;font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;white-space:nowrap;"><span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--azul);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;line-height:1;">?</span>&nbsp;¿Cómo votar?</button>
   </div>
   <div id="howto-panel" style="display:none;background:#EEF2FF;border:1px solid rgba(0,42,143,.15);border-radius:0 0 10px 10px;padding:14px 18px;margin-top:-4px;font-size:.82rem;color:#333;line-height:1.9;">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 20px;">
@@ -626,7 +634,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <div><i class="fi fi-br-add"></i> <b>Propón</b> algo nuevo en "+ Mi propuesta"</div>
       <div style="color:#888;font-style:italic;">Los números en cada propuesta son las organizaciones que la respaldan — pincha para verlas</div>
     </div>
-    <button onclick="toggleHowTo()" style="margin-top:10px;background:none;border:none;color:var(--azul);font-family:Barlow Condensed,sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;">▲ Cerrar</button>
+    <button onclick="toggleHowTo()" style="margin-top:10px;background:none;border:none;color:var(--azul);font-family:Inter,sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;">▲ Cerrar</button>
   </div>
 </div>
 
@@ -634,7 +642,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 
 <div class="cat-grid-wrap" id="tabs">
   <div id="back-to-grid" style="display:none;padding-bottom:10px;">
-    <button onclick="showCatGrid()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azul);color:#fff;border:none;cursor:pointer;font-family:Barlow Condensed,sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:8px 16px;border-radius:6px;"><i class="fi fi-br-arrow-left" style="font-size:.85em;"></i> Todas las categorías</button>
+    <button onclick="showCatGrid()" style="display:inline-flex;align-items:center;gap:6px;background:var(--azul);color:#fff;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:8px 16px;border-radius:6px;"><i class="fi fi-br-arrow-left" style="font-size:.85em;"></i> Todas las categorías</button>
   </div>
   <div id="cat-grid-wrap-inner">
     <div class="cat-grid-title">Selecciona una categoría para votar:</div>
@@ -692,7 +700,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       <!-- TAB: MANUAL -->
       <div class="import-panel active" id="imp-manual">
         <div style="display:flex;flex-direction:column;gap:9px;">
-          <select id="nc" style="padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Barlow,sans-serif;">
+          <select id="nc" style="padding:7px 11px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.84rem;font-family:Inter,sans-serif;">
             <option value="">Categoría más cercana (opcional)...</option>
             <option value="N">N. Vías de Cambio</option>
             <option value="A">A. Marco Constitucional y Legal</option>
@@ -710,9 +718,9 @@ input.nin:focus{outline:none;border-color:var(--azul);}
             <option value="M">M. Discapacidad, Tecnología y Privacidad Digital</option>
             <option value="Z">Z. Otra / sin encaje claro</option>
           </select>
-          <textarea id="nt" style="padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:72px;resize:vertical;" placeholder="Escribe tu propuesta como una afirmación clara y neutral..."></textarea>
+          <textarea id="nt" style="padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Inter,sans-serif;font-size:.86rem;min-height:72px;resize:vertical;" placeholder="Escribe tu propuesta como una afirmación clara y neutral..."></textarea>
           <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
-            <input id="nn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)"><input id="nsocial" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:160px;" placeholder="Tu perfil: IG, Facebook, X... (opcional)">
+            <input id="nn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Inter,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)"><input id="nsocial" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Inter,sans-serif;flex:1;min-width:160px;" placeholder="Tu perfil: IG, Facebook, X... (opcional)">
             <label style="display:flex;align-items:center;gap:4px;font-size:.76rem;color:var(--gt);cursor:pointer;"><input type="checkbox" id="na" onchange="document.getElementById('nn').disabled=this.checked"> Anónimo</label>
             <button class="btn btn-p" onclick="submitNew()">Enviar propuesta</button>
           </div>
@@ -835,7 +843,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
       </div>
       <div id="org-pending" style="margin-top:20px;"></div>
       <div style="margin-top:16px;padding:14px;background:var(--azul-light);border-radius:6px;font-size:.82rem;color:#333;line-height:1.6;">
-        <strong style="font-family:Barlow Condensed,sans-serif;text-transform:uppercase;letter-spacing:.5px;">¿Qué pasa después?</strong><br>
+        <strong style="font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px;">¿Qué pasa después?</strong><br>
         1. Tu envío queda en revisión.<br>
         2. El equipo verifica que sea una organización real con propuestas de transición democrática.<br>
         3. Se integra la organización a la lista de referencias y se añaden los puntos nuevos según su categoría.<br>
@@ -880,8 +888,8 @@ input.nin:focus{outline:none;border-color:var(--azul);}
     <div class="sb-card" style="position:sticky;top:80px;text-align:center;">
       <h3 style="color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:10px;"><i class="fi fi-br-scroll"></i> Propuesta Plural</h3>
       <p style="font-size:.78rem;color:#666;line-height:1.55;margin-bottom:14px;">El documento de consenso ciudadano se construye en tiempo real desde los votos. Todas las propuestas más apoyadas aparecen como artículos del documento oficial.</p>
-      <button onclick="selectCatCard('DOC')" style="width:100%;background:var(--azul);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:8px;"><i class="fi fi-br-scroll" style="font-size:.9em;"></i> Ver Propuesta Plural</button>
-      <button onclick="selectCatCard('RES')" style="width:100%;background:transparent;color:var(--rojo);border:1.5px solid var(--rojo);padding:8px 14px;border-radius:6px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;"><i class="fi fi-br-chart-pie" style="font-size:.9em;"></i> Ver Resultados</button>
+      <button onclick="selectCatCard('DOC')" style="width:100%;background:var(--azul);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-family:Inter,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-bottom:8px;"><i class="fi fi-br-scroll" style="font-size:.9em;"></i> Ver Propuesta Plural</button>
+      <button onclick="selectCatCard('RES')" style="width:100%;background:transparent;color:var(--rojo);border:1.5px solid var(--rojo);padding:8px 14px;border-radius:6px;font-family:Inter,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;"><i class="fi fi-br-chart-pie" style="font-size:.9em;"></i> Ver Resultados</button>
       <div style="font-size:.65rem;color:#bbb;margin-top:10px;font-style:italic;">Se actualiza con cada voto</div>
     </div>
   </div>
@@ -896,7 +904,7 @@ input.nin:focus{outline:none;border-color:var(--azul);}
 </div>
 
 <div class="flag" style="margin-top:56px;"></div>
-<div style="text-align:center;padding:14px;font-size:.7rem;color:#ccc;font-family:Barlow Condensed,sans-serif;letter-spacing:1px;text-transform:uppercase;">ENTRE TODOS · E/TODOS · E/TDS — Gobernanza solucionaria, participación ciudadana plural</div>
+<div style="text-align:center;padding:14px;font-size:.7rem;color:#ccc;font-family:Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;">ENTRE TODOS · E/TODOS · E/TDS — Gobernanza solucionaria, participación ciudadana plural</div>
 
 <script>
 
@@ -1219,7 +1227,7 @@ function buildSobre(){
   // Hero box - "No es una propuesta más"
   const hero=document.createElement('div');
   hero.style.cssText='background:linear-gradient(135deg,var(--azul) 0%,#001a6e 100%);color:#fff;border-radius:8px;padding:22px 24px;margin-bottom:16px;';
-  hero.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:1.6rem;letter-spacing:2px;margin-bottom:10px;">No es una propuesta más</div>'
+  hero.innerHTML='<div style="font-family:Inter,sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:2px;margin-bottom:10px;">No es una propuesta más</div>'
     +'<p style="font-size:.88rem;line-height:1.75;opacity:.92;font-weight:300;margin:0 0 12px;">Cuba no carece de propuestas. Durante décadas, organizaciones, académicos y activistas han producido documentos serios, trabajados con dedicación genuina y amor por el país. Ese trabajo existe, tiene valor — y en muchos casos ha permanecido invisible para la mayoría, conocido solo por los miembros de cada organización o por quienes estuvieron cerca de su redacción.</p>'
     +'<p style="font-size:.88rem;line-height:1.75;opacity:.92;font-weight:300;margin:0 0 12px;">ENTRE TODOS no viene con agenda propia ni con ideas nuevas que imponer. Lo que hace es tomar ese trabajo colectivo que ya existía, reconocerlo, organizarlo y ponerlo frente a todos los cubanos — para que cada quien pueda evaluarlo por lo que dice, no por quién lo dice.</p>'
     +'<p style="font-size:.88rem;line-height:1.75;opacity:.95;font-weight:400;margin:0;font-style:italic;">Porque una buena idea no deja de serlo por haber nacido en una organización que no es la tuya. Y una propuesta que nadie conoce no puede construir el consenso que Cuba necesita. ENTRE TODOS es el espacio donde eso cambia.</p>';
@@ -1228,14 +1236,14 @@ function buildSobre(){
   // Principle box
   const pbox=document.createElement('div');
   pbox.style.cssText='background:#fff;border-radius:8px;border:2px solid var(--rojo);padding:18px 22px;margin-bottom:14px;';
-  pbox.innerHTML='<div style="font-family:Barlow Condensed,sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:8px;">Principio fundamental de participación</div>'
+  pbox.innerHTML='<div style="font-family:Inter,sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:8px;">Principio fundamental de participación</div>'
     +'<p style="font-size:.88rem;line-height:1.7;color:var(--negro);margin:0;font-style:italic;">Todo cubano tiene derecho a participar sin importar sus preferencias personales, ideológicas, políticas o religiosas — siempre que esté de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos. No tienen cabida organizaciones totalitarias, dictatoriales o que nieguen la soberanía del pueblo cubano sobre su propio destino.</p>';
   wrap.appendChild(pbox);
 
   // Section: El problema
   const prob=document.createElement('div');
   prob.style.cssText='background:#fff;border-radius:8px;border:1px solid var(--gris-m);padding:18px 22px;margin-bottom:14px;';
-  prob.innerHTML='<div style="font-family:Barlow Condensed,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">1. El problema que dio origen a ENTRE TODOS</div>'
+  prob.innerHTML='<div style="font-family:Inter,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">1. El problema que dio origen a ENTRE TODOS</div>'
     +'<p style="font-size:.86rem;line-height:1.7;color:var(--negro);margin:0 0 10px;">Toda propuesta lleva la huella del espacio donde nació: quiénes estuvieron en la sala, qué voces se escucharon, qué consensos ya existían antes de empezar. No es un defecto de las personas. Es una limitación natural de cualquier proceso humano.</p>'
     +'<p style="font-size:.86rem;line-height:1.7;color:var(--negro);margin:0;">Además, cuando una propuesta lleva el nombre de una organización, una parte de los cubanos la acepta o rechaza basándose en quién la firma, no en lo que dice. ENTRE TODOS elimina ese filtro: las ideas se evalúan por su valor, no por su origen.</p>';
   wrap.appendChild(prob);
@@ -1243,7 +1251,7 @@ function buildSobre(){
   // Section: Metodología
   const met=document.createElement('div');
   met.style.cssText='background:#fff;border-radius:8px;border:1px solid var(--gris-m);padding:18px 22px;margin-bottom:14px;';
-  met.innerHTML='<div style="font-family:Barlow Condensed,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">2. Metodología</div>';
+  met.innerHTML='<div style="font-family:Inter,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">2. Metodología</div>';
   const steps=[
     {n:'01',t:'Exploración exhaustiva',d:'Se recopilaron propuestas de más de 47 organizaciones cubanas de EE.UU., Europa, América Latina y Cuba. El punto de partida fue el trabajo que ya existía.'},
     {n:'02',t:'Agrupación sin duplicados',d:'Puntos similares de distintas organizaciones se fusionaron en una sola propuesta. Los matices únicos se incorporaron como incisos marcables individualmente.'},
@@ -1254,7 +1262,7 @@ function buildSobre(){
   steps.forEach(function(s){
     const row=document.createElement('div');
     row.style.cssText='display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;';
-    row.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:1.5rem;color:var(--azul);line-height:1;flex-shrink:0;width:28px;">'+s.n+'</div>'
+    row.innerHTML='<div style="font-family:Inter,sans-serif;font-weight:800;font-size:1.5rem;color:var(--azul);line-height:1;flex-shrink:0;width:28px;">'+s.n+'</div>'
       +'<div><div style="font-weight:700;font-size:.86rem;color:var(--negro);margin-bottom:2px;">'+s.t+'</div>'
       +'<div style="font-size:.8rem;color:var(--gt);line-height:1.5;">'+s.d+'</div></div>';
     met.appendChild(row);
@@ -1274,7 +1282,7 @@ function buildSobre(){
     const card=document.createElement('div');
     card.style.cssText='background:#f8f9ff;border-radius:6px;padding:12px 14px;border-left:3px solid var(--azul);';
     card.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px;"><i class="fi fi-br-'+c.icon+'" style="color:var(--azul);"></i></div>'
-      +'<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">'+c.t+'</div>'
+      +'<div style="font-family:Inter,sans-serif;font-weight:700;font-size:.82rem;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">'+c.t+'</div>'
       +'<div style="font-size:.77rem;color:var(--gt);line-height:1.45;">'+c.d+'</div>';
     grid.appendChild(card);
   });
@@ -1283,7 +1291,7 @@ function buildSobre(){
   // Vision modules
   const vis=document.createElement('div');
   vis.style.cssText='background:#fff;border-radius:8px;border:1px solid var(--gris-m);padding:18px 22px;margin-bottom:14px;';
-  vis.innerHTML='<div style="font-family:Barlow Condensed,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">3. Visión — Tres módulos</div>';
+  vis.innerHTML='<div style="font-family:Inter,sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--negro);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;">3. Visión — Tres módulos</div>';
   const modules=[
     {n:'01',label:'La Transición',desc:'El módulo actual. Propuestas de transición democrática organizadas por consenso.',active:true},
     {n:'02',label:'La Constituyente',desc:'Consulta participativa para la redacción colaborativa de una nueva Constitución.',active:false},
@@ -1293,9 +1301,9 @@ function buildSobre(){
     const row=document.createElement('div');
     row.style.cssText='display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;opacity:'+(m.active?'1':'.45')+';';
     const badge=m.active
-      ?'<span style="background:var(--rojo);color:#fff;font-size:.58rem;padding:1px 5px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-weight:700;vertical-align:middle;letter-spacing:.5px;">ACTIVO</span>'
-      :'<span style="background:#ddd;color:#999;font-size:.58rem;padding:1px 5px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-weight:700;vertical-align:middle;letter-spacing:.5px;">PRÓXIMO</span>';
-    row.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:1.6rem;color:'+(m.active?'var(--rojo)':'#bbb')+';line-height:1;flex-shrink:0;">'+m.n+'</div>'
+      ?'<span style="background:var(--rojo);color:#fff;font-size:.58rem;padding:1px 5px;border-radius:3px;font-family:Inter,sans-serif;font-weight:700;vertical-align:middle;letter-spacing:.5px;">ACTIVO</span>'
+      :'<span style="background:#ddd;color:#999;font-size:.58rem;padding:1px 5px;border-radius:3px;font-family:Inter,sans-serif;font-weight:700;vertical-align:middle;letter-spacing:.5px;">PRÓXIMO</span>';
+    row.innerHTML='<div style="font-family:Inter,sans-serif;font-weight:800;font-size:1.6rem;color:'+(m.active?'var(--rojo)':'#bbb')+';line-height:1;flex-shrink:0;">'+m.n+'</div>'
       +'<div><div style="font-weight:700;font-size:.88rem;color:var(--negro);">'+m.label+' '+badge+'</div>'
       +'<div style="font-size:.78rem;color:var(--gt);margin-top:2px;">'+m.desc+'</div></div>';
     vis.appendChild(row);
@@ -1306,7 +1314,7 @@ function buildSobre(){
   const foot=document.createElement('div');
   foot.style.cssText='text-align:center;padding:12px 0 4px;color:#aaa;font-size:.73rem;font-style:italic;';
   foot.innerHTML='ENTRE TODOS · Tu voz. Sin filtros. Sin líderes. Sin exclusiones.<br>'
-    +'<span style="font-size:.66rem;"><a href="gobernanza-solucionaria-v5.html" style="color:inherit;">Gobernanza Solucionaria</a> · Cubanos por el Cambio · Michel Estopiñán · 2026</span>';
+    +'<span style="font-size:.66rem;">Gobernanza Solucionaria · Cubanos por el Cambio · Michel Estopiñán · 2026</span>';
   wrap.appendChild(foot);
 
   el.appendChild(wrap);
@@ -1480,6 +1488,47 @@ function getOrCreateDeviceToken(){
     localStorage.setItem('et_device_token', t);
   }
   return t;
+}
+
+function getOrCreateSessionToken(){
+  let t = sessionStorage.getItem('et_session_token');
+  if(!t){
+    t = 'st_' + Date.now() + '_' + Math.random().toString(36).substr(2,12);
+    sessionStorage.setItem('et_session_token', t);
+  }
+  return t;
+}
+
+function getDeviceType(){
+  const ua = navigator.userAgent || '';
+  if(/mobile/i.test(ua)) return 'mobile';
+  if(/tablet|ipad/i.test(ua)) return 'tablet';
+  return 'desktop';
+}
+
+async function logEtEvent(eventType, meta={}){
+  if(!SUPABASE_ENABLED) return null;
+  try{
+    return await sbQuery('et_event_log', {
+      insert:true,
+      body:{
+        event_type: eventType,
+        session_token: getOrCreateSessionToken(),
+        actor_token: getOrCreateDeviceToken(),
+        page_path: location.pathname.split('/').pop() || 'propuestas-transicion-cuba.html',
+        category_code: meta.category_code || null,
+        proposal_id: meta.proposal_id || null,
+        referrer: document.referrer || null,
+        device_type: getDeviceType(),
+        source_label: 'propuestas_transicion',
+        status: meta.status || 'ok',
+        error_code: meta.error_code || null,
+        metadata: meta.metadata || {}
+      }
+    });
+  }catch(e){
+    return null;
+  }
 }
 
 function initAnonSession(){
@@ -1919,7 +1968,7 @@ async function showAdminPanel(){
   const ex=document.getElementById('adm-panel');if(ex){ex.remove();return;}
   const d=document.createElement('div');d.id='adm-panel';
   d.style.cssText='position:fixed;top:55px;right:8px;width:400px;max-height:82vh;overflow-y:auto;background:#fff;border:2px solid #002A8F;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.22);z-index:9998;padding:16px;font-size:.81rem;';
-  d.innerHTML="<div style=\"font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#002A8F;margin-bottom:10px;display:flex;justify-content:space-between;\"><i class=\"fi fi-br-chart-bar-holding-hand\"></i> DATOS BACKEND <button onclick=\"document.getElementById(&apos;adm-panel&apos;).remove()\" style=\"background:none;border:none;cursor:pointer;font-size:1rem;\"><i class=\"fi fi-br-cross\"></i></button></div><div id=\"apb\">Cargando...</div>";
+  d.innerHTML="<div style=\"font-family:Inter,sans-serif;font-weight:700;font-size:.95rem;color:#002A8F;margin-bottom:10px;display:flex;justify-content:space-between;\"><i class=\"fi fi-br-chart-bar-holding-hand\"></i> DATOS BACKEND <button onclick=\"document.getElementById(&apos;adm-panel&apos;).remove()\" style=\"background:none;border:none;cursor:pointer;font-size:1rem;\"><i class=\"fi fi-br-cross\"></i></button></div><div id=\"apb\">Cargando...</div>";
   document.body.appendChild(d);
   const b=document.getElementById('apb');
   try{
@@ -2212,7 +2261,7 @@ async function loadPendingProposals() {
   const d = document.createElement('div');
   d.id = 'adm-pending-panel';
   d.style.cssText = 'position:fixed;top:55px;left:8px;width:420px;max-height:82vh;overflow-y:auto;background:#fff;border:2px solid #856404;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.22);z-index:9998;padding:16px;font-size:.81rem;';
-  d.innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:#856404;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;"><span><i class="fi fi-br-time-check"></i> PROPUESTAS PENDIENTES</span><button onclick="document.getElementById("adm-pending-panel").remove()" style="background:none;border:none;cursor:pointer;font-size:1rem;"><i class="fi fi-br-cross"></i></button></div><div id="adm-pend-list">Cargando...</div>';
+  d.innerHTML = '<div style="font-family:Inter,sans-serif;font-weight:700;font-size:.95rem;color:#856404;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;"><span><i class="fi fi-br-time-check"></i> PROPUESTAS PENDIENTES</span><button onclick="document.getElementById("adm-pending-panel").remove()" style="background:none;border:none;cursor:pointer;font-size:1rem;"><i class="fi fi-br-cross"></i></button></div><div id="adm-pend-list">Cargando...</div>';
   document.body.appendChild(d);
 
   try {
@@ -2332,7 +2381,7 @@ function injectCitizenCards(cat, proposals) {
   section.style.cssText = 'margin-top:18px;border-top:2px solid #F5B8C0;padding-top:14px;';
 
   const header = document.createElement('div');
-  header.style.cssText = 'font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:#C62828;margin-bottom:10px;display:flex;align-items:center;gap:6px;';
+  header.style.cssText = 'font-family:Inter,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:#C62828;margin-bottom:10px;display:flex;align-items:center;gap:6px;';
   header.innerHTML = '<i class="fi fi-br-users"></i> Propuestas Ciudadanas <span style="background:#F5B8C0;color:#C62828;padding:1px 6px;border-radius:10px;font-size:.65rem;">' + proposals.length + '</span>';
   section.appendChild(header);
 
@@ -2384,6 +2433,10 @@ function updateNewBadge(rows) {
 
 window.addEventListener('DOMContentLoaded',()=>{
 
+  logEtEvent('page_view',{
+    metadata: { page_family: 'proposals', page_name: 'propuestas-transicion-cuba' }
+  });
+
   ['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M'].forEach(buildCat);
   buildFAQ();
   buildSobre();
@@ -2394,9 +2447,24 @@ window.addEventListener('DOMContentLoaded',()=>{
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length;
   document.getElementById('res-date').textContent=new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'});
   window.addEventListener('scroll',()=>document.getElementById('scrT').classList.toggle('vis',scrollY>400));
-  // Open Sobre E/T as home (category grid always visible)
-  switchTab('SOBRE',null);
-  document.getElementById('back-to-grid').style.display='none';
+  // Hash deep-link: si llegas con #cat-X (X = 0,N,A..M,SOBRE,REFS,NEW,RES,DOC) activa esa categoría/tab
+  // en lugar del Sobre por defecto, y scrollea a la sección.
+  const _hashId = (location.hash || '').match(/^#cat-([0-9A-Z]+)$/i);
+  const _validKeys = ['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M','NEW','SOBRE','REFS','RES','DOC'];
+  if(_hashId && _validKeys.includes(_hashId[1].toUpperCase())){
+    const _key = _hashId[1].toUpperCase();
+    if(['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M'].includes(_key)){
+      selectCatCard(_key);
+    }else{
+      switchTab(_key,null);
+      document.getElementById('back-to-grid').style.display = (_key==='SOBRE') ? 'none' : 'block';
+    }
+    setTimeout(()=>{ const t=document.getElementById('tabs')||document.getElementById('cat-'+_key); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); },120);
+  }else{
+    // Open Sobre E/T as home (category grid always visible)
+    switchTab('SOBRE',null);
+    document.getElementById('back-to-grid').style.display='none';
+  }
   _initAdminBar();
   loadAllFromBackend();
   loadApprovedCitizenProposals();
@@ -2407,18 +2475,18 @@ function buildCat(cat){
   const m=CAT[cat], ps=PROPS.filter(p=>p.cat===cat);
   const isMin=(cat==='0');
   const catCount=isMin?ps.length+' condiciones':ps.length+' propuestas';
-  el.innerHTML=`<div class="cat-hdr"><div class="cat-lt" style="background:${m.c};"><i class="fi fi-br-${m.icon||'folder'}" style="color:#fff;font-size:1em;"></i></div><div><div class="cat-title" style="color:${m.c}"><span style="font-family:Barlow Condensed,sans-serif;font-weight:700;margin-right:5px;">${cat==='0'?'0':cat}.</span>${m.name}</div><div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div><div class="cat-count">${catCount}</div></div>${isMin?`<div style="background:var(--rojo);color:#fff;border-radius:8px;padding:16px 18px;margin-bottom:16px;font-size:.86rem;line-height:1.65;font-weight:300;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Umbral mínimo de legitimidad democrática</strong>Estas son las condiciones <em>sine qua non</em>. No son negociables, no requieren votación. Son lo que cualquier gobierno de transición —lento o rápido— debe garantizar desde el primer día. Al cumplirse estas condiciones se generan automáticamente las condiciones para el levantamiento del embargo.</div>`:''}`;
+  el.innerHTML=`<div class="cat-hdr"><div class="cat-lt" style="background:${m.c};"><i class="fi fi-br-${m.icon||'folder'}" style="color:#fff;font-size:1em;"></i></div><div><div class="cat-title" style="color:${m.c}"><span style="font-family:Inter,sans-serif;font-weight:700;margin-right:5px;">${cat==='0'?'0':cat}.</span>${m.name}</div><div style="font-size:.74rem;color:#999;margin-top:1px;">${m.sub}</div></div><div class="cat-count">${catCount}</div></div>${isMin?`<div style="background:var(--rojo);color:#fff;border-radius:8px;padding:16px 18px;margin-bottom:16px;font-size:.86rem;line-height:1.65;font-weight:300;"><strong style="font-family:Inter,sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Umbral mínimo de legitimidad democrática</strong>Estas son las condiciones <em>sine qua non</em>. No son negociables, no requieren votación. Son lo que cualquier gobierno de transición —lento o rápido— debe garantizar desde el primer día. Al cumplirse estas condiciones se generan automáticamente las condiciones para el levantamiento del embargo.</div>`:''}`;
   ps.forEach(p=>el.appendChild(mkCard(p)));
   // Next category button
   // For cat-0: add "propose new minimum" form
   if(cat==='0'){
     const pmin=document.createElement('div');
     pmin.style.cssText='border:2px dashed var(--rojo);border-radius:8px;padding:18px 20px;margin-top:6px;background:#fff;';
-    pmin.innerHTML=`<div style="font-family:Barlow Condensed,sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);border-bottom:2px solid var(--rojo);padding-bottom:6px;margin-bottom:10px;">+ Proponer nuevo requisito mínimo</div>
+    pmin.innerHTML=`<div style="font-family:Inter,sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);border-bottom:2px solid var(--rojo);padding-bottom:6px;margin-bottom:10px;">+ Proponer nuevo requisito mínimo</div>
       <p style="font-size:.82rem;color:var(--gt);margin-bottom:12px;line-height:1.6;">Los mínimos son documento fundacional no sometible a votación. Las propuestas ciudadanas se evalúan en las secciones temáticas de transición.</p>
-      <textarea id="nmt" style="width:100%;padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Barlow,sans-serif;font-size:.86rem;min-height:64px;resize:vertical;margin-bottom:8px;" placeholder="Escribe el requisito mínimo que propones..."></textarea>
+      <textarea id="nmt" style="width:100%;padding:9px;border:1.5px solid var(--gris-m);border-radius:4px;font-family:Inter,sans-serif;font-size:.86rem;min-height:64px;resize:vertical;margin-bottom:8px;" placeholder="Escribe el requisito mínimo que propones..."></textarea>
       <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
-        <input id="nmn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Barlow,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)">
+        <input id="nmn" style="padding:5px 9px;border:1.5px solid var(--gris-m);border-radius:4px;font-size:.81rem;font-family:Inter,sans-serif;flex:1;min-width:130px;" placeholder="Tu nombre (opcional)">
         <label style="display:flex;align-items:center;gap:4px;font-size:.76rem;color:var(--gt);cursor:pointer;"><input type="checkbox" id="nma" onchange="document.getElementById('nmn').disabled=this.checked"> Anónimo</label>
         <button class="btn btn-s" style="border-color:var(--rojo);color:var(--rojo);" onclick="submitNewMin()">Proponer mínimo</button>
       </div>
@@ -2446,7 +2514,7 @@ function buildCat(cat){
     // Give it a stable ID so citizen cards injected later can be inserted BEFORE it
     nb.id='next-btn-'+cat;
     nb.style.cssText='text-align:right;padding:10px 0 4px;';
-    nb.innerHTML=`<button onclick="switchTab('${nextCat}', document.querySelectorAll('.tab-btn')[${idx+1}]); setTimeout(()=>{const el=document.getElementById('cat-${nextCat}'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});},80);" style="background:var(--azul);color:#fff;border:none;padding:9px 18px;border-radius:4px;font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Siguiente: ${nextCat}. ${nextMeta.name} &#8594;</button>`;
+    nb.innerHTML=`<button onclick="switchTab('${nextCat}', document.querySelectorAll('.tab-btn')[${idx+1}]); setTimeout(()=>{const el=document.getElementById('cat-${nextCat}'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});},80);" style="background:var(--azul);color:#fff;border:none;padding:9px 18px;border-radius:4px;font-family:Inter,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Siguiente: ${nextCat}. ${nextMeta.name} &#8594;</button>`;
     el.appendChild(nb);
   }
 }
@@ -2479,7 +2547,7 @@ function mkCard(p){
   if(p.citizen) d.classList.add('citizen');
   const citizenBadge=p.citizen?'<span class="citizen-badge">&#128101; Propuesta ciudadana</span><br>':'';
   const socialHtml=p.citizen?(p.social?`<div class="citizen-author">&#8212; ${p.author} &middot; <a href="${p.social.startsWith('http')?p.social:'https://'+p.social}" target="_blank" rel="noopener noreferrer">${p.social.replace(/https?:\/\//,'').split('/')[0]}</a></div>`:`<div class="citizen-author">&#8212; ${p.author}</div>`):'';
-  const minBadge=p.noVote?`<div style="display:inline-block;background:var(--rojo);color:#fff;padding:2px 7px;border-radius:3px;font-family:Barlow Condensed,sans-serif;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Condici&oacute;n #${p.id.replace('MIN','')} — ${({MIN1:'LIBERACIÓN DE PRESOS POLÍTICOS',MIN2:'FIN DE LA REPRESIÓN POLÍTICA',MIN3:'LIBERTAD DE ORGANIZACIÓN',MIN4:'LIBERTAD DE EXPRESIÓN, PRENSA E INFORMACIÓN',MIN5:'IGUALDAD POLÍTICA',MIN6:'ELECCIONES LIBRES Y VERIFICABLES',MIN7:'ESTADO DE DERECHO',MIN8:'CALENDARIO PÚBLICO DE TRANSICIÓN',MIN9:'DERECHOS HUMANOS INTEGRALES',MIN10:'SOBERANÍA DEL PUEBLO CUBANO'}[p.id]||'')}</div><br>`:'';
+  const minBadge=p.noVote?`<div style="display:inline-block;background:var(--rojo);color:#fff;padding:2px 7px;border-radius:3px;font-family:Inter,sans-serif;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Condici&oacute;n #${p.id.replace('MIN','')} — ${({MIN1:'LIBERACIÓN DE PRESOS POLÍTICOS',MIN2:'FIN DE LA REPRESIÓN POLÍTICA',MIN3:'LIBERTAD DE ORGANIZACIÓN',MIN4:'LIBERTAD DE EXPRESIÓN, PRENSA E INFORMACIÓN',MIN5:'IGUALDAD POLÍTICA',MIN6:'ELECCIONES LIBRES Y VERIFICABLES',MIN7:'ESTADO DE DERECHO',MIN8:'CALENDARIO PÚBLICO DE TRANSICIÓN',MIN9:'DERECHOS HUMANOS INTEGRALES',MIN10:'SOBERANÍA DEL PUEBLO CUBANO'}[p.id]||'')}</div><br>`:'';
 
   const stH=[1,2,3,4,5].map(s=>'<span class="star '+(s<=vd.my?'on':'')+'" data-pid="'+p.id+'" data-s="'+s+'" onmouseenter="hvr(this.dataset.pid,this.dataset.s)" onmouseleave="uHvr(this.dataset.pid)" onclick="castV(this.dataset.pid,this.dataset.s)">&#9733;</span>').join('');
 
@@ -2508,13 +2576,13 @@ function mkCard(p){
   const fbLabel = fbCnt ? ' ('+fbCnt+')' : '';
   const voteHtml = p.noVote
     ? '<div class="vote-row" style="background:#FFF5F6;border-top:1px solid #ffd5da;">'
-        +'<span style="font-family:Barlow Condensed,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);">&#128683; No sometible a votaci&oacute;n</span>'
+        +'<span style="font-family:Inter,sans-serif;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--rojo);">&#128683; No sometible a votaci&oacute;n</span>'
         +'<button class="fbt" id="fbt-'+p.id+'" onclick="togFb(this.dataset.id)" data-id="'+p.id+'" style="color:var(--rojo);">&#128172; Aportar inciso o comentario'+fbLabel+'</button>'
         +'</div>'
     : '<div class="vote-row'+(vd.my>0?' voted-row':'')+'">'
         +'<span class="vlbl">'+(vd.my>0?'&#9989; Votaste:':'Mi apoyo:')+'</span>'
         +'<div class="stars" id="st-'+p.id+'">'+stH+'</div>'
-        +(vd.my>0?'<span style="font-size:.68rem;color:var(--azul);font-family:Barlow Condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">'+vd.my+'&#9733;</span>':'')
+        +(vd.my>0?'<span style="font-size:.68rem;color:var(--azul);font-family:Inter,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">'+vd.my+'&#9733;</span>':'')
         +'<span class="vcnt" id="vc-'+p.id+'">'+vd.count+' voto'+(vd.count!==1?'s':'')+'</span>'
         +'<div class="bwrap"><div class="bar" id="bar-'+p.id+'" style="width:'+pct+'%"></div></div>'
         +'<span class="vpct" id="pct-'+p.id+'">'+pct+'%</span>'
@@ -2568,6 +2636,11 @@ function castV(pid,s){
   const _dt=getOrCreateDeviceToken();
   const _sc=Object.keys(checks).filter(k=>k.startsWith(pid+'-')&&checks[k]>0).map(k=>k.replace(pid+'-',''));
   sbQuery('votes',{upsert:true,body:{device_token:_dt,proposal_id:pid,score:vd.my,selected_clauses:_sc,updated_at:new Date().toISOString()}}).catch(()=>{});
+  logEtEvent('proposal_vote',{
+    proposal_id: pid,
+    category_code: (PROPS.find(p=>p.id===pid)||newProps.find(p=>p.id===pid)||{}).cat || null,
+    metadata: { score: vd.my, previous_score: prev, selected_clauses_count: _sc.length }
+  });
 }
 
 // CHECKBOXES
@@ -2647,6 +2720,11 @@ function subFb(pid){
   document.getElementById('fbt-'+pid).textContent='Aportar ('+cnt+')';
   updS(); toast('Aporte enviado. Gracias.');
   sbQuery('feedbacks',{insert:true,body:{proposal_id:pid,device_token:getOrCreateDeviceToken(),type,content:txt,author_name:name}}).catch(()=>{});
+  logEtEvent('proposal_comment_submit',{
+    proposal_id: pid,
+    category_code: (PROPS.find(p=>p.id===pid)||newProps.find(p=>p.id===pid)||{}).cat || null,
+    metadata: { feedback_type: type, text_length: txt.length, anonymous: anon }
+  });
 }
 function rateFb(pid,fi,s){
   const key=pid+'-'+fi;
@@ -2677,7 +2755,7 @@ function submitNew(){
     +`<div style="font-size:.87rem;color:#222;line-height:1.5;">${txt}</div>`
     +`<div style="font-size:.7rem;color:#aaa;margin-top:3px;">&#8212; ${name} &middot; Propuesta ciudadana #${newProps.length}</div>`
     +`<div style="display:flex;align-items:center;gap:9px;margin-top:8px;">`
-    +`<span style="font-size:.73rem;color:var(--gt);font-family:Barlow Condensed,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Apoyo:</span>`
+    +`<span style="font-size:.73rem;color:var(--gt);font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Apoyo:</span>`
     +`<div class="stars" id="st-${nid}">`
     +[1,2,3,4,5].map(s=>`<span class="star" onmouseenter="hvr('${nid}',${s})" onmouseleave="uHvr('${nid}')" onclick="castV('${nid}',${s})">&#9733;</span>`).join('')
     +`</div>`
@@ -2688,10 +2766,15 @@ function submitNew(){
   document.getElementById('nt').value=''; document.getElementById('nn').value=''; document.getElementById('nc').value='';
   document.getElementById('sp').textContent=PROPS.length+newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
-  toast('Propuesta enviada. Gracias.'); regMMostrar('propuestas');
+  toast('Propuesta enviada. Gracias.');
   sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name,social_link:social}})
     .then(rows=>{ if(rows&&rows[0]&&rows[0].id){ const p=newProps.find(x=>x.id===nid); if(p) p.sbId=rows[0].id; } })
     .catch(()=>{});
+  logEtEvent('proposal_submit',{
+    category_code: cat || null,
+    proposal_id: nid,
+    metadata: { text_length: txt.length, anonymous: anon, has_social_link: !!social, source: 'citizen_proposal' }
+  });
 }
 
 // ORG SUBMISSION
@@ -2722,6 +2805,9 @@ function submitOrg(){
   document.getElementById('of-consent').checked=false;
   document.getElementById('of-file-label').innerHTML='&#128196; Clic aqui para seleccionar archivo<br><span style="font-size:.75rem;color:#aaa;">PDF, Word o imagen &middot; max. 10MB</span>';
   toast('Enviado. El equipo lo revisara y te notificara por correo.');
+  logEtEvent('org_submission_submit',{
+    metadata: { org_name: org, country: pais || null, has_email: !!email }
+  });
 }
 
 // HEADER HAMBURGER
@@ -2750,6 +2836,10 @@ function selectCatCard(id){
   // Show grid + content (categories always visible)
   document.getElementById('back-to-grid').style.display='block';
   switchTab(id,null);
+  logEtEvent('category_open',{
+    category_code: id,
+    metadata: { source: 'category_grid' }
+  });
 }
 function showCatGrid(){
   document.getElementById('back-to-grid').style.display='none';
@@ -2827,20 +2917,20 @@ function updLiveDoc(){
     totalVoted+=voted.length;
     const catColor=CAT[cat]?CAT[cat].c:'var(--azul)';
     h+=`<div style="margin-bottom:12px;">
-      <div style="font-family:Barlow Condensed,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:${catColor};border-bottom:1.5px solid ${catColor};padding-bottom:3px;margin-bottom:5px;">${cnShort[cat]}</div>
+      <div style="font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:${catColor};border-bottom:1.5px solid ${catColor};padding-bottom:3px;margin-bottom:5px;">${cnShort[cat]}</div>
       ${voted.map(p=>{
         const vd=votes[p.id],pct=Math.round(vd.total/vd.count/5*100);
         const cls=pct>=70?'#2D7A4F':pct>=40?'var(--azul)':'var(--rojo)';
         return `<div style="display:flex;gap:6px;align-items:flex-start;padding:3px 0;border-bottom:1px solid #f0f0f0;">
-          <span style="font-family:Barlow Condensed,sans-serif;font-size:.68rem;color:#aaa;flex-shrink:0;padding-top:1px;">${p.id}</span>
+          <span style="font-family:Inter,sans-serif;font-size:.68rem;color:#aaa;flex-shrink:0;padding-top:1px;">${p.id}</span>
           <span style="font-size:.73rem;color:#333;flex:1;line-height:1.35;">${p.text.substring(0,70)}${p.text.length>70?'…':''}</span>
-          <span style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.8rem;color:${cls};flex-shrink:0;">${pct}%</span>
+          <span style="font-family:Inter,sans-serif;font-weight:700;font-size:.8rem;color:${cls};flex-shrink:0;">${pct}%</span>
         </div>`;
       }).join('')}
     </div>`;
   });
   if(!h){
-    el.innerHTML='<div style="text-align:center;padding:30px 0;color:#ccc;"><div style="font-size:2rem;margin-bottom:6px;"><i class="fi fi-br-ballot-check" style="font-size:1.6rem;color:#ccc;"></i></div><div style="font-family:Barlow Condensed,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Empieza a votar<br>para ver el consenso</div></div>';
+    el.innerHTML='<div style="text-align:center;padding:30px 0;color:#ccc;"><div style="font-size:2rem;margin-bottom:6px;"><i class="fi fi-br-ballot-check" style="font-size:1.6rem;color:#ccc;"></i></div><div style="font-family:Inter,sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Empieza a votar<br>para ver el consenso</div></div>';
     if(dot){dot.style.background='#ccc';dot.title='Sin votos aún';}
   } else {
     el.innerHTML=h;
@@ -2893,7 +2983,7 @@ async function renderRes(){
   const catsWithVotes=cats.filter(cat=>PROPS.filter(p=>p.cat===cat&&votes[p.id]&&votes[p.id].count>0).length>0);
   if(catsWithVotes.length>0){
     h+=`<div style="background:#fff;border:1px solid var(--gris-m);border-radius:10px;padding:16px 18px;margin-bottom:24px;">
-      <div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;"><i class="fi fi-br-chart-pie"></i> Aprobación por categoría</div>
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:var(--azul);border-bottom:2px solid var(--azul);padding-bottom:6px;margin-bottom:12px;"><i class="fi fi-br-chart-pie"></i> Aprobación por categoría</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;">
         ${catsWithVotes.map(cat=>{
           const ps=PROPS.filter(p=>p.cat===cat&&votes[p.id]&&votes[p.id].count>0);
@@ -2902,7 +2992,7 @@ async function renderRes(){
           const cls=pct>=70?'#2D7A4F':pct>=40?'var(--azul)':'var(--rojo)';
           return `<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#f8f9ff;border-radius:6px;border-left:3px solid ${CAT[cat]?CAT[cat].c:'var(--azul)'};">
             <span style="font-size:.78rem;color:#444;">${cnFull[cat]||cat}</span>
-            <span style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.95rem;color:${cls};">${pct}%</span>
+            <span style="font-family:Inter,sans-serif;font-weight:700;font-size:.95rem;color:${cls};">${pct}%</span>
           </div>`;
         }).join('')}
       </div>
@@ -2917,7 +3007,7 @@ async function renderRes(){
       : PROPS.filter(p=>p.cat===cat&&votes[p.id]&&votes[p.id].count>0).sort((a,b)=>votes[b.id].total/votes[b.id].count-votes[a.id].total/votes[a.id].count);
     if(!voted.length)return;
     h+=`<div style="margin-bottom:20px;">
-      <div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.93rem;text-transform:uppercase;letter-spacing:1px;color:${CAT[cat].c};border-bottom:2px solid ${CAT[cat].c};padding-bottom:5px;margin-bottom:7px;">${cat}. ${cn[cat]}</div>
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:.93rem;text-transform:uppercase;letter-spacing:1px;color:${CAT[cat].c};border-bottom:2px solid ${CAT[cat].c};padding-bottom:5px;margin-bottom:7px;">${cat}. ${cn[cat]}</div>
       ${voted.map(p=>{
         const vd=votes[p.id]||{count:0,total:0};
         const pct=vd.count>0?Math.round(vd.total/vd.count/5*100):0;
@@ -2934,11 +3024,11 @@ async function renderRes(){
   });
   const nv=newProps.filter(p=>votes[p.id]&&votes[p.id].count>0);
   if(nv.length){
-    h+=`<div style="margin-bottom:20px;"><div style="font-family:Barlow Condensed,sans-serif;font-weight:700;font-size:.93rem;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);border-bottom:2px solid var(--rojo);padding-bottom:5px;margin-bottom:7px;">Propuestas ciudadanas nuevas</div>
+    h+=`<div style="margin-bottom:20px;"><div style="font-family:Inter,sans-serif;font-weight:700;font-size:.93rem;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);border-bottom:2px solid var(--rojo);padding-bottom:5px;margin-bottom:7px;">Propuestas ciudadanas nuevas</div>
     ${nv.map(p=>{const vd=votes[p.id],pct=Math.round(vd.total/vd.count/5*100);return `<div class="res-item"><span class="rid">${p.id}</span><div class="rbody"><div class="rtxt">${p.text}</div></div><span class="rpct ${pct>=70?'hi':pct>=40?'mid':'lo'}">${pct}%</span></div>`;}).join('')}
     </div>`;
   }
-  if(!h)h=`<div style="text-align:center;padding:40px 0;color:var(--gt);"><div style="font-size:1.8rem;margin-bottom:8px;">&#128202;</div><div style="font-family:Barlow Condensed,sans-serif;font-size:1.02rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Aun no hay votos registrados</div><div style="font-size:.83rem;margin-top:5px;">Ve a las categorias y vota para ver los resultados aqui.</div></div>`;
+  if(!h)h=`<div style="text-align:center;padding:40px 0;color:var(--gt);"><div style="font-size:1.8rem;margin-bottom:8px;">&#128202;</div><div style="font-family:Inter,sans-serif;font-size:1.02rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Aun no hay votos registrados</div><div style="font-size:.83rem;margin-top:5px;">Ve a las categorias y vota para ver los resultados aqui.</div></div>`;
   document.getElementById('res-body').innerHTML=h;
 }
 
@@ -2972,7 +3062,7 @@ const MODALS={
     <p><b>ENTRE TODOS</b> es una plataforma de participación democrática para la transición en Cuba. Recoge propuestas de más de 26 organizaciones de EE.UU., Europa y Cuba, presentadas de forma neutral para que cualquier persona pueda opinar — sin importar su posición política, ideológica, religiosa o de cualquier otra índole.</p>
     <p><b>¿Quién puede participar?</b> Todo cubano tiene derecho a participar sin importar sus preferencias personales, ideológicas, políticas o religiosas, <em>siempre que esté de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos.</em> No tienen cabida organizaciones totalitarias, dictatoriales o que nieguen la soberanía del pueblo cubano sobre su propio destino.</p>
     <hr style="border:none;border-top:1px solid #D8E0EC;margin:14px 0;">
-    <p style="font-size:.82rem;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#C8102E;font-weight:700;margin-bottom:8px;">Núcleo mínimo de consenso democrático</p>
+    <p style="font-size:.82rem;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#C8102E;font-weight:700;margin-bottom:8px;">Núcleo mínimo de consenso democrático</p>
     <p style="font-size:.85rem;color:#5A6A82;margin-bottom:8px;">El análisis comparativo de los proyectos representados en esta plataforma revela nueve puntos de acuerdo sustantivo entre todos los actores democráticos cubanos — independientemente de sus diferencias de estilo, ritmo o énfasis:</p>
     <ol style="font-size:.84rem;color:#1a1a2e;line-height:1.7;padding-left:1.2rem;margin:0 0 10px;">
       <li>Transición hacia una <b>República democrática de derecho</b> con separación de poderes.</li>
@@ -3225,7 +3315,7 @@ function renderPropuestaPlural(){
       const vd  = votes[p.id]||{count:0,total:0};
       const pct = vd.count>0 ? Math.round(vd.total/vd.count/5*100) : null;
       const supClass = pct===null?'':pct>=70?'high':pct>=40?'mid':'low';
-      const supLabel = pct===null ? '<span style="font-size:.62rem;color:#ccc;font-family:Barlow Condensed,sans-serif;">sin votos</span>' : '<span class="doc-support '+supClass+'">'+pct+'%</span>';
+      const supLabel = pct===null ? '<span style="font-size:.62rem;color:#ccc;font-family:Inter,sans-serif;">sin votos</span>' : '<span class="doc-support '+supClass+'">'+pct+'%</span>';
       const isCitizen = !!p.citizen;
       const artHtml = `
         <div class="doc-article${isCitizen?' doc-citizen-art':''}">
@@ -3315,115 +3405,6 @@ function renderPropuestaPlural(){
   `;
 }
 
-
-/* ══════════════════════════════════════════════════════════════
-   REGISTRO CIUDADANO MODAL
-══════════════════════════════════════════════════════════════ */
-const REG_SHOWN_KEY = 'et_reg_shown';
-let regMCanalSel = null;
-
-function regMMostrar(fuente) {
-  if (localStorage.getItem(REG_SHOWN_KEY)) return; // Solo mostrar una vez
-  window._regMFuente = fuente || 'propuestas';
-  document.getElementById('reg-modal-overlay').classList.add('open');
-}
-
-function regMCerrar() {
-  document.getElementById('reg-modal-overlay').classList.remove('open');
-  localStorage.setItem(REG_SHOWN_KEY, '1');
-}
-
-function regMCerrarSiOverlay(e) {
-  if (e.target === document.getElementById('reg-modal-overlay')) regMCerrar();
-}
-
-function regMToggleForm() {
-  const form = document.getElementById('reg-m-form');
-  const btn  = document.getElementById('reg-m-toggle-btn');
-  const abierto = form.classList.toggle('abierto');
-  btn.innerHTML = abierto
-    ? '<i class="fi fi-br-minus-small"></i> Ocultar formulario'
-    : '<i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio';
-}
-
-function regMSelCanal(canal) {
-  regMCanalSel = canal;
-  ['email','whatsapp','telegram'].forEach(c => {
-    document.getElementById('m-canal-'+c).classList.toggle('sel', c === canal);
-  });
-  const input = document.getElementById('reg-m-contacto');
-  input.style.display = 'block';
-  const placeholders = {
-    email: 'Tu dirección de email',
-    whatsapp: 'Tu número de WhatsApp (con código de país, ej: +5312345678)',
-    telegram: 'Tu @usuario de Telegram o número de teléfono'
-  };
-  input.placeholder = placeholders[canal];
-  input.value = '';
-  regMValidar();
-}
-
-function regMPadronToggle() {
-  const checked = document.getElementById('m-opt-padron').checked;
-  document.getElementById('reg-m-padron-extra').classList.toggle('visible', checked);
-}
-
-function regMValidar() {
-  const tieneCanal    = regMCanalSel !== null;
-  const tieneContacto = document.getElementById('reg-m-contacto').value.trim().length > 3;
-  const btn = document.getElementById('reg-m-submit');
-  if (btn) btn.disabled = !(tieneCanal && tieneContacto);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const ci = document.getElementById('reg-m-contacto');
-  if (ci) ci.addEventListener('input', regMValidar);
-});
-
-const SBASE_URL2 = 'https://pfjcumyygdwslwtrlebr.supabase.co';
-const SBASE_KEY2 = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
-
-async function regMGuardar() {
-  const btn = document.getElementById('reg-m-submit');
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fi fi-br-spinner" style="animation:spin .8s linear infinite;"></i> Guardando...';
-
-  const payload = {
-    fuente:              window._regMFuente || 'propuestas',
-    opt_causas_nuevas:   document.getElementById('m-opt-causas').checked,
-    opt_actualizaciones: document.getElementById('m-opt-actualizaciones').checked,
-    opt_resultados:      document.getElementById('m-opt-resultados').checked,
-    opt_padron:          document.getElementById('m-opt-padron').checked,
-    canal_preferido:     regMCanalSel,
-    contacto:            document.getElementById('reg-m-contacto').value.trim(),
-    nombre:              document.getElementById('reg-m-nombre').value.trim() || null,
-    pais_residencia:     document.getElementById('reg-m-pais').value.trim() || null,
-    es_cubano:           true
-  };
-
-  try {
-    await fetch(`${SBASE_URL2}/rest/v1/ciudadanos_opt_in`, {
-      method: 'POST',
-      headers: {
-        'Content-Type':  'application/json',
-        'apikey':        SBASE_KEY2,
-        'Authorization': `Bearer ${SBASE_KEY2}`,
-        'Prefer':        'return=minimal'
-      },
-      body: JSON.stringify(payload)
-    });
-    document.getElementById('reg-m-submit-wrap').innerHTML = `
-      <div class="reg-m-exito">
-        <i class="fi fi-br-check-circle reg-m-exito-icon"></i>
-        <div class="reg-m-exito-txt">Registro guardado. Gracias por quedarte con nosotros.</div>
-      </div>`;
-    localStorage.setItem(REG_SHOWN_KEY, '1');
-  } catch (err) {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fi fi-br-check"></i> Guardar mis preferencias';
-  }
-}
-
 </script>
 
 <!-- HAMBURGER -->
@@ -3431,7 +3412,7 @@ async function regMGuardar() {
   <span></span><span></span><span></span>
 </button>
 <div id="ham-menu">
-  <div style="padding:8px 16px 4px;font-size:.68rem;color:#aaa;font-family:Barlow Condensed,sans-serif;letter-spacing:1px;text-transform:uppercase;">Ir a categoría</div>
+  <div style="padding:8px 16px 4px;font-size:.68rem;color:#aaa;font-family:Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;">Ir a categoría</div>
 </div>
 <!-- AUTH MODAL -->
 <div id="auth-modal">
@@ -3450,7 +3431,7 @@ async function regMGuardar() {
     </div>
     <div id="am-sent" style="display:none;text-align:center;padding:10px 0;">
       <div style="font-size:2rem;margin-bottom:10px;">&#9993;</div>
-      <div style="font-family:Bebas Neue,sans-serif;font-size:1.2rem;color:var(--azul);margin-bottom:6px;">Enlace enviado</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:1.2rem;color:var(--azul);margin-bottom:6px;">Enlace enviado</div>
       <div style="font-size:.82rem;color:var(--gt);line-height:1.6;">Revisa tu bandeja de entrada y haz clic en el enlace para confirmar tu participación.</div>
     </div>
   </div>
@@ -3487,80 +3468,8 @@ async function regMGuardar() {
   </div>
 </div>
 
-<!-- ── REGISTRO CIUDADANO MODAL POST-ACCIÓN ── -->
-<div id="reg-modal-overlay" onclick="regMCerrarSiOverlay(event)">
-  <div id="reg-modal" style="position:relative;">
-    <button class="reg-m-cerrar" onclick="regMCerrar()" title="Cerrar"><i class="fi fi-br-cross-small"></i></button>
-    <div class="reg-m-handle"></div>
-    <div class="reg-m-titulo">Tu voz no termina aquí</div>
-    <p class="reg-m-sub">Únete al canal de ENTRE TODOS y entérate cuando haya nuevas causas, consultas y propuestas.</p>
-    <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="reg-m-telegram">
-      <i class="fi fi-br-paper-plane"></i> Unirme al canal de Telegram
-    </a>
-    <button class="reg-m-toggle" onclick="regMToggleForm()" id="reg-m-toggle-btn">
-      <i class="fi fi-br-plus-small"></i> También quiero recibir notificaciones por otro medio
-    </button>
-    <div class="reg-m-form" id="reg-m-form">
-      <label class="reg-m-label" style="margin-top:4px;">Quiero recibir notificaciones de:</label>
-      <div class="reg-m-checks">
-        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-causas" checked> Causas nuevas y nuevas consultas</label>
-        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-actualizaciones"> Actualizaciones de la plataforma</label>
-        <label class="reg-m-check-item"><input type="checkbox" id="m-opt-resultados"> Resultados de votaciones</label>
-      </div>
-      <label class="reg-m-label">Canal preferido:</label>
-      <div class="reg-m-canales">
-        <button class="reg-m-canal-btn" id="m-canal-email" onclick="regMSelCanal('email')"><i class="fi fi-br-envelope"></i><br>Email</button>
-        <button class="reg-m-canal-btn" id="m-canal-whatsapp" onclick="regMSelCanal('whatsapp')"><i class="fi fi-br-comment"></i><br>WhatsApp</button>
-        <button class="reg-m-canal-btn" id="m-canal-telegram" onclick="regMSelCanal('telegram')"><i class="fi fi-br-paper-plane"></i><br>Telegram</button>
-      </div>
-      <input type="text" class="reg-m-input" id="reg-m-contacto" placeholder="Tu email, número o @usuario de Telegram" style="display:none;">
-      <div class="reg-m-padron-box">
-        <label class="reg-m-padron-check">
-          <input type="checkbox" id="m-opt-padron" onchange="regMPadronToggle()">
-          <span class="reg-m-padron-label">
-            <strong><i class="fi fi-br-id-card"></i> &nbsp;Quiero ser parte del Padrón Electoral Ciudadano</strong>
-            Registro independiente del gobierno cubano. Voluntario y gratuito.
-          </span>
-        </label>
-        <div class="reg-m-padron-extra" id="reg-m-padron-extra">
-          <label class="reg-m-label">Datos opcionales para el Padrón</label>
-          <div class="reg-m-row">
-            <input type="text" class="reg-m-input" id="reg-m-nombre" placeholder="Nombre (opcional)" style="margin-bottom:0;">
-            <input type="text" class="reg-m-input" id="reg-m-pais" placeholder="País de residencia" style="margin-bottom:0;">
-          </div>
-        </div>
-      </div>
-      <p class="reg-m-privacidad"><i class="fi fi-br-shield-check"></i> &nbsp;Tu información es confidencial. No será compartida ni usada con fines comerciales.</p>
-      <div id="reg-m-submit-wrap">
-        <button class="reg-m-submit" id="reg-m-submit" onclick="regMGuardar()" disabled>
-          <i class="fi fi-br-check"></i> Guardar mis preferencias
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ── FIN REGISTRO CIUDADANO MODAL ── -->
-<!-- ── APP BOTTOM NAV ── -->
-<nav class="app-bottom-nav">
-  <a href="app.html" class="app-nav-item">
-    <i class="fi fi-br-home"></i>
-    Inicio
-  </a>
-  <a href="consulta-popular-cuba.html" class="app-nav-item">
-    <i class="fi fi-br-ballot"></i>
-    Votar
-  </a>
-  <a href="propuestas-transicion-cuba.html" class="app-nav-item activo">
-    <i class="fi fi-br-shuffle"></i>
-    Propuestas
-  </a>
-  <a href="https://t.me/+GkbQpHihmqI3NTQx" target="_blank" rel="noopener" class="app-nav-item">
-    <i class="fi fi-br-paper-plane"></i>
-    Telegram
-  </a>
-</nav>
-</body>
-</html<!-- AUTH BAR -->
+
+<!-- AUTH BAR -->
 <div id="auth-bar">
   <span class="auth-status" id="auth-status-txt">
     Participando como <b>invitado</b> — los votos son locales a este dispositivo
@@ -3569,4 +3478,39 @@ async function regMGuardar() {
   <button class="auth-btn" onclick="openAuthModal()" id="btn-login">&#9993; Entrar con email</button>
 </div>
 
-        >
+<footer class="v1-footer">
+  <div class="v1-footer-inner">
+    <div class="v1-footer-cols">
+      <div class="v1-footer-col">
+        <div class="v1-footer-brand"><img src="entre-todos-logo.png" alt="Entre Todos" onerror="this.style.display='none'"><span>ENTRE TODOS</span></div>
+        <p class="v1-footer-tag">Plataforma ciudadana. Sin dueño. Sin jerarquía. Sin monetización.</p>
+      </div>
+      <div class="v1-footer-col">
+        <div class="v1-footer-h">Hoja de Ruta</div>
+        <a href="consulta-popular-cuba.html">Fase 0 · Consulta popular</a>
+        <a href="propuestas-transicion-cuba.html">Fase 1 · Transición</a>
+        <a href="constituyente-cuba.html">Fase 2 · Constituyente</a>
+        <a href="gobierno-cuba.html">Fase 3 · Gobierno</a>
+      </div>
+      <div class="v1-footer-col">
+        <div class="v1-footer-h">Actores</div>
+        <a href="candidaturas-cuba.html">Candidaturas</a>
+        <a href="candidato-solucionario-cuba.html">Candidato Solucionario</a>
+        <a href="presos-politicos-cuba.html">Presos Políticos</a>
+      </div>
+      <div class="v1-footer-col">
+        <div class="v1-footer-h">Transparencia</div>
+        <a href="transparencia.html">Transparencia</a>
+        <a href="politica-privacidad.html">Privacidad</a>
+        <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>
+      </div>
+    </div>
+    <div class="v1-footer-bottom">
+      <div>Michel Estopiñán · Potsdam · 2026 · <em>Este documento es un borrador vivo.</em></div>
+      <div>Hecho por cubanos, para cubanos. <em>Ninguna propuesta tiene peso superior a otra.</em></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Info — ENTRE TODOS</title>
+<meta name="description" content="Nota del autor, qué es ENTRE TODOS, cómo surgió, cómo funciona, FAQ, quiénes somos y contacto. El alcance y los límites de la plataforma, explicados.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cómo funciona ENTRE TODOS · Información completa">
+<meta property="og:description" content="El alcance y los límites de ENTRE TODOS, explicados. Qué es, cómo surgió, cómo participa la ciudadanía, FAQ, quiénes somos y contacto.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/info.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo funciona ENTRE TODOS · Información completa">
+<meta name="twitter:description" content="El alcance y los límites de ENTRE TODOS, explicados. Qué es, cómo surgió, cómo participa la ciudadanía, FAQ, quiénes somos y contacto.">
+<meta name="twitter:image" content="img/og-default.png">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#002F80; --blue-deep:#001F5C; --blue-hover:#00256B; --blue-soft:#EEF3FB;
+  --red:#CE1126; --red-hover:#A50D1E; --red-soft:#FDECEE;
+  --bg:#FFFFFF; --bg-gray:#F5F5F7; --bg-gray-2:#FAFAFC;
+  --ink:#0B1F3F; --ink-2:#3A4668; --ink-3:#6B7489; --ink-4:#9AA0B0;
+  --line:#E5E5E7;
+  --radius-sm:14px; --radius:20px; --radius-lg:28px; --radius-pill:980px;
+  --shadow-1:0 1px 2px rgba(11,31,63,.04);
+  --shadow-2:0 4px 16px rgba(11,31,63,.06);
+  --shadow-3:0 16px 40px rgba(11,31,63,.10);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+a{color:inherit;text-decoration:none;}
+
+/* Flag */
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--blue) 33.3%,#fff 33.3%,#fff 66.6%,var(--red) 66.6%);}
+
+/* Header */
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);}
+.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;height:64px;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;letter-spacing:-.02em;}
+.brand-text{font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink);}
+.nav{display:flex;align-items:center;gap:6px;}
+.nav a{padding:8px 14px;border-radius:var(--radius-pill);font-size:13.5px;font-weight:600;color:var(--ink-2);transition:all .25s var(--ease);}
+.nav a:hover{background:var(--bg-gray);color:var(--ink);}
+.nav a.cta{background:var(--blue);color:#fff;}
+.nav a.cta:hover{background:var(--blue-hover);}
+
+/* Hero info */
+.hero-info{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue) 55%,#003ab5 100%);color:#fff;position:relative;overflow:hidden;}
+.hero-info::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.4) 55%,transparent 100%);}
+.hero-wm{position:absolute;right:-60px;bottom:-100px;font-size:380px;color:rgba(255,255,255,.05);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.hero-info-inner{max-width:1280px;margin:0 auto;padding:64px 24px 56px;position:relative;z-index:2;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:var(--radius-pill);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:18px;}
+.hero-info h1{font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin-bottom:14px;max-width:20ch;}
+.hero-info h1 .accent{font-style:normal;font-weight:700;color:#fff;background:rgba(206,17,38,.85);padding:0 .12em;border-radius:6px;}
+.hero-info p{font-size:clamp(15px,1.2vw,17px);line-height:1.65;color:rgba(255,255,255,.78);max-width:60ch;}
+
+/* TOC */
+.toc-wrap{background:var(--bg-gray);border-bottom:1px solid var(--line);position:sticky;top:64px;z-index:100;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);}
+.toc{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;gap:6px;overflow-x:auto;}
+.toc a{padding:7px 14px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;color:var(--ink-2);white-space:nowrap;transition:all .25s var(--ease);}
+.toc a:hover{background:#fff;color:var(--ink);box-shadow:var(--shadow-1);}
+
+/* Section */
+section.info-sec{padding:72px 0;scroll-margin-top:120px;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+.sec-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.sec-kicker::before{content:"";width:22px;height:2px;background:var(--blue);border-radius:2px;}
+.sec-kicker.red{color:var(--red);}
+.sec-kicker.red::before{background:var(--red);}
+h2{font-size:clamp(28px,3.2vw,42px);line-height:1.08;letter-spacing:-.03em;font-weight:700;color:var(--ink);margin-bottom:14px;max-width:24ch;}
+h2 .accent{font-style:normal;font-weight:700;color:var(--red);}
+h3{font-size:clamp(18px,1.6vw,22px);line-height:1.22;letter-spacing:-.02em;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.lead{font-size:16.5px;line-height:1.72;color:var(--ink-2);max-width:68ch;margin-bottom:24px;}
+.lead strong{color:var(--ink);font-weight:600;}
+p.body{font-size:15.5px;line-height:1.72;color:var(--ink-2);max-width:68ch;margin-bottom:18px;}
+p.body strong{color:var(--ink);font-weight:600;}
+
+/* Nota del autor */
+.nota-autor-section{background:#fff;}
+.nota-card{position:relative;background:#fff;border-radius:var(--radius-lg);padding:48px 52px;box-shadow:var(--shadow-2);overflow:hidden;border-left:6px solid var(--red);}
+.nota-wm{position:absolute;right:-40px;bottom:-40px;font-size:240px;color:var(--red-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.nota-inner{position:relative;z-index:2;max-width:72ch;}
+.nota-intro{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;background:var(--red-soft);color:var(--red);border-radius:var(--radius-pill);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.nota-card p{font-size:15.5px;line-height:1.78;color:var(--ink-2);margin-bottom:16px;}
+.nota-card p strong{color:var(--ink);font-weight:600;}
+.nota-card .destacado{background:var(--blue-soft);border-radius:var(--radius);padding:22px 26px;margin:20px 0;border-left:4px solid var(--blue);}
+.nota-card .destacado p{margin-bottom:0;color:var(--ink);font-weight:500;}
+.nota-firma{display:flex;align-items:center;gap:14px;padding-top:24px;margin-top:24px;border-top:1px solid var(--line);}
+.nota-firma-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:-.02em;}
+.nota-firma-text{display:flex;flex-direction:column;gap:2px;}
+.nota-firma-name{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
+.nota-firma-role{font-size:12.5px;color:var(--ink-3);}
+
+/* Que es — pillars */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:14px;}
+.pillar{position:relative;background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow-2);overflow:hidden;}
+.pillar-wm{position:absolute;right:-30px;top:-20px;font-size:160px;color:var(--blue-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.pillar.red .pillar-wm{color:var(--red-soft);}
+.pillar-icon{position:relative;z-index:2;width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;}
+.pillar.red .pillar-icon{background:var(--red-soft);color:var(--red);}
+.pillar-content{position:relative;z-index:2;}
+.pillar-content p{font-size:14px;line-height:1.65;color:var(--ink-2);}
+
+/* Como surgio */
+.como-surgio-section{background:var(--bg-gray);}
+.como-surgio-card{position:relative;background:#fff;border-radius:var(--radius-lg);padding:48px 56px;box-shadow:var(--shadow-2);overflow:hidden;}
+.como-surgio-wm{position:absolute;right:-50px;bottom:-60px;font-size:300px;color:var(--blue-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.como-surgio-inner{position:relative;z-index:2;}
+.principio{background:var(--blue-soft);border-radius:var(--radius);padding:24px 28px;margin-top:20px;border-left:4px solid var(--blue);}
+.principio strong{color:var(--blue);}
+
+/* Como funciona — steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px;}
+.step{position:relative;background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow-2);overflow:hidden;}
+.step-wm{position:absolute;right:-20px;top:-10px;font-size:140px;color:var(--blue-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.step-num{position:relative;z-index:2;width:36px;height:36px;border-radius:10px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:16px;}
+.step-content{position:relative;z-index:2;}
+.step-content p{font-size:14px;line-height:1.65;color:var(--ink-2);}
+
+/* FAQ */
+.faq-section{background:var(--bg-gray);}
+.faq-list{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+.faq{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-2);overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:16px;font-weight:600;letter-spacing:-.01em;color:var(--ink);}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"\f107";font-family:"uicons-bold-rounded";color:var(--blue);font-size:14px;transition:transform .25s var(--ease);}
+.faq[open] summary::after{transform:rotate(180deg);}
+.faq-body{padding:0 28px 24px;font-size:14.5px;line-height:1.7;color:var(--ink-2);}
+
+/* Quienes somos */
+.qs-card{position:relative;background:#fff;border-radius:var(--radius-lg);padding:44px 48px;box-shadow:var(--shadow-2);overflow:hidden;display:grid;grid-template-columns:1fr 1.6fr;gap:36px;align-items:center;}
+.qs-wm{position:absolute;right:-40px;bottom:-50px;font-size:260px;color:var(--red-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.qs-name-wrap{position:relative;z-index:2;}
+.qs-tag{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.qs-name{font-size:clamp(26px,2.8vw,34px);font-weight:700;letter-spacing:-.025em;color:var(--ink);line-height:1.12;}
+.qs-text{position:relative;z-index:2;}
+.qs-text p{font-size:15px;line-height:1.72;color:var(--ink-2);margin-bottom:14px;}
+.qs-text p:last-child{margin-bottom:0;}
+.qs-text strong{color:var(--ink);font-weight:600;}
+
+/* Contacto */
+.contacto-section{background:var(--bg-gray);}
+.contacto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.contact-card{position:relative;background:#fff;border-radius:var(--radius);padding:32px 30px;box-shadow:var(--shadow-2);overflow:hidden;display:flex;flex-direction:column;gap:14px;}
+.contact-wm{position:absolute;right:-30px;top:-20px;font-size:160px;color:var(--blue-soft);transform:rotate(-10deg);pointer-events:none;line-height:1;}
+.contact-card.red .contact-wm{color:var(--red-soft);}
+.contact-icon{position:relative;z-index:2;width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.contact-card.red .contact-icon{background:var(--red-soft);color:var(--red);}
+.contact-content{position:relative;z-index:2;}
+.contact-label{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;}
+.contact-value{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px;word-break:break-word;}
+.contact-line{font-size:13.5px;line-height:1.55;color:var(--ink-2);}
+.contact-link{position:relative;z-index:2;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--blue);color:#fff;border-radius:var(--radius-pill);font-size:13px;font-weight:600;transition:all .25s var(--ease);}
+.contact-link:hover{background:var(--blue-hover);}
+.contact-card.red .contact-link{background:var(--red);}
+.contact-card.red .contact-link:hover{background:var(--red-hover);}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:48px 24px 36px;}
+.foot{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;}
+.foot-brand .brand-mark{background:#fff;color:var(--blue);}
+.foot-links{display:flex;gap:24px;font-size:13.5px;flex-wrap:wrap;}
+.foot-links a{color:rgba(255,255,255,.7);transition:color .25s var(--ease);}
+.foot-links a:hover{color:#fff;}
+.foot-tag{font-size:12px;color:rgba(255,255,255,.4);width:100%;text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);margin-top:8px;}
+
+/* Mobile */
+@media(max-width:880px){
+  .pillars{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .qs-card{grid-template-columns:1fr;gap:18px;padding:36px 28px;}
+  .contacto-grid{grid-template-columns:1fr;}
+}
+@media(max-width:760px){
+  .hero-info-inner{padding:48px 20px 44px;}
+  .hero-wm{font-size:240px;right:-60px;bottom:-60px;}
+  section.info-sec{padding:56px 0;}
+  .como-surgio-card{padding:36px 26px;}
+  .como-surgio-wm{font-size:200px;right:-30px;bottom:-30px;}
+  .nav a{padding:7px 11px;font-size:13px;}
+  .hdr{padding:10px 16px;}
+  .container{padding:0 16px;}
+  .toc-wrap{top:64px;}
+  .toc{padding:12px 16px;flex-wrap:nowrap;}
+  .faq summary{padding:18px 22px;font-size:15px;}
+  .faq-body{padding:0 22px 20px;}
+  .nota-card{padding:32px 24px;border-left-width:4px;}
+  .nota-wm{font-size:160px;right:-30px;bottom:-30px;}
+  .nota-card p{font-size:15px;}
+  .nota-card .destacado{padding:18px 20px;}
+}
+@media(max-width:420px){
+  .nav{gap:2px;}
+  .nav a{padding:6px 9px;font-size:12.5px;}
+  .brand-text{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">ET</span>
+      <span class="brand-text">ENTRE TODOS</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#proyectos">Proyectos</a>
+      <a href="info.html">Info</a>
+      <a href="index.html#encuesta" class="cta">Participar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-info">
+  <i class="fi fi-br-book-alt hero-wm"></i>
+  <div class="hero-info-inner">
+    <div class="hero-eyebrow"><i class="fi fi-br-info"></i> Información completa</div>
+    <h1>Cómo funciona <span class="accent">ENTRE TODOS.</span></h1>
+    <p>Qué es, cómo surgió, cómo participas, principios, FAQ, quiénes somos y contacto. Todo en una sola página.</p>
+  </div>
+</section>
+
+<div class="toc-wrap">
+  <nav class="toc">
+    <a href="#nota-autor">Nota del autor</a>
+    <a href="#que-es">Qué es</a>
+    <a href="#como-surgio">Cómo surgió</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#faq">FAQ</a>
+    <a href="#quienes-somos">Quiénes somos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</div>
+
+<section class="info-sec nota-autor-section" id="nota-autor">
+  <div class="container">
+    <div class="sec-kicker red">Nota del autor</div>
+    <h2>Qué significa <span class="accent">"TODOS"</span> en ENTRE TODOS.</h2>
+    <p class="lead">Algunos han juzgado el libro por la cubierta y han asumido que la palabra <strong>TODOS</strong> incluye a todos sin límites. No es el caso. Esta nota deja clara la frontera ética y democrática de la plataforma.</p>
+
+    <div class="nota-card">
+      <i class="fi fi-br-comment-quote nota-wm"></i>
+      <div class="nota-inner">
+        <div class="nota-intro"><i class="fi fi-br-bullhorn"></i> Aclaración pública</div>
+
+        <p>Muchos saben que he creado, con mucho esfuerzo y recursos personales, una plataforma cívica no partidista para Cuba llamada <strong>ENTRE TODOS</strong>. Algunas personas, sin leer su definición ni su propósito, han juzgado el libro por la cubierta y han asumido que la palabra TODOS incluye a todos sin límites. <strong>No es el caso.</strong> Quien me conoce debe de saber bien claro que bajo ningún concepto haría absolutamente nada que le de plataforma y voz a la tiranía que oprime a mi pueblo y contra la que lucho. Permítanme sacarlos de dudas.</p>
+
+        <p><strong>ENTRE TODOS es una infraestructura cívica digital, independiente y no partidista</strong>, creada para ampliar el espacio de participación democrática de los cubanos dentro y fuera de Cuba. La plataforma permite reunir propuestas existentes, compararlas de forma neutral, recibir aportes ciudadanos, medir niveles de apoyo y producir un documento vivo de prioridades respaldadas por la ciudadanía. Su propósito es fortalecer la sociedad civil, facilitar la deliberación pública segura y ayudar a que las soluciones para una Cuba democrática puedan ser vistas, evaluadas y construidas colectivamente.</p>
+
+        <p>El "TODOS" de ENTRE TODOS, inspirado en la idea martiana de <strong>"con todos y para el bien de todos"</strong>, puede prestarse a confusión si se separa del contexto donde se explican sus límites.</p>
+
+        <div class="destacado">
+          <p>Cuando digo ENTRE TODOS, ese "TODOS" <strong>no se refiere a meter en el mismo saco a quienes sostienen la opresión y a quienes buscan abrir un camino democrático</strong>. Tampoco significa neutralidad entre dictadura y libertad.</p>
+        </div>
+
+        <p>Ese "TODOS" se refiere a <strong>los cubanos que quieren participar en la construcción de soluciones para una Cuba abierta, libre y democrática</strong>, desde distintas visiones, propuestas y caminos posibles.</p>
+
+        <p>La plataforma <strong>no pretende legitimar el totalitarismo, lavar responsabilidades ni diluir la diferencia entre continuidad y cambio</strong>. Lo que intenta es organizar propuestas no vinculadas a la continuidad, compararlas, medir respaldo ciudadano y permitir que el consenso vaya emergiendo desde las soluciones — no desde etiquetas, liderazgos o grupos.</p>
+
+        <div class="nota-firma">
+          <div class="nota-firma-avatar">ME</div>
+          <div class="nota-firma-text">
+            <span class="nota-firma-name">Michel Estopiñán</span>
+            <span class="nota-firma-role">Creador de ENTRE TODOS · Mayo 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec" id="que-es">
+  <div class="container">
+    <div class="sec-kicker">Qué es ENTRE TODOS</div>
+    <h2>Una mesa amplia, sin <span class="accent">cúpulas.</span></h2>
+    <p class="lead">Cuba no necesita otros acuerdos firmados por grupos reducidos. Necesita un mecanismo donde <strong>todas las voces relevantes puedan sentarse en la misma sala</strong> — el activista interno, el exilio histórico, la juventud digital, el empresario emergente, el religioso, el intelectual crítico, el moderado y el radical. ENTRE TODOS es ese mecanismo: una plataforma abierta donde cualquier cubano puede leer, comparar, votar y proponer — sin que el origen de una idea defina su valor.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <i class="fi fi-br-users-alt pillar-wm"></i>
+        <div class="pillar-icon"><i class="fi fi-br-users-alt"></i></div>
+        <div class="pillar-content">
+          <h3>Mesa amplia</h3>
+          <p>Cualquier persona participa — sin importar dónde vive, qué organización la representa o qué ideología tiene. El peso de cada voz es igual.</p>
+        </div>
+      </div>
+      <div class="pillar red">
+        <i class="fi fi-br-comment-alt pillar-wm"></i>
+        <div class="pillar-icon"><i class="fi fi-br-comment-alt"></i></div>
+        <div class="pillar-content">
+          <h3>Deliberación real</h3>
+          <p>No solo votas sí o no. Puedes matizar, criticar, añadir y proponer. Los aportes con más apoyo se integran al documento de consenso.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <i class="fi fi-br-shield-check pillar-wm"></i>
+        <div class="pillar-icon"><i class="fi fi-br-shield-check"></i></div>
+        <div class="pillar-content">
+          <h3>Sin cúpulas</h3>
+          <p>Las ideas se juzgan por su mérito, no por quién las propone. Las organizaciones aparecen solo por número de referencia, no por nombre.</p>
+        </div>
+      </div>
+      <div class="pillar red">
+        <i class="fi fi-br-handshake pillar-wm"></i>
+        <div class="pillar-icon"><i class="fi fi-br-handshake"></i></div>
+        <div class="pillar-content">
+          <h3>Nadie se queda afuera</h3>
+          <p>Personas, grupos, partidos — todos tienen trabajo valioso hecho. ENTRE TODOS lo reconoce, lo organiza y lo abre al voto popular.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec como-surgio-section" id="como-surgio">
+  <div class="container">
+    <div class="sec-kicker red">Cómo surgió</div>
+    <h2>No es una <span class="accent">propuesta más.</span></h2>
+    <p class="lead">Cuba no carece de propuestas. Lo que carecía es de un espacio común donde todas pudieran ser leídas, comparadas y votadas por toda la ciudadanía.</p>
+
+    <div class="como-surgio-card">
+      <i class="fi fi-br-book-alt como-surgio-wm"></i>
+      <div class="como-surgio-inner">
+        <p class="body">Durante décadas, organizaciones, académicos y activistas han producido documentos serios, trabajados con dedicación genuina y amor por el país. Ese trabajo existe, tiene valor — y en muchos casos ha permanecido invisible para la mayoría, conocido solo por los miembros de cada organización o por quienes estuvieron cerca de su redacción.</p>
+        <p class="body">ENTRE TODOS <strong>no viene con agenda propia ni con ideas nuevas que imponer</strong>. Lo que hace es tomar ese trabajo colectivo que ya existía, reconocerlo, organizarlo y ponerlo frente a todos — para que cada quien pueda evaluarlo por lo que dice, no por quién lo dice.</p>
+        <p class="body">Para cada proyecto se explora primero lo que ya está escrito si existe, se toma como punto de partida, y de ahí se organiza en módulos, secciones o categorías para hacerlo accesible. Las personas entonces leen, comparan, votan y sugieren. Todo resulta en un <strong>documento adaptable que refleja la voluntad popular</strong> sobre los temas consultados.</p>
+
+        <div class="principio">
+          <p class="body" style="margin:0;"><strong>Principio fundamental de participación:</strong> todo participante tiene derecho a involucrarse sin importar sus preferencias personales, ideológicas, políticas o religiosas — siempre que esté de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos. <strong>No tienen cabida</strong> organizaciones totalitarias, dictatoriales o que nieguen la soberanía del pueblo sobre su propio destino.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec" id="como-funciona">
+  <div class="container">
+    <div class="sec-kicker">Cómo funciona</div>
+    <h2>Cuatro pasos, <span class="accent">uno solo importa: el tuyo.</span></h2>
+    <p class="lead">Todo el sistema está pensado para que tu participación sea sencilla, anónima si lo prefieres, y verificable.</p>
+
+    <div class="steps">
+      <div class="step">
+        <i class="fi fi-br-search step-wm"></i>
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Lee y compara</h3>
+          <p>Las propuestas vienen organizadas por categorías. Cada una indica una referencia numerada a su fuente original.</p>
+        </div>
+      </div>
+      <div class="step">
+        <i class="fi fi-br-star step-wm"></i>
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Vota con matiz</h3>
+          <p>1 estrella = muy en desacuerdo. 5 estrellas = apoyo total. Puedes votar en cualquier punto del espectro y modificar tu voto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <i class="fi fi-br-edit step-wm"></i>
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Aporta o propone</h3>
+          <p>Puedes añadir matices, críticas o nuevas propuestas. Si una propuesta ciudadana recibe 3+ estrellas, se integra al documento oficial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec faq-section" id="faq">
+  <div class="container">
+    <div class="sec-kicker">Preguntas frecuentes</div>
+    <h2>Lo que más <span class="accent">nos preguntan.</span></h2>
+    <p class="lead">Si tu pregunta no está aquí, escríbenos a <strong>sosplanet@gmail.com</strong>.</p>
+
+    <div class="faq-list">
+      <details class="faq">
+        <summary>¿Quién puede participar en ENTRE TODOS?</summary>
+        <div class="faq-body">Cualquier persona puede participar — sin importar dónde vive, qué organización la representa o qué ideología tiene. El único requisito es estar de acuerdo con los principios democráticos fundamentales: elección mediante voto libre, pluralidad política y respeto a los derechos humanos.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Es necesario registrarse para votar?</summary>
+        <div class="faq-body">No es obligatorio. Puedes participar de forma anónima. Sin embargo, registrar un nombre o correo ayuda a darle más peso verificable a tu participación y permite que te notifiquemos cuando haya nuevas propuestas en las categorías que te interesan.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Cómo funciona el voto de estrellas?</summary>
+        <div class="faq-body">1 estrella significa que estás muy en desacuerdo con la propuesta. 5 estrellas significa que la apoyas completamente. Puedes votar en cualquier punto del espectro. Si cambias de opinión, puedes modificar tu voto. No es un sí o no — el grado de apoyo importa tanto como la dirección.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Qué pasa con las propuestas que añade la ciudadanía?</summary>
+        <div class="faq-body">Cualquier participante puede añadir nuevos puntos a la plataforma. Si una propuesta ciudadana recibe 3 o más estrellas de apoyo, se integra automáticamente a la lista oficial del proyecto. Las que no alcanzan ese umbral quedan visibles pero no se incorporan al documento de consenso.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Cómo se generan los documentos de consenso?</summary>
+        <div class="faq-body">El documento de consenso se genera automáticamente en tiempo real a partir de los resultados acumulados. Refleja cuáles propuestas tienen mayor apoyo, qué matices o incisos fueron más seleccionados, y qué nuevas propuestas ciudadanas fueron integradas. Es un documento vivo que evoluciona con la participación.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Qué significa el número junto a cada propuesta?</summary>
+        <div class="faq-body">Cada número es una referencia a una organización o fuente que ha publicado esa propuesta de forma oficial. Al hacer clic en el número verás el nombre y enlace a la fuente original. Las organizaciones no aparecen por nombre en las propuestas para que cada idea sea evaluada por su contenido, no por quién la propone.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Pueden participar organizaciones de distintas ideologías?</summary>
+        <div class="faq-body">Sí. ENTRE TODOS acepta la participación de organizaciones liberales, socialdemócratas, conservadoras, libertarias, demócratacristianas, civiles — siempre que acepten los principios democráticos fundamentales. La regla es de principios, no de ideologías: quien acepta las reglas del juego democrático puede participar.</div>
+      </details>
+      <details class="faq">
+        <summary>¿Este sitio tiene fines comerciales o políticos?</summary>
+        <div class="faq-body">ENTRE TODOS no tiene afiliación política ni apoya candidaturas individuales. Su único propósito es organizar la participación ciudadana y producir documentos de consenso. A largo plazo, la plataforma busca ser financieramente sostenible como herramienta exportable de gestión de consenso democrático para cualquier proceso participativo.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec" id="quienes-somos">
+  <div class="container">
+    <div class="sec-kicker red">Quiénes somos</div>
+    <h2>Un solo creador, <span class="accent">con principios públicos.</span></h2>
+
+    <div class="qs-card">
+      <i class="fi fi-br-user-add qs-wm"></i>
+      <div class="qs-name-wrap">
+        <div class="qs-tag">Creador</div>
+        <div class="qs-name">Michel Estopiñán</div>
+      </div>
+      <div class="qs-text">
+        <p>ENTRE TODOS es un proyecto de una sola persona: Michel Estopiñán, cubano, con el único propósito de crear el espacio que Cuba necesita para construir consensos democráticos amplios, verificables y sin exclusiones.</p>
+        <p>La plataforma <strong>no tiene partido, no tiene financiador político y no apoya ninguna candidatura individual</strong>. Su agenda es únicamente metodológica: organizar la participación de todos.</p>
+        <p>Aunque ENTRE TODOS está diseñado para que ninguna voz pese más que otra, es justo que los participantes sepan quién construyó el espacio y bajo qué principios. La plataforma está abierta a escrutinio: si encuentras un sesgo, un error o una mejora posible, escríbenos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec contacto-section" id="contacto">
+  <div class="container">
+    <div class="sec-kicker">Contacto</div>
+    <h2>Hablamos <span class="accent">siempre.</span></h2>
+    <p class="lead">Para consultas sobre la metodología, incorporación de organizaciones o colaboraciones técnicas.</p>
+
+    <div class="contacto-grid">
+      <div class="contact-card">
+        <i class="fi fi-br-envelope contact-wm"></i>
+        <div class="contact-icon"><i class="fi fi-br-envelope"></i></div>
+        <div class="contact-content">
+          <div class="contact-label">Correo electrónico</div>
+          <div class="contact-value">sosplanet@gmail.com</div>
+          <div class="contact-line">Respondemos a todos los mensajes verificables.</div>
+        </div>
+        <a href="mailto:sosplanet@gmail.com" class="contact-link">Escribir <i class="fi fi-br-arrow-right"></i></a>
+      </div>
+
+      <div class="contact-card red">
+        <i class="fi fi-br-comments contact-wm"></i>
+        <div class="contact-icon"><i class="fi fi-br-comments"></i></div>
+        <div class="contact-content">
+          <div class="contact-label">Grupo en Facebook</div>
+          <div class="contact-value">Cubanos por el Cambio</div>
+          <div class="contact-line">Comunidad activa donde se discute, se prueba y se mejora la plataforma.</div>
+        </div>
+        <a href="https://www.facebook.com/groups/cubanosporelcambio" target="_blank" rel="noopener" class="contact-link">Unirse <i class="fi fi-br-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <a href="index.html" class="foot-brand">
+      <span class="brand-mark">ET</span>
+      <span>ENTRE TODOS</span>
+    </a>
+    <nav class="foot-links">
+      <a href="info.html#nota-autor">Nota del autor</a>
+      <a href="info.html#contacto">Contacto</a>
+      <a href="info.html#faq">FAQ</a>
+      <a href="info.html#quienes-somos">Quiénes somos</a>
+      <a href="politica-privacidad.html">Privacidad</a>
+    </nav>
+    <div class="foot-tag">No se construye desde arriba. Se construye ENTRE TODOS.</div>
+  </div>
+</footer>
+</body>
+</html>

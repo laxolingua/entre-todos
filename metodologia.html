@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología y Privacidad — ENTRE TODOS</title>
+<meta name="description" content="Cómo funciona ENTRE TODOS: principios de transparencia, seguridad de datos, privacidad GDPR, y mecanismos de participación ciudadana.">
+<meta name="theme-color" content="#002F80">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Metodología · ENTRE TODOS">
+<meta property="og:description" content="Cómo se construye consenso ciudadano en ENTRE TODOS: estructura de votación, integración de aportes, generación de documentos vivos.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/metodologia.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Metodología · ENTRE TODOS">
+<meta name="twitter:description" content="Cómo se construye consenso ciudadano en ENTRE TODOS: estructura de votación, integración de aportes, generación de documentos vivos.">
+<meta name="twitter:image" content="img/og-default.png">
+<meta name="theme-color" content="#002F80">
+<link rel="icon" type="image/png" href="entre-todos-logo.png">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --blue: #002F80;
+  --blue-deep: #001F5C;
+  --blue-hover: #00256B;
+  --blue-soft: #EEF3FB;
+  --red: #CE1126;
+  --red-hover: #A50D1E;
+  --red-soft: #FDECEE;
+  --bg: #FFFFFF;
+  --bg-gray: #F5F5F7;
+  --bg-gray-2: #FAFAFC;
+  --ink: #0B1F3F;
+  --ink-2: #3A4668;
+  --ink-3: #6B7489;
+  --ink-4: #9AA0B0;
+  --line: #E5E5E7;
+  --green: #0B8A4A;
+  --green-soft: #E7F6EE;
+  --radius-sm: 14px;
+  --radius: 22px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgba(11,31,63,.04);
+  --shadow-2: 0 8px 28px rgba(11,31,63,.08);
+  --shadow-3: 0 20px 48px rgba(11,31,63,.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.flag-bar { height: 4px; background: linear-gradient(90deg, var(--blue) 0 50%, var(--red) 50% 100%); }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(11, 31, 63, .08);
+  box-shadow: var(--shadow-1);
+}
+.hdr {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  gap: 16px;
+}
+.logo-wrap { display: flex; align-items: center; gap: 12px; flex: 1; }
+.logo-img {
+  height: 46px; width: 46px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; background: var(--blue-soft); border-radius: 10px;
+  font-size: 1.2rem; font-weight: 800; color: var(--blue);
+}
+.logo-txt { display: flex; flex-direction: column; line-height: 1; }
+.logo-brand { font-size: .95rem; font-weight: 800; color: var(--ink); }
+.logo-brand span { color: var(--red); }
+.logo-sub { font-size: .72rem; font-weight: 500; color: var(--ink-3); margin-top: 2px; }
+
+.hdr-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-gray);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--blue);
+  transition: background .2s;
+}
+.hdr-back:hover { background: var(--blue-soft); }
+.hdr-back i { font-size: 1rem; }
+
+.hero {
+  background: linear-gradient(180deg, #fff 0%, #f7f9fc 100%);
+  padding: 72px 0 56px;
+}
+.hero-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--red);
+  display: block;
+  margin-top: 8px;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.62;
+  color: var(--ink-2);
+  max-width: 860px;
+  margin: 0 0 40px;
+}
+
+.sec { padding: 88px 0; }
+.sec-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sec-label {
+  display: inline-block;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+.sec-title {
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.sec-title em { font-style: normal; color: var(--red); }
+.sec-sub {
+  font-size: 1.04rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 860px;
+  margin-bottom: 44px;
+}
+
+/* How it works steps */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 44px;
+}
+.step-card {
+  background: linear-gradient(135deg, #fff 0%, #f9fbfe 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(11, 31, 63, .06);
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+}
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--red) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-3);
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.step-card h3 {
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.step-card p {
+  font-size: .94rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin-bottom: 16px;
+}
+.step-details {
+  list-style: none;
+  padding: 0;
+}
+.step-details li {
+  font-size: .9rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.step-details li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* Principles boxes */
+.principles-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-bottom: 44px;
+}
+.principle-box {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(11, 31, 63, .06);
+}
+.principle-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 13px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.principle-box h3 {
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.principle-box p {
+  font-size: .94rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+/* Privacy/GDPR section */
+.privacy-section {
+  background: linear-gradient(135deg, var(--green-soft) 0%, rgba(11, 138, 74, .05) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(11, 138, 74, .15);
+  padding: 44px 40px;
+}
+.privacy-section h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.privacy-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.privacy-point {
+  background: #fff;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(11, 138, 74, .1);
+}
+.privacy-point strong {
+  display: block;
+  color: var(--green);
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+.privacy-point p {
+  font-size: .9rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* Tech stack */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 44px;
+}
+.tech-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-1);
+  border: 1px solid rgba(11, 31, 63, .08);
+}
+.tech-label {
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+.tech-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.tech-card p {
+  font-size: .9rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* FAQ */
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 20px 24px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  user-select: none;
+  transition: background .2s;
+}
+.faq-question:hover { background: var(--bg-gray); }
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--blue);
+}
+.faq-answer {
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s, padding .3s;
+  background: var(--bg-gray-2);
+}
+.faq-item.open .faq-answer {
+  padding: 20px 24px;
+  max-height: 500px;
+}
+.faq-answer p {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
+footer {
+  background: var(--ink);
+  color: #fff;
+  padding: 56px 0 32px;
+  margin-top: 88px;
+}
+.footer-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-bottom: 44px;
+}
+.footer-col h4 {
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #a0d0f0;
+  margin-bottom: 14px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-col a { font-size: .9rem; color: rgba(255, 255, 255, .72); }
+.footer-col a:hover { color: #fff; }
+.footer-sep { height: 1px; background: rgba(255, 255, 255, .1); margin-bottom: 24px; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: .82rem;
+  color: rgba(255, 255, 255, .6);
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 56px 0 40px; }
+  .sec { padding: 56px 0; }
+  .privacy-section { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero-sub { font-size: .95rem; }
+  .sec-title { font-size: 1.6rem; }
+  .step-card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <div class="logo-wrap">
+      <div class="logo-img">ET</div>
+      <div class="logo-txt">
+        <span class="logo-brand">ENTRE <span>TODOS</span></span>
+        <span class="logo-sub">Democracia participativa para Cuba</span>
+      </div>
+    </div>
+    <a href="index.html" class="hdr-back">
+      <i class="fi fi-br-arrow-left"></i> Volver
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-badge">
+      <i class="fi fi-br-gear"></i> CÓMO FUNCIONA
+    </div>
+    <h1>Metodología, Privacidad <em>y Transparencia</em></h1>
+    <p class="hero-sub">ENTRE TODOS es una plataforma de participación ciudadana diseñada con transparencia radical. Aquí explicamos cómo funciona, cómo protegemos tus datos, y por qué confiamos en la inteligencia colectiva.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">PARTICIPACIÓN CIUDADANA</div>
+    <h2 class="sec-title">¿Cómo <em>participas</em> en ENTRE TODOS?</h2>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Registrate</h3>
+        <p>Crea una cuenta verificando tu email. Puedes participar como individuo o representando una organización.</p>
+        <ul class="step-details">
+          <li>3 niveles de participación (básica, verificada, padrón)</li>
+          <li>Email de confirmación (JWT token válido 24h)</li>
+          <li>Contraseña segura (hash bcrypt)</li>
+          <li>Datos encriptados en tránsito (TLS 1.3)</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Consulta y Entiende</h3>
+        <p>Lee propuestas, contexto, argumentos pro y contra. Toda información es pública y verificable.</p>
+        <ul class="step-details">
+          <li>Propuestas organizadas por tema</li>
+          <li>Argumentos estructurados (origen, apoyo, críticas)</li>
+          <li>Datos en tiempo real de votación</li>
+          <li>Enlaces a fuentes primarias</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Vota y Comenta</h3>
+        <p>Vota por propuestas, matiza tu posición, y añade argumentos nuevos. Cada voto cuenta igual.</p>
+        <ul class="step-details">
+          <li>5 opciones de voto (Sí fuerte, Sí débil, Neutral, No débil, No fuerte)</li>
+          <li>Comentarios públicos con argumentación</li>
+          <li>Cada voto es anónimo pero verificable</li>
+          <li>Histórico de tus votos (personal, no público)</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Propón Alternativas</h3>
+        <p>Si piensas que hace falta una propuesta, la creas tú. Necesita apoyo de 50+ ciudadanos para votación.</p>
+        <ul class="step-details">
+          <li>Formulario estructurado (problema, solución, impacto)</li>
+          <li>Período de revisión pública (7 días)</li>
+          <li>Modificación según feedback</li>
+          <li>Votación oficial si alcanza umbral</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <h3>Monitoea Resultados</h3>
+        <p>Sigue en tiempo real cómo avanza cada propuesta hacia implementación o rechazo.</p>
+        <ul class="step-details">
+          <li>Dashboard de propuestas activas</li>
+          <li>Gráficos de tendencia por tema</li>
+          <li>Notificaciones de cambios importantes</li>
+          <li>Reporte mensual de consensos</li>
+        </ul>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <h3>Participa en Implementación</h3>
+        <p>Si una propuesta gana, puedes ser parte del equipo que la implementa o la monitorea.</p>
+        <ul class="step-details">
+          <li>Grupos de trabajo por tema</li>
+          <li>Tareas específicas (investigación, comunicación, lobby)</li>
+          <li>Reconocimiento público de contribuciones</li>
+          <li>Actualizaciones semanales de progreso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background: linear-gradient(180deg, #fff 0%, #f7f9fc 100%);">
+  <div class="sec-wrap">
+    <div class="sec-label">PRINCIPIOS FUNDAMENTALES</div>
+    <h2 class="sec-title">Lo que creemos <em>en ENTRE TODOS</em></h2>
+
+    <div class="principles-2col">
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-eye"></i></div>
+        <h3>Transparencia Radical</h3>
+        <p>Todo en la plataforma es auditable. El código es open-source. Los datos de votación son públicos (sin revelar identidad individual). Las decisiones se toman con criterios claros.</p>
+      </div>
+
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-lock"></i></div>
+        <h3>Privacidad Garantizada</h3>
+        <p>Tu identidad no se expone públicamente. Tus votos son anónimos. Tu información personal se encripta y se almacena de forma segura. Datos solo se comparten si lo autorizas.</p>
+      </div>
+
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-scale"></i></div>
+        <h3>Igualdad Radical</h3>
+        <p>Un ciudadano = un voto. No importa dónde vivas, cuánta plata tengas, o a quién representes. Todas las voces tienen igual peso en la votación.</p>
+      </div>
+
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-link"></i></div>
+        <h3>Sin Cúpulas</h3>
+        <p>Las propuestas se juzgan por mérito, no por quién las propone. Las organizaciones no aparecen con nombre — solo el ID de referencia. Ideas prevalecen sobre lealtades.</p>
+      </div>
+
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-users"></i></div>
+        <h3>Inclusión Obligatoria</h3>
+        <p>Si tu grupo o perspectiva no está representado, puedes crearla. No hay barreras de entrada. Cualquier cubano, en cualquier lugar, puede participar.</p>
+      </div>
+
+      <div class="principle-box">
+        <div class="principle-icon"><i class="fi fi-br-check"></i></div>
+        <h3>Rendición de Cuentas</h3>
+        <p>Si una propuesta se aprueba, el equipo que la implementa reporta públicamente cada semana. Las métricas de éxito se definen al inicio. Si no cumple, se ajusta o se rechaza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">GDPR Y SEGURIDAD</div>
+    <h2 class="sec-title">Tu privacidad está <em>protegida</em></h2>
+
+    <div class="privacy-section">
+      <h3>¿Cómo protegemos tus datos?</h3>
+      <div class="privacy-points">
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-lock"></i> Encriptación TLS 1.3</strong>
+          <p>Todos los datos en tránsito están encriptados. Nadie, ni siquiera ENTRE TODOS, puede ver tu contraseña.</p>
+        </div>
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-database"></i> Almacenamiento Seguro</strong>
+          <p>Datos en Supabase con encriptación at-rest. Backups automáticos. Cumplimiento de ISO 27001.</p>
+        </div>
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-key"></i> Autenticación Segura</strong>
+          <p>Contraseñas con hash bcrypt. JWT tokens de corta duración. OAuth soportado para verificación.</p>
+        </div>
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-eye-slash"></i> Anonimato</strong>
+          <p>Tus votos son anónimos. Los datos de votación se publican sin tu nombre. Solo tú sabes por qué votaste.</p>
+        </div>
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-trash"></i> Derecho al Olvido</strong>
+          <p>Puedes solicitar la eliminación de tu cuenta. Todos tus datos personales serán borrados en 30 días.</p>
+        </div>
+        <div class="privacy-point">
+          <strong><i class="fi fi-br-download"></i> Acceso a Tus Datos</strong>
+          <p>Puedes descargar una copia completa de tus datos en cualquier momento. Portabilidad garantizada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">STACK TECNOLÓGICO</div>
+    <h2 class="sec-title">Construido con <em>tecnología abierta</em></h2>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-label">Frontend</div>
+        <h4>HTML/CSS/JavaScript</h4>
+        <p>Interfaz moderna, responsiva, accesible. Funciona en cualquier navegador. Sin dependencias heavy.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-label">Backend</div>
+        <h4>Supabase (PostgreSQL)</h4>
+        <p>Base de datos SQL con autenticación integrada. Escalable, segura, open-source compatible.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-label">API</div>
+        <h4>RESTful + GraphQL</h4>
+        <p>Endpoints estándar para lectura, votación, y propuestas. Documentación OpenAPI completa.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-label">Seguridad</div>
+        <h4>RLS + JWT + HTTPS</h4>
+        <p>Row-Level Security en BD. JSON Web Tokens para sesiones. HTTPS obligatorio.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-label">Almacenamiento</div>
+        <h4>AWS S3 Compatible</h4>
+        <p>Archivos de propuestas, documentos PDF. Acceso público verificado. Backup continuo.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-label">Análisis</div>
+        <h4>Propios Dashboards</h4>
+        <p>No terceros tracking. Analítica anonimizada. Solo métricas de uso, no personal data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-wrap">
+    <div class="sec-label">PREGUNTAS FRECUENTES</div>
+    <h2 class="sec-title">Dudas <em>resueltas</em></h2>
+
+    <div id="faq-container"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Portada</a></li>
+          <li><a href="antes-del-cambio-v1.html">Antes del Cambio</a></li>
+          <li><a href="despues-del-cambio-v1.html">Después del Cambio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Participación</h4>
+        <ul>
+          <li><a href="#propuestas">Mis Propuestas</a></li>
+          <li><a href="#consultas">Consultas Ciudadanas</a></li>
+          <li><a href="#pulso">Pulso del Pueblo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="metodologia-v1.html">Metodología</a></li>
+          <li><a href="#privacidad">Privacidad GDPR</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sobre ENTRE TODOS</h4>
+        <ul>
+          <li><a href="#historia">La Historia</a></li>
+          <li><a href="#vision">Nuestra Visión</a></li>
+          <li><a href="#valores">Nuestros Valores</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-sep"></div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ENTRE TODOS. Un proyecto de democracia participativa para Cuba.</p>
+      <p>Código abierto. Datos públicos. Privacidad garantizada.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const faqData = [
+  {
+    q: "¿Necesito dar mi nombre real?",
+    a: "No. Puedes registrarte con un seudónimo. Lo que importa es que seas una persona única y verificada por email. Tu identidad real nunca se expone públicamente."
+  },
+  {
+    q: "¿Qué pasa si cambio de opinión en una votación?",
+    a: "Puedes cambiar tu voto en cualquier momento antes del cierre de votación. El sistema registra solo tu voto final. Los votos anteriores se descartan."
+  },
+  {
+    q: "¿Cómo sé que las votaciones no están manipuladas?",
+    a: "Todo es verificable. Puedes descargar los logs de votación (anonimizados). El código que calcula resultados es open-source. Los números se pueden auditar independientemente."
+  },
+  {
+    q: "¿Cuánto tiempo mantienen mis datos?",
+    a: "Solo mientras tengas cuenta activa. Si eliminas tu cuenta, tus datos personales se borran en 30 días. Los votos agregados se conservan sin vinculación a ti."
+  },
+  {
+    q: "¿Puedo ser identificado por mi patrón de voto?",
+    a: "No. Los votos se almacenan de forma anonimizada. Nadie, ni los administradores, pueden vincular un voto a tu identidad."
+  },
+  {
+    q: "¿Qué organizaciones pueden participar?",
+    a: "Cualquiera. ONGs, iglesias, sindicatos, partidos políticos, movimientos de base. No hay cuota. La plataforma es agnóstica ideológicamente."
+  },
+  {
+    q: "¿Cómo se financian estos servidores?",
+    a: "A través de donaciones y patrocinios de fundaciones internacionales. NO hay publicidad. NO vendemos datos. El modelo es sostenible sin dependencia política."
+  },
+  {
+    q: "¿Qué pasa si la plataforma se cae?",
+    a: "Tenemos backups diarios en múltiples servidores. Si hay fallo, el sitio estará activo en 1 hora máximo. Los datos están siempre seguros."
+  }
+];
+
+const faqContainer = document.getElementById('faq-container');
+faqData.forEach((item, index) => {
+  const faqDiv = document.createElement('div');
+  faqDiv.className = 'faq-item';
+  faqDiv.innerHTML = `
+    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      <span>${item.q}</span>
+      <div class="faq-icon"><i class="fi fi-br-plus"></i></div>
+    </div>
+    <div class="faq-answer">
+      <p>${item.a}</p>
+    </div>
+  `;
+  faqContainer.appendChild(faqDiv);
+});
+</script>
+
+</body>
+</html>
