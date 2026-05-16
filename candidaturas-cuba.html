@@ -227,291 +227,58 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
   <div class="sec-title">Candidatos para un escenario de transición</div>
   <div class="sec-sub">Personas que han declarado públicamente su intención de postularse a la presidencia de Cuba en un escenario de elecciones libres. Cada candidato puede someter su plataforma completa para evaluación ciudadana.</div>
 
-  <!-- PHOTO GALLERY -->
-  <div class="photo-gallery" id="photo-gallery">
-
-    <!-- Armando Labrador -->
-    <div class="photo-circle-wrap" onclick="openLightbox('Armando Labrador.jpeg','Armando Labrador','https://armandolabrador.com')">
-      <div class="photo-circle"><img src="Armando Labrador.jpeg" alt="Armando Labrador"></div>
-      <div class="photo-circle-name">Armando<br>Labrador</div>
-    </div>
-
-    <!-- Amelia Calzadilla -->
-    <div class="photo-circle-wrap" onclick="openLightbox('amelia-calzadilla-retrato-2026.jpg','Amelia Calzadilla','candidata-amelia-calzadilla-2026.html')">
-      <div class="photo-circle"><img src="amelia-calzadilla-retrato-2026.jpg" alt="Amelia Calzadilla"></div>
-      <div class="photo-circle-name">Amelia<br>Calzadilla</div>
-    </div>
-
-    <!-- Placeholder: próximo candidato -->
-    <div class="photo-circle-wrap" style="cursor:default;" title="Próximo candidato">
-      <div class="photo-circle-add"><i class="fi fi-br-user-add" style="font-size:1.4rem;"></i></div>
-      <div class="photo-circle-name" style="color:var(--borde);">Próximo</div>
-    </div>
-
-  </div>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" onclick="closeLightbox()"><i class="fi fi-br-cross"></i></button>
-      <img class="lightbox-img" id="lightbox-img" src="" alt="">
-      <div class="lightbox-credit" id="lightbox-credit"></div>
-    </div>
-  </div>
-
-  <!-- ARMANDO LABRADOR — DETAIL CARD -->
-  <div class="candidate-detail">
-
-    <!-- HEADER -->
-    <div class="detail-header">
-      <div class="detail-avatar"><img src="Armando Labrador.jpeg" alt="Armando Labrador"></div>
-      <div>
-        <div class="detail-name">Armando Labrador</div>
-        <div class="detail-movement"><i class="fi fi-br-flag" style="font-size:.7rem;margin-right:4px;"></i> Cuba Primero &nbsp;·&nbsp; Aspiración Presidencial Anunciada</div>
-      </div>
-      <div class="detail-badge">
-        <div class="detail-badge-n">Mar 2026</div>
-        <div class="detail-badge-l">Declaración</div>
-      </div>
-    </div>
-
-    <!-- STATUS NOTICE -->
-    <div style="padding:14px 20px;border-bottom:1px solid var(--borde);">
-      <div class="status-notice">
-        <i class="fi fi-br-info"></i>
-        <span><strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:.78rem;">Aclaración de estado:</strong> Este perfil documenta una <strong>aspiración presidencial expresada públicamente</strong>. No constituye una candidatura formal declarada. Está pendiente de verificación. Su inclusión no implica respaldo de ENTRE TODOS. Si el perfil contiene inexactitudes, <a href="mailto:entretodos@sosplanet.org?subject=Corrección perfil Labrador" style="color:#B8860B;font-weight:700;">escríbenos</a>.</span>
-      </div>
-    </div>
-
-    <!-- BIO -->
-    <div class="detail-bio">
-      <div class="sec-label" style="margin-bottom:14px;">Perfil</div>
-      <div class="detail-bio-grid">
-        <div class="bio-block">
-          <p>Empresario cubano-americano, 56 años, fundador y líder del movimiento <strong>Cuba Primero</strong>. Reside en Miami, Florida, donde dirige una clínica de cirugía estética. Salió de Cuba de adolescente tras la prisión de su padre —encarcelado ocho años por el régimen— y la ejecución de su abuelo.</p>
-          <p>Ha escrito dos obras de teatro y una canción sobre la resistencia al régimen cubano, y acumula cientos de miles de seguidores en redes sociales.</p>
-        </div>
+  <div class="candidate-grid">
+    <div class="candidate-card">
+      <div class="candidate-card-header">
+        <div class="candidate-avatar"><img src="Armando Labrador.jpeg" alt="Armando Labrador"></div>
         <div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-users"></i></div>
-            <div class="bio-fact-text">
-              <strong>Movimiento</strong>
-              Cuba Primero — aproximadamente 100 disidentes activos dentro de Cuba + red en el exilio. No afiliado a partido político.
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-map-marker"></i></div>
-            <div class="bio-fact-text">
-              <strong>Base</strong>
-              Miami, Florida. Red de apoyo en Cuba interior (alcance difícil de verificar por control estatal).
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-link"></i></div>
-            <div class="bio-fact-text">
-              <strong>Sitio oficial</strong>
-              <a href="https://armandolabrador.com/" target="_blank" class="ext-link">armandolabrador.com <i class="fi fi-br-arrow-up-right-from-square" style="font-size:.7rem;"></i></a>
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-tags"></i></div>
-            <div class="bio-fact-text">
-              <strong>Posicionamiento declarado</strong>
-              Cambio radical. No violencia. Alineación con presión internacional (EE.UU. / Trump). Énfasis en experiencia empresarial privada.
-            </div>
-          </div>
+          <div class="candidate-name">Armando Labrador</div>
+          <div class="candidate-movement">Cuba Primero</div>
+        </div>
+      </div>
+      <div class="candidate-body">
+        <div class="candidate-bio">Empresario cubano-americano y líder de Cuba Primero. Su perfil público se comunica desde una narrativa de cambio radical, no violencia y presión internacional como palanca de transición.</div>
+        <div class="candidate-tags">
+          <span class="tag azul">Mar 2026</span>
+          <span class="tag">Perfil individual</span>
+          <span class="tag">Plataforma incompleta</span>
+        </div>
+        <div class="candidate-actions">
+          <a href="candidato-armando-labrador-2026.html" class="btn-primary"><i class="fi fi-br-eye"></i> Ver ficha</a>
+          <a href="https://armandolabrador.com/" target="_blank" class="btn-outline"><i class="fi fi-br-arrow-up-right-from-square"></i> Sitio oficial</a>
         </div>
       </div>
     </div>
 
-    <!-- PLATFORM -->
-    <div class="platform-section">
-      <div class="platform-label">Plataforma conocida</div>
-
-      <div class="pending-notice">
-        <i class="fi fi-br-info"></i>
-        <span>La plataforma de gobierno de Armando Labrador no ha sido publicada en detalle. Los puntos siguientes reflejan posiciones declaradas públicamente en entrevistas y declaraciones. <strong>Cuba Primero puede someter su plataforma completa</strong> para su incorporación y evaluación ciudadana.</span>
-      </div>
-
-      <div class="platform-grid">
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-shuffle"></i> Modelo de Transición</div>
-          <div class="platform-card-title">Cambio radical sin negociación con el régimen</div>
-          <div class="platform-card-text">Declara que no cabe ningún tipo de diálogo o negociación con el gobierno actual. El cambio debe venir desde afuera y desde abajo, sin otorgar legitimidad al régimen vigente.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-globe"></i> Relaciones Internacionales</div>
-          <div class="platform-card-title">Presión internacional como palanca principal</div>
-          <div class="platform-card-text">Apoya activamente la presión de EE.UU. sobre Cuba. Ha comunicado directamente con representantes del gobierno Trump sobre la estrategia de cambio en Cuba.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-chart-line-up"></i> Modelo Económico</div>
-          <div class="platform-card-title">Empresa privada como motor de desarrollo</div>
-          <div class="platform-card-text">Fundamenta su candidatura en su experiencia como empresario exitoso fuera de Cuba. Propone el modelo de empresa privada como alternativa al sistema estatal vigente. Detalles pendientes.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-megaphone"></i> Activismo Ciudadano</div>
-          <div class="platform-card-title">Red de resistencia no violenta dentro de Cuba</div>
-          <div class="platform-card-text">Cuba Primero organiza protestas, pinta graffiti de resistencia en el Malecón habanero y canaliza el descontento popular hacia una expresión política organizada.</div>
-        </div>
-
-        <div class="platform-card pending">
-          <div class="platform-card-cat"><i class="fi fi-br-scroll"></i> Marco Constitucional</div>
-          <div class="platform-card-title">Pendiente de publicación</div>
-          <div class="platform-card-text">No se ha declarado posición pública sobre el modelo constitucional propuesto para un gobierno de transición.</div>
-        </div>
-
-        <div class="platform-card pending">
-          <div class="platform-card-cat"><i class="fi fi-br-shield-check"></i> Derechos Humanos</div>
-          <div class="platform-card-title">Pendiente de publicación</div>
-          <div class="platform-card-text">No se ha declarado posición pública detallada sobre derechos humanos, justicia transicional o modelo de reconciliación nacional.</div>
-        </div>
-
-      </div>
-
-      <!-- SOURCES -->
-      <div style="font-size:.76rem;color:var(--gris);line-height:1.7;border-top:1px solid var(--borde);padding-top:14px;margin-top:4px;">
-        <strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);font-size:.68rem;">Fuentes:</strong>&nbsp;
-        Bloomberg News, 25 mar 2026 &nbsp;·&nbsp;
-        El Financiero MX, 25 mar 2026 &nbsp;·&nbsp;
-        SDP Noticias, mar 2026 &nbsp;·&nbsp;
-        <a href="https://armandolabrador.com/" target="_blank" class="ext-link">armandolabrador.com</a>
-      </div>
-    </div>
-
-  </div><!-- /candidate-detail -->
-
-  <!-- AMELIA CALZADILLA — DETAIL CARD -->
-  <div class="candidate-detail">
-
-    <div class="detail-header">
-      <div class="detail-avatar"><img src="amelia-calzadilla-retrato-2026.jpg" alt="Amelia Calzadilla"></div>
-      <div>
-        <div class="detail-name">Amelia Calzadilla</div>
-        <div class="detail-movement"><i class="fi fi-br-flag" style="font-size:.7rem;margin-right:4px;"></i> Partido Liberal Ortodoxo Cubano &nbsp;·&nbsp; Candidatura Declarada</div>
-      </div>
-      <div class="detail-badge">
-        <div class="detail-badge-n">Abr 2026</div>
-        <div class="detail-badge-l">Declaración</div>
-      </div>
-    </div>
-
-    <div style="padding:14px 20px;border-bottom:1px solid var(--borde);">
-      <div class="status-notice">
-        <i class="fi fi-br-info"></i>
-        <span><strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:.78rem;">Aclaración de estado:</strong> Este perfil documenta una <strong>candidatura declarada públicamente</strong> en un escenario de transición democrática. Su inclusión no implica respaldo de ENTRE TODOS. La plataforma completa sigue pendiente de publicación detallada y evaluación punto por punto.</span>
-      </div>
-    </div>
-
-    <div class="detail-bio">
-      <div class="sec-label" style="margin-bottom:14px;">Perfil</div>
-      <div class="detail-bio-grid">
-        <div class="bio-block">
-          <p><strong>Amelia Calzadilla</strong> es una voz pública cubana que ha ganado visibilidad por sus intervenciones directas sobre la realidad del país, la vida cotidiana de las familias cubanas y la necesidad de una transformación profunda en Cuba. Su presencia pública ha conectado con muchos ciudadanos por un tono frontal, reconocible y cercano.</p>
-          <p>En abril de 2026 anunció su candidatura presidencial desde el <strong>Partido Liberal Ortodoxo Cubano</strong>, presentándose con el lema <strong>“Justicia, dignidad y prosperidad”</strong> y con el mensaje <strong>“Un nuevo camino para Cuba. Con principios. Con libertad. Contigo.”</strong></p>
-          <p>Lo visible por ahora es un anuncio político con identidad gráfica, ejes declarados y narrativa de país. Queda pendiente la publicación de una plataforma de gobierno más detallada para evaluación ciudadana punto por punto.</p>
-        </div>
+    <div class="candidate-card">
+      <div class="candidate-card-header">
+        <div class="candidate-avatar"><img src="amelia-calzadilla-retrato-2026.jpg" alt="Amelia Calzadilla"></div>
         <div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-users"></i></div>
-            <div class="bio-fact-text">
-              <strong>Partido / espacio</strong>
-              Partido Liberal Ortodoxo Cubano.
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-badge-check"></i></div>
-            <div class="bio-fact-text">
-              <strong>Declaración pública</strong>
-              Anuncio visual de candidatura con identidad gráfica, lema y principios resumidos.
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-scales"></i></div>
-            <div class="bio-fact-text">
-              <strong>Ejes declarados</strong>
-              Justicia, dignidad y prosperidad.
-            </div>
-          </div>
-          <div class="bio-fact">
-            <div class="bio-fact-icon"><i class="fi fi-br-megaphone"></i></div>
-            <div class="bio-fact-text">
-              <strong>Lema público</strong>
-              “Un nuevo camino para Cuba. Con principios. Con libertad. Contigo.”
-            </div>
-          </div>
+          <div class="candidate-name">Amelia Calzadilla</div>
+          <div class="candidate-movement">Partido Liberal Ortodoxo Cubano</div>
+        </div>
+      </div>
+      <div class="candidate-body">
+        <div class="candidate-bio">Voz pública cubana con una candidatura anunciada desde una narrativa de justicia, dignidad y prosperidad. Su ficha recoge el anuncio visible y deja pendiente una plataforma de gobierno más detallada.</div>
+        <div class="candidate-tags">
+          <span class="tag azul">Abr 2026</span>
+          <span class="tag">Perfil individual</span>
+          <span class="tag">Plataforma incompleta</span>
+        </div>
+        <div class="candidate-actions">
+          <a href="candidata-amelia-calzadilla-2026.html" class="btn-primary"><i class="fi fi-br-eye"></i> Ver ficha</a>
         </div>
       </div>
     </div>
 
-    <div class="platform-section">
-      <div class="platform-label">Plataforma conocida</div>
-
-      <div class="pending-notice">
-        <i class="fi fi-br-info"></i>
-        <span>El anuncio público de Amelia Calzadilla confirma una candidatura declarada, pero <strong>todavía no constituye una plataforma de gobierno completa</strong>. Los puntos siguientes reflejan los principios visibles en el anuncio difundido. El partido o la candidata pueden someter una propuesta más detallada para incorporación y evaluación ciudadana.</span>
-      </div>
-
-      <div class="platform-grid">
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-scales"></i> Justicia</div>
-          <div class="platform-card-title">Instituciones que protegen</div>
-          <div class="platform-card-text">El anuncio asocia la idea de justicia con instituciones que protegen, sugiriendo una prioridad en reconstrucción institucional y garantías públicas más confiables.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-shield-check"></i> Dignidad</div>
-          <div class="platform-card-title">Respeto a cada persona</div>
-          <div class="platform-card-text">La dignidad aparece formulada como respeto a cada persona, señalando una orientación hacia reconocimiento ciudadano, trato humano y centralidad de la persona en la vida pública.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-chart-line-up"></i> Prosperidad</div>
-          <div class="platform-card-title">Oportunidades para todos</div>
-          <div class="platform-card-text">La prosperidad se presenta como apertura de oportunidades para todos, insinuando una visión de crecimiento económico con mayor acceso y movilidad social.</div>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-card-cat"><i class="fi fi-br-road"></i> Narrativa de país</div>
-          <div class="platform-card-title">Un nuevo camino para Cuba</div>
-          <div class="platform-card-text">La candidatura se comunica como un nuevo camino para Cuba, con un tono de renovación política, principios definidos y apelación directa a libertad y futuro.</div>
-        </div>
-
-        <div class="platform-card pending">
-          <div class="platform-card-cat"><i class="fi fi-br-scroll"></i> Programa de gobierno</div>
-          <div class="platform-card-title">Pendiente de publicación</div>
-          <div class="platform-card-text">Aún no se conocen públicamente medidas concretas, estructura programática, cronograma o prioridades sectoriales detalladas.</div>
-        </div>
-
-        <div class="platform-card pending">
-          <div class="platform-card-cat"><i class="fi fi-br-users-alt"></i> Implementación y alianzas</div>
-          <div class="platform-card-title">Pendiente de publicación</div>
-          <div class="platform-card-text">No se han publicado todavía detalles verificables sobre equipo, alianzas, base territorial, estrategia institucional o mecanismos de implementación.</div>
-        </div>
-
-      </div>
-
-      <div style="font-size:.76rem;color:var(--gris);line-height:1.7;border-top:1px solid var(--borde);padding-top:14px;margin-top:4px;">
-        <strong style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);font-size:.68rem;">Fuente visual:</strong>&nbsp;
-        Pieza pública de anuncio de candidatura compartida el 27 abr 2026.
-      </div>
+    <div class="placeholder-card">
+      <i class="fi fi-br-user-add"></i>
+      <p><strong>¿Eres un candidato declarado?</strong><br>Si has anunciado públicamente tu intención de postularte a la presidencia de Cuba en un escenario de transición democrática, puedes solicitar tu inclusión en este registro y someter tu plataforma completa para evaluación ciudadana.</p>
+      <br>
+      <a href="index.html#contacto" class="btn-primary" style="display:inline-flex;margin:0 auto;">
+        <i class="fi fi-br-paper-plane"></i> Solicitar inclusión
+      </a>
     </div>
-
-  </div><!-- /candidate-detail -->
-
-  <!-- PLACEHOLDER: NEXT CANDIDATE -->
-  <div class="placeholder-card">
-    <i class="fi fi-br-user-add"></i>
-    <p><strong>¿Eres un candidato declarado?</strong><br>Si has anunciado públicamente tu intención de postularte a la presidencia de Cuba en un escenario de transición democrática, puedes solicitar tu inclusión en este registro y someter tu plataforma completa para evaluación ciudadana.</p>
-    <br>
-    <a href="index.html#contacto" class="btn-primary" style="display:inline-flex;margin:0 auto;">
-      <i class="fi fi-br-paper-plane"></i> Solicitar inclusión
-    </a>
   </div>
 
 </div><!-- /sec -->
@@ -550,23 +317,5 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
   <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Consenso Ciudadano &nbsp;·&nbsp; Fase 4: Sistema Electoral y Candidaturas &nbsp;·&nbsp; 2026
 </footer>
 
-<script>
-function openLightbox(src, name, creditUrl){
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-img').alt = name;
-  document.getElementById('lightbox-credit').innerHTML =
-    'Foto: <a href="' + creditUrl + '" target="_blank" rel="noopener">' + creditUrl.replace('https://','') + '</a>';
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeLightboxOutside(e){
-  if(e.target === document.getElementById('lightbox')) closeLightbox();
-}
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
-</script>
 </body>
 </html>
