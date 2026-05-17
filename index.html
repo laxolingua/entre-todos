@@ -187,6 +187,33 @@ footer a:hover{color:#fff;}
 
 /* ── PENDING BADGE ── */
 .pending-badge{font-size:.68rem;background:#FFF3CD;color:#856404;border:1px solid #FFEAA7;padding:2px 6px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;display:inline-block;margin-bottom:4px;}
+
+/* ── COMUNIDAD DESTACADA ── */
+.community-shell{max-width:1100px;margin:0 auto;padding:26px 22px 10px;}
+.community-box{background:#fff;border:1px solid #D8E0EC;border-radius:14px;box-shadow:var(--sh);padding:22px;}
+.community-top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px;flex-wrap:wrap;}
+.community-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--rojo);margin-bottom:6px;}
+.community-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:2px;line-height:1.05;color:var(--azul);margin-bottom:6px;}
+.community-sub{font-size:.86rem;line-height:1.65;color:#334155;max-width:720px;}
+.community-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.community-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;}
+.community-btn.primary{background:var(--rojo);color:#fff;}
+.community-btn.secondary{background:#fff;color:var(--azul);border:1.5px solid var(--azul);}
+.community-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+@media(max-width:980px){.community-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.community-grid{grid-template-columns:1fr;}}
+.community-card{display:flex;flex-direction:column;gap:12px;background:#F8FAFF;border:1px solid #DCE6F3;border-radius:14px;padding:16px;text-decoration:none;color:inherit;transition:transform .18s,box-shadow .18s,border-color .18s;}
+.community-card:hover{transform:translateY(-2px);box-shadow:var(--shf);}
+.community-card.founder{background:linear-gradient(180deg,#FFF 0%,#F5F8FF 100%);border:2px solid var(--azul);}
+.community-avatar{width:82px;height:82px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 18px rgba(0,42,143,.16);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#002A8F,#4F46E5);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:1px;}
+.community-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.community-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#E8F0FF;color:var(--azul);font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;align-self:flex-start;}
+.community-card.founder .community-badge{background:#002A8F;color:#fff;}
+.community-name{font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.4px;color:var(--azul);line-height:1.1;}
+.community-handle{font-size:.78rem;color:#64748B;}
+.community-role{font-size:.81rem;line-height:1.6;color:#334155;}
+.community-meta{display:flex;justify-content:space-between;gap:10px;font-size:.72rem;color:#64748B;padding-top:10px;border-top:1px solid #DCE6F3;margin-top:auto;}
+.community-note{margin-top:14px;font-size:.77rem;line-height:1.6;color:#64748B;}
 </style>
 </head>
 <body>
@@ -266,6 +293,61 @@ footer a:hover{color:#fff;}
       <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
       <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
     </div>
+  </div>
+</section>
+
+<!-- ══ COMUNIDAD DESTACADA ══ -->
+<section class="community-shell" id="comunidad-destacada">
+  <div class="community-box">
+    <div class="community-top">
+      <div>
+        <div class="community-kicker">Comunidad visible</div>
+        <div class="community-title">Conoce al fundador de ENTRE TODOS</div>
+        <div class="community-sub">Cada usuario podrá tener un perfil propio, seguir propuestas, aportar comentarios y dejar rastro público de su participación. La primera cuenta visible es la del fundador. Junto a ella aparecen perfiles demo para mostrar cómo lucirá la comunidad a medida que entren más ciudadanos.</div>
+      </div>
+      <div class="community-actions">
+        <a href="perfil-usuario-demo.html" class="community-btn secondary">Sign in</a>
+        <a href="perfil-usuario-demo.html" class="community-btn primary">Registrarse</a>
+      </div>
+    </div>
+    <div class="community-grid">
+      <a href="perfil-mitch-real.html" class="community-card founder">
+        <div class="community-avatar"><img src="mitch-perfil-fundador-2026.jpg" alt="Michel Estopiñán C."></div>
+        <div class="community-badge">Conoce al fundador</div>
+        <div class="community-name">Michel Estopiñán C.</div>
+        <div class="community-handle">Mitch</div>
+        <div class="community-role">Profesor adjunto, activista y cuenta fundadora. Perfil público de transparencia dentro de la plataforma.</div>
+        <div class="community-meta"><span>Potsdam, Alemania</span><span>Ciudadano activo</span></div>
+      </a>
+
+      <a href="perfil-demo-lia-ortega.html" class="community-card">
+        <div class="community-avatar">LO</div>
+        <div class="community-badge">Perfil demo</div>
+        <div class="community-name">Lía Ortega</div>
+        <div class="community-handle">Ciudadana participante</div>
+        <div class="community-role">Ejemplo de usuaria que sigue propuestas de educación, derechos y participación ciudadana.</div>
+        <div class="community-meta"><span>Madrid</span><span>Demo</span></div>
+      </a>
+
+      <a href="perfil-demo-daniel-soto.html" class="community-card">
+        <div class="community-avatar">DS</div>
+        <div class="community-badge">Perfil demo</div>
+        <div class="community-name">Daniel Soto</div>
+        <div class="community-handle">Debate público</div>
+        <div class="community-role">Ejemplo de usuario que apoya propuestas, comenta debates y sigue temas institucionales.</div>
+        <div class="community-meta"><span>Miami</span><span>Demo</span></div>
+      </a>
+
+      <a href="perfil-demo-clara-marin.html" class="community-card">
+        <div class="community-avatar">CM</div>
+        <div class="community-badge">Perfil demo</div>
+        <div class="community-name">Clara Marín</div>
+        <div class="community-handle">Red cívica</div>
+        <div class="community-role">Ejemplo de perfil enfocado en bienestar animal, medio ambiente y colaboración comunitaria.</div>
+        <div class="community-meta"><span>Berlín</span><span>Demo</span></div>
+      </a>
+    </div>
+    <div class="community-note">Estos tres perfiles demo existen solo para mostrar la estructura del módulo social hasta que haya usuarios reales activos dentro de ENTRE TODOS.</div>
   </div>
 </section>
 
