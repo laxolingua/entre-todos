@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Saladrigas — Reconstrucción | ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;--sh:0 2px 16px rgba(0,42,143,.10);--shf:0 6px 32px rgba(0,42,143,.18);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);}
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;}.hdr-left{display:flex;align-items:center;gap:14px;}.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}.back-btn:hover{background:var(--azul);color:#fff;}
+.page-banner{background:var(--azul);}.page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}.page-banner-inner{max-width:1100px;margin:0 auto;padding:34px 28px 38px;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;}@media(max-width:700px){.page-banner-inner{grid-template-columns:1fr;}}.hero-photo{width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.14);border:4px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;overflow:hidden;}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;}.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:3px;color:#fff;line-height:1;margin-bottom:10px;}.page-banner-sub{font-size:.95rem;color:rgba(255,255,255,.76);line-height:1.7;max-width:720px;}
+.sec{max-width:1100px;margin:0 auto;padding:36px 22px;}.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--azul);margin-bottom:16px;display:flex;align-items:center;gap:10px;}.sec-label::after{content:'';flex:1;height:1px;background:var(--borde);}.neutrality-box,.context-box,.status-notice{border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;line-height:1.65;}.neutrality-box{background:#EEF2FF;border-left:4px solid var(--azul);font-size:.83rem;}.context-box{background:var(--gris-bg);border-left:4px solid var(--azul);font-size:.88rem;}.status-notice{background:#FFF9E6;border:1px solid #E8C84A;border-left:4px solid #B8860B;font-size:.82rem;color:#5a3e00;display:flex;gap:11px;align-items:flex-start;}
+.detail-card{background:#fff;border:1.5px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:28px;}.detail-bio{padding:24px 28px;border-bottom:1px solid var(--borde);}.detail-bio-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;}@media(max-width:700px){.detail-bio-grid{grid-template-columns:1fr;}}.bio-block p{font-size:.9rem;line-height:1.76;margin-bottom:14px;}.bio-fact{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}.bio-fact-icon{width:30px;height:30px;border-radius:50%;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:.85rem;flex-shrink:0;}.bio-fact-text{font-size:.84rem;line-height:1.6;}.bio-fact-text strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:.72rem;letter-spacing:.5px;display:block;margin-bottom:1px;}
+.platform-section{padding:24px 28px;}.platform-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--azul);margin-bottom:20px;display:flex;align-items:center;gap:10px;}.platform-label::after{content:'';flex:1;height:1px;background:var(--borde);}.platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:20px;}.platform-card{background:var(--gris-bg);border-radius:8px;padding:16px 18px;border-left:3px solid var(--azul);}.platform-card-cat{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:6px;display:flex;align-items:center;gap:6px;}.platform-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:6px;}.platform-card-text{font-size:.82rem;line-height:1.62;}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;}.btn-primary{background:var(--azul);color:#fff;border:none;}.btn-outline{background:#fff;color:var(--azul);border:2px solid var(--azul);}
+footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+</style>
+</head>
+<body>
+<div class="flag-bar"></div>
+<header><div class="hdr"><div class="hdr-left"><a href="index.html" style="display:block;line-height:0;"><img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;background:#fff;border-radius:6px;" onerror="this.style.display='none'"></a><a href="plan-reconstruccion-cuba.html" class="back-btn"><i class="fi fi-br-arrow-left"></i> Volver a Reconstrucción</a></div></div></header>
+<div class="page-banner"><div class="page-banner-flag"></div><div class="page-banner-inner"><div class="hero-photo"><img src="carlos-saladrigas-2026.jpg" alt="Carlos Saladrigas"></div><div><div class="page-banner-phase">Actor individual · reconstrucción</div><div class="page-banner-title">Carlos Saladrigas</div><div class="page-banner-sub">Ficha individual de reconstrucción dentro de ENTRE TODOS. Resume la hoja de ruta pública que asocia a Carlos Saladrigas con una secuencia de estabilización, reconstrucción de infraestructura y visión de largo plazo.</div></div></div></div>
+<div class="sec">
+  <div class="neutrality-box"><strong>Nota de neutralidad:</strong> ENTRE TODOS no respalda esta propuesta ni a este actor. La ficha organiza información pública localizada para comparación ciudadana.</div>
+  <div class="detail-card">
+    <div class="detail-bio">
+      <div class="sec-label">Perfil</div>
+      <div class="detail-bio-grid">
+        <div class="bio-block">
+          <p>Empresario cubanoamericano, chairman de Regis HR Group y figura asociada al debate sobre reconstrucción económica de Cuba. En el material revisado, presenta una hoja de ruta propia de tres fases para una Cuba post-transición.</p>
+          <p>Su propuesta pública destaca una primera etapa de estabilización intensiva, una segunda de reconstrucción de infraestructura y una tercera orientada a transformar a Cuba en un centro financiero y tecnológico del Caribe.</p>
+        </div>
+        <div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-user"></i></div><div class="bio-fact-text"><strong>Tipo de actor</strong>Individual, con propuesta de reconstrucción económicamente articulada.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-road"></i></div><div class="bio-fact-text"><strong>Estructura</strong>Plan de tres fases: estabilización, infraestructura, visión de largo plazo.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-badge-dollar"></i></div><div class="bio-fact-text"><strong>Cifra pública visible</strong>Primera fase estimada entre 6.000 y 10.000 millones de dólares.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-chart-line-up"></i></div><div class="bio-fact-text"><strong>Áreas enfatizadas</strong>Energía, ayuda alimentaria, salud, educación, infraestructura, economía digital, turismo médico e I+D.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-section">
+      <div class="platform-label">Líneas de propuesta visibles</div>
+      <div class="status-notice"><i class="fi fi-br-info"></i><span>Esta ficha recoge las declaraciones más repetidas en entrevistas y cobertura periodística ya localizada. Si aparecen documentos más formales, conviene subir el nivel de precisión de varias celdas.</span></div>
+      <div class="platform-grid">
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-bolt"></i> Fase 1</div><div class="platform-card-title">Estabilización inicial del país</div><div class="platform-card-text">Entre 2 y 4 años para llevar a Cuba desde una economía fallida a una plataforma atractiva para inversión privada y extranjera.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-badge-dollar"></i> Fase 1</div><div class="platform-card-title">Costo estimado de 6.000 a 10.000 millones</div><div class="platform-card-text">La primera fase incluiría red eléctrica, ayuda humanitaria alimentaria, restauración de educación y salud, y preservación del orden público.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-tools"></i> Fase 2</div><div class="platform-card-title">Reconstrucción de infraestructura</div><div class="platform-card-text">Puertos, aeropuertos, carreteras, redes de agua potable y modernización física del país como segunda etapa de recuperación.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-globe"></i> Fase 3</div><div class="platform-card-title">Cuba como centro financiero del Caribe</div><div class="platform-card-text">Visión de 10 a 15 años que intenta ubicar a Cuba en una combinación de economía digital, turismo médico, investigación y servicios regionales.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-laptop"></i> Visión sectorial</div><div class="platform-card-title">Economía del conocimiento</div><div class="platform-card-text">Descarta que Cuba compita como gran polo manufacturero y apuesta más por capital humano, IA, servicios y sectores intensivos en conocimiento.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-link"></i> Condición señalada</div><div class="platform-card-title">Necesidad de levantar restricciones</div><div class="platform-card-text">En las declaraciones localizadas, la eliminación de sanciones y el acceso al capital externo aparecen como condición central para cualquier recuperación.</div></div>
+      </div>
+      <div class="context-box"><p><strong>Fuentes de esta ficha:</strong> CiberCuba, 11 mar 2026 (dos piezas revisadas) · referencias de cobertura sobre plan de tres fases.</p></div>
+      <div class="actions"><a href="plan-reconstruccion-cuba.html" class="btn-outline"><i class="fi fi-br-arrow-left"></i> Volver al módulo</a></div>
+    </div>
+  </div>
+</div>
+<footer><strong>ENTRE TODOS</strong> · Ficha individual de reconstrucción · 2026</footer>
+</body>
+</html>

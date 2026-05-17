@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Reconstrucción de Cuba — ENTRE TODOS</title>
+<meta name="description" content="Registro cívico de planes, compromisos verificables y propuestas prácticas para la reconstrucción de Cuba.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plan de Reconstrucción de Cuba · ENTRE TODOS">
+<meta property="og:description" content="Planes, marcos legales, compromisos verificables y propuestas prácticas para la reconstrucción nacional.">
+<meta property="og:image" content="img/og-default.png">
+<meta property="og:url" content="https://entre-todos.org/plan-reconstruccion-cuba.html">
+<meta property="og:site_name" content="ENTRE TODOS">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plan de Reconstrucción de Cuba · ENTRE TODOS">
+<meta name="twitter:description" content="Registro cívico de planes, compromisos verificables y propuestas prácticas para la reconstrucción nacional.">
+<meta name="twitter:image" content="img/og-default.png">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;
+  --negro:#111827;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;
+  --oro:#B8860B;--oro-bg:#FFF9E6;--oro-borde:#E8C84A;
+  --sh:0 2px 16px rgba(0,42,143,.10);--shf:0 8px 34px rgba(0,42,143,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);min-height:100vh;}
+a{color:inherit;}
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
+header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.hdr{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:18px;flex-wrap:wrap;}
+.hdr-left{display:flex;align-items:center;gap:14px;}
+.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
+.back-btn:hover{background:var(--azul);color:#fff;}
+.hdr-note{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gris);}
+
+.hero{background:linear-gradient(135deg,#001E66 0%,#002A8F 58%,#113D9B 100%);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(circle at 78% 22%, rgba(255,255,255,.08), transparent 28%),
+  linear-gradient(135deg, transparent 62%, rgba(207,20,43,.16) 62%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1120px;margin:0 auto;padding:38px 22px 42px;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:30px;align-items:end;}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;}}
+.hero-phase{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.52);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hero-phase::before{content:'';display:inline-block;width:28px;height:2px;background:var(--rojo);border-radius:2px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4.5rem);line-height:.95;letter-spacing:4px;color:#fff;margin-bottom:14px;}
+.hero h1 span{color:#FFD369;}
+.hero-sub{font-size:1rem;line-height:1.78;color:rgba(255,255,255,.86);max-width:720px;}
+.hero-sub strong{color:#fff;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:4px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:2px solid transparent;transition:all .18s;}
+.hero-btn.primary{background:var(--rojo);color:#fff;}
+.hero-btn.primary:hover{background:#a50f20;}
+.hero-btn.secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);}
+.hero-btn.secondary:hover{background:rgba(255,255,255,.08);}
+.hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+@media(max-width:520px){.hero-stats{grid-template-columns:1fr;}}
+.stat-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px;backdrop-filter:blur(10px);}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:#fff;line-height:1;margin-bottom:4px;}
+.stat-l{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;}
+.stat-t{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.82);}
+
+.sec{max-width:1120px;margin:0 auto;padding:40px 22px;}
+.sec-divider{border:none;border-top:1px solid var(--borde);margin:0 22px;}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--azul);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--borde);}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:1.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--azul);margin-bottom:8px;line-height:1.1;}
+.sec-sub{font-size:.9rem;color:var(--gris);line-height:1.72;max-width:760px;margin-bottom:26px;}
+
+.notice{background:#EEF2FF;border-left:4px solid var(--azul);border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:28px;font-size:.88rem;line-height:1.7;}
+.notice strong{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.6px;color:var(--azul);}
+.warning{background:var(--oro-bg);border:1px solid var(--oro-borde);border-left:4px solid var(--oro);border-radius:0 10px 10px 0;padding:16px 20px;font-size:.84rem;line-height:1.65;color:#5a3e00;}
+.warning strong{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.7px;}
+
+.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--borde);font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+@media(max-width:820px){.grid-2{grid-template-columns:1fr;}}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+@media(max-width:980px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.grid-3{grid-template-columns:1fr;}}
+
+.category-card,.level-card,.field-card,.example-card,.next-card{background:#fff;border:1.5px solid var(--borde);border-radius:14px;padding:18px 18px 16px;box-shadow:var(--sh);}
+.category-head,.level-head,.field-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.icon-badge{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#EEF2FF;color:var(--azul);font-size:.9rem;flex-shrink:0;}
+.category-title,.level-title,.field-title{font-family:'Barlow Condensed',sans-serif;font-size:.94rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--azul);}
+.category-text,.level-text,.field-text,.example-text,.next-text{font-size:.84rem;line-height:1.65;color:#374151;}
+
+.level-band{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border-radius:999px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:10px;}
+.level-band.blue{background:#EEF2FF;color:var(--azul);border:1px solid rgba(0,42,143,.14);}
+.level-band.gold{background:#FFF8E8;color:#8A5A00;border:1px solid rgba(184,134,11,.22);}
+.level-band.red{background:#FFF1F2;color:var(--rojo);border:1px solid rgba(207,20,43,.16);}
+.level-band.green{background:#EDF9F1;color:#0E7A43;border:1px solid rgba(14,122,67,.18);}
+
+.schema{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+@media(max-width:760px){.schema{grid-template-columns:1fr;}}
+
+.example-card{background:linear-gradient(180deg,#fff 0%,#FBFCFF 100%);}
+.example-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px;}
+.example-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.6px;color:var(--azul);line-height:1.05;}
+.example-meta{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--gris);}
+.example-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;margin-top:12px;}
+@media(max-width:760px){.example-list{grid-template-columns:1fr;}}
+.example-item strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:3px;}
+.example-item span{font-size:.84rem;line-height:1.62;color:#1F2937;}
+
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+@media(max-width:880px){.timeline{grid-template-columns:1fr;}}
+.next-card{position:relative;padding-left:58px;}
+.next-num{position:absolute;left:18px;top:18px;width:28px;height:28px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;}
+.next-title{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--azul);margin-bottom:8px;}
+.actor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+@media(max-width:980px){.actor-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.actor-grid{grid-template-columns:1fr;}}
+.actor-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--borde);border-radius:14px;overflow:hidden;box-shadow:var(--sh);text-decoration:none;}
+.actor-card:hover{box-shadow:var(--shf);}
+.actor-head{background:linear-gradient(135deg,var(--azul) 0%,#143c94 100%);padding:18px 18px 16px;display:flex;align-items:center;gap:14px;}
+.actor-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.16);border:3px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;flex-shrink:0;overflow:hidden;}.actor-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.actor-name{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:1.1px;color:#fff;line-height:1.05;}
+.actor-role{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:4px;}
+.actor-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.actor-text{font-size:.83rem;line-height:1.62;color:#374151;flex:1;}
+.actor-meta{display:flex;flex-wrap:wrap;gap:8px;}
+.actor-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#EEF2FF;border:1px solid rgba(0,42,143,.10);font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);}
+.actor-cta{margin-top:auto;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--rojo);}
+
+footer{background:var(--azul);color:rgba(255,255,255,.72);text-align:center;padding:22px;font-size:.76rem;letter-spacing:.4px;margin-top:48px;}
+footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.4px;}
+footer a{color:rgba(255,255,255,.72);text-decoration:none;}
+footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="flag-bar"></div>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-left">
+      <a href="index.html" style="display:block;line-height:0;">
+        <img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
+      </a>
+      <a href="index.html" class="back-btn"><i class="fi fi-br-arrow-left"></i> Página Principal</a>
+      <a href="propuestas-transicion-cuba.html" class="back-btn"><i class="fi fi-br-list"></i> Propuestas de Transición</a>
+    </div>
+    <div class="hdr-note">Módulo cívico de reconstrucción nacional</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-phase">Módulo Especial · Transición y Reconstrucción</div>
+      <h1>Plan de <span>Reconstrucción</span><br>de Cuba</h1>
+      <p class="hero-sub">Esta área reúne propuestas concretas para la reconstrucción nacional después del fin del régimen castrista. No es un espacio para discursos generales, sino para <strong>planes, marcos legales, compromisos verificables, capacidad técnica y memoria pública de lo prometido en nombre de Cuba</strong>.</p>
+      <div class="hero-actions">
+        <a href="#registro" class="hero-btn primary"><i class="fi fi-br-folder"></i> Ver estructura del registro</a>
+        <a href="#criterios" class="hero-btn secondary"><i class="fi fi-br-check-double"></i> Ver criterios de verificabilidad</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-l">Enfoque</div>
+        <div class="stat-n">5</div>
+        <div class="stat-t">tipos de registro previstos: plan, propuesta legal, compromiso financiero, actor institucional e iniciativa técnica.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-l">Criterio central</div>
+        <div class="stat-n">4</div>
+        <div class="stat-t">niveles de solidez pública: conceptual, técnico, respaldado y verificable.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-l">Cobertura</div>
+        <div class="stat-n">N / P / M</div>
+        <div class="stat-t">arquitectura preparada para escala nacional, provincial, municipal y sectorial.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-l">Regla</div>
+        <div class="stat-n">1</div>
+        <div class="stat-t">toda promesa pública de reconstrucción debe poder ser conocida, comparada y trazada.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="notice">
+    <strong>Nota de neutralidad:</strong> ENTRE TODOS no respalda automáticamente ningún plan, actor, organización, empresario, fondo o candidatura. Esta área existe para que el pueblo cubano pueda <strong>ver, comparar, evaluar y recordar</strong> qué se propone para reconstruir el país, con qué respaldo, bajo qué condiciones y con qué grado de evidencia pública.
+  </div>
+  <div class="warning">
+    <strong>Estado actual:</strong> esta página abre la arquitectura pública del módulo. El registro se irá poblando a medida que se documenten planes, propuestas, declaraciones y compromisos con trazabilidad suficiente.
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec" id="registro">
+  <div class="sec-label">Qué entra aquí</div>
+  <div class="sec-title">Registro de reconstrucción, no archivo de discursos</div>
+  <div class="sec-sub">Esta sección está diseñada para ordenar propuestas prácticas, actores con capacidad de ejecución y compromisos públicos relacionados con la reconstrucción de Cuba.</div>
+
+  <div class="grid-3">
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-coins"></i></div>
+        <div class="category-title">Capital e inversión prometida</div>
+      </div>
+      <div class="category-text">Declaraciones públicas de inversión, financiamiento, donación o respaldo económico orientadas a sectores concretos de reconstrucción.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-scale"></i></div>
+        <div class="category-title">Marco legal para la transición</div>
+      </div>
+      <div class="category-text">Propuestas jurídicas sobre propiedad, garantías de inversión, contratos, restitución, justicia, seguridad jurídica y bases institucionales iniciales.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-building"></i></div>
+        <div class="category-title">Reconstrucción institucional</div>
+      </div>
+      <div class="category-text">Diseños para justicia, administración pública, municipios, controles anticorrupción, auditoría y reordenamiento del Estado.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-bolt"></i></div>
+        <div class="category-title">Infraestructura nacional</div>
+      </div>
+      <div class="category-text">Electricidad, agua, carreteras, puertos, aeropuertos, telecomunicaciones, energía, transporte y servicios básicos de escala país.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-briefcase"></i></div>
+        <div class="category-title">Economía productiva</div>
+      </div>
+      <div class="category-text">Agricultura, PYMES, industria, comercio, turismo, banca, tecnología, empleo y reactivación sectorial con capacidad real de implementación.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-hand-holding-heart"></i></div>
+        <div class="category-title">Servicios esenciales</div>
+      </div>
+      <div class="category-text">Salud, educación, vivienda, seguridad alimentaria y servicios públicos con propuestas operativas para estabilización y mejora social.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec" id="criterios">
+  <div class="sec-label">Criterio de Solidez</div>
+  <div class="sec-title">La diferencia entre visión, plan y compromiso verificable</div>
+  <div class="sec-sub">La utilidad pública de este módulo depende de distinguir entre ideas generales y compromisos que realmente puedan ser examinados.</div>
+
+  <div class="grid-2">
+    <div class="level-card">
+      <div class="level-band blue">Nivel 1 · Propuesta conceptual</div>
+      <div class="level-title">Hay idea, pero no estructura demostrable</div>
+      <div class="level-text">Formula una visión o dirección general, pero todavía no muestra documento técnico, actores responsables, condiciones ni recursos claros.</div>
+    </div>
+    <div class="level-card">
+      <div class="level-band blue">Nivel 2 · Propuesta técnica</div>
+      <div class="level-title">Existe desarrollo serio o equipo identificable</div>
+      <div class="level-text">Presenta estructura, documento, hoja de ruta, marco legal, cronograma, diseño sectorial o capacidad técnica reconocible.</div>
+    </div>
+    <div class="level-card">
+      <div class="level-band gold">Nivel 3 · Respaldo institucional</div>
+      <div class="level-title">Hay organización, fundación, empresa o grupo visible</div>
+      <div class="level-text">La propuesta está asociada a una entidad identificable que puede responder públicamente por el contenido o por su impulso.</div>
+    </div>
+    <div class="level-card">
+      <div class="level-band red">Nivel 4 · Capital prometido</div>
+      <div class="level-title">Se anuncia aporte económico o material</div>
+      <div class="level-text">Existe declaración pública de inversión, financiamiento, donación o apoyo operativo, aunque todavía no haya prueba completa de disponibilidad o mecanismo.</div>
+    </div>
+    <div class="level-card">
+      <div class="level-band green">Nivel 5 · Capital verificable</div>
+      <div class="level-title">Hay trazabilidad suficiente para auditar la promesa</div>
+      <div class="level-text">Se puede identificar monto, fuente, entidad responsable, condición de activación, instrumento o evidencia pública suficiente para contraste ciudadano.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Estructura de Ficha</div>
+  <div class="sec-title">Campos base para cada registro</div>
+  <div class="sec-sub">La arquitectura está pensada para que todas las entradas sean comparables entre sí, aunque provengan de actores distintos.</div>
+
+  <div class="schema">
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-id-badge"></i></div>
+        <div class="field-title">Identidad del registro</div>
+      </div>
+      <div class="field-text">Nombre de la propuesta, tipo de registro, escala territorial, sector y actores promotores.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-file"></i></div>
+        <div class="field-title">Contenido sustantivo</div>
+      </div>
+      <div class="field-text">Resumen ejecutivo, áreas de reconstrucción cubiertas, problema que busca resolver y forma concreta de intervención.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-chart-line-up"></i></div>
+        <div class="field-title">Tipo de aporte</div>
+      </div>
+      <div class="field-text">Legal, financiero, institucional, técnico, empresarial, social o mixto, con su estado: anunciado, prometido, en negociación o verificable.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-link"></i></div>
+        <div class="field-title">Evidencia y trazabilidad</div>
+      </div>
+      <div class="field-text">Video, entrevista, PDF, documento oficial, comunicado, conferencia, artículo o declaración pública de donde sale el registro.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-interrogation"></i></div>
+        <div class="field-title">Condiciones y preguntas abiertas</div>
+      </div>
+      <div class="field-text">Qué exige, qué ofrece, cuándo aplicaría, cómo participaría la ciudadanía, y qué riesgos o zonas oscuras siguen sin aclarar.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-check-double"></i></div>
+        <div class="field-title">Nivel de verificabilidad</div>
+      </div>
+      <div class="field-text">Clasificación pública del registro según la evidencia disponible, para no mezclar promesas vagas con compromisos auditables.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Modelo de Ficha</div>
+  <div class="sec-title">Ejemplo de cómo se verá un registro</div>
+  <div class="sec-sub">Esta ficha es un ejemplo estructural del tipo de información que ENTRE TODOS buscará ordenar en este módulo.</div>
+
+  <div class="example-card">
+    <div class="example-top">
+      <div>
+        <div class="example-meta">Ejemplo estructural · No equivale a validación automática</div>
+        <div class="example-title">Plan de Reconstrucción Nacional / Marco Legal de Transición</div>
+      </div>
+      <div class="pill-row">
+        <div class="pill"><i class="fi fi-br-land-layer-location"></i> Escala nacional</div>
+        <div class="pill"><i class="fi fi-br-folder"></i> Registro mixto</div>
+        <div class="pill"><i class="fi fi-br-shield-check"></i> Verificabilidad pendiente</div>
+      </div>
+    </div>
+    <div class="example-text">Propuesta marco destinada a documentar compromisos, recursos, garantías legales y capacidades técnicas para la etapa inicial de reconstrucción del país. Su función es ordenar qué se ofrece, bajo qué condiciones y con qué evidencia pública.</div>
+    <div class="example-list">
+      <div class="example-item"><strong>Promotores</strong><span>Actores institucionales, juristas, empresarios, fundaciones, equipos técnicos o coaliciones cívicas identificables.</span></div>
+      <div class="example-item"><strong>Tipo de aporte</strong><span>Legal, financiero, técnico, institucional o empresarial.</span></div>
+      <div class="example-item"><strong>Áreas cubiertas</strong><span>Infraestructura, seguridad jurídica, administración pública, energía, vivienda, salud, educación, agricultura, telecomunicaciones.</span></div>
+      <div class="example-item"><strong>Capital prometido</strong><span>Monto declarado o no especificado; siempre acompañado por su fuente y condición de activación cuando exista evidencia.</span></div>
+      <div class="example-item"><strong>Fuentes</strong><span>Video, entrevista, comunicado, artículo, conferencia, documento técnico o PDF públicamente trazable.</span></div>
+      <div class="example-item"><strong>Preguntas pendientes</strong><span>Qué garantías exige, qué garantías ofrece, cómo se evita corrupción, cómo participa la ciudadanía y cómo se distribuyen oportunidades.</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Señales Públicas</div>
+  <div class="sec-title">Líneas de trabajo ya visibles en el debate público</div>
+  <div class="sec-sub">A partir del material compartido por Mitch, esta sección resume algunas señales, actores y documentos que conviene revisar e incorporar como futuras fichas. No se presentan aquí como verdad cerrada, sino como líneas documentables que merecen trazabilidad más rigurosa.</div>
+
+  <div class="warning" style="margin-bottom:24px;">
+    <strong>Uso prudente:</strong> estos hitos sirven como mapa preliminar de investigación. Cada uno debe pasar luego a ficha propia con fuente exacta, fecha, actor, tipo de compromiso y nivel de verificabilidad.
+  </div>
+
+  <div class="grid-2">
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-calendar"></i></div>
+        <div class="category-title">31 marzo 2026 · Reunión empresarial en Miami</div>
+      </div>
+      <div class="category-text">El material apunta a una reunión de empresarios cubanoamericanos con una proclamación pública de apoyo a la reconstrucción de Cuba. Esto sugiere una futura ficha de compromiso colectivo empresarial, siempre que se documenten firmantes, texto exacto y alcance real del compromiso.</div>
+      <div class="pill-row">
+        <div class="pill"><i class="fi fi-br-building"></i> Actor colectivo</div>
+        <div class="pill"><i class="fi fi-br-check-double"></i> Verificación pendiente</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-chart-pie-alt"></i></div>
+        <div class="category-title">Carlos Saladrigas · Esquema de tres fases</div>
+      </div>
+      <div class="category-text">El esquema de estabilización, reconstrucción de infraestructura y proyección regional sí aporta una lógica útil para ET. No como plan oficial de país, sino como una arquitectura privada de reconstrucción que podría compararse con otras propuestas.</div>
+      <div class="pill-row">
+        <div class="pill"><i class="fi fi-br-road"></i> Hoja de ruta</div>
+        <div class="pill"><i class="fi fi-br-user"></i> Actor identificado</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-scale"></i></div>
+        <div class="category-title">FNCA · Hoja de ruta y marco transitorio</div>
+      </div>
+      <div class="category-text">La combinación de transición política, reglas económicas, incentivos, apertura comercial y calendario electoral parece una de las referencias más estructuradas del bloque mostrado. Conviene convertirla en ficha institucional separada, con subcampos jurídicos y económicos.</div>
+      <div class="pill-row">
+        <div class="pill"><i class="fi fi-br-document-signed"></i> Marco legal</div>
+        <div class="pill"><i class="fi fi-br-briefcase"></i> Política económica</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-handshake"></i></div>
+        <div class="category-title">Apertura a inversión de la diáspora</div>
+      </div>
+      <div class="category-text">Si el decreto citado sobre participación económica de cubanos en el exterior se confirma documentalmente, sería una pieza clave del contexto operativo: no un compromiso privado, sino una condición de posibilidad para ciertos planes de reconstrucción.</div>
+      <div class="pill-row">
+        <div class="pill"><i class="fi fi-br-land-layer-location"></i> Contexto país</div>
+        <div class="pill"><i class="fi fi-br-folder-open"></i> Requiere fuente primaria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Sectores Recurrentes</div>
+  <div class="sec-title">Áreas que aparecen una y otra vez en propuestas de reconstrucción</div>
+  <div class="sec-sub">El material compartido repite varios sectores que probablemente deban quedar como filtros o etiquetas estructurales del módulo.</div>
+
+  <div class="grid-3">
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-bolt"></i></div>
+        <div class="category-title">Energía</div>
+      </div>
+      <div class="category-text">Red eléctrica, generación distribuida, renovables y estabilización energética como prerrequisito para cualquier recuperación económica real.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-leaf"></i></div>
+        <div class="category-title">Agricultura y alimentos</div>
+      </div>
+      <div class="category-text">Producción alimentaria, acceso a tierra, cadena de frío y seguridad alimentaria aparecen como área crítica de estabilización inmediata.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-plane-alt"></i></div>
+        <div class="category-title">Turismo y hospitalidad</div>
+      </div>
+      <div class="category-text">Turismo, hospitalidad, activos costeros y servicios vinculados se repiten como fuente relevante de recuperación e ingreso externo.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-tools"></i></div>
+        <div class="category-title">Infraestructura</div>
+      </div>
+      <div class="category-text">Puertos, aeropuertos, carreteras, agua, saneamiento y vivienda forman parte del núcleo duro de cualquier fase de reconstrucción material.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-heart"></i></div>
+        <div class="category-title">Salud y biotecnología</div>
+      </div>
+      <div class="category-text">Salud pública, capacidades biomédicas y servicios conexos aparecen como sector social y económico al mismo tiempo.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-laptop"></i></div>
+        <div class="category-title">Tecnología y economía digital</div>
+      </div>
+      <div class="category-text">Transformación digital, emprendimiento, servicios tecnológicos y economía del conocimiento emergen como apuesta de mediano y largo plazo.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Condiciones Recurrentes</div>
+  <div class="sec-title">Qué dicen muchos de estos actores que haría falta para ejecutar</div>
+  <div class="sec-sub">Más allá de promesas y planes, hay condiciones que se repiten como requisito para que el capital, la técnica o los compromisos institucionales realmente entren en juego.</div>
+
+  <div class="grid-2">
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-scale"></i></div>
+        <div class="field-title">Seguridad jurídica e independencia judicial</div>
+      </div>
+      <div class="field-text">Protección de propiedad, cumplimiento contractual, reglas estables y tribunales confiables aparecen como condición básica de confianza.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-bank"></i></div>
+        <div class="field-title">Marco político y transición ordenada</div>
+      </div>
+      <div class="field-text">Gobierno transitorio, calendario electoral, liberación política o legitimidad institucional son presentados por varios actores como prerrequisito de ejecución.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-badge-dollar"></i></div>
+        <div class="field-title">Estabilidad macroeconómica</div>
+      </div>
+      <div class="field-text">Reforma monetaria, control inflacionario, acceso bancario y reglas claras para inversión y repatriación de capital son condiciones repetidas.</div>
+    </div>
+    <div class="field-card">
+      <div class="field-head">
+        <div class="icon-badge"><i class="fi fi-br-globe"></i></div>
+        <div class="field-title">Apertura regulatoria y licencias</div>
+      </div>
+      <div class="field-text">La relación entre regulación cubana, restricciones externas y licencias internacionales puede determinar qué promesas son ejecutables y cuáles no.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Primer Bloque de Fichas</div>
+  <div class="sec-title">Actores ya incorporados al módulo</div>
+  <div class="sec-sub">Estas son las primeras fichas visibles del bloque de reconstrucción. Combinan actores individuales e institucionales con base en documentos y cobertura pública ya localizada.</div>
+
+  <div class="actor-grid">
+    <a class="actor-card" href="actor-jorge-mas-santos-2026.html">
+      <div class="actor-head">
+        <div class="actor-avatar"><img src="jorge-mas-santos-2026.jpg" alt="Jorge Mas Santos"></div>
+        <div>
+          <div class="actor-name">Jorge Mas Santos</div>
+          <div class="actor-role">Actor individual · Fundación Nacional Cubano Americana</div>
+        </div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-text">Voz principal del roadmap asociado a la Fundación Nacional Cubano Americana. La ficha organiza el marco de 13 pilares y el tipo de reconstrucción que está impulsando públicamente.</div>
+        <div class="actor-meta">
+          <div class="actor-chip"><i class="fi fi-br-scale"></i> marco legal</div>
+          <div class="actor-chip"><i class="fi fi-br-coins"></i> economía</div>
+        </div>
+        <div class="actor-cta">Abrir ficha →</div>
+      </div>
+    </a>
+
+    <a class="actor-card" href="actor-carlos-saladrigas-2026.html">
+      <div class="actor-head">
+        <div class="actor-avatar"><img src="carlos-saladrigas-2026.jpg" alt="Carlos Saladrigas"></div>
+        <div>
+          <div class="actor-name">Carlos Saladrigas</div>
+          <div class="actor-role">Actor individual · hoja de ruta</div>
+        </div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-text">Empresario cubanoamericano con una propuesta escalonada de estabilización, reconstrucción de infraestructura y transformación de Cuba en un nodo financiero y tecnológico regional.</div>
+        <div class="actor-meta">
+          <div class="actor-chip"><i class="fi fi-br-road"></i> 3 fases</div>
+          <div class="actor-chip"><i class="fi fi-br-badge-dollar"></i> 6-10B</div>
+        </div>
+        <div class="actor-cta">Abrir ficha →</div>
+      </div>
+    </a>
+
+    <a class="actor-card" href="actor-fnca-caba-roadmap-2026.html">
+      <div class="actor-head">
+        <div class="actor-avatar"><img src="fnca-caba-2026.jpg" alt="Fundación Nacional Cubano Americana y Cuban American Bar Association"></div>
+        <div>
+          <div class="actor-name">Fundación Nacional Cubano Americana · Cuban American Bar Association</div>
+          <div class="actor-role">Actores institucionales · roadmap</div>
+        </div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-text">Ficha institucional del roadmap presentado por la Fundación Nacional Cubano Americana y la Cuban American Bar Association, asociado públicamente a Jorge Mas Santos y al componente jurídico-económico del plan.</div>
+        <div class="actor-meta">
+          <div class="actor-chip"><i class="fi fi-br-document-signed"></i> institucional</div>
+          <div class="actor-chip"><i class="fi fi-br-briefcase"></i> transición</div>
+        </div>
+        <div class="actor-cta">Abrir ficha →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Relación con otros módulos</div>
+  <div class="sec-title">Qué es y qué no es esta área</div>
+  <div class="sec-sub">La reconstrucción nacional se conecta con otros bloques de ENTRE TODOS, pero no debe confundirse con ellos.</div>
+
+  <div class="grid-2">
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-ballot"></i></div>
+        <div class="category-title">No es una página de candidaturas</div>
+      </div>
+      <div class="category-text">Una candidatura compite por poder político. Un plan de reconstrucción compite por credibilidad, viabilidad, respaldo y capacidad de ejecución. Pueden relacionarse, pero no deben mezclarse como si fueran el mismo tipo de registro.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-head">
+        <div class="icon-badge"><i class="fi fi-br-shuffle"></i></div>
+        <div class="category-title">No reemplaza propuestas de transición</div>
+      </div>
+      <div class="category-text">Las propuestas de transición siguen siendo el espacio amplio para ideas y consensos. Este módulo añade una capa distinta: memoria pública de promesas, planes y capacidades para reconstruir el país.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<section class="sec">
+  <div class="sec-label">Próximos pasos</div>
+  <div class="sec-title">Cómo debería crecer esta sección</div>
+  <div class="sec-sub">El siguiente desarrollo natural es pasar de página estructural a registro vivo comparable.</div>
+
+  <div class="timeline">
+    <div class="next-card">
+      <div class="next-num">1</div>
+      <div class="next-title">Crear fichas iniciales documentadas</div>
+      <div class="next-text">Incorporar los primeros registros con trazabilidad clara y lenguaje neutral, empezando por propuestas y promesas que ya tengan base pública visible.</div>
+    </div>
+    <div class="next-card">
+      <div class="next-num">2</div>
+      <div class="next-title">Habilitar filtros comparables</div>
+      <div class="next-text">Permitir filtrar por sector, escala, tipo de aporte, actor, estado del compromiso y nivel de verificabilidad.</div>
+    </div>
+    <div class="next-card">
+      <div class="next-num">3</div>
+      <div class="next-title">Conectar con memoria pública</div>
+      <div class="next-text">Registrar quién prometió qué, cuándo, con qué documento y con qué condiciones, para que la ciudadanía pueda exigir consistencia futura.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>ENTRE TODOS</strong> · Plataforma de participación ciudadana para Cuba ·
+  <a href="index.html">Portal principal</a> ·
+  <a href="propuestas-transicion-cuba.html">Propuestas de transición</a>
+</footer>
+
+</body>
+</html>
