@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miembros | ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111827;--gris:#64748B;--line:#D8E0EC;--soft:#EEF3FF;--soft2:#F8FAFF;--shadow:0 10px 30px rgba(0,42,143,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:linear-gradient(180deg,#F8FAFF 0%,#EEF3FB 100%);color:var(--negro)}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
+.back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--azul);margin-bottom:14px}
+.hero{background:linear-gradient(135deg,#002A8F,#3156C5);border-radius:28px;padding:24px;box-shadow:var(--shadow);color:#fff}
+.hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.72;margin-bottom:8px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,2.9rem);letter-spacing:2px;line-height:1}
+.hero-sub{margin-top:10px;max-width:760px;font-size:.94rem;line-height:1.7;color:rgba(255,255,255,.92)}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.btn-primary{background:#fff;color:var(--azul)}
+.btn-secondary{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.sec{margin-top:18px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.sec-head h2{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
+.sec-head p{font-size:.84rem;line-height:1.6;color:var(--gris);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.card.founder{border:2px solid var(--azul)}
+.avatar{width:86px;height:86px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 20px rgba(0,42,143,.15);background:linear-gradient(135deg,#1D4ED8,#60A5FA);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1px}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#E8F0FF;color:var(--azul);font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;align-self:flex-start}
+.name{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--azul);line-height:1.1}
+.handle{font-size:.8rem;color:var(--gris)}
+.bio{font-size:.84rem;line-height:1.6;color:#334155}
+.meta{display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid #E8EEF8;font-size:.74rem;color:#64748B;margin-top:auto}
+.empty{background:#fff;border:1px dashed #BFD1F0;border-radius:18px;padding:18px;font-size:.88rem;line-height:1.65;color:#475569}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html"><i class="fi fi-br-angle-left"></i> Volver a la portada</a>
+  <section class="hero">
+    <div class="hero-kicker">Miembros</div>
+    <div class="hero-title">Perfiles de la comunidad</div>
+    <div class="hero-sub">Aquí se ven los perfiles de miembros dentro de ENTRE TODOS. El fundador aparece primero. Los perfiles creados desde el registro básico se añaden después dentro de este flujo.</div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="perfil-usuario-demo.html#registro"><i class="fi fi-br-user-add"></i> Registrarse</a>
+      <a class="btn btn-secondary" href="perfil-mitch-real.html"><i class="fi fi-br-user"></i> Ver fundador</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div>
+        <h2>Miembros visibles</h2>
+        <p>El fundador sale primero. Después aparecen los perfiles creados dentro del registro básico de este navegador.</p>
+      </div>
+    </div>
+    <div class="grid" id="members-grid">
+      <a href="perfil-mitch-real.html" class="card founder">
+        <div class="avatar"><img src="mitch-perfil-fundador-2026.jpg" alt="Michel Estopiñán C."></div>
+        <div class="badge">Fundador</div>
+        <div class="name">Michel Estopiñán C.</div>
+        <div class="handle">Mitch</div>
+        <div class="bio">Profesor adjunto, activista y fundador de ENTRE TODOS.</div>
+        <div class="meta"><span>Potsdam, Alemania</span><span>Activo</span></div>
+      </a>
+    </div>
+    <div class="empty" id="members-empty" style="display:none;">Todavía no hay más perfiles guardados en este flujo local. Cuando alguien se registre desde aquí, su ficha aparecerá después del fundador.</div>
+  </section>
+</div>
+
+<script>
+const PROFILES_KEY='et_member_profiles_demo';
+function initials(name){
+  return (name||'ET').split(' ').filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase();
+}
+function loadProfiles(){
+  try{return JSON.parse(localStorage.getItem(PROFILES_KEY)||'[]')||[];}catch{return [];}
+}
+const grid=document.getElementById('members-grid');
+const empty=document.getElementById('members-empty');
+const profiles=loadProfiles();
+if(!profiles.length){
+  empty.style.display='block';
+} else {
+  profiles.forEach(profile=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=
+      '<div class="avatar">'+initials(profile.displayName||profile.fullName)+'</div>'+
+      '<div class="badge">Miembro</div>'+
+      '<div class="name">'+(profile.fullName||'Miembro')+'</div>'+
+      '<div class="handle">'+(profile.displayName||'Sin alias')+'</div>'+
+      '<div class="bio">'+(profile.bio||'Miembro activo dentro de ENTRE TODOS.')+'</div>'+
+      '<div class="meta"><span>'+(profile.city||'Ciudad')+', '+(profile.country||'País')+'</span><span>'+(profile.cause||'Participación')+'</span></div>';
+    grid.appendChild(card);
+  });
+}
+</script>
+</body>
+</html>
