@@ -3,93 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil de Usuario Demo | ENTRE TODOS</title>
+<title>Miembros | ENTRE TODOS</title>
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --azul:#002A8F;--rojo:#CF142B;--blanco:#fff;--negro:#111827;--gris:#64748B;
-  --bg:#F5F7FC;--card:#FFFFFF;--line:#D8E0EC;--soft:#EEF3FF;--soft2:#F9FBFF;
-  --green:#16A34A;--purple:#7C3AED;--gold:#D97706;--shadow:0 8px 32px rgba(0,42,143,.08);
-}
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111827;--gris:#64748B;--bg:#F5F7FC;--card:#FFFFFF;--line:#D8E0EC;--soft:#EEF3FF;--soft2:#F8FAFF;--green:#16A34A;--shadow:0 10px 30px rgba(0,42,143,.08)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;background:linear-gradient(180deg,#F7F9FD 0%,#EEF3FB 100%);color:var(--negro)}
+body{font-family:'Barlow',sans-serif;background:linear-gradient(180deg,#F8FAFF 0%,#EEF3FB 100%);color:var(--negro)}
 a{text-decoration:none;color:inherit}
-.shell{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
-@media(max-width:980px){.shell{grid-template-columns:1fr}}
-.sidebar{background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border-right:1px solid var(--line);padding:22px 18px 18px;display:flex;flex-direction:column;gap:18px;position:sticky;top:0;height:100vh}
-@media(max-width:980px){.sidebar{display:none}}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:42px;height:42px;border-radius:10px;background:#fff;object-fit:contain}
-.brand-copy strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--azul)}
-.brand-copy span{display:block;font-size:.78rem;line-height:1.4;color:var(--gris)}
-.mode-box{background:linear-gradient(135deg,var(--azul),#5B7BFF);border-radius:18px;padding:16px;color:#fff;box-shadow:var(--shadow)}
-.mode-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.72;margin-bottom:6px}
-.mode-title{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:1.8px;line-height:1;margin-bottom:8px}
-.mode-text{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.88)}
-.nav{display:flex;flex-direction:column;gap:6px}
-.nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#24324A}
-.nav a i{font-size:1rem;color:var(--azul)}
-.nav a.active{background:var(--soft);color:var(--azul);box-shadow:inset 0 0 0 1px rgba(0,42,143,.08)}
-.quick-card{margin-top:auto;background:linear-gradient(180deg,#F8FBFF,#EFF4FF);border:1px solid var(--line);border-radius:18px;padding:16px}
-.quick-card h4{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:8px}
-.quick-card p{font-size:.82rem;line-height:1.55;color:var(--gris);margin-bottom:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:all .18s}
-.btn-primary{background:var(--azul);color:#fff}
-.btn-secondary{background:#fff;color:var(--azul);border:1.5px solid var(--line)}
-.btn-soft{background:var(--soft);color:var(--azul)}
-.main{padding:24px}
-@media(max-width:980px){.main{padding:16px 14px 92px}}
-.mobile-top{display:none}
-@media(max-width:980px){
-  .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .mobile-brand{display:flex;align-items:center;gap:10px}
-  .mobile-brand img{width:38px;height:38px;border-radius:10px;background:#fff}
-  .mobile-brand strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul)}
-  .mobile-brand span{display:block;font-size:.76rem;color:var(--gris)}
-}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
+.back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--azul);margin-bottom:14px}
 .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
-@media(max-width:980px){.topbar{display:none}}
+@media(max-width:900px){.topbar{flex-direction:column}}
 .page-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
-.page-title{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:2px;color:var(--azul);line-height:1}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,2.7rem);letter-spacing:2px;color:var(--azul);line-height:1}
 .page-sub{margin-top:8px;max-width:760px;font-size:.92rem;line-height:1.65;color:var(--gris)}
 .mode-toggle{display:flex;gap:10px;flex-wrap:wrap}
 .toggle-btn{padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:#31415C;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 .toggle-btn.active{background:var(--azul);color:#fff;border-color:var(--azul)}
-.profile-hero{background:linear-gradient(135deg,#5A7BFF 0%,#7AB8FF 48%,#E8F1FF 100%);border:1px solid rgba(255,255,255,.65);border-radius:28px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.profile-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,42,143,.05) 0%,rgba(255,255,255,0) 48%,rgba(255,255,255,.28) 100%);pointer-events:none}
-.profile-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:end}
-@media(max-width:980px){.profile-hero-grid{grid-template-columns:1fr}}
+.hero{background:linear-gradient(135deg,#5A7BFF 0%,#7AB8FF 48%,#E8F1FF 100%);border:1px solid rgba(255,255,255,.7);border-radius:28px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,42,143,.05) 0%,rgba(255,255,255,0) 48%,rgba(255,255,255,.28) 100%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:end}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
 .hero-user{display:flex;gap:18px;align-items:flex-start}
 @media(max-width:720px){.hero-user{flex-direction:column}}
 .avatar-wrap{position:relative}
-.avatar{width:106px;height:106px;border-radius:50%;background:#fff;border:4px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--azul);box-shadow:0 10px 28px rgba(0,42,143,.18)}
+.avatar{width:110px;height:110px;border-radius:50%;background:#fff;border:4px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--azul);box-shadow:0 10px 28px rgba(0,42,143,.18);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .avatar-badge{position:absolute;right:2px;bottom:4px;width:32px;height:32px;border-radius:50%;background:var(--azul);color:#fff;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
 .hero-meta h1{font-family:'Bebas Neue',sans-serif;font-size:2.25rem;letter-spacing:2px;color:#fff;line-height:1;margin-bottom:8px}
 .hero-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
 .hero-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.9);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
 .hero-chip.green{background:#ECFDF3;color:#166534}
-.hero-desc{max-width:620px;font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.95)}
+.hero-desc{max-width:640px;font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.96)}
 .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.btn-primary{background:var(--azul);color:#fff}
+.btn-secondary{background:#fff;color:var(--azul);border:1.5px solid var(--line)}
+.btn-soft{background:var(--soft);color:var(--azul)}
 .hero-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media(max-width:980px){.hero-side{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:720px){.hero-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .mini-stat{background:rgba(255,255,255,.9);border-radius:18px;padding:14px 14px 12px}
 .mini-stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:1.5px;color:var(--azul);line-height:1}
 .mini-stat span{display:block;font-size:.74rem;line-height:1.45;color:#475569;margin-top:5px}
-.main-grid{display:grid;grid-template-columns:minmax(0,1.4fr) 360px;gap:18px;margin-top:18px}
-@media(max-width:1100px){.main-grid{grid-template-columns:1fr}}
+.panel{display:none}
+.panel.active{display:block}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) 360px;gap:18px;margin-top:18px}
+@media(max-width:1100px){.grid{grid-template-columns:1fr}}
 .col{display:flex;flex-direction:column;gap:18px}
-.card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+.card{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
 .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
 .card-head h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
 .card-link{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
-.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
-.fact{background:var(--soft2);border:1px solid #E6EDF8;border-radius:18px;padding:14px}
-.fact .label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
-.fact .value{font-size:.92rem;line-height:1.55;color:#24324A}
 .list{display:flex;flex-direction:column;gap:10px}
 .item{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 0;border-top:1px solid #E9EEF7}
 .item:first-child{border-top:none;padding-top:0}
@@ -97,345 +63,327 @@ a{text-decoration:none;color:inherit}
 .item-title{font-size:.92rem;font-weight:600;line-height:1.45;color:#1F2A44}
 .item-sub{font-size:.8rem;line-height:1.5;color:var(--gris);margin-top:3px}
 .item-meta{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gris)}
-.bar-list{display:flex;flex-direction:column;gap:12px}
-.bar-row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:12px;align-items:center}
-.bar-copy strong{display:block;font-size:.9rem;line-height:1.35;color:#20304C}
-.bar-copy span{display:block;font-size:.78rem;color:var(--gris);margin-top:2px}
-.bar-track{height:8px;border-radius:999px;background:#E5ECF7;margin-top:8px;overflow:hidden}
-.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1D4ED8,#60A5FA)}
-.bar-pct{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:var(--azul);text-align:right}
+.auth-form{display:flex;flex-direction:column;gap:10px}
+.auth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:640px){.auth-grid{grid-template-columns:1fr}}
+.auth-form input,.auth-form select,.auth-form textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;font-size:.88rem;font-family:'Barlow',sans-serif;color:#24324A;background:#fff}
+.auth-form textarea{min-height:92px;resize:vertical}
+.auth-form input:focus,.auth-form select:focus,.auth-form textarea:focus{outline:none;border-color:var(--azul)}
+.auth-note{font-size:.78rem;line-height:1.6;color:var(--gris)}
+.msg{display:none;margin-top:8px;font-size:.82rem;color:var(--azul);font-family:'Barlow Condensed',sans-serif;font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:640px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--soft2);border:1px solid #E6EDF8;border-radius:18px;padding:14px}
+.fact .label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
+.fact .value{font-size:.92rem;line-height:1.55;color:#24324A}
 .founder-card{background:linear-gradient(135deg,#FFF7ED,#FFFDF8);border:1px solid #F5D7B2}
-.founder-top{display:flex;gap:14px;align-items:center;margin-bottom:14px}
-.friend-avatar{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--rojo),#FF8A65);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px}
-.founder-copy strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1.2px;color:#9A3412}
-.founder-copy span{display:block;font-size:.8rem;line-height:1.45;color:#9A3412}
 .founder-note{font-size:.9rem;line-height:1.7;color:#7C2D12}
-.founder-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.privacy-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#F8FAFC;border:1px solid #E2E8F0;font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#334155}
-.mode-panel{display:none}
-.mode-panel.active{display:block}
-.visitor-lock{background:linear-gradient(135deg,#F8FAFF,#EEF4FF);border:1px dashed #BFD1F0;border-radius:18px;padding:18px}
-.visitor-lock h4{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:8px}
-.visitor-lock p{font-size:.88rem;line-height:1.65;color:#475569}
 .founder-friend{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:18px;background:#fff;border:1px solid #E8EDF7;margin-top:12px}
 @media(max-width:640px){.founder-friend{flex-direction:column;align-items:flex-start}}
 .friend-meta{display:flex;gap:12px;align-items:center}
-.friend-meta .friend-avatar{width:48px;height:48px;font-size:1.1rem}
+.friend-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--rojo),#FF8A65);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.15rem}
 .friend-meta strong{display:block;font-size:.95rem;color:#1F2A44}
 .friend-meta span{display:block;font-size:.8rem;color:var(--gris);margin-top:2px}
-.bottom-nav{display:none}
-@media(max-width:980px){
-  .bottom-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;position:fixed;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:20px;padding:8px;box-shadow:var(--shadow);z-index:60}
-  .bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px 4px;border-radius:14px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#475569}
-  .bottom-nav a.active{background:var(--soft);color:var(--azul)}
-}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:12px;align-items:center}
+.bar-copy strong{display:block;font-size:.9rem;line-height:1.35;color:#20304C}
+.bar-copy span{display:block;font-size:.78rem;color:var(--gris);margin-top:2px}
+.track{height:8px;border-radius:999px;background:#E5ECF7;margin-top:8px;overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1D4ED8,#60A5FA)}
+.pct{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:var(--azul);text-align:right}
 </style>
 </head>
 <body>
-<div class="shell">
-  <aside class="sidebar">
-    <div class="brand">
-      <img src="entre-todos-logo-final.png" alt="Entre Todos" onerror="this.style.display='none'">
-      <div class="brand-copy">
-        <strong>Entre Todos</strong>
-        <span>Construyamos la nueva Cuba</span>
-      </div>
+<div class="wrap">
+  <a class="back" href="index.html"><i class="fi fi-br-angle-left"></i> Volver a la portada</a>
+
+  <div class="topbar">
+    <div>
+      <div class="page-kicker">Miembros</div>
+      <div class="page-title">Registro básico y perfil</div>
+      <div class="page-sub">Este módulo permite crear una cuenta base, generar un perfil de miembro y mostrar cómo aparece el primer vínculo sugerido con la cuenta fundadora.</div>
     </div>
-
-    <div class="mode-box">
-      <div class="mode-label">Demo de producto</div>
-      <div class="mode-title">Perfil de usuario</div>
-      <div class="mode-text">Módulo aparte para mostrar dos estados: visitante explorando y participante autenticado con identidad pública o protegida.</div>
+    <div class="mode-toggle">
+      <button class="toggle-btn active" type="button" data-mode="visitor">Registro</button>
+      <button class="toggle-btn" type="button" data-mode="signin">Mi perfil</button>
     </div>
+  </div>
 
-    <nav class="nav">
-      <a href="#" class="active"><i class="fi fi-br-user"></i> Mi espacio</a>
-      <a href="#"><i class="fi fi-br-compass"></i> Explorar</a>
-      <a href="#"><i class="fi fi-br-document"></i> Propuestas</a>
-      <a href="#"><i class="fi fi-br-comment-alt"></i> Debates</a>
-      <a href="#"><i class="fi fi-br-building"></i> Organizaciones</a>
-    </nav>
-
-    <div class="quick-card">
-      <h4>Cuenta fundadora</h4>
-      <p>La primera cuenta visible del ecosistema puede ser la del creador, funcionando como vínculo humano inicial y “primer amigo” de nuevos participantes.</p>
-      <button class="btn btn-primary" type="button" data-mode="signin"><i class="fi fi-br-user-check"></i> Ver sign in mode</button>
-    </div>
-  </aside>
-
-  <main class="main">
-    <div class="mobile-top">
-      <div class="mobile-brand">
-        <img src="entre-todos-logo-final.png" alt="Entre Todos" onerror="this.style.display='none'">
-        <div>
-          <strong>Entre Todos</strong>
-          <span>Perfil de usuario</span>
-        </div>
-      </div>
-      <div class="privacy-badge"><i class="fi fi-br-shield-check"></i> Demo privada</div>
-    </div>
-
-    <div class="topbar">
-      <div>
-        <div class="page-kicker">Módulo aparte · perfil de usuario</div>
-        <div class="page-title">Sign In Mode / Visitor Mode</div>
-        <div class="page-sub">Página demo para el perfil de usuario de ENTRE TODOS. La lógica es simple: el visitante entiende el valor de participar sin exponer de más, y el usuario autenticado ve su espacio, su actividad, sus vínculos y a la cuenta fundadora como primer contacto comunitario.</div>
-      </div>
-      <div class="mode-toggle">
-        <button class="toggle-btn active" type="button" data-mode="visitor">Visitor mode</button>
-        <button class="toggle-btn" type="button" data-mode="signin">Sign in mode</button>
-      </div>
-    </div>
-
-    <section class="mode-panel active" id="mode-visitor">
-      <div class="profile-hero">
-        <div class="profile-hero-grid">
-          <div class="hero-user">
-            <div class="avatar-wrap">
-              <div class="avatar">ET</div>
-              <div class="avatar-badge"><i class="fi fi-br-eye"></i></div>
+  <section class="panel active" id="panel-visitor">
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-user">
+          <div class="avatar-wrap">
+            <div class="avatar">ET</div>
+            <div class="avatar-badge"><i class="fi fi-br-user-add"></i></div>
+          </div>
+          <div class="hero-meta">
+            <h1>Entrar y crear perfil</h1>
+            <div class="hero-row">
+              <div class="hero-chip"><i class="fi fi-br-user"></i> Registro básico</div>
+              <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Persistencia local</div>
             </div>
-            <div class="hero-meta">
-              <h1>Tu perfil comienza aquí</h1>
-              <div class="hero-row">
-                <div class="hero-chip"><i class="fi fi-br-user"></i> Modo visitante</div>
-                <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Sin exposición obligatoria</div>
-              </div>
-              <div class="hero-desc">Explora propuestas, entiende cómo funciona la participación y decide después si quieres entrar con identidad pública o protegida. La plataforma no empuja exposición innecesaria; primero explica, luego invita.</div>
-              <div class="hero-actions">
-                <button class="btn btn-primary" type="button" data-mode="signin"><i class="fi fi-br-sign-in-alt"></i> Entrar o crear cuenta</button>
-                <button class="btn btn-secondary" type="button"><i class="fi fi-br-info"></i> Cómo funciona</button>
-              </div>
+            <div class="hero-desc">Aquí se crea un perfil inicial de miembro. El registro guarda nombre visible, ubicación, causa principal y una descripción breve para mostrar cómo se genera la identidad base dentro de ENTRE TODOS.</div>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="perfil-mitch-real.html"><i class="fi fi-br-user"></i> Ver fundador</a>
             </div>
           </div>
-          <div class="hero-side">
-            <div class="mini-stat"><strong>2</strong><span>modos claros: visitante y usuario autenticado</span></div>
-            <div class="mini-stat"><strong>0</strong><span>presión para publicar datos antes de participar</span></div>
-            <div class="mini-stat"><strong>1</strong><span>cuenta fundadora como primer vínculo humano</span></div>
-            <div class="mini-stat"><strong>100%</strong><span>control del usuario sobre identidad pública o protegida</span></div>
-          </div>
+        </div>
+        <div class="hero-side">
+          <div class="mini-stat"><strong>1</strong><span>perfil base generado al registrarte</span></div>
+          <div class="mini-stat"><strong>1</strong><span>conexión sugerida con el fundador</span></div>
+          <div class="mini-stat"><strong>0</strong><span>fricción innecesaria para entrar</span></div>
+          <div class="mini-stat"><strong>100%</strong><span>editable en esta demo</span></div>
         </div>
       </div>
+    </div>
 
-      <div class="main-grid">
-        <div class="col">
-          <section class="card">
-            <div class="card-head"><h3>Qué ves como visitante</h3></div>
-            <div class="list">
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-compass"></i></div>
-                <div><div class="item-title">Explorar sin fricción</div><div class="item-sub">Puedes conocer propuestas, debates y organizaciones antes de decidir si vale la pena entrar.</div></div>
-                <div class="item-meta">Libre</div>
-              </div>
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-shield"></i></div>
-                <div><div class="item-title">Privacidad explicada desde el inicio</div><div class="item-sub">La identidad protegida no aparece como truco oculto, sino como opción central de confianza.</div></div>
-                <div class="item-meta">Seguro</div>
-              </div>
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-user-add"></i></div>
-                <div><div class="item-title">Invitación a participar, no presión</div><div class="item-sub">El paso a cuenta se presenta como mejora de experiencia y trazabilidad, no como peaje para mirar.</div></div>
-                <div class="item-meta">Gradual</div>
-              </div>
+    <div class="grid">
+      <div class="col">
+        <section class="card" id="registro">
+          <div class="card-head"><h3>Registro básico</h3></div>
+          <form class="auth-form" id="signup-form">
+            <div class="auth-grid">
+              <input type="text" id="reg-full-name" placeholder="Nombre completo" required>
+              <input type="text" id="reg-display-name" placeholder="Nombre visible o alias" required>
             </div>
-          </section>
+            <div class="auth-grid">
+              <input type="text" id="reg-city" placeholder="Ciudad actual" required>
+              <input type="text" id="reg-country" placeholder="País actual" required>
+            </div>
+            <div class="auth-grid">
+              <input type="text" id="reg-origin" placeholder="Natural de / ciudad de origen">
+              <input type="email" id="reg-email" placeholder="Email">
+            </div>
+            <select id="reg-cause">
+              <option value="Participación ciudadana">Participación ciudadana</option>
+              <option value="Educación">Educación</option>
+              <option value="Justicia y derechos">Justicia y derechos</option>
+              <option value="Transparencia">Transparencia</option>
+              <option value="Medio ambiente">Medio ambiente</option>
+              <option value="Bienestar animal">Bienestar animal</option>
+            </select>
+            <textarea id="reg-bio" placeholder="Breve descripción del miembro"></textarea>
+            <button class="btn btn-primary" type="submit"><i class="fi fi-br-user-add"></i> Crear perfil</button>
+          </form>
+          <div class="msg" id="signup-msg">Perfil creado. Entrando a Mi perfil…</div>
+          <div class="auth-note">En esta versión, el perfil se guarda localmente en este navegador para demostrar el flujo completo desde el registro hasta el perfil generado.</div>
+        </section>
 
-          <section class="card founder-card">
-            <div class="card-head"><h3>Primer amigo del sistema</h3></div>
-            <div class="founder-top">
+        <section class="card founder-card">
+          <div class="card-head"><h3>Primer vínculo sugerido</h3></div>
+          <div class="founder-note">Al completar el registro, el sistema sugiere una primera conexión con la cuenta fundadora. La idea no es jerarquizar a nadie, sino evitar que el nuevo miembro aterrice en un vacío social.</div>
+          <div class="founder-friend">
+            <div class="friend-meta">
               <div class="friend-avatar">ME</div>
-              <div class="founder-copy">
+              <div>
                 <strong>Mitch · cuenta fundadora</strong>
-                <span>Primer vínculo humano dentro de la plataforma, como referencia de bienvenida y origen del proyecto.</span>
+                <span>Primer vínculo visible dentro del ecosistema</span>
               </div>
             </div>
-            <div class="founder-note">La idea funciona: cuando un usuario entra por primera vez, no aterriza en un vacío técnico. Tiene una primera conexión simbólica con la cuenta fundadora, que encarna la cultura cívica de la plataforma y ayuda a humanizar el arranque.</div>
-            <div class="founder-actions">
-              <button class="btn btn-soft" type="button" data-mode="signin"><i class="fi fi-br-user-check"></i> Ver cómo aparece al iniciar sesión</button>
-            </div>
-          </section>
-        </div>
-
-        <div class="col">
-          <section class="card">
-            <div class="card-head"><h3>Desbloqueas al entrar</h3></div>
-            <div class="bar-list">
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Aportes y comentarios</strong><span>Participación trazable y útil</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
-                <div class="bar-pct">88%</div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Debates guardados</strong><span>Seguimiento personal de temas</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div></div>
-                <div class="bar-pct">72%</div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Red de conexiones</strong><span>Organizaciones, amigos y afinidades</span><div class="bar-track"><div class="bar-fill" style="width:64%"></div></div></div>
-                <div class="bar-pct">64%</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="card visitor-lock">
-            <h4>Sign in mode</h4>
-            <p>Una vez autenticado, el usuario ve un perfil propio con actividad, amistades, causas seguidas, nivel de participación e identidad configurable: pública real o protegida. Ese es el espacio donde la cuenta fundadora puede aparecer como primer amigo confirmado.</p>
-          </section>
-        </div>
+            <a class="btn btn-primary" href="perfil-mitch-real.html">Ver perfil</a>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section class="mode-panel" id="mode-signin">
-      <div class="profile-hero">
-        <div class="profile-hero-grid">
-          <div class="hero-user">
-            <div class="avatar-wrap">
-              <div class="avatar">ME</div>
-              <div class="avatar-badge"><i class="fi fi-br-check"></i></div>
+      <div class="col">
+        <section class="card">
+          <div class="card-head"><h3>Qué genera el registro</h3></div>
+          <div class="list">
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-id-badge"></i></div>
+              <div><div class="item-title">Identidad básica</div><div class="item-sub">Nombre visible, ubicación y causa principal del miembro.</div></div>
+              <div class="item-meta">Base</div>
             </div>
-            <div class="hero-meta">
-              <h1>Mitch</h1>
-              <div class="hero-row">
-                <div class="hero-chip"><i class="fi fi-br-marker"></i> Cuenta fundadora</div>
-                <div class="hero-chip"><i class="fi fi-br-user-add"></i> Primer amigo de nuevos usuarios</div>
-                <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Identidad verificada</div>
-              </div>
-              <div class="hero-desc">Impulsor del ecosistema ENTRE TODOS. Esta cuenta funciona como presencia fundadora dentro de la red: guía, conecta y aparece como primer vínculo comunitario para cada nuevo usuario que entra a la plataforma.</div>
-              <div class="hero-actions">
-                <button class="btn btn-primary" type="button"><i class="fi fi-br-user-add"></i> Seguir</button>
-                <button class="btn btn-secondary" type="button"><i class="fi fi-br-comment-alt"></i> Mensaje</button>
-                <a class="btn btn-secondary" href="https://www.linkedin.com/in/mestopinan?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer"><i class="fi fi-br-link"></i> LinkedIn</a>
-              </div>
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-user-check"></i></div>
+              <div><div class="item-title">Perfil navegable</div><div class="item-sub">El registro lleva directamente a un perfil que ya se puede leer como ficha de usuario.</div></div>
+              <div class="item-meta">Activo</div>
+            </div>
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-users"></i></div>
+              <div><div class="item-title">Primer vínculo social</div><div class="item-sub">Se muestra el fundador como conexión inicial sugerida.</div></div>
+              <div class="item-meta">Social</div>
             </div>
           </div>
-          <div class="hero-side">
-            <div class="mini-stat"><strong>1,284</strong><span>personas alcanzadas por la cuenta fundadora</span></div>
-            <div class="mini-stat"><strong>342</strong><span>conexiones comunitarias activas</span></div>
-            <div class="mini-stat"><strong>78</strong><span>aportes visibles en propuestas y debates</span></div>
-            <div class="mini-stat"><strong>1er</strong><span>amigo sugerido al crear cuenta nueva</span></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-signin">
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-user">
+          <div class="avatar-wrap">
+            <div class="avatar" id="generated-avatar">ET</div>
+            <div class="avatar-badge"><i class="fi fi-br-check"></i></div>
+          </div>
+          <div class="hero-meta">
+            <h1 id="generated-name">Tu perfil</h1>
+            <div class="hero-row">
+              <div class="hero-chip" id="generated-location"><i class="fi fi-br-marker"></i> Miembro registrado</div>
+              <div class="hero-chip" id="generated-origin"><i class="fi fi-br-home-location-alt"></i> Origen no indicado</div>
+              <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Cuenta activa</div>
+            </div>
+            <div class="hero-desc" id="generated-bio">Aquí aparece el perfil generado a partir del registro básico.</div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="button"><i class="fi fi-br-user-add"></i> Seguir</button>
+              <button class="btn btn-secondary" type="button"><i class="fi fi-br-comment-alt"></i> Mensaje</button>
+              <button class="btn btn-secondary" type="button" id="reset-profile"><i class="fi fi-br-refresh"></i> Reiniciar</button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="main-grid">
-        <div class="col">
-          <section class="card">
-            <div class="card-head"><h3>Sobre esta cuenta</h3></div>
-            <div class="about-grid">
-              <div class="fact"><div class="label">Rol</div><div class="value">Cuenta fundadora y punto de bienvenida dentro de ENTRE TODOS.</div></div>
-              <div class="fact"><div class="label">Modo de identidad</div><div class="value">Pública real, con verificación clara y trazabilidad comunitaria.</div></div>
-              <div class="fact"><div class="label">Función social</div><div class="value">Primer amigo de nuevos usuarios y presencia que humaniza el arranque del sistema.</div></div>
-              <div class="fact"><div class="label">Límite recomendado</div><div class="value">No mezclar este perfil con sobreexposición privada; debe servir al producto y a la cultura cívica.</div></div>
-              <div class="fact"><div class="label">Enlace autorizado</div><div class="value"><a href="https://www.linkedin.com/in/mestopinan?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer">Perfil público de LinkedIn</a> como referencia externa controlada.</div></div>
-            </div>
-          </section>
-
-          <section class="card">
-            <div class="card-head"><h3>Actividad reciente</h3><a class="card-link" href="#">Ver todo</a></div>
-            <div class="list">
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-thumbs-up"></i></div>
-                <div><div class="item-title">Apoyó una propuesta sobre garantías para la transición</div><div class="item-sub">Actividad trazable que ayuda a mostrar cómo participa la cuenta fundadora sin monopolizar la conversación.</div></div>
-                <div class="item-meta">Hoy</div>
-              </div>
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-comment-alt"></i></div>
-                <div><div class="item-title">Comentó en un debate sobre justicia e instituciones</div><div class="item-sub">Sirve como ejemplo de tono: orientar, conectar y abrir espacio, no imponer línea única.</div></div>
-                <div class="item-meta">Ayer</div>
-              </div>
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-users"></i></div>
-                <div><div class="item-title">Aceptó nuevas amistades fundacionales</div><div class="item-sub">El onboarding puede dejar esto automatizado como gesto simbólico de bienvenida a la red.</div></div>
-                <div class="item-meta">3 días</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="card founder-card">
-            <div class="card-head"><h3>Cómo vería esto un usuario nuevo</h3></div>
-            <div class="founder-note">Al completar el registro, la persona recibe una primera conexión sugerida o automática con la cuenta fundadora. No como celebridad, sino como ancla humana: alguien que ya está ahí, que representa el espíritu del proyecto y que puede orientar la cultura relacional de la plataforma desde el principio.</div>
-            <div class="founder-friend">
-              <div class="friend-meta">
-                <div class="friend-avatar">ME</div>
-                <div>
-                  <strong>Mitch ya es tu primer amigo en ENTRE TODOS</strong>
-                  <span>Cuenta fundadora · conexión inicial del ecosistema</span>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="button"><i class="fi fi-br-user-add"></i> Conexión activa</button>
-            </div>
-          </section>
-        </div>
-
-        <div class="col">
-          <section class="card">
-            <div class="card-head"><h3>Causas que sigue</h3><a class="card-link" href="#">Ver todas</a></div>
-            <div class="bar-list">
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Transparencia</strong><span>Seguimiento institucional y trazabilidad pública</span><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div></div>
-                <div class="bar-pct">91%</div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Participación ciudadana</strong><span>Arquitectura de intervención pública real</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div></div>
-                <div class="bar-pct">86%</div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-copy"><strong>Reconstrucción nacional</strong><span>Planes, actores y compromisos visibles</span><div class="bar-track"><div class="bar-fill" style="width:73%"></div></div></div>
-                <div class="bar-pct">73%</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="card">
-            <div class="card-head"><h3>Nivel de participación</h3></div>
-            <div class="about-grid">
-              <div class="fact"><div class="label">Nivel actual</div><div class="value">Fundador activo · alta visibilidad cívica</div></div>
-              <div class="fact"><div class="label">Propuestas apoyadas</div><div class="value">37 registros con trazabilidad pública</div></div>
-              <div class="fact"><div class="label">Comentarios útiles</div><div class="value">12 intervenciones valoradas positivamente</div></div>
-              <div class="fact"><div class="label">Debates iniciados</div><div class="value">4 espacios de conversación abiertos</div></div>
-            </div>
-          </section>
-
-          <section class="card">
-            <div class="card-head"><h3>Privacidad y modo</h3></div>
-            <div class="list">
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-lock"></i></div>
-                <div><div class="item-title">Modo público real</div><div class="item-sub">Pensado para la cuenta fundadora y otros perfiles que sí quieran representar públicamente su identidad.</div></div>
-                <div class="item-meta">Visible</div>
-              </div>
-              <div class="item">
-                <div class="item-icon"><i class="fi fi-br-shield"></i></div>
-                <div><div class="item-title">Modo protegido</div><div class="item-sub">El sistema debe permitir participación real sin obligar a revelar identidad civil frente al resto de usuarios.</div></div>
-                <div class="item-meta">Opcional</div>
-              </div>
-            </div>
-          </section>
+        <div class="hero-side">
+          <div class="mini-stat"><strong>0</strong><span>Aportes iniciales</span></div>
+          <div class="mini-stat"><strong>1</strong><span>Conexión sugerida</span></div>
+          <div class="mini-stat"><strong>0</strong><span>Debates iniciados</span></div>
+          <div class="mini-stat"><strong>1</strong><span>Perfil creado</span></div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+
+    <div class="grid">
+      <div class="col">
+        <section class="card">
+          <div class="card-head"><h3>Sobre esta cuenta</h3></div>
+          <div class="facts">
+            <div class="fact"><div class="label">Rol</div><div class="value" id="generated-role">Miembro registrado dentro de ENTRE TODOS.</div></div>
+            <div class="fact"><div class="label">Causa principal</div><div class="value" id="generated-cause">Participación ciudadana</div></div>
+            <div class="fact"><div class="label">Email</div><div class="value" id="generated-email">No indicado</div></div>
+            <div class="fact"><div class="label">Se unió en</div><div class="value" id="generated-joined">Hoy</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h3>Actividad reciente</h3></div>
+          <div class="list">
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-thumbs-up"></i></div>
+              <div><div class="item-title" id="generated-activity-1">Perfil creado dentro del módulo de miembros</div><div class="item-sub">El registro inicial ya genera una presencia visible dentro del ecosistema.</div></div>
+              <div class="item-meta">Hoy</div>
+            </div>
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-bookmark"></i></div>
+              <div><div class="item-title">Causa principal registrada</div><div class="item-sub" id="generated-activity-2">Participación ciudadana.</div></div>
+              <div class="item-meta">Hoy</div>
+            </div>
+            <div class="item">
+              <div class="item-icon"><i class="fi fi-br-users"></i></div>
+              <div><div class="item-title">Primera conexión sugerida</div><div class="item-sub">La cuenta fundadora aparece como vínculo inicial dentro del sistema.</div></div>
+              <div class="item-meta">Hoy</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="card">
+          <div class="card-head"><h3>Causas que sigue</h3></div>
+          <div class="bars">
+            <div class="bar-row">
+              <div class="bar-copy"><strong id="generated-cause-main">Participación ciudadana</strong><span id="generated-cause-sub">Causa priorizada en el registro básico</span><div class="track"><div class="fill" style="width:82%"></div></div></div>
+              <div class="pct">82%</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-copy"><strong>Transparencia</strong><span>Trazabilidad pública y método cívico</span><div class="track"><div class="fill" style="width:76%"></div></div></div>
+              <div class="pct">76%</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-copy"><strong>Participación</strong><span>Entrada a debates, propuestas y conexiones</span><div class="track"><div class="fill" style="width:74%"></div></div></div>
+              <div class="pct">74%</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card founder-card">
+          <div class="card-head"><h3>Primer vínculo en la red</h3></div>
+          <div class="founder-note">Después del registro, la cuenta fundadora queda visible como primer punto de referencia dentro del ecosistema. Eso hace que el nuevo miembro entre en una red, no en una interfaz vacía.</div>
+          <div class="founder-friend">
+            <div class="friend-meta">
+              <div class="friend-avatar">ME</div>
+              <div>
+                <strong>Mitch ya aparece en tu red inicial</strong>
+                <span>Cuenta fundadora · vínculo sugerido</span>
+              </div>
+            </div>
+            <a class="btn btn-primary" href="perfil-mitch-real.html">Abrir perfil</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 </div>
 
-<nav class="bottom-nav">
-  <a href="#"><i class="fi fi-br-home"></i><span>Inicio</span></a>
-  <a href="#"><i class="fi fi-br-compass"></i><span>Explorar</span></a>
-  <a href="#"><i class="fi fi-br-document"></i><span>Propuestas</span></a>
-  <a href="#"><i class="fi fi-br-comment-alt"></i><span>Debates</span></a>
-  <a href="#" class="active"><i class="fi fi-br-user"></i><span>Mi espacio</span></a>
-</nav>
-
 <script>
-const buttons = document.querySelectorAll('[data-mode]');
-const panels = document.querySelectorAll('.mode-panel');
-const toggles = document.querySelectorAll('.toggle-btn');
+const PROFILE_KEY='et_member_profile_demo';
+const toggles=document.querySelectorAll('[data-mode]');
+const panels={visitor:document.getElementById('panel-visitor'),signin:document.getElementById('panel-signin')};
 
-function setMode(mode) {
-  panels.forEach(panel => panel.classList.toggle('active', panel.id === 'mode-' + mode));
-  toggles.forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+function setMode(mode){
+  Object.entries(panels).forEach(([key,panel])=>panel.classList.toggle('active', key===mode));
+  toggles.forEach(btn=>btn.classList.toggle('active', btn.dataset.mode===mode));
 }
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => setMode(btn.dataset.mode));
+toggles.forEach(btn=>btn.addEventListener('click',()=>setMode(btn.dataset.mode)));
+
+function loadProfile(){
+  try{return JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');}catch{return null;}
+}
+
+function saveProfile(profile){
+  localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+}
+
+function initials(name){
+  return (name||'ET').split(' ').filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase();
+}
+
+function renderProfile(profile){
+  if(!profile) return;
+  document.getElementById('generated-avatar').textContent=initials(profile.displayName || profile.fullName);
+  document.getElementById('generated-name').textContent=profile.fullName || 'Miembro';
+  document.getElementById('generated-location').innerHTML='<i class="fi fi-br-marker"></i> '+(profile.city||'Ciudad')+', '+(profile.country||'País');
+  document.getElementById('generated-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+(profile.origin||'No indicado');
+  document.getElementById('generated-bio').textContent=profile.bio || 'Miembro activo dentro de ENTRE TODOS.';
+  document.getElementById('generated-cause').textContent=profile.cause || 'Participación ciudadana';
+  document.getElementById('generated-email').textContent=profile.email || 'No indicado';
+  document.getElementById('generated-joined').textContent=profile.joined || 'Hoy';
+  document.getElementById('generated-activity-1').textContent=(profile.displayName||profile.fullName||'Este miembro')+' creó su perfil dentro del módulo de miembros';
+  document.getElementById('generated-activity-2').textContent='Causa principal registrada: '+(profile.cause||'Participación ciudadana')+'.';
+  document.getElementById('generated-cause-main').textContent=profile.cause || 'Participación ciudadana';
+  document.getElementById('generated-cause-sub').textContent='Causa priorizada por '+(profile.displayName||profile.fullName||'este miembro')+'.';
+  setMode('signin');
+}
+
+document.getElementById('signup-form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const profile={
+    fullName:document.getElementById('reg-full-name').value.trim(),
+    displayName:document.getElementById('reg-display-name').value.trim(),
+    city:document.getElementById('reg-city').value.trim(),
+    country:document.getElementById('reg-country').value.trim(),
+    origin:document.getElementById('reg-origin').value.trim() || 'No indicado',
+    email:document.getElementById('reg-email').value.trim() || 'No indicado',
+    cause:document.getElementById('reg-cause').value,
+    bio:document.getElementById('reg-bio').value.trim() || 'Miembro activo interesado en participar dentro de ENTRE TODOS.',
+    joined:new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'})
+  };
+  saveProfile(profile);
+  document.getElementById('signup-msg').style.display='block';
+  renderProfile(profile);
 });
+
+document.getElementById('reset-profile').addEventListener('click', ()=>{
+  localStorage.removeItem(PROFILE_KEY);
+  location.reload();
+});
+
+const existing=loadProfile();
+if(existing){ renderProfile(existing); }
+if(location.hash==='#registro'){
+  setTimeout(()=>document.getElementById('registro')?.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
 </script>
 </body>
 </html>
