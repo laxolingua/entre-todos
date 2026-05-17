@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil de miembro | ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111827;--gris:#64748B;--line:#D8E0EC;--soft:#EEF3FF;--soft2:#F8FAFF;--shadow:0 10px 30px rgba(0,42,143,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:linear-gradient(180deg,#F8FAFF 0%,#EEF3FB 100%);color:var(--negro)}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 18px 60px}
+.back{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--azul);margin-bottom:14px}
+.hero{background:linear-gradient(135deg,#002A8F,#3156C5);border-radius:28px;padding:26px;box-shadow:var(--shadow);color:#fff}
+.hero-grid{display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:end}
+.avatar{width:170px;height:170px;border-radius:50%;background:linear-gradient(135deg,#60A5FA,#1D4ED8);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:4rem;letter-spacing:2px;box-shadow:0 16px 32px rgba(0,0,0,.18);border:4px solid rgba(255,255,255,.45)}
+.hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.72;margin-bottom:8px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:2px;line-height:1}
+.hero-handle{margin-top:4px;font-size:1rem;font-weight:600;color:rgba(255,255,255,.92)}
+.hero-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.hero-bio{margin-top:14px;max-width:760px;font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.94)}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.card h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul);margin-bottom:12px}
+.facts{display:grid;gap:12px}
+.fact{padding-bottom:12px;border-bottom:1px solid #E7EEF8}
+.fact:last-child{padding-bottom:0;border-bottom:none}
+.label{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#64748B;margin-bottom:4px}
+.value{font-size:.96rem;line-height:1.65;color:#1E293B}
+.bars{display:grid;gap:12px}
+.bar-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.bar-copy strong{display:block;font-size:.92rem;color:#0F172A}
+.bar-copy span{display:block;font-size:.8rem;color:#64748B;margin-top:2px}
+.track{width:100%;height:8px;border-radius:999px;background:#E6EEFF;margin-top:8px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#002A8F,#4F7BFF);border-radius:999px}
+.pct{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;color:var(--azul)}
+.status{display:none;margin-top:16px;padding:14px;border-radius:14px;background:#fff;border:1px solid #DCE8FF;color:#1E3A8A;font-size:.9rem;line-height:1.6}
+.status.show{display:block}
+@media(max-width:780px){
+  .hero-grid,.layout{grid-template-columns:1fr}
+  .avatar{width:130px;height:130px;font-size:3rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="miembros.html"><i class="fi fi-br-angle-left"></i> Volver a miembros</a>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="avatar" id="member-avatar">ET</div>
+      <div>
+        <div class="hero-kicker">Miembro</div>
+        <div class="hero-title" id="member-name">Perfil público</div>
+        <div class="hero-handle" id="member-handle">Cargando perfil…</div>
+        <div class="hero-row">
+          <div class="chip" id="member-location"><i class="fi fi-br-marker"></i> Ubicación</div>
+          <div class="chip" id="member-origin"><i class="fi fi-br-home-location-alt"></i> Origen</div>
+        </div>
+        <div class="hero-bio" id="member-bio">Este perfil público se genera a partir del registro básico de miembros dentro de ENTRE TODOS.</div>
+      </div>
+    </div>
+  </section>
+  <div class="status" id="member-status"></div>
+  <div class="layout">
+    <section class="card">
+      <h3>Sobre este miembro</h3>
+      <div class="facts">
+        <div class="fact"><div class="label">Rol</div><div class="value">Miembro visible dentro de ENTRE TODOS.</div></div>
+        <div class="fact"><div class="label">Causa principal</div><div class="value" id="member-cause">Participación ciudadana</div></div>
+        <div class="fact"><div class="label">Se unió en</div><div class="value" id="member-joined">Sin fecha</div></div>
+        <div class="fact"><div class="label">Fuente</div><div class="value">Registro básico conectado al módulo de miembros.</div></div>
+      </div>
+    </section>
+    <section class="card">
+      <h3>Causas y orientación</h3>
+      <div class="bars">
+        <div class="bar-row">
+          <div class="bar-copy"><strong id="bar-main">Participación ciudadana</strong><span>Prioridad declarada en el perfil público</span><div class="track"><div class="fill" style="width:84%"></div></div></div>
+          <div class="pct">84%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-copy"><strong>Transparencia</strong><span>Visibilidad y trazabilidad dentro de la plataforma</span><div class="track"><div class="fill" style="width:76%"></div></div></div>
+          <div class="pct">76%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-copy"><strong>Participación</strong><span>Entrada al ecosistema cívico de propuestas y debates</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
+          <div class="pct">72%</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<script>
+const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+const MEMBER_ID=new URLSearchParams(location.search).get('id');
+const statusEl=document.getElementById('member-status');
+function initials(name){
+  return (name||'ET').split(' ').filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase();
+}
+async function loadMember(){
+  if(!MEMBER_ID){
+    throw new Error('Falta el identificador del miembro.');
+  }
+  const params=new URLSearchParams({
+    select:'id,full_name,display_name,city,country,origin,cause,bio,created_at',
+    id:'eq.'+MEMBER_ID,
+    limit:'1'
+  });
+  const res=await fetch(SUPABASE_URL+'/rest/v1/et_members?'+params.toString(),{
+    headers:{
+      'apikey':SUPABASE_ANON_KEY,
+      'Authorization':'Bearer '+SUPABASE_ANON_KEY
+    }
+  });
+  if(!res.ok){
+    throw new Error('No se pudo cargar el perfil público.');
+  }
+  const rows=await res.json();
+  if(!rows.length){
+    throw new Error('Este perfil no existe o ya no es público.');
+  }
+  return rows[0];
+}
+function renderMember(member){
+  document.getElementById('member-avatar').textContent=initials(member.display_name||member.full_name);
+  document.getElementById('member-name').textContent=member.full_name || 'Miembro';
+  document.getElementById('member-handle').textContent=member.display_name || 'Miembro visible';
+  document.getElementById('member-location').innerHTML='<i class="fi fi-br-marker"></i> '+(member.city||'Ciudad')+', '+(member.country||'País');
+  document.getElementById('member-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+(member.origin||'No indicado');
+  document.getElementById('member-bio').textContent=member.bio || 'Miembro activo dentro de ENTRE TODOS.';
+  document.getElementById('member-cause').textContent=member.cause || 'Participación ciudadana';
+  document.getElementById('bar-main').textContent=member.cause || 'Participación ciudadana';
+  document.getElementById('member-joined').textContent=new Date(member.created_at).toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'});
+}
+loadMember().then(renderMember).catch(err=>{
+  statusEl.textContent=err.message || 'No se pudo cargar el perfil.';
+  statusEl.classList.add('show');
+});
+</script>
+</body>
+</html>

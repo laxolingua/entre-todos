@@ -38,6 +38,8 @@ a{text-decoration:none;color:inherit}
 .bio{font-size:.84rem;line-height:1.6;color:#334155}
 .meta{display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid #E8EEF8;font-size:.74rem;color:#64748B;margin-top:auto}
 .empty{background:#fff;border:1px dashed #BFD1F0;border-radius:18px;padding:18px;font-size:.88rem;line-height:1.65;color:#475569}
+.status{display:none;margin-top:14px;padding:12px 14px;border-radius:14px;background:#E8F0FF;color:var(--azul);font-size:.84rem;line-height:1.55}
+.status.show{display:block}
 </style>
 </head>
 <body>
@@ -46,7 +48,7 @@ a{text-decoration:none;color:inherit}
   <section class="hero">
     <div class="hero-kicker">Miembros</div>
     <div class="hero-title">Perfiles de la comunidad</div>
-    <div class="hero-sub">Aquí se ven los perfiles de miembros dentro de ENTRE TODOS. El fundador aparece primero. Los perfiles creados desde el registro básico se añaden después dentro de este flujo.</div>
+    <div class="hero-sub">Aquí se ven los perfiles públicos de miembros dentro de ENTRE TODOS. El fundador aparece primero y, después, los registros reales visibles dentro de la plataforma.</div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="perfil-usuario-demo.html#registro"><i class="fi fi-br-user-add"></i> Registrarse</a>
       <a class="btn btn-secondary" href="perfil-mitch-real.html"><i class="fi fi-br-user"></i> Ver fundador</a>
@@ -57,7 +59,7 @@ a{text-decoration:none;color:inherit}
     <div class="sec-head">
       <div>
         <h2>Miembros visibles</h2>
-        <p>El fundador sale primero. Después aparecen los perfiles creados dentro del registro básico de este navegador.</p>
+        <p>El fundador sale primero. Después aparecen los perfiles públicos generados desde el registro básico conectado a la plataforma.</p>
       </div>
     </div>
     <div class="grid" id="members-grid">
@@ -70,37 +72,71 @@ a{text-decoration:none;color:inherit}
         <div class="meta"><span>Potsdam, Alemania</span><span>Activo</span></div>
       </a>
     </div>
-    <div class="empty" id="members-empty" style="display:none;">Todavía no hay más perfiles guardados en este flujo local. Cuando alguien se registre desde aquí, su ficha aparecerá después del fundador.</div>
+    <div class="empty" id="members-empty" style="display:none;">Todavía no hay más perfiles públicos visibles. Cuando alguien se registre desde la plataforma, su ficha aparecerá después del fundador.</div>
+    <div class="status" id="members-status"></div>
   </section>
 </div>
 
 <script>
-const PROFILES_KEY='et_member_profiles_demo';
+const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+const MEMBERS_TABLE='et_members';
 function initials(name){
   return (name||'ET').split(' ').filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase();
 }
-function loadProfiles(){
-  try{return JSON.parse(localStorage.getItem(PROFILES_KEY)||'[]')||[];}catch{return [];}
+function avatarMarkup(profile){
+  return '<div class="avatar">'+initials(profile.display_name||profile.displayName||profile.full_name||profile.fullName)+'</div>';
+}
+async function fetchProfiles(){
+  const params=new URLSearchParams({
+    select:'id,full_name,display_name,city,country,origin,cause,bio,created_at',
+    is_public:'eq.true',
+    status:'eq.active',
+    order:'created_at.desc'
+  });
+  const res=await fetch(SUPABASE_URL+'/rest/v1/'+MEMBERS_TABLE+'?'+params.toString(),{
+    headers:{
+      'apikey':SUPABASE_ANON_KEY,
+      'Authorization':'Bearer '+SUPABASE_ANON_KEY
+    }
+  });
+  if(!res.ok){
+    throw new Error('No se pudo cargar la lista pública de miembros.');
+  }
+  return await res.json();
 }
 const grid=document.getElementById('members-grid');
 const empty=document.getElementById('members-empty');
-const profiles=loadProfiles();
-if(!profiles.length){
-  empty.style.display='block';
-} else {
-  profiles.forEach(profile=>{
-    const card=document.createElement('div');
-    card.className='card';
-    card.innerHTML=
-      '<div class="avatar">'+initials(profile.displayName||profile.fullName)+'</div>'+
-      '<div class="badge">Miembro</div>'+
-      '<div class="name">'+(profile.fullName||'Miembro')+'</div>'+
-      '<div class="handle">'+(profile.displayName||'Sin alias')+'</div>'+
-      '<div class="bio">'+(profile.bio||'Miembro activo dentro de ENTRE TODOS.')+'</div>'+
-      '<div class="meta"><span>'+(profile.city||'Ciudad')+', '+(profile.country||'País')+'</span><span>'+(profile.cause||'Participación')+'</span></div>';
-    grid.appendChild(card);
-  });
+const status=document.getElementById('members-status');
+
+async function renderMembers(){
+  try{
+    const profiles=await fetchProfiles();
+    if(!profiles.length){
+      empty.style.display='block';
+      return;
+    }
+    profiles.forEach(profile=>{
+      const href='miembro.html?id='+encodeURIComponent(profile.id);
+      const card=document.createElement('a');
+      card.className='card';
+      card.href=href;
+      card.innerHTML=
+        avatarMarkup(profile)+
+        '<div class="badge">Miembro</div>'+
+        '<div class="name">'+(profile.full_name||'Miembro')+'</div>'+
+        '<div class="handle">'+(profile.display_name||'Sin alias')+'</div>'+
+        '<div class="bio">'+(profile.bio||'Miembro activo dentro de ENTRE TODOS.')+'</div>'+
+        '<div class="meta"><span>'+(profile.city||'Ciudad')+', '+(profile.country||'País')+'</span><span>'+(profile.cause||'Participación')+'</span></div>';
+      grid.appendChild(card);
+    });
+  }catch(err){
+    status.textContent=err.message || 'No se pudo cargar la lista pública de miembros.';
+    status.classList.add('show');
+  }
 }
+
+renderMembers();
 </script>
 </body>
 </html>

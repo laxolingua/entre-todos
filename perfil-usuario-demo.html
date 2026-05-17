@@ -121,9 +121,9 @@ a{text-decoration:none;color:inherit}
             <h1>Entrar y crear perfil</h1>
             <div class="hero-row">
               <div class="hero-chip"><i class="fi fi-br-user"></i> Registro básico</div>
-              <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Persistencia local</div>
+              <div class="hero-chip green"><i class="fi fi-br-shield-check"></i> Perfil público global</div>
             </div>
-            <div class="hero-desc">Aquí se crea un perfil inicial de miembro. El registro guarda nombre visible, ubicación, causa principal y una descripción breve para mostrar cómo se genera la identidad base dentro de ENTRE TODOS.</div>
+            <div class="hero-desc">Aquí se crea un perfil inicial de miembro. El registro guarda nombre visible, ubicación, causa principal y una descripción breve para generar una identidad pública visible dentro de ENTRE TODOS.</div>
             <div class="hero-actions">
               <a class="btn btn-secondary" href="perfil-mitch-real.html"><i class="fi fi-br-user"></i> Ver fundador</a>
             </div>
@@ -167,7 +167,7 @@ a{text-decoration:none;color:inherit}
             <button class="btn btn-primary" type="submit"><i class="fi fi-br-user-add"></i> Crear perfil</button>
           </form>
           <div class="msg" id="signup-msg">Perfil creado. Entrando a Mi perfil…</div>
-          <div class="auth-note">En esta versión, el perfil se guarda localmente en este navegador para demostrar el flujo completo desde el registro hasta el perfil generado.</div>
+          <div class="auth-note">El registro crea un perfil público básico visible en la sección de miembros. El correo no se expone en esa capa pública.</div>
         </section>
 
         <section class="card founder-card">
@@ -197,7 +197,7 @@ a{text-decoration:none;color:inherit}
             </div>
             <div class="item">
               <div class="item-icon"><i class="fi fi-br-user-check"></i></div>
-              <div><div class="item-title">Perfil navegable</div><div class="item-sub">El registro lleva directamente a un perfil que ya se puede leer como ficha de usuario.</div></div>
+              <div><div class="item-title">Perfil navegable</div><div class="item-sub">El registro genera una ficha pública de miembro y la suma al listado visible.</div></div>
               <div class="item-meta">Activo</div>
             </div>
             <div class="item">
@@ -318,6 +318,9 @@ a{text-decoration:none;color:inherit}
 <script>
 const PROFILE_KEY='et_member_profile_demo';
 const PROFILES_KEY='et_member_profiles_demo';
+const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+const MEMBERS_TABLE='et_members';
 const toggles=document.querySelectorAll('[data-mode]');
 const panels={visitor:document.getElementById('panel-visitor'),signin:document.getElementById('panel-signin')};
 
@@ -339,6 +342,35 @@ function saveProfile(profile){
   profiles = profiles.filter(p => !(p.fullName===profile.fullName && p.email===profile.email));
   profiles.unshift(profile);
   localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
+}
+async function createPublicMember(profile){
+  const payload={
+    full_name:profile.fullName,
+    display_name:profile.displayName,
+    city:profile.city,
+    country:profile.country,
+    origin:profile.origin,
+    cause:profile.cause,
+    bio:profile.bio,
+    status:'active',
+    is_public:true,
+    source:'site_signup'
+  };
+  const res=await fetch(SUPABASE_URL+'/rest/v1/'+MEMBERS_TABLE,{
+    method:'POST',
+    headers:{
+      'apikey':SUPABASE_ANON_KEY,
+      'Authorization':'Bearer '+SUPABASE_ANON_KEY,
+      'Content-Type':'application/json',
+      'Prefer':'return=representation'
+    },
+    body:JSON.stringify(payload)
+  });
+  if(!res.ok){
+    throw new Error('No se pudo crear el perfil público.');
+  }
+  const rows=await res.json();
+  return rows[0];
 }
 
 function initials(name){
@@ -362,8 +394,9 @@ function renderProfile(profile){
   setMode('signin');
 }
 
-document.getElementById('signup-form').addEventListener('submit', (e)=>{
+document.getElementById('signup-form').addEventListener('submit', async (e)=>{
   e.preventDefault();
+  const msg=document.getElementById('signup-msg');
   const profile={
     fullName:document.getElementById('reg-full-name').value.trim(),
     displayName:document.getElementById('reg-display-name').value.trim(),
@@ -375,10 +408,19 @@ document.getElementById('signup-form').addEventListener('submit', (e)=>{
     bio:document.getElementById('reg-bio').value.trim() || 'Miembro activo interesado en participar dentro de ENTRE TODOS.',
     joined:new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'})
   };
-  saveProfile(profile);
-  document.getElementById('signup-msg').style.display='block';
-  renderProfile(profile);
-  setTimeout(()=>{ location.href='miembros.html'; }, 700);
+  try{
+    const created=await createPublicMember(profile);
+    profile.id=created.id;
+    saveProfile(profile);
+    msg.textContent='Perfil creado. Entrando a la sección de miembros…';
+    msg.style.display='block';
+    renderProfile(profile);
+    setTimeout(()=>{ location.href='miembros.html'; }, 700);
+  }catch(err){
+    saveProfile(profile);
+    msg.textContent=err.message || 'No se pudo crear el perfil público.';
+    msg.style.display='block';
+  }
 });
 
 document.getElementById('reset-profile').addEventListener('click', ()=>{
