@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michel Estopiñán C. | ENTRE TODOS</title>
+<meta name="description" content="Perfil de usuario fundador dentro de ENTRE TODOS.">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#002A8F;--rojo:#CF142B;--negro:#111827;--gris:#64748B;--bg:#F5F7FC;--card:#FFFFFF;--line:#D8E0EC;
+  --soft:#EEF3FF;--soft2:#F8FAFF;--green:#16A34A;--shadow:0 10px 30px rgba(0,42,143,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:linear-gradient(180deg,#F8FAFF 0%,#EEF3FB 100%);color:var(--negro)}
+a{text-decoration:none;color:inherit}
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}
+@media(max-width:980px){.shell{grid-template-columns:1fr}}
+.sidebar{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-right:1px solid var(--line);padding:22px 18px 18px;display:flex;flex-direction:column;gap:18px;position:sticky;top:0;height:100vh}
+@media(max-width:980px){.sidebar{display:none}}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:42px;height:42px;border-radius:10px;background:#fff;object-fit:contain}
+.brand strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--azul)}
+.brand span{display:block;font-size:.78rem;color:var(--gris);line-height:1.35}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav a,.quick a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#24324A}
+.nav a i,.quick a i{font-size:1rem;color:var(--azul)}
+.nav a.active,.quick a:hover{background:var(--soft);color:var(--azul)}
+.side-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gris);padding:8px 12px 0}
+.quick{display:flex;flex-direction:column;gap:6px}
+.side-foot{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.side-foot a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:.84rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#334155}
+.side-foot a i{color:var(--azul)}
+.side-foot a.logout{color:var(--rojo)}
+.side-foot a.logout i{color:var(--rojo)}
+.main{padding:24px}
+@media(max-width:980px){.main{padding:14px 14px 92px}}
+.mobile-top{display:none}
+@media(max-width:980px){
+  .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .mobile-brand{display:flex;align-items:center;gap:10px}
+  .mobile-brand img{width:38px;height:38px;border-radius:10px;background:#fff}
+  .mobile-brand strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul)}
+  .mobile-brand span{display:block;font-size:.76rem;color:var(--gris)}
+}
+.hero{background:url('mitch-banner-2026.jpg') center center/cover no-repeat;border-radius:28px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,42,143,.72) 0%,rgba(24,66,167,.48) 42%,rgba(255,255,255,.08) 100%);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 18%, rgba(255,255,255,.12), transparent 28%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:end}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}}
+.hero-user{display:flex;gap:24px;align-items:flex-start}
+@media(max-width:720px){.hero-user{flex-direction:column}}
+.avatar{width:184px;height:184px;border-radius:50%;overflow:hidden;border:5px solid rgba(255,255,255,.92);box-shadow:0 12px 32px rgba(0,42,143,.18);flex-shrink:0}
+@media(max-width:720px){.avatar{width:156px;height:156px}}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-copy h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:2.2px;color:#fff;line-height:1;margin-bottom:4px}
+.hero-subname{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:10px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px}
+.meta{display:inline-flex;align-items:center;gap:7px;font-size:.88rem;color:#fff}
+.status{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:#ECFDF3;color:#166534;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.hero-bio{max-width:680px;font-size:.97rem;line-height:1.7;color:rgba(255,255,255,.96)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 15px;border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.btn-primary{background:#fff;color:var(--azul)}
+.btn-secondary{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.hero-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:980px){.hero-side{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:700px){.hero-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:rgba(255,255,255,.92);border-radius:18px;padding:14px 14px 12px}
+.stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:1.2px;color:var(--azul);line-height:1}
+.stat span{display:block;margin-top:5px;font-size:.74rem;line-height:1.45;color:#475569}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.tab{padding:9px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#334155}
+.tab.active{background:var(--azul);border-color:var(--azul);color:#fff}
+.grid{display:grid;grid-template-columns:minmax(0,1.3fr) 360px;gap:18px}
+@media(max-width:1100px){.grid{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:18px}
+.card{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.card-head h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
+.card-link{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--azul)}
+.about p{font-size:.92rem;line-height:1.68;color:#24324A;margin-bottom:10px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:640px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--soft2);border:1px solid #E8EEF8;border-radius:18px;padding:14px}
+.fact .label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
+.fact .value{font-size:.88rem;line-height:1.55;color:#24324A}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:12px;align-items:center}
+.bar-copy strong{display:block;font-size:.9rem;line-height:1.35;color:#20304C}
+.bar-copy span{display:block;font-size:.78rem;color:var(--gris);margin-top:2px}
+.track{height:8px;border-radius:999px;background:#E5ECF7;margin-top:8px;overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1D4ED8,#60A5FA)}
+.pct{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:1px;color:var(--azul);text-align:right}
+.list{display:flex;flex-direction:column;gap:12px}
+.item{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:start;padding-top:12px;border-top:1px solid #E8EEF7}
+.item:first-child{padding-top:0;border-top:none}
+.icon{width:42px;height:42px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:1rem}
+.item strong{display:block;font-size:.92rem;line-height:1.4;color:#21314C}
+.item span{display:block;font-size:.82rem;line-height:1.55;color:var(--gris);margin-top:3px}
+.meta-small{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gris)}
+.connection-box{background:linear-gradient(135deg,#FFF7ED,#FFFDF8);border:1px solid #F5D7B2;border-radius:20px;padding:16px}
+.connection-box .big{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1.5px;color:#9A3412;line-height:1}
+.connection-box .small{font-size:.84rem;color:#9A3412;line-height:1.55;margin-top:6px}
+.friends{display:flex;align-items:center;gap:8px;margin-top:12px}
+.mini-face{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#60A5FA,#A78BFA);border:2px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:.8rem;margin-left:-6px}
+.friends .mini-face:first-child{margin-left:0}
+.link-rows{display:flex;flex-direction:column;gap:10px}
+.link-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:18px;background:#F8FAFF;border:1px solid #E8EEF7}
+@media(max-width:640px){.link-row{flex-direction:column;align-items:flex-start}}
+.link-meta{display:flex;gap:12px;align-items:center}
+.link-meta .icon{width:38px;height:38px;border-radius:12px}
+.link-meta strong{display:block;font-size:.9rem;color:#22314A}
+.link-meta span{display:block;font-size:.8rem;color:var(--gris);margin-top:2px}
+.mobile-nav{display:none}
+@media(max-width:980px){
+  .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;position:fixed;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:20px;padding:8px;box-shadow:var(--shadow);z-index:50}
+  .mobile-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px 4px;border-radius:14px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#475569}
+  .mobile-nav a.active{background:var(--soft);color:var(--azul)}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="entre-todos-logo-final.png" alt="Entre Todos" onerror="this.style.display='none'">
+      <div>
+        <strong>Entre Todos</strong>
+        <span>Construyamos la nueva Cuba</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#"><i class="fi fi-br-home"></i> Inicio</a>
+      <a href="#"><i class="fi fi-br-compass"></i> Explorar</a>
+      <a href="#"><i class="fi fi-br-document"></i> Propuestas</a>
+      <a href="#"><i class="fi fi-br-comment-alt"></i> Debates</a>
+      <a href="#" class="active"><i class="fi fi-br-user"></i> Mi espacio</a>
+    </nav>
+
+    <div class="side-label">Accesos rápidos</div>
+    <div class="quick">
+      <a href="#"><i class="fi fi-br-edit"></i> Mis aportes</a>
+      <a href="#"><i class="fi fi-br-bookmark"></i> Propuestas seguidas</a>
+      <a href="#"><i class="fi fi-br-comment-heart"></i> Debates guardados</a>
+      <a href="#"><i class="fi fi-br-building"></i> Organizaciones seguidas</a>
+    </div>
+
+    <div class="side-foot">
+      <a href="#"><i class="fi fi-br-globe"></i> Idioma: Español (ES)</a>
+      <a href="#"><i class="fi fi-br-life-ring"></i> Ayuda y soporte</a>
+      <a href="#" class="logout"><i class="fi fi-br-sign-out-alt"></i> Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="mobile-top">
+      <div class="mobile-brand">
+        <img src="entre-todos-logo-final.png" alt="Entre Todos" onerror="this.style.display='none'">
+        <div>
+          <strong>Entre Todos</strong>
+          <span>Mi espacio</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-user">
+          <div class="avatar"><img src="mitch-perfil-fundador-2026.jpg" alt="Michel Estopiñán C."></div>
+          <div class="hero-copy">
+            <h1>Michel Estopiñán C.</h1>
+            <div class="hero-subname">Mitch</div>
+            <div class="hero-meta">
+              <div class="meta"><i class="fi fi-br-marker"></i> Potsdam, Alemania</div>
+              <div class="meta"><i class="fi fi-br-home-location-alt"></i> Natural de: Matanzas, Cuba</div>
+            </div>
+            <div class="status"><i class="fi fi-br-check"></i> Ciudadano activo</div>
+            <div class="hero-bio">Profesor adjunto, activista por el tratamiento humano y ético a las personas, los animales y al medio ambiente.</div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#"><i class="fi fi-br-user-add"></i> Seguir</a>
+              <a class="btn btn-secondary" href="#"><i class="fi fi-br-comment-alt"></i> Mensaje</a>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/mestopinan?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer"><i class="fi fi-br-link"></i> LinkedIn</a>
+              <a class="btn btn-secondary" href="https://www.facebook.com/share/1BUG3HwwkD/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><i class="fi fi-br-link"></i> Facebook</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="stat"><strong>128</strong><span>Aportes</span></div>
+          <div class="stat"><strong>56</strong><span>Comentarios útiles</span></div>
+          <div class="stat"><strong>24</strong><span>Propuestas apoyadas</span></div>
+          <div class="stat"><strong>3</strong><span>Debates iniciados</span></div>
+          <div class="stat"><strong>92%</strong><span>Índice de colaboración</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tabs">
+      <div class="tab active">Actividad</div>
+      <div class="tab">Aportes</div>
+      <div class="tab">Propuestas apoyadas</div>
+      <div class="tab">Debates</div>
+      <div class="tab">Organizaciones</div>
+    </div>
+
+    <div class="grid">
+      <div class="col">
+        <section class="card">
+          <div class="card-head"><h3>Sobre mí</h3></div>
+          <div class="about">
+            <p>Docente y constructor de proyectos cívicos con foco en participación pública, deliberación estructurada y diseño de espacios donde las personas puedan intervenir sin quedar reducidas a consignas o bandos.</p>
+            <p>Trabajo desde una visión no partidista, post-ideológica y transpolítica, con énfasis en dignidad humana, justicia, educación, medio ambiente y bienestar animal.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><div class="label">Se unió en</div><div class="value">Marzo de 2026</div></div>
+            <div class="fact"><div class="label">Verificación</div><div class="value">Identidad verificada</div></div>
+            <div class="fact"><div class="label">Mi posición política</div><div class="value">No Partidista. Post-ideológico, Transpolítico, Humanista, Animalista y Ambientalista.</div></div>
+            <div class="fact"><div class="label">Enlaces verificados</div><div class="value">LinkedIn y Facebook públicos autorizados.</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h3>Actividad reciente</h3></div>
+          <div class="list">
+            <div class="item">
+              <div class="icon"><i class="fi fi-br-thumbs-up"></i></div>
+              <div><strong>Apoyaste la propuesta Ley de Garantías para la Transición Democrática</strong><span>Participación visible dentro del ecosistema de propuestas priorizadas.</span></div>
+              <div class="meta-small">Hoy</div>
+            </div>
+            <div class="item">
+              <div class="icon"><i class="fi fi-br-comment-alt"></i></div>
+              <div><strong>Comentaste en un debate sobre justicia e instituciones</strong><span>Intervención orientada a diseño de procesos y trato humano.</span></div>
+              <div class="meta-small">Ayer</div>
+            </div>
+            <div class="item">
+              <div class="icon"><i class="fi fi-br-bookmark"></i></div>
+              <div><strong>Guardaste un debate sobre sistema electoral</strong><span>Seguimiento de discusión sobre mayoría, representación y diseño democrático.</span></div>
+              <div class="meta-small">Hace 2 días</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="card">
+          <div class="card-head"><h3>Causas que apoyo</h3></div>
+          <div class="bars">
+            <div class="bar-row"><div class="bar-copy"><strong>Liberación presos políticos</strong><div class="track"><div class="fill" style="width:100%"></div></div></div><div class="pct">100%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Educación</strong><div class="track"><div class="fill" style="width:90%"></div></div></div><div class="pct">90%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Transparencia</strong><div class="track"><div class="fill" style="width:100%"></div></div></div><div class="pct">100%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Justicia y derechos</strong><div class="track"><div class="fill" style="width:95%"></div></div></div><div class="pct">95%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Participación ciudadana</strong><div class="track"><div class="fill" style="width:72%"></div></div></div><div class="pct">72%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Bienestar animal</strong><div class="track"><div class="fill" style="width:98%"></div></div></div><div class="pct">98%</div></div>
+            <div class="bar-row"><div class="bar-copy"><strong>Medio ambiente</strong><div class="track"><div class="fill" style="width:95%"></div></div></div><div class="pct">95%</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h3>Red de conexiones</h3><a class="card-link" href="#">Ver todas</a></div>
+          <div class="connection-box">
+            <div class="big">342 conexiones</div>
+            <div class="small">Amigos que también apoyan esta propuesta: <strong>Ley de Garantía para la Transición Democrática</strong></div>
+            <div class="friends">
+              <div class="mini-face">A</div>
+              <div class="mini-face">L</div>
+              <div class="mini-face">C</div>
+              <div class="mini-face">R</div>
+              <div class="mini-face">+18</div>
+            </div>
+            <div style="margin-top:14px;">
+              <a class="btn btn-primary" href="#"><i class="fi fi-br-arrow-right"></i> Ver propuesta</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h3>Mi contribución al Proyecto País</h3></div>
+          <div class="facts">
+            <div class="fact"><div class="label">Nivel de contribución</div><div class="value">92%</div></div>
+            <div class="fact"><div class="label">Aportes destacados</div><div class="value">Educación, justicia, participación y trato ético.</div></div>
+            <div class="fact"><div class="label">Propuestas seguidas</div><div class="value">24 registros</div></div>
+            <div class="fact"><div class="label">Debates iniciados</div><div class="value">3 conversaciones activas</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h3>Enlaces</h3></div>
+          <div class="link-rows">
+            <div class="link-row">
+              <div class="link-meta">
+                <div class="icon"><i class="fi fi-br-briefcase"></i></div>
+                <div><strong>LinkedIn</strong><span>Perfil profesional público autorizado.</span></div>
+              </div>
+              <a class="back-btn" href="https://www.linkedin.com/in/mestopinan?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer">Abrir</a>
+            </div>
+            <div class="link-row">
+              <div class="link-meta">
+                <div class="icon"><i class="fi fi-brands-facebook"></i></div>
+                <div><strong>Facebook</strong><span>Perfil social público autorizado.</span></div>
+              </div>
+              <a class="back-btn" href="https://www.facebook.com/share/1BUG3HwwkD/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Abrir</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<nav class="mobile-nav">
+  <a href="#"><i class="fi fi-br-home"></i><span>Inicio</span></a>
+  <a href="#"><i class="fi fi-br-compass"></i><span>Explorar</span></a>
+  <a href="#"><i class="fi fi-br-document"></i><span>Propuestas</span></a>
+  <a href="#"><i class="fi fi-br-comment-alt"></i><span>Debates</span></a>
+  <a href="#" class="active"><i class="fi fi-br-user"></i><span>Mi espacio</span></a>
+</nav>
+</body>
+</html>
