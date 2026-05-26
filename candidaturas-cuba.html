@@ -38,7 +38,7 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .page-banner-phase::before{content:'';display:inline-block;width:28px;height:2px;background:var(--rojo);border-radius:2px;flex-shrink:0;}
 .page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);letter-spacing:4px;color:#fff;line-height:1.0;margin-bottom:14px;}
 .page-banner-title span{color:var(--rojo);}
-.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:580px;margin-bottom:22px;}
+.page-banner-sub{font-family:'Barlow',sans-serif;font-size:clamp(.8rem,1vw,.93rem);color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:700px;margin-bottom:22px;}
 .page-banner-stats{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;}
 .page-banner-stat{display:flex;flex-direction:column;gap:2px;}
 .page-banner-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:#fff;letter-spacing:2px;line-height:1;}
@@ -60,22 +60,30 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .context-box strong{color:var(--azul);}
 
 /* ── CANDIDATE GRID ── */
-.candidate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:40px;}
+.candidate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;margin-bottom:32px;}
+.role-section{margin-bottom:36px;}
+.role-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.role-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--azul);}
+.role-sub{font-size:.82rem;color:var(--gris);line-height:1.6;max-width:720px;}
+.role-meta{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--rojo);}
+.status-band{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px;}
+.status-band.declared{background:#EEF2FF;color:var(--azul);border:1px solid rgba(0,42,143,.18);}
+.status-band.nominated{background:#FFF8E8;color:#8a5a00;border:1px solid rgba(184,134,11,.22);}
 
 /* ── CANDIDATE CARD ── */
-.candidate-card{background:#fff;border:2px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sh);transition:box-shadow .2s,border-color .2s;}
-.candidate-card:hover{box-shadow:var(--shf);border-color:var(--azul);}
-.candidate-card-header{background:var(--azul);padding:18px 20px;display:flex;align-items:center;gap:14px;}
-.candidate-avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;flex-shrink:0;overflow:hidden;}
+.candidate-card{background:#fff;border:2px solid var(--borde);border-radius:14px;padding:18px 14px 16px;box-shadow:var(--sh);transition:box-shadow .2s,border-color .2s,transform .2s;text-align:center;}
+.candidate-card:hover{box-shadow:var(--shf);border-color:var(--azul);transform:translateY(-2px);}
+.candidate-link{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:inherit;}
+.candidate-avatar{width:94px;height:94px;border-radius:50%;background:var(--gris-bg);border:3px solid var(--azul);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--azul);flex-shrink:0;overflow:hidden;box-shadow:0 6px 20px rgba(0,42,143,.16);}
 .candidate-avatar img{width:100%;height:100%;object-fit:cover;}
-.candidate-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:1.5px;color:#fff;line-height:1.1;}
-.candidate-movement{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:3px;}
-.candidate-body{padding:18px 20px;}
-.candidate-bio{font-size:.84rem;line-height:1.65;color:var(--negro);margin-bottom:14px;}
-.candidate-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.candidate-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:1.1px;color:var(--azul);line-height:1.1;}
+.candidate-movement{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--gris);line-height:1.35;}
+.candidate-status{margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--rojo);}
+.candidate-mini-note{margin-top:6px;font-size:.78rem;line-height:1.45;color:var(--gris);}
+.candidate-tags{display:none;}
 .tag{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:3px;border:1px solid var(--borde);color:var(--gris);}
 .tag.azul{border-color:var(--azul);color:var(--azul);background:#EEF2FF;}
-.candidate-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.candidate-actions{display:none;}
 .btn-primary{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--azul);color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .18s;}
 .btn-primary:hover{background:#001f6b;}
 .btn-outline{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:#fff;color:var(--azul);border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .18s;}
@@ -126,7 +134,7 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .status-notice i{color:#B8860B;font-size:.9rem;flex-shrink:0;margin-top:2px;}
 
 /* ── PLACEHOLDER CANDIDATE ── */
-.placeholder-card{background:var(--gris-bg);border:2px dashed var(--borde);border-radius:10px;padding:28px;text-align:center;color:var(--gris);}
+.placeholder-card{background:var(--gris-bg);border:2px dashed var(--borde);border-radius:14px;padding:24px 20px;text-align:center;color:var(--gris);min-height:180px;display:flex;flex-direction:column;justify-content:center;}
 .placeholder-card i{font-size:2rem;color:var(--borde);display:block;margin-bottom:10px;}
 .placeholder-card p{font-size:.84rem;line-height:1.6;}
 .placeholder-card strong{color:var(--azul);}
@@ -326,34 +334,43 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 </div><!-- /sec -->
 
 <hr class="sec-divider">
+
 <div class="sec">
   <div class="sec-label">Espacios partidistas / ideológicos</div>
   <div class="sec-title">Corrientes visibles que también conviene registrar</div>
   <div class="sec-sub">No todo actor relevante llega primero como candidatura personal. Algunas corrientes aparecen antes como identidad doctrinal o espacio político. ENTRE TODOS puede registrarlas por separado para que la ciudadanía vea con claridad qué línea representan y cuánta evidencia pública existe realmente.</div>
-  <div class="context-box">
+  <div class="context-box" style="margin-bottom:20px;">
     <p><strong>Salvedad importante:</strong> la presidencia, vocería o representación de un partido <strong>no equivale automáticamente</strong> a una candidatura presidencial.</p>
     <p>Un partido puede tener presidente, coordinador nacional, representante o portavoz sin haber presentado todavía un candidato a la presidencia de Cuba. ENTRE TODOS debe distinguir ambos planos con claridad: <strong>ficha de partido</strong> por un lado y <strong>ficha de candidatura presidencial</strong> por otro.</p>
   </div>
+
   <div class="candidate-grid">
     <div class="candidate-card">
-      <div class="candidate-card-header">
+      <a href="alternativa-no-partidista-cuba-2026.html" class="candidate-link">
+        <div class="candidate-avatar"><img src="img/np-alternativa-no-partidista-cuba-logo-2026.jpg" alt="Logo de Alternativa No Partidista de Cuba"></div>
+        <div class="candidate-name">Alternativa No Partidista de Cuba</div>
+        <div class="candidate-movement">Espacio cívico / corriente no partidista</div>
+        <div class="candidate-status">Ficha institucional</div>
+        <div class="candidate-mini-note">Corriente pública con sitio propio, identidad visible y tesis política centrada en ciudadanía, pluralismo y soluciones sin afiliación partidista obligatoria.</div>
+      </a>
+    </div>
+    <div class="candidate-card">
+      <a href="partido-libertario-cuba-2026.html" class="candidate-link">
         <div class="candidate-avatar"><img src="img/partido-libertario-cuba-logo-2026.jpg" alt="Logo del Partido Libertario de Cuba"></div>
-        <div>
-          <div class="candidate-name">Partido Libertario de Cuba</div>
-          <div class="candidate-movement">Partido político / sitio y documentos propios</div>
-        </div>
-      </div>
-      <div class="candidate-body">
-        <div class="candidate-bio">Registro partidista con sitio oficial, estatutos, acta constitutiva y proyecto de reconstrucción nacional enlazados públicamente.</div>
-        <div class="candidate-tags">
-          <span class="tag azul">Ficha institucional</span>
-          <span class="tag">Partido</span>
-          <span class="tag">No candidatura presidencial</span>
-        </div>
-        <div class="candidate-actions">
-          <a href="partido-libertario-cuba-2026.html" class="btn-primary"><i class="fi fi-br-eye"></i> Ver ficha del partido</a>
-        </div>
-      </div>
+        <div class="candidate-name">Partido Libertario de Cuba</div>
+        <div class="candidate-movement">Partido político / sitio y documentos propios</div>
+        <div class="candidate-status">Ficha institucional</div>
+        <div class="candidate-mini-note">Registro partidista con sitio oficial, estatutos, acta constitutiva y proyecto de reconstrucción nacional enlazados públicamente.</div>
+      </a>
+    </div>
+    <div class="candidate-card">
+      <a href="partido-anexionista-libertario-2026.html" class="candidate-link">
+        <div class="candidate-avatar">PAL</div>
+        <div class="candidate-name">Partido Anexionista Libertario</div>
+        <div class="candidate-movement">Espacio doctrinal / partidista</div>
+        <div class="candidate-status">Ficha institucional provisional</div>
+        <div class="candidate-mini-note">Registro inicial de una corriente política definida por anexionismo estratégico hacia EE.UU. y libertarismo económico, con documentación pública todavía limitada.</div>
+      </a>
     </div>
   </div>
 </div>
@@ -392,5 +409,6 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 <footer>
   <strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Consenso Ciudadano &nbsp;·&nbsp; Fase 4: Sistema Electoral y Candidaturas &nbsp;·&nbsp; 2026
 </footer>
+
 </body>
 </html>

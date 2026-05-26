@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternativa No Partidista de Cuba — Ficha Institucional | ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;--sh:0 2px 16px rgba(0,42,143,.10);--shf:0 6px 32px rgba(0,42,143,.18);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);}
+html{scroll-behavior:smooth;}
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
+header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:16px;flex-wrap:wrap;}
+.hdr-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
+.back-btn:hover{background:var(--azul);color:#fff;}
+.page-banner{background:var(--azul);position:relative;overflow:hidden;}
+.page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}
+.page-banner-inner{max-width:1100px;margin:0 auto;padding:34px 28px 38px;position:relative;z-index:2;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;}
+@media(max-width:700px){.page-banner-inner{grid-template-columns:1fr;}}
+.hero-photo{width:120px;height:120px;border-radius:50%;border:4px solid rgba(255,255,255,.25);box-shadow:0 8px 30px rgba(0,0,0,.18);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;}
+.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:3px;color:#fff;line-height:1;margin-bottom:10px;}
+.page-banner-sub{font-size:.95rem;color:rgba(255,255,255,.76);line-height:1.7;max-width:720px;}
+.sec{max-width:1100px;margin:0 auto;padding:36px 22px;}
+.neutrality-box,.context-box,.status-notice{border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;}
+.neutrality-box{background:#EEF2FF;border-left:4px solid var(--azul);font-size:.83rem;line-height:1.65;}
+.neutrality-box strong,.context-box strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;}
+.context-box{background:var(--gris-bg);border-left:4px solid var(--azul);font-size:.85rem;line-height:1.72;}
+.context-box p{margin-bottom:10px;}
+.context-box p:last-child{margin-bottom:0;}
+.status-notice{background:#FFF9E6;border:1px solid #E8C84A;border-left:4px solid #B8860B;display:flex;align-items:flex-start;gap:11px;font-size:.82rem;line-height:1.65;color:#5a3e00;}
+.status-notice i{color:#B8860B;font-size:.9rem;flex-shrink:0;margin-top:2px;}
+.detail-card{background:#fff;border:1.5px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sh);}
+.detail-header{background:var(--azul);padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;}
+@media(max-width:640px){.detail-header{grid-template-columns:auto 1fr;}.detail-badge{display:none;}}
+.detail-avatar{width:72px;height:72px;border-radius:50%;background:#fff;border:3px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.detail-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.detail-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:4px;}
+.detail-movement{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.detail-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:10px 16px;text-align:center;}
+.detail-badge-n{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:1px;}
+.detail-badge-l{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.detail-bio{padding:24px 28px;border-bottom:1px solid var(--borde);}
+.detail-bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:640px){.detail-bio-grid{grid-template-columns:1fr;}}
+.bio-block p{font-size:.86rem;line-height:1.72;color:var(--negro);margin-bottom:12px;}
+.bio-block p:last-child{margin:0;}
+.bio-fact{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.bio-fact-icon{width:30px;height:30px;border-radius:50%;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:.85rem;flex-shrink:0;}
+.bio-fact-text{font-size:.83rem;line-height:1.55;color:var(--negro);}
+.bio-fact-text strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:.72rem;letter-spacing:.5px;display:block;margin-bottom:1px;}
+.platform-section{padding:24px 28px;}
+.platform-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--azul);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.platform-label::after{content:'';flex:1;height:1px;background:var(--borde);}
+.platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:20px;}
+.platform-card{background:var(--gris-bg);border-radius:8px;padding:16px 18px;border-left:3px solid var(--azul);}
+.platform-card-cat{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.platform-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:6px;}
+.platform-card-text{font-size:.81rem;line-height:1.6;color:var(--negro);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .18s;}
+.btn-primary{background:var(--azul);color:#fff;border:none;}
+.btn-primary:hover{background:#001f6b;}
+.btn-outline{background:#fff;color:var(--azul);border:2px solid var(--azul);}
+.btn-outline:hover{background:var(--azul);color:#fff;}
+footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}
+footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+footer a{color:rgba(255,255,255,.6);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="flag-bar"></div>
+<header>
+  <div class="hdr">
+    <div class="hdr-left">
+      <a href="index.html" style="display:block;line-height:0;">
+        <img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
+      </a>
+      <a href="candidaturas-cuba.html" class="back-btn"><i class="fi fi-br-arrow-left"></i> Candidaturas</a>
+      <a href="propuestas-transicion-cuba.html" class="back-btn"><i class="fi fi-br-list"></i> Propuestas</a>
+    </div>
+  </div>
+</header>
+<div class="page-banner">
+  <div class="page-banner-flag"></div>
+  <div class="page-banner-inner">
+    <div class="hero-photo"><img src="img/np-alternativa-no-partidista-cuba-logo-2026.jpg" alt="Logo de Alternativa No Partidista de Cuba"></div>
+    <div>
+      <div class="page-banner-phase">Ficha institucional · Cuba</div>
+      <div class="page-banner-title">Alternativa No Partidista de Cuba</div>
+      <div class="page-banner-sub">Registro institucional de un espacio cívico y político no partidista con sitio propio, identidad visual pública, narrativa programática visible y un planteamiento explícito de participación plural sin afiliación obligatoria a partidos.</div>
+    </div>
+  </div>
+</div>
+<div class="sec">
+  <div class="neutrality-box">
+    <strong>Nota de neutralidad:</strong> ENTRE TODOS no respalda ni promueve esta corriente. La inclusión responde a evidencia pública suficiente: sitio propio, formulación explícita, identidad definida y una propuesta política diferenciada dentro del ecosistema opositor y de transición.
+  </div>
+  <div class="detail-card">
+    <div class="detail-header">
+      <div class="detail-avatar"><img src="img/np-alternativa-no-partidista-cuba-logo-2026.jpg" alt="Logo de Alternativa No Partidista de Cuba"></div>
+      <div>
+        <div class="detail-name">Alternativa No Partidista de Cuba</div>
+        <div class="detail-movement">Espacio cívico / corriente no partidista · plataforma plural</div>
+      </div>
+      <div class="detail-badge">
+        <div class="detail-badge-n">2026</div>
+        <div class="detail-badge-l">Ficha institucional</div>
+      </div>
+    </div>
+    <div class="detail-bio">
+      <div class="detail-bio-grid">
+        <div class="bio-block">
+          <p>La <strong>Alternativa No Partidista de Cuba</strong> se presenta como una vía política y cívica que busca desplazar el centro de gravedad desde las siglas partidistas hacia la ciudadanía, las soluciones y la construcción de una plataforma común. Su narrativa insiste en que una Cuba democrática debe abrir espacio tanto para quienes militan en partidos como para quienes no desean reducir su participación a una afiliación.</p>
+          <p>En su formulación pública, no se define como antipartido sino como <strong>camino complementario</strong>. Sostiene que los partidos son actores legítimos de una democracia, pero que también debe existir una opción organizada para quienes prefieren una lógica <strong>post-tribal, plural y orientada a soluciones</strong>. Por eso conviene registrarla dentro de ENTRE TODOS como <strong>corriente institucional visible</strong> y no dejarla fuera del mapa político real.</p>
+        </div>
+        <div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-flag"></i></div><div class="bio-fact-text"><strong>Tipo de registro</strong>Alternativa cívica y política no partidista con sitio e identidad pública propia.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-users"></i></div><div class="bio-fact-text"><strong>Sujeto central</strong>La ciudadanía como eje de construcción política, no una ideología única ni una sigla obligatoria.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-balance-scale-right"></i></div><div class="bio-fact-text"><strong>Relación con los partidos</strong>No plantea abolirlos ni negarlos, sino coexistir con ellos y abrir una vía paralela para no afiliados.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-bulb"></i></div><div class="bio-fact-text"><strong>Cultura política propuesta</strong>Pluralismo, deliberación transversal, soluciones antes que bandos y libertad crítica frente a cualquier bloque.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-link"></i></div><div class="bio-fact-text"><strong>Presencia pública</strong>Sitio propio, blog, afiliación, identidad visual y lenguaje programático consistente publicados en línea.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-section">
+      <div class="platform-label">Ejes visibles de formulación</div>
+      <div class="platform-grid">
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-house-chimney-user"></i> Cultura política</div><div class="platform-card-title">Ciudadano antes que partido</div><div class="platform-card-text">La propuesta busca que la participación política no dependa de someterse a una sigla, una ortodoxia o una lealtad cerrada.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-arrows-repeat"></i> Pluralismo</div><div class="platform-card-title">Tomar lo mejor de cada color</div><div class="platform-card-text">Se declara abierta a ideas útiles de distintos espacios políticos, sin pedir renuncia identitaria previa a quien participa.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-check"></i> Método</div><div class="platform-card-title">Soluciones antes que bandos</div><div class="platform-card-text">El eje discursivo principal es ordenar la política alrededor de problemas concretos y respuestas evaluables, no alrededor de trincheras partidistas.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-people-group"></i> Inclusión</div><div class="platform-card-title">Vía complementaria para no afiliados</div><div class="platform-card-text">Defiende el derecho a fundar e integrar partidos, pero también el derecho a no militar en ninguno y aun así organizarse políticamente.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-document-signed"></i> Participación</div><div class="platform-card-title">Afiliación y propuestas propias</div><div class="platform-card-text">El sitio habilita afiliación, difusión doctrinal y recepción de propuestas, lo que muestra un nivel organizativo superior al de una simple consigna.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-globe"></i> Ecosistema</div><div class="platform-card-title">Actor relevante del mapa transicional</div><div class="platform-card-text">Su existencia obliga a distinguir entre candidaturas personales, partidos clásicos y alternativas no partidistas con vocación pública propia.</div></div>
+      </div>
+      <div class="status-notice"><i class="fi fi-br-info"></i><span><strong>Diferenciación importante:</strong> esta ficha registra una <strong>corriente institucional no partidista</strong>, no una candidatura presidencial. Tampoco debe confundirse automáticamente con ENTRE TODOS, aunque haya afinidades de lenguaje alrededor de pluralidad, ciudadanía y soluciones. Si en el futuro esta corriente presentara un candidato o una fórmula presidencial, eso debería documentarse en una ficha separada.</span></div>
+      <div class="context-box">
+        <p><strong>Fuente base usada para esta ficha:</strong> sitio público de <a href="https://nopartidistacuba.org/" target="_blank" rel="noopener noreferrer">No Partidista Cuba</a>, incluyendo su portada, textos de posicionamiento y flujo de afiliación publicados bajo la identidad “Alternativa No Partidista de Cuba”.</p>
+        <p><strong>Lectura metodológica:</strong> dado que la corriente existe con branding, narrativa, estructura de captación y una tesis política diferenciada, dejarla fuera del registro distorsionaría el mapa de actores reales que hoy circulan alrededor de una transición cubana.</p>
+        <p><strong>Enlace público:</strong> <a href="https://nopartidistacuba.org/" target="_blank" rel="noopener noreferrer">nopartidistacuba.org</a></p>
+      </div>
+      <div class="actions">
+        <a href="candidaturas-cuba.html" class="btn-outline"><i class="fi fi-br-arrow-left"></i> Volver a candidaturas</a>
+        <a href="https://nopartidistacuba.org/" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fi fi-br-link"></i> Abrir sitio oficial</a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Ficha institucional &nbsp;·&nbsp; 2026</footer>
+</body>
+</html>
