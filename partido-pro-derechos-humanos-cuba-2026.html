@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partido Pro Derechos Humanos de Cuba — Ficha Institucional | ENTRE TODOS</title>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#002A8F;--rojo:#CF142B;--negro:#111;--gris:#6B7280;--gris-bg:#F4F6F9;--borde:#D1D5DB;--sh:0 2px 16px rgba(0,42,143,.10);--shf:0 6px 32px rgba(0,42,143,.18);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:#fff;color:var(--negro);}
+html{scroll-behavior:smooth;}
+.flag-bar{height:4px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);}
+header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:9px 22px;gap:16px;flex-wrap:wrap;}
+.hdr-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.back-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border:2px solid var(--azul);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);text-decoration:none;transition:all .18s;white-space:nowrap;}
+.back-btn:hover{background:var(--azul);color:#fff;}
+.page-banner{background:var(--azul);position:relative;overflow:hidden;}
+.page-banner-flag{height:5px;background:linear-gradient(90deg,var(--azul) 33.3%,#fff 33.3%,#fff 66.6%,var(--rojo) 66.6%);opacity:.35;}
+.page-banner-inner{max-width:1100px;margin:0 auto;padding:34px 28px 38px;position:relative;z-index:2;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;}
+@media(max-width:700px){.page-banner-inner{grid-template-columns:1fr;}}
+.hero-photo{width:120px;height:120px;border-radius:50%;border:4px solid rgba(255,255,255,.25);box-shadow:0 8px 30px rgba(0,0,0,.18);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--azul);}
+.page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;}
+.page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:3px;color:#fff;line-height:1;margin-bottom:10px;}
+.page-banner-sub{font-size:.95rem;color:rgba(255,255,255,.76);line-height:1.7;max-width:720px;}
+.sec{max-width:1100px;margin:0 auto;padding:36px 22px;}
+.neutrality-box,.context-box,.status-notice{border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;}
+.neutrality-box{background:#EEF2FF;border-left:4px solid var(--azul);font-size:.83rem;line-height:1.65;}
+.neutrality-box strong,.context-box strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.5px;}
+.context-box{background:var(--gris-bg);border-left:4px solid var(--azul);font-size:.85rem;line-height:1.72;}
+.context-box p{margin-bottom:10px;}
+.context-box p:last-child{margin-bottom:0;}
+.status-notice{background:#FFF9E6;border:1px solid #E8C84A;border-left:4px solid #B8860B;display:flex;align-items:flex-start;gap:11px;font-size:.82rem;line-height:1.65;color:#5a3e00;}
+.status-notice i{color:#B8860B;font-size:.9rem;flex-shrink:0;margin-top:2px;}
+.detail-card{background:#fff;border:1.5px solid var(--borde);border-radius:10px;overflow:hidden;box-shadow:var(--sh);}
+.detail-header{background:var(--azul);padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;}
+@media(max-width:640px){.detail-header{grid-template-columns:auto 1fr;}.detail-badge{display:none;}}
+.detail-avatar{width:72px;height:72px;border-radius:50%;background:#fff;border:3px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;color:var(--azul);}
+.detail-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:4px;}
+.detail-movement{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.detail-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:10px 16px;text-align:center;}
+.detail-badge-n{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:1px;}
+.detail-badge-l{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.detail-bio{padding:24px 28px;border-bottom:1px solid var(--borde);}
+.detail-bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:640px){.detail-bio-grid{grid-template-columns:1fr;}}
+.bio-block p{font-size:.86rem;line-height:1.72;color:var(--negro);margin-bottom:12px;}
+.bio-block p:last-child{margin:0;}
+.bio-fact{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.bio-fact-icon{width:30px;height:30px;border-radius:50%;background:var(--gris-bg);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:.85rem;flex-shrink:0;}
+.bio-fact-text{font-size:.83rem;line-height:1.55;color:var(--negro);}
+.bio-fact-text strong{color:var(--azul);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:.72rem;letter-spacing:.5px;display:block;margin-bottom:1px;}
+.platform-section{padding:24px 28px;}
+.platform-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--azul);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.platform-label::after{content:'';flex:1;height:1px;background:var(--borde);}
+.platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:20px;}
+.platform-card{background:var(--gris-bg);border-radius:8px;padding:16px 18px;border-left:3px solid var(--azul);}
+.platform-card-cat{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--rojo);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.platform-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--azul);margin-bottom:6px;}
+.platform-card-text{font-size:.81rem;line-height:1.6;color:var(--negro);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .18s;}
+.btn-primary{background:var(--azul);color:#fff;border:none;}
+.btn-primary:hover{background:#001f6b;}
+.btn-outline{background:#fff;color:var(--azul);border:2px solid var(--azul);}
+.btn-outline:hover{background:var(--azul);color:#fff;}
+footer{background:var(--azul);color:rgba(255,255,255,.7);text-align:center;padding:20px 22px;font-size:.75rem;letter-spacing:.5px;margin-top:48px;}
+footer strong{color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;}
+footer a{color:rgba(255,255,255,.6);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="flag-bar"></div>
+<header>
+  <div class="hdr">
+    <div class="hdr-left">
+      <a href="index.html" style="display:block;line-height:0;">
+        <img src="entre-todos-logo-final.png" alt="Entre Todos" style="height:44px;width:auto;display:block;border-radius:6px;" onerror="this.style.display='none'">
+      </a>
+      <a href="candidaturas-cuba.html" class="back-btn"><i class="fi fi-br-arrow-left"></i> Candidaturas</a>
+      <a href="propuestas-transicion-cuba.html" class="back-btn"><i class="fi fi-br-list"></i> Propuestas</a>
+    </div>
+  </div>
+</header>
+<div class="page-banner">
+  <div class="page-banner-flag"></div>
+  <div class="page-banner-inner">
+    <div class="hero-photo">PPDHC</div>
+    <div>
+      <div class="page-banner-phase">Ficha institucional · Cuba</div>
+      <div class="page-banner-title">Partido Pro Derechos Humanos de Cuba</div>
+      <div class="page-banner-sub">Registro institucional basado en su carta abierta reciente, en su declaración de principios pública y en referencias históricas abiertas que lo sitúan como una de las primeras asociaciones políticas opositoras fundadas en 1988 con énfasis en derechos humanos, democracia participativa y lucha no violenta.</div>
+    </div>
+  </div>
+</div>
+<div class="sec">
+  <div class="neutrality-box">
+    <strong>Nota de neutralidad:</strong> ENTRE TODOS no respalda ni promueve este partido. La inclusión responde a evidencia pública suficiente: nombre histórico identificable, presencia web propia, declaración de principios y un planteamiento político explícito que sigue circulando en el debate cubano de transición.
+  </div>
+  <div class="detail-card">
+    <div class="detail-header">
+      <div class="detail-avatar">PPDHC</div>
+      <div>
+        <div class="detail-name">Partido Pro Derechos Humanos de Cuba</div>
+        <div class="detail-movement">Partido / asociación política independiente · derechos humanos y transición democrática</div>
+      </div>
+      <div class="detail-badge">
+        <div class="detail-badge-n">1988</div>
+        <div class="detail-badge-l">Ficha institucional</div>
+      </div>
+    </div>
+    <div class="detail-bio">
+      <div class="detail-bio-grid">
+        <div class="bio-block">
+          <p>El <strong>Partido Pro Derechos Humanos de Cuba (PPDHC)</strong> se identifica como una organización política independiente fundada el <strong>20 de julio de 1988</strong>. Las referencias públicas revisadas lo vinculan a <strong>Ricardo Bofill</strong>, <strong>Tania Díaz Castro</strong> y al <strong>Dr. Samuel Martínez Lara</strong>, y lo sitúan dentro del ecosistema opositor histórico centrado en derechos humanos, apertura democrática y movilización cívica no violenta.</p>
+          <p>La carta abierta aportada en este workstream deja clara una distinción relevante: <strong>no se presenta ahora mismo como portador de un candidato presidencial</strong>, sino como una voz que propone principios de reconstrucción institucional para una nueva Cuba. Por eso conviene registrarlo en ENTRE TODOS como <strong>ficha institucional de partido/espacio político</strong>, no como candidatura presidencial.</p>
+        </div>
+        <div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-calendar"></i></div><div class="bio-fact-text"><strong>Fundación pública referida</strong>20 de julio de 1988.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-scale"></i></div><div class="bio-fact-text"><strong>Eje principal</strong>Derechos humanos, democracia participativa, legalidad y transición no violenta.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-users"></i></div><div class="bio-fact-text"><strong>Figuras históricas asociadas</strong>Ricardo Bofill, Tania Díaz Castro y Dr. Samuel Martínez Lara, según referencias públicas abiertas.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-handshake"></i></div><div class="bio-fact-text"><strong>Modo de acción declarado</strong>Movilización social espontánea, defensa jurídica y construcción institucional con base en derechos.</div></div>
+          <div class="bio-fact"><div class="bio-fact-icon"><i class="fi fi-br-check-double"></i></div><div class="bio-fact-text"><strong>Salvedad electoral</strong>Las fuentes revisadas no lo presentan en esta fase como candidatura presidencial propia.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-section">
+      <div class="platform-label">Principios visibles en esta fase</div>
+      <div class="platform-grid">
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-building"></i> Forma de Estado</div><div class="platform-card-title">Democracia participativa</div><div class="platform-card-text">La carta abierta propone democracia participativa como forma de gobierno y señala el modelo suizo como referencia adaptable a Cuba.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-scroll-document-story"></i> Constitución</div><div class="platform-card-title">Asamblea constituyente y nueva Constitución</div><div class="platform-card-text">Defiende una constituyente con representación social amplia, una nueva Constitución y referéndum ratificatorio.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-box-ballot"></i> Democracia</div><div class="platform-card-title">Respeto obligatorio al resultado electoral</div><div class="platform-card-text">Plantea sancionar a cualquier actor que intente desconocer o subvertir el mandato soberano surgido de elecciones libres.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-gavel"></i> Justicia</div><div class="platform-card-title">Juicio a crímenes graves con garantías</div><div class="platform-card-text">Exige procesamiento imparcial de crímenes de lesa humanidad y rechaza impunidad para integrantes de estructuras represivas.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-heart-crack"></i> Reparación</div><div class="platform-card-title">Justicia restaurativa con prioridad humana</div><div class="platform-card-text">Prioriza reparación a víctimas directas de la represión antes que restituciones patrimoniales que comprometan el futuro nacional.</div></div>
+        <div class="platform-card"><div class="platform-card-cat"><i class="fi fi-br-shield-check"></i> Método político</div><div class="platform-card-title">Lucha no violenta y soberanía popular</div><div class="platform-card-text">La carta insiste en una transición por vía no violenta y en una soberanía ejercida desde abajo, con justicia y gobernabilidad.</div></div>
+      </div>
+      <div class="status-notice"><i class="fi fi-br-info"></i><span><strong>Diferenciación importante:</strong> el propio marco textual revisado dice expresamente que <strong>no vienen a ofrecer un candidato presidencial</strong>. Por tanto, esta ficha debe entenderse como registro de partido/espacio político con principios públicos, no como plataforma de candidatura presidencial. Si más adelante presentaran una candidatura formal, eso requeriría una ficha separada.</span></div>
+      <div class="context-box">
+        <p><strong>Fuentes directas usadas para esta ficha:</strong> carta abierta aportada en este chat, sitio público del PPDHC en Weebly y ficha histórica/resumen en Espacio Común.</p>
+        <p><strong>Lectura metodológica:</strong> el valor de esta incorporación no está en asumir programa completo cerrado, sino en reconocer que el PPDHC sigue siendo un actor político identificable, con lenguaje institucional y con principios explícitos para la transición cubana.</p>
+        <p><strong>Enlaces públicos:</strong> <a href="http://partidoproderechoshumanosdecuba.weebly.com/" target="_blank" rel="noopener noreferrer">Sitio del PPDHC</a> · <a href="https://espacio-comun.org/organizacion/partido-pro-derechos-humanos-de-cuba-ppdhc/" target="_blank" rel="noopener noreferrer">Espacio Común</a></p>
+      </div>
+      <div class="actions">
+        <a href="candidaturas-cuba.html" class="btn-outline"><i class="fi fi-br-arrow-left"></i> Volver a candidaturas</a>
+        <a href="http://partidoproderechoshumanosdecuba.weebly.com/" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fi fi-br-link"></i> Abrir sitio público</a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><strong>ENTRE TODOS</strong> &nbsp;·&nbsp; Ficha institucional &nbsp;·&nbsp; 2026</footer>
+</body>
+</html>
