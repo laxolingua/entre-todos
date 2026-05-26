@@ -22,6 +22,7 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .page-banner-inner{max-width:1100px;margin:0 auto;padding:34px 28px 38px;position:relative;z-index:2;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;}
 @media(max-width:700px){.page-banner-inner{grid-template-columns:1fr;}}
 .hero-photo{width:120px;height:120px;border-radius:50%;border:4px solid rgba(255,255,255,.25);box-shadow:0 8px 30px rgba(0,0,0,.18);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--azul);}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .page-banner-phase{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;}
 .page-banner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:3px;color:#fff;line-height:1;margin-bottom:10px;}
 .page-banner-sub{font-size:.95rem;color:rgba(255,255,255,.76);line-height:1.7;max-width:720px;}
@@ -38,6 +39,7 @@ header{background:#fff;border-bottom:3px solid var(--rojo);position:sticky;top:0
 .detail-header{background:var(--azul);padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;}
 @media(max-width:640px){.detail-header{grid-template-columns:auto 1fr;}.detail-badge{display:none;}}
 .detail-avatar{width:72px;height:72px;border-radius:50%;background:#fff;border:3px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;color:var(--azul);}
+.detail-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
 .detail-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:2px;color:#fff;line-height:1.1;margin-bottom:4px;}
 .detail-movement{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
 .detail-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:10px 16px;text-align:center;}
@@ -87,7 +89,7 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 <div class="page-banner">
   <div class="page-banner-flag"></div>
   <div class="page-banner-inner">
-    <div class="hero-photo">PPDHC</div>
+    <div class="hero-photo"><img src="img/partido-pro-derechos-humanos-cuba-logo-2026.jpg" alt="Logo del Partido Pro Derechos Humanos de Cuba"></div>
     <div>
       <div class="page-banner-phase">Ficha institucional · Cuba</div>
       <div class="page-banner-title">Partido Pro Derechos Humanos de Cuba</div>
@@ -101,7 +103,7 @@ footer a{color:rgba(255,255,255,.6);text-decoration:none;}
   </div>
   <div class="detail-card">
     <div class="detail-header">
-      <div class="detail-avatar">PPDHC</div>
+      <div class="detail-avatar"><img src="img/partido-pro-derechos-humanos-cuba-logo-2026.jpg" alt="Logo del Partido Pro Derechos Humanos de Cuba"></div>
       <div>
         <div class="detail-name">Partido Pro Derechos Humanos de Cuba</div>
         <div class="detail-movement">Partido / asociación política independiente · derechos humanos y transición democrática</div>
