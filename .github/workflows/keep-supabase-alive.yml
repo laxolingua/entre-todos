@@ -3,17 +3,21 @@ name: Keep Supabase Alive
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 8 * * 1,3,5'
+    - cron: '0 8 * * *'
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase
+      - name: Ping Supabase REST API
         env:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
-          curl -sS "https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?select=id&limit=1" \
+          curl -fsS "https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/citizen_proposals?select=id&limit=1" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
             -H "Accept: application/json"
+
+      - name: Ping Supabase auth health
+        run: |
+          curl -fsS "https://pfjcumyygdwslwtrlebr.supabase.co/auth/v1/health"
