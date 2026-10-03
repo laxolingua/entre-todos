@@ -3,73 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Un Abrazo para Anna Bensi · ABRAZOS, una campaña de Entre Todos</title>
-<meta name="description" content="¿Quieres darle un abrazo a Anna Bensi? Crea tu abrazo real o virtual y publícalo con #MiAbrazoParaAnnaBensi.">
+<title>ABRAZOS · una campaña de Entre Todos</title>
+<meta name="description" content="ABRAZOS, una campaña de Entre Todos. Elige a quién quieres darle tu abrazo.">
+<meta property="og:title" content="Un abrazo para Anna Bensi">
+<meta property="og:description" content="¿Quieres darle un abrazo a Anna Bensi? Créalo y publícalo con #MiAbrazoParaAnnaBensi.">
+<meta property="og:url" content="https://entre-todos.org/abrazos">
+<meta property="og:site_name" content="Entre Todos">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://entre-todos.org/abrazo-anna-bensi-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Un abrazo para Anna Bensi. ABRAZOS, una campaña de Entre Todos">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://entre-todos.org/abrazo-anna-bensi-share.jpg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://entre-todos.org/abrazos">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 <style>
-body { font-family: system-ui, sans-serif; margin: 0; padding: 20px; background: #f6f8fc; color: #0b1533; }
-.wrap { max-width: 800px; margin: 0 auto; }
-h1 { color: #0A1A4A; }
-h2 { color: #E0174A; }
-.section { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.checkbox-group { display: flex; flex-direction: column; gap: 10px; }
-label { display: flex; align-items: center; gap: 10px; font-size: 18px; }
-input[type="checkbox"] { width: 20px; height: 20px; }
-#mensaje { font-size: 20px; padding: 15px; background: #f0f4ff; border-radius: 8px; margin-top: 15px; }
+:root{--navy:#0A1A4A;--rojo:#E0174A;--rojo-2:#C8103C;--rosa:#FF4D73}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Barlow,system-ui,sans-serif;background:radial-gradient(1200px 700px at 80% 10%,#1d3d9a 0%,var(--navy) 60%);background-color:var(--navy);color:#fff;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px;width:100%}
+.fi{line-height:1;display:inline-flex}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 16px}
+.logo{font-weight:900;font-size:24px;letter-spacing:-.02em}
+.logo .t{color:var(--rosa)}
+main{flex:1;padding:40px 0 64px}
+h1{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;font-size:clamp(64px,11vw,140px)}
+.de{font-size:clamp(14px,1.6vw,16px);letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#b9c6ef;margin:14px 0 40px}
+.elige{font-size:clamp(20px,2.4vw,26px);font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,360px));gap:20px}
+.card{background:#fff;color:#0B1533;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);transition:transform .15s}
+.card:hover{transform:translateY(-4px)}
+.card:focus-visible{outline:3px solid #FFD54A;outline-offset:3px}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.card .info{padding:18px 20px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card h2{font-size:26px;font-weight:900;line-height:1;white-space:nowrap}
+.card .go{background:var(--rojo);color:#fff;border-radius:12px;padding:12px 16px;font-weight:800;font-size:16px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.card:hover .go{background:var(--rojo-2)}
+footer{padding:24px 0;color:#c3cdee;font-size:15px;border-top:1px solid rgba(255,255,255,.12)}
+@media (max-width:640px){.grid{grid-template-columns:1fr}main{padding-top:20px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>Un abrazo para Anna Bensi</h1>
-<p>¿Quieres darle un abrazo a Anna? Hazlo aquí. Que sepa que no está sola.</p>
-
-<section class="section">
-<h2>1 · CREA TU ABRAZO</h2>
-<p>Crea tu abrazo real o virtual.</p>
-</section>
-
-<section class="section" id="mensaje-section">
-<h2>2 · TU MENSAJE</h2>
-<p>Marca las partes que quieres incluir en tu mensaje:</p>
-<div class="checkbox-group">
-<label><input type="checkbox" id="cb1" checked> su fe</label>
-<label><input type="checkbox" id="cb2" checked> su valentía</label>
-<label><input type="checkbox" id="cb3" checked> sus ideas</label>
-<label><input type="checkbox" id="cb4" checked> sus derechos</label>
-<label><input type="checkbox" id="cb5" checked> su libertad de expresión</label>
+<div class="wrap top">
+  <a class="logo" href="/">ENTRE <span class="t">TODOS</span></a>
 </div>
-<div id="mensaje">Yo abrazo a Anna Bensi. Abrazo su fe, su valentía, sus ideas, sus derechos y su libertad de expresión. Que sepa que no está sola. <span style="color:#E0174A">#MiAbrazoParaAnnaBensi</span></div>
-</section>
-
-<section class="section">
-<h2>3 · PUBLICA</h2>
-<p>Publica tu abrazo con el texto anterior.</p>
-</section>
-
-</div>
-
-<script>
-function updateMensaje() {
-  const parts = [];
-  if (document.getElementById('cb1').checked) parts.push('su fe');
-  if (document.getElementById('cb2').checked) parts.push('su valentía');
-  if (document.getElementById('cb3').checked) parts.push('sus ideas');
-  if (document.getElementById('cb4').checked) parts.push('sus derechos');
-  if (document.getElementById('cb5').checked) parts.push('su libertad de expresión');
-  
-  let text = 'Yo abrazo a Anna Bensi.';
-  if (parts.length > 0) {
-    text += ' Abrazo ' + parts.join(', ') + '.';
-  }
-  text += ' Que sepa que no está sola. <span style="color:#E0174A">#MiAbrazoParaAnnaBensi</span>';
-  
-  document.getElementById('mensaje').innerHTML = text;
-}
-
-['cb1','cb2','cb3','cb4','cb5'].forEach(id => {
-  document.getElementById(id).addEventListener('change', updateMensaje);
-});
-
-updateMensaje();
-</script>
+<main>
+  <div class="wrap">
+    <h1>Abrazos</h1>
+    <p class="de">una campaña de Entre Todos</p>
+    <p class="elige">Elige a quién quieres darle tu abrazo:</p>
+    <div class="grid">
+      <a class="card" href="/abrazo-anna-bensi">
+        <img src="abrazo-anna-bensi.jpg" alt="Yo abrazo a Anna Bensi">
+        <div class="info">
+          <h2>Anna Bensi</h2>
+          <span class="go">Darle mi abrazo <i class="fi fi-br-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap">ABRAZOS, una campaña de Entre Todos</div></footer>
 </body>
 </html>
