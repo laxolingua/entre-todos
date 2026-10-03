@@ -248,6 +248,11 @@ footer a:hover{color:#fff;}
           <span class="hico"><svg viewBox="0 0 24 24"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>
           Hoja de Ruta
         </a>
+        <!-- LO NUEVO: ABRAZOS -->
+        <a class="hdr-ham-item destacado" href="/abrazos" onclick="closeHam()">
+          <span class="hico"><i class="fi fi-br-heart" style="color:#CF142B;"></i></span>
+          ABRAZOS · Anna Bensi
+        </a>
         <!-- PROYECTOS ACTIVOS -->
         <a class="hdr-ham-item destacado" href="#proyectos-activos" onclick="closeHam()" style="background:#FFF1F2;">
           <span class="hico"><svg viewBox="0 0 24 24" style="stroke:#CF142B;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="var(--rojo)" stroke="none"/></svg></span>
@@ -292,6 +297,25 @@ footer a:hover{color:#fff;}
       <div class="hero-votos">TU VOZ &nbsp;<span>·</span>&nbsp; TU APORTE &nbsp;<span>·</span>&nbsp; TU VOTO</div>
       <h1>Construyendo la Cuba<br>que soñamos,<br>ENTRE TODOS.</h1>
       <p>Un espacio abierto para que ciudadanos, organizaciones y comunidades participen en la construcción de propuestas concretas para una gobernanza basada en soluciones — todos votan y sugieren para que juntos podamos escribir esta nueva página en blanco en la historia de nuestra nación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LO NUEVO ══ (añadir cada novedad como una tarjeta nueva al PRINCIPIO de la lista) -->
+<section id="lo-nuevo" style="background:#F7F8FC;border-bottom:1px solid #D1D5DB;">
+  <div style="max-width:1100px;margin:0 auto;padding:28px 22px;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:#002A8F;display:flex;align-items:center;gap:10px;margin-bottom:16px;"><i class="fi fi-br-sparkles" style="font-size:1.1rem;color:#CF142B;"></i>LO NUEVO</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;">
+
+      <!-- NUEVO: ABRAZOS · Anna Bensi (oct 2026) -->
+      <a href="/abrazos" style="display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #D1D5DB;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,42,143,.08);">
+        <img src="abrazo-anna-bensi.jpg" alt="Yo abrazo a Anna Bensi" loading="lazy" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;">
+        <div style="padding:12px 14px 14px;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CF142B;margin-bottom:4px;">Campaña · Oct 2026</div>
+          <div style="font-family:Barlow,sans-serif;font-weight:700;font-size:1.05rem;color:#111;line-height:1.25;">ABRAZOS: Un abrazo para Anna Bensi</div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -681,7 +705,7 @@ footer a:hover{color:#fff;}
   <div class="sec">
     <div class="sec-label">Lo nuevo · Campañas activas</div>
     <div class="sec-title">Herramientas del Portal</div>
-    <div class="sec-sub">ENTRE TODOS incorpora campañas y herramientas de participación. La primera activa: <a href="abrazo-anna-bensi.html" style="color:var(--rojo);font-weight:700;">ABRAZOS · Un abrazo para Anna Bensi</a>. El resto de herramientas se irán sumando progresivamente.</div>
+    <div class="sec-sub">ENTRE TODOS incorpora campañas y herramientas de participación. La primera activa: <a href="/abrazos" style="color:var(--rojo);font-weight:700;">ABRAZOS · Un abrazo para Anna Bensi</a>. El resto de herramientas se irán sumando progresivamente.</div>
     <div class="herr-grid">
 
       <!-- 1. Padrón Electoral -->
@@ -695,12 +719,12 @@ footer a:hover{color:#fff;}
       </div>
 
       <!-- 2. Campañas activas -->
-      <a class="herr-card current" href="abrazo-anna-bensi.html" style="text-decoration:none;color:inherit;">
+      <a class="herr-card current" href="/abrazos" style="text-decoration:none;color:inherit;">
         <div class="herr-icon" style="background:var(--rojo);">
           <i class="fi fi-br-heart" style="color:#fff;font-size:18px;"></i>
         </div>
         <div class="herr-title">ABRAZOS · Campaña activa</div>
-        <div class="herr-desc">Un abrazo para Anna Bensi. Crea tu abrazo real o virtual y publícalo con #MiAbrazoParaAnnaBensi. Que sepa que no está sola.</div>
+        <div class="herr-desc">Un abrazo para Anna Bensi. Crea tu abrazo real o virtual y publícalo con #MiAbrazoParaAnnaBensi.</div>
       </a>
 
       <!-- 3. Foro Ciudadano -->
