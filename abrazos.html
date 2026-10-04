@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABRAZOS · una campaña de Entre Todos</title>
-<meta name="description" content="ABRAZOS, una campaña de Entre Todos. Elige a quién quieres darle tu abrazo.">
+<meta name="description" content="ABRAZOS, una campaña de Entre Todos. Abrazo activo: Anna Bensi. Crea tu abrazo real o virtual y publícalo con #MiAbrazoParaAnnaBensi.">
 <meta property="og:title" content="Un abrazo para Anna Bensi">
 <meta property="og:description" content="¿Quieres darle un abrazo a Anna Bensi? Créalo y publícalo con #MiAbrazoParaAnnaBensi.">
 <meta property="og:url" content="https://entre-todos.org/abrazos">
@@ -23,53 +23,190 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
 <style>
-:root{--navy:#0A1A4A;--rojo:#E0174A;--rojo-2:#C8103C;--rosa:#FF4D73}
+:root{
+  --azul:#1F4296; --navy:#0A1A4A; --navy-2:#122A6E; --rojo:#C41E2A; --rojo-v:#E0174A; --rosa:#FF4D73;
+  --tinta:#0B1533; --gris:#5A6275; --borde:#E3E7F0; --claro:#F4F6FB; --verde:#1E9E4A;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Barlow,system-ui,sans-serif;background:radial-gradient(1200px 700px at 80% 10%,#1d3d9a 0%,var(--navy) 60%);background-color:var(--navy);color:#fff;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{font-family:Barlow,system-ui,sans-serif;color:var(--tinta);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-.wrap{max-width:1120px;margin:0 auto;padding:0 16px;width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .fi{line-height:1;display:inline-flex}
-.top{display:flex;justify-content:space-between;align-items:center;padding:18px 16px}
-.logo{font-weight:900;font-size:24px;letter-spacing:-.02em}
-.logo .t{color:var(--rosa)}
-main{flex:1;padding:40px 0 64px}
-h1{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;font-size:clamp(64px,11vw,140px)}
-.de{font-size:clamp(14px,1.6vw,16px);letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#b9c6ef;margin:14px 0 40px}
-.elige{font-size:clamp(20px,2.4vw,26px);font-weight:700;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,360px));gap:20px}
-.card{background:#fff;color:#0B1533;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);transition:transform .15s}
-.card:hover{transform:translateY(-4px)}
-.card:focus-visible{outline:3px solid #FFD54A;outline-offset:3px}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.card .info{padding:18px 20px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.card h2{font-size:26px;font-weight:900;line-height:1;white-space:nowrap}
-.card .go{background:var(--rojo);color:#fff;border-radius:12px;padding:12px 16px;font-weight:800;font-size:16px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
-.card:hover .go{background:var(--rojo-2)}
-footer{padding:24px 0;color:#c3cdee;font-size:15px;border-top:1px solid rgba(255,255,255,.12)}
-@media (max-width:640px){.grid{grid-template-columns:1fr}main{padding-top:20px}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--borde)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px}
+.brand span{font-weight:800;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.links{display:flex;align-items:center;gap:26px;font-weight:700;font-size:16px}
+.links a{color:var(--tinta);opacity:.75}
+.links a:hover,.links a.on{opacity:1}
+.links a.on{border-bottom:3px solid var(--rojo-v);padding-bottom:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:14px 22px;font:800 17px Barlow,sans-serif;border:2px solid transparent;cursor:pointer;transition:transform .12s,background .12s,box-shadow .12s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid #FFD54A;outline-offset:2px}
+.btn-rojo{background:var(--rojo-v);color:#fff;box-shadow:0 10px 26px rgba(224,23,74,.32)}
+.btn-rojo:hover{background:#C8103C}
+.btn-blanco{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-blanco:hover{background:rgba(255,255,255,.1)}
+.btn-sm{padding:10px 16px;font-size:15px;border-radius:10px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 520px at 78% 30%,#2348a8 0%,rgba(35,72,168,0) 70%),linear-gradient(160deg,#0d2160 0%,var(--navy) 60%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:linear-gradient(90deg,var(--azul) 0 50%,var(--rojo) 50% 100%)}
+.hero .wrap{padding-top:76px;padding-bottom:150px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c6d2f5;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--rosa);border-radius:2px}
+.hero h1{font-weight:900;text-transform:uppercase;letter-spacing:-.035em;line-height:.88;font-size:clamp(68px,10vw,138px)}
+.hero p{font-size:clamp(18px,1.8vw,22px);color:#dbe3fb;max-width:620px;margin:22px 0 32px}
+.acciones{display:flex;gap:12px;flex-wrap:wrap}
+
+/* SECCIONES */
+section.blq{padding:88px 0}
+.kicker{font-size:14px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo-v);margin-bottom:10px}
+.h2{font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-.02em;line-height:1.05;text-transform:uppercase}
+
+/* ABRAZO ACTIVO */
+.activo-sec{padding-top:0!important;margin-top:-110px;position:relative;z-index:2}
+.activo{display:grid;grid-template-columns:.9fr 1.1fr;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--borde);box-shadow:0 30px 70px rgba(10,26,74,.18);margin-top:0}
+.activo .img{position:relative;background:#e9eef9}
+.activo .img img{width:100%;height:100%;object-fit:cover}
+.activo .img .ia{position:absolute;top:14px;right:14px;background:rgba(11,21,51,.78);color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+.activo .txt{padding:48px 48px 44px;display:flex;flex-direction:column;justify-content:center}
+.estado{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:#EAF7EF;color:#157a39;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px;margin-bottom:18px}
+.estado::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verde)}
+.activo h3{font-size:clamp(40px,5vw,64px);font-weight:900;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.activo h3 span{color:var(--rojo-v)}
+.activo .hecho{font-size:18px;color:#2b3550;margin:18px 0 22px;max-width:520px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:28px;font-size:16px;color:var(--gris)}
+.meta b{color:var(--tinta)}
+.meta .fi{color:var(--rojo-v);margin-right:6px}
+
+/* COMO FUNCIONA */
+.claro{background:var(--claro)}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.paso{background:#fff;border:1px solid var(--borde);border-radius:22px;padding:30px 28px;position:relative}
+.paso .num{position:absolute;top:22px;right:24px;font-size:56px;font-weight:900;color:#EEF2FB;line-height:1}
+.paso .ico{width:56px;height:56px;border-radius:16px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:24px;margin-bottom:20px}
+.paso h4{font-size:22px;font-weight:900;margin-bottom:8px}
+.paso p{color:var(--gris);font-size:17px}
+
+/* DONDE */
+.donde{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+.red{border-radius:22px;padding:30px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;transition:transform .12s}
+.red:hover{transform:translateY(-3px)}
+.red.ig{background:linear-gradient(135deg,#7b2ff7 0%,#d62976 55%,#fa7e1e 100%)}
+.red.fb{background:#1877F2}
+.red small{display:block;font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.red strong{font-size:24px;font-weight:900}
+.red .fi{font-size:22px}
+
+/* FOOTER */
+footer{background:var(--navy);color:#c3cdee;padding:44px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .f-brand{display:flex;align-items:center;gap:14px}
+footer .f-brand img{width:46px;height:46px;border-radius:10px;background:#fff}
+footer .f-brand b{color:#fff;font-size:17px}
+footer nav{display:flex;gap:22px;flex-wrap:wrap;font-weight:600}
+footer nav a:hover{color:#fff}
+
+@media (max-width:960px){
+  .hero .wrap{padding-top:44px;padding-bottom:130px}
+  .activo{grid-template-columns:1fr}
+  .activo .txt{padding:30px 24px 32px}
+  .pasos{grid-template-columns:1fr}
+  .donde{grid-template-columns:1fr}
+  .links a:not(.on){display:none}
+  section.blq{padding:64px 0}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  .nav .btn-sm{display:none}
+  .acciones .btn{width:100%}
+}
 </style>
 </head>
 <body>
-<div class="wrap top">
-  <a class="logo" href="/">ENTRE <span class="t">TODOS</span></a>
-</div>
-<main>
+
+<header class="nav">
   <div class="wrap">
-    <h1>Abrazos</h1>
-    <p class="de">una campaña de Entre Todos</p>
-    <p class="elige">Elige a quién quieres darle tu abrazo:</p>
-    <div class="grid">
-      <a class="card" href="/abrazo-anna-bensi">
-        <img src="abrazo-anna-bensi.jpg" alt="Yo abrazo a Anna Bensi">
-        <div class="info">
-          <h2>Anna Bensi</h2>
-          <span class="go">Darle mi abrazo <i class="fi fi-br-arrow-right"></i></span>
-        </div>
-      </a>
+    <a class="brand" href="/" aria-label="Entre Todos, inicio">
+      <img src="entre-todos-logo.png" alt="Entre Todos">
+      <span>Entre Todos</span>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="/">Inicio</a>
+      <a href="/abrazos" class="on" aria-current="page">Abrazos</a>
+      <a href="/#lo-nuevo">Lo nuevo</a>
+    </nav>
+    <a class="btn btn-rojo btn-sm" href="/abrazo-anna-bensi"><i class="fi fi-br-heart"></i> Darle mi abrazo</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Una campaña de Entre Todos</div>
+      <h1>Abrazos</h1>
+      <p>Fotos de abrazos, reales o hechas con IA, para cubanos que sufren por defender una Cuba democrática y plural. Cada persona la publica desde su propia cuenta.</p>
+      <div class="acciones">
+        <a class="btn btn-rojo" href="/abrazo-anna-bensi"><i class="fi fi-br-heart"></i> Darle un abrazo a Anna Bensi</a>
+        <a class="btn btn-blanco" href="#como">Cómo funciona</a>
+      </div>
     </div>
   </div>
-</main>
-<footer><div class="wrap">ABRAZOS, una campaña de Entre Todos</div></footer>
+</section>
+
+<section class="blq activo-sec">
+  <div class="wrap">
+    <article class="activo">
+      <div class="img"><img src="abrazo-anna-bensi.jpg" alt="Yo abrazo a Anna Bensi"><span class="ia">abrazo virtual · IA</span></div>
+      <div class="txt">
+        <span class="estado">Abrazo activo</span>
+        <h3>Anna <span>Bensi</span></h3>
+        <p class="hecho">El 1 de octubre de 2026 un tribunal de La Habana la condenó, junto a su madre, a dos años de limitación de libertad por grabar a un agente de la Seguridad del Estado en la puerta de su casa.</p>
+        <div class="meta">
+          <span><i class="fi fi-br-hastag"></i><b>#MiAbrazoParaAnnaBensi</b></span>
+          <span><i class="fi fi-br-marker"></i>La Habana, Cuba</span>
+        </div>
+        <a class="btn btn-rojo" href="/abrazo-anna-bensi" style="align-self:flex-start"><i class="fi fi-br-heart"></i> Darle mi abrazo <i class="fi fi-br-arrow-right"></i></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="blq claro" id="como">
+  <div class="wrap">
+    <div class="kicker">Cómo funciona</div>
+    <h2 class="h2">Tres pasos</h2>
+    <div class="pasos">
+      <div class="paso"><span class="num">1</span><div class="ico"><i class="fi fi-br-user"></i></div><h4>Elige a quién abrazar</h4><p>Ahora mismo, Anna Bensi.</p></div>
+      <div class="paso"><span class="num">2</span><div class="ico"><i class="fi fi-br-camera"></i></div><h4>Crea tu foto</h4><p>Si la conoces, una foto real. Si no estás cerca, con tu IA: te damos el prompt listo para copiar.</p></div>
+      <div class="paso"><span class="num">3</span><div class="ico"><i class="fi fi-br-share"></i></div><h4>Publícala</h4><p>Desde tu cuenta, con el hashtag. En Instagram invita a @EntreTodosOrg como colaborador.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blq">
+  <div class="wrap">
+    <div class="kicker">Los abrazos</div>
+    <h2 class="h2">Dónde verlos</h2>
+    <div class="donde">
+      <a class="red ig" href="https://www.instagram.com/entretodosorg/" target="_blank" rel="noopener"><div><small>Instagram</small><strong>@EntreTodosOrg</strong></div><i class="fi fi-br-arrow-right"></i></a>
+      <a class="red fb" href="https://www.facebook.com/groups/912795154712719" target="_blank" rel="noopener"><div><small>Facebook</small><strong>Grupo ENTRE TODOS</strong></div><i class="fi fi-br-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand"><img src="entre-todos-logo.png" alt=""><div><b>ABRAZOS</b><br>una campaña de Entre Todos</div></div>
+    <nav aria-label="Pie"><a href="/">Inicio</a><a href="/abrazos">Abrazos</a><a href="/#lo-nuevo">Lo nuevo</a><a href="/politica-privacidad.html">Privacidad</a></nav>
+  </div>
+</footer>
+
 </body>
 </html>
