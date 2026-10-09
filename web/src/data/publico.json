@@ -1,0 +1,5918 @@
+{
+ "meta": {
+  "actualizado": "2026-10-09",
+  "totales": {
+   "propuestas": 159,
+   "documentos": 58,
+   "autorias": 33,
+   "cuestiones": 10,
+   "citas_analizadas": 758
+  },
+  "verificacion": {
+   "dominio_oficial": 28,
+   "documento_revisado": 13,
+   "instinct": 17
+  }
+ },
+ "categorias": [
+  {
+   "clave": "transicion",
+   "nombre": "Transición Democrática",
+   "descripcion": "Propuestas sobre cómo se llega del régimen actual a la democracia: gobierno provisional, plazos, secuencia.",
+   "fase": "Fase 1 — Hoja de Ruta",
+   "orden": 1,
+   "propuestas": 27
+  },
+  {
+   "clave": "constitucion",
+   "nombre": "Proceso Constituyente",
+   "descripcion": "Propuestas sobre el contenido de la futura Constitución: derechos, poderes, garantías, soberanía.",
+   "fase": "Fase 2 — Constitución",
+   "orden": 2,
+   "propuestas": 30
+  },
+  {
+   "clave": "modelo_pais",
+   "nombre": "Plataforma de Gobierno",
+   "descripcion": "Propuestas sobre el tipo de país a construir: modelo económico, social, institucional de largo plazo.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 3,
+   "propuestas": 17
+  },
+  {
+   "clave": "sistema_electoral",
+   "nombre": "Sistema Electoral",
+   "descripcion": "Propuestas sobre elecciones, partidos, voto, representación.",
+   "fase": "Fase 4 — Candidaturas",
+   "orden": 4,
+   "propuestas": 10
+  },
+  {
+   "clave": "reconstruccion",
+   "nombre": "Reconstrucción Nacional",
+   "descripcion": "Propuestas sobre planes de reconstrucción, capital, marcos legales y compromisos verificables.",
+   "fase": "Módulo Especial",
+   "orden": 5,
+   "propuestas": 9
+  },
+  {
+   "clave": "educacion",
+   "nombre": "Educación",
+   "descripcion": "Propuestas sobre el sistema educativo: formación cívica y ética, universidades, enseñanza de la memoria histórica, formación profesional.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 6,
+   "propuestas": 5
+  },
+  {
+   "clave": "economia",
+   "nombre": "Economía",
+   "descripcion": "Propuestas sobre el modelo y la política económica: propiedad, empresa, inversión, comercio, finanzas, impuestos, consumidores.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 7,
+   "propuestas": 19
+  },
+  {
+   "clave": "trabajo",
+   "nombre": "Trabajo y Seguridad Social",
+   "descripcion": "Propuestas sobre derechos laborales, sindicatos, empleo, salarios, pensiones y seguridad social.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 8,
+   "propuestas": 4
+  },
+  {
+   "clave": "salud",
+   "nombre": "Salud",
+   "descripcion": "Propuestas sobre el sistema de salud, acceso, calidad y financiamiento.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 9,
+   "propuestas": 2
+  },
+  {
+   "clave": "medio_ambiente",
+   "nombre": "Medio Ambiente",
+   "descripcion": "Propuestas sobre protección del hábitat, agua, aire, mar, especies, pesca, educación ambiental y tratados climáticos.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 10,
+   "propuestas": 3
+  },
+  {
+   "clave": "sociedad_civil",
+   "nombre": "Sociedad Civil",
+   "descripcion": "Propuestas sobre asociaciones, participación ciudadana y fortalecimiento de la sociedad civil.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 11,
+   "propuestas": 3
+  },
+  {
+   "clave": "derechos",
+   "nombre": "Derechos y Libertades",
+   "descripcion": "Propuestas sobre derechos humanos, garantías y libertades fundamentales.",
+   "fase": "Fase 2 — Constitución",
+   "orden": 12,
+   "propuestas": 19
+  },
+  {
+   "clave": "familia",
+   "nombre": "Familia, Niñez y Juventud",
+   "descripcion": "Propuestas sobre la familia, la niñez, la adolescencia y la juventud.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 13,
+   "propuestas": 2
+  },
+  {
+   "clave": "tercera_edad",
+   "nombre": "Tercera Edad",
+   "descripcion": "Propuestas sobre las personas mayores: pensiones, cuidado, salud y protección.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 14,
+   "propuestas": 1
+  },
+  {
+   "clave": "vivienda",
+   "nombre": "Vivienda y Urbanismo",
+   "descripcion": "Propuestas sobre vivienda, construcción, urbanismo y hábitat.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 15,
+   "propuestas": 1
+  },
+  {
+   "clave": "genero",
+   "nombre": "Género e Igualdad",
+   "descripcion": "Propuestas sobre igualdad de género, paridad y prevención de la violencia de género.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 16,
+   "propuestas": 2
+  },
+  {
+   "clave": "animales",
+   "nombre": "Protección Animal y Biodiversidad",
+   "descripcion": "Propuestas sobre bienestar y derechos de los animales, especies y biodiversidad.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 17,
+   "propuestas": 2
+  },
+  {
+   "clave": "alimentacion",
+   "nombre": "Alimentación y Agro",
+   "descripcion": "Propuestas sobre soberanía alimentaria, agricultura, ganadería, pesca y derecho a la alimentación.",
+   "fase": "Fase 3 — Modelo de País",
+   "orden": 18,
+   "propuestas": 3
+  }
+ ],
+ "actores": [
+  {
+   "id": "cuba-proxima",
+   "nombre": "Cuba Próxima",
+   "tipo": "ACAD",
+   "web": "https://cubaproxima.org/",
+   "propuestas": 85
+  },
+  {
+   "id": "centro-convivencia",
+   "nombre": "Centro de Estudios Convivencia",
+   "tipo": "ACAD",
+   "web": "https://centroconvivencia.org/",
+   "propuestas": 99
+  },
+  {
+   "id": "mcl",
+   "nombre": "Movimiento Cristiano Liberación",
+   "tipo": "ORG",
+   "web": "https://mcliberacion.org/",
+   "propuestas": 19
+  },
+  {
+   "id": "cid",
+   "nombre": "Cuba Independiente y Democrática (CID)",
+   "tipo": "ORG",
+   "web": "https://cubacid.com/",
+   "propuestas": 10
+  },
+  {
+   "id": "brigada-2506",
+   "nombre": "Brigada 2506",
+   "tipo": "ORG",
+   "web": null,
+   "propuestas": 7
+  },
+  {
+   "id": "pasos-de-cambio",
+   "nombre": "Pasos de Cambio",
+   "tipo": "COAL",
+   "web": "https://www.pasosdecambio.com/",
+   "propuestas": 6
+  },
+  {
+   "id": "arc-pasos-de-cambio",
+   "nombre": "Asamblea de la Resistencia Cubana y Pasos de Cambio",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 13
+  },
+  {
+   "id": "gtdi",
+   "nombre": "Grupo de Trabajo de la Disidencia Interna",
+   "tipo": "ORG",
+   "web": null,
+   "propuestas": 10
+  },
+  {
+   "id": "plataforma-democratica-cubana",
+   "nombre": "Plataforma Democrática Cubana",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 15
+  },
+  {
+   "id": "acuerdo-democracia-cuba",
+   "nombre": "Acuerdo por la Democracia en Cuba",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 16
+  },
+  {
+   "id": "pdc-cuba",
+   "nombre": "Partido Demócrata Cristiano de Cuba",
+   "tipo": "ORG",
+   "web": "https://democratascristianoscuba.wordpress.com/",
+   "propuestas": 2
+  },
+  {
+   "id": "d-frente-ctdc",
+   "nombre": "D Frente / CTDC",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 4
+  },
+  {
+   "id": "cuba-posible",
+   "nombre": "Cuba Posible",
+   "tipo": "ACAD",
+   "web": "https://cubaposible.com/",
+   "propuestas": 3
+  },
+  {
+   "id": "d-frente",
+   "nombre": "D Frente",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 9
+  },
+  {
+   "id": "ctdc",
+   "nombre": "CTDC",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 13
+  },
+  {
+   "id": "cafc",
+   "nombre": "Comisión para la Ayuda a una Cuba Libre (CAFC)",
+   "tipo": "ACAD",
+   "web": null,
+   "propuestas": 5
+  },
+  {
+   "id": "movimiento-c40",
+   "nombre": "Movimiento C40",
+   "tipo": "ORG",
+   "web": "https://movimientoc40.com/",
+   "propuestas": 1
+  },
+  {
+   "id": "directorio-democratico-cubano",
+   "nombre": "Directorio Democrático Cubano",
+   "tipo": "ORG",
+   "web": null,
+   "propuestas": 4
+  },
+  {
+   "id": "frente-constitucionalista",
+   "nombre": "Frente Constitucionalista Cubano",
+   "tipo": "ORG",
+   "web": null,
+   "propuestas": 2
+  },
+  {
+   "id": "concilio-cubano",
+   "nombre": "Concilio Cubano",
+   "tipo": "COAL",
+   "web": null,
+   "propuestas": 19
+  }
+ ],
+ "documentos": [
+  {
+   "id": 1,
+   "titulo": "Constitución de la República de Cuba. Modelo de texto Constitucional (Cap. I, aprob. nov. 2024)",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/constitucion-de-la-republica-de-cuba-capitulo-i/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 2,
+   "titulo": "¿Por qué Cuba necesita una nueva Constitución? — Ponencia SELA 2016",
+   "autoria": "Julio Antonio Fernández Estrada",
+   "actor": null,
+   "anio": 2016,
+   "url": "https://law.yale.edu/sites/default/files/area/center/kamel/sela16_fernandez_cv_sp.docx.pdf",
+   "tipo": "PERS"
+  },
+  {
+   "id": 3,
+   "titulo": "Derechos y libertades para un futuro constitucional cubano (ene 2023) — documento distinto del Modelo de nov 2024",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2023,
+   "url": "https://cubaproxima.org/derechos-y-libertades-para-un-futuro-constitucional-cubano/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 4,
+   "titulo": "Proyecto Varela — Movimiento Cristiano Liberación (1998-2002) [resumen/página oficial MCL; MISMO documento base que la ref 33 — ver DECISIONES_PENDIENTES]",
+   "autoria": "Movimiento Cristiano Liberación",
+   "actor": "mcl",
+   "anio": 2002,
+   "url": "https://mcliberacion.org/iniciativas-y-documentos/proyecto-varela/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 5,
+   "titulo": "Reforma constitucional transitoria",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/wp-content/uploads/2024/01/Reforma-constitucional-transitoria-.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 6,
+   "titulo": "Normas para regular el proceso constituyente en Cuba",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/wp-content/uploads/2024/01/Normas-para-regular-el-proceso-constituyente-en-Cuba.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 7,
+   "titulo": "Propuesta de Ley Electoral provisional",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/wp-content/uploads/2024/06/Por-una-norma-para-elegir-y-nombrar-las-autoridades-del-Estado.-Propuesta-de-Ley-Electoral.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 8,
+   "titulo": "Propuesta de normas parlamentarias",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/06/Propuesta-de-normas-parlamentarias.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 9,
+   "titulo": "Bases para una Ley de Municipios Complementaria al Proyecto Constitucional de Cuba Próxima",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/06/Bases-para-una-Ley-de-Municipios-Complementaria-al-Proyecto-Constitucional-de-Cuba-Proxima.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 10,
+   "titulo": "Propuestas de normas y procedimientos para un funcionamiento judicial y jurisdiccional profesional e independiente en Cuba",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/06/Propuestas-de-normas-y-procedimientos-para-un-funcionamiento-judicial-y-jurisdiccional-profesional-e-independiente-en-Cuba.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 11,
+   "titulo": "Pilares de la institucionalización empresarial y comercial",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/wp-content/uploads/2024/01/Pilares-de-la-institucionalizacion-empresarial-y-comercial.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 12,
+   "titulo": "Catálogo de Propuestas Estratégicas para Cuba",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/06/Catalogo-de-Propuestas-Estrategicas-para-Cuba.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 13,
+   "titulo": "La Cuba que queremos. Propuestas para refundar la República",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/01/La-Cuba-que-queremos.-Propuesta-para-refundar-la-Republica.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 14,
+   "titulo": "Hoja de Ruta hacia la Reconciliación Nacional (Comisión de Verdad, Justicia, Reconciliación y Memoria Histórica)",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2023,
+   "url": "https://cubaproxima.org/wp-content/uploads/2023/10/Cuba-reconciliacion-y-futuro.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 15,
+   "titulo": "Derechos y Garantías en Cuba: fundamentación y propuesta (SELA 2013)",
+   "autoria": "Julio César Guanche y Julio Antonio Fernández Estrada",
+   "actor": null,
+   "anio": 2013,
+   "url": "https://law.yale.edu/sites/default/files/documents/pdf/sela/SELA13_GuancheFernandez_CV_Sp_20130316.pdf",
+   "tipo": "PERS"
+  },
+  {
+   "id": 16,
+   "titulo": "Manuel Cuesta Morúa: disidencia, nación y la larga marcha hacia la democracia",
+   "autoria": "Manuel Cuesta Morúa (entrevista de Juan Pin Vilar, CubaxCuba)",
+   "actor": null,
+   "anio": 2025,
+   "url": "https://www.cubaxcuba.com/s/Manuel-Cuesta-Morua_-disidencia-nacion-y-la-larga-marcha-hacia-la-democracia.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 17,
+   "titulo": "Cuba Independiente y Democrática (CID) — plataforma ideológica-programática",
+   "autoria": "Cuba Independiente y Democrática (CID)",
+   "actor": "cid",
+   "anio": 1980,
+   "url": "https://cubacid.com/nuestra-historia/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 18,
+   "titulo": "Brigada 2506 — Carta pública por una acción vigorosa para salir del régimen cubano",
+   "autoria": "Brigada 2506",
+   "actor": "brigada-2506",
+   "anio": 2025,
+   "url": "https://www.diariolasamericas.com/florida/accion-vigorosa-salir-del-regimen-cubano-pedido-veteranos-la-brigada-2506-trump-n5376366",
+   "tipo": "ORG"
+  },
+  {
+   "id": 19,
+   "titulo": "Pasos de Cambio — Pautas para la Movilización Ciudadana por el Cambio en Cuba",
+   "autoria": "Pasos de Cambio",
+   "actor": "pasos-de-cambio",
+   "anio": 2025,
+   "url": "https://www.pasosdecambio.com/resumen-movilizacion",
+   "tipo": "COAL"
+  },
+  {
+   "id": 20,
+   "titulo": "Asamblea de la Resistencia Cubana + Pasos de Cambio — Acuerdo de Liberación",
+   "autoria": "Asamblea de la Resistencia Cubana y Pasos de Cambio",
+   "actor": "arc-pasos-de-cambio",
+   "anio": 2026,
+   "url": "https://www.arbolinvertido.com/sociedad/exilio.%20firma-acuerdo-de-liberacion-de-cuba",
+   "tipo": "COAL"
+  },
+  {
+   "id": 21,
+   "titulo": "Centro de Estudios Convivencia — Tránsito Constitucional y Marco Jurídico en Cuba: de la ley a la ley",
+   "autoria": "Centro de Estudios Convivencia",
+   "actor": "centro-convivencia",
+   "anio": 2016,
+   "url": "https://centroconvivencia.org/wp-content/uploads/2022/06/II-INFORME-CEC-MARCO-JURIDICO.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 22,
+   "titulo": "Centro de Estudios Convivencia — La transición en Cuba: Memoria Histórica, Justicia Transicional y Reconciliación Nacional",
+   "autoria": "Centro de Estudios Convivencia",
+   "actor": "centro-convivencia",
+   "anio": 2022,
+   "url": "https://centroconvivencia.org/wp-content/uploads/2022/06/XII-INFORME-CEC-TRANSICION-EN-CUBA.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 23,
+   "titulo": "Movimiento Cristiano Liberación — Programa «TODOS CUBANOS» / Diálogo Nacional",
+   "autoria": "Movimiento Cristiano Liberación",
+   "actor": "mcl",
+   "anio": 2011,
+   "url": "https://mcliberacion.org/iniciativas-y-documentos/programa-todos-cubanos/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 24,
+   "titulo": "Grupo de Trabajo de la Disidencia Interna — La Patria es de Todos",
+   "autoria": "Grupo de Trabajo de la Disidencia Interna",
+   "actor": "gtdi",
+   "anio": 1997,
+   "url": "https://cuba.cultdemocratica.org/wp-content/uploads/2021/05/1997-La-patria-es-de-todos.pdf",
+   "tipo": "ORG"
+  },
+  {
+   "id": 25,
+   "titulo": "Cuba Próxima — Para instaurar en Cuba el imperio de la ley, el bienestar y la concordia",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2024,
+   "url": "https://cubaproxima.org/wp-content/uploads/2024/01/Para-instaurar-en-Cuba-el-imperio-de-la-ley-el-bienestar-y-la-concordia.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 26,
+   "titulo": "Plataforma Democrática Cubana — Proyecto de transición política (Anexos I y II)",
+   "autoria": "Plataforma Democrática Cubana",
+   "actor": "plataforma-democratica-cubana",
+   "anio": 1990,
+   "url": "https://cuba.cultdemocratica.org/wp-content/uploads/2021/05/1990-Plataforma-Democratica-Cubana.pdf",
+   "tipo": "COAL"
+  },
+  {
+   "id": 27,
+   "titulo": "Acuerdo por la Democracia en Cuba",
+   "autoria": "Acuerdo por la Democracia en Cuba",
+   "actor": "acuerdo-democracia-cuba",
+   "anio": 1998,
+   "url": "https://todoporcuba.files.wordpress.com/2013/04/acuerdo-por-la-democracia-en-cuba.pdf",
+   "tipo": "COAL"
+  },
+  {
+   "id": 28,
+   "titulo": "Partido Demócrata Cristiano de Cuba — sitio oficial / propuestas públicas",
+   "autoria": "Partido Demócrata Cristiano de Cuba",
+   "actor": "pdc-cuba",
+   "anio": 2018,
+   "url": "https://democratascristianoscuba.wordpress.com/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 29,
+   "titulo": "D Frente / CTDC — Estrategia Shanti — Hoja de ruta para la paz necesaria",
+   "autoria": "D Frente / CTDC",
+   "actor": "d-frente-ctdc",
+   "anio": 2022,
+   "url": "https://cubaproxima.org/el-pilar-de-esa-paz-necesaria-es-un-robusto-estado-democratico-de-derecho-dossier/",
+   "tipo": "COAL"
+  },
+  {
+   "id": 30,
+   "titulo": "Cuba Posible — textos sobre reforma del Estado y cultura política democrática",
+   "autoria": "Cuba Posible",
+   "actor": "cuba-posible",
+   "anio": 2026,
+   "url": "https://cubaposible.com/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 31,
+   "titulo": "D Frente — manifiesto fundacional (citado por 14ymedio)",
+   "autoria": "D Frente",
+   "actor": "d-frente",
+   "anio": 2022,
+   "url": "https://www.14ymedio.com/cuba/organizaciones-oposicion-cubana-refundar-republica_1_1003021.html",
+   "tipo": "COAL"
+  },
+  {
+   "id": 32,
+   "titulo": "CTDC — 50 actuaciones urgentes (reproducido por Diario de Cuba)",
+   "autoria": "CTDC",
+   "actor": "ctdc",
+   "anio": 2021,
+   "url": "https://diariodecuba.com/cuba/1628507604_33260.html",
+   "tipo": "COAL"
+  },
+  {
+   "id": 33,
+   "titulo": "Movimiento Cristiano Liberación — Proyecto Varela [texto íntegro, PDF CADAL; MISMO documento base que la ref 4 — ver DECISIONES_PENDIENTES]",
+   "autoria": "Movimiento Cristiano Liberación",
+   "actor": "mcl",
+   "anio": 2002,
+   "url": "https://www.cadal.org/libros/pdf/Proyecto_Varela.pdf",
+   "tipo": "ORG"
+  },
+  {
+   "id": 34,
+   "titulo": "Movimiento Cristiano Liberación — Programa Todos Cubanos / Diálogo Nacional",
+   "autoria": "Movimiento Cristiano Liberación",
+   "actor": "mcl",
+   "anio": 2011,
+   "url": "https://mcliberacion.org/iniciativas-y-documentos/programa-todos-cubanos/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 35,
+   "titulo": "CTDC — Proyecto de ley de amnistía y despenalización del disenso en Cuba",
+   "autoria": "CTDC",
+   "actor": "ctdc",
+   "anio": 2022,
+   "url": "https://cubaproxima.org/proyecto-de-ley-de-amnistia-y-despenalizacion-del-disenso-en-cuba/",
+   "tipo": "COAL"
+  },
+  {
+   "id": 36,
+   "titulo": "Cuba Próxima — La Cuba que queremos. Propuestas para refundar la República",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/01/La-Cuba-que-queremos.-Propuesta-para-refundar-la-Republica.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 37,
+   "titulo": "Cuba Próxima — Hoja de Ruta hacia la Reconciliación Nacional",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2023,
+   "url": "https://cubaproxima.org/wp-content/uploads/2023/10/Cuba-reconciliacion-y-futuro.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 38,
+   "titulo": "CAFC II — Segundo Informe de la Comisión para la Ayuda a una Cuba Libre",
+   "autoria": "Comisión para la Ayuda a una Cuba Libre (CAFC)",
+   "actor": "cafc",
+   "anio": 2006,
+   "url": "https://georgewbush-whitehouse.archives.gov/news/releases/2006/07/text/20060710-1.es.html",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 39,
+   "titulo": "Movimiento C40 — Manifiesto de Restitución de la Constitución de 1940",
+   "autoria": "Movimiento C40",
+   "actor": "movimiento-c40",
+   "anio": 2022,
+   "url": "https://movimientoc40.com/wp-content/uploads/2022/04/Manifiesto-C40.pdf",
+   "tipo": "ORG"
+  },
+  {
+   "id": 40,
+   "titulo": "Plataforma Democrática Cubana — Declaración de Caracas (17 jun 1991), reproducida por el NDI en «Peaceful Transitions and the Cuban Democratic Platform»",
+   "autoria": "Plataforma Democrática Cubana",
+   "actor": "plataforma-democratica-cubana",
+   "anio": 1990,
+   "url": "https://www.ndi.org/sites/default/files/Peaceful_Transitions_and_The_Cuban_Democratic_Platform_1991_0.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 41,
+   "titulo": "Directorio Democrático Cubano — entrevista programática a Orlando Gutiérrez-Boronat",
+   "autoria": "Directorio Democrático Cubano",
+   "actor": "directorio-democratico-cubano",
+   "anio": 2025,
+   "url": "https://www.cubanet.org/orlando-gutierrez-boronat-el-objetivo-es-uno-solo-rescatar-la-nacion-cubana/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 42,
+   "titulo": "Frente Constitucionalista Cubano — Proclama fundacional",
+   "autoria": "Frente Constitucionalista Cubano",
+   "actor": "frente-constitucionalista",
+   "anio": 2020,
+   "url": "https://movimientoc40.com/frente-constitucionalista-cubano/",
+   "tipo": "ORG"
+  },
+  {
+   "id": 43,
+   "titulo": "CUBA LIBRE: Compromiso de transición a la democracia",
+   "autoria": "Archivo Cuba (petición «CUBA LIBRE» en Change.org)",
+   "actor": null,
+   "anio": 2022,
+   "url": "https://www.change.org/p/apoya-el-compromiso-de-transici%C3%B3n-a-la-democracia-por-una-cuba-libre",
+   "tipo": "ORG"
+  },
+  {
+   "id": 44,
+   "titulo": "Elementos a cambiar y a conservar en la Constitución cubana",
+   "autoria": "Roberto Veiga González (ideas recogidas por Raudiel Peña Barrios)",
+   "actor": null,
+   "anio": null,
+   "url": "https://sociedadcivilcuba.org/archivo/constitucional/articulos/elementos-a-cambiar-y-a-conservar-en-la-constitucion-cubana-roberto-veiga-gonzalez/index.html",
+   "tipo": "PERS"
+  },
+  {
+   "id": 45,
+   "titulo": "Concilio Cubano — Declaración Oficial (1995)",
+   "autoria": "Concilio Cubano",
+   "actor": "concilio-cubano",
+   "anio": 1995,
+   "url": "https://cuba.cultdemocratica.org/wp-content/uploads/2021/05/1995-Concilio-Cubano-Declaracion-Oficial.pdf",
+   "tipo": "COAL"
+  },
+  {
+   "id": 46,
+   "titulo": "¿Por qué Cuba necesita una nueva Constitución? — Ponencia SELA 2016",
+   "autoria": "Julio Antonio Fernández Estrada",
+   "actor": null,
+   "anio": 2016,
+   "url": "https://law.yale.edu/sites/default/files/area/center/kamel/sela16_fernandez_cv_sp.docx.pdf",
+   "tipo": "PERS"
+  },
+  {
+   "id": 47,
+   "titulo": "Hacia una República renovada — los 12 pilares programáticos (índice maestro)",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": null,
+   "url": "https://cubaproxima.org/hacia-una-republica-renovada-los-pilares-programaticos-de-cuba-proxima/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 48,
+   "titulo": "Declaración conjunta por cambio democrático urgente — ¡El cambio democrático es urgente para nuestro pueblo!",
+   "autoria": "Declaración conjunta de organizaciones opositoras (Cuba Decide, Damas de Blanco, Unión Patriótica de Cuba, Movimiento Somos+ y otras)",
+   "actor": null,
+   "anio": 2024,
+   "url": "https://www.pasosdecambio.com/_files/ugd/32a33a_ea33462c3b0844c58ba7ac86511597ef.pdf",
+   "tipo": "COAL"
+  },
+  {
+   "id": 49,
+   "titulo": "Carta de los Diez / Declaración de Intelectuales Cubanos (1991) — Concertación Democrática de Cuba; demandas citadas por el firmante Manuel Díaz Martínez en su ensayo 'La carta de los diez' (revista Encuentro)",
+   "autoria": "Declaración de Intelectuales Cubanos («Carta de los Diez», 1991)",
+   "actor": null,
+   "anio": 1991,
+   "url": "https://cuba.cultdemocratica.org/iniciativa/concertacion-democratica-de-cuba-cdc/",
+   "tipo": "COAL"
+  },
+  {
+   "id": 50,
+   "titulo": "Concilio Cubano — Declaraciones Oficiales de 1995 (La Habana) y 2011 (Santiago de Cuba)",
+   "autoria": "Concilio Cubano",
+   "actor": "concilio-cubano",
+   "anio": 2011,
+   "url": "https://cuba.cultdemocratica.org/wp-content/uploads/2021/05/1995-Concilio-Cubano-Declaracion-Oficial.pdf",
+   "tipo": "COAL"
+  },
+  {
+   "id": 51,
+   "titulo": "La Constitución cubana de 2019: un análisis crítico — Revista de Derecho Político (UNED), N.º 105, mayo-agosto 2019, págs. 361-396 (DOI: 10.5944/rdp.105.2019.25278)",
+   "autoria": "Albert Noguera Fernández",
+   "actor": null,
+   "anio": 2019,
+   "url": "https://revistas.uned.es/index.php/derechopolitico/article/download/25278/20095",
+   "tipo": "PERS"
+  },
+  {
+   "id": 52,
+   "titulo": "Cuba: La clave está en el acuerdo para un futuro mejor — Informe (Cuba Próxima, febrero 2025)",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2025,
+   "url": "https://cubaproxima.org/wp-content/uploads/2025/02/Cuba-La-clave-esta-en-el-acuerdo-para-un-futuro-mejor.pdf",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 53,
+   "titulo": "Reformas al Sistema Político Cubano en el Marco de la Constitución de 2019: Sugerencias Electorales Posibles — Jorge I. Domínguez (Cuba Próxima, sept. 2023)",
+   "autoria": "Jorge I. Domínguez (publicado por Cuba Próxima)",
+   "actor": null,
+   "anio": 2023,
+   "url": "https://cubaproxima.org/reformas-al-sistema-politico-cubano-en-el-marco-de-la-constitucion-de-2019-sugerencias-electorales-posibles/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 54,
+   "titulo": "Republicanismo y reforma constitucional en Cuba: Julio Antonio Fernández Estrada — Raudiel Peña Barrios (Cuba Posible, 09/02/2018; comentario sobre las ideas de J.A. Fernández Estrada). Espejo verificado: rebelion.org",
+   "autoria": "Julio Antonio Fernández Estrada (ideas recogidas por Raudiel Peña Barrios)",
+   "actor": null,
+   "anio": 2018,
+   "url": "https://rebelion.org/republicanismo-y-reforma-constitucional-en-cuba-julio-antonio-fernandez-estrada/",
+   "tipo": "ACAD"
+  },
+  {
+   "id": 55,
+   "titulo": "Comisión de Verdad, Justicia, Reconciliación y Memoria Histórica — Cuba Próxima (PDF, oct. 2023; separata del programa «Pensando en el Futuro, Actuando en el Presente» 2022)",
+   "autoria": "Cuba Próxima",
+   "actor": "cuba-proxima",
+   "anio": 2023,
+   "url": "https://cubaproxima.org/wp-content/uploads/2023/10/Comision-de-Verdad-Justicia-Reconciliacion-y-Memoria-Historica.pdf",
+   "tipo": "ORG"
+  },
+  {
+   "id": 56,
+   "titulo": "Lázaro de Jesús González, «Cuba: la democratización pospuesta» — Perfiles Latinoamericanos 25(50), pp. 59-81, FLACSO México (2017)",
+   "autoria": "Lázaro de Jesús González",
+   "actor": null,
+   "anio": 2017,
+   "url": "https://perfilesla.flacso.edu.mx/index.php/perfilesla/article/view/932",
+   "tipo": "PERS"
+  },
+  {
+   "id": 57,
+   "titulo": "Ángeles Rosas, «Cuatro economistas ante la crisis energética en Cuba: medidas urgentes y viabilidad de una salida» — DIARIO DE CUBA (síntesis de propuestas de Emilio Morales, Yasmani Jiménez Barrera, Elías Amor y Pedro Monreal), 20 feb. 2026",
+   "autoria": "Ángeles Rosas (recoge a cuatro economistas)",
+   "actor": null,
+   "anio": 2026,
+   "url": "https://diariodecuba.com/economia/1771589484_65472.html",
+   "tipo": "PERS"
+  },
+  {
+   "id": 58,
+   "titulo": "Juan Palop/EFE, «Ocho economistas proponen soluciones radicales para sacar a Cuba de la crisis» — 14ymedio (síntesis de propuestas de Omar Everleny Pérez, Ricardo Torres, Mauricio de Miranda, Pedro Monreal, Carlos Martínez, Pavel Vidal, Tamarys Bahamonde y Miguel Alejandro Hayes), 18 oct. 2025",
+   "autoria": "Juan Palop / EFE (recoge a ocho economistas)",
+   "actor": null,
+   "anio": 2025,
+   "url": "https://www.14ymedio.com/cuba/ocho-economistas-proponen-soluciones-radicales_1_1119295.html",
+   "tipo": "PERS"
+  }
+ ],
+ "propuestas": [
+  {
+   "id": "presos-politicos",
+   "categoria": "transicion",
+   "titulo": "Liberación de todas las personas presas por motivos políticos",
+   "texto": "Liberar de inmediato a todas las personas detenidas, sancionadas o encarceladas por motivos políticos o de conciencia.",
+   "nota": "Las fuentes coinciden en liberar a todas las personas presas por motivos políticos. Difieren en el procedimiento: la mayoría la exige de inmediato o por amnistía; el Movimiento Cristiano Liberación la vincula a un referendo.",
+   "orden": 1,
+   "documentos": [
+    12,
+    18,
+    19,
+    25,
+    40,
+    21,
+    49,
+    52,
+    27,
+    48,
+    43
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Mediante una amnistía general para todas las causas por delito político.",
+     "documentos": [
+      26,
+      27,
+      40,
+      31,
+      35,
+      4
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Liberación incondicional, sin requisitos adicionales para cada persona.",
+     "documentos": [
+      48,
+      45,
+      50
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Incluir a quienes fueron condenados por falsos delitos comunes usados para perseguir el disenso.",
+     "documentos": [
+      27
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Cancelar las causas políticas pendientes contra los cubanos exiliados, para facilitar su regreso.",
+     "documentos": [
+      27
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Revisar todas las condenas.",
+     "documentos": [
+      43
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Excluir de la amnistía a quienes hayan atentado directamente contra la vida de otras personas.",
+     "documentos": [
+      4
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Liberar a los presos al aprobarse en referendo el programa «Todos Cubanos» y su amnistía.",
+     "documentos": [
+      23,
+      34,
+      33
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 20,
+   "cuestiones": []
+  },
+  {
+   "id": "despenalizacion-disenso",
+   "categoria": "transicion",
+   "titulo": "Despenalizar el disenso y la opinión política",
+   "texto": "Abolir la criminalización de la opinión política y detener el ciclo de penalización, castigo y exclusión de la diferencia y de los diferentes.",
+   "nota": null,
+   "orden": 2,
+   "documentos": [
+    36,
+    35,
+    31
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Amnistía general y plena para toda persona investigada o acusada por actividad «contrarrevolucionaria», contra la Seguridad del Estado o contra el sistema socialista.",
+     "documentos": [
+      35
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Revisar el Código Penal, con discusión ciudadana, en sintonía con los derechos constitucionales y la Carta Internacional de Derechos Humanos.",
+     "documentos": [
+      35
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Impulsar esta ley como iniciativa legislativa popular.",
+     "documentos": [
+      35
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "amnistia-reciproca",
+   "categoria": "transicion",
+   "titulo": "Amnistía recíproca, general y plena, salvo crímenes graves",
+   "texto": "Favorecer una amnistía recíproca, general y plena, que alcance también a autoridades, funcionarios y agentes que persiguieron a opositores, excepto a quienes hayan cometido crímenes de lesa humanidad o violaciones graves de derechos humanos, desde cualquiera de las partes en conflicto.",
+   "nota": "Otras fuentes piden el fin de la impunidad y procesos judiciales para los responsables. Ver la cuestión sobre qué hacer con los responsables de la represión.",
+   "orden": 3,
+   "documentos": [
+    25,
+    36,
+    35
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "responsables-de-la-represion"
+   ]
+  },
+  {
+   "id": "legalizacion-organizaciones",
+   "categoria": "transicion",
+   "titulo": "Legalizar los partidos y las organizaciones independientes",
+   "texto": "Legalizar de inmediato a todos los partidos políticos y a las organizaciones independientes de la sociedad civil, incluidos los grupos de derechos humanos, con plena libertad de acción y sin acoso.",
+   "nota": null,
+   "orden": 4,
+   "documentos": [
+    27,
+    24,
+    26,
+    43
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [
+    56
+   ],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "gobierno-transicion",
+   "categoria": "transicion",
+   "titulo": "Gobierno provisional de duración limitada que conduzca a elecciones libres",
+   "texto": "Instalar un gobierno de transición, provisional y de duración limitada, que restituya las libertades civiles, políticas y económicas y conduzca a elecciones libres. Solo se acatará como definitivo el gobierno que salga de la voluntad soberana del pueblo.",
+   "nota": null,
+   "orden": 5,
+   "documentos": [
+    19,
+    20,
+    26
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Quienes lo integren no podrán presentarse a cargos en las primeras elecciones.",
+     "documentos": [
+      43
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Sus funciones: coordinar el traspaso del poder, restaurar los derechos fundamentales, administrar el país priorizando el orden público y los servicios esenciales, y convocar elecciones generales en un plazo no superior a 24 meses.",
+     "documentos": [
+      43
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Sancionar la destrucción, ocultación o malversación de documentos, fondos y bienes del Estado, y regular la transparencia del gobierno provisional.",
+     "documentos": [
+      43
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Que el gobierno de transición no sea comunista.",
+     "documentos": [
+      18
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": [
+    "quien-gobierna-la-transicion"
+   ]
+  },
+  {
+   "id": "gobierno-reconciliacion-paritario",
+   "categoria": "transicion",
+   "titulo": "Gobierno de Reconciliación y Unidad Nacional, mitad oposición y mitad Asamblea actual",
+   "texto": "Formar un Gobierno de Reconciliación y Unidad Nacional con un 50 % de miembros propuestos por el Comité Gestor del referendo del programa «Todos Cubanos» y un 50 % propuestos por la Asamblea Nacional del Poder Popular.",
+   "nota": null,
+   "orden": 6,
+   "documentos": [
+    23
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "quien-gobierna-la-transicion"
+   ]
+  },
+  {
+   "id": "transicion-por-fases",
+   "categoria": "transicion",
+   "titulo": "Plan de transición en cuatro fases",
+   "texto": "Organizar la transición en cuatro fases: liberación, estabilización, reconstrucción y democratización del país.",
+   "nota": null,
+   "orden": 7,
+   "documentos": [
+    20
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "elecciones-antes-de-constituyente",
+   "categoria": "transicion",
+   "titulo": "Primero elecciones libres; el nuevo parlamento gobierna durante la etapa constituyente",
+   "texto": "En una etapa preliminar, elegir en elecciones libres un nuevo parlamento y un presidente de la República, que gobernarán mientras dure la etapa constituyente.",
+   "nota": null,
+   "orden": 8,
+   "documentos": [
+    23,
+    34
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "quien-gobierna-la-transicion",
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "transicion-pacifica",
+   "categoria": "transicion",
+   "titulo": "Transición pacífica, sin violencia política",
+   "texto": "Trabajar por una transición absolutamente pacífica, ordenada y eficaz hacia un Estado democrático de derecho, desterrando para siempre la violencia de las querellas políticas, también la que se ejerce desde el Estado.",
+   "nota": null,
+   "orden": 9,
+   "documentos": [
+    45,
+    50,
+    26,
+    22,
+    16,
+    29
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Promover la tolerancia y el respeto a la libertad.",
+     "documentos": [
+      29
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "transicion-inclusiva",
+   "categoria": "transicion",
+   "titulo": "Una transición que incluya a todos los cubanos, sin revancha",
+   "texto": "Garantizar que todos los cubanos participen en la transición, sin exclusiones de clase alguna y sin odios ni revanchas, incluidos quienes hoy apoyan al régimen.",
+   "nota": null,
+   "orden": 10,
+   "documentos": [
+    50,
+    45,
+    16
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "lugar-de-los-comunistas"
+   ]
+  },
+  {
+   "id": "resistencia-civica",
+   "categoria": "transicion",
+   "titulo": "Movilización ciudadana no violenta",
+   "texto": "Una estrategia de movilización ciudadana sostenida, organizada y no violenta como eje para lograr la transición: protestas públicas, cacerolazos, boicots, plantones, paros estudiantiles, campañas informativas y rechazo masivo a los procesos sin garantías democráticas.",
+   "nota": null,
+   "orden": 11,
+   "documentos": [
+    19,
+    42
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Redes de coordinación dentro de la isla, incluso clandestinas, para comunicarse con seguridad y planificar acciones.",
+     "documentos": [
+      19
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Apoyo de la diáspora con recursos y formación cívica.",
+     "documentos": [
+      19
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Apoyo logístico y tecnológico internacional al movimiento de resistencia cívica y a la nueva generación de activistas.",
+     "documentos": [
+      18
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Una oposición cívica comprometida con principios democráticos.",
+     "documentos": [
+      29
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": [
+    "como-empieza-el-cambio"
+   ]
+  },
+  {
+   "id": "unidad-de-la-oposicion",
+   "categoria": "transicion",
+   "titulo": "Foro permanente de concertación entre organizaciones",
+   "texto": "Crear un foro permanente en el que las organizaciones, conservando su identidad, debatan, diseñen estrategias comunes y elaboren propuestas políticas conjuntas.",
+   "nota": null,
+   "orden": 12,
+   "documentos": [
+    45
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "dialogo-nacional",
+   "categoria": "transicion",
+   "titulo": "Diálogo nacional entre todos los cubanos",
+   "texto": "Un diálogo nacional en el que estén representadas todas las tendencias políticas, la sociedad civil de la isla y de la diáspora y el gobierno, para hallar una solución cubana a la crisis cubana y llegar a un nuevo pacto social.",
+   "nota": null,
+   "orden": 13,
+   "documentos": [
+    26,
+    40,
+    49,
+    34,
+    12,
+    52,
+    16,
+    47
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Empezar con una conferencia preparatoria que fije temas, fecha y lugar, con observadores internacionales.",
+     "documentos": [
+      26,
+      40
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Una Mesa de Diálogo Nacional con veedores, expertos, mediadores y garantes de otros países, de la Iglesia y de distintas corrientes ideológicas.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Que su meta sea garantizar, en la ley y en la práctica, los derechos políticos y civiles de todos.",
+     "documentos": [
+      34
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Que los gobiernos latinoamericanos pidan al gobierno cubano abrir este proceso.",
+     "documentos": [
+      40
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 9,
+   "cuestiones": [
+    "como-empieza-el-cambio"
+   ]
+  },
+  {
+   "id": "apertura-acordada",
+   "categoria": "transicion",
+   "titulo": "Apertura acordada en dos procesos paralelos: entre cubanos y entre Cuba y Estados Unidos",
+   "texto": "Lograr una apertura acordada mediante una negociación política entre la sociedad civil y política de la isla y la diáspora y el Gobierno de Cuba, en paralelo con un proceso entre Cuba y Estados Unidos, comprometida con reducir el sufrimiento del pueblo y con la libertad, los derechos humanos, la democracia y el imperio de la ley.",
+   "nota": null,
+   "orden": 14,
+   "documentos": [
+    12,
+    52,
+    36
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un Acuerdo «de Helsinki» cubano que fije los fundamentos y el marco legal de ambos procesos.",
+     "documentos": [
+      12,
+      52
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Admitir gradualidad y garantías para que el poder actual acepte negociar, junto con facilidades para reactivar la economía real.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Agenda desde Cuba: liberar a los presos políticos, activar la Sala de Garantías Constitucionales, abrir la economía, dialogar con la sociedad civil y reformar el sistema electoral.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Acordar un mínimo de acciones concretas para restituir derechos a la ciudadanía y limitar la arbitrariedad del Estado.",
+     "documentos": [
+      56
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Un Gabinete de Facilitación Sociopolítica que cree las condiciones para aplicarla.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": [
+    "como-empieza-el-cambio"
+   ]
+  },
+  {
+   "id": "consulta-popular",
+   "categoria": "transicion",
+   "titulo": "Consulta popular vinculante para decidir el cambio",
+   "texto": "Que el pueblo decida el cambio en una consulta popular vinculante: referendo, plebiscito o elecciones generales.",
+   "nota": null,
+   "orden": 15,
+   "documentos": [
+    19,
+    26,
+    31,
+    33
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Definir la fórmula de la consulta en un encuentro nacional previo.",
+     "documentos": [
+      26
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Un referendo sobre los cinco puntos del Proyecto Varela, convocado por la Asamblea Nacional.",
+     "documentos": [
+      33
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": [
+    "como-empieza-el-cambio"
+   ]
+  },
+  {
+   "id": "de-la-ley-a-la-ley",
+   "categoria": "transicion",
+   "titulo": "Transición ordenada «de la ley a la ley», sin ruptura institucional",
+   "texto": "Una transición ordenada mediante el derecho: un proceso de transformaciones jurídicas que, desde la ley y sin ruptura institucional, garantice los derechos humanos y la participación de todos los cubanos en igualdad de condiciones.",
+   "nota": null,
+   "orden": 16,
+   "documentos": [
+    50,
+    45,
+    47,
+    16,
+    21,
+    23,
+    34
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Usar de forma creativa los espacios legales y constitucionales existentes.",
+     "documentos": [
+      16
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Un referendo que apruebe la nueva Constitución o el nuevo programa.",
+     "documentos": [
+      21,
+      23
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 7,
+   "cuestiones": [
+    "como-empieza-el-cambio"
+   ]
+  },
+  {
+   "id": "presion-externa-sanciones",
+   "categoria": "transicion",
+   "titulo": "Presión internacional y sanciones contra las estructuras del régimen",
+   "texto": "Endurecer las sanciones contra las estructuras del régimen y coordinar un cerco internacional y económico hasta que haya apertura democrática.",
+   "nota": null,
+   "orden": 17,
+   "documentos": [
+    18,
+    20
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Presionar a la Unión Europea y a los gobiernos latinoamericanos para que suspendan el apoyo financiero mientras no haya apertura democrática.",
+     "documentos": [
+      18
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Advertir al régimen de que provocar una ola migratoria se tratará como un acto hostil.",
+     "documentos": [
+      18
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "como-empieza-el-cambio",
+    "sanciones-o-normalizacion"
+   ]
+  },
+  {
+   "id": "normalizacion-cuba-eeuu",
+   "categoria": "transicion",
+   "titulo": "Normalizar las relaciones con Estados Unidos y poner fin al embargo",
+   "texto": "Construir relaciones positivas con Estados Unidos desde el respeto a la soberanía de ambos pueblos, mediante un diálogo entre los dos Estados que incluya a la sociedad civil y a la oposición democrática, con el fin del embargo como pilar.",
+   "nota": "Las razones difieren: una fuente lo plantea como parte de una apertura acordada; otra sostiene que el embargo no funciona y daña al pueblo que se quiere liberar.",
+   "orden": 18,
+   "documentos": [
+    55,
+    52,
+    16
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Sacar a Cuba de la lista de países patrocinadores del terrorismo.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Relaciones económicas directas entre empresas privadas cubanas y estadounidenses, y un acuerdo económico bilateral para puertos, azúcar, agricultura, níquel, cobalto, turismo y mipymes.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Apoyo de Estados Unidos al ingreso de Cuba en el FMI y el Banco Mundial, y a la creación de instituciones de crédito para todas las empresas.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Institucionalizar los intercambios familiares, deportivos, culturales, académicos, científicos y humanitarios.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Suspender nuevos procesos bajo el Título III de la Ley Helms-Burton.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Negociar la salida de la base naval de Guantánamo.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "g",
+     "texto": "Cooperar en medio ambiente, tráfico de personas, narcotráfico, seguridad aérea y control de epidemias.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": [
+    "sanciones-o-normalizacion"
+   ]
+  },
+  {
+   "id": "apoyo-internacional",
+   "categoria": "transicion",
+   "titulo": "Acompañamiento internacional de la transición",
+   "texto": "Pedir a la comunidad internacional que respalde el derecho de los cubanos a decidir su futuro democrático, exija garantías electorales y acompañe la transición con mediación, asesoría y verificación.",
+   "nota": null,
+   "orden": 19,
+   "documentos": [
+    48,
+    38,
+    40
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un grupo de Estados acompañantes, como Uruguay, Brasil, Chile, Colombia, México, Canadá, Francia, Noruega y el Vaticano.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Mediación de la ONU, la Unión Europea, la CELAC, el CARICOM y la OEA, con un mecanismo de verificación internacional e informes periódicos.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Asesoría de expertos internacionales en transición, memoria, verdad, justicia y reconciliación.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Ayuda prioritaria a un gobierno de transición que convoque pronto elecciones libres con varios partidos.",
+     "documentos": [
+      38
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "ayuda-exterior-legitima",
+   "categoria": "transicion",
+   "titulo": "Criterios para aceptar ayuda exterior",
+   "texto": "Considerar legítima la ayuda exterior a la sociedad civil salvo la que provenga de actividades ilícitas o del lavado de dinero, la que salga directamente de las arcas de los Estados y la que venga condicionada.",
+   "nota": null,
+   "orden": 20,
+   "documentos": [
+    16
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "proscripcion-comunismo",
+   "categoria": "transicion",
+   "titulo": "Erradicar del poder político las doctrinas comunistas y totalitarias",
+   "texto": "Desmilitarizar el país y erradicar del poder político toda doctrina antidemocrática, comunista o totalitaria.",
+   "nota": null,
+   "orden": 21,
+   "documentos": [
+    20,
+    41
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "lugar-de-los-comunistas"
+   ]
+  },
+  {
+   "id": "comision-verdad",
+   "categoria": "transicion",
+   "titulo": "Comisión de la Verdad independiente",
+   "texto": "Crear por ley una Comisión de Verdad, Justicia, Reconciliación y Memoria Histórica: oficial, independiente, no judicial y de duración limitada, que esclarezca los hechos, causas y consecuencias de las violaciones de derechos humanos y entregue un informe a la sociedad.",
+   "nota": null,
+   "orden": 22,
+   "documentos": [
+    22,
+    55,
+    37
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Independencia total y acceso pleno a archivos, fuentes, testigos y víctimas.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Composición plural y equilibrada (política, social, territorial, de sexo y raza), que no responda al gobierno. Cualquier cubano puede presentar su candidatura.",
+     "documentos": [
+      55,
+      37
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Miembros elegidos por el primer parlamento plural surgido de elecciones libres; presidencia propuesta por acuerdo entre el gobierno en funciones y representantes de la ciudadanía.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Carácter no judicial: su información no sirve para imputar penalmente, sin frenar los procesos de la fiscalía y de los afectados.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Protección de los comisionados frente a denuncias por su trabajo.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Situaciones a esclarecer, entre otras: represión a disidentes y comunidades de fe, discriminación racial y contra la comunidad LGTBIQ+, fusilamientos, UMAP, el remolcador 13 de Marzo, Hermanos al Rescate y el 11J.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "g",
+     "texto": "Esclarecer lo ocurrido junto con la sociedad civil.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "h",
+     "texto": "Informe final público, orientación a las víctimas y archivo preservado.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "i",
+     "texto": "Conclusiones aprobadas por el parlamento y un comité que vigile el cumplimiento de sus recomendaciones.",
+     "documentos": [
+      55
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "responsables-de-la-represion"
+   ]
+  },
+  {
+   "id": "justicia-transicional",
+   "categoria": "transicion",
+   "titulo": "Justicia transicional, sin impunidad y sin venganza",
+   "texto": "Aprobar una ley marco de justicia transicional que equilibre verdad, justicia, reparación y reconciliación, con un sistema de justicia restaurativo e integral que acabe con la impunidad por crímenes de lesa humanidad sin convertirse en venganza política.",
+   "nota": null,
+   "orden": 23,
+   "documentos": [
+    10,
+    22,
+    37,
+    16,
+    47,
+    20,
+    43
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Una Ley de Verdad, Justicia, Reconciliación y Memoria Histórica aprobada por mayoría cualificada del primer parlamento plural elegido libremente.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Tribunales especiales con mandato limitado, competencia mixta y supervisión internacional.",
+     "documentos": [
+      10
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Una Audiencia de Verdad y Justicia que certifique el reconocimiento de verdad y responsabilidad, considerado atenuante ante los tribunales ordinarios.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Un marco temporal restringido y consensuado, orientado también a la rehabilitación y la reinserción.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Defensa legal autónoma y gratuita para quien no tenga recursos, y programas de protección de testigos.",
+     "documentos": [
+      55,
+      22
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Un registro público de víctimas y perpetradores con fines de memoria y reparación, sin persecución penal automática.",
+     "documentos": [
+      10
+     ]
+    },
+    {
+     "letra": "g",
+     "texto": "Sentencias que satisfagan los derechos de las víctimas y cierren los conflictos para las generaciones futuras.",
+     "documentos": [
+      55
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 9,
+   "cuestiones": [
+    "responsables-de-la-represion"
+   ]
+  },
+  {
+   "id": "reparacion-victimas",
+   "categoria": "transicion",
+   "titulo": "Reparación integral a las víctimas",
+   "texto": "Una ley y un programa de reparación integral a las víctimas del totalitarismo, en especial a quienes estuvieron presos por razones políticas, de identidad, ideológicas o de conciencia: indemnización, rehabilitación, restitución, búsqueda de desaparecidos, disculpas públicas y garantías de no repetición.",
+   "nota": null,
+   "orden": 24,
+   "documentos": [
+    22,
+    16
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Atención médica y psicológica, y restauración material y social de las personas afectadas.",
+     "documentos": [
+      55
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Acuerdos de no repetición y cese de la represión.",
+     "documentos": [
+      14
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Que la reparación involucre a la sociedad civil y al Estado, y también a quienes diseñaron la maquinaria represiva.",
+     "documentos": [
+      14,
+      16
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Atender de inmediato las reclamaciones por encarcelamientos injustos y abusivos.",
+     "documentos": [
+      34
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Acordar con las personas afectadas los derechos que pueden reclamar y la forma de resarcirlos.",
+     "documentos": [
+      55
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "memoria-historica",
+   "categoria": "transicion",
+   "titulo": "Memoria histórica plural, documentada y enseñada",
+   "texto": "Recuperar, documentar y enseñar la memoria histórica como garantía para no retroceder, promoviendo una memoria plural, como experiencia y no como nuevo canon, mediante investigaciones y exposiciones libres.",
+   "nota": null,
+   "orden": 25,
+   "documentos": [
+    22,
+    55,
+    52,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un Instituto de la Memoria Histórica y un Centro-Museo con archivo en permanente actualización.",
+     "documentos": [
+      21,
+      22
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Un repositorio que reúna las violaciones documentadas por organizaciones como Cubalex, Justicia 11J o el Observatorio Cubano de Derechos Humanos.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Desclasificar archivos con plazos y protegiendo la intimidad de terceros.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Llevar estos estudios a la enseñanza y a los libros de texto.",
+     "documentos": [
+      22,
+      55
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Una Ley de Memoria Histórica que garantice el derecho a la verdad.",
+     "documentos": [
+      22
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "reconciliacion",
+   "categoria": "transicion",
+   "titulo": "Reconciliación nacional guiada por el diálogo",
+   "texto": "Un proceso de reconciliación nacional basado en la paz, la justicia y la transparencia, guiado por el diálogo, que combine memoria, justicia restaurativa y reparación, y permita sanar, reconstruir y mirar adelante.",
+   "nota": null,
+   "orden": 26,
+   "documentos": [
+    12,
+    13,
+    14,
+    16,
+    37,
+    22
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Participación amplia: instituciones del Estado, iglesias, asociaciones, organizaciones hoy consideradas ilícitas y personas a título individual.",
+     "documentos": [
+      14,
+      37
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Sin vetos previos a los participantes, salvo a quienes difundan discursos de odio.",
+     "documentos": [
+      14
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Principios del diálogo: no discriminación, igualdad de género, transparencia, búsqueda de consensos y respeto a las minorías.",
+     "documentos": [
+      14
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Capacitación previa de los participantes y una Cátedra de Justicia y Reconciliación.",
+     "documentos": [
+      14,
+      22
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Un Programa Integral de Reconciliación Nacional y una Ley de la Memoria, el Perdón y la Reconciliación.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Garantías de no repetición: libertad, derechos humanos, gobierno democrático y elecciones libres.",
+     "documentos": [
+      55
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "lustracion",
+   "categoria": "transicion",
+   "titulo": "Ley de lustración",
+   "texto": "Aprobar una Ley de Lustración que tenga en cuenta las características propias de Cuba.",
+   "nota": "Lustración: revisión del pasado de quienes aspiran a cargos públicos, para limitar el acceso de quienes participaron en la represión. La fuente no detalla su alcance.",
+   "orden": 27,
+   "documentos": [
+    22
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "responsables-de-la-represion"
+   ]
+  },
+  {
+   "id": "asamblea-constituyente",
+   "categoria": "constitucion",
+   "titulo": "Una Asamblea Constituyente libremente elegida para una nueva Constitución",
+   "texto": "Convocar una Asamblea Constituyente libremente elegida por el pueblo, con la participación de todos los sectores y posiciones políticas, que redacte una nueva Constitución para someterla a referendo.",
+   "nota": null,
+   "orden": 28,
+   "documentos": [
+    2,
+    6,
+    17,
+    46,
+    47,
+    21,
+    31,
+    24,
+    22
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Tomar en cuenta la inspiración y los derechos sociales y culturales de la Constitución de 1940, o usarla como base.",
+     "documentos": [
+      21,
+      24
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Plazos: 90 días para redactar y aprobar el proyecto, y referendo dentro de los 120 días desde la instalación de la Asamblea.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "La Asamblea representa la soberanía popular y tiene plenos poderes.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "La nueva Constitución se confirma en referendo.",
+     "documentos": [
+      46
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Un Congreso Constituyente elegido en menos de un año, que además legisle y fiscalice al Ejecutivo, mientras rige la Constitución de 1940 en lo aplicable.",
+     "documentos": [
+      27
+     ]
+    }
+   ],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 11,
+   "cuestiones": [
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "proceso-constituyente",
+   "categoria": "constitucion",
+   "titulo": "Reglas claras y participación ciudadana en el proceso constituyente",
+   "texto": "Regular por ley el proceso constituyente para que la ciudadanía participe en la redacción de la nueva Constitución, y no solo en el debate de un proyecto ya elaborado: que cualquier cubano pueda proponer, dar a conocer y discutir sus propuestas.",
+   "nota": null,
+   "orden": 29,
+   "documentos": [
+    25,
+    47,
+    44,
+    54
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Diez fases: convocatoria, inscripción de propuestas, deliberación social previa, comité de expertos, elección de delegados, instalación de la Asamblea, redacción, deliberación posterior, aprobación y ratificación en referéndum.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Lo convoca el Consejo Electoral Nacional a petición de la mayoría absoluta de la Asamblea Nacional.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Las propuestas de Constitución se acreditan en un plazo de tres meses y pueden nominar delegados; también se admiten candidaturas independientes.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Un Comité de Expertos de 25 miembros elabora el anteproyecto de partida.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Un delegado por distrito, elegido por mayoría absoluta con segunda vuelta.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Los medios públicos difunden todas las propuestas y se celebra un debate público con partidos y sociedad civil.",
+     "documentos": [
+      6
+     ]
+    },
+    {
+     "letra": "g",
+     "texto": "La Constitución queda aprobada con el voto favorable de la mayoría absoluta de los inscritos en el padrón.",
+     "documentos": [
+      6
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "constitucion-1940",
+   "categoria": "constitucion",
+   "titulo": "Restituir la Constitución de 1940",
+   "texto": "Restituir la Constitución de 1940, aprobada por una Constituyente soberana, para restablecer el hilo republicano y democrático roto en 1952 y desde 1959, y disponer de un orden legal tras la dictadura.",
+   "nota": "Las fuentes difieren en el alcance: restitución plena como orden legal, o referencia transitoria hasta una nueva Constitución.",
+   "orden": 30,
+   "documentos": [
+    39,
+    42
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Una vez restituida, quien quiera cambiarla podrá hacerlo por las vías legales de iniciativa legislativa.",
+     "documentos": [
+      39
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Restaurarla de forma temporal, sobre todo su Declaración de Derechos.",
+     "documentos": [
+      18
+     ]
+    },
+    {
+     "texto": "Usarla como referencia legal durante la transición, en lo aplicable, hasta que se elija una Constituyente o un nuevo gobierno.",
+     "documentos": [
+      27,
+      43
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": [
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "reforma-provisional-2019",
+   "categoria": "constitucion",
+   "titulo": "Reforma provisional de la Constitución de 2019 como puente hacia una constituyente",
+   "texto": "Aprobar una Ley Electoral Provisional y celebrar elecciones libres junto con un referendo que autorice a los diputados electos a hacer una Reforma General Provisional de la Constitución de 2019; con esas garantías, encaminar el país hacia un proceso constituyente originario.",
+   "nota": null,
+   "orden": 31,
+   "documentos": [
+    25,
+    36,
+    47
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Aprobar leyes de necesidad inmediata sobre derechos humanos y desarrollo socioeconómico.",
+     "documentos": [
+      25
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Una Ley de tránsito constitucional que regule cómo se instituye la nueva Constitución y se celebran elecciones generales.",
+     "documentos": [
+      25
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Crear condiciones sociales, económicas y políticas de estabilidad y desarrollo.",
+     "documentos": [
+      25
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "reforma-clausula-hacia-constituyente",
+   "categoria": "constitucion",
+   "titulo": "Reformar solo la cláusula de reforma para abrir paso a una Asamblea Constituyente",
+   "texto": "Modificar únicamente la cláusula de reforma de la Constitución vigente para permitir convocar una Asamblea Constituyente, mediante un proyecto de ley ante la Asamblea Nacional o por iniciativa legislativa popular, con la última palabra en referendo.",
+   "nota": null,
+   "orden": 32,
+   "documentos": [
+    46,
+    54
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Que movimientos sociales y la sociedad civil propongan el proceso constituyente y las reglas que regirían hasta la nueva Constitución.",
+     "documentos": [
+      46
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "reforma-constitucional-vigente",
+   "categoria": "constitucion",
+   "titulo": "Que la Asamblea Nacional elimine de la Constitución lo que impide una sociedad libre",
+   "texto": "Que la Asamblea Nacional del Poder Popular reforme la Constitución vigente para eliminar los artículos que impiden una sociedad libre y democrática, y permita el pluripartidismo, la libertad de asociación, reunión, movimiento y expresión, con acceso equitativo de la oposición a los medios.",
+   "nota": null,
+   "orden": 33,
+   "documentos": [
+    26,
+    40
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "que-constitucion-en-la-transicion"
+   ]
+  },
+  {
+   "id": "reforma-de-la-constitucion",
+   "categoria": "constitucion",
+   "titulo": "Reglas exigentes para reformar la Constitución",
+   "texto": "Que toda reforma general de la Constitución se someta a consulta ciudadana y se apruebe por mayoría absoluta, o cualificada, de los electores inscritos, y no solo de los votantes.",
+   "nota": null,
+   "orden": 34,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Una reforma total requiere el acuerdo de dos legislaturas consecutivas por mayoría cualificada.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Los derechos no podrán reformarse para restringirlos, solo para ampliarlos.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "estructura-nueva-constitucion",
+   "categoria": "constitucion",
+   "titulo": "Los derechos antes que los poderes en la nueva Constitución",
+   "texto": "Que en la nueva Constitución la parte de derechos y deberes de la persona preceda a la organización del Estado.",
+   "nota": null,
+   "orden": 35,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Estructura en cuatro partes: preámbulo, derechos, organización del Estado, y reforma y tránsito constitucional.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "preambulo-invocacion-dios",
+   "categoria": "constitucion",
+   "titulo": "Invocar a Dios en el preámbulo de la Constitución",
+   "texto": "Incluir en el preámbulo la invocación del favor de Dios, junto a la dignidad de la persona, el Estado de Derecho, la democracia y el protagonismo de la sociedad civil.",
+   "nota": null,
+   "orden": 36,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Redacción propuesta, que cierra con la frase de Martí: «Yo quiero que la ley primera de nuestra República sea el culto de los cubanos a la dignidad plena del hombre».",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "elementos-a-conservar",
+   "categoria": "constitucion",
+   "titulo": "Conservar los aportes valiosos de la Constitución actual",
+   "texto": "Que cualquier reforma constitucional mantenga y desarrolle los elementos valiosos del texto actual: la vocación soberanista e independentista, la igualdad jurídica, el carácter social y la protección del ideario de justicia social.",
+   "nota": null,
+   "orden": 37,
+   "documentos": [
+    44
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Traducir los fines declarados de la Revolución en derechos fundamentales exigibles.",
+     "documentos": [
+      51
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "simbolos-nacionales",
+   "categoria": "constitucion",
+   "titulo": "Símbolos nacionales",
+   "texto": "Los símbolos nacionales son los que han presidido las luchas por la independencia y la libertad: la bandera de la estrella solitaria, el himno de Bayamo y el escudo de la palma real.",
+   "nota": null,
+   "orden": 38,
+   "documentos": [
+    1
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "dignidad-humana",
+   "categoria": "constitucion",
+   "titulo": "La dignidad de la persona como centro de la Constitución",
+   "texto": "Que la dignidad plena de toda persona sea el principio, el centro y el fin del nuevo orden jurídico: la persona vale por el simple hecho de existir y es un fin en sí misma, nunca un medio.",
+   "nota": null,
+   "orden": 39,
+   "documentos": [
+    21,
+    22
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "soberania-popular",
+   "categoria": "constitucion",
+   "titulo": "La soberanía reside en el pueblo",
+   "texto": "Reconocer que la soberanía reside en el pueblo, que posee el poder constituyente y lo ejerce directamente, por asambleas constituyentes y referendos, o por medio de sus representantes, con la democracia más participativa posible.",
+   "nota": null,
+   "orden": 40,
+   "documentos": [
+    1,
+    13,
+    27,
+    30,
+    41,
+    47,
+    21,
+    31,
+    23
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 9,
+   "cuestiones": []
+  },
+  {
+   "id": "soberania-nacional",
+   "categoria": "constitucion",
+   "titulo": "Nación independiente y soberana",
+   "texto": "Afirmar la independencia nacional, la integridad territorial y la soberanía de Cuba: no ser vasallos de ninguna potencia extranjera.",
+   "nota": null,
+   "orden": 41,
+   "documentos": [
+    17,
+    23
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "estado-de-derecho",
+   "categoria": "constitucion",
+   "titulo": "Estado democrático y social de derecho, con separación de poderes",
+   "texto": "Constituir a Cuba como República unitaria y Estado democrático y social de derecho, pluralista, descentralizado y con independencia entre los poderes, que ampare a los ciudadanos frente a la arbitrariedad.",
+   "nota": null,
+   "orden": 42,
+   "documentos": [
+    1,
+    13,
+    29,
+    46,
+    21,
+    56
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Definición propuesta: «Nación independiente y soberana, organizada como República unitaria y democrática, con todos y para el bien de todos».",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Independencia de los tres poderes del Estado y máxima descentralización posible.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    24
+   ],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "gobierno-limitado",
+   "categoria": "constitucion",
+   "titulo": "Un gobierno limitado a defender los derechos naturales",
+   "texto": "Un gobierno limitado, como lo concibieron los independentistas en la manigua, cuya única razón de ser sea la defensa de los derechos naturales de los cubanos.",
+   "nota": null,
+   "orden": 43,
+   "documentos": [
+    41
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "modelo-economico"
+   ]
+  },
+  {
+   "id": "estado-laico",
+   "categoria": "constitucion",
+   "titulo": "Estado laico que respete todas las religiones",
+   "texto": "Un Estado laico, sin religión oficial, que respete los derechos de todas las religiones, de los creyentes y de los no creyentes, y que no limite ni intervenga en la misión de las iglesias.",
+   "nota": null,
+   "orden": 44,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "fin-partido-unico-dirigente",
+   "categoria": "constitucion",
+   "titulo": "Fin del Partido Comunista como fuerza dirigente del Estado",
+   "texto": "Eliminar el papel del Partido Comunista como fuerza única y dirigente de la sociedad y del Estado, y separar el partido de la administración.",
+   "nota": null,
+   "orden": 45,
+   "documentos": [
+    31,
+    32
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Suprimir la categoría ideológica de «socialismo» del texto constitucional.",
+     "documentos": [
+      5
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "tribunal-constitucional",
+   "categoria": "constitucion",
+   "titulo": "Tribunal Constitucional independiente y supremacía de la Constitución",
+   "texto": "Crear un Tribunal Constitucional autónomo que garantice la supremacía de la Constitución y pueda anular leyes y actos del poder que la violen o vulneren los tratados de derechos humanos.",
+   "nota": null,
+   "orden": 46,
+   "documentos": [
+    36,
+    22,
+    21,
+    46,
+    10,
+    51
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "La Constitución es la norma suprema y directamente aplicable.",
+     "documentos": [
+      1
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "El Tribunal puede juzgar al Presidente, a los diputados y a cualquier cargo público por violar la Constitución.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Como paso inmediato, activar la Sala de Garantías Constitucionales prevista en la Ley 140/2021.",
+     "documentos": [
+      12,
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 10,
+   "cuestiones": []
+  },
+  {
+   "id": "gobierno-semiparlamentario",
+   "categoria": "constitucion",
+   "titulo": "Sistema de gobierno semiparlamentario con Primer Ministro",
+   "texto": "Un sistema de gobierno semiparlamentario, con un Primer Ministro como jefe de gobierno y un fuerte control del ejecutivo por instituciones estables y por la sociedad civil, para evitar el caudillismo y los populismos.",
+   "nota": null,
+   "orden": 47,
+   "documentos": [
+    21,
+    1
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Los ministros son ratificados por el parlamento.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "sistema-de-gobierno"
+   ]
+  },
+  {
+   "id": "eleccion-directa-presidente",
+   "categoria": "constitucion",
+   "titulo": "Presidente elegido directamente por el pueblo",
+   "texto": "Elegir al Presidente de la República por voto directo, libre y secreto, por mayoría absoluta y con segunda vuelta entre los dos más votados si nadie la alcanza.",
+   "nota": null,
+   "orden": 48,
+   "documentos": [
+    5,
+    7,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Votan también los cubanos que viven fuera, en un distrito nacional único.",
+     "documentos": [
+      7
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Las elecciones generales se celebran como regla en dos vueltas.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Mandato de cinco años.",
+     "documentos": [
+      5
+     ]
+    },
+    {
+     "texto": "Mandato de cuatro años, con una sola reelección y revocable.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "sistema-de-gobierno"
+   ]
+  },
+  {
+   "id": "parlamento",
+   "categoria": "constitucion",
+   "titulo": "Un parlamento profesional que controle al gobierno",
+   "texto": "Un parlamento moderno, profesional y permanente, con contrapesos reales y capacidad para controlar al gobierno y fiscalizar las políticas públicas.",
+   "nota": null,
+   "orden": 49,
+   "documentos": [
+    47,
+    8
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Funcionamiento profesional y especializado, con comisiones permanentes y grupos de trabajo.",
+     "documentos": [
+      8
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Fiscalización de las políticas económicas, financieras y sociales.",
+     "documentos": [
+      8
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Papel activo en la defensa de los derechos humanos y de las personas y grupos vulnerables.",
+     "documentos": [
+      8
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Reglas detalladas sobre su naturaleza, sus atribuciones y el proceso legislativo completo.",
+     "documentos": [
+      8
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Rendición de cuentas de los diputados ante sus electores, y reglas sobre su responsabilidad e inmunidad.",
+     "documentos": [
+      8
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Ningún ministro puede ser a la vez diputado.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "parlamento-bicameral",
+   "categoria": "constitucion",
+   "titulo": "Parlamento de dos cámaras elegidas por voto directo",
+   "texto": "Un poder legislativo bicameral, con senadores y representantes elegidos por voto directo y secreto, renovable por mitades y revocable.",
+   "nota": null,
+   "orden": 50,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "sistema-de-gobierno"
+   ]
+  },
+  {
+   "id": "limitacion-mandatos",
+   "categoria": "constitucion",
+   "titulo": "Prohibir la perpetuación en el poder",
+   "texto": "Prohibir cualquier reforma que permita o favorezca la perpetuación en el poder o el autoritarismo del ejecutivo.",
+   "nota": null,
+   "orden": 51,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "revocacion-mandato",
+   "categoria": "constitucion",
+   "titulo": "Revocación del mandato de todos los cargos electos",
+   "texto": "Establecer referendos revocatorios para todos los cargos públicos electos, regulando cuándo y cómo pueden convocarse.",
+   "nota": null,
+   "orden": 52,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "defensor-pueblo",
+   "categoria": "constitucion",
+   "titulo": "Defensor del Pueblo independiente",
+   "texto": "Crear la Defensoría del Pueblo, inspirada en el ombudsman, como garante independiente de los derechos humanos, accesible a cualquier persona en cualquier momento y con capacidad para investigar violaciones y actuar ante los tribunales.",
+   "nota": null,
+   "orden": 53,
+   "documentos": [
+    36,
+    46,
+    22,
+    21,
+    3,
+    15
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Derecho de veto sobre decisiones de la administración que violen derechos humanos, derecho de convocatoria popular e iniciativa legislativa.",
+     "documentos": [
+      3
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Puede presentar acciones de inconstitucionalidad, amparo, hábeas corpus y hábeas data, y dictar medidas de cumplimiento obligatorio.",
+     "documentos": [
+      15
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Elegido por el parlamento por consenso o mayoría cualificada, tras debate público, por seis años y con una sola reelección.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Candidaturas presentadas por legisladores, organizaciones de la sociedad civil o cualquier ciudadano con diez mil firmas.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "independencia-judicial",
+   "categoria": "constitucion",
+   "titulo": "Poder judicial independiente, imparcial y profesional",
+   "texto": "Organizar un poder judicial nuevo, independiente, imparcial y profesional, en el que los jueces respondan a la ley y no al partido, con duras penas y nulidad del proceso ante cualquier coacción o corrupción.",
+   "nota": "Cuba Próxima propone en dos documentos fórmulas distintas para elegir las presidencias de los tribunales.",
+   "orden": 54,
+   "documentos": [
+    27,
+    47,
+    22,
+    21,
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Autonomía funcional, financiera y administrativa de los tribunales, con un presupuesto que no puede recortarse sin el parlamento y un órgano propio de gobierno judicial.",
+     "documentos": [
+      5,
+      10
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Jueces inamovibles, separables solo por causas legales y con garantías.",
+     "documentos": [
+      5,
+      10
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Informes anuales de los tribunales ante el parlamento y la sociedad civil.",
+     "documentos": [
+      10
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Mejores salarios en el nuevo sistema judicial y observadores jurídicos extranjeros en su puesta en marcha.",
+     "documentos": [
+      22
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Las presidencias de los tribunales las eligen los propios jueces de cada instancia.",
+     "documentos": [
+      5
+     ]
+    },
+    {
+     "texto": "Las presidencias de los tribunales las eligen los diputados, consejeros o delegados de cada nivel.",
+     "documentos": [
+      7
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 8,
+   "cuestiones": []
+  },
+  {
+   "id": "seleccion-de-jueces",
+   "categoria": "constitucion",
+   "titulo": "Jueces seleccionados por mérito, en procesos públicos",
+   "texto": "Seleccionar jueces y magistrados con procedimientos rigurosos, públicos y transparentes, basados solo en el mérito, la integridad ética, la independencia de criterio, la formación y la experiencia.",
+   "nota": null,
+   "orden": 55,
+   "documentos": [
+    10
+   ],
+   "incisos": [],
+   "variantes": [
+    {
+     "texto": "Magistrados del Supremo elegidos por y entre abogados, fiscales, jueces y catedráticos de Derecho; jueces provinciales y municipales por concurso.",
+     "documentos": [
+      5
+     ]
+    },
+    {
+     "texto": "Jueces propuestos por el Ejecutivo y ratificados por el Legislativo tras una oposición en las facultades de Derecho.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "jueces-de-paz",
+   "categoria": "constitucion",
+   "titulo": "Jueces de paz elegidos en los municipios",
+   "texto": "Crear jueces de paz no profesionales, elegidos en procesos democráticos municipales, a los que las partes puedan acudir cuando no resuelvan su conflicto por negociación o mediación.",
+   "nota": null,
+   "orden": 56,
+   "documentos": [
+    14
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "ciudadania",
+   "categoria": "constitucion",
+   "titulo": "Nadie pierde la ciudadanía cubana; se admite la doble ciudadanía",
+   "texto": "Ningún cubano por nacimiento podrá ser privado de su ciudadanía, y se reconoce el derecho a tener varias ciudadanías sin perder los derechos de la cubana.",
+   "nota": null,
+   "orden": 57,
+   "documentos": [
+    1,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Son cubanos los hijos de padre o madre cubanos nacidos en el extranjero, incluso si los padres perdieron la ciudadanía, si la reclaman.",
+     "documentos": [
+      1
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "La ciudadanía se adquiere por nacimiento o naturalización y da acceso a todos los derechos.",
+     "documentos": [
+      1
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "carta-de-derechos",
+   "categoria": "derechos",
+   "titulo": "Una carta de derechos amplia, progresiva y directamente exigible",
+   "texto": "Garantizar el respeto pleno a los derechos humanos con un catálogo amplio de derechos individuales, sociales y de tercera y cuarta generación, directamente aplicable aunque no exista una ley que lo desarrolle, y con el régimen de garantías más amplio posible.",
+   "nota": null,
+   "orden": 58,
+   "documentos": [
+    36,
+    15,
+    46,
+    18,
+    13
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Principios de progresividad, universalidad, indivisibilidad, interdependencia e inalienabilidad; todo lo que la ley no prohíbe está permitido.",
+     "documentos": [
+      3,
+      46
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Protección diferenciada a personas y grupos vulnerables.",
+     "documentos": [
+      15
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "pactos-ddhh",
+   "categoria": "derechos",
+   "titulo": "Los pactos internacionales de derechos humanos, con rango constitucional",
+   "texto": "Ratificar los Pactos Internacionales de Derechos Civiles y Políticos y de Derechos Económicos, Sociales y Culturales, firmados por Cuba en 2008, consagrar sus derechos en la Constitución y dar a los tratados de derechos humanos rango constitucional y aplicación directa.",
+   "nota": null,
+   "orden": 59,
+   "documentos": [
+    21,
+    22,
+    15,
+    10,
+    37
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Firmar el Estatuto de Roma y los tratados de los sistemas universal e interamericano, incluidos los que permiten a las personas acudir a tribunales internacionales.",
+     "documentos": [
+      10,
+      37
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Ratificar también los convenios de la OIT.",
+     "documentos": [
+      22
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Consagrar los derechos de tercera generación.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Permitir la entrada del Relator Especial de la ONU para los derechos humanos.",
+     "documentos": [
+      24
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Los derechos humanos están por encima de cualquier otra soberanía: ninguna ley puede limitarlos.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "amparo-y-garantias",
+   "categoria": "derechos",
+   "titulo": "Amparo, hábeas corpus y hábeas data al alcance de cualquier persona",
+   "texto": "Un recurso de amparo oral, público, rápido, gratuito y sin formalidades, que cualquier persona pueda interponer para proteger todos sus derechos, junto al hábeas corpus contra la detención ilegal y el hábeas data para acceder a los propios datos personales.",
+   "nota": null,
+   "orden": 60,
+   "documentos": [
+    3,
+    15,
+    36,
+    46,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Acción popular y acciones colectivas para defender derechos colectivos.",
+     "documentos": [
+      15,
+      46
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51,
+    56
+   ],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-expresion",
+   "categoria": "derechos",
+   "titulo": "Libertad de expresión y de prensa, sin monopolios estatales",
+   "texto": "Reconocer y proteger la libertad de expresión, de información y de prensa, para que las personas, solas o en grupo, expresen sus ideas por cualquier medio, y desmontar el monopolio del Estado sobre la prensa y las comunicaciones.",
+   "nota": null,
+   "orden": 61,
+   "documentos": [
+    4,
+    27,
+    20,
+    25,
+    31
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Derogar la Ley 88 («Ley Mordaza») y toda norma que impida expresarse, reunirse o informar.",
+     "documentos": [
+      21,
+      48
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Acceso directo y equitativo de la oposición a los medios de comunicación.",
+     "documentos": [
+      26,
+      40
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Impedir los monopolios en los medios, también los del Estado.",
+     "documentos": [
+      21,
+      53,
+      43
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Ningún delito de prensa se castiga con cárcel.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Derecho de cada ciudadano a difundir información con sus propios medios.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 11,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-reunion-asociacion",
+   "categoria": "derechos",
+   "titulo": "Libertad de reunión, manifestación y asociación",
+   "texto": "Todas las personas tienen derecho a reunirse, manifestarse pacíficamente y crear asociaciones políticas, civiles, económicas, culturales, sindicales, estudiantiles, religiosas o de cualquier otra índole, sin control de la administración pública.",
+   "nota": null,
+   "orden": 62,
+   "documentos": [
+    3,
+    4,
+    27,
+    26,
+    25,
+    31,
+    33,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Las reuniones se presumen pacíficas y no necesitan autorización previa, salvo grandes actos que afecten el tránsito o la seguridad.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Bastan dos personas para crear una asociación, que obtiene personalidad jurídica por simple notificación.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Solo un tribunal independiente puede suspender o disolver una asociación, y solo ante un riesgo claro de violación grave de la ley.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 8,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-religiosa",
+   "categoria": "derechos",
+   "titulo": "Libertad religiosa y de conciencia",
+   "texto": "Reconocer el derecho de toda persona y de las instituciones religiosas a la libertad de conciencia y a profesar y practicar su religión en público y en privado.",
+   "nota": null,
+   "orden": 63,
+   "documentos": [
+    21,
+    27,
+    20
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "libre-movilidad",
+   "categoria": "derechos",
+   "titulo": "Libertad para entrar, salir y vivir donde se quiera",
+   "texto": "Todo cubano puede salir de su país y regresar libremente, sin perder su ciudadanía ni sus derechos por el tiempo que pase fuera, y fijar su residencia en cualquier lugar del territorio nacional.",
+   "nota": null,
+   "orden": 64,
+   "documentos": [
+    24,
+    49,
+    50,
+    21,
+    20,
+    26
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Eliminar el límite de tiempo para permanecer en el extranjero sin perder derechos.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Derogar el Decreto 217 de 1997, que restringe mudarse a La Habana.",
+     "documentos": [
+      50
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "acceso-informacion-internet",
+   "categoria": "derechos",
+   "titulo": "Internet libre y acceso universal a la información",
+   "texto": "Garantizar el derecho universal a internet, libre y sin censura, para recibir y difundir información, y el acceso a las tecnologías de la información y a las frecuencias de radio y televisión.",
+   "nota": null,
+   "orden": 65,
+   "documentos": [
+    21,
+    15
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Apoyo internacional con información no censurada por radio, satélite e internet.",
+     "documentos": [
+      38
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "inviolabilidad-intimidad",
+   "categoria": "derechos",
+   "titulo": "Inviolabilidad del domicilio, las comunicaciones y los datos personales",
+   "texto": "Amparar a todos contra desalojos, detenciones, registros, confiscaciones o agresiones arbitrarias y contra la violación de la correspondencia y las comunicaciones, y prohibir el uso de datos personales o familiares sin autorización o sin orden judicial.",
+   "nota": null,
+   "orden": 66,
+   "documentos": [
+    27,
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "igualdad-y-no-discriminacion",
+   "categoria": "derechos",
+   "titulo": "Igualdad de derechos y oportunidades, sin discriminación",
+   "texto": "Una sociedad sin castas privilegiadas ni grupos marginados, sin discriminación por motivos de raza, ideología, sexo, religión o edad, con los mismos derechos y oportunidades para todos y atención a los grupos históricamente marginados.",
+   "nota": null,
+   "orden": 67,
+   "documentos": [
+    17,
+    13
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "derechos-extranjeros",
+   "categoria": "derechos",
+   "titulo": "Derechos de los extranjeros residentes",
+   "texto": "Equiparar a los extranjeros residentes con los ciudadanos en la protección de sus personas y bienes y en el disfrute de los derechos, e incluirlos de forma progresiva en los derechos políticos según su tiempo de residencia.",
+   "nota": null,
+   "orden": 68,
+   "documentos": [
+    1
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Los extranjeros que cumplan esas condiciones pueden ocupar cargos públicos en su municipio.",
+     "documentos": [
+      1
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "diaspora-derechos-plenos",
+   "categoria": "derechos",
+   "titulo": "Plenos derechos para los cubanos que viven fuera",
+   "texto": "Restituir la condición plena de cubanos a todos los emigrados y exiliados y a sus hijos, con los mismos derechos que quienes viven en la isla, eliminar la categoría de «salida definitiva» y garantizar su derecho a regresar a vivir en Cuba.",
+   "nota": null,
+   "orden": 69,
+   "documentos": [
+    23,
+    21,
+    43,
+    20,
+    58
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Respetar las propiedades de quienes emigren.",
+     "documentos": [
+      23
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Estimular el retorno voluntario de los emigrados.",
+     "documentos": [
+      15
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Incluir a la diáspora en la democratización por las ideas, el capital humano y los recursos que puede aportar.",
+     "documentos": [
+      58
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "debido-proceso",
+   "categoria": "derechos",
+   "titulo": "Debido proceso: presunción de inocencia y abogado desde la detención",
+   "texto": "Garantizar la presunción de inocencia, también ante la policía y los medios, el derecho a un abogado desde el momento de la detención y asistencia jurídica gratuita, con jueces imparciales.",
+   "nota": null,
+   "orden": 70,
+   "documentos": [
+    21,
+    50
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Solo un tribunal, y no la Fiscalía, puede dictar medidas cautelares.",
+     "documentos": [
+      50
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Eliminar la figura del «estado peligroso».",
+     "documentos": [
+      50
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "pena-muerte",
+   "categoria": "derechos",
+   "titulo": "Abolir la pena de muerte",
+   "texto": "Abolir total e irrevocablemente la pena de muerte, sin excepción.",
+   "nota": null,
+   "orden": 71,
+   "documentos": [
+    3,
+    23,
+    28,
+    34,
+    36,
+    22,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Desde el inicio de la transición y con efecto retroactivo para los casos ya sentenciados o en moratoria.",
+     "documentos": [
+      22
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "despenalizar-conductas",
+   "categoria": "derechos",
+   "titulo": "Despenalizar conductas que no deben ser delito",
+   "texto": "Eliminar las normas que castigan como delito conductas que no son punibles, como el sacrificio de ganado mayor.",
+   "nota": null,
+   "orden": 72,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "reduccion-poblacion-penal",
+   "categoria": "derechos",
+   "titulo": "Reducir la población penal",
+   "texto": "Reducir la excesiva población penal cubana.",
+   "nota": null,
+   "orden": 73,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "derechos-no-nacido",
+   "categoria": "derechos",
+   "titulo": "Derechos patrimoniales del no nacido",
+   "texto": "Proteger los derechos patrimoniales y de otro tipo del concebido y aún no nacido como si ya hubiera nacido.",
+   "nota": null,
+   "orden": 74,
+   "documentos": [
+    3
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "derecho-aborto",
+   "categoria": "derechos",
+   "titulo": "Derecho a interrumpir el embarazo",
+   "texto": "Reconocer el derecho de la mujer a interrumpir su embarazo en una institución de salud, con políticas educativas para reducir el número de abortos sin limitar ese derecho.",
+   "nota": null,
+   "orden": 75,
+   "documentos": [
+    3
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "aborto"
+   ]
+  },
+  {
+   "id": "vida-desde-la-concepcion",
+   "categoria": "derechos",
+   "titulo": "Derecho a la vida desde su inicio hasta su fin natural",
+   "texto": "Reconocer el derecho a la vida desde su inicio hasta su fin natural.",
+   "nota": "La fuente no detalla sus consecuencias sobre el aborto o la eutanasia.",
+   "orden": 76,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "aborto"
+   ]
+  },
+  {
+   "id": "elecciones-libres",
+   "categoria": "sistema_electoral",
+   "titulo": "Elecciones libres, plurales y con observación internacional",
+   "texto": "Celebrar elecciones libres, justas, plurales y competitivas, con voto universal, directo y secreto, bajo la supervisión de observadores nacionales e internacionales, para todos los cargos de autoridad.",
+   "nota": null,
+   "orden": 77,
+   "documentos": [
+    18,
+    19,
+    26,
+    40,
+    24,
+    27,
+    36,
+    5,
+    38,
+    41,
+    20
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Todos los cargos de autoridad se eligen por mayoría absoluta.",
+     "documentos": [
+      36
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "La oposición participa con sus propios partidos, candidatos y campañas.",
+     "documentos": [
+      24
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Votan los cubanos de dentro y de fuera del país.",
+     "documentos": [
+      26,
+      40
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 11,
+   "cuestiones": []
+  },
+  {
+   "id": "pluripartidismo",
+   "categoria": "sistema_electoral",
+   "titulo": "Pluripartidismo: libertad para formar partidos y competir en igualdad",
+   "texto": "Reconocer en la Constitución el derecho de todos los ciudadanos a formar partidos y competir lealmente en elecciones limpias, en igualdad de condiciones y sin privilegios para ningún grupo o corriente ideológica: una democracia representativa pluripartidista, gobierno de la mayoría con respeto a la minoría.",
+   "nota": null,
+   "orden": 78,
+   "documentos": [
+    21,
+    1,
+    27,
+    53,
+    56,
+    17,
+    24,
+    46,
+    40,
+    44,
+    23,
+    34
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Incluidos los comunistas, en igualdad de derechos.",
+     "documentos": [
+      23,
+      34
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Que sea posible derrotar en las urnas al partido que ha ejercido el poder y reemplazar a quienes han gobernado.",
+     "documentos": [
+      53
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Desmantelar el monopolio del Partido Comunista, o de cualquier otro que lo intente, sin abandonar las garantías sociales.",
+     "documentos": [
+      56
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 12,
+   "cuestiones": [
+    "lugar-de-los-comunistas"
+   ]
+  },
+  {
+   "id": "ley-partidos",
+   "categoria": "sistema_electoral",
+   "titulo": "Ley de partidos que prohíba métodos violentos, no ideologías",
+   "texto": "Aprobar una Ley de Partidos Políticos que regule su creación, funcionamiento y financiamiento y vede el acceso al poder a quienes usen métodos violentos o antidemocráticos: no prohibir ideologías, sino estrategias y conductas que promuevan el odio, la destrucción de las instituciones, el racismo o la xenofobia.",
+   "nota": null,
+   "orden": 79,
+   "documentos": [
+    22
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "lugar-de-los-comunistas"
+   ]
+  },
+  {
+   "id": "nueva-ley-electoral",
+   "categoria": "sistema_electoral",
+   "titulo": "Una nueva ley electoral antes de las primeras elecciones",
+   "texto": "Aprobar una nueva ley electoral, provisional si hace falta, que garantice que las primeras elecciones sean competitivas, transparentes y pluripartidistas, y convocar después elecciones libres.",
+   "nota": null,
+   "orden": 80,
+   "documentos": [
+    47,
+    34,
+    4,
+    31
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Que los electores nominen directamente a sus candidatos con firmas de apoyo, sin intermediarios, y con varios candidatos por cargo.",
+     "documentos": [
+      33
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Acompañada de la recomendación de una Comisión Electoral.",
+     "documentos": [
+      34
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": [
+    "reforma-o-ley-electoral-nueva"
+   ]
+  },
+  {
+   "id": "reformas-electorales-2019",
+   "categoria": "sistema_electoral",
+   "titulo": "Reformas electorales mínimas dentro de la Constitución de 2019",
+   "texto": "Dialogar sobre reformas electorales mínimas pero imprescindibles dentro del marco de la Constitución de 2019, a partir de las sugerencias del profesor Jorge I. Domínguez.",
+   "nota": null,
+   "orden": 81,
+   "documentos": [
+    12,
+    52
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Al menos dos candidatos por cada escaño de diputado.",
+     "documentos": [
+      53
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Comisiones de nominación integradas solo por delegados electos, abiertas a propuestas de universidades, iglesias, artistas, afrodescendientes, comunidades gay y otras entidades.",
+     "documentos": [
+      53
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Las asambleas municipales nominan al 100 % de los candidatos entre quienes viven y trabajan en el municipio.",
+     "documentos": [
+      53
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Los candidatos pueden redactar su biografía y difundir sus ideas.",
+     "documentos": [
+      53
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Los miembros del Consejo de Estado salen del 25 % de diputados más votados en su provincia.",
+     "documentos": [
+      53
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": [
+    "reforma-o-ley-electoral-nueva"
+   ]
+  },
+  {
+   "id": "autoridad-electoral-independiente",
+   "categoria": "sistema_electoral",
+   "titulo": "Autoridad electoral independiente y permanente",
+   "texto": "Crear un órgano electoral independiente, permanente y descentralizado, con el registro de electores a su cargo, que dirija los procesos electorales con acompañamiento internacional, tras la renuncia de los actuales directivos.",
+   "nota": null,
+   "orden": 82,
+   "documentos": [
+    7,
+    19,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Sus cinco miembros se eligen por concurso entre ciudadanos con formación en administración electoral, ante una representación de la ONU.",
+     "documentos": [
+      7
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "candidaturas-libres",
+   "categoria": "sistema_electoral",
+   "titulo": "Que cualquier ciudadano pueda ser candidato, sin comisiones de candidatura",
+   "texto": "Reconocer el derecho de todo ciudadano a postularse a cualquier cargo electivo, en representación de un movimiento, partido o asociación, y eliminar las comisiones de candidatura y las asambleas de nominación.",
+   "nota": null,
+   "orden": 83,
+   "documentos": [
+    21,
+    44,
+    24
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Autonominación con el respaldo del 1 % de los electores del distrito.",
+     "documentos": [
+      7
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 5,
+   "cuestiones": [
+    "reforma-o-ley-electoral-nueva"
+   ]
+  },
+  {
+   "id": "eleccion-diputados",
+   "categoria": "sistema_electoral",
+   "titulo": "Diputados elegidos por voto directo en distritos",
+   "texto": "Elegir a los diputados por voto directo y secreto de la ciudadanía, uno por distrito electoral de hasta sesenta mil habitantes, por mayoría absoluta.",
+   "nota": null,
+   "orden": 84,
+   "documentos": [
+    7,
+    49
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Voto preferencial: cada elector puede marcar una primera, segunda y tercera opción.",
+     "documentos": [
+      7
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "voto-emigracion",
+   "categoria": "sistema_electoral",
+   "titulo": "Derecho a votar de los cubanos que viven fuera",
+   "texto": "Que voten todos los ciudadanos con derechos civiles y políticos, vivan dentro o fuera de la isla.",
+   "nota": null,
+   "orden": 85,
+   "documentos": [
+    7,
+    26,
+    40
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Distritos electorales de la emigración por regiones del mundo, con más de uno donde haya más de quinientos mil votantes.",
+     "documentos": [
+      7
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "En la elección presidencial, la emigración vota en el distrito nacional único.",
+     "documentos": [
+      7
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "financiamiento-politico",
+   "categoria": "sistema_electoral",
+   "titulo": "Financiamiento electoral limpio y transparente",
+   "texto": "Financiar las campañas con fondos públicos asignados por el parlamento en proporción a la representación de cada partido, y con fondos privados de origen demostrable y con tope a las donaciones.",
+   "nota": null,
+   "orden": 86,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Prohibir el uso de fondos o bienes del Estado para actividades de partidos.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "cambio-de-modelo",
+   "categoria": "modelo_pais",
+   "titulo": "Cambio integral del modelo económico, social y político",
+   "texto": "Solo un cambio de modelo económico, social y político, basado en el respeto a las libertades individuales, puede sacar a Cuba del colapso: una transición económica y política que permita diseñar y aplicar un plan de reconstrucción, y que la sociedad y la economía dejen de usarse para ejercer el control.",
+   "nota": null,
+   "orden": 87,
+   "documentos": [
+    32,
+    58,
+    24
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Priorizar acciones políticas en cuatro niveles: política interna, relación con Estados Unidos, relación con aliados y espacios multilaterales.",
+     "documentos": [
+      57
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    56
+   ],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "bienestar-universal",
+   "categoria": "modelo_pais",
+   "titulo": "Acceso universal al bienestar",
+   "texto": "Garantizar el acceso universal al bienestar: educación de calidad, salud integral con prevención, pensiones y seguridad social sostenibles, protección a las personas vulnerables, política ambiental basada en la ciencia y una defensa civil ante catástrofes.",
+   "nota": null,
+   "orden": 88,
+   "documentos": [
+    13,
+    17
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Acceso universal a los servicios comunales, públicos o privados.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "transparencia",
+   "categoria": "modelo_pais",
+   "titulo": "Cuentas públicas abiertas y Tribunal de Cuentas independiente",
+   "texto": "Que todas las finanzas del Estado sean de conocimiento público, con acceso gratuito y sin trabas a la información pública, declaración de bienes e ingresos de cada funcionario al empezar y terminar su cargo, y un Tribunal de Cuentas independiente que las fiscalice.",
+   "nota": null,
+   "orden": 89,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Publicar en internet los presupuestos, ingresos y gastos de todos los organismos del Estado.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "El Tribunal de Cuentas lo elige el parlamento, pero actúa con absoluta independencia.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Los gastos militares y de seguridad quedan bajo la supervisión de una comisión parlamentaria.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "funcion-publica-profesional",
+   "categoria": "modelo_pais",
+   "titulo": "Funcionarios por mérito, al servicio de la República y no de un partido",
+   "texto": "Que los funcionarios públicos sirvan a los intereses generales de la República y no a un partido, escogidos por méritos comprobados y con estabilidad en el cargo.",
+   "nota": null,
+   "orden": 90,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "reforma-del-estado",
+   "categoria": "modelo_pais",
+   "titulo": "Un Estado capaz, con reglas claras y rendición de cuentas",
+   "texto": "Reformar el Estado para que sea capaz de cumplir sus funciones económicas, técnicas, administrativas y políticas, con reglas claras, servicios básicos eficientes y mecanismos de participación y rendición de cuentas.",
+   "nota": null,
+   "orden": 91,
+   "documentos": [
+    30
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "gobierno-digital",
+   "categoria": "modelo_pais",
+   "titulo": "Gobierno digital y ventanilla única",
+   "texto": "Una plataforma digital de gobierno accesible a toda hora y un sistema único de registros con ventanilla única, para hacer trámites, firmar peticiones y acceder a datos públicos, respetando la privacidad.",
+   "nota": null,
+   "orden": 92,
+   "documentos": [
+    9,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Identidad digital segura y votación electrónica verificable, con mecanismos de trazabilidad.",
+     "documentos": [
+      9
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "autonomia-municipal",
+   "categoria": "modelo_pais",
+   "titulo": "Autonomía real de los municipios",
+   "texto": "Reconocer la plena autonomía municipal en lo político, administrativo, normativo, económico y participativo, con una Ley de Municipios que dé a las comunidades capacidad real de gestionar su bienestar sin perder la unidad nacional.",
+   "nota": null,
+   "orden": 93,
+   "documentos": [
+    9,
+    47,
+    21,
+    51
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Subsidiariedad: toda competencia que pueda ejercerse en el ámbito local se transfiere al municipio.",
+     "documentos": [
+      9
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Competencias definidas en la Constitución: urbanismo, educación y salud básicas, medio ambiente y patrimonio, desarrollo local y empleo, servicios sociales y seguridad comunitaria.",
+     "documentos": [
+      9,
+      51
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Presupuesto propio y tributos propios, sin subordinar sus decisiones a órganos superiores.",
+     "documentos": [
+      51,
+      9
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Un parlamento municipal elegido por sufragio directo y un intendente elegido por ese parlamento.",
+     "documentos": [
+      9
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Los municipios pueden asociarse entre sí y con universidades para gestionar servicios y proyectos.",
+     "documentos": [
+      9
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Que sean los municipios quienes recauden los impuestos: la mitad se queda en el municipio, la mitad sube a la provincia y de esta la mitad va a la nación.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "descentralizacion",
+   "categoria": "modelo_pais",
+   "titulo": "Provincias y municipios autónomos: máxima descentralización",
+   "texto": "Organizar el territorio en provincias y municipios autónomos, con personalidad jurídica y atribuciones propias, y descentralizar la administración a favor de las estructuras locales, poniendo fin al tutelaje partidista.",
+   "nota": null,
+   "orden": 94,
+   "documentos": [
+    1,
+    44,
+    21,
+    56
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Gobernadores provinciales elegidos por voto directo.",
+     "documentos": [
+      7
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Revisar la división político-administrativa según el desarrollo, la identidad y la representación de cada territorio.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "fuerzas-seguridad-civiles",
+   "categoria": "modelo_pais",
+   "titulo": "Fuerzas armadas y policía neutrales, bajo autoridad civil",
+   "texto": "Fuerzas armadas profesionales y políticamente neutrales, y cuerpos policiales de carácter civil, dirigidos por ministros civiles y sometidos a la Constitución, que garanticen la centralidad de los derechos humanos.",
+   "nota": null,
+   "orden": 95,
+   "documentos": [
+    21,
+    27,
+    13,
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Juramento de obedecer a la autoridad civil y respetar los resultados de las elecciones libres.",
+     "documentos": [
+      23
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Su función: garantizar la soberanía, la integridad territorial y el orden constitucional.",
+     "documentos": [
+      1
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 6,
+   "cuestiones": []
+  },
+  {
+   "id": "reduccion-fuerzas-armadas",
+   "categoria": "modelo_pais",
+   "titulo": "Desmilitarizar y reducir el gasto militar a favor de lo social",
+   "texto": "Desmilitarizar el país y reducir drásticamente los efectivos y recursos de las Fuerzas Armadas y del Ministerio del Interior, destinando ese gasto a seguridad social, educación, salud, alimentación y servicios comunitarios.",
+   "nota": null,
+   "orden": 96,
+   "documentos": [
+    21,
+    20
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "servicio-militar-voluntario",
+   "categoria": "modelo_pais",
+   "titulo": "Servicio militar voluntario y objeción de conciencia",
+   "texto": "Abolir el Servicio Militar Obligatorio y regular un servicio militar voluntario.",
+   "nota": null,
+   "orden": 97,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Derecho a la objeción de conciencia, incluso en tiempo de guerra, con un servicio civil alternativo.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "seguridad-ciudadana",
+   "categoria": "modelo_pais",
+   "titulo": "Prevenir las drogas y el crimen organizado",
+   "texto": "Prevenir y combatir la producción, el tráfico y el consumo de drogas y las asociaciones para delinquir.",
+   "nota": null,
+   "orden": 98,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "politica-exterior",
+   "categoria": "modelo_pais",
+   "titulo": "Política exterior de paz, derechos humanos y cooperación",
+   "texto": "Una política exterior al servicio de los desafíos nacionales, basada en la paz, la solución negociada de los conflictos, la defensa de los derechos humanos y la cooperación.",
+   "nota": null,
+   "orden": 99,
+   "documentos": [
+    12,
+    13
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Contribuir a la paz a través de la ONU, de acuerdo con el Derecho Internacional.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Cooperar con los mecanismos regionales y globales de justicia y contra el crimen organizado.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "reinsercion-internacional",
+   "categoria": "modelo_pais",
+   "titulo": "Volver a los organismos regionales e internacionales",
+   "texto": "Reinsertar a Cuba en todos los mecanismos de integración regional y global que sean democráticos y respeten los derechos humanos —OEA, ONU y sus agencias, FMI, Banco Mundial, BID— y cumplir los acuerdos internacionales.",
+   "nota": null,
+   "orden": 100,
+   "documentos": [
+    21,
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Firmar la Carta Democrática Interamericana.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "diversificacion-relaciones",
+   "categoria": "modelo_pais",
+   "titulo": "Relaciones diversificadas, sin depender de ninguna potencia",
+   "texto": "Diversificar las relaciones diplomáticas, comerciales y de cooperación con todas las naciones, sin depender de ninguna nación o bloque en particular.",
+   "nota": null,
+   "orden": 101,
+   "documentos": [
+    21,
+    52
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "comunidad-regional",
+   "categoria": "modelo_pais",
+   "titulo": "Una comunidad latinoamericana y caribeña con instituciones propias",
+   "texto": "Impulsar una comunidad regional latinoamericana y caribeña, a partir de la CELAC, con instituciones y autoridades propias, sin llegar a ser un superestado.",
+   "nota": null,
+   "orden": 102,
+   "documentos": [
+    52
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Una comisión electoral regional autónoma y un tribunal regional de justicia.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Una policía regional civil contra el crimen organizado.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Un sistema de defensa civil caribeño compartido.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Que Cuba promueva esta idea entre fuerzas políticas, empresas, universidades y centros de pensamiento.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "leyes-complementarias",
+   "categoria": "modelo_pais",
+   "titulo": "Un paquete de leyes para las reformas estructurales",
+   "texto": "Preparar un paquete coherente de leyes complementarias, unas 45 en una primera etapa, que dé marco jurídico y legitimidad a las reformas que Cuba necesita.",
+   "nota": null,
+   "orden": 103,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un nuevo Código Civil basado en la dignidad de la persona y en los derechos humanos.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "plan-de-emergencia",
+   "categoria": "reconstruccion",
+   "titulo": "Plan de emergencia económica y humanitaria al inicio de la transición",
+   "texto": "Al comenzar la transición, aplicar un plan económico de emergencia contra el caos y el hambre, y atender de inmediato las necesidades de agua, saneamiento, salud, vivienda y educación, con ayuda internacional.",
+   "nota": null,
+   "orden": 104,
+   "documentos": [
+    17,
+    38
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "energia",
+   "categoria": "reconstruccion",
+   "titulo": "Abrir el sector energético a la inversión privada",
+   "texto": "Liberalizar la importación y distribución de combustible por actores no estatales y crear un programa de generación eléctrica distribuida con inversión privada y mixta, con contratos y garantías que atraigan capital sin financiamiento público.",
+   "nota": null,
+   "orden": 105,
+   "documentos": [
+    57
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Auditoría técnica y financiera de las plantas existentes para rescatar capacidad antes de rehacer toda la matriz energética.",
+     "documentos": [
+      57
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "A corto plazo: ahorro energético, fuentes alternativas y diésel prioritario para el agua y la agricultura.",
+     "documentos": [
+      57
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "infraestructura",
+   "categoria": "reconstruccion",
+   "titulo": "Inversión en infraestructura y empleo",
+   "texto": "Promover la inversión en carreteras, ferrocarriles, puertos, zonas económicas especiales, logística, telecomunicaciones, tecnología, energía solar y eólica y manufactura ligera, generando empleo en esos sectores.",
+   "nota": null,
+   "orden": 106,
+   "documentos": [
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Una comisión que evalúe el gasto en infraestructura y adjudique las obras a empresas privadas, dando empleo a trabajadores despedidos.",
+     "documentos": [
+      50
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "atraer-inversion",
+   "categoria": "reconstruccion",
+   "titulo": "Liberalizar la inversión y dar seguridad jurídica a los inversores",
+   "texto": "Liberalizar la inversión en todos los sectores, sin más límites que los de la ley, con un plan de recuperación creíble, seguridad jurídica, protección de la propiedad, reglas fiscales estables y acceso al crédito.",
+   "nota": null,
+   "orden": 107,
+   "documentos": [
+    21,
+    52,
+    58
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un nuevo marco legal que desmonte las trabas actuales, con supervisión internacional de las operaciones durante la estabilización.",
+     "documentos": [
+      57
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Una política de oportunidades de mercado que asegure el beneficio de los cubanos.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "financiamiento-internacional",
+   "categoria": "reconstruccion",
+   "titulo": "Ingresar en las instituciones financieras internacionales",
+   "texto": "Incorporar a Cuba al FMI, al Banco Mundial y a otros organismos financieros y comerciales internacionales, aunque sea primero como observador, para acceder a créditos ventajosos y mejorar su posición crediticia.",
+   "nota": null,
+   "orden": 108,
+   "documentos": [
+    12,
+    57,
+    52
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un proceso gradual en el que Estados Unidos muestre interés y ambos gobiernos hagan las gestiones necesarias.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "deuda-externa",
+   "categoria": "reconstruccion",
+   "titulo": "Renegociar la deuda externa",
+   "texto": "Renegociar las deudas con el Club de París, el Club de Londres, Rusia y los demás acreedores, proponiendo un calendario de pagos extendido.",
+   "nota": null,
+   "orden": 109,
+   "documentos": [
+    12,
+    52,
+    57
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Buscar la condonación de una parte y canjear deuda por activos estatales.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "reclamaciones-propiedad",
+   "categoria": "reconstruccion",
+   "titulo": "Resolver las reclamaciones por propiedades confiscadas",
+   "texto": "Negociar las reclamaciones por las confiscaciones a estadounidenses y a cubanos con procesos transparentes y sin tratos preferenciales, buscando una justicia restaurativa, distributiva y compasiva.",
+   "nota": "El inciso sobre las viviendas es el más sensible: la propia fuente reconoce que solo sería viable si los antiguos dueños lo aceptan.",
+   "orden": 110,
+   "documentos": [
+    52,
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Para las reclamaciones estadounidenses, aplicar la propuesta de conciliación del académico Richard Feinberg.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Créditos fiscales transferibles, ligados a nuevas inversiones en el país.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Negociaciones directas entre empresas expropiadas y las que hoy operan esos activos, cambiando el valor expropiado por inversión en Cuba.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Las viviendas expropiadas pasan a ser propiedad de quienes las habitan, sin compensación a los antiguos dueños.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "diaspora-en-la-economia",
+   "categoria": "reconstruccion",
+   "titulo": "La diáspora como inversora y socia de la recuperación",
+   "texto": "Incorporar a los emigrados cubanos a la economía como fuente de experiencia, capital, inversiones y acceso a mercados, y permitir que todo nacido en Cuba invierta en empresas medianas y grandes, resida donde resida.",
+   "nota": null,
+   "orden": 111,
+   "documentos": [
+    12,
+    24,
+    32,
+    50
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "gaesa",
+   "categoria": "reconstruccion",
+   "titulo": "Intervenir y desmontar GAESA",
+   "texto": "Intervenir el conglomerado militar GAESA, tomar el control de su estructura empresarial y de sus recursos financieros dentro y fuera de la isla, y poner fin a su control de la economía.",
+   "nota": null,
+   "orden": 112,
+   "documentos": [
+    57,
+    58
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "fin-planificacion-central",
+   "categoria": "economia",
+   "titulo": "Fin de la planificación centralizada: el mercado y el sector privado como motor",
+   "texto": "Acabar con la planificación hipercentralizada de la economía, eliminar de la Constitución «la dirección planificada de la economía», dar autonomía a todas las formas de propiedad y no temerle al mercado, con el sector privado como eje.",
+   "nota": "Casi todas estas propuestas proceden de economistas citados por la prensa.",
+   "orden": 113,
+   "documentos": [
+    58,
+    32
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Igualdad y previsibilidad jurídica para todos los actores económicos.",
+     "documentos": [
+      58
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "El Estado atiende la distribución de la renta, la asignación y la estabilización.",
+     "documentos": [
+      32
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Una reforma profunda y creíble, sin la cual ni los aliados aportarán recursos.",
+     "documentos": [
+      58
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": [
+    "modelo-economico"
+   ]
+  },
+  {
+   "id": "economia-social-mercado",
+   "categoria": "economia",
+   "titulo": "Economía social de mercado",
+   "texto": "Una economía de mercado con responsabilidad social, que proteja la propiedad privada y la inversión y garantice tanto mercado y libre contratación como sea posible y tanto control social y estatal como sea necesario, con el trabajo decente en el centro.",
+   "nota": null,
+   "orden": 114,
+   "documentos": [
+    47,
+    28,
+    11,
+    13,
+    12
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": [
+    "modelo-economico"
+   ]
+  },
+  {
+   "id": "socialismo-democratico",
+   "categoria": "economia",
+   "titulo": "Socialismo democrático y participativo, con propiedad común",
+   "texto": "Un modelo de socialismo democrático, participativo y de soberanía popular, que preserve un núcleo no capitalista en la economía y la política y dé más peso a la propiedad común junto a la privada.",
+   "nota": null,
+   "orden": 115,
+   "documentos": [
+    46
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": [
+    "modelo-economico"
+   ]
+  },
+  {
+   "id": "libertad-empresa",
+   "categoria": "economia",
+   "titulo": "Libertad de empresa para todos los cubanos",
+   "texto": "Garantizar el derecho de los cubanos a crear empresas privadas, individuales o cooperativas, a hacer negocios y a comerciar dentro y fuera del país, con libertad de gestión económica y de ejercicio profesional.",
+   "nota": null,
+   "orden": 116,
+   "documentos": [
+    23,
+    17,
+    27,
+    32,
+    34,
+    38,
+    21,
+    25,
+    4,
+    20,
+    33
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "También empresas mixtas entre trabajadores y Estado.",
+     "documentos": [
+      33
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Cada empresa elige con autonomía su estructura de dirección.",
+     "documentos": [
+      11
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Sin derivar hacia extremos mercantilistas, al servicio del bienestar y la justicia social.",
+     "documentos": [
+      34
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "La empresa como primer espacio del orden económico donde el trabajador asegura el porvenir de su familia.",
+     "documentos": [
+      11
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 12,
+   "cuestiones": []
+  },
+  {
+   "id": "propiedad-privada",
+   "categoria": "economia",
+   "titulo": "Derecho a la propiedad privada, con expropiación solo por juicio e indemnización",
+   "texto": "Reconocer plenamente el derecho a la propiedad privada de cubanos y extranjeros, con un marco jurídico estable, y permitir la expropiación solo por interés público, con indemnización y mediante procedimiento judicial.",
+   "nota": null,
+   "orden": 117,
+   "documentos": [
+    50,
+    21,
+    32,
+    11
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "pluralidad-propiedad",
+   "categoria": "economia",
+   "titulo": "Economía plural: pública, privada, cooperativa y mixta",
+   "texto": "Una economía plural en la que participen todas las formas de propiedad: empresas públicas, cooperativas y sociales, privadas y mixtas.",
+   "nota": null,
+   "orden": 118,
+   "documentos": [
+    11,
+    5,
+    17
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "igualdad-economica-cubanos",
+   "categoria": "economia",
+   "titulo": "Los cubanos, con los mismos derechos económicos que los extranjeros",
+   "texto": "Permitir que todos los cubanos, residan o no en la isla, inviertan su capital, tengan empresas y se asocien con capital extranjero, poniendo fin a privilegios económicos que hoy solo tienen los extranjeros.",
+   "nota": null,
+   "orden": 119,
+   "documentos": [
+    24,
+    21,
+    50,
+    4,
+    20
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 5,
+   "cuestiones": []
+  },
+  {
+   "id": "reducir-propiedad-estatal",
+   "categoria": "economia",
+   "titulo": "Privatización transparente y Estado limitado a sectores estratégicos",
+   "texto": "Limitar la propiedad estatal a los sectores estratégicos, que también podrán gestionar empresas privadas, y privatizar de forma abierta y transparente empresas y activos estatales, incluida la tierra productiva.",
+   "nota": null,
+   "orden": 120,
+   "documentos": [
+    21,
+    32
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "empresas-publicas-autonomas",
+   "categoria": "economia",
+   "titulo": "Empresas públicas gestionadas sin injerencia política",
+   "texto": "Que las empresas públicas no las administre el gobierno, sino juntas de directores o fideicomisos independientes de la política, guiados por la rentabilidad, la eficiencia y la productividad.",
+   "nota": null,
+   "orden": 121,
+   "documentos": [
+    11
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "competencia-antimonopolio",
+   "categoria": "economia",
+   "titulo": "Competencia y lucha contra los monopolios, estatales y privados",
+   "texto": "Evitar y regular los monopolios económicos, comerciales y financieros, estatales o privados, y penalizar los carteles y prácticas que dañen a los consumidores y supriman la competencia.",
+   "nota": null,
+   "orden": 122,
+   "documentos": [
+    11,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Abrir a la competencia sectores hoy monopolizados por el Estado, como las telecomunicaciones o la energía.",
+     "documentos": [
+      58
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "emprendimiento",
+   "categoria": "economia",
+   "titulo": "Apoyo a las pymes y al trabajo por cuenta propia",
+   "texto": "Proteger y promover las pequeñas y medianas empresas y apoyar a quienes empiezan a trabajar por cuenta propia con ayuda para materias primas y facilidades de pago.",
+   "nota": null,
+   "orden": 123,
+   "documentos": [
+    21,
+    50
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Crédito para las iniciativas privadas.",
+     "documentos": [
+      50
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Reducir los impuestos al trabajo por cuenta propia, con tasas del 2 % al 12 % según la actividad.",
+     "documentos": [
+      50
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "comercio-exterior-libre",
+   "categoria": "economia",
+   "titulo": "Libertad de importar y exportar",
+   "texto": "Libertad de importación y exportación para todas las empresas y personas.",
+   "nota": null,
+   "orden": 124,
+   "documentos": [
+    32,
+    21,
+    11
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "economia-abierta",
+   "categoria": "economia",
+   "titulo": "Economía abierta e integrada al comercio internacional",
+   "texto": "Institucionalizar una economía abierta que aproveche la posición geográfica de Cuba para el transporte marítimo y el comercio, con acuerdos de libre comercio con el T-MEC, el CARICOM, el Mercosur, la Unión Europea y otros bloques.",
+   "nota": null,
+   "orden": 125,
+   "documentos": [
+    12,
+    52,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Ofrecer los puertos y aeropuertos al comercio hemisférico y global.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Exportar productos cubanos como el tabaco y los fármacos e integrarse en cadenas globales de suministro.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Integrarse en el turismo del Caribe como socio y no solo como competidor.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Atraer inversión de China, con acceso preferente al puerto del Mariel; de Chile, Argentina o Bolivia en el litio; y de la Unión Europea a través de la Comunidad Iberoamericana.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Participar en las agencias regionales de medicamentos, seguridad alimentaria y respuesta a desastres.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "f",
+     "texto": "Cooperación técnica y uso justo del capital humano cubano en el exterior.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "codigo-comercio-consumidor",
+   "categoria": "economia",
+   "titulo": "Código de Comercio y protección del consumidor",
+   "texto": "Un Código de Comercio basado en la libertad comercial, la licitud, la transparencia y la responsabilidad social y ambiental, y una ley que proteja al consumidor de abusos, fraudes y estafas.",
+   "nota": null,
+   "orden": 126,
+   "documentos": [
+    36,
+    21,
+    11
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "sistema-financiero",
+   "categoria": "economia",
+   "titulo": "Banca privada y un sistema financiero plural y supervisado",
+   "texto": "Permitir la banca privada y fomentar instituciones financieras públicas, sociales y privadas que den crédito a empresas, personas y organizaciones, con una supervisión bancaria efectiva.",
+   "nota": null,
+   "orden": 127,
+   "documentos": [
+    11,
+    32,
+    21,
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Instituciones que ofrezcan crédito a todas las empresas.",
+     "documentos": [
+      12
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Un marco legal para los seguros de vida, médicos y de propiedad.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "bolsa-de-valores",
+   "categoria": "economia",
+   "titulo": "Reabrir la Bolsa de La Habana",
+   "texto": "Reabrir la bolsa de valores de La Habana, que existió en los años cincuenta, con reglas, transparencia y auditoría, incluida la emisión local de bonos de la República.",
+   "nota": null,
+   "orden": 128,
+   "documentos": [
+    12,
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "estabilizacion-monetaria",
+   "categoria": "economia",
+   "titulo": "Estabilizar el peso: convertibilidad y un solo mercado de divisas",
+   "texto": "Estabilizar la moneda nacional con plena convertibilidad del peso, un mercado de divisas unificado con tasa de cambio flexible y un sistema de pagos conectado con los bancos extranjeros.",
+   "nota": null,
+   "orden": 129,
+   "documentos": [
+    12
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un Banco Central independiente, orientado a baja inflación y bajo desempleo.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [
+    {
+     "texto": "Unificación cambiaria inmediata, a un tipo cercano al del mercado informal.",
+     "documentos": [
+      57
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "sistema-impositivo",
+   "categoria": "economia",
+   "titulo": "Impuestos progresivos que estimulen la producción",
+   "texto": "Un sistema de impuestos proporcionales y progresivos sobre las ganancias de todas las personas jurídicas y naturales, públicas o privadas, a partir de un ingreso básico exento, que estimule la producción y redistribuya la riqueza.",
+   "nota": null,
+   "orden": 130,
+   "documentos": [
+    12,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Un impuesto especial al turismo para invertir en educación y salud.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Participación ciudadana directa en decidir el uso de los impuestos.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "subsidios",
+   "categoria": "economia",
+   "titulo": "Dejar atrás los subsidios generalizados a la energía",
+   "texto": "Trasladar a la economía los costos reales de la energía y sustituir los subsidios generalizados.",
+   "nota": "Las tres fórmulas proceden de economistas citados por la prensa y difieren sobre todo en el ritmo y en cómo proteger a los hogares vulnerables.",
+   "orden": 131,
+   "documentos": [
+    57
+   ],
+   "incisos": [],
+   "variantes": [
+    {
+     "texto": "Eliminar los subsidios y liberar las importaciones a precios internacionales.",
+     "documentos": [
+      57
+     ]
+    },
+    {
+     "texto": "Reducirlos de forma escalonada: 50 % al sector residencial y 25 % a algunas empresas al principio, hasta eliminarlos en cinco años.",
+     "documentos": [
+      57
+     ]
+    },
+    {
+     "texto": "Sustituirlos por transferencias directas a los hogares vulnerables, financiadas con lo que se ahorra.",
+     "documentos": [
+      57
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "derechos-laborales",
+   "categoria": "trabajo",
+   "titulo": "Derechos laborales según los convenios de la OIT",
+   "texto": "Incorporar a la Constitución y a un nuevo Código del Trabajo todos los derechos de los trabajadores reconocidos en los convenios de la Organización Internacional del Trabajo.",
+   "nota": null,
+   "orden": 132,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Igualdad de oportunidades y de derechos laborales sin distinción de género, origen étnico, religión, opción política u orientación sexual.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Derecho de los trabajadores a participar en la gestión de las empresas.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Prohibir el trabajo infantil.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Proteger del despido a los trabajadores con invalidez parcial.",
+     "documentos": [
+      50
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Recuperar los 25 artículos laborales del título sexto de la Constitución de 1940.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-sindical",
+   "categoria": "trabajo",
+   "titulo": "Sindicatos libres, convenio colectivo y derecho a huelga",
+   "texto": "Restituir a los trabajadores la libertad sindical plena: crear sindicatos independientes, negociar convenios colectivos y ejercer el derecho a huelga.",
+   "nota": null,
+   "orden": 133,
+   "documentos": [
+    26,
+    21,
+    23,
+    27,
+    32,
+    17
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Negociación periódica entre trabajadores, empresarios y Estado sobre empleo, derechos laborales y salario mínimo y promedio.",
+     "documentos": [
+      12,
+      32
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Autorizar también las organizaciones empresariales.",
+     "documentos": [
+      32
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 7,
+   "cuestiones": []
+  },
+  {
+   "id": "seguridad-social",
+   "categoria": "trabajo",
+   "titulo": "Seguridad social para todos los riesgos de la vida",
+   "texto": "Una seguridad social que cubra vejez, discapacidad, muerte, enfermedad, maternidad, riesgos laborales y desempleo, y que garantice protección a todas las personas mayores, en especial a quienes están solas.",
+   "nota": null,
+   "orden": 134,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Fondos de pensiones independientes del presupuesto del Estado, con aportes de trabajadores y empleadores y gestión transparente.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Derecho a la capitalización individual.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Derecho a jubilarse a los 60 años los hombres y a los 55 las mujeres.",
+     "documentos": [
+      50
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "empleo-juvenil",
+   "categoria": "trabajo",
+   "titulo": "Liberar empleos para los jóvenes ocupados por jubilados con doble salario",
+   "texto": "Que los jubilados de las Fuerzas Armadas y del Ministerio del Interior que cobran pensión y un segundo salario dejen esos puestos a ciudadanos menores de 35 años.",
+   "nota": null,
+   "orden": 135,
+   "documentos": [
+    50
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "salud-universal",
+   "categoria": "salud",
+   "titulo": "Salud universal, gratuita en la atención primaria y de urgencia",
+   "texto": "Un sistema de salud ético, universal, accesible y de calidad, que prevenga, cure y proteja, con atención primaria y de emergencia gratuita para todas las personas.",
+   "nota": null,
+   "orden": 136,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "salud-mixta",
+   "categoria": "salud",
+   "titulo": "Sanidad pública, privada y mixta",
+   "texto": "Combinar un sistema de salud público, privado y mixto, y reconocer el derecho a ejercer la medicina de forma privada.",
+   "nota": null,
+   "orden": 137,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [
+    51
+   ],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "educacion-de-calidad",
+   "categoria": "educacion",
+   "titulo": "Educación universal de calidad",
+   "texto": "Una educación universal con altos estándares científicos, técnicos, humanistas y éticos, que integre ciencias, matemáticas, informática, inteligencia artificial y humanidades, y forme a la persona en lo intelectual y en lo cívico.",
+   "nota": null,
+   "orden": 138,
+   "documentos": [
+    12,
+    21,
+    52
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Primaria, secundaria y bachillerato obligatorios y gratuitos, en centros estatales o privados y religiosos.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Salarios especiales para los educadores y la docencia como carrera profesional.",
+     "documentos": [
+      52
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Internet en todas las escuelas y universidades.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Financiar las universidades también con cooperación internacional, empresas y mecenazgo.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "autonomia-universitaria",
+   "categoria": "educacion",
+   "titulo": "Autonomía universitaria y libertad de cátedra",
+   "texto": "Devolver la autonomía a las universidades y restablecer la libertad de cátedra.",
+   "nota": null,
+   "orden": 139,
+   "documentos": [
+    21,
+    50
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Libertad de cátedra en todos los niveles de enseñanza.",
+     "documentos": [
+      52
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "educacion-civica",
+   "categoria": "educacion",
+   "titulo": "Educación cívica y en derechos humanos en todas las escuelas",
+   "texto": "Crear cátedras de educación ética y cívica y enseñar los derechos humanos —incluidos los del niño, la familia y la naturaleza— en todos los niveles, en los medios y en las instituciones cívicas y religiosas.",
+   "nota": null,
+   "orden": 140,
+   "documentos": [
+    22,
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-educativa",
+   "categoria": "educacion",
+   "titulo": "Derecho de los padres a elegir la educación de sus hijos",
+   "texto": "Reconocer el derecho prioritario de los padres a elegir el tipo de educación, los valores y las creencias en que se forman sus hijos.",
+   "nota": null,
+   "orden": 141,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "formacion-juridica",
+   "categoria": "educacion",
+   "titulo": "Formación democrática de jueces, fiscales y abogados",
+   "texto": "Crear escuelas judiciales independientes y renovar las facultades de Derecho según los sistemas democráticos más avanzados, con cursos de ética y jurisprudencia internacional para jueces, fiscales y abogados formados en el sistema actual.",
+   "nota": null,
+   "orden": 142,
+   "documentos": [
+    10,
+    22
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "proteccion-ambiental",
+   "categoria": "medio_ambiente",
+   "titulo": "Protección jurídica del medio ambiente y del patrimonio",
+   "texto": "Dar al medio ambiente la protección jurídica que merece, tomar medidas urgentes para su seguridad y para rescatar el patrimonio nacional, y garantizar el desarrollo sostenible para las generaciones futuras.",
+   "nota": null,
+   "orden": 143,
+   "documentos": [
+    46,
+    27,
+    1
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Sanciones proporcionadas contra quien dañe el medio ambiente, sea público o privado.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Eliminar de forma gradual las industrias contaminantes.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "c",
+     "texto": "Educación ambiental obligatoria en todos los niveles.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "d",
+     "texto": "Adecuar la ley a los tratados ambientales internacionales, como el Acuerdo de París.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "e",
+     "texto": "Soberanía sobre la atmósfera, la flora, la fauna, el suelo, el subsuelo y la zona marítima.",
+     "documentos": [
+      1
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "derecho-al-agua",
+   "categoria": "medio_ambiente",
+   "titulo": "Derecho al agua",
+   "texto": "Reconocer el derecho al agua.",
+   "nota": null,
+   "orden": 144,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "matriz-energetica-renovable",
+   "categoria": "medio_ambiente",
+   "titulo": "Energía mayoritariamente renovable",
+   "texto": "Regular y propiciar una matriz energética en la que predominen cada vez más las fuentes renovables.",
+   "nota": null,
+   "orden": 145,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Inversión en energía solar y eólica.",
+     "documentos": [
+      12
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "derechos-animales",
+   "categoria": "animales",
+   "titulo": "Derechos de los animales usados en el turismo",
+   "texto": "Reconocer los derechos de los animales destinados a la actividad turística.",
+   "nota": null,
+   "orden": 146,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "biodiversidad",
+   "categoria": "animales",
+   "titulo": "Proteger las especies, los ecosistemas marinos y los parques naturales",
+   "texto": "Salvar especies animales y vegetales de la depredación causada por el crecimiento económico, con una Ley de Parques Naturales, y preservar especies, playas y paisajes marinos.",
+   "nota": null,
+   "orden": 147,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Épocas de veda para la caza y la pesca.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Una pesca que concilie la eficiencia económica con la ecológica.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "sociedad-civil-fuerte",
+   "categoria": "sociedad_civil",
+   "titulo": "Una sociedad civil autónoma y fuerte",
+   "texto": "Institucionalizar una sociedad civil autónoma, democrática y pluralista, cuyo empoderamiento sea pilar de la democracia y del sostenimiento de las instituciones.",
+   "nota": null,
+   "orden": 148,
+   "documentos": [
+    13,
+    29,
+    30
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Construirla a la vez en el espacio institucional y en el de la sociedad civil.",
+     "documentos": [
+      29
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Espacios cívicos de encuentro, espacios virtuales de debate, redes comunitarias y activación legal de la ciudadanía.",
+     "documentos": [
+      29
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "participacion-ciudadana",
+   "categoria": "sociedad_civil",
+   "titulo": "Participación ciudadana directa en las leyes y las políticas públicas",
+   "texto": "Regular la participación directa de la ciudadanía en la elaboración de las leyes y de las políticas públicas, desde el municipio hasta el nivel nacional, para que la democracia sea lo más participativa posible.",
+   "nota": null,
+   "orden": 149,
+   "documentos": [
+    8,
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Referendos y consultas populares para modificar las leyes.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Herramientas ciudadanas de vigilancia, denuncia y evaluación del poder.",
+     "documentos": [
+      56
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [
+    54
+   ],
+   "total_documentos": 4,
+   "cuestiones": []
+  },
+  {
+   "id": "participacion-local",
+   "categoria": "sociedad_civil",
+   "titulo": "Presupuestos participativos y referendos locales",
+   "texto": "Presupuestos participativos vinculantes, referendos locales obligatorios para las decisiones clave y revocatoria de mandatos por petición ciudadana.",
+   "nota": null,
+   "orden": 150,
+   "documentos": [
+    9
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Iniciativa legislativa popular municipal con el 3 % del padrón.",
+     "documentos": [
+      9
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Rendición de cuentas semestral del gobierno municipal y auditoría ciudadana.",
+     "documentos": [
+      9
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "proteccion-familia",
+   "categoria": "familia",
+   "titulo": "Protección jurídica de la familia",
+   "texto": "Proteger jurídicamente a la familia en todas sus formas: matrimonio, relaciones entre padres e hijos, madres solas, familias numerosas, personas mayores, alimentos, adopción y tutela.",
+   "nota": null,
+   "orden": 151,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Regular el divorcio, la separación de bienes y las herencias.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "union-mismo-sexo",
+   "categoria": "familia",
+   "titulo": "Matrimonio entre personas del mismo sexo, con derecho a adoptar",
+   "texto": "Reconocer el matrimonio entre personas del mismo sexo con los mismos derechos que las parejas heterosexuales, incluido el derecho a la adopción.",
+   "nota": null,
+   "orden": 152,
+   "documentos": [
+    50,
+    21
+   ],
+   "incisos": [],
+   "variantes": [
+    {
+     "texto": "Regular la unión jurídica entre personas del mismo sexo.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "atencion-vulnerables",
+   "categoria": "tercera_edad",
+   "titulo": "Atención a las personas vulnerables",
+   "texto": "Un fondo y servicios para proteger a las personas vulnerables: niños sin amparo, personas mayores, personas con discapacidad, maternidad e infancia, y quienes viven en la calle.",
+   "nota": null,
+   "orden": 153,
+   "documentos": [
+    21,
+    50,
+    46
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 3,
+   "cuestiones": []
+  },
+  {
+   "id": "vivienda",
+   "categoria": "vivienda",
+   "titulo": "Derecho a una vivienda digna, con libre compraventa",
+   "texto": "Reconocer el derecho a una vivienda digna, autorizar la compraventa de viviendas sin limitaciones e incentivar la construcción privada, cooperativa y pública.",
+   "nota": null,
+   "orden": 154,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Compraventa de viviendas sin limitación alguna.",
+     "documentos": [
+      50
+     ]
+    },
+    {
+     "letra": "b",
+     "texto": "Incentivos a la construcción privada, cooperativa y pública.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "igualdad-de-genero",
+   "categoria": "genero",
+   "titulo": "Igualdad de género y paridad",
+   "texto": "Reconocer el derecho a la igualdad de género.",
+   "nota": null,
+   "orden": 155,
+   "documentos": [
+    21
+   ],
+   "incisos": [
+    {
+     "letra": "a",
+     "texto": "Paridad de género en las candidaturas electorales.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "violencia-genero",
+   "categoria": "genero",
+   "titulo": "Ley contra la violencia de género y el abuso de menores",
+   "texto": "Prevenir y condenar la violencia contra las mujeres y el abuso de menores, incluida la violencia sexual, con una ley contra la violencia de género.",
+   "nota": null,
+   "orden": 156,
+   "documentos": [
+    21,
+    13
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "derecho-alimentacion",
+   "categoria": "alimentacion",
+   "titulo": "Derecho a la alimentación y soberanía alimentaria",
+   "texto": "Reconocer el derecho a una alimentación sana, suficiente y balanceada y lograr la soberanía alimentaria con la recuperación ecológica de las tierras.",
+   "nota": null,
+   "orden": 157,
+   "documentos": [
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 1,
+   "cuestiones": []
+  },
+  {
+   "id": "tierra-para-quien-la-trabaja",
+   "categoria": "alimentacion",
+   "titulo": "La tierra, en propiedad de quien la trabaja",
+   "texto": "Entregar la tierra en propiedad a quienes la trabajan y distribuir su acceso de forma justa, con derecho de herencia y arrendamiento y sin latifundios.",
+   "nota": null,
+   "orden": 158,
+   "documentos": [
+    17,
+    21
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  },
+  {
+   "id": "libertad-agricola",
+   "categoria": "alimentacion",
+   "titulo": "Liberar la agricultura y reabrir los mercados campesinos",
+   "texto": "Liberalizar el sector agrícola, hoy con la mayor parte de la tierra en manos del Estado, y reabrir los mercados libres campesinos para estimular la producción y reducir la escasez.",
+   "nota": null,
+   "orden": 159,
+   "documentos": [
+    49,
+    58
+   ],
+   "incisos": [],
+   "variantes": [],
+   "analizan": [],
+   "total_documentos": 2,
+   "cuestiones": []
+  }
+ ],
+ "cuestiones": [
+  {
+   "id": "como-empieza-el-cambio",
+   "pregunta": "¿Cómo debe empezar el cambio?",
+   "texto": "Las fuentes proponen caminos distintos para iniciar la transición. Algunos se pueden combinar; otros parten de supuestos opuestos sobre el papel del gobierno actual.",
+   "opciones": [
+    "resistencia-civica",
+    "presion-externa-sanciones",
+    "apertura-acordada",
+    "dialogo-nacional",
+    "consulta-popular",
+    "de-la-ley-a-la-ley"
+   ],
+   "excluyentes": false
+  },
+  {
+   "id": "quien-gobierna-la-transicion",
+   "pregunta": "¿Quién gobierna durante la transición?",
+   "texto": "Un gobierno provisional sin comunistas y un gobierno paritario con la Asamblea actual son fórmulas incompatibles entre sí.",
+   "opciones": [
+    "gobierno-transicion",
+    "gobierno-reconciliacion-paritario",
+    "elecciones-antes-de-constituyente"
+   ],
+   "excluyentes": true
+  },
+  {
+   "id": "responsables-de-la-represion",
+   "pregunta": "¿Qué hacer con los responsables de la represión?",
+   "texto": "Las fuentes van desde una amnistía recíproca hasta tribunales especiales y la exclusión de cargos públicos. Todas excluyen la impunidad por crímenes de lesa humanidad.",
+   "opciones": [
+    "amnistia-reciproca",
+    "justicia-transicional",
+    "lustracion",
+    "comision-verdad"
+   ],
+   "excluyentes": false
+  },
+  {
+   "id": "sanciones-o-normalizacion",
+   "pregunta": "¿Más sanciones o normalizar las relaciones con Estados Unidos?",
+   "texto": "Unas fuentes piden endurecer las sanciones; otras, poner fin al embargo como parte de una apertura negociada.",
+   "opciones": [
+    "presion-externa-sanciones",
+    "normalizacion-cuba-eeuu"
+   ],
+   "excluyentes": true
+  },
+  {
+   "id": "lugar-de-los-comunistas",
+   "pregunta": "¿Tendrán cabida los comunistas en la nueva democracia?",
+   "texto": "Unas fuentes proponen erradicar las doctrinas comunistas del poder político; otras, que todos puedan formar partidos, «inclusive los comunistas», y prohibir solo los métodos violentos.",
+   "opciones": [
+    "proscripcion-comunismo",
+    "pluripartidismo",
+    "ley-partidos",
+    "transicion-inclusiva"
+   ],
+   "excluyentes": true
+  },
+  {
+   "id": "que-constitucion-en-la-transicion",
+   "pregunta": "¿Qué Constitución rige la transición y cómo se llega a la nueva?",
+   "texto": "Las fuentes proponen caminos distintos: restituir la de 1940, reformar de forma provisional la de 2019, abrir la cláusula de reforma, que la Asamblea actual elimine lo que impide la libertad, o ir directamente a una Asamblea Constituyente. Algunos se encadenan entre sí.",
+   "opciones": [
+    "constitucion-1940",
+    "reforma-provisional-2019",
+    "reforma-clausula-hacia-constituyente",
+    "reforma-constitucional-vigente",
+    "asamblea-constituyente",
+    "elecciones-antes-de-constituyente"
+   ],
+   "excluyentes": false
+  },
+  {
+   "id": "sistema-de-gobierno",
+   "pregunta": "¿Gobierno semiparlamentario o presidente elegido directamente?",
+   "texto": "Pueden combinarse, como en los sistemas semipresidenciales, pero cambian quién dirige el gobierno y ante quién responde.",
+   "opciones": [
+    "gobierno-semiparlamentario",
+    "eleccion-directa-presidente",
+    "parlamento-bicameral"
+   ],
+   "excluyentes": false
+  },
+  {
+   "id": "aborto",
+   "pregunta": "¿Derecho a interrumpir el embarazo o protección de la vida desde su inicio?",
+   "texto": "Dos fuentes regulan el mismo asunto en sentidos opuestos. Reconocer la vida «desde su inicio» suele usarse para restringir el aborto.",
+   "opciones": [
+    "derecho-aborto",
+    "vida-desde-la-concepcion"
+   ],
+   "excluyentes": true
+  },
+  {
+   "id": "reforma-o-ley-electoral-nueva",
+   "pregunta": "¿Reformar el sistema electoral actual o hacer uno nuevo?",
+   "texto": "Unas fuentes proponen cambios mínimos dentro de la Constitución de 2019; otras, una ley electoral nueva y candidaturas sin filtros.",
+   "opciones": [
+    "reformas-electorales-2019",
+    "nueva-ley-electoral",
+    "candidaturas-libres"
+   ],
+   "excluyentes": false
+  },
+  {
+   "id": "modelo-economico",
+   "pregunta": "¿Qué modelo económico?",
+   "texto": "Las fuentes van desde una economía con el sector privado como eje hasta un socialismo democrático con propiedad común. La economía social de mercado ocupa un lugar intermedio.",
+   "opciones": [
+    "fin-planificacion-central",
+    "economia-social-mercado",
+    "socialismo-democratico",
+    "gobierno-limitado"
+   ],
+   "excluyentes": false
+  }
+ ]
+}

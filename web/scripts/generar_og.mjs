@@ -1,4 +1,4 @@
-// Genera las imágenes para compartir (1200x630 PNG) de cada propuesta del banco, categoría, tema y cita del archivo.
+// Genera las imágenes para compartir (1200x630 PNG) de cada propuesta y categoría.
 // Regla del proyecto: toda página pública tiene su imagen para Facebook e Instagram.
 // Solo regenera las que cambiaron (compara una huella del contenido).
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -7,7 +7,8 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 
 const raiz = new URL('../', import.meta.url);
-const banco = JSON.parse(readFileSync(new URL('../datos/generado/banco.json', raiz), 'utf8'));
+// Solo la capa pública: el banco nunca entra en el sitio.
+const pub = JSON.parse(readFileSync(new URL('src/data/publico.json', raiz), 'utf8'));
 const fuente = (peso) => readFileSync(new URL(`node_modules/@fontsource/inter/files/inter-latin-${peso}-normal.woff`, raiz));
 const fuenteExt = (peso) => readFileSync(new URL(`node_modules/@fontsource/inter/files/inter-latin-ext-${peso}-normal.woff`, raiz));
 const fonts = [
@@ -18,13 +19,8 @@ const fonts = [
   { name: 'InterExt', data: fuenteExt(700), weight: 700, style: 'normal' },
 ];
 
-const fuentes = new Map(banco.fuentes.map((f) => [f.ref, f]));
-const actores = new Map(banco.actores.map((a) => [a.id, a]));
-const cats = new Map(banco.categorias.map((c) => [c.clave, c]));
-const autoria = (p) => {
-  const f = fuentes.get(p.fuente);
-  return (f.actor && actores.get(f.actor)?.nombre) || f.autor_texto || 'Autoría por confirmar';
-};
+const docs = new Map(pub.documentos.map((d) => [d.id, d]));
+const cats = new Map(pub.categorias.map((c) => [c.clave, c]));
 const recortar = (t, max) => (t.length <= max ? t : t.slice(0, t.slice(0, max).lastIndexOf(' ')) + '…');
 
 const h = (type, style, children) => ({ type, props: { style, children } });
@@ -50,47 +46,33 @@ function lienzo({ etiqueta, titulo, cuerpo, pie }) {
 }
 
 const trabajos = [];
-const publicadas = banco.propuestas.filter((p) => p.estado === 'publicada');
+const t = pub.meta.totales;
 trabajos.push({ ruta: 'banco.png', datos: {
-  etiqueta: 'Banco de propuestas',
+  etiqueta: 'Propuestas',
   titulo: 'Lo que se ha propuesto para el futuro de Cuba',
-  cuerpo: `${banco.meta.totales.consolidadas} propuestas reunidas a partir de ${publicadas.length} citas literales de ${banco.meta.totales.fuentes} documentos públicos.`,
+  cuerpo: `${t.propuestas} propuestas reunidas a partir de ${t.documentos} documentos públicos.`,
   pie: 'Cada idea, con todas sus fuentes',
 } });
-for (const c of banco.categorias.filter((x) => x.consolidadas > 0 || x.propuestas > 0)) {
+for (const c of pub.categorias) {
   trabajos.push({ ruta: `categoria/${c.clave}.png`, datos: {
     etiqueta: 'Categoría', titulo: c.nombre, cuerpo: c.descripcion ? recortar(c.descripcion, 150) : null,
-    pie: c.consolidadas ? `${c.consolidadas} ${c.consolidadas === 1 ? 'propuesta' : 'propuestas'}` : `${c.propuestas} citas`,
+    pie: `${c.propuestas} ${c.propuestas === 1 ? 'propuesta' : 'propuestas'}`,
   } });
 }
-const propPorId = new Map(publicadas.map((p) => [p.id, p]));
-for (const c of banco.consolidadas) {
-  const quien = [...new Set(c.respaldo.map((id) => propPorId.get(id)).filter(Boolean).map(autoria))];
+for (const c of pub.propuestas) {
+  const quien = [...new Set(c.documentos.map((id) => docs.get(id)?.autoria).filter(Boolean))];
   trabajos.push({ ruta: `propuesta/${c.id}.png`, datos: {
     etiqueta: cats.get(c.categoria)?.nombre ?? 'Propuesta',
     titulo: recortar(c.titulo, 95), cuerpo: recortar(c.texto, 200),
-    pie: recortar(`${c.fuentes.length} ${c.fuentes.length === 1 ? 'documento' : 'documentos'} · ${quien.slice(0, 2).join(', ')}${quien.length > 2 ? '…' : ''}`, 70),
-  } });
-}
-for (const t of banco.temas) {
-  const ps = t.propuestas.map((id) => propPorId.get(id)).filter(Boolean);
-  const n = new Set(ps.map(autoria)).size;
-  trabajos.push({ ruta: `tema/${t.slug}.png`, datos: {
-    etiqueta: 'Tema común', titulo: t.nombre, cuerpo: `${ps.length} citas de ${n} autorías distintas sobre este tema.`,
-    pie: 'Compara sus textos literales',
-  } });
-}
-for (const p of publicadas) {
-  trabajos.push({ ruta: `archivo/${p.id}.png`, datos: {
-    etiqueta: 'Archivo · ' + (cats.get(p.categorias[0])?.nombre ?? 'Cita'),
-    titulo: recortar(p.titular, 90), cuerpo: `«${recortar(p.cita, 210)}»`,
-    pie: recortar(`${autoria(p)}${p.anio ? ` · ${p.anio}` : ''}`, 60),
+    pie: recortar(`${c.total_documentos} ${c.total_documentos === 1 ? 'documento' : 'documentos'} · ${quien.slice(0, 2).join(', ')}${quien.length > 2 ? '…' : ''}`, 70),
   } });
 }
 
 const salida = new URL('public/og/', raiz);
-const huellasArchivo = new URL('public/og/.huellas.json', raiz);
-const huellas = existsSync(huellasArchivo) ? JSON.parse(readFileSync(huellasArchivo, 'utf8')) : {};
+// La caché de huellas vive fuera de public/ para no publicarse con el sitio.
+const huellasArchivo = new URL('.og-huellas.json', raiz);
+const previas = existsSync(huellasArchivo) ? JSON.parse(readFileSync(huellasArchivo, 'utf8')) : {};
+const huellas = Object.fromEntries(trabajos.filter((x) => previas[x.ruta]).map((x) => [x.ruta, previas[x.ruta]]));
 let hechas = 0;
 for (const { ruta, datos } of trabajos) {
   const huella = createHash('sha1').update(JSON.stringify(datos)).digest('hex');

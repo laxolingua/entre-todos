@@ -1,141 +1,70 @@
-// Acceso a los datos del banco generados por scripts/construir_banco.py.
-// Cuando el banco viva en Supabase, este módulo será el único punto a cambiar.
-import banco from '../../../datos/generado/banco.json';
+// Datos públicos del sitio: solo la capa ciudadana del banco (web/src/data/publico.json).
+// El banco en sí (citas, localizaciones, clasificación y verificación) es el back end privado
+// y nunca se importa desde el sitio. scripts/construir_banco.py genera este archivo.
+import publico from '../data/publico.json';
 
-export const meta = banco.meta;
-export const categorias = [...banco.categorias].sort((a, b) => a.orden - b.orden);
-export const actores = [...banco.actores].sort((a, b) => b.propuestas - a.propuestas || a.nombre.localeCompare(b.nombre, 'es'));
-export const fuentes = [...banco.fuentes].sort((a, b) => a.ref - b.ref);
-export const temas = [...banco.temas].sort((a, b) => b.propuestas.length - a.propuestas.length || a.nombre.localeCompare(b.nombre, 'es'));
-// Archivo documental: solo las entradas publicadas. Las que están en revisión no tienen página.
-export const propuestas = banco.propuestas.filter((p) => p.estado === 'publicada');
-export const enRevision = banco.propuestas.filter((p) => p.estado !== 'publicada');
-export const noPropuestas = banco.no_propuestas;
-// Banco ciudadano: una propuesta por idea, con sus incisos, variantes y fuentes.
-export const consolidadas = banco.consolidadas;
-export const cuestiones = banco.cuestiones;
-export const soloArchivo = banco.solo_archivo;
+export const meta = publico.meta;
+export const categorias = [...publico.categorias].sort((a, b) => a.orden - b.orden);
+export const actores = [...publico.actores].sort((a, b) => b.propuestas - a.propuestas || a.nombre.localeCompare(b.nombre, 'es'));
+export const documentos = publico.documentos;
+export const propuestas = publico.propuestas;
+export const cuestiones = publico.cuestiones;
 
 export const catPorClave = new Map(categorias.map((c) => [c.clave, c]));
 export const actorPorId = new Map(actores.map((a) => [a.id, a]));
-export const fuentePorRef = new Map(fuentes.map((f) => [f.ref, f]));
-export const temaPorSlug = new Map(temas.map((t) => [t.slug, t]));
+export const docPorId = new Map(documentos.map((d) => [d.id, d]));
 export const propPorId = new Map(propuestas.map((p) => [p.id, p]));
-export const consPorId = new Map(consolidadas.map((c) => [c.id, c]));
 export const cuestionesDe = (id) => cuestiones.filter((q) => q.opciones.includes(id));
 
-/** Nombre de quien firma una fuente: actor atribuido, autor individual o null. */
-export function autoriaFuente(f) {
-  if (!f) return null;
-  if (f.actor) return actorPorId.get(f.actor)?.nombre ?? null;
-  return f.autor_texto || null;
+/** Todos los documentos de una propuesta: idea central, incisos y variantes, sin repetir. */
+export function documentosDe(p) {
+  return [...new Set([...p.documentos, ...p.incisos.flatMap((i) => i.documentos), ...p.variantes.flatMap((v) => v.documentos)])];
 }
 
-/** Texto de autoría de una propuesta, para tarjetas y fichas. */
-export function autoriaPropuesta(p) {
-  const f = fuentePorRef.get(p.fuente);
-  return autoriaFuente(f) || 'Autoría por confirmar';
+const autorias = (ids) => [...new Set(ids.map((id) => docPorId.get(id)?.autoria).filter(Boolean))];
+
+/** Autorías de la idea central, en orden de aparición. */
+export const autoriasCentrales = (p) => autorias(p.documentos);
+/** Autorías de todo lo que contiene la propuesta (idea central, incisos y variantes). */
+export const autoriasDe = (p) => autorias(documentosDe(p));
+
+/** Etiqueta corta de un documento: autoría y año. */
+export function etiquetaDoc(id) {
+  const d = docPorId.get(id);
+  if (!d) return '';
+  return `${d.autoria}${d.anio ? ` (${d.anio})` : ''}`;
 }
 
-/** Autorías distintas (actor o autor) que sostienen una propuesta consolidada, sin contar diagnósticos. */
-export function autoriasConsolidada(c) {
-  const ids = new Set([...c.respaldo, ...c.incisos.flatMap((i) => i.fuentes), ...c.variantes.flatMap((v) => v.fuentes)]);
-  const nombres = [...ids].map((id) => propPorId.get(id)).filter(Boolean).map(autoriaPropuesta);
-  return [...new Set(nombres)];
-}
-
-/** Autorías de la idea central (respaldo), en orden de aparición. */
-export function autoriasRespaldo(c) {
-  return [...new Set(c.respaldo.map((id) => propPorId.get(id)).filter(Boolean).map(autoriaPropuesta))];
-}
-
-/** Etiqueta corta de una entrada para citarla junto a un inciso: autoría y año. */
-export function etiquetaEntrada(id) {
-  const p = propPorId.get(id);
-  if (!p) return id;
-  return `${autoriaPropuesta(p)}${p.anio ? ` (${p.anio})` : ''}`;
-}
-
-/**
- * Agrupa entradas por etiqueta para no repetir la misma autoría y año.
- * Devuelve [{ etiqueta, ids }] en orden de aparición.
- */
-export function agruparEntradas(ids) {
+/** Agrupa documentos por etiqueta para no repetir la misma autoría y año. */
+export function agruparDocs(ids) {
   const grupos = new Map();
   for (const id of ids) {
-    const e = etiquetaEntrada(id);
+    const e = etiquetaDoc(id);
     if (!grupos.has(e)) grupos.set(e, []);
     grupos.get(e).push(id);
   }
   return [...grupos.entries()].map(([etiqueta, lista]) => ({ etiqueta, ids: lista }));
 }
 
-export function consolidadasDeCategoria(clave) {
-  return consolidadas.filter((c) => c.categoria === clave);
+export const propuestasDeCategoria = (clave) => propuestas.filter((p) => p.categoria === clave);
+export const propuestasDeDocumento = (id) => propuestas.filter((p) => documentosDe(p).includes(id) || p.analizan.includes(id));
+export function propuestasDeActor(actor) {
+  const ids = new Set(documentos.filter((d) => d.actor === actor).map((d) => d.id));
+  return propuestas.filter((p) => documentosDe(p).some((id) => ids.has(id)));
 }
+export const documentosDeActor = (actor) => documentos.filter((d) => d.actor === actor);
 
-/** Propuestas consolidadas que sostiene un actor, con el papel de sus entradas. */
-export function consolidadasDeActor(id) {
-  const refs = new Set(fuentes.filter((f) => f.actor === id).map((f) => f.ref));
-  return consolidadas.filter((c) => c.entradas.some((e) => refs.has(propPorId.get(e)?.fuente)));
-}
-
-export const FORMAS_CITA = {
-  literal: null,
-  secundaria: 'Cita de una fuente secundaria que recoge estas ideas.',
-  citada: 'Palabras del autor citadas entre comillas por la prensa.',
-  parafraseada: 'Paráfrasis del periodista, no cita literal del autor.',
+export const METODOS_VERIFICACION = {
+  dominio_oficial: 'comprobada en el sitio oficial del autor',
+  documento_revisado: 'comprobada leyendo el propio documento',
+  instinct: 'comprobada por el equipo de revisión de ENTRE TODOS',
 };
-
-export const METODOS_VERIFICACION = banco.meta.metodos_verificacion;
-
-export function propuestasDeCategoria(clave) {
-  return propuestas.filter((p) => p.categorias.includes(clave));
-}
-
-export function propuestasDeFuente(ref) {
-  return propuestas.filter((p) => p.fuente === ref);
-}
-
-export function propuestasDeActor(id) {
-  const refs = new Set(fuentes.filter((f) => f.actor === id).map((f) => f.ref));
-  return propuestas.filter((p) => refs.has(p.fuente));
-}
-
-/**
- * Agrupa propuestas por tema: primero los temas con varias fuentes (fusiones),
- * luego el resto por tema fino. Así se ve "tema arriba, propuestas debajo".
- */
-export function agruparPorTema(lista) {
-  const grupos = new Map();
-  for (const p of lista) {
-    const clave = p.tema ? `t:${p.tema}` : `f:${p.tema_fino}`;
-    if (!grupos.has(clave)) {
-      grupos.set(clave, {
-        clave,
-        nombre: p.tema ? temaPorSlug.get(p.tema).nombre : p.titular,
-        slug: p.tema,
-        propuestas: [],
-      });
-    }
-    grupos.get(clave).propuestas.push(p);
-  }
-  return [...grupos.values()].sort(
-    (a, b) => Number(!!b.slug) - Number(!!a.slug) || b.propuestas.length - a.propuestas.length || a.nombre.localeCompare(b.nombre, 'es'),
-  );
-}
 
 export const TIPOS_FUENTE = {
   ACAD: 'Centro de estudios',
   COAL: 'Coalición',
   ORG: 'Organización',
   PERS: 'Autor individual',
-};
-
-export const TIPOS_ENTRADA = {
-  propuesta: 'Propuesta',
-  critica: 'Crítica',
-  reforma_propuesta: 'Reforma propuesta',
 };
 
 // Icono (Flaticon UIcons Bold Rounded) y tono por categoría.

@@ -32,6 +32,7 @@ CURADO = RAIZ / "datos/curado/atribucion_fuentes.json"
 VERIF = RAIZ / "datos/curado/verificacion.json"
 CONSOL = RAIZ / "datos/curado/consolidacion"
 GEN = RAIZ / "datos/generado"
+PUBLICO = RAIZ / "web/src/data/publico.json"
 SEED = RAIZ / "supabase/seed/banco_seed.sql"
 AMBITO = "CU"
 
@@ -345,6 +346,89 @@ def main():
 
     GEN.mkdir(parents=True, exist_ok=True)
     (GEN / "banco.json").write_text(json.dumps(salida, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    # ---------- exportación pública ----------
+    # El banco (citas, localizaciones, clasificación, verificación) es el back end privado de ENTRE TODOS.
+    # Al sitio, a socios como elTOQUE y a cualquier descarga solo llega esta capa: propuestas combinadas,
+    # incisos, variantes, cuestiones, quién propone cada cosa y el enlace a su documento original.
+    fuente_de = {f["ref"]: f for f in fuentes}
+    actor_de = {a["id"]: a for a in actores}
+    anios_doc = defaultdict(Counter)
+    for p in pub:
+        if p["anio"]:
+            anios_doc[p["fuente"]][p["anio"]] += 1
+
+    def autoria_doc(f):
+        if f["actor"] and f["actor"] in actor_de:
+            return actor_de[f["actor"]]["nombre"]
+        return f.get("autor_texto") or "Autoría por confirmar"
+
+    def docs(ids):
+        vistos_, out = set(), []
+        for x in ids:
+            r = por_id[x]["fuente"]
+            if r not in vistos_:
+                vistos_.add(r)
+                out.append(r)
+        return out
+
+    q_de = defaultdict(list)
+    for q in cuestiones:
+        for o in q["opciones"]:
+            q_de[o].append(q["id"])
+    pub_props, usados = [], set()
+    for c in consolidadas:
+        centrales = docs(c["respaldo"])
+        incs = [{"letra": i["letra"], "texto": i["texto"], "documentos": docs(i["fuentes"])} for i in c["incisos"]]
+        vars_ = [{"texto": v["texto"], "documentos": docs(v["fuentes"])} for v in c["variantes"]]
+        todos = docs(c["respaldo"] + [x for i in c["incisos"] for x in i["fuentes"]]
+                     + [x for v in c["variantes"] for x in v["fuentes"]] + c["diagnostico"])
+        analizan = [r for r in docs(c["diagnostico"]) if r not in set(centrales)]
+        usados.update(todos)
+        pub_props.append({"id": c["id"], "categoria": c["categoria"], "titulo": c["titulo"], "texto": c["texto"],
+                          "nota": c.get("nota"), "orden": c["orden"], "documentos": centrales, "incisos": incs,
+                          "variantes": vars_, "analizan": analizan, "total_documentos": len(todos),
+                          "cuestiones": q_de.get(c["id"], [])})
+    pub_docs = []
+    for r in sorted(usados):
+        f = fuente_de[r]
+        pub_docs.append({"id": r, "titulo": f["documento"], "autoria": autoria_doc(f),
+                         "actor": f["actor"] if f["actor"] in actor_de else None,
+                         "anio": anios_doc[r].most_common(1)[0][0] if anios_doc[r] else None,
+                         "url": f["url"], "tipo": f["tipo"]})
+    doc_actor = {d["id"]: d["actor"] for d in pub_docs}
+    por_actor_pub = Counter()
+    for pp in pub_props:
+        for a in {doc_actor[r] for r in [*pp["documentos"], *(r for i in pp["incisos"] for r in i["documentos"]),
+                                         *(r for v in pp["variantes"] for r in v["documentos"])] if doc_actor[r]}:
+            por_actor_pub[a] += 1
+    publico = {
+        "meta": {"actualizado": ver["fecha"],
+                 "totales": {"propuestas": len(pub_props), "documentos": len(pub_docs),
+                             "autorias": len({d["autoria"] for d in pub_docs}), "cuestiones": len(cuestiones),
+                             "citas_analizadas": len(pub)},
+                 "verificacion": dict(Counter(fuente_de[r]["metodo_verificacion"] for r in usados))},
+        "categorias": [{k: c.get(k) for k in ("clave", "nombre", "descripcion", "fase", "orden")} | {"propuestas": c["consolidadas"]}
+                       for c in categorias if c["consolidadas"] > 0],
+        "actores": [{"id": a["id"], "nombre": a["nombre"], "tipo": a["tipo"], "web": a.get("web"),
+                     "propuestas": por_actor_pub.get(a["id"], 0)} for a in actores if por_actor_pub.get(a["id"])],
+        "documentos": pub_docs,
+        "propuestas": pub_props,
+        "cuestiones": [{k: q.get(k) for k in ("id", "pregunta", "texto", "opciones", "excluyentes")} for q in cuestiones],
+    }
+    texto_pub = json.dumps(publico, ensure_ascii=False)
+    # Salvaguarda: la capa pública no lleva identificadores del archivo ni campos del banco.
+    # (El texto de una propuesta puede coincidir con la redacción de su fuente: es lo buscado.)
+    if re.search(r"P-\d{4}", texto_pub):
+        errores.append("La exportación pública contiene identificadores del archivo (P-XXXX)")
+    for campo in ('"cita"', '"localizacion"', '"tema_fino"', '"estado_cita"', '"resumen"', '"respaldo"'):
+        if campo in texto_pub:
+            errores.append(f"La exportación pública contiene el campo {campo}")
+    if errores:
+        print("ERRORES:\n  " + "\n  ".join(errores))
+        sys.exit(1)
+    PUBLICO.parent.mkdir(parents=True, exist_ok=True)
+    PUBLICO.write_text(json.dumps(publico, ensure_ascii=False, indent=1), encoding="utf-8")
 
     def escribir_csv(nombre, filas, campos):
         with open(GEN / nombre, "w", newline="", encoding="utf-8") as fh:

@@ -2,37 +2,36 @@
 import Base from '../../layouts/Base.astro';
 import Quienes from '../../components/Quienes.astro';
 import {
-  consolidadas, consPorId, cuestionesDe, catPorClave, propPorId, fuentePorRef,
-  autoriaPropuesta, autoriasRespaldo, agruparEntradas, recortar, FORMAS_CITA, tonoCategoria, iconoCategoria,
+  propuestas, propPorId, cuestionesDe, catPorClave, docPorId, documentosDe,
+  autoriasCentrales, recortar, tonoCategoria, iconoCategoria, TIPOS_FUENTE,
 } from '../../lib/banco.js';
 
 export function getStaticPaths() {
-  return consolidadas.map((c) => ({ params: { id: c.id }, props: { c } }));
+  return propuestas.map((c) => ({ params: { id: c.id }, props: { c } }));
 }
 const { c } = Astro.props;
 const cat = catPorClave.get(c.categoria);
-const respaldo = autoriasRespaldo(c);
+const centrales = autoriasCentrales(c);
 const qs = cuestionesDe(c.id);
 
-// Cada entrada una sola vez, con todos sus papeles en esta propuesta.
-const ROLES = { respaldo: 'Idea central', inciso: 'Inciso', variante: 'Variante', diagnostico: 'Diagnóstico' };
+// Cada documento una sola vez, con lo que aporta a esta propuesta.
 const papeles = new Map();
-const anotar = (id, rol) => { if (!papeles.has(id)) papeles.set(id, new Set()); papeles.get(id).add(rol); };
-c.respaldo.forEach((id) => anotar(id, 'respaldo'));
-c.incisos.forEach((i) => i.fuentes.forEach((id) => anotar(id, `inciso ${i.letra}`)));
-c.variantes.forEach((v, n) => v.fuentes.forEach((id) => anotar(id, 'variante')));
-c.diagnostico.forEach((id) => anotar(id, 'diagnostico'));
-const entradas = [...papeles.entries()]
-  .map(([id, roles]) => ({ p: propPorId.get(id), roles: [...roles] }))
-  .filter((e) => e.p)
-  .sort((a, b) => Number(!a.roles.includes('respaldo')) - Number(!b.roles.includes('respaldo')) || (a.p.anio ?? 9999) - (b.p.anio ?? 9999) || a.p.id.localeCompare(b.p.id));
-const nombreRol = (r) => (r.startsWith('inciso') ? `Inciso ${r.slice(7)})` : ROLES[r]);
+const anotar = (id, rol) => { if (!papeles.has(id)) papeles.set(id, []); if (!papeles.get(id).includes(rol)) papeles.get(id).push(rol); };
+c.documentos.forEach((id) => anotar(id, 'Idea central'));
+c.incisos.forEach((i) => i.documentos.forEach((id) => anotar(id, `Inciso ${i.letra})`)));
+c.variantes.forEach((v) => v.documentos.forEach((id) => anotar(id, 'Variante')));
+c.analizan.forEach((id) => anotar(id, 'Análisis del problema'));
+const lista = [...papeles.entries()]
+  .map(([id, roles]) => ({ d: docPorId.get(id), roles }))
+  .filter((e) => e.d)
+  .sort((a, b) => Number(!a.roles.includes('Idea central')) - Number(!b.roles.includes('Idea central')) || (a.d.anio ?? 9999) - (b.d.anio ?? 9999));
+const total = documentosDe(c).length;
 
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
 ---
 <Base titulo={c.titulo} seccion="propuestas" imagen={`/og/propuesta/${c.id}.png`}
-  descripcion={`${recortar(c.texto, 150)} Lo plantean ${c.fuentes.length} documentos.`}>
+  descripcion={`${recortar(c.texto, 150)} La plantean ${total} ${total === 1 ? 'documento' : 'documentos'}.`}>
   <nav class="migas" aria-label="Ruta">
     <a href="/propuestas/">Propuestas</a><span aria-hidden="true">›</span>
     <a href={`/propuestas/categoria/${cat.clave}/`}>{cat.nombre}</a>
@@ -42,10 +41,10 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     <p class="antetitulo"><i class={iconoCategoria(cat.clave)} aria-hidden="true"></i>{cat.nombre}</p>
     <h1>{c.titulo}</h1>
     <p class="texto-consolidado">{c.texto}</p>
-    <p class="discreto nota-redaccion">Redacción de ENTRE TODOS a partir de {c.fuentes.length} {c.fuentes.length === 1 ? 'documento' : 'documentos'}, respetando su lenguaje. Las citas literales están al final.</p>
+    <p class="discreto nota-redaccion">Redacción de ENTRE TODOS a partir de {total} {total === 1 ? 'documento' : 'documentos'}, respetando su lenguaje. Cada documento enlaza a su original.</p>
     <div class="respaldo">
-      <span class="dato-titulo">La {respaldo.length === 1 ? 'plantea' : 'plantean'}</span>
-      <ul class="chips">{respaldo.map((a) => <li>{a}</li>)}</ul>
+      <span class="dato-titulo">La {centrales.length === 1 ? 'plantea' : 'plantean'}</span>
+      <ul class="chips">{centrales.map((a) => <li>{a}</li>)}</ul>
     </div>
     <section id="valoracion" class="valoracion" data-propuesta={c.id} aria-label="Valorar esta propuesta"></section>
     <div class="acciones">
@@ -65,7 +64,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
             <span class="letra" aria-hidden="true">{i.letra}</span>
             <div>
               <p>{i.texto}</p>
-              <p class="quien">Lo {agruparEntradas(i.fuentes).length === 1 ? 'propone' : 'proponen'}: <Quienes ids={i.fuentes} /></p>
+              <p class="quien">Lo propone: <Quienes ids={i.documentos} /></p>
             </div>
           </li>
         ))}
@@ -82,7 +81,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
           <thead><tr><th scope="col">Modalidad</th><th scope="col">Quién la propone</th></tr></thead>
           <tbody>
             {c.variantes.map((v) => (
-              <tr><td>{v.texto}</td><td><Quienes ids={v.fuentes} /></td></tr>
+              <tr><td>{v.texto}</td><td><Quienes ids={v.documentos} /></td></tr>
             ))}
           </tbody>
         </table>
@@ -99,33 +98,25 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
       {q.texto && <p class="discreto">{q.texto}</p>}
       <ul class="opciones">
         {q.opciones.map((o) => (
-          <li>{o === c.id ? <strong>{consPorId.get(o).titulo} <span class="discreto">(esta propuesta)</span></strong> : <a href={`/propuesta/${o}/`}>{consPorId.get(o).titulo}</a>}</li>
+          <li>{o === c.id ? <strong>{propPorId.get(o).titulo} <span class="discreto">(esta propuesta)</span></strong> : <a href={`/propuesta/${o}/`}>{propPorId.get(o).titulo}</a>}</li>
         ))}
       </ul>
     </section>
   ))}
 
   <section aria-labelledby="t-fuentes">
-    <h2 id="t-fuentes">Fuentes originales</h2>
-    <p class="discreto">{entradas.length} {entradas.length === 1 ? 'cita literal' : 'citas literales'} de {c.fuentes.length} {c.fuentes.length === 1 ? 'documento' : 'documentos'}. Cada cita enlaza a su ficha en el archivo y al documento original.</p>
-    <details class="fuentes-detalle" open={entradas.length <= 4}>
-      <summary>Ver las citas</summary>
+    <h2 id="t-fuentes">Documentos</h2>
+    <p class="discreto">Los documentos públicos de los que sale esta propuesta, con lo que aporta cada uno. Cada enlace lleva al original.</p>
+    <details class="fuentes-detalle" open={lista.length <= 4}>
+      <summary>Ver los {lista.length} documentos</summary>
       <ul class="lista">
-        {entradas.map(({ p, roles }) => {
-          const f = fuentePorRef.get(p.fuente);
-          const aviso = FORMAS_CITA[p.forma_cita];
-          return (
-            <li class="tarjeta" id={`cita-${p.id}`}>
-              <h3>{autoriaPropuesta(p)}{p.anio ? <span class="discreto"> · {p.anio}</span> : ''}</h3>
-              <blockquote class="completa">«{p.cita}»</blockquote>
-              <div class="etiquetas">
-                {roles.map((r) => <span class="etiqueta">{nombreRol(r)}</span>)}
-                {aviso && <span class="etiqueta aviso">{aviso}</span>}
-              </div>
-              <p class="enlaces"><a href={`/archivo/${p.id}/`}>Ficha {p.id}</a> · <a href={f.url} rel="noopener" target="_blank">Documento original</a></p>
-            </li>
-          );
-        })}
+        {lista.map(({ d, roles }) => (
+          <li class="tarjeta">
+            <h3><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a></h3>
+            <p class="autoria">{d.actor ? <a href={`/actores/${d.actor}/`}>{d.autoria}</a> : d.autoria}{d.anio && <span class="discreto"> · {d.anio}</span>}<span class="discreto"> · {TIPOS_FUENTE[d.tipo]}</span></p>
+            <div class="etiquetas">{roles.map((r) => <span class="etiqueta">{r}</span>)}</div>
+          </li>
+        ))}
       </ul>
     </details>
   </section>
@@ -148,14 +139,6 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
         } catch {}
       });
     }
-    // Abre el bloque de citas si se llega a una cita concreta.
-    function abrirCita() {
-      const id = location.hash.slice(1);
-      if (!id.startsWith('cita-')) return;
-      document.querySelector('.fuentes-detalle')?.setAttribute('open', '');
-      document.getElementById(id)?.scrollIntoView();
-    }
-    addEventListener('hashchange', abrirCita); abrirCita();
   </script>
   <script>
     import('../../lib/participacion.js').then((m) => m.iniciarParticipacion());

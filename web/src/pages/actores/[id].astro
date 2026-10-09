@@ -1,34 +1,27 @@
 ---
 import Base from '../../layouts/Base.astro';
-import TarjetaPropuesta from '../../components/TarjetaPropuesta.astro';
 import TarjetaConsolidada from '../../components/TarjetaConsolidada.astro';
-import { actores, fuentes, propuestasDeActor, agruparPorTema, consolidadasDeActor, METODOS_VERIFICACION, TIPOS_FUENTE } from '../../lib/banco.js';
+import { actores, documentosDeActor, propuestasDeActor, TIPOS_FUENTE } from '../../lib/banco.js';
 
 export function getStaticPaths() {
-  return actores.filter((a) => a.propuestas > 0).map((a) => ({ params: { id: a.id }, props: { a } }));
+  return actores.map((a) => ({ params: { id: a.id }, props: { a } }));
 }
 const { a } = Astro.props;
-const docs = fuentes.filter((f) => f.actor === a.id);
+const docs = documentosDeActor(a.id);
 const lista = propuestasDeActor(a.id);
-const enBanco = consolidadasDeActor(a.id);
-const metodos = [...new Set(docs.map((f) => f.metodo_verificacion))];
 ---
 <Base titulo={a.nombre} seccion="actores"
-  descripcion={`${a.nombre} respalda ${enBanco.length} propuestas del banco de ENTRE TODOS, con ${lista.length} citas literales.`}>
+  descripcion={`${a.nombre} plantea ${lista.length} de las propuestas reunidas por ENTRE TODOS.`}>
   <nav class="migas" aria-label="Ruta"><a href="/actores/">Actores</a><span aria-hidden="true">›</span><span>{a.nombre}</span></nav>
   <h1>{a.nombre}</h1>
   <ul class="cifras">
     <li>{TIPOS_FUENTE[a.tipo]}</li>
+    <li><strong>{lista.length}</strong> {lista.length === 1 ? 'propuesta' : 'propuestas'}</li>
     <li><strong>{docs.length}</strong> {docs.length === 1 ? 'documento' : 'documentos'}</li>
-    <li><strong>{enBanco.length}</strong> propuestas del banco</li>
-    <li><strong>{lista.length}</strong> citas</li>
     {a.web && <li><a href={a.web} rel="noopener" target="_blank">Sitio web</a></li>}
   </ul>
-  <p class="discreto">Autoría verificada. {metodos.map((m) => METODOS_VERIFICACION[m]).join(' ')}</p>
-  <h2>Propuestas del banco que respalda</h2>
-  <ul class="lista">{enBanco.map((c) => <TarjetaConsolidada c={c} mostrarCategoria />)}</ul>
+  <h2>Propuestas que plantea</h2>
+  <ul class="lista">{lista.map((c) => <TarjetaConsolidada c={c} mostrarCategoria />)}</ul>
   <h2>Documentos</h2>
-  <ul>{docs.map((f) => <li><a href={`/fuentes/${f.ref}/`}>{f.documento}</a> <span class="discreto">({f.propuestas})</span></li>)}</ul>
-  <h2>Citas en el archivo</h2>
-  <ul class="lista">{agruparPorTema(lista).flatMap((g) => g.propuestas).map((p) => <TarjetaPropuesta p={p} />)}</ul>
+  <ul>{docs.map((d) => <li><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a>{d.anio && <span class="discreto"> ({d.anio})</span>}</li>)}</ul>
 </Base>

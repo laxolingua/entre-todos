@@ -1,18 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { actores, TIPOS_FUENTE } from '../../lib/banco.js';
-const conPropuestas = actores.filter((a) => a.propuestas > 0);
 ---
 <Base titulo="Actores cívicos" seccion="actores"
-  descripcion={`${conPropuestas.length} organizaciones, coaliciones y centros de estudios con propuestas en el banco.`}>
+  descripcion={`${actores.length} organizaciones, coaliciones y centros de estudios cuyas propuestas reúne ENTRE TODOS.`}>
   <h1>Actores cívicos</h1>
-  <p class="entradilla">Organizaciones, coaliciones y centros de estudios cuyas propuestas están en el banco. Solo se registra información ya pública y su fuente.</p>
-  <p class="discreto">Cada autoría está verificada: por el sitio oficial del actor, revisando el propio documento o contrastándola con una fuente oficial. El método figura en cada ficha.</p>
+  <p class="entradilla">Organizaciones, coaliciones y centros de estudios cuyas propuestas están reunidas aquí. Solo se registra información ya pública y su fuente.</p>
+  <p class="discreto">Cada autoría está comprobada: en el sitio oficial del actor, leyendo el propio documento o por el equipo de revisión.</p>
   <div class="desplazable">
     <table class="tabla">
-      <thead><tr><th scope="col">Actor</th><th scope="col">Tipo</th><th scope="col">Citas</th></tr></thead>
+      <thead><tr><th scope="col">Actor</th><th scope="col">Tipo</th><th scope="col">Propuestas</th></tr></thead>
       <tbody>
-        {conPropuestas.map((a) => (
+        {actores.map((a) => (
           <tr><td><a href={`/actores/${a.id}/`}>{a.nombre}</a></td><td>{TIPOS_FUENTE[a.tipo]}</td><td>{a.propuestas}</td></tr>
         ))}
       </tbody>

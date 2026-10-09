@@ -1,80 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
-import { meta, noPropuestas, fuentePorRef, categorias, consolidadas, cuestiones, propuestas, enRevision, soloArchivo, fuentes, METODOS_VERIFICACION } from '../lib/banco.js';
+import { meta, propuestas, cuestiones, METODOS_VERIFICACION } from '../lib/banco.js';
 const t = meta.totales;
-const conIncisos = consolidadas.filter((c) => c.incisos.length > 0).length;
-const totalIncisos = consolidadas.reduce((s, c) => s + c.incisos.length, 0);
-const conVariantes = consolidadas.filter((c) => c.variantes.length > 0).length;
-const multi = consolidadas.filter((c) => c.fuentes.length > 1).length;
-const porMetodo = Object.keys(METODOS_VERIFICACION).map((m) => [m, fuentes.filter((f) => f.metodo_verificacion === m).length]);
-const descriptivas = soloArchivo.filter((s) => !enRevision.some((p) => p.id === s.id));
-const provisionales = categorias.filter((c) => !c.declarada).length;
-const fecha = new Date(meta.verificacion).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+const conIncisos = propuestas.filter((c) => c.incisos.length > 0).length;
+const totalIncisos = propuestas.reduce((s, c) => s + c.incisos.length, 0);
+const conVariantes = propuestas.filter((c) => c.variantes.length > 0).length;
+const multi = propuestas.filter((c) => c.total_documentos > 1).length;
+const porMetodo = Object.entries(meta.verificacion).sort((a, b) => b[1] - a[1]);
+const fecha = new Date(meta.actualizado).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
-<Base titulo="Cómo se construyó el banco" seccion="metodo"
-  descripcion="Cómo se reúnen, citan, consolidan y verifican las propuestas del banco de ENTRE TODOS.">
-  <h1>Cómo se construyó el banco</h1>
-  <p class="entradilla">El banco reúne propuestas ya publicadas sobre el futuro de Cuba. Tiene dos niveles: el archivo documental, con cada cita tal como aparece en su documento, y el banco de propuestas, donde cada idea aparece una sola vez con todas sus fuentes.</p>
+<Base titulo="Cómo se reúnen las propuestas" seccion="metodo"
+  descripcion="Cómo ENTRE TODOS reúne, combina y comprueba las propuestas publicadas sobre el futuro de Cuba.">
+  <h1>Cómo se reúnen las propuestas</h1>
+  <p class="entradilla">ENTRE TODOS reúne propuestas ya publicadas sobre el futuro de Cuba. Cada idea aparece una sola vez, con todas las fuentes que la plantean y un enlace a cada documento original.</p>
 
-  <h2>1. Archivo documental</h2>
-  <p>Cada entrada es un fragmento literal de un documento público que propone algo concreto, con el lugar donde aparece, la fecha y el enlace al original. Hay {t.propuestas} entradas de {t.fuentes} documentos; {propuestas.length} están publicadas. Las citas no se corrigen nunca.</p>
-  <p>Hay tres tipos de entrada: propuestas, críticas a una situación o norma vigente y reformas sobre un texto existente.</p>
+  <h2>1. De dónde salen</h2>
+  <p>De {t.documentos} documentos públicos de organizaciones, coaliciones, centros de estudios y especialistas: programas, declaraciones, constituciones modelo, estudios y entrevistas. En cada documento se identifican las medidas concretas que propone; las opiniones o descripciones que no proponen nada quedan fuera.</p>
 
-  <h2>2. Banco de propuestas</h2>
-  <p>Muchas fuentes proponen lo mismo con palabras distintas. Para no hacer leer la misma idea varias veces, las {propuestas.length} entradas se han reunido en {consolidadas.length} propuestas. {multi} de ellas reúnen más de un documento. Se aplican tres reglas:</p>
+  <h2>2. Cómo se combinan</h2>
+  <p>Muchas fuentes proponen lo mismo con palabras distintas. Para no leer la misma idea varias veces, se han reunido en {t.propuestas} propuestas; {multi} de ellas recogen más de un documento. Se aplican tres reglas:</p>
   <ul>
-    <li><strong>Repetición:</strong> cuando dos textos dicen esencialmente lo mismo, se fusionan en una propuesta y se conservan todas las fuentes.</li>
+    <li><strong>Repetición:</strong> cuando dos textos dicen esencialmente lo mismo, se combinan en una propuesta y se conservan todas las fuentes.</li>
     <li><strong>Complemento:</strong> cuando una fuente añade un elemento compatible, entra como inciso con su propia referencia. Hay {totalIncisos} incisos en {conIncisos} propuestas. Un inciso no se atribuye a quien no lo propuso.</li>
-    <li><strong>Alternativa:</strong> cuando las diferencias afectan al fondo, no se fusionan. Se presentan como propuestas separadas y se agrupan en {cuestiones.length} <a href="/cuestiones/">cuestiones</a> para compararlas. Si solo difieren en el procedimiento, la diferencia se muestra dentro de la propuesta; ocurre en {conVariantes} propuestas.</li>
+    <li><strong>Alternativa:</strong> cuando las diferencias afectan al fondo, no se combinan. Se presentan como propuestas separadas y se agrupan en {cuestiones.length} <a href="/cuestiones/">cuestiones</a> para compararlas. Si solo difieren en el procedimiento, la diferencia se muestra dentro de la propuesta; ocurre en {conVariantes} propuestas.</li>
   </ul>
-  <p>La redacción de cada propuesta es de ENTRE TODOS y procura conservar el lenguaje de las fuentes. Las citas literales que la sustentan están siempre en la misma página.</p>
-  <p>Las críticas al sistema actual que sustentan una propuesta figuran como diagnóstico. {descriptivas.length} entradas que describen el propio documento o la intención de su autor, sin proponer una medida, quedan solo en el archivo.</p>
+  <p>La redacción de cada propuesta es de ENTRE TODOS y conserva el lenguaje de las fuentes. Cada propuesta indica qué documentos la plantean y qué aporta cada uno, con enlace al original para comprobarlo.</p>
 
-  <h2>3. Verificación de autorías</h2>
-  <p>Las {t.fuentes} autorías se verificaron el {fecha}:</p>
-  <ul>{porMetodo.map(([m, n]) => <li>{n} documentos: {METODOS_VERIFICACION[m].toLowerCase()}</li>)}</ul>
-  <p>Cuando un texto recoge las ideas de otra persona (una entrevista, una reseña), la autoría lo dice. El método figura en la ficha de cada documento.</p>
+  <h2>3. Comprobación de autorías</h2>
+  <p>La autoría de los {t.documentos} documentos se comprobó el {fecha}:</p>
+  <ul>{porMetodo.map(([m, n]) => <li>{n} documentos: {METODOS_VERIFICACION[m]}.</li>)}</ul>
+  <p>Cuando un texto recoge las ideas de otra persona (una entrevista, una reseña), la autoría lo dice. Si una frase no se puede localizar en el documento citado, no se usa hasta encontrar el original.</p>
 
-  <h2>4. Citas secundarias y paráfrasis</h2>
-  <p>{t.citas_secundarias} entradas proceden de una fuente secundaria, normalmente prensa, porque el original no estaba disponible. {t.parafraseadas} de ellas son paráfrasis del periodista y no palabras literales del autor; se marcan así en cada cita.</p>
+  <h2>4. Correcciones</h2>
+  <p>Las propuestas no se borran: si una cambia o se retira, queda constancia de la versión anterior y del motivo. Quien detecte un error puede señalarlo en la propia propuesta, en «Aportes de la ciudadanía».</p>
 
-  {enRevision.length > 0 && (
-    <>
-      <h2>5. Citas en revisión</h2>
-      <p>No se publican las entradas cuya frase no se ha podido localizar en el documento citado.</p>
-      <div class="desplazable">
-        <table class="tabla">
-          <thead><tr><th scope="col">Entrada</th><th scope="col">Documento</th><th scope="col">Motivo</th></tr></thead>
-          <tbody>
-            {enRevision.map((p) => (
-              <tr><td>{p.id}</td><td><a href={`/fuentes/${p.fuente}/`}>{fuentePorRef.get(p.fuente)?.documento}</a></td><td>{p.motivo_estado}</td></tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
-  )}
-
-  <h2>Categorías</h2>
-  <p>Cada propuesta tiene una categoría principal. {provisionales} categorías del archivo tienen todavía un nombre provisional.</p>
-
-  <h2>Fragmentos revisados y excluidos</h2>
-  <p>Durante la extracción, {noPropuestas.length} fragmentos se revisaron y se dejaron fuera porque describen, opinan o declaran, pero no proponen. Se publican con su motivo para que cualquiera pueda comprobar el criterio.</p>
-  <div class="desplazable">
-    <table class="tabla">
-      <thead><tr><th scope="col">Fragmento</th><th scope="col">Motivo de exclusión</th><th scope="col">Fuente</th></tr></thead>
-      <tbody>
-        {noPropuestas.map((n) => (
-          <tr>
-            <td>«{n.cita}»</td>
-            <td>{n.motivo}</td>
-            <td><a href={`/fuentes/${n.fuente}/`}>{fuentePorRef.get(n.fuente)?.documento ?? `Fuente ${n.fuente}`}</a></td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Versión de los datos</h2>
-  <p class="discreto">Banco literal del 3 de julio de 2026. Consolidación y verificación del {fecha}. Huella del archivo de origen (SHA-256): <code style="word-break:break-all">{meta.sha256_origen}</code></p>
+  <p class="discreto" style="margin-top:28px">Última actualización: {fecha}.</p>
 </Base>

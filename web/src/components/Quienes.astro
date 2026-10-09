@@ -1,10 +1,10 @@
 ---
-// Lista de autorías de un inciso o variante, sin repetir la misma autoría y año.
-// Si una autoría aporta varias citas, enlaza a la primera e indica cuántas son.
-import { agruparEntradas } from '../lib/banco.js';
+// Autorías de un inciso o variante, sin repetir la misma autoría y año.
+// Cada una enlaza a su documento original.
+import { agruparDocs, docPorId } from '../lib/banco.js';
 const { ids } = Astro.props;
-const grupos = agruparEntradas(ids);
+const grupos = agruparDocs(ids);
 ---
 {grupos.map((g, n) => (
-  <>{n > 0 && ' · '}<a href={`#cita-${g.ids[0]}`}>{g.etiqueta}</a>{g.ids.length > 1 && <span class="discreto"> ({g.ids.length} citas)</span>}</>
+  <>{n > 0 && ' · '}<a href={docPorId.get(g.ids[0]).url} rel="noopener" target="_blank">{g.etiqueta}</a>{g.ids.length > 1 && <span class="discreto"> ({g.ids.length} documentos)</span>}</>
 ))}

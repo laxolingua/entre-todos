@@ -1,14 +1,13 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import TarjetaConsolidada from '../../../components/TarjetaConsolidada.astro';
-import { categorias, consolidadasDeCategoria, iconoCategoria, tonoCategoria, propuestasDeCategoria } from '../../../lib/banco.js';
+import { categorias, propuestasDeCategoria, iconoCategoria, tonoCategoria } from '../../../lib/banco.js';
 
 export function getStaticPaths() {
-  return categorias.filter((c) => c.consolidadas > 0).map((c) => ({ params: { clave: c.clave }, props: { c } }));
+  return categorias.map((c) => ({ params: { clave: c.clave }, props: { c } }));
 }
 const { c } = Astro.props;
-const lista = consolidadasDeCategoria(c.clave).sort((a, b) => b.fuentes.length - a.fuentes.length || a.orden - b.orden);
-const citas = propuestasDeCategoria(c.clave).length;
+const lista = propuestasDeCategoria(c.clave).sort((a, b) => b.total_documentos - a.total_documentos || a.orden - b.orden);
 ---
 <Base titulo={c.nombre} seccion="propuestas" imagen={`/og/categoria/${c.clave}.png`}
   descripcion={`${lista.length} propuestas sobre ${c.nombre.toLowerCase()}, cada una con todas las fuentes que la plantean.`}>
@@ -18,8 +17,7 @@ const citas = propuestasDeCategoria(c.clave).length;
   </div>
   {c.descripcion && <p class="entradilla">{c.descripcion}</p>}
   <ul class="cifras">
-    <li><strong>{lista.length}</strong> propuestas</li>
-    {citas > 0 && <li><a href={`/archivo/categoria/${c.clave}/`}>{citas} citas en el archivo</a></li>}
+    <li><strong>{lista.length}</strong> {lista.length === 1 ? 'propuesta' : 'propuestas'}</li>
     {c.fase && <li>{c.fase}</li>}
   </ul>
   <p class="discreto">Ordenadas por número de documentos que las plantean.</p>

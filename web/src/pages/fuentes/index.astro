@@ -1,22 +1,24 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { fuentes, autoriaFuente, TIPOS_FUENTE } from '../../lib/banco.js';
-const orden = [...fuentes].sort((a, b) => b.propuestas - a.propuestas || a.ref - b.ref);
+import { documentos, propuestasDeDocumento, TIPOS_FUENTE } from '../../lib/banco.js';
+const filas = documentos
+  .map((d) => ({ d, n: propuestasDeDocumento(d.id).length }))
+  .sort((a, b) => b.n - a.n || (a.d.anio ?? 0) - (b.d.anio ?? 0));
 ---
-<Base titulo="Fuentes del banco" seccion="archivo"
-  descripcion={`Los ${fuentes.length} documentos de los que proceden las propuestas del banco, con enlace a cada original.`}>
-  <h1>Fuentes</h1>
-  <p class="entradilla">Los {fuentes.length} documentos públicos de los que se han extraído las citas. Cada uno enlaza a su original y tiene su autoría verificada.</p>
+<Base titulo="Documentos" seccion="fuentes"
+  descripcion={`Los ${documentos.length} documentos públicos de los que salen las propuestas, con enlace a cada original.`}>
+  <h1>Documentos</h1>
+  <p class="entradilla">Los {documentos.length} documentos públicos de los que salen las propuestas. Cada uno enlaza a su original y tiene su autoría comprobada.</p>
   <div class="desplazable">
     <table class="tabla">
-      <thead><tr><th scope="col">Documento</th><th scope="col">Autoría</th><th scope="col">Tipo</th><th scope="col">Citas</th></tr></thead>
+      <thead><tr><th scope="col">Documento</th><th scope="col">Autoría</th><th scope="col">Año</th><th scope="col">Propuestas</th></tr></thead>
       <tbody>
-        {orden.map((f) => (
+        {filas.map(({ d, n }) => (
           <tr>
-            <td><a href={`/fuentes/${f.ref}/`}>{f.documento}</a>{f.duplicado_de && <div class="discreto">Mismo documento que la fuente {f.duplicado_de}</div>}</td>
-            <td>{autoriaFuente(f) ?? <span class="discreto">Por confirmar</span>}</td>
-            <td>{TIPOS_FUENTE[f.tipo]}</td>
-            <td>{f.propuestas}</td>
+            <td><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a><div class="discreto">{TIPOS_FUENTE[d.tipo]}</div></td>
+            <td>{d.actor ? <a href={`/actores/${d.actor}/`}>{d.autoria}</a> : d.autoria}</td>
+            <td>{d.anio ?? ''}</td>
+            <td>{n}</td>
           </tr>
         ))}
       </tbody>

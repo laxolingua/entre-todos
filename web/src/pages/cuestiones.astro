@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { cuestiones, consPorId, autoriasRespaldo, recortar } from '../lib/banco.js';
+import { cuestiones, propPorId, autoriasCentrales, recortar } from '../lib/banco.js';
 ---
 <Base titulo="Cuestiones con alternativas" seccion="cuestiones"
   descripcion={`${cuestiones.length} asuntos sobre el futuro de Cuba en los que las fuentes proponen caminos distintos.`}>
@@ -16,8 +16,8 @@ import { cuestiones, consPorId, autoriasRespaldo, recortar } from '../lib/banco.
       <p class:list={['etiqueta', { aviso: q.excluyentes }]} style="display:inline-flex">{q.excluyentes ? 'Opciones incompatibles entre sí' : 'Opciones que pueden combinarse'}</p>
       <ul class="lista" style="margin-top:12px">
         {q.opciones.map((o) => {
-          const c = consPorId.get(o);
-          const quien = autoriasRespaldo(c);
+          const c = propPorId.get(o);
+          const quien = autoriasCentrales(c);
           return (
             <li class="tarjeta consolidada">
               <h3><a href={`/propuesta/${c.id}/`}>{c.titulo}</a></h3>

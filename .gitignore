@@ -11,3 +11,4 @@ web/.env
 datos/
 supabase/seed/
 vista-previa/
+web/.og-huellas.json

@@ -1,5 +1,4 @@
 // Buscador en el navegador. Descarga el índice solo cuando alguien busca.
-// Dos modos: "ciudadano" (banco de propuestas consolidadas) y "archivo" (citas literales).
 const MAX = 60;
 const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
@@ -7,18 +6,14 @@ const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 const normalizar = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const escapar = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-const indices = {};
-const MODOS = {
-  archivo: { url: '/datos/indice.json', texto: (p) => `${p.t} ${p.a} ${p.c} ${p.r}` },
-  ciudadano: { url: '/datos/indice-propuestas.json', texto: (p) => `${p.t} ${p.x} ${p.i} ${p.a} ${p.k}` },
-};
-async function cargarIndice(modo) {
-  if (!indices[modo]) {
-    const r = await fetch(MODOS[modo].url);
+let indice;
+async function cargarIndice() {
+  if (!indice) {
+    const r = await fetch('/datos/indice-propuestas.json');
     if (!r.ok) throw new Error('No se pudo cargar el índice');
-    indices[modo] = (await r.json()).map((p) => ({ ...p, _t: normalizar(p.t), _x: normalizar(MODOS[modo].texto(p)) }));
+    indice = (await r.json()).map((p) => ({ ...p, _t: normalizar(p.t), _x: normalizar(`${p.t} ${p.x} ${p.i} ${p.a} ${p.k}`) }));
   }
-  return indices[modo];
+  return indice;
 }
 
 function buscar(lista, consulta) {
@@ -43,13 +38,6 @@ function registrarVacio(termino) {
   }).catch(() => {});
 }
 
-function tarjetaArchivo(p) {
-  const sec = p.s ? `<span class="etiqueta aviso">${p.s === 2 ? 'Paráfrasis de prensa' : 'Cita secundaria'}</span>` : '';
-  return `<li class="tarjeta"><h3><a href="/archivo/${escapar(p.id)}/">${escapar(p.t)}</a></h3>
-    <p class="autoria">${escapar(p.a)}${p.y ? ` · ${p.y}` : ''}</p>
-    <blockquote>«${escapar(p.c)}»</blockquote><div class="etiquetas">${sec}</div></li>`;
-}
-
 function tarjetaCiudadana(p) {
   const texto = p.x.length > 230 ? `${p.x.slice(0, p.x.lastIndexOf(' ', 230))}…` : p.x;
   return `<li class="tarjeta consolidada"><h3><a href="/propuesta/${escapar(p.id)}/">${escapar(p.t)}</a></h3>
@@ -64,12 +52,6 @@ export function iniciarBuscador() {
   const salida = document.getElementById('resultados');
   const categorias = document.getElementById('categorias');
   if (!form || !input || !salida) return;
-  const modo = form.dataset.modo === 'archivo' ? 'archivo' : 'ciudadano';
-  const tarjeta = modo === 'archivo' ? tarjetaArchivo : tarjetaCiudadana;
-  const nombre = modo === 'archivo' ? ['cita', 'citas'] : ['propuesta', 'propuestas'];
-  const otro = modo === 'archivo'
-    ? (q) => `<p class="discreto">Ver también en el <a href="/propuestas/?q=${encodeURIComponent(q)}">banco de propuestas</a>.</p>`
-    : (q) => `<p class="discreto">¿Buscas una cita concreta? <a href="/archivo/?q=${encodeURIComponent(q)}">Busca en el archivo documental</a>.</p>`;
 
   async function ejecutar(consulta, actualizarUrl = true) {
     const q = consulta.trim();
@@ -81,17 +63,17 @@ export function iniciarBuscador() {
     if (!q) { salida.innerHTML = ''; if (categorias) categorias.hidden = false; return; }
     salida.innerHTML = '<p class="discreto">Buscando…</p>';
     try {
-      const encontrados = buscar(await cargarIndice(modo), q);
+      const encontrados = buscar(await cargarIndice(), q);
       if (categorias) categorias.hidden = encontrados.length > 0;
       if (!encontrados.length) {
-        salida.innerHTML = `<div class="panel"><p style="margin:0">Nada en ${modo === 'archivo' ? 'el archivo' : 'el banco'} menciona «${escapar(q)}».</p>
-          <p class="discreto" style="margin:6px 0 0">Prueba con otra palabra o explora por categoría.</p>${otro(q)}</div>`;
+        salida.innerHTML = `<div class="panel"><p style="margin:0">Ninguna propuesta menciona «${escapar(q)}».</p>
+          <p class="discreto" style="margin:6px 0 0">Prueba con otra palabra o explora por categoría.</p></div>`;
         registrarVacio(q);
         return;
       }
       const mostrados = encontrados.slice(0, MAX);
-      salida.innerHTML = `<p class="discreto">${encontrados.length} ${encontrados.length === 1 ? nombre[0] : nombre[1]}${encontrados.length > MAX ? `; se muestran las ${MAX} más relevantes` : ''}.</p>
-        <ul class="lista">${mostrados.map(tarjeta).join('')}</ul>${otro(q)}`;
+      salida.innerHTML = `<p class="discreto">${encontrados.length} ${encontrados.length === 1 ? 'propuesta' : 'propuestas'}${encontrados.length > MAX ? `; se muestran las ${MAX} más relevantes` : ''}.</p>
+        <ul class="lista">${mostrados.map(tarjetaCiudadana).join('')}</ul>`;
     } catch {
       salida.innerHTML = '<div class="panel"><p style="margin:0">No se pudo cargar el buscador. Revisa la conexión y vuelve a intentarlo.</p></div>';
     }
