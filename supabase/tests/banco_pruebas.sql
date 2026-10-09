@@ -1,4 +1,4 @@
--- Pruebas del banco: archivo documental, banco ciudadano consolidado, permisos, búsqueda, historial,
+-- Pruebas del banco: carga, privacidad del banco, propuestas consolidadas, permisos, búsqueda, historial,
 -- valoraciones, aportes con apoyos, buenas prácticas y módulo elTOQUE.
 -- Se ejecutan con:  psql -v ON_ERROR_STOP=1 -f supabase/tests/banco_pruebas.sql
 -- Cada bloque falla con un mensaje claro si algo no se comporta como debe.
@@ -40,20 +40,55 @@ select pg_temp.comprobar((select count(*) = 0 from banco.propuesta p
 
 -- ------------------------------------------------ lectura anónima
 select pg_temp.como('anon');
-select pg_temp.comprobar((select count(*) = 758 from public.banco_propuestas), 'anónimo lee 758 entradas: las 2 en revisión no se publican');
-select pg_temp.comprobar((select count(*) = 0 from public.banco_propuestas where id in ('P-0208','P-0209')), 'las citas no localizadas no salen por la API');
-select pg_temp.comprobar((select autoria = 'Cuba Próxima' from public.banco_propuestas where id = 'P-0001'), 'P-0001 atribuida a Cuba Próxima');
-select pg_temp.comprobar((select autoria = 'Plataforma Democrática Cubana' from public.banco_propuestas where fuente_ref = 40 limit 1),
+-- El banco es privado: ni las citas ni la clasificación se leen con la clave pública.
+do $$ begin
+  perform cita from banco.propuesta limit 1;
+  raise exception 'FALLA: anónimo pudo leer las citas del banco';
+exception when insufficient_privilege then raise notice 'ok  anónimo no lee las citas del banco';
+end $$;
+do $$ begin
+  perform localizacion from banco.propuesta limit 1;
+  raise exception 'FALLA: anónimo pudo leer localizaciones';
+exception when insufficient_privilege then raise notice 'ok  anónimo no lee localizaciones';
+end $$;
+do $$ begin
+  perform * from banco.propuesta_categoria limit 1;
+  raise exception 'FALLA: anónimo pudo leer la clasificación';
+exception when insufficient_privilege then raise notice 'ok  anónimo no lee la clasificación del archivo';
+end $$;
+do $$ begin
+  perform * from banco.no_propuesta limit 1;
+  raise exception 'FALLA: anónimo pudo leer las exclusiones';
+exception when insufficient_privilege then raise notice 'ok  anónimo no lee las exclusiones';
+end $$;
+do $$ begin
+  perform metodo_verificacion from banco.fuente limit 1;
+  raise exception 'FALLA: anónimo pudo leer la verificación';
+exception when insufficient_privilege then raise notice 'ok  anónimo no lee la verificación de autorías';
+end $$;
+select pg_temp.comprobar((select count(*) = 0 from information_schema.views
+                           where table_schema = 'public' and table_name in ('banco_propuestas','banco_fuentes','banco_temas',
+                                 'banco_no_propuestas','banco_historial','banco_consolidada_fuentes')),
+                         'la API no tiene vistas del archivo');
+select pg_temp.comprobar((select count(*) = 0 from information_schema.columns
+                           where table_schema = 'public' and column_name in ('cita','localizacion','tema_fino','estado_cita','resumen')),
+                         'ninguna vista pública tiene columnas del banco');
+select pg_temp.comprobar((select count(*) = 58 from public.banco_documentos), 'anónimo lee los 58 documentos (título, autoría, año, enlace)');
+select pg_temp.comprobar((select autoria = 'Plataforma Democrática Cubana' from public.banco_documentos where id = 40),
                          'la fuente 40 se atribuye a la Plataforma Democrática Cubana tras la verificación');
-select pg_temp.comprobar((select 'estado-de-derecho' = any(consolidadas) from public.banco_propuestas where id = 'P-0001'),
-                         'cada entrada indica en qué propuestas consolidadas está');
+select pg_temp.comprobar((select anio = 2022 from public.banco_documentos where id = 43), 'la petición CUBA LIBRE figura con su año real, 2022');
 select pg_temp.comprobar((select count(*) = 159 from public.banco_consolidadas), 'anónimo lee las 159 propuestas consolidadas');
-select pg_temp.comprobar((select fuentes >= 10 and jsonb_array_length(incisos) = 6 and jsonb_array_length(variantes) = 1
+select pg_temp.comprobar((select total_documentos >= 10 and jsonb_array_length(incisos) = 6 and jsonb_array_length(variantes) = 1
                             from public.banco_consolidadas where id = 'presos-politicos'),
-                         'presos políticos: una propuesta, 10 o más fuentes, 6 incisos y 1 variante');
-select pg_temp.comprobar((select count(*) = 1 from public.banco_consolidada_fuentes
-                           where consolidada_id = 'presos-politicos' and id = 'P-0214' and rol = 'variante'),
-                         'las citas de cada propuesta consolidada se consultan con su papel');
+                         'presos políticos: una propuesta, 10 o más documentos, 6 incisos y 1 variante');
+select pg_temp.comprobar((select jsonb_typeof(incisos->0->'documentos') = 'array' and incisos::text !~ 'P-[0-9]{4}'
+                            from public.banco_consolidadas where id = 'presos-politicos'),
+                         'los incisos llevan documentos, no identificadores de citas');
+select pg_temp.comprobar((select 'estado-de-derecho' = any(array_agg(consolidada_id)) from public.banco_consolidada_documentos where documento_id = 1),
+                         'cada documento indica qué propuestas respalda');
+select pg_temp.comprobar((select count(*) = 1 from public.banco_consolidada_documentos
+                           where consolidada_id = 'presos-politicos' and papel = 'variante' and documento_id = 23),
+                         'los documentos de cada propuesta se consultan con su papel');
 select pg_temp.comprobar((select count(*) > 0 from public.banco_buscar_consolidadas('presos')), 'buscar en el banco ciudadano');
 select pg_temp.comprobar((select count(*) from public.banco_buscar_consolidadas('transicion'))
                          = (select count(*) from public.banco_buscar_consolidadas('transición')), 'el banco ciudadano no distingue tildes');
@@ -61,10 +96,9 @@ select pg_temp.comprobar((select array_length(opciones, 1) = 2 and excluyentes f
                          'cuestión con opciones excluyentes');
 select pg_temp.comprobar((select count(*) > 0 from public.banco_divergencias_actores), 'divergencias entre actores en una misma cuestión');
 select pg_temp.comprobar((select sum(propuestas) > 0 from public.banco_categorias), 'conteos por categoría');
-select pg_temp.comprobar((select count(*) > 0 from public.banco_buscar('transicion')), 'buscar "transicion" sin tilde encuentra resultados');
-select pg_temp.comprobar((select count(*) from public.banco_buscar('transicion')) = (select count(*) from public.banco_buscar('transición')),
-                         'la búsqueda no distingue tildes');
-select pg_temp.comprobar((select bool_and('economia' = any(categorias)) from public.banco_buscar('', 'economia', 200)), 'filtro por categoría');
+select pg_temp.comprobar((select count(*) > 0 from public.banco_buscar_consolidadas('helms')),
+                         'la búsqueda encuentra propuestas por palabras de sus citas sin mostrarlas');
+select pg_temp.comprobar((select bool_and(categoria = 'economia') from public.banco_buscar_consolidadas('', 'economia', 200)), 'filtro por categoría');
 select pg_temp.comprobar((select count(*) > 0 from public.banco_coincidencias_actores), 'coincidencias entre actores que proponen lo mismo');
 
 do $$ begin
