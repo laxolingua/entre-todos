@@ -1,0 +1,20 @@
+{
+  "name": "entre-todos-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "datos": "python3 ../scripts/construir_banco.py && node scripts/copiar_datos.mjs",
+    "og": "node scripts/generar_og.mjs",
+    "dev": "astro dev",
+    "build": "npm run datos && npm run og && astro build",
+    "build:rapido": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@supabase/supabase-js": "^2.117.3",
+    "astro": "^7.3.8",
+    "satori": "^0.47.1"
+  }
+}

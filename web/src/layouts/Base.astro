@@ -1,0 +1,78 @@
+---
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+import '../styles/global.css';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
+  seccion?: 'propuestas' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos';
+}
+const { titulo, descripcion, imagen = '/og/banco.png', seccion } = Astro.props;
+const canonica = new URL(Astro.url.pathname, Astro.site);
+const imagenAbs = new URL(imagen, Astro.site);
+const tituloCompleto = `${titulo} · ENTRE TODOS`;
+const UICONS = 'https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css';
+const enlaces = [
+  { href: '/propuestas/', texto: 'Propuestas', id: 'propuestas' },
+  { href: '/cuestiones/', texto: 'Cuestiones', id: 'cuestiones' },
+  { href: '/archivo/', texto: 'Archivo', id: 'archivo' },
+  { href: '/actores/', texto: 'Actores', id: 'actores' },
+  { href: '/metodo/', texto: 'Método', id: 'metodo' },
+  { href: '/datos/', texto: 'Datos abiertos', id: 'datos' },
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ENTRE TODOS" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagenAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={imagenAbs} />
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Iconos sin bloquear la lectura: el texto aparece antes que la fuente de iconos. -->
+    <link rel="preconnect" href="https://cdn-uicons.flaticon.com" crossorigin />
+    <link rel="stylesheet" href={UICONS} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={UICONS} /></noscript>
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <header class="cabecera">
+      <div class="contenedor">
+        <a class="marca" href="/propuestas/">ENTRE TODOS</a>
+        <nav class="nav" aria-label="Principal">
+          {enlaces.map((e) => (
+            <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}>{e.texto}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="contenido" class="contenedor">
+      <slot />
+    </main>
+    <footer class="pie">
+      <div class="contenedor">
+        <p style="margin:0">ENTRE TODOS reúne propuestas públicas sobre el futuro de Cuba. Cada propuesta conserva su autoría y enlaza al documento original.</p>
+        <p style="margin:0">Cada propuesta reúne las fuentes que dicen lo mismo; su redacción es editorial y las citas literales están siempre a la vista. <a href="/metodo/">Cómo se construyó el banco</a>.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+---
+import { iconoCategoria, tonoCategoria } from '../lib/banco.js';
+interface Props { c: any; base?: string; cifra?: number; unidad?: [string, string] }
+const { c, base = '/propuestas/categoria/', cifra = c.consolidadas, unidad = ['propuesta', 'propuestas'] } = Astro.props;
+---
+<a class="categoria" href={`${base}${c.clave}/`} style={tonoCategoria(c.clave)}>
+  <span class="icono" aria-hidden="true"><i class={iconoCategoria(c.clave)}></i></span>
+  <h3>{c.nombre}</h3>
+  {c.descripcion ? <p>{c.descripcion}</p> : <p>Categoría en revisión.</p>}
+  <span class="cifra">{cifra} {cifra === 1 ? unidad[0] : unidad[1]}</span>
+</a>

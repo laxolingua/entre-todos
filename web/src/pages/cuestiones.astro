@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { cuestiones, consPorId, autoriasRespaldo, recortar } from '../lib/banco.js';
+---
+<Base titulo="Cuestiones con alternativas" seccion="cuestiones"
+  descripcion={`${cuestiones.length} asuntos sobre el futuro de Cuba en los que las fuentes proponen caminos distintos.`}>
+  <h1>Cuestiones con alternativas</h1>
+  <p class="entradilla">Asuntos en los que las organizaciones y especialistas proponen caminos distintos. Las alternativas no se fusionan: cada una se presenta por separado, con quién la sostiene, para poder compararlas y valorarlas.</p>
+  <nav aria-label="Cuestiones" class="indice-cuestiones">
+    <ul>{cuestiones.map((q) => <li><a href={`#${q.id}`}>{q.pregunta}</a></li>)}</ul>
+  </nav>
+  {cuestiones.map((q) => (
+    <section class="cuestion-bloque" id={q.id} aria-labelledby={`t-${q.id}`}>
+      <h2 id={`t-${q.id}`}>{q.pregunta}</h2>
+      {q.texto && <p class="discreto">{q.texto}</p>}
+      <p class:list={['etiqueta', { aviso: q.excluyentes }]} style="display:inline-flex">{q.excluyentes ? 'Opciones incompatibles entre sí' : 'Opciones que pueden combinarse'}</p>
+      <ul class="lista" style="margin-top:12px">
+        {q.opciones.map((o) => {
+          const c = consPorId.get(o);
+          const quien = autoriasRespaldo(c);
+          return (
+            <li class="tarjeta consolidada">
+              <h3><a href={`/propuesta/${c.id}/`}>{c.titulo}</a></h3>
+              <p class="texto">{recortar(c.texto, 200)}</p>
+              <p class="autoria"><i class="fi fi-br-users" aria-hidden="true"></i>{quien.slice(0, 4).join(' · ')}{quien.length > 4 && ` y ${quien.length - 4} más`}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  ))}
+</Base>

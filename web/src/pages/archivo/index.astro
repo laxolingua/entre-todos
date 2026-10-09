@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import TarjetaCategoria from '../../components/TarjetaCategoria.astro';
+import { categorias, meta, actores, fuentes, propuestas, enRevision } from '../../lib/banco.js';
+const t = meta.totales;
+const principales = categorias.filter((c) => c.declarada && c.propuestas > 0);
+const publicadas = propuestas.length;
+const provisionales = categorias.filter((c) => !c.declarada && c.propuestas > 0);
+const autorias = actores.length + fuentes.filter((f) => !f.actor && f.autor_texto).length;
+---
+<Base titulo="Archivo documental" seccion="archivo"
+  descripcion={`${publicadas} citas literales sobre el futuro de Cuba, de ${t.fuentes} documentos públicos, con enlace a cada fuente.`}>
+  <h1>Archivo documental</h1>
+  <p class="entradilla">Todas las citas literales de las que sale el banco de propuestas, tal como aparecen en cada documento, con su localización y enlace al original. Aquí una misma idea puede aparecer varias veces, una por cada fuente que la plantea; en el <a href="/propuestas/">banco de propuestas</a> aparece una sola vez.</p>
+  <ul class="cifras">
+    <li><strong>{publicadas}</strong> citas</li>
+    <li><strong>{t.fuentes}</strong> documentos</li>
+    <li><strong>{autorias}</strong> autorías identificadas</li>
+    <li><strong>{t.temas}</strong> temas en que coinciden varias fuentes</li>
+  </ul>
+
+  <form class="buscador" role="search" action="/archivo/" method="get" id="buscador" data-modo="archivo">
+    <label for="q" class="oculto">Buscar en el archivo</label>
+    <input id="q" name="q" type="search" placeholder="Buscar: elecciones, vivienda, presos políticos…" autocomplete="off" />
+    <button class="boton primario" type="submit"><i class="fi fi-br-search" aria-hidden="true"></i><span>Buscar</span></button>
+  </form>
+  <div id="resultados" aria-live="polite"></div>
+
+  <section id="categorias" aria-labelledby="titulo-categorias">
+    <h2 id="titulo-categorias">Por categoría</h2>
+    <div class="rejilla">
+      {principales.map((c) => <TarjetaCategoria c={c} base="/archivo/categoria/" cifra={c.propuestas} unidad={['cita', 'citas']} />)}
+    </div>
+    {provisionales.length > 0 && (
+      <>
+        <h2>Otras categorías en revisión</h2>
+        <div class="rejilla">{provisionales.map((c) => <TarjetaCategoria c={c} base="/archivo/categoria/" cifra={c.propuestas} unidad={['cita', 'citas']} />)}</div>
+      </>
+    )}
+  </section>
+
+  <p class="discreto" style="margin-top:32px">Ver también: <a href="/archivo/temas/">temas en que coinciden varias fuentes</a> y <a href="/fuentes/">los {t.fuentes} documentos</a>.{enRevision.length > 0 && ` ${enRevision.length} citas están en revisión y no se publican; el motivo figura en «Método».`}</p>
+
+  <script>
+    import { iniciarBuscador } from '../../lib/buscador.js';
+    iniciarBuscador();
+  </script>
+</Base>

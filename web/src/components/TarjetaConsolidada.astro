@@ -1,0 +1,24 @@
+---
+import { autoriasConsolidada, catPorClave, cuestionesDe, recortar } from '../lib/banco.js';
+interface Props { c: any; mostrarCategoria?: boolean }
+const { c, mostrarCategoria = false } = Astro.props;
+const autorias = autoriasConsolidada(c);
+const visibles = autorias.slice(0, 3);
+const resto = autorias.length - visibles.length;
+const enCuestion = cuestionesDe(c.id).length > 0;
+---
+<li class="tarjeta consolidada">
+  <h3><a href={`/propuesta/${c.id}/`}>{c.titulo}</a></h3>
+  <p class="texto">{recortar(c.texto, 230)}</p>
+  <p class="autoria">
+    <i class="fi fi-br-users" aria-hidden="true"></i>
+    {visibles.join(' · ')}{resto > 0 && ` y ${resto} más`}
+  </p>
+  <div class="etiquetas">
+    <span class="etiqueta">{c.fuentes.length} {c.fuentes.length === 1 ? 'documento' : 'documentos'}</span>
+    {c.incisos.length > 0 && <span class="etiqueta">{c.incisos.length} {c.incisos.length === 1 ? 'inciso' : 'incisos'}</span>}
+    {c.variantes.length > 0 && <span class="etiqueta aviso">Las fuentes difieren en el cómo</span>}
+    {enCuestion && <span class="etiqueta alterna">Tiene alternativas</span>}
+    {mostrarCategoria && <a class="etiqueta" href={`/propuestas/categoria/${c.categoria}/`}>{catPorClave.get(c.categoria)?.nombre}</a>}
+  </div>
+</li>

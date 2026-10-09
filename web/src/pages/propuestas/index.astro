@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import TarjetaCategoria from '../../components/TarjetaCategoria.astro';
+import TarjetaConsolidada from '../../components/TarjetaConsolidada.astro';
+import { categorias, meta, consolidadas, cuestiones, propuestas, fuentes, actores, consPorId } from '../../lib/banco.js';
+const t = meta.totales;
+const conPropuestas = categorias.filter((c) => c.consolidadas > 0);
+const autorias = actores.length + fuentes.filter((f) => !f.actor && f.autor_texto && !f.duplicado_de).length;
+// Las propuestas con más documentos detrás: donde más coinciden las fuentes.
+const masRespaldadas = [...consolidadas].sort((a, b) => b.fuentes.length - a.fuentes.length || a.orden - b.orden).slice(0, 6);
+---
+<Base titulo="Banco de propuestas" seccion="propuestas"
+  descripcion={`${t.consolidadas} propuestas sobre el futuro de Cuba, reunidas a partir de ${propuestas.length} citas literales de ${t.fuentes} documentos públicos.`}>
+  <h1>Banco de propuestas</h1>
+  <p class="entradilla">Lo que han propuesto organizaciones, coaliciones y especialistas sobre el futuro de Cuba. Cada idea aparece una sola vez, con todas las fuentes que la plantean; lo que alguna fuente añade va como inciso, con su referencia.</p>
+  <ul class="cifras">
+    <li><strong>{t.consolidadas}</strong> propuestas</li>
+    <li><strong>{propuestas.length}</strong> citas literales que las sustentan</li>
+    <li><strong>{t.fuentes}</strong> documentos</li>
+    <li><strong>{autorias}</strong> autorías</li>
+    <li><strong>{cuestiones.length}</strong> <a href="/cuestiones/">cuestiones con alternativas</a></li>
+  </ul>
+
+  <form class="buscador" role="search" action="/propuestas/" method="get" id="buscador" data-modo="ciudadano">
+    <label for="q" class="oculto">Buscar propuestas</label>
+    <input id="q" name="q" type="search" placeholder="Buscar: elecciones, vivienda, presos políticos…" autocomplete="off" />
+    <button class="boton primario" type="submit"><i class="fi fi-br-search" aria-hidden="true"></i><span>Buscar</span></button>
+  </form>
+  <div id="resultados" aria-live="polite"></div>
+
+  <div id="categorias">
+    <section aria-labelledby="titulo-respaldadas">
+      <h2 id="titulo-respaldadas">Donde más fuentes coinciden</h2>
+      <ul class="lista">{masRespaldadas.map((c) => <TarjetaConsolidada c={c} mostrarCategoria />)}</ul>
+    </section>
+
+    <section aria-labelledby="titulo-categorias">
+      <h2 id="titulo-categorias">Por categoría</h2>
+      <div class="rejilla">{conPropuestas.map((c) => <TarjetaCategoria c={c} />)}</div>
+    </section>
+
+    <section aria-labelledby="titulo-cuestiones">
+      <h2 id="titulo-cuestiones">Cuestiones con alternativas</h2>
+      <p class="discreto">Asuntos en los que las fuentes proponen caminos distintos. Se presentan por separado para poder valorarlos uno a uno.</p>
+      <ul class="lista">
+        {cuestiones.slice(0, 4).map((q) => (
+          <li class="tarjeta">
+            <h3><a href={`/cuestiones/#${q.id}`}>{q.pregunta}</a></h3>
+            <p class="discreto" style="margin:0">{q.opciones.map((o) => consPorId.get(o)?.titulo).join(' · ')}</p>
+          </li>
+        ))}
+      </ul>
+      <p><a href="/cuestiones/">Ver las {cuestiones.length} cuestiones</a></p>
+    </section>
+
+    <p class="discreto" style="margin-top:32px">¿Buscas una cita concreta? El <a href="/archivo/">archivo documental</a> conserva las {propuestas.length} entradas literales, cada una con su documento.</p>
+  </div>
+
+  <script>
+    import { iniciarBuscador } from '../../lib/buscador.js';
+    iniciarBuscador();
+  </script>
+</Base>

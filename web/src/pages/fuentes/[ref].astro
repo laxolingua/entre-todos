@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import TarjetaPropuesta from '../../components/TarjetaPropuesta.astro';
+import { fuentes, actorPorId, fuentePorRef, propuestasDeFuente, agruparPorTema, METODOS_VERIFICACION, TIPOS_FUENTE } from '../../lib/banco.js';
+
+export function getStaticPaths() {
+  return fuentes.map((f) => ({ params: { ref: String(f.ref) }, props: { f } }));
+}
+const { f } = Astro.props;
+const actor = f.actor ? actorPorId.get(f.actor) : null;
+const lista = propuestasDeFuente(f.ref);
+const duplicados = fuentes.filter((o) => o.duplicado_de === f.ref);
+const original = f.duplicado_de ? fuentePorRef.get(f.duplicado_de) : null;
+---
+<Base titulo={f.documento} seccion="archivo"
+  descripcion={`${lista.length} citas extraídas de «${f.documento}».`}>
+  <nav class="migas" aria-label="Ruta"><a href="/fuentes/">Fuentes</a><span aria-hidden="true">›</span><span>Fuente {f.ref}</span></nav>
+  <h1>{f.documento}</h1>
+  <ul class="cifras">
+    <li>{actor ? <a href={`/actores/${actor.id}/`}>{actor.nombre}</a> : (f.autor_texto || 'Autoría por confirmar')}</li>
+    <li>{TIPOS_FUENTE[f.tipo]}</li>
+    <li><strong>{lista.length}</strong> citas</li>
+  </ul>
+  <p class="discreto">Autoría verificada el {new Date(f.verificada_en).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. {METODOS_VERIFICACION[f.metodo_verificacion]}{f.nota_verificacion && ` ${f.nota_verificacion}`}</p>
+  <div class="acciones">
+    <a class="boton primario" href={f.url} rel="noopener" target="_blank"><i class="fi fi-br-book-open-reader" aria-hidden="true"></i>Abrir el documento original</a>
+  </div>
+  {original && <p class="discreto">Es el mismo documento base que la <a href={`/fuentes/${original.ref}/`}>fuente {original.ref}</a>. Se conservan ambas referencias para no perder la trazabilidad.</p>}
+  {duplicados.length > 0 && <p class="discreto">Este documento también figura como {duplicados.map((d, i) => <>{i > 0 && ', '}<a href={`/fuentes/${d.ref}/`}>fuente {d.ref}</a></>)}.</p>}
+  <ul class="lista" style="margin-top:24px">
+    {agruparPorTema(lista).flatMap((g) => g.propuestas).map((p) => <TarjetaPropuesta p={p} />)}
+  </ul>
+</Base>

@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { meta } from '../../lib/banco.js';
+const t = meta.totales;
+const archivos = [
+  { href: '/datos/consolidadas.csv', nombre: 'Banco de propuestas', detalle: `${t.consolidadas} propuestas con su texto, incisos, variantes y las entradas que las sustentan.` },
+  { href: '/datos/consolidada_entradas.csv', nombre: 'Propuestas y sus citas', detalle: 'Qué cita sustenta cada propuesta y con qué papel (idea central, inciso, variante o diagnóstico).' },
+  { href: '/datos/cuestiones.csv', nombre: 'Cuestiones', detalle: `${t.cuestiones} asuntos con propuestas alternativas.` },
+  { href: '/datos/propuestas.csv', nombre: 'Archivo documental', detalle: `${t.propuestas} citas literales con localización, categorías, forma de cita, estado y fuente.` },
+  { href: '/datos/fuentes.csv', nombre: 'Fuentes', detalle: `${t.fuentes} documentos con enlace, autoría y método de verificación.` },
+  { href: '/datos/actores.csv', nombre: 'Actores', detalle: `${t.actores} organizaciones y coaliciones.` },
+  { href: '/datos/categorias.csv', nombre: 'Categorías', detalle: `${t.categorias} categorías con su número de propuestas.` },
+  { href: '/datos/temas.csv', nombre: 'Temas del archivo', detalle: `${t.temas} temas con las citas que agrupan.` },
+  { href: '/datos/banco.json', nombre: 'Banco completo (JSON)', detalle: 'Todo lo anterior en un solo archivo, más los fragmentos excluidos.' },
+];
+---
+<Base titulo="Datos abiertos" seccion="datos"
+  descripcion="Descarga el banco de propuestas de ENTRE TODOS en CSV o JSON.">
+  <h1>Datos abiertos</h1>
+  <p class="entradilla">El banco completo se puede descargar para investigar, comparar o reutilizar. Cada fila enlaza al documento original; las citas pertenecen a sus autores.</p>
+  <ul class="lista">
+    {archivos.map((a) => (
+      <li class="tarjeta">
+        <h3><a href={a.href} download><i class="fi fi-br-download" aria-hidden="true" style="margin-right:8px"></i>{a.nombre}</a></h3>
+        <p class="discreto" style="margin:0">{a.detalle}</p>
+      </li>
+    ))}
+  </ul>
+  <p class="discreto" style="margin-top:20px">Archivos en UTF-8. En los CSV, las listas van separadas por «|».</p>
+</Base>

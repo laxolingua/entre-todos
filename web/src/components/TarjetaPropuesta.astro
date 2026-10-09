@@ -1,0 +1,30 @@
+---
+import { autoriaPropuesta, catPorClave, TIPOS_ENTRADA, FORMAS_CITA } from '../lib/banco.js';
+interface Props {
+  p: any;
+  mostrarCategorias?: boolean;
+  // "grupo": la tarjeta va debajo del titular del tema; se encabeza con la autoría para no repetir el tema.
+  modo?: 'normal' | 'grupo';
+}
+const { p, mostrarCategorias = true, modo = 'normal' } = Astro.props;
+const autoria = autoriaPropuesta(p);
+---
+<li class="tarjeta">
+  {modo === 'grupo' ? (
+    <h3><a href={`/archivo/${p.id}/`}>{autoria}{p.anio ? <span class="discreto"> · {p.anio}</span> : ''}</a></h3>
+  ) : (
+    <>
+      <h3><a href={`/archivo/${p.id}/`}>{p.titular}</a></h3>
+      <p class="autoria">{autoria}{p.anio ? ` · ${p.anio}` : ''}</p>
+    </>
+  )}
+  <blockquote>«{p.cita}»</blockquote>
+  <div class="etiquetas">
+    {p.tipo !== 'propuesta' && <span class="etiqueta">{TIPOS_ENTRADA[p.tipo]}</span>}
+    {p.forma_cita === 'parafraseada' && <span class="etiqueta aviso" title={FORMAS_CITA.parafraseada}>Paráfrasis de prensa</span>}
+    {(p.forma_cita === 'secundaria' || p.forma_cita === 'citada') && <span class="etiqueta aviso" title={FORMAS_CITA[p.forma_cita]}>Cita secundaria</span>}
+    {mostrarCategorias && p.categorias.map((c) => (
+      <a class="etiqueta" href={`/archivo/categoria/${c}/`}>{catPorClave.get(c)?.nombre ?? c}</a>
+    ))}
+  </div>
+</li>

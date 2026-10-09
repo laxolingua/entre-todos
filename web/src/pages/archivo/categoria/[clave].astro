@@ -1,0 +1,45 @@
+---
+import Base from '../../../layouts/Base.astro';
+import TarjetaPropuesta from '../../../components/TarjetaPropuesta.astro';
+import { categorias, propuestasDeCategoria, agruparPorTema, iconoCategoria, tonoCategoria } from '../../../lib/banco.js';
+
+export function getStaticPaths() {
+  return categorias.filter((c) => c.propuestas > 0).map((c) => ({ params: { clave: c.clave }, props: { c } }));
+}
+const { c } = Astro.props;
+const lista = propuestasDeCategoria(c.clave);
+const grupos = agruparPorTema(lista);
+const coinciden = grupos.filter((g) => g.slug);
+const resto = grupos.filter((g) => !g.slug);
+---
+<Base titulo={c.nombre} seccion="archivo" imagen={`/og/categoria/${c.clave}.png`}
+  descripcion={`${lista.length} citas sobre ${c.nombre.toLowerCase()}, con enlace a cada documento.`}>
+  <nav class="migas" aria-label="Ruta"><a href="/archivo/">Archivo</a><span aria-hidden="true">›</span><span>{c.nombre}</span></nav>
+  <div style={tonoCategoria(c.clave)}>
+    <h1><i class={iconoCategoria(c.clave)} aria-hidden="true" style="color:var(--tono);margin-right:10px"></i>{c.nombre}</h1>
+  </div>
+  {c.descripcion && <p class="entradilla">{c.descripcion}</p>}
+  {!c.declarada && <p class="etiqueta aviso" style="display:inline-flex">Categoría con nombre provisional</p>}
+  <ul class="cifras">
+    <li><strong>{lista.length}</strong> citas</li>
+    {c.consolidadas > 0 && <li><a href={`/propuestas/categoria/${c.clave}/`}>{c.consolidadas} propuestas en el banco</a></li>}
+    <li><strong>{grupos.length}</strong> temas</li>
+    {c.fase && <li>{c.fase}</li>}
+  </ul>
+
+  {coinciden.length > 0 && <h2>Temas en que coinciden varias fuentes</h2>}
+  {coinciden.map((g) => (
+    <section class="grupo">
+      <header>
+        <h2><a href={`/archivo/tema/${g.slug}/`}>{g.nombre}</a></h2>
+        <span class="discreto">{g.propuestas.length} propuestas</span>
+      </header>
+      <ul class="lista">{g.propuestas.map((p) => <TarjetaPropuesta p={p} mostrarCategorias={false} modo="grupo" />)}</ul>
+    </section>
+  ))}
+
+  {resto.length > 0 && <h2>Otras propuestas</h2>}
+  <ul class="lista">
+    {resto.flatMap((g) => g.propuestas).map((p) => <TarjetaPropuesta p={p} mostrarCategorias={false} />)}
+  </ul>
+</Base>

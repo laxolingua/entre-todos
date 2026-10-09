@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import TarjetaPropuesta from '../../components/TarjetaPropuesta.astro';
+import {
+  propuestas, fuentePorRef, actorPorId, catPorClave, temaPorSlug, propPorId, consPorId,
+  autoriaPropuesta, recortar, TIPOS_FUENTE, TIPOS_ENTRADA, FORMAS_CITA, METODOS_VERIFICACION,
+} from '../../lib/banco.js';
+
+export function getStaticPaths() {
+  return propuestas.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const f = fuentePorRef.get(p.fuente);
+const actor = f.actor ? actorPorId.get(f.actor) : null;
+const original = f.duplicado_de ? fuentePorRef.get(f.duplicado_de) : null;
+const tema = p.tema ? temaPorSlug.get(p.tema) : null;
+const relacionadas = (tema
+  ? tema.propuestas.filter((id) => id !== p.id).map((id) => propPorId.get(id))
+  : propuestas.filter((o) => o.id !== p.id && o.tema_fino === p.tema_fino)).filter(Boolean);
+const cat0 = catPorClave.get(p.categorias[0]);
+const enBanco = p.consolidadas.map((id) => consPorId.get(id)).filter(Boolean);
+const aviso = FORMAS_CITA[p.forma_cita];
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const textoCompartir = `«${recortar(p.cita, 180)}» (${autoriaPropuesta(p)})`;
+---
+<Base titulo={`${p.titular} · ${autoriaPropuesta(p)}`} seccion="archivo" imagen={`/og/archivo/${p.id}.png`}
+  descripcion={`«${recortar(p.cita, 150)}» — ${autoriaPropuesta(p)}`}>
+  <nav class="migas" aria-label="Ruta">
+    <a href="/archivo/">Archivo</a><span aria-hidden="true">›</span>
+    <a href={`/archivo/categoria/${cat0.clave}/`}>{cat0.nombre}</a><span aria-hidden="true">›</span>
+    <span>{p.id}</span>
+  </nav>
+
+  <div class="ficha">
+    <article class="panel">
+      <p class="discreto" style="margin:0">{TIPOS_ENTRADA[p.tipo]} · {autoriaPropuesta(p)}{p.anio ? ` · ${p.fecha_texto}` : ''}</p>
+      <h1>{p.titular}</h1>
+      <blockquote class="cita">{p.cita}</blockquote>
+      {aviso && <p class="etiqueta aviso" style="margin-top:14px;display:inline-flex">{aviso}</p>}
+      {p.resumen && (
+        <div class="resumen"><strong>Resumen editorial</strong>{p.resumen}</div>
+      )}
+      {enBanco.length > 0 && (
+        <div class="resumen en-banco">
+          <strong>En el banco de propuestas</strong>
+          <ul>{enBanco.map((c) => <li><a href={`/propuesta/${c.id}/#cita-${p.id}`}>{c.titulo}</a></li>)}</ul>
+        </div>
+      )}
+      <div class="acciones">
+        <a class="boton primario" href={f.url} rel="noopener" target="_blank"><i class="fi fi-br-book-open-reader" aria-hidden="true"></i>Leer el documento original</a>
+        <a class="boton" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} rel="noopener" target="_blank"><i class="fi fi-br-share" aria-hidden="true"></i>Facebook</a>
+        <a class="boton" href={`https://wa.me/?text=${encodeURIComponent(`${textoCompartir} ${url}`)}`} rel="noopener" target="_blank"><i class="fi fi-br-comment-alt" aria-hidden="true"></i>WhatsApp</a>
+      </div>
+    </article>
+
+    <aside class="panel" aria-label="Datos de la fuente">
+      <dl>
+        <div class="dato"><dt>Autoría</dt><dd>
+          {actor ? <a href={`/actores/${actor.id}/`}>{actor.nombre}</a> : (f.autor_texto || 'Por confirmar')}
+          <div class="discreto">{METODOS_VERIFICACION[f.metodo_verificacion]}</div>
+        </dd></div>
+        <div class="dato"><dt>Documento</dt><dd><a href={`/fuentes/${f.ref}/`}>{f.documento}</a></dd></div>
+        <div class="dato"><dt>Dónde está en el documento</dt><dd>{p.localizacion || 'Sin localización'}</dd></div>
+        <div class="dato"><dt>Tipo de fuente</dt><dd>{TIPOS_FUENTE[f.tipo]}</dd></div>
+        {p.fecha_texto && <div class="dato"><dt>Fecha</dt><dd>{p.fecha_texto}</dd></div>}
+        {original && <div class="dato"><dt>Mismo documento que</dt><dd><a href={`/fuentes/${original.ref}/`}>Fuente {original.ref}</a></dd></div>}
+        <div class="dato"><dt>Categorías</dt><dd class="etiquetas" style="margin-top:6px">
+          {p.categorias.map((c) => <a class="etiqueta" href={`/archivo/categoria/${c}/`}>{catPorClave.get(c)?.nombre ?? c}</a>)}
+        </dd></div>
+        {tema && <div class="dato"><dt>Tema común</dt><dd><a href={`/archivo/tema/${tema.slug}/`}>{tema.nombre}</a></dd></div>}
+        <div class="dato" style="margin:0"><dt>Identificador</dt><dd>{p.id}</dd></div>
+      </dl>
+    </aside>
+  </div>
+
+  {relacionadas.length > 0 && (
+    <section>
+      <h2>{tema ? `Otras citas sobre «${tema.nombre}»` : 'Citas sobre el mismo asunto'}</h2>
+      <ul class="lista">{relacionadas.map((o) => <TarjetaPropuesta p={o} mostrarCategorias={false} modo={tema ? "grupo" : "normal"} />)}</ul>
+    </section>
+  )}
+</Base>

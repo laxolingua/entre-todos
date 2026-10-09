@@ -1,0 +1,10 @@
+---
+// Lista de autorías de un inciso o variante, sin repetir la misma autoría y año.
+// Si una autoría aporta varias citas, enlaza a la primera e indica cuántas son.
+import { agruparEntradas } from '../lib/banco.js';
+const { ids } = Astro.props;
+const grupos = agruparEntradas(ids);
+---
+{grupos.map((g, n) => (
+  <>{n > 0 && ' · '}<a href={`#cita-${g.ids[0]}`}>{g.etiqueta}</a>{g.ids.length > 1 && <span class="discreto"> ({g.ids.length} citas)</span>}</>
+))}

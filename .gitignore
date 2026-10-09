@@ -1,0 +1,13 @@
+node_modules/
+web/dist/
+web/.astro/
+web/public/og/
+web/public/datos/
+.env
+web/.env
+.DS_Store
+
+# Back end privado del banco: nunca en el repositorio público.
+datos/
+supabase/seed/
+vista-previa/
