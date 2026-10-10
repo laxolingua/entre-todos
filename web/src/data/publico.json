@@ -1,17 +1,29 @@
 {
  "meta": {
-  "actualizado": "2026-10-09",
+  "actualizado": "2026-10-10",
   "totales": {
    "propuestas": 159,
-   "documentos": 58,
-   "autorias": 33,
+   "documentos": 59,
+   "autorias": 34,
    "cuestiones": 10,
-   "citas_analizadas": 758
+   "citas_analizadas": 761
   },
   "verificacion": {
    "dominio_oficial": 28,
-   "documento_revisado": 13,
+   "documento_revisado": 14,
    "instinct": 17
+  },
+  "estado_documentacion": {
+   "edicion": "Primera edición",
+   "fecha": "2026-10-10",
+   "revision_cobertura": "En curso. Se está comprobando, documento por documento, que el banco recoge todas las propuestas de cada fuente. Primer documento en revisión: los informes del Centro de Estudios Convivencia.",
+   "no_incorporados": [
+    {
+     "titulo": "I Informe del Centro de Estudios Convivencia: Economía",
+     "autoria": "Centro de Estudios Convivencia",
+     "url": "https://centroconvivencia.org/wp-content/uploads/2022/06/I-INFORME-CEC-ECONOMIA.pdf"
+    }
+   ]
   }
  },
  "categorias": [
@@ -824,6 +836,15 @@
    "anio": 2025,
    "url": "https://www.14ymedio.com/cuba/ocho-economistas-proponen-soluciones-radicales_1_1119295.html",
    "tipo": "PERS"
+  },
+  {
+   "id": 60,
+   "titulo": "La transición en Cuba: propuesta de Convivencia",
+   "autoria": "Miriam Leiva (artículo de presentación de la propuesta del Centro de Estudios Convivencia)",
+   "actor": null,
+   "anio": 2022,
+   "url": "https://centroconvivencia.org/la-transicion-en-cuba-propuesta-de-convivencia/",
+   "tipo": "PERS"
   }
  ],
  "propuestas": [
@@ -1109,7 +1130,8 @@
     26,
     22,
     16,
-    29
+    29,
+    60
    ],
    "incisos": [
     {
@@ -1122,7 +1144,7 @@
    ],
    "variantes": [],
    "analizan": [],
-   "total_documentos": 6,
+   "total_documentos": 7,
    "cuestiones": []
   },
   {
@@ -1592,6 +1614,7 @@
    "nota": null,
    "orden": 22,
    "documentos": [
+    60,
     22,
     55,
     37
@@ -1660,11 +1683,18 @@
      "documentos": [
       55
      ]
+    },
+    {
+     "letra": "j",
+     "texto": "El Informe Integral de Verdad y Memoria da a la nación, a los poderes del Estado, a la academia, a las víctimas, a los medios y a los museos información veraz y suficiente para comenzar la justicia transicional y la reparación de las víctimas.",
+     "documentos": [
+      22
+     ]
     }
    ],
    "variantes": [],
    "analizan": [],
-   "total_documentos": 3,
+   "total_documentos": 4,
    "cuestiones": [
     "responsables-de-la-represion"
    ]
@@ -2410,6 +2440,13 @@
      "documentos": [
       21
      ]
+    },
+    {
+     "letra": "c",
+     "texto": "Nadie está por encima de la ley: ninguna violación de la ley queda sin corrección, sea cual fuere el poder, el puesto público o la responsabilidad oficial de quien la comete.",
+     "documentos": [
+      21
+     ]
     }
    ],
    "variantes": [],
@@ -3040,7 +3077,7 @@
    "categoria": "derechos",
    "titulo": "Libertad de expresión y de prensa, sin monopolios estatales",
    "texto": "Reconocer y proteger la libertad de expresión, de información y de prensa, para que las personas, solas o en grupo, expresen sus ideas por cualquier medio, y desmontar el monopolio del Estado sobre la prensa y las comunicaciones.",
-   "nota": null,
+   "nota": "Las fuentes coinciden en reconocer la libertad de expresión y de prensa. Difieren en las sanciones por sus abusos. El II Informe del Centro de Estudios Convivencia recoge dos criterios distintos: uno de sus aportes excluye la cárcel en cualquier caso; la comisión que redactó su ley de medios admite multas y privación de libertad en casos graves. Se muestran los dos, cada uno con su fuente.",
    "orden": 61,
    "documentos": [
     4,
@@ -3077,20 +3114,26 @@
     },
     {
      "letra": "d",
-     "texto": "Ningún delito de prensa se castiga con cárcel.",
-     "documentos": [
-      21
-     ]
-    },
-    {
-     "letra": "e",
      "texto": "Derecho de cada ciudadano a difundir información con sus propios medios.",
      "documentos": [
       21
      ]
     }
    ],
-   "variantes": [],
+   "variantes": [
+    {
+     "texto": "Las sanciones por abusos cometidos a través de la prensa nunca incluyen la cárcel.",
+     "documentos": [
+      21
+     ]
+    },
+    {
+     "texto": "Multas y privación de libertad para casos graves de difamación, mentira, incitación a la violencia o atentados a la moral pública y a la convivencia.",
+     "documentos": [
+      21
+     ]
+    }
+   ],
    "analizan": [],
    "total_documentos": 11,
    "cuestiones": []

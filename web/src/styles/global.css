@@ -262,3 +262,12 @@ a.etiqueta:hover { border-color: var(--borde); }
 
 .indice-cuestiones ul { padding-left: 20px; display: grid; gap: 4px; margin: 0; }
 .cuestion-bloque { margin-top: 36px; scroll-margin-top: 16px; }
+
+/* Estado de la documentación */
+.edicion { margin: -6px 0 14px; font-size: .92rem; color: var(--texto-2); }
+.estado-doc { margin: 8px 0 28px; }
+.estado-doc h2 { margin-top: 0; }
+.indicadores { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 14px 0; }
+.indicadores div { min-width: 0; }
+.indicadores dt { font-size: .8rem; color: var(--texto-2); }
+.indicadores dd { margin: 2px 0 0; font-size: 1.3rem; font-weight: 700; font-variant-numeric: tabular-nums; }

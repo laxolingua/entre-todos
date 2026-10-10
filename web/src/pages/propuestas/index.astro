@@ -11,6 +11,7 @@ const masRespaldadas = [...propuestas].sort((a, b) => b.total_documentos - a.tot
   descripcion={`${t.propuestas} propuestas sobre el futuro de Cuba, reunidas a partir de ${t.documentos} documentos públicos.`}>
   <h1>Propuestas para el futuro de Cuba</h1>
   <p class="entradilla">Lo que han propuesto organizaciones, coaliciones y especialistas. Cada idea aparece una sola vez, con todas las fuentes que la plantean; lo que alguna fuente añade va como inciso, con su referencia.</p>
+  <p class="edicion"><strong>{meta.estado_documentacion.edicion}</strong> · {new Date(meta.estado_documentacion.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. La revisión de las fuentes continúa: <a href="/metodo/#estado">estado de la documentación</a>.</p>
   <ul class="cifras">
     <li><strong>{t.propuestas}</strong> propuestas</li>
     <li><strong>{t.documentos}</strong> documentos</li>

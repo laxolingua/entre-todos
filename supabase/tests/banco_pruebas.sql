@@ -20,8 +20,8 @@ begin
 end $$;
 
 -- ------------------------------------------------ datos cargados
-select pg_temp.comprobar((select count(*) = 760 from banco.propuesta), '760 propuestas cargadas');
-select pg_temp.comprobar((select count(*) = 58 from banco.fuente), '58 fuentes cargadas');
+select pg_temp.comprobar((select count(*) = 761 from banco.propuesta), '761 entradas: las 760 del banco de origen y 1 añadida por la auditoría');
+select pg_temp.comprobar((select count(*) = 59 from banco.fuente), '59 fuentes: las 58 de origen y el artículo de Miriam Leiva');
 select pg_temp.comprobar((select count(*) = 27 from banco.categoria), '27 categorías (18 declaradas + 9 provisionales)');
 select pg_temp.comprobar((select count(*) = 45 from banco.tema), '45 temas fusionados');
 select pg_temp.comprobar((select count(*) = 18 from banco.no_propuesta), '18 no-propuestas con motivo');
@@ -29,14 +29,18 @@ select pg_temp.comprobar((select count(*) = 0 from banco.propuesta_version), 'la
 select pg_temp.comprobar((select count(*) = 159 from banco.consolidada where estado = 'publicada'), '159 propuestas consolidadas');
 select pg_temp.comprobar((select count(*) = 10 from banco.cuestion), '10 cuestiones con alternativas');
 select pg_temp.comprobar((select count(*) = 0 from banco.consolidada_version), 'cargar dos veces no genera versiones del banco ciudadano');
-select pg_temp.comprobar((select bool_and(atribucion_verificada) from banco.fuente), 'las 58 autorías están verificadas');
-select pg_temp.comprobar((select count(*) = 2 from banco.propuesta where estado = 'en_revision'), '2 citas no localizadas quedan en revisión');
+select pg_temp.comprobar((select bool_and(atribucion_verificada) from banco.fuente), 'las 59 autorías están verificadas');
+select pg_temp.comprobar((select count(*) = 0 from banco.propuesta where estado = 'en_revision'), 'ninguna cita queda en revisión');
+select pg_temp.comprobar((select fuente_ref = 60 and estado = 'publicada' from banco.propuesta where id = 'P-0208'),
+                         'P-0208 se publica con su fuente real, el artículo de Miriam Leiva');
+select pg_temp.comprobar((select cita like '%que es definido como:%Nadie está por encima de la Ley%' from banco.propuesta where id = 'P-0444'),
+                         'P-0444 lleva la definición completa de Estado de Derecho');
 select pg_temp.comprobar((select count(*) = 14 from banco.propuesta where forma_cita = 'parafraseada'), '14 paráfrasis de prensa marcadas como tales');
 select pg_temp.comprobar((select count(*) = 0 from banco.propuesta p
                            where p.estado = 'publicada'
                              and not exists (select 1 from banco.consolidada_entrada e where e.propuesta_id = p.id)
-                             and p.id not in ('P-0261','P-0262','P-0385','P-0398')),
-                         'toda entrada publicada está en alguna propuesta consolidada (salvo 4 descriptivas)');
+                             and p.id not in ('P-0209','P-0261','P-0262','P-0385','P-0398')),
+                         'toda entrada publicada está en alguna propuesta consolidada (salvo 5 descriptivas)');
 
 -- ------------------------------------------------ lectura anónima
 select pg_temp.como('anon');
@@ -73,7 +77,9 @@ select pg_temp.comprobar((select count(*) = 0 from information_schema.views
 select pg_temp.comprobar((select count(*) = 0 from information_schema.columns
                            where table_schema = 'public' and column_name in ('cita','localizacion','tema_fino','estado_cita','resumen')),
                          'ninguna vista pública tiene columnas del banco');
-select pg_temp.comprobar((select count(*) = 58 from public.banco_documentos), 'anónimo lee los 58 documentos (título, autoría, año, enlace)');
+select pg_temp.comprobar((select count(*) = 59 from public.banco_documentos), 'anónimo lee los 59 documentos (título, autoría, año, enlace)');
+select pg_temp.comprobar((select jsonb_array_length(variantes) = 2 from public.banco_consolidadas where id = 'libertad-expresion'),
+                         'libertad de expresión muestra los dos criterios del informe CEC sobre sanciones');
 select pg_temp.comprobar((select autoria = 'Plataforma Democrática Cubana' from public.banco_documentos where id = 40),
                          'la fuente 40 se atribuye a la Plataforma Democrática Cubana tras la verificación');
 select pg_temp.comprobar((select anio = 2022 from public.banco_documentos where id = 43), 'la petición CUBA LIBRE figura con su año real, 2022');

@@ -30,6 +30,11 @@ RAIZ = Path(__file__).resolve().parent.parent
 FUENTE = RAIZ / "datos/fuente/banco_FASE3_BLOQUE11_P002.json"
 CURADO = RAIZ / "datos/curado/atribucion_fuentes.json"
 VERIF = RAIZ / "datos/curado/verificacion.json"
+# Entradas y fuentes añadidas después del banco de origen (p. ej., por la auditoría de cobertura).
+# El banco de origen no se edita: lo nuevo y lo corregido vive en archivos curados, con su motivo.
+ADIC = RAIZ / "datos/curado/adiciones.json"
+CORREC = RAIZ / "datos/curado/correcciones"
+ESTADO_DOC = RAIZ / "datos/curado/estado_documentacion.json"
 CONSOL = RAIZ / "datos/curado/consolidacion"
 GEN = RAIZ / "datos/generado"
 PUBLICO = RAIZ / "web/src/data/publico.json"
@@ -114,6 +119,25 @@ def main():
     sha = hashlib.sha256(crudo).hexdigest()
 
     P, F, C = b["tabla_propuestas"], b["tabla_fuentes"], b["tabla_categorias"]
+    # Adiciones: fuentes y entradas nuevas, en el mismo formato que el banco de origen.
+    adic = json.loads(ADIC.read_text(encoding="utf-8")) if ADIC.exists() else {"fuentes": [], "propuestas": []}
+    ids_origen = {p["id_propuesta"] for p in P}
+    refs_origen = {f["num_referencia"] for f in F}
+    for f in adic["fuentes"]:
+        if f["num_referencia"] in refs_origen:
+            errores.append(f"adiciones.json: la fuente {f['num_referencia']} ya existe en el banco de origen")
+        cur["fuentes"][f["num_referencia"]] = {"actor": f.get("actor"), "autor_texto": f.get("autor_texto")}
+    for p in adic["propuestas"]:
+        if p["id_propuesta"] in ids_origen:
+            errores.append(f"adiciones.json: la entrada {p['id_propuesta']} ya existe en el banco de origen")
+    P = P + adic["propuestas"]
+    F = F + adic["fuentes"]
+    # Correcciones por entrada (texto completado, localización, fuente...). Se suman a verificacion.json;
+    # cada archivo de datos/curado/correcciones/ documenta su origen.
+    for fich in sorted(CORREC.glob("*.json")) if CORREC.exists() else []:
+        for pid, campos in json.loads(fich.read_text(encoding="utf-8"))["propuestas"].items():
+            ver["propuestas"].setdefault(pid, {}).update(campos)
+    estado_doc = json.loads(ESTADO_DOC.read_text(encoding="utf-8")) if ESTADO_DOC.exists() else None
     FUS, NOP = b["fusiones_entre_fuentes_distintas"], b["tabla_no_propuestas"]
 
     # ---------- categorías ----------
@@ -201,7 +225,7 @@ def main():
             errores.append(f"ID con formato inesperado {pid}")
         if len(p["ref_fuentes"]) != 1:
             errores.append(f"{pid}: se esperaba una sola fuente, hay {len(p['ref_fuentes'])}")
-        ref = int(p["ref_fuentes"][0])
+        ref = int(ver["propuestas"].get(pid, {}).get("fuente", p["ref_fuentes"][0]))
         if ref not in refs:
             errores.append(f"{pid}: fuente inexistente {ref}")
         if p["tipo_entrada"] not in TIPOS_ENTRADA:
@@ -213,7 +237,8 @@ def main():
         if "�" in p["cita_verbatim"]:
             errores.append(f"{pid}: carácter corrupto en la cita")
         propuestas.append({
-            "id": pid, "cita": p["cita_verbatim"].strip(), "localizacion": p["localizacion_exacta"].strip(),
+            "id": pid, "cita": (ver["propuestas"].get(pid, {}).get("cita") or p["cita_verbatim"]).strip(),
+            "localizacion": (ver["propuestas"].get(pid, {}).get("localizacion") or p["localizacion_exacta"]).strip(),
             "categorias": p["categorias"], "tema_fino": p["tema_fino"], "titular": humanizar(p["tema_fino"], mapa),
             "resumen": p["postura_direccion"].strip(), "fuente": ref,
             # La verificación puede corregir la fecha del inventario (p. ej., fecha real de publicación).
@@ -226,6 +251,10 @@ def main():
             "forma_cita": ver["propuestas"].get(pid, {}).get(
                 "forma_cita", "literal" if p["estado_cita"] == "Verbatim-primario" else "secundaria"),
         })
+        vp = ver["propuestas"].get(pid, {})
+        if "cita" in vp and not vp["cita"].strip().startswith(p["cita_verbatim"].strip()[:40]):
+            avisos.append(f"{pid}: la cita corregida no empieza como la original; revisar")
+        propuestas[-1]["correccion"] = vp.get("nota")
         if propuestas[-1]["forma_cita"] not in FORMAS_CITA:
             errores.append(f"{pid}: forma_cita desconocida")
         if propuestas[-1]["estado"] not in {"publicada", "en_revision", "retirada"}:
@@ -338,7 +367,9 @@ def main():
                         "en_revision": sum(1 for p in propuestas if p["estado"] != "publicada"),
                         "parafraseadas": sum(1 for p in propuestas if p["forma_cita"] == "parafraseada"),
                         "consolidadas": len(consolidadas), "cuestiones": len(cuestiones),
-                        "solo_archivo": len(solo_archivo)},
+                        "solo_archivo": len(solo_archivo), "adiciones": len(adic["propuestas"]),
+                        "fuentes_añadidas": len(adic["fuentes"]),
+                        "corregidas": sum(1 for v in ver["propuestas"].values() if {"cita", "fuente", "localizacion"} & set(v))},
             "verificacion": ver["fecha"], "metodos_verificacion": ver["metodos"]}
     salida = {"meta": meta, "categorias": categorias, "actores": actores, "fuentes": fuentes,
               "temas": temas, "propuestas": propuestas, "no_propuestas": no_propuestas,
@@ -407,7 +438,8 @@ def main():
                  "totales": {"propuestas": len(pub_props), "documentos": len(pub_docs),
                              "autorias": len({d["autoria"] for d in pub_docs}), "cuestiones": len(cuestiones),
                              "citas_analizadas": len(pub)},
-                 "verificacion": dict(Counter(fuente_de[r]["metodo_verificacion"] for r in usados))},
+                 "verificacion": dict(Counter(fuente_de[r]["metodo_verificacion"] for r in usados)),
+                 "estado_documentacion": estado_doc},
         "categorias": [{k: c.get(k) for k in ("clave", "nombre", "descripcion", "fase", "orden")} | {"propuestas": c["consolidadas"]}
                        for c in categorias if c["consolidadas"] > 0],
         "actores": [{"id": a["id"], "nombre": a["nombre"], "tipo": a["tipo"], "web": a.get("web"),

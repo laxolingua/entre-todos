@@ -7,12 +7,32 @@ const totalIncisos = propuestas.reduce((s, c) => s + c.incisos.length, 0);
 const conVariantes = propuestas.filter((c) => c.variantes.length > 0).length;
 const multi = propuestas.filter((c) => c.total_documentos > 1).length;
 const porMetodo = Object.entries(meta.verificacion).sort((a, b) => b[1] - a[1]);
+const ed = meta.estado_documentacion;
+const fechaEd = new Date(ed.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 const fecha = new Date(meta.actualizado).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <Base titulo="Cómo se reúnen las propuestas" seccion="metodo"
   descripcion="Cómo ENTRE TODOS reúne, combina y comprueba las propuestas publicadas sobre el futuro de Cuba.">
   <h1>Cómo se reúnen las propuestas</h1>
   <p class="entradilla">ENTRE TODOS reúne propuestas ya publicadas sobre el futuro de Cuba. Cada idea aparece una sola vez, con todas las fuentes que la plantean y un enlace a cada documento original.</p>
+
+  <section id="estado" class="panel estado-doc" aria-labelledby="t-estado">
+    <h2 id="t-estado">Estado de la documentación</h2>
+    <p>Esta es la {ed.edicion.toLowerCase()} de las propuestas reunidas por ENTRE TODOS ({fechaEd}). Reúne {t.propuestas} propuestas combinadas a partir de {t.documentos} documentos públicos de organizaciones, instituciones y autores que han formulado alternativas para Cuba.</p>
+    <p>La revisión documental continúa. Esta edición no es un inventario completo de todas las propuestas existentes ni de todos los contenidos de los documentos examinados. {ed.revision_cobertura}</p>
+    <p>Las propuestas, sus atribuciones y sus referencias se ampliarán o corregirán según avance la verificación. Cada cambio queda registrado, para que se pueda saber qué contenía esta edición, qué se añadió después y por qué.</p>
+    <dl class="indicadores">
+      <div><dt>Propuestas publicadas</dt><dd>{t.propuestas}</dd></div>
+      <div><dt>Documentos examinados</dt><dd>{t.documentos}</dd></div>
+      <div><dt>Revisión de cobertura</dt><dd>En curso</dd></div>
+    </dl>
+    {ed.no_incorporados.length > 0 && (
+      <>
+        <p style="margin-bottom:4px"><strong>Documentos identificados y aún no incorporados</strong></p>
+        <ul>{ed.no_incorporados.map((d) => <li><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a> <span class="discreto">({d.autoria})</span></li>)}</ul>
+      </>
+    )}
+  </section>
 
   <h2>1. De dónde salen</h2>
   <p>De {t.documentos} documentos públicos de organizaciones, coaliciones, centros de estudios y especialistas: programas, declaraciones, constituciones modelo, estudios y entrevistas. En cada documento se identifican las medidas concretas que propone; las opiniones o descripciones que no proponen nada quedan fuera.</p>
