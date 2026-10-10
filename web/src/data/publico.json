@@ -605,10 +605,10 @@
   },
   {
    "id": 33,
-   "titulo": "Proyecto Varela — texto íntegro (PDF, CADAL)",
+   "titulo": "Oswaldo Payá Sardiñas y el Proyecto Varela. La lucha pacífica por la apertura democrática en Cuba (libro, CADAL y Fundación Konrad Adenauer)",
    "autoria": "Movimiento Cristiano Liberación",
    "actor": "mcl",
-   "anio": 2002,
+   "anio": 2003,
    "url": "https://www.cadal.org/libros/pdf/Proyecto_Varela.pdf",
    "tipo": "ORG"
   },
@@ -853,7 +853,7 @@
    "categoria": "transicion",
    "titulo": "Liberación de todas las personas presas por motivos políticos",
    "texto": "Liberar de inmediato a todas las personas detenidas, sancionadas o encarceladas por motivos políticos o de conciencia.",
-   "nota": "Las fuentes coinciden en liberar a todas las personas presas por motivos políticos. Difieren en el procedimiento: la mayoría la exige de inmediato o por amnistía; el Movimiento Cristiano Liberación la vincula a un referendo.",
+   "nota": "Las fuentes coinciden en liberar a todas las personas presas por motivos políticos. Difieren en el procedimiento: la mayoría la exige de inmediato o por amnistía; una fuente la vincula a un referendo.",
    "orden": 1,
    "documentos": [
     12,
@@ -1614,7 +1614,6 @@
    "nota": null,
    "orden": 22,
    "documentos": [
-    60,
     22,
     55,
     37
@@ -1694,7 +1693,7 @@
    ],
    "variantes": [],
    "analizan": [],
-   "total_documentos": 4,
+   "total_documentos": 3,
    "cuestiones": [
     "responsables-de-la-represion"
    ]
@@ -2807,7 +2806,7 @@
    "categoria": "constitucion",
    "titulo": "Poder judicial independiente, imparcial y profesional",
    "texto": "Organizar un poder judicial nuevo, independiente, imparcial y profesional, en el que los jueces respondan a la ley y no al partido, con duras penas y nulidad del proceso ante cualquier coacción o corrupción.",
-   "nota": "Cuba Próxima propone en dos documentos fórmulas distintas para elegir las presidencias de los tribunales.",
+   "nota": "Una misma fuente propone en dos documentos fórmulas distintas para elegir las presidencias de los tribunales.",
    "orden": 54,
    "documentos": [
     27,
@@ -3077,7 +3076,7 @@
    "categoria": "derechos",
    "titulo": "Libertad de expresión y de prensa, sin monopolios estatales",
    "texto": "Reconocer y proteger la libertad de expresión, de información y de prensa, para que las personas, solas o en grupo, expresen sus ideas por cualquier medio, y desmontar el monopolio del Estado sobre la prensa y las comunicaciones.",
-   "nota": "Las fuentes coinciden en reconocer la libertad de expresión y de prensa. Difieren en las sanciones por sus abusos. El II Informe del Centro de Estudios Convivencia recoge dos criterios distintos: uno de sus aportes excluye la cárcel en cualquier caso; la comisión que redactó su ley de medios admite multas y privación de libertad en casos graves. Se muestran los dos, cada uno con su fuente.",
+   "nota": "Las fuentes coinciden en reconocer la libertad de expresión y de prensa. Difieren en las sanciones por sus abusos. Las dos posiciones proceden del mismo informe: la que excluye la cárcel en cualquier caso es el aporte de un participante; la que admite multas y privación de libertad en casos graves es el criterio de la comisión que redactó su ley de medios. Se muestran las dos, cada una con su referencia.",
    "orden": 61,
    "documentos": [
     4,

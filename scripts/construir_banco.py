@@ -196,6 +196,7 @@ def main():
             "url": url, "actor": actor, "autor_texto": autor,
             "atribucion_verificada": True, "metodo_verificacion": metodo, "nota_verificacion": vf.get("nota"),
             "verificada_en": ver["fecha"], "duplicado_de": int(dup) if dup else None,
+            "anio": vf.get("anio"),  # año de publicación del documento, cuando difiere del de sus citas
         })
     refs = {f["ref"] for f in fuentes}
 
@@ -425,7 +426,7 @@ def main():
         f = fuente_de[r]
         pub_docs.append({"id": r, "titulo": f["documento"], "autoria": autoria_doc(f),
                          "actor": f["actor"] if f["actor"] in actor_de else None,
-                         "anio": anios_doc[r].most_common(1)[0][0] if anios_doc[r] else None,
+                         "anio": f["anio"] or (anios_doc[r].most_common(1)[0][0] if anios_doc[r] else None),
                          "url": f["url"], "tipo": f["tipo"]})
     doc_actor = {d["id"]: d["actor"] for d in pub_docs}
     por_actor_pub = Counter()
