@@ -180,7 +180,10 @@
       .section{padding:26px 22px}
       .section h2{font-size:1.3rem}
     }
-  </style>
+      .section h3{font-size:1.02rem;font-weight:700;color:var(--ink);margin:18px 0 6px}
+    .tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+    .tabla-scroll .dato-table{margin:0}
+</style>
 </head>
 <body>
 
@@ -206,7 +209,7 @@
     <div class="hero-kicker"><span class="dot"></span> Marco legal RGPD &nbsp;·&nbsp; Documento vigente</div>
     <h1>Política de Privacidad</h1>
     <p class="hero-sub">ENTRE TODOS opera bajo el Reglamento General de Protección de Datos de la Unión Europea. Esta página detalla qué datos procesamos, por qué, durante cuánto tiempo y cómo ejercer tus derechos.</p>
-    <div class="update-badge"><i class="fi fi-br-calendar"></i> Última actualización: abril de 2026</div>
+    <div class="update-badge"><i class="fi fi-br-calendar"></i> Última actualización: 10 de octubre de 2026</div>
   </div>
 </section>
 
@@ -214,20 +217,20 @@
 
   <div class="summary-box">
     <div class="summary-box-label"><i class="fi fi-br-info"></i> Resumen sin tecnicismos</div>
-    <p>ENTRE TODOS <strong>no almacena</strong> tu número de carné ni tu número de pasaporte. Nunca. Ese número se convierte en un código matemático irreversible directamente en tu dispositivo, y solo ese código llega a nuestro sistema. Esta página explica eso con detalle y describe todos tus derechos. Si buscas la explicación visual en lenguaje cotidiano, ve a <a href="transparencia-cuba.html" style="color:var(--green);border-bottom:1px solid rgba(11,138,74,.4)">Transparencia</a>.</p>
+    <p>ENTRE TODOS <strong>no guarda</strong> tu número de carné ni de pasaporte. Tu navegador lo convierte en un código y solo envía ese código; en el servidor se vuelve a cifrar con una clave secreta antes de guardarse. Nadie desde fuera puede consultar los votos uno a uno: solo se publican totales. Esta página explica qué datos tratamos, para qué, cuánto tiempo y cómo ejercer tus derechos. La explicación visual está en <a href="transparencia-cuba.html" style="color:var(--green);border-bottom:1px solid rgba(11,138,74,.4)">Transparencia</a>.</p>
   </div>
 
   <div class="toc">
     <div class="toc-title"><i class="fi fi-br-list"></i> Contenido</div>
     <ol>
       <li><a href="#responsable">Responsable del tratamiento</a></li>
-      <li><a href="#que-datos">Qué datos procesamos (y cuáles NO)</a></li>
-      <li><a href="#como-funciona">Cómo funciona el sistema de anonimización</a></li>
-      <li><a href="#base-legal">Base legal del tratamiento</a></li>
-      <li><a href="#finalidad">Finalidad del tratamiento</a></li>
-      <li><a href="#conservacion">Período de conservación</a></li>
-      <li><a href="#tus-derechos">Tus derechos (RGPD)</a></li>
-      <li><a href="#terceros">Terceros y transferencias internacionales</a></li>
+      <li><a href="#que-datos">Qué datos tratamos</a></li>
+      <li><a href="#como-funciona">Cómo se protege tu voto en la consulta</a></li>
+      <li><a href="#base-legal">Base legal</a></li>
+      <li><a href="#finalidad">Para qué usamos los datos</a></li>
+      <li><a href="#conservacion">Cuánto tiempo los guardamos</a></li>
+      <li><a href="#tus-derechos">Tus derechos</a></li>
+      <li><a href="#terceros">Servicios de terceros</a></li>
       <li><a href="#menores">Menores de edad</a></li>
       <li><a href="#cambios">Cambios en esta política</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -237,224 +240,169 @@
   <!-- 1. RESPONSABLE -->
   <div class="section" id="responsable">
     <h2><span class="num">01</span> Responsable del tratamiento</h2>
-    <table class="dato-table">
-      <tr><td>Nombre del proyecto</td><td>ENTRE TODOS — Iniciativa Ciudadana</td></tr>
-      <tr><td>Naturaleza</td><td>Iniciativa ciudadana cívica, sin ánimo de lucro y sin personalidad jurídica propia</td></tr>
+    <div class="tabla-scroll"><table class="dato-table">
+      <tr><td>Responsable</td><td>Michel Estopiñán, fundador de ENTRE TODOS</td></tr>
+      <tr><td>Proyecto</td><td>ENTRE TODOS, iniciativa ciudadana sin ánimo de lucro y sin personalidad jurídica propia</td></tr>
       <tr><td>Web</td><td>https://entre-todos.org</td></tr>
-      <tr><td>Correo de contacto</td><td><a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a></td></tr>
-      <tr><td>Ubicación del responsable</td><td>Potsdam, Brandeburgo, Alemania</td></tr>
-    </table>
-    <p>Al estar el responsable establecido en Alemania (Estado miembro de la Unión Europea), el tratamiento de datos está sujeto al <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y a la legislación nacional alemana de protección de datos (<em>Bundesdatenschutzgesetz</em>, BDSG).</p>
+      <tr><td>Correo de contacto</td><td><a href="mailto:sosplanet@gmail.com">sosplanet@gmail.com</a></td></tr>
+      <tr><td>Ubicación</td><td>Potsdam, Brandeburgo, Alemania</td></tr>
+    </table></div>
+    <p>Como el responsable está en Alemania, el tratamiento se rige por el <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y por la ley alemana de protección de datos (<em>Bundesdatenschutzgesetz</em>, BDSG).</p>
   </div>
 
   <!-- 2. QUÉ DATOS -->
   <div class="section" id="que-datos">
-    <h2><span class="num">02</span> Qué datos procesamos (y cuáles NO)</h2>
+    <h2><span class="num">02</span> Qué datos tratamos</h2>
 
     <div class="hl red">
-      <strong>Lo que NUNCA se almacena en nuestros servidores:</strong> tu número de Carné de Identidad cubano, tu número de pasaporte u otro documento, tu nombre, tu dirección, tu correo electrónico o cualquier otro dato que permita identificarte directamente.
+      <strong>Nunca se guarda:</strong> tu número de carné ni de pasaporte. Para votar en la consulta no pedimos tu nombre, tu correo ni tu teléfono, y no creamos cuentas de usuario.
     </div>
 
-    <p>Los datos que sí se almacenan en nuestra base de datos son:</p>
-    <table class="dato-table">
+    <h3 style="margin-top:22px">Consulta popular sobre la continuidad</h3>
+    <div class="tabla-scroll"><table class="dato-table">
       <thead>
-        <tr><th>Dato almacenado</th><th>Descripción</th><th>¿Identifica a la persona?</th></tr>
+        <tr><th>Dato</th><th>Qué es</th><th>¿Es público?</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Hash SHA-256 de la credencial</td>
-          <td>Código matemático de 64 caracteres generado de forma irreversible a partir del número de documento. El número original no puede deducirse del hash.</td>
-          <td>No. Es un seudónimo criptográfico.</td>
-        </tr>
-        <tr>
-          <td>Tipo de credencial</td>
-          <td>Indica si el participante usó Carné de Identidad cubano ("ci") o pasaporte/documento extranjero ("pasaporte"). No incluye el número.</td>
-          <td>No directamente.</td>
-        </tr>
-        <tr>
-          <td>Opción votada</td>
-          <td>"Continuidad" o "Cambio" en la consulta popular. "Firma" en la petición de solidaridad.</td>
-          <td>No, salvo en combinación con el hash.</td>
-        </tr>
-        <tr>
-          <td>País / Provincia (opcional)</td>
-          <td>País de residencia o provincia cubana declarada voluntariamente por el participante para el mapa geográfico. No se recoge si no se selecciona.</td>
-          <td>No directamente.</td>
-        </tr>
-        <tr>
-          <td>Marca de tiempo</td>
-          <td>Fecha y hora del registro.</td>
-          <td>No.</td>
-        </tr>
-        <tr>
-          <td>Identificador de consulta</td>
-          <td>Etiqueta interna que indica a qué consulta corresponde el registro (ej. "continuidad_2026_03_27").</td>
-          <td>No.</td>
-        </tr>
+        <tr><td>Código cifrado del documento</td><td>Tu navegador convierte el número en un código SHA-256; el servidor lo cifra otra vez con una clave secreta (HMAC) y guarda solo ese resultado. Sirve para que cada documento vote una sola vez.</td><td>No. La tabla de votos no se puede leer desde fuera.</td></tr>
+        <tr><td>Tipo de documento</td><td>Carné de identidad cubano o pasaporte / documento extranjero. No incluye el número.</td><td>Solo en totales.</td></tr>
+        <tr><td>Opción votada</td><td>«Continuidad» o «Cambio».</td><td>Solo en totales.</td></tr>
+        <tr><td>País o provincia (opcional)</td><td>Solo si lo eliges en el formulario.</td><td>Solo en totales por país.</td></tr>
+        <tr><td>Fecha y hora</td><td>Cuándo se registró el voto.</td><td>No.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <p>El conjunto de datos almacenado es, por diseño, <strong>pseudónimo</strong> en el sentido del Considerando 26 del RGPD: no permite identificar directamente a una persona sin información adicional (el número de documento original, que no poseemos).</p>
+    <h3 style="margin-top:22px">Propuestas, votos con estrellas, aportes y objeciones</h3>
+    <p>En las páginas de propuestas tu navegador crea un identificador aleatorio de dispositivo. En el servidor ese identificador se guarda cifrado (SHA-256); sirve para que solo tú puedas cambiar o retirar lo que enviaste desde ese navegador. Se guardan tus valoraciones (estrellas e incisos marcados) y los textos que envías. <strong>Los textos de propuestas, aportes y objeciones son públicos</strong>, con el nombre que tú escribas o «Anónimo»; las propuestas nuevas aparecen marcadas como pendientes de revisión.</p>
+
+    <h3 style="margin-top:22px">Registro de miembros</h3>
+    <p>Si te registras como miembro, publicamos <strong>de inmediato y de forma pública</strong> lo que escribes en el formulario: nombre, alias, ciudad, país, lugar de origen, causa y biografía. El correo que escribas en ese formulario se queda solo en tu navegador; no se envía.</p>
+
+    <h3 style="margin-top:22px">Formularios de contacto y de organizaciones</h3>
+    <p>No guardan nada en el sitio: abren tu programa de correo con un mensaje listo para enviar a nuestra dirección. Si lo envías, tratamos tu correo y lo que escribas para responderte.</p>
+
+    <h3 style="margin-top:22px">Registro técnico de uso</h3>
+    <p>Las páginas de propuestas registran acciones (por ejemplo, abrir una categoría o votar), la página, el tipo de dispositivo y la página de procedencia, con identificadores de dispositivo y de sesión cifrados. Este registro no se puede leer desde fuera y no guarda tu dirección IP.</p>
+
+    <h3 style="margin-top:22px">En tu propio navegador</h3>
+    <p>Tu navegador guarda el identificador de dispositivo y tus propias valoraciones para mostrártelas. La consulta popular ya no guarda en tu dispositivo ni tu código ni tu voto; las versiones anteriores lo hacían y la página borra esos datos al abrirla.</p>
+
+    <p>Los datos de la consulta son <strong>seudónimos</strong> en el sentido del RGPD: no identifican a nadie por sí solos, pero siguen siendo datos personales y además revelan una opinión política, por lo que se tratan como categoría especial (art. 9 RGPD).</p>
   </div>
 
   <!-- 3. CÓMO FUNCIONA -->
   <div class="section" id="como-funciona">
-    <h2><span class="num">03</span> Cómo funciona el sistema de anonimización</h2>
-    <p>El proceso de anonimización ocurre íntegramente en tu dispositivo, antes de que ningún dato salga hacia nuestros servidores. El funcionamiento es el siguiente:</p>
+    <h2><span class="num">03</span> Cómo se protege tu voto en la consulta</h2>
     <ol>
-      <li>Introduces tu número de carné o pasaporte en el formulario.</li>
-      <li>El navegador aplica la función criptográfica SHA-256 al número introducido. Esta operación ocurre <strong>localmente en tu dispositivo</strong>.</li>
-      <li>El resultado es un código de 64 caracteres (el hash). <strong>El número original se descarta</strong>.</li>
-      <li>Solo el hash — nunca el número — se envía a nuestro servidor.</li>
+      <li>Escribes tu número de carné o pasaporte en el formulario.</li>
+      <li>Tu navegador lo convierte en un código SHA-256. <strong>El número no sale de tu dispositivo.</strong></li>
+      <li>Solo se envía ese código, por conexión cifrada (HTTPS).</li>
+      <li>En el servidor, el código se vuelve a cifrar con una clave secreta que no está en el navegador ni en el código publicado, y solo se guarda ese resultado.</li>
+      <li>Desde fuera solo se pueden pedir los totales. La tabla de votos está cerrada.</li>
     </ol>
     <div class="tech-block">
-      <span class="comment">// Ejemplo ilustrativo — no son datos reales</span><br>
-      Número introducido: <span class="value-in">85030312345</span><br>
-      <span class="comment">// La función SHA-256 produce:</span><br>
-      Hash almacenado: <span class="value-out">a3f8c21d9e4b7056...</span><br>
-      <span class="comment">// El número original NUNCA se almacena ni transmite.</span>
+      <span class="comment">// Ejemplo ilustrativo, no son datos reales</span><br>
+      Número escrito: <span class="value-in">85030312345</span><br>
+      <span class="comment">// En tu navegador (SHA-256):</span><br>
+      Código enviado: <span class="value-out">a3f8c21d9e4b7056…</span><br>
+      <span class="comment">// En el servidor (HMAC con clave secreta):</span><br>
+      Código guardado: <span class="value-out">5d1e90b2c47a8f13…</span>
     </div>
-    <p>Esta arquitectura garantiza que, aunque nuestra base de datos fuera comprometida, ningún atacante podría obtener números de documentos de identidad. El hash no es reversible.</p>
     <div class="hl blue">
-      <strong>Nota comparativa:</strong> Los sistemas de verificación por correo electrónico o SMS — habitualmente propuestos como alternativa — almacenan direcciones de email y números de teléfono, que son datos directamente identificables. El sistema de hashing de ENTRE TODOS ofrece mayor protección real de la identidad, a costa de requerir que el participante introduzca su número de documento una sola vez, localmente.
+      <strong>Límites que debes conocer.</strong> Un código SHA-256 de un carné, por sí solo, se podría descifrar probando todos los números posibles, porque el carné tiene una estructura conocida. Por eso el servidor lo vuelve a cifrar con una clave secreta y la tabla no se puede consultar desde fuera. Aun así, quien administra la base de datos tiene esa clave: técnicamente podría comprobar cómo votó un documento concreto si conociera su número. ENTRE TODOS no lo hace y nunca publica votos individuales. Tampoco podemos comprobar que un documento exista ni que pertenezca a quien vota: la declaración de honor es el compromiso de cada participante.
     </div>
   </div>
 
   <!-- 4. BASE LEGAL -->
   <div class="section" id="base-legal">
-    <h2><span class="num">04</span> Base legal del tratamiento</h2>
-    <p>El tratamiento de los datos pseudónimos descritos se sustenta en las siguientes bases legales del RGPD:</p>
+    <h2><span class="num">04</span> Base legal</h2>
     <ul>
-      <li><strong>Consentimiento explícito (Art. 6.1.a y Art. 9.2.a RGPD):</strong> Antes de emitir su voto o firma, el participante marca una casilla de declaración de honor en la que acepta expresamente el tratamiento de sus datos para los fines de la consulta. Este consentimiento es específico, informado y libre.</li>
-      <li><strong>Interés legítimo (Art. 6.1.f RGPD):</strong> El interés en garantizar la integridad del proceso (evitar votos duplicados) es legítimo y proporcional al diseño técnico adoptado, que minimiza al máximo el tratamiento de datos.</li>
+      <li><strong>Consentimiento explícito (art. 6.1.a y art. 9.2.a RGPD):</strong> para votar en la consulta, enviar propuestas, aportes u objeciones y registrarte como miembro. Antes de votar marcas la declaración de honor y aceptas esta política.</li>
+      <li><strong>Interés legítimo (art. 6.1.f RGPD):</strong> evitar votos duplicados, proteger el sitio frente a abusos y llevar el registro técnico de uso descrito arriba.</li>
     </ul>
-    <p>Dado que los datos almacenados son de naturaleza pseudónima y no permiten la identificación directa, el nivel de riesgo para los derechos y libertades de los participantes es bajo.</p>
+    <p>Puedes retirar tu consentimiento en cualquier momento escribiéndonos; eso no afecta a lo tratado antes de retirarlo.</p>
   </div>
 
   <!-- 5. FINALIDAD -->
   <div class="section" id="finalidad">
-    <h2><span class="num">05</span> Finalidad del tratamiento</h2>
-    <p>Los datos se procesan exclusivamente para:</p>
+    <h2><span class="num">05</span> Para qué usamos los datos</h2>
     <ul>
-      <li>Garantizar que cada participante vote o firme una sola vez (control de duplicados mediante hash).</li>
-      <li>Mostrar resultados agregados y estadísticos de la consulta o petición.</li>
-      <li>Generar visualizaciones geográficas agregadas (mapa) cuando el participante proporciona voluntariamente su ubicación.</li>
-      <li>Permitir auditoría externa del proceso mediante exportación de datos pseudónimos.</li>
+      <li>Que cada documento vote una sola vez en la consulta.</li>
+      <li>Publicar resultados agregados: totales por opción, por tipo de documento y por país.</li>
+      <li>Mostrar las propuestas, valoraciones, aportes y objeciones en la plataforma.</li>
+      <li>Mostrar los perfiles públicos de los miembros que se registran.</li>
+      <li>Responder a quien nos escribe.</li>
+      <li>Saber qué partes del sitio se usan, de forma agregada.</li>
     </ul>
-    <p>Los datos no se utilizan para elaboración de perfiles, para fines comerciales, ni se ceden a terceros con finalidades de marketing o análisis conductual.</p>
+    <p>No usamos los datos para hacer perfiles de personas ni con fines comerciales, y no los cedemos a nadie con fines de publicidad o análisis de comportamiento.</p>
   </div>
 
   <!-- 6. CONSERVACIÓN -->
   <div class="section" id="conservacion">
-    <h2><span class="num">06</span> Período de conservación</h2>
-    <p>Los datos pseudónimos (hashes) se conservan durante el tiempo que la consulta o petición permanezca activa y abierta al público. Una vez cerrada la consulta, los registros se anonimizarán completamente o se eliminarán en un plazo máximo de <strong>12 meses</strong> desde el cierre, salvo obligación legal en contrario.</p>
-    <p>Los datos de ubicación opcionales (país/provincia) se eliminan en los mismos plazos.</p>
+    <h2><span class="num">06</span> Cuánto tiempo los guardamos</h2>
+    <ul>
+      <li><strong>Consulta popular:</strong> mientras esté abierta. Al cerrarla se conservan solo los totales, y los códigos cifrados se borran en un plazo máximo de 12 meses.</li>
+      <li><strong>Propuestas, aportes, objeciones y valoraciones:</strong> mientras la plataforma las muestre, o hasta que pidas borrarlas.</li>
+      <li><strong>Perfiles de miembros:</strong> hasta que pidas darte de baja.</li>
+      <li><strong>Registro técnico de uso:</strong> un máximo de 12 meses.</li>
+      <li><strong>Correos:</strong> el tiempo necesario para atender tu mensaje.</li>
+    </ul>
   </div>
 
-  <!-- 7. TUS DERECHOS -->
+  <!-- 7. DERECHOS -->
   <div class="section" id="tus-derechos">
-    <h2><span class="num">07</span> Tus derechos (RGPD)</h2>
-    <p>Como interesado, tienes los siguientes derechos reconocidos por el RGPD:</p>
-    <table class="dato-table">
-      <thead>
-        <tr><th>Derecho</th><th>Descripción</th><th>Aplicación en ENTRE TODOS</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Acceso (Art. 15)</td>
-          <td>Saber qué datos tuyos tenemos.</td>
-          <td>Puedes solicitarlo por email. Solo podremos identificar tu registro si nos proporcionas el hash SHA-256 generado por tu dispositivo al votar (disponible en tu pantalla de confirmación).</td>
-        </tr>
-        <tr>
-          <td>Rectificación (Art. 16)</td>
-          <td>Corregir datos inexactos.</td>
-          <td>Aplicable a los datos opcionales de ubicación. El hash en sí no puede rectificarse sin revocar el voto.</td>
-        </tr>
-        <tr>
-          <td>Supresión (Art. 17)</td>
-          <td>Eliminar tus datos ("derecho al olvido").</td>
-          <td>Puedes solicitar la eliminación de tu registro proporcionando el hash de confirmación. El hash se eliminará, lo que invalidará tu voto del recuento.</td>
-        </tr>
-        <tr>
-          <td>Oposición (Art. 21)</td>
-          <td>Oponerte al tratamiento.</td>
-          <td>Puedes retirarte de la consulta en cualquier momento mediante solicitud con tu hash de confirmación.</td>
-        </tr>
-        <tr>
-          <td>Portabilidad (Art. 20)</td>
-          <td>Recibir tus datos en formato estructurado.</td>
-          <td>El sistema permite exportar el CSV público de resultados. Los datos individuales identificados por hash se facilitan a petición.</td>
-        </tr>
-        <tr>
-          <td>Limitación (Art. 18)</td>
-          <td>Restringir el tratamiento mientras se resuelve una reclamación.</td>
-          <td>Aplicable. Contacta por email.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Para ejercer cualquiera de estos derechos, escribe a <a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a> indicando el hash SHA-256 de confirmación que recibiste al votar o firmar. Responderemos en el plazo máximo de 30 días naturales.</p>
-    <p>Si no estás satisfecho con nuestra respuesta, tienes derecho a presentar una reclamación ante la autoridad de control competente. En Alemania: <strong>Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI)</strong>, <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener">www.bfdi.bund.de</a>.</p>
+    <h2><span class="num">07</span> Tus derechos</h2>
+    <p>Tienes derecho de acceso (art. 15), rectificación (art. 16), supresión (art. 17), limitación (art. 18), portabilidad (art. 20) y oposición (art. 21).</p>
+    <ul>
+      <li><strong>Tu voto en la consulta:</strong> como no sabemos quién eres, para localizarlo necesitamos el <strong>código de comprobante</strong> que te mostró la página al votar. Con él podemos decirte qué hay registrado o borrarlo (el voto deja de contar). Guárdalo en privado: no lo publiques.</li>
+      <li><strong>Propuestas, aportes, objeciones o perfil de miembro:</strong> escríbenos indicando cuál es; puedes borrar o retirar tus propuestas desde el mismo navegador con el que las enviaste.</li>
+    </ul>
+    <p>Escribe a <a href="mailto:sosplanet@gmail.com">sosplanet@gmail.com</a>. Respondemos en un máximo de 30 días.</p>
+    <p>Si no estás conforme con nuestra respuesta, puedes reclamar ante la autoridad de protección de datos de Brandeburgo: <strong>Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg</strong>, <a href="https://www.lda.brandenburg.de" target="_blank" rel="noopener">www.lda.brandenburg.de</a>, o ante la autoridad del país donde vives.</p>
   </div>
 
   <!-- 8. TERCEROS -->
   <div class="section" id="terceros">
-    <h2><span class="num">08</span> Terceros y transferencias internacionales</h2>
-    <p>ENTRE TODOS utiliza los siguientes servicios de terceros para el funcionamiento técnico de la plataforma:</p>
-    <table class="dato-table">
+    <h2><span class="num">08</span> Servicios de terceros</h2>
+    <p>Al visitar el sitio, tu navegador se conecta a estos servicios. Cada conexión les comunica tu dirección IP y datos técnicos del navegador.</p>
+    <div class="tabla-scroll"><table class="dato-table">
       <thead>
-        <tr><th>Proveedor</th><th>Función</th><th>Datos transferidos</th><th>Garantías</th></tr>
+        <tr><th>Proveedor</th><th>Para qué</th><th>Qué recibe</th><th>Dónde</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Supabase, Inc. (EE. UU.)</td>
-          <td>Almacenamiento de base de datos (hashes de votos y firmas)</td>
-          <td>Hash SHA-256, tipo de credencial, opción, ubicación opcional, marca de tiempo</td>
-          <td>Supabase actúa como encargado del tratamiento. Los datos pueden alojarse en servidores de la UE. Cláusulas contractuales tipo de la Comisión Europea aplicables.</td>
-        </tr>
-        <tr>
-          <td>Netlify / GitHub Pages</td>
-          <td>Alojamiento de la web estática</td>
-          <td>Datos de acceso estándar (IP, navegador) en logs de servidor — no vinculados a votos</td>
-          <td>Política de privacidad propia del proveedor.</td>
-        </tr>
-        <tr>
-          <td>Google Fonts</td>
-          <td>Tipografía web</td>
-          <td>Solicitud de fuentes (puede incluir IP)</td>
-          <td>Política de privacidad de Google aplicable.</td>
-        </tr>
-        <tr>
-          <td>OpenStreetMap / Leaflet.js</td>
-          <td>Mapa interactivo</td>
-          <td>Solicitudes de teselas de mapa (puede incluir IP)</td>
-          <td>Política de OpenStreetMap Foundation aplicable.</td>
-        </tr>
+        <tr><td>Supabase, Inc.</td><td>Base de datos de la consulta, las propuestas, los aportes y los miembros</td><td>Los datos descritos en el apartado 2. Su servicio registra la IP y la hora de cada petición en sus registros técnicos; nosotros no la vinculamos con tu voto.</td><td>Servidores en Zúrich (Suiza). Empresa de EE. UU. que actúa como encargada del tratamiento. Suiza tiene decisión de adecuación de la UE.</td></tr>
+        <tr><td>GitHub Pages (GitHub, Inc.)</td><td>Alojamiento de las páginas</td><td>IP y datos técnicos de acceso</td><td>EE. UU.</td></tr>
+        <tr><td>Google Fonts (Google)</td><td>Tipografías</td><td>IP y datos técnicos al cargar las fuentes</td><td>EE. UU. y otros</td></tr>
+        <tr><td>Flaticon (Freepik)</td><td>Iconos</td><td>IP y datos técnicos al cargar los iconos</td><td>UE y otros</td></tr>
+        <tr><td>unpkg / cdnjs (Cloudflare) y OpenStreetMap</td><td>Mapa de la consulta</td><td>IP y datos técnicos al cargar el mapa</td><td>Varios</td></tr>
+        <tr><td>Google (Gmail)</td><td>Recibir los correos que nos envías</td><td>Tu correo y lo que escribas</td><td>EE. UU. y otros</td></tr>
       </tbody>
-    </table>
-    <p>No cedemos datos a ningún gobierno, partido político, organización de inteligencia ni entidad comercial. La misión de ENTRE TODOS es exclusivamente cívica y sin ánimo de lucro.</p>
+    </table></div>
+    <p>Los botones de compartir en redes sociales solo conectan con esas redes si los pulsas. No cedemos datos a ningún gobierno, partido político, servicio de inteligencia ni empresa.</p>
   </div>
 
   <!-- 9. MENORES -->
   <div class="section" id="menores">
     <h2><span class="num">09</span> Menores de edad</h2>
-    <p>Los formularios de ENTRE TODOS están dirigidos a personas mayores de 16 años. El sistema de validación del Carné de Identidad cubano incluye la fecha de nacimiento codificada, lo que permite detectar documentos de menores. Los registros identificados como pertenecientes a personas menores de 16 años se eliminan del sistema.</p>
+    <p>La consulta y los formularios son para personas de 16 años o más. El formulario de la consulta lee la fecha de nacimiento que contiene el carné cubano y no acepta carnés de menores de 16 años; con pasaporte no podemos comprobar la edad. Si sabemos que un registro pertenece a un menor de 16 años, lo borramos.</p>
   </div>
 
   <!-- 10. CAMBIOS -->
   <div class="section" id="cambios">
     <h2><span class="num">10</span> Cambios en esta política</h2>
-    <p>Esta política puede actualizarse para reflejar cambios técnicos, legales o en el alcance de la plataforma. La fecha de la última actualización aparece al inicio del documento. Los cambios sustanciales se comunicarán mediante un aviso visible en la página principal durante al menos 14 días.</p>
+    <p>Esta política se actualiza cuando cambia el funcionamiento técnico, la ley o el alcance de la plataforma. La fecha de la última actualización aparece al inicio.</p>
+    <p><strong>Cambios del 10 de octubre de 2026:</strong> la versión anterior afirmaba que el código del documento era irreversible y que no se guardaban nombres. No era exacto: el código se podía descifrar probando números, la tabla de votos se podía leer desde fuera y el registro de miembros publica nombres. Hemos cerrado la tabla, cifrado los códigos con clave secreta y corregido este texto.</p>
   </div>
 
   <!-- 11. CONTACTO -->
   <div class="section" id="contacto">
     <h2><span class="num">11</span> Contacto</h2>
     <div class="hl blue">
-      Para cualquier consulta sobre esta política, para ejercer tus derechos o para reportar una incidencia de privacidad:<br><br>
-      <strong>Correo electrónico:</strong> <a href="mailto:entretodos@entre-todos.org">entretodos@entre-todos.org</a><br>
-      <strong>Proyecto:</strong> ENTRE TODOS — Iniciativa Ciudadana<br>
-      <strong>Ubicación del responsable:</strong> Potsdam, Brandeburgo, Alemania<br><br>
-      Tiempo de respuesta habitual: entre 5 y 30 días naturales.
+      Para cualquier consulta sobre esta política, para ejercer tus derechos o para avisarnos de un problema de privacidad:<br><br>
+      <strong>Correo:</strong> <a href="mailto:sosplanet@gmail.com">sosplanet@gmail.com</a><br>
+      <strong>Responsable:</strong> Michel Estopiñán, ENTRE TODOS<br>
+      <strong>Ubicación:</strong> Potsdam, Brandeburgo, Alemania<br><br>
+      Respondemos en un máximo de 30 días.
     </div>
   </div>
 
@@ -469,7 +417,7 @@
       <a href="index.html">Inicio</a> &nbsp;·&nbsp;
       <a href="transparencia-cuba.html">Transparencia</a> &nbsp;·&nbsp;
       <a href="politica-privacidad.html">Privacidad</a> &nbsp;·&nbsp;
-      <a href="mailto:entretodos@entre-todos.org">Contacto</a>
+      <a href="mailto:sosplanet@gmail.com">Contacto</a>
     </div>
     <div class="f-gs">
       Metodología derivada de <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>.

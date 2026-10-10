@@ -901,7 +901,7 @@ footer a:hover{color:#fff;}
         </div>
         <div>
           <label>Correo electrónico de contacto *</label>
-          <input id="of-email" type="email" placeholder="Para notificarte cuando tu envío sea integrado">
+          <input id="of-email" type="email" placeholder="Para responderte">
         </div>
         <div>
           <label>Sitio web o red social de la organización</label>
@@ -922,10 +922,9 @@ footer a:hover{color:#fff;}
           <textarea id="of-txt" style="min-height:80px;resize:vertical;" placeholder="Lista los puntos principales que propone tu organización..."></textarea>
         </div>
         <div>
-          <label>Sube el documento de propuesta (PDF, Word, imagen)</label>
-          <div class="upload-area" onclick="document.getElementById('of-file').click()">
-            <input type="file" id="of-file" accept=".pdf,.doc,.docx,.jpg,.png" onchange="handleOrgFile(this)">
-            <div id="of-file-label">Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">PDF, Word o imagen · máx. 10MB</span></div>
+          <label>Documento de propuesta (PDF, Word, imagen)</label>
+          <div class="upload-area" style="cursor:default;">
+            <div id="of-file-label">Al pulsar «Enviar» se abrirá tu correo con estos datos. Adjunta allí el documento.</div>
           </div>
         </div>
         <div>
@@ -946,7 +945,7 @@ footer a:hover{color:#fff;}
           1. Tu envío queda en revisión.<br>
           2. El equipo verifica que sea una organización real con propuestas concretas.<br>
           3. Se integra como fuente de referencia y sus puntos se añaden según la categoría correspondiente.<br>
-          4. Recibirás confirmación por correo cuando esté integrado.
+          4. Te responderemos por correo.
         </div>
         <div style="background:var(--rojo-light);border-left:3px solid var(--rojo);border-radius:0 6px 6px 0;padding:12px 14px;font-size:.8rem;color:var(--negro);line-height:1.6;">
           <strong style="font-family:'Barlow Condensed',sans-serif;color:var(--rojo);">Organizaciones verificadas</strong> tienen acceso para publicar propuestas directamente en la plataforma. El nivel de privilegio se determina en el proceso de revisión.
@@ -970,7 +969,7 @@ footer a:hover{color:#fff;}
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span>¿Es necesario registrarse para votar?</span><span class="faq-arrow">&#9660;</span></div>
-        <div class="faq-a">No es obligatorio. Puedes participar de forma anónima. Sin embargo, registrar un nombre o correo ayuda a darle más peso verificable a tu participación y permite que te notifiquemos cuando haya nuevas propuestas en las categorías que te interesan.</div>
+        <div class="faq-a">No. Para votar no hace falta registrarse ni dar tu nombre. El registro de miembros es opcional y publica tu perfil en la página de miembros. Más detalles en la <a href="politica-privacidad.html">política de privacidad</a>.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cómo funciona el voto de estrellas?</span><span class="faq-arrow">&#9660;</span></div>
@@ -1037,7 +1036,7 @@ footer a:hover{color:#fff;}
         <input type="email" id="ct-email" placeholder="Tu correo electrónico">
         <textarea id="ct-msg" placeholder="Tu mensaje..."></textarea>
         <button class="btn btn-p" style="width:100%;" onclick="submitContact()">Enviar mensaje</button>
-        <div id="ct-confirm" style="display:none;margin-top:8px;font-size:.82rem;color:var(--azul);font-family:'Barlow Condensed',sans-serif;font-weight:700;">Mensaje enviado. Te respondemos pronto.</div>
+        <div id="ct-confirm" style="display:none;margin-top:8px;font-size:.82rem;color:var(--azul);">Se abrió tu programa de correo con el mensaje listo para enviar. Si no se abrió, escríbenos a <strong>sosplanet@gmail.com</strong>.</div>
       </div>
     </div>
   </div>
@@ -1105,32 +1104,34 @@ function handleOrgFile(input){
   const label=document.getElementById('of-file-label');
   if(input.files&&input.files[0]) label.innerHTML='<strong>'+input.files[0].name+'</strong><br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">Archivo seleccionado</span>';
 }
+function abrirCorreo(asunto, cuerpo){
+  window.location.href='mailto:sosplanet@gmail.com?subject='+encodeURIComponent(asunto)+'&body='+encodeURIComponent(cuerpo);
+}
 function submitOrg(){
-  const org=document.getElementById('of-org').value.trim();
+  const v=function(id){const el=document.getElementById(id);return el?el.value.trim():'';};
+  const org=v('of-org');
   const consent=document.getElementById('of-consent').checked;
   if(!org){alert('Por favor ingresa el nombre de la organización.');return;}
   if(!consent){alert('Por favor acepta los términos de envío.');return;}
+  abrirCorreo('Registro de organización: '+org,
+    'Organización: '+org+'\nPaís / ciudad: '+v('of-pais')+'\nContacto: '+v('of-nombre')+'\nCorreo: '+v('of-email')+'\nWeb: '+v('of-web')+
+    '\n\nResumen de las propuestas:\n'+v('of-txt')+'\n\n(Adjunta aquí el documento de propuesta.)\n\nAutorizo a ENTRE TODOS a revisar y publicar estas propuestas de forma neutral.');
   const pending=document.getElementById('org-pending');
+  pending.innerHTML='';
   const div=document.createElement('div');
   div.style.cssText='background:#EEF2FF;border:1px solid rgba(0,42,143,.2);border-radius:6px;padding:11px 13px;margin-bottom:8px;font-size:.83rem;';
-  div.innerHTML='<span class="pending-badge">&#8987; En revisión</span><br>'+org+' — Tu envío fue recibido y está pendiente de revisión.';
+  div.textContent='Se abrió tu programa de correo con los datos. Adjunta el documento y envía el correo. Si no se abrió, escríbenos a sosplanet@gmail.com.';
   pending.appendChild(div);
-  ['of-org','of-pais','of-nombre','of-email','of-web','of-txt'].forEach(function(id){
-    const el=document.getElementById(id);if(el)el.value='';
-  });
-  document.getElementById('of-consent').checked=false;
-  document.getElementById('of-file-label').innerHTML='Clic aquí para seleccionar archivo<br><span style="font-size:.75rem;color:var(--azul);opacity:.5;">PDF, Word o imagen · máx. 10MB</span>';
 }
 
 // ── CONTACT ──
 function submitContact(){
   const n=document.getElementById('ct-nombre').value.trim();
+  const e=document.getElementById('ct-email').value.trim();
   const m=document.getElementById('ct-msg').value.trim();
   if(!n||!m){alert('Por favor completa tu nombre y mensaje.');return;}
+  abrirCorreo('Mensaje desde entre-todos.org — '+n, m+'\n\n'+n+(e?' ('+e+')':''));
   document.getElementById('ct-confirm').style.display='block';
-  ['ct-nombre','ct-email','ct-msg'].forEach(function(id){
-    const el=document.getElementById(id);if(el)el.value='';
-  });
 }
 </script>
 </body>

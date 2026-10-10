@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consulta Popular Díaz-Canel — Fase 0 · ENTRE TODOS</title>
-<meta name="description" content="Consulta ciudadana sobre la continuidad de Miguel Díaz-Canel. Voto anónimo verificado por SHA-256. Registro único y auditable — la única vía de constancia ciudadana estructurada.">
+<meta name="description" content="Consulta ciudadana sobre la continuidad de Miguel Díaz-Canel. Voto confidencial: un voto por documento y solo se publican totales — la única vía de constancia ciudadana estructurada.">
 <meta name="theme-color" content="#002F80">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Consulta Popular Continuidad/Cambio · ENTRE TODOS">
-<meta property="og:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto anónimo, verificable, sin filtros. Suma tu voz al registro.">
+<meta property="og:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto confidencial, un voto por documento. Suma tu voz al registro.">
 <meta property="og:image" content="img/og-default.png">
 <meta property="og:url" content="https://entre-todos.org/consulta-popular-cuba.html">
 <meta property="og:site_name" content="ENTRE TODOS">
@@ -19,7 +19,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Consulta Popular Continuidad/Cambio · ENTRE TODOS">
-<meta name="twitter:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto anónimo, verificable, sin filtros. Suma tu voz al registro.">
+<meta name="twitter:description" content="Consulta ciudadana sobre la continuidad o el cambio en Cuba. Voto confidencial, un voto por documento. Suma tu voz al registro.">
 <meta name="twitter:image" content="img/og-default.png">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -251,6 +251,7 @@ footer a:hover{color:#fff;}
 .ft-gs-row a{color:rgba(255,255,255,.7);border-bottom:1px dashed rgba(255,255,255,.3);}
 
 @media(max-width:960px){.breadcrumb{display:none;}}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -343,11 +344,11 @@ footer a:hover{color:#fff;}
   <!-- PANTALLA VOTO -->
   <div id="pantalla-voto" class="pantalla activa">
     <div class="panel">
-      <div class="panel-titulo"><i class="fi fi-br-shield-check"></i>Verificación de identidad — voto anónimo</div>
+      <div class="panel-titulo"><i class="fi fi-br-shield-check"></i>Verificación de identidad — voto confidencial</div>
 
       <div class="info-box verde">
         <i class="fi fi-br-lock"></i>
-        <span><strong>Tu número de documento nunca sale de tu dispositivo.</strong> Antes de enviarse, se convierte en un código matemático irreversible (SHA-256) directamente en tu navegador. Nuestro servidor recibe únicamente ese código — nunca tu nombre ni tu número real. <a href="politica-privacidad.html#como-funciona" target="_blank" style="color:var(--verde);font-weight:700;">Cómo funciona</a></span>
+        <span><strong>Tu número de documento no sale de tu dispositivo.</strong> Tu navegador lo convierte en un código (SHA-256) y solo envía ese código. En el servidor se vuelve a cifrar con una clave secreta antes de guardarse, y nadie puede consultar los votos uno a uno: solo se publican los totales. No pedimos tu nombre. <a href="politica-privacidad.html#como-funciona" target="_blank" style="color:var(--verde);font-weight:700;">Cómo funciona</a></span>
       </div>
       <div class="info-box azul">
         <i class="fi fi-br-info"></i>
@@ -369,7 +370,7 @@ footer a:hover{color:#fff;}
           <input type="text" id="input-ci" class="form-input" placeholder="Ej: 85030312345"
             maxlength="11" inputmode="numeric" autocomplete="off" spellcheck="false"
             oninput="validarCI(this.value)" />
-          <p class="form-hint" id="hint-ci">Formato: 11 dígitos. Los primeros 6 son tu fecha de nacimiento (AAMMDD). Tu número no será almacenado.</p>
+          <p class="form-hint" id="hint-ci">Formato: 11 dígitos. Los primeros 6 son tu fecha de nacimiento (AAMMDD). Tu número no se guarda.</p>
           <div class="ci-decode" id="ci-decode"></div>
         <div class="loc-optional">
           <div class="loc-optional-lbl"><i class="fi fi-br-map-marker" style="font-size:11px;"></i> Provincia (opcional — para el mapa)</div>
@@ -433,7 +434,7 @@ footer a:hover{color:#fff;}
 
       <div style="font-size:.75rem;color:var(--gris);margin-bottom:10px;line-height:1.6;">
         <i class="fi fi-br-shield-check" style="font-size:11px;color:var(--verde);"></i>
-        &nbsp;Al votar aceptas nuestra <a href="politica-privacidad.html" target="_blank" style="color:var(--azul);font-weight:600;">Política de Privacidad</a>. Tu número de documento no se almacena nunca — solo su hash SHA-256 irreversible.
+        &nbsp;Al votar aceptas nuestra <a href="politica-privacidad.html" target="_blank" style="color:var(--azul);font-weight:600;">Política de Privacidad</a>. Tu número de documento no se guarda: solo un código cifrado con clave secreta. Debes tener 16 años o más.
       </div>
       <label class="declaracion-label" for="declaracion">
         <input type="checkbox" id="declaracion" onchange="validarFormulario()">
@@ -447,7 +448,7 @@ footer a:hover{color:#fff;}
 
       <button class="btn-votar" id="btn-votar" onclick="enviarVoto()" disabled>
         <i class="fi fi-br-paper-plane"></i>
-        Emitir voto anónimo
+        Emitir voto
       </button>
     </div>
   </div>
@@ -458,9 +459,9 @@ footer a:hover{color:#fff;}
       <div class="confirmacion">
         <i class="fi fi-br-check-circle conf-icono"></i>
         <h2 class="conf-titulo">Voto registrado</h2>
-        <p class="conf-desc">Tu participación ha sido registrada de forma anónima.<br>Conserva el identificador como comprobante.</p>
+        <p class="conf-desc">Tu voto ha quedado registrado.<br>Este es tu código de comprobante. Guárdalo en privado y no lo publiques: sirve para pedirnos que consultemos o borremos tu voto.</p>
         <div class="conf-hash">
-          <strong>Identificador anónimo (SHA-256)</strong>
+          <strong>Código de comprobante</strong>
           <span id="hash-display">—</span>
         </div>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -518,12 +519,16 @@ footer a:hover{color:#fff;}
         </div>
       </div>
 
+      <div class="info-box amarillo" id="resultados-error" style="margin-top:20px;" hidden>
+        <i class="fi fi-br-exclamation"></i>
+        <span>No se pudieron cargar los resultados. Inténtalo de nuevo en unos minutos.</span>
+      </div>
       <div class="info-box amarillo" style="margin-top:20px;">
         <i class="fi fi-br-info"></i>
-        <span>Resultados almacenados en este dispositivo (prototipo). Para consulta nacional distribuida se requiere servidor. Exporta el CSV para auditoría independiente.</span>
+        <span>Los resultados se calculan en el servidor con todos los votos registrados. Solo se publican totales. Cada número de documento vota una vez; no podemos comprobar que el documento exista ni que sea de quien vota: la declaración de honor es tu compromiso.</span>
       </div>
       <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-        <button class="btn-outline" onclick="exportarCSV()"><i class="fi fi-br-download"></i> Exportar CSV</button>
+        <button class="btn-outline" onclick="exportarCSV()"><i class="fi fi-br-download"></i> Descargar totales (CSV)</button>
         <button class="btn-outline" onclick="mostrarPantalla('voto')" style="border-color:var(--gris);color:var(--gris);"><i class="fi fi-br-arrow-left"></i> Volver al voto</button>
       </div>
     </div>
@@ -638,7 +643,7 @@ footer a:hover{color:#fff;}
         </div>
         <div class="info-box amarillo" style="margin-top:12px;margin-bottom:0;">
           <i class="fi fi-br-info"></i>
-          <span><strong>Para los administradores de estos perfiles:</strong> Los reportes de Facebook Insights incluyen desglose de reacciones, alcance orgánico vs. pagado, y datos demográficos. Estos datos enriquecerían el análisis. Si participaste en estas encuestas o tienes acceso a esos reportes, contáctanos: <a href="mailto:entretodos@entre-todos.org" style="color:var(--azul);">entretodos@entre-todos.org</a></span>
+          <span><strong>Para los administradores de estos perfiles:</strong> Los reportes de Facebook Insights incluyen desglose de reacciones, alcance orgánico vs. pagado, y datos demográficos. Estos datos enriquecerían el análisis. Si participaste en estas encuestas o tienes acceso a esos reportes, contáctanos: <a href="mailto:sosplanet@gmail.com" style="color:var(--azul);">sosplanet@gmail.com</a></span>
         </div>
       </div>
     </div>
@@ -712,7 +717,7 @@ footer a:hover{color:#fff;}
 
 <footer>
   <strong>ENTRE TODOS</strong> · Gobernanza Solucionaria · Consulta Popular Cuba 2026<br>
-  Voto anónimo verificado por SHA-256 · <a href="index.html">Volver a la plataforma</a> · <a href="#" onclick="limpiarDatos();return false;">Reiniciar datos de prueba</a>
+  Un voto por documento · Solo se publican totales · <a href="politica-privacidad.html">Privacidad</a> · <a href="index.html">Volver a la plataforma</a>
   <div class="ft-gs-row">
     Parte del ecosistema <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>
     &nbsp;·&nbsp; Michel Estopiñán · Potsdam, Alemania
@@ -723,9 +728,11 @@ footer a:hover{color:#fff;}
 /* ── CONFIG ─────────────────────────────────────────────────── */
 const SUPABASE_URL  = 'https://pfjcumyygdwslwtrlebr.supabase.co';
 const SUPABASE_KEY  = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
-const TABLA         = 'consulta_continuidad_votos';
-const STORAGE_KEY   = 'et_cuba_2026_v2';
-const HASH_LOG_KEY  = 'et_cuba_2026_hashes';
+const CONSULTA_ID   = 'continuidad_2026_03_27';
+const EDAD_MINIMA   = 16;
+// Versiones anteriores guardaban en el navegador el código del documento y la opción votada.
+// Se borran para que nadie con acceso al dispositivo pueda verlos.
+try { localStorage.removeItem('et_cuba_2026_v2'); localStorage.removeItem('et_cuba_2026_hashes'); } catch (e) {}
 
 let votoSel = null, tipoId = 'ci', credValida = false;
 
@@ -753,10 +760,26 @@ function validarCI(val) {
     hint.className = 'form-hint rojo'; hint.textContent = 'Mes o día inválido. Verifica tu número.';
     credValida = false; validarFormulario(); return;
   }
-  const base = aa<=25?2000:1900;
+  // El 7.º dígito del carné indica el siglo de nacimiento: 9 → 1800, 0-5 → 1900, 6-8 → 2000.
+  const siglo = parseInt(clean.charAt(6));
+  const anio = (siglo === 9 ? 1800 : siglo >= 6 ? 2000 : 1900) + aa;
+  const nac = new Date(anio, mm-1, dd);
+  if (nac.getMonth() !== mm-1 || nac.getDate() !== dd) {
+    input.className = 'form-input invalido'; dec.className = 'ci-decode';
+    hint.className = 'form-hint rojo'; hint.textContent = 'La fecha de nacimiento no es válida. Verifica tu número.';
+    credValida = false; validarFormulario(); return;
+  }
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - anio;
+  if (hoy.getMonth() < mm-1 || (hoy.getMonth() === mm-1 && hoy.getDate() < dd)) edad--;
+  if (edad < EDAD_MINIMA) {
+    input.className = 'form-input invalido'; dec.className = 'ci-decode';
+    hint.className = 'form-hint rojo'; hint.textContent = 'Para votar hay que tener 16 años o más.';
+    credValida = false; validarFormulario(); return;
+  }
   const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
   input.className = 'form-input valido'; dec.className = 'ci-decode visible';
-  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${base+aa}</strong> · Tu número no será almacenado.`;
+  dec.innerHTML = `Fecha de nacimiento: <strong>${dd} de ${meses[mm-1]} de ${anio}</strong> · Tu número no se guarda.`;
   hint.className = 'form-hint verde'; hint.textContent = 'Formato válido. Puedes continuar.';
   credValida = true; validarFormulario();
 }
@@ -801,45 +824,36 @@ async function enviarVoto() {
   const cred = tipoId==='ci'?document.getElementById('input-ci').value.trim():document.getElementById('input-pasaporte').value.trim();
   const eEl  = document.getElementById('error-msg');
   const eTxt = document.getElementById('error-texto');
-  if (!credValida){eTxt.textContent='La credencial no es válida.';eEl.classList.add('visible');return;}
-  if (!votoSel){eTxt.textContent='Selecciona una opción.';eEl.classList.add('visible');return;}
-  if (!document.getElementById('declaracion').checked){eTxt.textContent='Acepta la declaración de honor.';eEl.classList.add('visible');return;}
+  const error = (m) => { eTxt.textContent = m; eEl.classList.add('visible'); };
+  if (!credValida){ error('La credencial no es válida.'); return; }
+  if (!votoSel){ error('Selecciona una opción.'); return; }
+  if (!document.getElementById('declaracion').checked){ error('Acepta la declaración de honor.'); return; }
   eEl.classList.remove('visible');
 
-  const hash = await sha256(cred+tipoId);
+  const codigo = await sha256(cred+tipoId);
 
-  // Verificar doble voto — primero local (rápido), luego Supabase
-  if (hashYaVotoLocal(hash)) {
-    eTxt.textContent='Esta credencial ya fue utilizada para votar.';eEl.classList.add('visible');return;
-  }
-
-  // Deshabilitar botón mientras guarda
   const btn = document.getElementById('btn-votar');
+  const textoBtn = '<i class="fi fi-br-paper-plane"></i> Emitir voto';
   btn.disabled = true;
   btn.innerHTML = '<i class="fi fi-br-spinner" style="animation:spin .8s linear infinite;"></i> Registrando...';
 
+  let res = null;
   try {
-    // Verificar en Supabase
-    const existeRemoto = await sbHashExiste(hash);
-    if (existeRemoto) {
-      eTxt.textContent='Esta credencial ya fue utilizada para votar.';
-      eEl.classList.add('visible');
-      btn.disabled=false;
-      btn.innerHTML='<i class="fi fi-br-paper-plane"></i> Emitir voto anónimo';
-      return;
-    }
-
-    // Guardar en Supabase
-    await sbInsertarVoto(hash, votoSel, tipoId);
+    res = await sbRpc('consulta_votar', {
+      p_consulta: CONSULTA_ID, p_codigo: codigo, p_opcion: votoSel, p_tipo: tipoId,
+      p_pais: ubicacion.pais || null, p_provincia: ubicacion.provincia || null
+    });
   } catch (err) {
-    // Fallback: si Supabase falla, guardar solo en local con nota
-    console.warn('Supabase no disponible, guardando localmente:', err);
+    error('No se pudo registrar tu voto. Comprueba tu conexión e inténtalo de nuevo.');
+    btn.disabled = false; btn.innerHTML = textoBtn; return;
+  }
+  if (!res || !res.ok) {
+    const motivos = { duplicado: 'Esta credencial ya fue utilizada para votar.', credencial: 'La credencial no es válida.' };
+    error(motivos[res && res.error] || 'No se pudo registrar tu voto. Inténtalo de nuevo.');
+    btn.disabled = false; btn.innerHTML = textoBtn; return;
   }
 
-  // Siempre guardar localmente como respaldo
-  guardarVotoLocal(hash, votoSel);
-
-  document.getElementById('hash-display').textContent = hash;
+  document.getElementById('hash-display').textContent = codigo;
   document.getElementById('tab-votar').style.display = 'none';
   mostrarPantalla('confirmacion');
 }
@@ -851,66 +865,29 @@ document.head.appendChild(spinStyle);
 /* ══════════════════════════════════════════════════════════════
    SUPABASE HELPERS
 ══════════════════════════════════════════════════════════════ */
-async function sbFetch(method, path, body) {
-  const r = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-    method,
+async function sbRpc(fn, args) {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
+    method: 'POST',
     headers: {
       'Content-Type':  'application/json',
       'apikey':        SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`,
-      'Prefer':        method === 'POST' ? 'return=minimal' : ''
+      'Authorization': `Bearer ${SUPABASE_KEY}`
     },
-    body: body ? JSON.stringify(body) : undefined
+    body: JSON.stringify(args || {})
   });
-  if (!r.ok) throw new Error(`Supabase ${method} error: ${r.status}`);
-  return method === 'GET' ? r.json() : null;
+  if (!r.ok) throw new Error(`Supabase ${fn}: ${r.status}`);
+  return r.json();
 }
 
-async function sbHashExiste(hash) {
-  try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?credential_hash=eq.${encodeURIComponent(hash)}&select=id&limit=1`
-    );
-    return rows && rows.length > 0;
-  } catch { return false; }
-}
-
-async function sbInsertarVoto(hash, opcion, tipo) {
-  const payload = {
-    credential_hash: hash,
-    opcion,
-    tipo_credencial: tipo,
-    consulta_id: 'continuidad_2026_03_27'
-  };
-  if (ubicacion.pais)     payload.pais     = ubicacion.pais;
-  if (ubicacion.provincia) payload.provincia = ubicacion.provincia;
-  await sbFetch('POST', TABLA, payload);
-}
-
+// Totales calculados en el servidor. Devuelve null si no se pueden cargar.
+let ultimosResultados = null;
 async function sbContarVotos() {
   try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion,tipo_credencial`
-    );
-    const c = { continuidad: 0, cambio: 0, cuba: 0, extranjero: 0 };
-    rows.forEach(r => {
-      if (c[r.opcion] !== undefined) c[r.opcion]++;
-      if (r.tipo_credencial === 'ci') c.cuba++;
-      else c.extranjero++;
-    });
-    return c;
-  } catch { return { ...cargarVotosLocal(), cuba: 0, extranjero: 0 }; }
+    const j = await sbRpc('consulta_resultados', { p_consulta: CONSULTA_ID });
+    ultimosResultados = j;
+    return j;
+  } catch { return null; }
 }
-
-/* ── ALMACENAMIENTO LOCAL (fallback) ──────────────────────── */
-function cargarVotosLocal(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{continuidad:0,cambio:0};}catch{return{continuidad:0,cambio:0};} }
-function cargarHashesLocal(){ try{return JSON.parse(localStorage.getItem(HASH_LOG_KEY))||{};}catch{return{};} }
-function guardarVotoLocal(hash,op){ const v=cargarVotosLocal(),h=cargarHashesLocal(); v[op]++; h[hash]={opcion:op,ts:new Date().toISOString(),tipo:tipoId}; localStorage.setItem(STORAGE_KEY,JSON.stringify(v)); localStorage.setItem(HASH_LOG_KEY,JSON.stringify(h)); }
-function hashYaVotoLocal(hash){ return !!cargarHashesLocal()[hash]; }
-/* alias for compatibility */
-function cargarVotos(){ return cargarVotosLocal(); }
-function hashYaVoto(hash){ return hashYaVotoLocal(hash); }
-
 function mostrarPantalla(p) {
   ['voto','confirmacion','resultados','social','mapa'].forEach(id=>document.getElementById('pantalla-'+id).classList.remove('activa'));
   document.getElementById('pantalla-'+p).classList.add('activa');
@@ -922,8 +899,13 @@ function mostrarPantalla(p) {
 }
 
 async function actualizarResultados() {
-  // Intentar Supabase, fallback a local
   const v = await sbContarVotos();
+  const aviso = document.getElementById('resultados-error');
+  if (!v) {
+    if (aviso) aviso.hidden = false;
+    return;
+  }
+  if (aviso) aviso.hidden = true;
   const total = v.continuidad + v.cambio;
   document.getElementById('total-votos').textContent = total;
   document.getElementById('val-continuidad').textContent = v.continuidad;
@@ -936,27 +918,22 @@ async function actualizarResultados() {
   },80);
   document.getElementById('pct-continuidad').textContent=pC+'%';
   document.getElementById('pct-cambio').textContent=pCh+'%';
-  // Cuba vs. Extranjero breakdown
   if(document.getElementById('val-cuba')) document.getElementById('val-cuba').textContent = v.cuba || 0;
   if(document.getElementById('val-extranjero')) document.getElementById('val-extranjero').textContent = v.extranjero || 0;
 }
 
 function exportarCSV() {
-  const v=cargarVotos(),h=cargarHashes(),total=v.continuidad+v.cambio;
-  let csv='ENTRE TODOS — Consulta Popular Cuba 2026\nExportado: '+new Date().toLocaleString('es-ES')+'\n\nOpcion,Votos,Porcentaje\n';
-  csv+=`Continuidad,${v.continuidad},${total?Math.round(v.continuidad/total*100):0}%\n`;
-  csv+=`Cambio,${v.cambio},${total?Math.round(v.cambio/total*100):0}%\n`;
-  csv+=`Total,${total},100%\n\nHash SHA-256,Opcion,TipoCredencial,Timestamp\n`;
-  for(const[hash,d]of Object.entries(h))csv+=`${hash},${d.opcion},${d.tipo||'ci'},${d.ts}\n`;
-  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
-  a.download='consulta-popular-cuba-2026.csv'; a.click();
+  const v = ultimosResultados;
+  if (!v) { alertaResultados(); return; }
+  const total = v.continuidad + v.cambio;
+  let csv = 'ENTRE TODOS — Consulta Popular Cuba 2026\nDescargado: ' + new Date().toLocaleString('es-ES') + '\n\nOpcion,Votos,Porcentaje\n';
+  csv += `Continuidad,${v.continuidad},${total?Math.round(v.continuidad/total*100):0}%\n`;
+  csv += `Cambio,${v.cambio},${total?Math.round(v.cambio/total*100):0}%\n`;
+  csv += `Total,${total},100%\n\nTipo de documento,Votos\nCarné de identidad,${v.cuba}\nPasaporte u otro,${v.extranjero}\n`;
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8;'}));
+  a.download = 'consulta-popular-cuba-2026-totales.csv'; a.click();
 }
-
-function limpiarDatos() {
-  if(!confirm('¿Borrar todos los datos de prueba?'))return;
-  localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(HASH_LOG_KEY); location.reload();
-}
-
+function alertaResultados() { const aviso = document.getElementById('resultados-error'); if (aviso) aviso.hidden = false; }
 /* ── UBICACIÓN OPCIONAL ───────────────────────────────────── */
 let ubicacion = { pais: null, provincia: null };
 
@@ -967,6 +944,7 @@ let mapaObj = null;
 async function initMapa() {
   // Actualizar stats
   const v = await sbContarVotos();
+  if (!v) return;
   const cuba = v.cuba || 0;
   const diaspora = v.extranjero || 0;
   if(document.getElementById('mapa-val-cuba'))   document.getElementById('mapa-val-cuba').textContent   = cuba;
@@ -1009,16 +987,8 @@ async function initMapa() {
 
 async function cargarDesglosePais() {
   try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=pais,provincia&pais=not.is.null`
-    );
-    if (!rows || rows.length === 0) return;
-
-    // Aggregate by country
-    const paises = {};
-    rows.forEach(r => {
-      if (r.pais) paises[r.pais] = (paises[r.pais] || 0) + 1;
-    });
+    const paises = (ultimosResultados && ultimosResultados.paises) || {};
+    if (Object.keys(paises).length === 0) return;
 
     // Show breakdown
     const desglose = document.getElementById('mapa-pais-desglose');

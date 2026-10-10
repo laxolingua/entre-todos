@@ -94,6 +94,8 @@ a{text-decoration:none;color:inherit}
   </div>
 </div>
 <script>
+function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
 const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
 const MEMBER_ID=new URLSearchParams(location.search).get('id');
@@ -129,8 +131,8 @@ function renderMember(member){
   document.getElementById('member-avatar').textContent=initials(member.display_name||member.full_name);
   document.getElementById('member-name').textContent=member.full_name || 'Miembro';
   document.getElementById('member-handle').textContent=member.display_name || 'Miembro visible';
-  document.getElementById('member-location').innerHTML='<i class="fi fi-br-marker"></i> '+(member.city||'Ciudad')+', '+(member.country||'País');
-  document.getElementById('member-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+(member.origin||'No indicado');
+  document.getElementById('member-location').innerHTML='<i class="fi fi-br-marker"></i> '+escHtml(member.city||'Ciudad')+', '+escHtml(member.country||'País');
+  document.getElementById('member-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+escHtml(member.origin||'No indicado');
   document.getElementById('member-bio').textContent=member.bio || 'Miembro activo dentro de ENTRE TODOS.';
   document.getElementById('member-cause').textContent=member.cause || 'Participación ciudadana';
   document.getElementById('bar-main').textContent=member.cause || 'Participación ciudadana';

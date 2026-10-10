@@ -1206,7 +1206,7 @@ function submitNewMin(){
   list.appendChild(item);
   document.getElementById('nmt').value='';
   document.getElementById('nmn').value='';
-  document.getElementById('sp').textContent=PROPS.length+newProps.length;
+  if(document.getElementById('sp'))document.getElementById('sp').textContent=PROPS.length+newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
   toast('Requisito propuesto. Si recibe 3+ estrellas se integrará.');
 }
@@ -1456,7 +1456,7 @@ async function sbQuery(table, opts={}){
     'apikey': SUPABASE_ANON_KEY,
     'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
     'Content-Type': 'application/json',
-    'Prefer': opts.upsert ? 'resolution=merge-duplicates,return=representation' : 'return=representation'
+    'Prefer': opts.minimal ? 'return=minimal' : (opts.upsert ? 'resolution=merge-duplicates,return=representation' : 'return=representation')
   };
   let url = SUPABASE_URL + '/rest/v1/' + table;
   const params = new URLSearchParams();
@@ -1490,6 +1490,70 @@ function getOrCreateDeviceToken(){
   return t;
 }
 
+
+// ── Identificador del dispositivo cifrado ─────────────────────────────────
+// En la base de datos el identificador del dispositivo se guarda cifrado (SHA-256).
+// Para saber qué es "mío" se compara con el mismo cifrado del identificador local.
+function sha256Hex(ascii){
+  function rr(v,a){return (v>>>a)|(v<<(32-a));}
+  const mp=Math.pow, maxWord=mp(2,32); let result='', words=[], i, j;
+  const asciiBitLength=ascii.length*8;
+  const hash=[], k=[]; let primeCounter=0; const isComposite={};
+  for(let candidate=2; primeCounter<64; candidate++){
+    if(!isComposite[candidate]){
+      for(i=0;i<313;i+=candidate) isComposite[i]=candidate;
+      hash[primeCounter]=(mp(candidate,.5)*maxWord)|0;
+      k[primeCounter++]=(mp(candidate,1/3)*maxWord)|0;
+    }
+  }
+  const h=hash.slice(0,8);
+  ascii+='\x80';
+  while(ascii.length%64-56) ascii+='\x00';
+  for(i=0;i<ascii.length;i++){
+    j=ascii.charCodeAt(i);
+    if(j>>8) return '';
+    words[i>>2]|=j<<((3-i)%4)*8;
+  }
+  words[words.length]=((asciiBitLength/maxWord)|0);
+  words[words.length]=(asciiBitLength);
+  for(j=0;j<words.length;){
+    const w=words.slice(j,j+=16); const oldHash=h.slice(0);
+    let hh=h;
+    for(i=0;i<64;i++){
+      const w15=w[i-15], w2=w[i-2];
+      const a=hh[0], e=hh[4];
+      const temp1=hh[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hh[5])^((~e)&hh[6]))+k[i]
+        +(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0);
+      const temp2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hh[1])^(a&hh[2])^(hh[1]&hh[2]));
+      hh=[(temp1+temp2)|0].concat(hh); hh[4]=(hh[4]+temp1)|0; hh.length=8;
+    }
+    for(i=0;i<8;i++) h[i]=(hh[i]+oldHash[i])|0;
+  }
+  for(i=0;i<8;i++) for(j=3;j+1;j--){ const b=(h[i]>>(j*8))&255; result+=((b<16)?'0':'')+b.toString(16); }
+  return result;
+}
+let _ownerId=null;
+function getOwnerId(){ if(!_ownerId) _ownerId=sha256Hex(getOrCreateDeviceToken()); return _ownerId; }
+
+// Llamada a funciones del servidor (escrituras). Devuelve {ok,...} o null si falla la red.
+async function sbRpc(fn, args){
+  if(!SUPABASE_ENABLED) return null;
+  try{
+    const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+      method:'POST',
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json'},
+      body: JSON.stringify(args||{})
+    });
+    if(!res.ok){ console.warn('Supabase rpc error:', res.status, fn); return null; }
+    return await res.json();
+  }catch(e){ return null; }
+}
+function safeUrl(u){
+  u=(u||'').trim(); if(!u) return '';
+  if(!/^https?:\/\//i.test(u)) u='https://'+u;
+  return escHtml(u);
+}
+
 function getOrCreateSessionToken(){
   let t = sessionStorage.getItem('et_session_token');
   if(!t){
@@ -1510,7 +1574,7 @@ async function logEtEvent(eventType, meta={}){
   if(!SUPABASE_ENABLED) return null;
   try{
     return await sbQuery('et_event_log', {
-      insert:true,
+      insert:true, minimal:true,
       body:{
         event_type: eventType,
         session_token: getOrCreateSessionToken(),
@@ -1777,7 +1841,7 @@ async function loadVotesFromBackend(){
   try {
     const rows = await sbQuery('votes', { select: 'proposal_id,score,device_token' });
     if(!rows || !Array.isArray(rows)) return;
-    const devToken = getOrCreateDeviceToken();
+    const devToken = getOwnerId();
     const agg = {};
     rows.forEach(r=>{
       if(!agg[r.proposal_id]) agg[r.proposal_id]={count:0,total:0,my:0};
@@ -1815,12 +1879,12 @@ async function loadAllFromBackend(){
         if(!r.proposal_id) return;
         if(!feedbacks[r.proposal_id]) feedbacks[r.proposal_id] = [];
         // Avoid duplicates
-        const exists = feedbacks[r.proposal_id].some(f => f.text === r.content && f.author === r.author_name);
+        const exists = feedbacks[r.proposal_id].some(f => f.text === escHtml(r.content) && f.author === escHtml(r.author_name));
         if(!exists){
           feedbacks[r.proposal_id].push({
             type: r.type || 'adicion',
-            text: r.content || '',
-            author: r.author_name || 'Anonimo'
+            text: escHtml(r.content || ''),
+            author: escHtml(r.author_name || 'Anonimo')
           });
           tF++;
         }
@@ -1842,7 +1906,7 @@ async function loadAllFromBackend(){
     if(cpRows && Array.isArray(cpRows) && cpRows.length > 0){
       cpRows.forEach((r, i) => {
         const nid = 'CP_' + i;
-        if(newProps.some(p => p.text === r.content)) return;
+        if(newProps.some(p => p.text === escHtml(r.content || ''))) return;
         // Skip rejected proposals
         if(r.estado === 'rejected') return;
         // If category is Z, try auto-reclassify client-side
@@ -1854,9 +1918,9 @@ async function loadAllFromBackend(){
           sbId: r.id,
           cat: resolvedCat,
           noVote: false,
-          text: r.content || '',
-          author: r.author_name || 'Anonimo',
-          social: r.social_link || '',
+          text: escHtml(r.content || ''),
+          author: escHtml(r.author_name || 'Anonimo'),
+          social: escHtml(r.social_link || ''),
           citizen: true,
           ownerToken: r.device_token || '',
           status: r.estado || 'active',
@@ -1876,7 +1940,7 @@ async function loadAllFromBackend(){
         const newList = document.getElementById('new-list');
         if(newList) newList.appendChild(mkCard(prop));
       });
-      document.getElementById('sp').textContent = PROPS.length + newProps.length;
+      if(document.getElementById('sp')) document.getElementById('sp').textContent = PROPS.length + newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length + newProps.length;
       updS();
     }
@@ -1884,8 +1948,9 @@ async function loadAllFromBackend(){
 }
 
 
-// ── ADMIN MODE — acceso: ?admin=entretodos2026 ────────────────────────
-const IS_ADMIN=(new URLSearchParams(window.location.search).get('admin')==='entretodos2026');
+// ── ADMIN MODE (desactivado) ────────────────────────
+// El modo administración desde el navegador queda desactivado: la moderación se hace en el servidor.
+const IS_ADMIN=false;
 
 // ── GOVERNANCE CONSTANTS ──────────────────────────────────────────
 const DELETE_VOTE_THRESHOLD = 5; // Max votes before hard-delete is blocked
@@ -1995,7 +2060,7 @@ async function showAdminPanel(){
 // DOCUMENT IMPORT SYSTEM (IA + Groq)
 // ══════════════════════════════════════════════════════════════════════════
 
-const GROQ_KEY = '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';
+const GROQ_KEY = ''; // La clave ya no se publica en el navegador. La clasificación automática está desactivada.
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
 
 const CAT_NAMES_FULL = {
@@ -2125,6 +2190,8 @@ ${truncated}`;
 }
 
 async function startImport() {
+  toast('La clasificación automática de documentos está desactivada. Envía tu documento a sosplanet@gmail.com.', 'e');
+  return;
   if (!impFile) { toast('Primero selecciona un documento', 'e'); return; }
   const nombre = document.getElementById('imp-nombre').value.trim();
   const email = document.getElementById('imp-email').value.trim();
@@ -2392,7 +2459,7 @@ function injectCitizenCards(cat, proposals) {
     const stars = p.votos_cnt > 0 ? (p.votos_suma / p.votos_cnt).toFixed(1) : null;
     const starsHtml = stars ? '<span style="color:#f5a623;font-size:.8rem;">★ ' + stars + '</span> <span style="font-size:.7rem;color:#aaa;">(' + p.votos_cnt + ' votos)</span>' : '';
     const newHtml = p.es_nueva ? '<span class="new-badge"><i class="fi fi-br-sparkles"></i> Nueva</span>' : '';
-    const orgHtml = p.autor_org ? ' · <a href="' + (p.autor_web||'#') + '" target="_blank" rel="noopener noreferrer" style="color:var(--rojo);text-decoration:none;">' + escHtml(p.autor_org) + '</a>' : '';
+    const orgHtml = p.autor_org ? ' · <a href="' + (safeUrl(p.autor_web)||'#') + '" target="_blank" rel="noopener noreferrer" style="color:var(--rojo);text-decoration:none;">' + escHtml(p.autor_org) + '</a>' : '';
     card.innerHTML =
       '<div class="card-top" style="padding:12px 14px;">' +
         '<span class="citizen-badge"><i class="fi fi-br-user"></i> Ciudadano</span>' + newHtml +
@@ -2443,10 +2510,10 @@ window.addEventListener('DOMContentLoaded',()=>{
   buildRefs();
   buildHamMenu();
   restoreSession();
-  document.getElementById('sp').textContent=PROPS.length;
+  if(document.getElementById('sp'))document.getElementById('sp').textContent=PROPS.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length;
-  document.getElementById('res-date').textContent=new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'});
-  window.addEventListener('scroll',()=>document.getElementById('scrT').classList.toggle('vis',scrollY>400));
+  if(document.getElementById('res-date'))document.getElementById('res-date').textContent=new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'});
+  window.addEventListener('scroll',()=>{const s=document.getElementById('scrT'); if(s) s.classList.toggle('vis',scrollY>400);});
   // Hash deep-link: si llegas con #cat-X (X = 0,N,A..M,SOBRE,REFS,NEW,RES,DOC) activa esa categoría/tab
   // en lugar del Sobre por defecto, y scrollea a la sección.
   const _hashId = (location.hash || '').match(/^#cat-([0-9A-Z]+)$/i);
@@ -2591,7 +2658,7 @@ function mkCard(p){
   // Owner action buttons (edit / delete) for citizen proposals
   let ownerActionsHtml = '';
   if(p.citizen && p.status !== 'retired'){
-    const myToken = getOrCreateDeviceToken();
+    const myToken = getOwnerId();
     const isOwner = IS_ADMIN || (p.ownerToken && p.ownerToken === myToken);
     if(isOwner){
       const vCount = (votes[p.id]||{count:0}).count;
@@ -2635,7 +2702,7 @@ function castV(pid,s){
   // Sync to Supabase
   const _dt=getOrCreateDeviceToken();
   const _sc=Object.keys(checks).filter(k=>k.startsWith(pid+'-')&&checks[k]>0).map(k=>k.replace(pid+'-',''));
-  sbQuery('votes',{upsert:true,body:{device_token:_dt,proposal_id:pid,score:vd.my,selected_clauses:_sc,updated_at:new Date().toISOString()}}).catch(()=>{});
+  sbRpc('et_votar',{p_token:_dt,p_propuesta:pid,p_puntos:vd.my,p_incisos:_sc}).then(r=>{ if(!r||!r.ok) toast('Tu voto no se pudo guardar en el servidor. Inténtalo de nuevo.','e'); });
   logEtEvent('proposal_vote',{
     proposal_id: pid,
     category_code: (PROPS.find(p=>p.id===pid)||newProps.find(p=>p.id===pid)||{}).cat || null,
@@ -2675,7 +2742,7 @@ function mkFbInner(pid){
       const btxt=fb.type==='critica'?'Critica':fb.type==='adicion'?'Adicion':'Nuevo punto';
       h+=`<div class="fbitem">
         <span class="fbbadge ${btype}">${btxt}</span>
-        <div class="fbbody"><div class="fbtx">${fb.text}</div><div class="fbmeta">&#8212; ${fb.author}${intg?' <span class="intg">&#10003; Integrado</span>':''}</div></div>
+        <div class="fbbody"><div class="fbtx">${fb.text}</div><div class="fbmeta">&#8212; ${fb.author}</div></div>
         <div class="fbstars">${fst}</div>
       </div>`;
     });
@@ -2713,13 +2780,13 @@ function subFb(pid){
   const name=anon?'Anonimo':(document.getElementById('fbn-'+pid).value.trim()||'Anonimo');
   if(!txt){toast('Escribe algo antes de enviar','e');return;}
   if(!feedbacks[pid])feedbacks[pid]=[];
-  feedbacks[pid].push({type,text:txt,author:name});
+  feedbacks[pid].push({type,text:escHtml(txt),author:escHtml(name)});
   tF++;
   document.getElementById('fb-'+pid).innerHTML=mkFbInner(pid);
   const cnt=feedbacks[pid].length;
   document.getElementById('fbt-'+pid).textContent='Aportar ('+cnt+')';
   updS(); toast('Aporte enviado. Gracias.');
-  sbQuery('feedbacks',{insert:true,body:{proposal_id:pid,device_token:getOrCreateDeviceToken(),type,content:txt,author_name:name}}).catch(()=>{});
+  sbRpc('et_aportar',{p_token:getOrCreateDeviceToken(),p_propuesta:pid,p_tipo:type,p_texto:txt,p_autor:name}).then(r=>{ if(!r||!r.ok) toast('Tu aporte no se pudo guardar en el servidor. Inténtalo de nuevo.','e'); });
   logEtEvent('proposal_comment_submit',{
     proposal_id: pid,
     category_code: (PROPS.find(p=>p.id===pid)||newProps.find(p=>p.id===pid)||{}).cat || null,
@@ -2730,8 +2797,8 @@ function rateFb(pid,fi,s){
   const key=pid+'-'+fi;
   fbRatings[key]=fbRatings[key]===parseInt(s)?0:parseInt(s);
   document.getElementById('fb-'+pid).innerHTML=mkFbInner(pid);
-  toast(fbRatings[key]>=3?'Aporte integrado':'Voto registrado');
-  sbQuery('feedback_ratings',{upsert:true,body:{feedback_id:pid+'_'+fi,device_token:getOrCreateDeviceToken(),score:fbRatings[key]}}).catch(()=>{});
+  toast('Valoración registrada');
+  sbRpc('et_valorar_aporte',{p_token:getOrCreateDeviceToken(),p_aporte:pid+'_'+fi,p_puntos:fbRatings[key]});
 }
 
 // NEW PROPOSALS
@@ -2746,14 +2813,14 @@ function submitNew(){
   if(!cat){ cat=detectCategory(txt); }
   const nid='N'+(newProps.length+1);
   const myToken=getOrCreateDeviceToken();
-  newProps.push({id:nid,cat,text:txt,author:name,social:social,citizen:true,ownerToken:myToken});
+  newProps.push({id:nid,cat,text:escHtml(txt),author:escHtml(name),social:escHtml(social),citizen:true,ownerToken:getOwnerId()});
   votes[nid]={my:0,count:0,total:0};
   const list=document.getElementById('new-list');
   const item=document.createElement('div'); item.className='new-item';
   item.innerHTML=
     (cat?`<div class="ncbadge">Cat. ${cat}</div>`:'')
-    +`<div style="font-size:.87rem;color:#222;line-height:1.5;">${txt}</div>`
-    +`<div style="font-size:.7rem;color:#aaa;margin-top:3px;">&#8212; ${name} &middot; Propuesta ciudadana #${newProps.length}</div>`
+    +`<div style="font-size:.87rem;color:#222;line-height:1.5;">${escHtml(txt)}</div>`
+    +`<div style="font-size:.7rem;color:#aaa;margin-top:3px;">&#8212; ${escHtml(name)} &middot; Propuesta ciudadana #${newProps.length}</div>`
     +`<div style="display:flex;align-items:center;gap:9px;margin-top:8px;">`
     +`<span style="font-size:.73rem;color:var(--gt);font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Apoyo:</span>`
     +`<div class="stars" id="st-${nid}">`
@@ -2764,12 +2831,13 @@ function submitNew(){
     +`<span class="vpct" id="pct-${nid}">0%</span></div>`;
   list.appendChild(item);
   document.getElementById('nt').value=''; document.getElementById('nn').value=''; document.getElementById('nc').value='';
-  document.getElementById('sp').textContent=PROPS.length+newProps.length;
+  if(document.getElementById('sp'))document.getElementById('sp').textContent=PROPS.length+newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
-  toast('Propuesta enviada. Gracias.');
-  sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name,social_link:social}})
-    .then(rows=>{ if(rows&&rows[0]&&rows[0].id){ const p=newProps.find(x=>x.id===nid); if(p) p.sbId=rows[0].id; } })
-    .catch(()=>{});
+  sbRpc('et_proponer',{p_token:myToken,p_texto:txt,p_categoria:cat||null,p_autor:name,p_enlace:social})
+    .then(r=>{
+      if(r&&r.ok){ const p=newProps.find(x=>x.id===nid); if(p) p.sbId=r.id; toast('Propuesta enviada. Queda pendiente de revisión.'); }
+      else toast('Tu propuesta no se pudo guardar en el servidor. Inténtalo de nuevo.','e');
+    });
   logEtEvent('proposal_submit',{
     category_code: cat || null,
     proposal_id: nid,
@@ -2940,9 +3008,8 @@ function updLiveDoc(){
 
 // STATS & PROGRESS
 function updS(){
-  document.getElementById('sv').textContent=tV;
-  document.getElementById('sf').textContent=tF;
-  document.getElementById('sc').textContent=tC;
+  const s=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
+  s('sv',tV); s('sf',tF); s('sc',tC);
 }
 function updP(){
   ['0','N','A','B','C','D','E','F','G','H','I','J','K','L','M'].forEach(cat=>{
@@ -2961,7 +3028,7 @@ async function renderRes(){
     try{
       const rows=await sbQuery('votes',{select:'proposal_id,score,device_token'});
       if(rows&&Array.isArray(rows)){
-        const devToken=getOrCreateDeviceToken(); const agg={};
+        const devToken=getOwnerId(); const agg={};
         rows.forEach(r=>{
           if(!agg[r.proposal_id])agg[r.proposal_id]={count:0,total:0,my:0};
           if(r.score>0){agg[r.proposal_id].count++;agg[r.proposal_id].total+=r.score;}
@@ -3101,7 +3168,7 @@ let _cpEditTargetId = null; // proposal id being edited
 function openCpEditModal(propId){
   const p = newProps.find(x=>x.id===propId) || PROPS.find(x=>x.id===propId);
   if(!p){ toast('No se encontró la propuesta','e'); return; }
-  const myToken = getOrCreateDeviceToken();
+  const myToken = getOwnerId();
   if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
     toast('Solo el autor puede editar esta propuesta','e'); return;
   }
@@ -3137,7 +3204,7 @@ function refreshCitizenCard(propId, removed){
     }
   });
   // Update proposal counter
-  document.getElementById('sp').textContent = PROPS.length + newProps.length;
+  if(document.getElementById('sp')) document.getElementById('sp').textContent = PROPS.length + newProps.length;
   if(document.getElementById('banner-total'))document.getElementById('banner-total').textContent=PROPS.length + newProps.length;
 }
 
@@ -3151,7 +3218,7 @@ async function saveCpEdit(){
   const p = newProps.find(x=>x.id===_cpEditTargetId);
   if(!p){ toast('Propuesta no encontrada','e'); closeCpModal(); return; }
 
-  const myToken = getOrCreateDeviceToken();
+  const myToken = getOwnerId();
   if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
     toast('No autorizado','e'); closeCpModal(); return;
   }
@@ -3159,9 +3226,9 @@ async function saveCpEdit(){
   const oldCat = p.cat;
 
   // Optimistic update: mutate state first
-  p.text   = newText;
+  p.text   = escHtml(newText);
   p.cat    = newCat;
-  p.social = newSocial;
+  p.social = escHtml(newSocial);
 
   // If category changed, move the card to the new section
   if(oldCat !== newCat){
@@ -3189,11 +3256,8 @@ async function saveCpEdit(){
 
   // Persist to Supabase (rollback not needed — text is already saved locally)
   if(p.sbId){
-    sbQuery('citizen_proposals',{
-      update: true,
-      match: {id: p.sbId},
-      body: {content: newText, category: newCat, social_link: newSocial, updated_at: new Date().toISOString()}
-    }).catch(()=>{ toast('Guardado localmente — error de red al sincronizar','e'); });
+    sbRpc('et_editar_propuesta',{p_token:getOrCreateDeviceToken(),p_id:p.sbId,p_texto:newText,p_categoria:newCat,p_enlace:newSocial})
+      .then(r=>{ if(!r||!r.ok) toast('El cambio no se pudo guardar en el servidor.','e'); });
   }
 
   toast('Propuesta actualizada ✅');
@@ -3203,7 +3267,7 @@ async function saveCpEdit(){
 async function deleteCpProposal(propId){
   const p = newProps.find(x=>x.id===propId);
   if(!p){ toast('No encontrada','e'); return; }
-  const myToken = getOrCreateDeviceToken();
+  const myToken = getOwnerId();
   if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
     toast('Solo el autor puede eliminar esta propuesta','e'); return;
   }
@@ -3222,15 +3286,15 @@ async function deleteCpProposal(propId){
 
   // Persist (fire and forget — already removed locally)
   if(p.sbId){
-    sbQuery('citizen_proposals',{delete:true, match:{id:p.sbId}})
-      .catch(()=>{ toast('Eliminada localmente — error de red al sincronizar','e'); });
+    sbRpc('et_borrar_propuesta',{p_token:getOrCreateDeviceToken(),p_id:p.sbId})
+      .then(r=>{ if(!r||!r.ok) toast('No se pudo eliminar en el servidor.','e'); });
   }
 }
 
 async function retireCpProposal(propId){
   const p = newProps.find(x=>x.id===propId);
   if(!p){ toast('No encontrada','e'); return; }
-  const myToken = getOrCreateDeviceToken();
+  const myToken = getOwnerId();
   if(!IS_ADMIN && p.ownerToken && p.ownerToken !== myToken){
     toast('Solo el autor puede retirar esta propuesta','e'); return;
   }
@@ -3243,16 +3307,13 @@ async function retireCpProposal(propId){
 
   // Persist
   if(p.sbId){
-    sbQuery('citizen_proposals',{
-      update: true,
-      match: {id: p.sbId},
-      body: {estado: 'retired', updated_at: new Date().toISOString()}
-    }).catch(()=>{ toast('Retirada localmente — error de red al sincronizar','e'); });
+    sbRpc('et_retirar_propuesta',{p_token:getOrCreateDeviceToken(),p_id:p.sbId})
+      .then(r=>{ if(!r||!r.ok) toast('No se pudo retirar en el servidor.','e'); });
   }
 }
 
 // Close modal when clicking overlay background
-document.getElementById('cp-modal-overlay').addEventListener('click', function(e){
+if(document.getElementById('cp-modal-overlay')) document.getElementById('cp-modal-overlay').addEventListener('click', function(e){
   if(e.target === this) closeCpModal();
 });
 

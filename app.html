@@ -634,8 +634,8 @@ body {
     <strong>3 pasos:</strong>
     <br><br>
     1. Selecciona la consulta o propuesta activa.<br>
-    2. Ingresa tu carné de identidad o pasaporte — se convierte en un código anónimo (SHA-256) y nunca se almacena.<br>
-    3. Vota. Tu participación queda registrada de forma anónima e irreversible.
+    2. Ingresa tu carné de identidad o pasaporte — tu navegador lo convierte en un código y el número no se guarda.<br>
+    3. Vota. Se registra tu voto sin tu nombre y solo se publican totales.
     <br><br>
     Tu identidad nunca se guarda. Solo el hash criptográfico para evitar votos dobles.
   </div>
@@ -731,10 +731,12 @@ const SB_KEY = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
 
 async function loadCounter() {
   try {
-    const r = await fetch(`${SB_URL}/rest/v1/consulta_continuidad_votos?select=id`, {
-      headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'count=exact', 'Range': '0-0' }
+    const r = await fetch(`${SB_URL}/rest/v1/rpc/consulta_resultados`, {
+      method: 'POST',
+      headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_consulta: 'continuidad_2026_03_27' })
     });
-    const count = r.headers.get('content-range')?.split('/')?.[1];
+    const count = r.ok ? (await r.json()).total : null;
     if (count) {
       document.getElementById('counter-live').textContent = `${count} cubanos han participado`;
     } else {

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transparencia — ENTRE TODOS · Cómo protegemos tu identidad</title>
-<meta name="description" content="Cómo ENTRE TODOS protege la identidad de quienes participan: hash SHA-256 local, sin nombres, sin registros, código auditable. Explicación clara, no legal.">
+<meta name="description" content="Cómo ENTRE TODOS protege a quienes participan: el número del documento no se guarda, el código se cifra con clave secreta y solo se publican totales.">
 <meta name="theme-color" content="#002F80">
 
 <!-- Open Graph -->
@@ -258,11 +258,11 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
 <section class="hero">
   <div class="hero-wrap">
     <div class="hero-kicker"><span class="dot"></span> Transparencia &nbsp;·&nbsp; Cómo protegemos tu identidad</div>
-    <h1>Tu voto es tuyo. Tu identidad <em>nunca</em> sale de tu dispositivo.</h1>
-    <p class="hero-sub">Esta página explica, sin lenguaje legal, cómo ENTRE TODOS registra una participación sin aprender nunca quién la hizo. Es la respuesta concreta a una pregunta legítima: ¿por qué debería confiar en una plataforma que me pide el carné?</p>
+    <h1>Tu voto es tuyo. Tu número de documento <em>no</em> sale de tu dispositivo.</h1>
+    <p class="hero-sub">Esta página explica, sin lenguaje legal, qué hace ENTRE TODOS con tus datos cuando participas, y también qué límites tiene. Es la respuesta a una pregunta legítima: ¿por qué debería confiar en una plataforma que me pide el carné?</p>
     <div class="hero-pills">
-      <div class="hero-pill"><i class="fi fi-br-lock"></i> Hash SHA-256 local</div>
-      <div class="hero-pill"><i class="fi fi-br-cross-small"></i> Sin nombres, sin registros</div>
+      <div class="hero-pill"><i class="fi fi-br-lock"></i> Código cifrado con clave secreta</div>
+      <div class="hero-pill"><i class="fi fi-br-cross-small"></i> Sin nombres para votar</div>
       <div class="hero-pill"><i class="fi fi-br-globe"></i> Desde cualquier país</div>
       <div class="hero-pill"><i class="fi fi-br-smartphone"></i> Cualquier dispositivo</div>
     </div>
@@ -275,13 +275,13 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
     <div class="claims-grid">
       <div class="claim">
         <div class="claim-icon"><i class="fi fi-br-shield-check"></i></div>
-        <div class="claim-title">Infraestructura encriptada de extremo a extremo</div>
-        <div class="claim-text">Tu conexión al servidor y cada pieza de datos viajan cifradas. Nadie puede interceptarlas en el camino.</div>
+        <div class="claim-title">Conexión cifrada</div>
+        <div class="claim-text">Todo viaja por HTTPS entre tu navegador y nuestros servidores. Quien vigile la red ve que te conectas, pero no lo que envías.</div>
       </div>
       <div class="claim">
         <div class="claim-icon"><i class="fi fi-br-eye-crossed"></i></div>
-        <div class="claim-title">Sin nombres. Sin registros.</div>
-        <div class="claim-text">No pedimos tu nombre. No creamos cuentas. Solo llega al servidor un código irreversible que no identifica a nadie.</div>
+        <div class="claim-title">Sin nombres para votar</div>
+        <div class="claim-text">Para votar no pedimos tu nombre ni creamos cuentas. Al servidor solo llega un código, que se vuelve a cifrar con una clave secreta antes de guardarse.</div>
       </div>
       <div class="claim">
         <div class="claim-icon"><i class="fi fi-br-globe"></i></div>
@@ -302,7 +302,7 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
   <div class="shell">
     <div class="sec-label">01 · El proceso técnico</div>
     <h2 class="sec-title">Qué pasa, paso a paso, cuando introduces tu <em>carné</em> o pasaporte</h2>
-    <p class="sec-sub">Estos cuatro pasos ocurren en tu propio navegador. El número original no se transmite a ningún servidor. Lo que llega a ENTRE TODOS es un código matemático del que no se puede recuperar el número.</p>
+    <p class="sec-sub">Los tres primeros pasos ocurren en tu navegador; el cuarto, en el servidor. El número original no se envía a ningún sitio.</p>
 
     <div class="hash-steps">
       <div class="hash-step">
@@ -314,29 +314,32 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
       <div class="hash-step">
         <span class="hash-step-num">2</span>
         <div class="hash-step-icon"><i class="fi fi-br-cogs"></i></div>
-        <h3>Tu navegador lo encripta</h3>
-        <p>El navegador aplica SHA-256 localmente. Esta operación no requiere conexión. El número se convierte en un código de 64 caracteres.</p>
+        <h3>Tu navegador lo convierte en un código</h3>
+        <p>El navegador aplica SHA-256 en tu dispositivo. El número se convierte en un código de 64 caracteres.</p>
       </div>
       <div class="hash-step">
         <span class="hash-step-num">3</span>
         <div class="hash-step-icon"><i class="fi fi-br-paper-plane"></i></div>
         <h3>Solo viaja el código</h3>
-        <p>A nuestro servidor solo llega ese hash de 64 caracteres. El número original nunca sale de tu dispositivo.</p>
+        <p>A nuestro servidor solo llega ese código, por conexión cifrada. El número original no sale de tu dispositivo.</p>
       </div>
       <div class="hash-step">
         <span class="hash-step-num">4</span>
-        <div class="hash-step-icon"><i class="fi fi-br-trash"></i></div>
-        <h3>El original se descarta</h3>
-        <p>Cuando cierras la pestaña, el número desaparece con la memoria del navegador. No existe en ninguna base de datos.</p>
+        <div class="hash-step-icon"><i class="fi fi-br-key"></i></div>
+        <h3>El servidor lo cifra otra vez</h3>
+        <p>Antes de guardarlo, el servidor cifra el código con una clave secreta (HMAC). Solo se guarda ese resultado; tu número no existe en ninguna base de datos.</p>
       </div>
     </div>
 
     <div class="hash-example">
       <span class="label">Ejemplo con un número ficticio</span>
       <span class="value-in">83022712345</span>
-      <span class="arrow">─── SHA-256 local en tu navegador ───►</span>
-      <span class="label">Esto es lo único que recibe el servidor</span>
+      <span class="arrow">─── SHA-256 en tu navegador ───►</span>
+      <span class="label">Esto es lo que recibe el servidor</span>
       <span class="value-out">c0ff1e9a3b4d7e8f2a1b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f</span>
+      <span class="arrow">─── cifrado con clave secreta en el servidor ───►</span>
+      <span class="label">Esto es lo que se guarda</span>
+      <span class="value-out">5d1e90b2c47a8f13e6b0d29a7c41f8e3b25d6a9c0e7f14b38d92a5c6e1f07b4a</span>
     </div>
   </div>
 </section>
@@ -346,16 +349,16 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
   <div class="shell">
     <div class="sec-label">02 · Lo que existe y lo que no</div>
     <h2 class="sec-title">Qué guardamos <em>y qué no guardamos</em> en el servidor</h2>
-    <p class="sec-sub">Si alguien accediera a nuestra base de datos hoy, esto es exactamente lo que vería y lo que nunca podría ver. Esta tabla es verificable en el código abierto.</p>
+    <p class="sec-sub">Esto es lo que contiene la tabla de votos de la consulta. Desde fuera no se puede leer: solo se publican totales.</p>
 
     <div class="compare-row">
       <div class="compare-card yes">
         <div class="compare-header">
           <div class="badge"><i class="fi fi-br-check"></i></div>
-          <h3>Lo que SÍ se almacena</h3>
+          <h3>Lo que se guarda</h3>
         </div>
         <ul class="compare-list">
-          <li><i class="fi fi-br-check"></i><span><strong>Hash SHA-256</strong> — código de 64 caracteres, irreversible matemáticamente</span></li>
+          <li><i class="fi fi-br-check"></i><span><strong>Código cifrado</strong> — el código de tu documento, cifrado otra vez con clave secreta</span></li>
           <li><i class="fi fi-br-check"></i><span><strong>Tipo de documento</strong> — carné o pasaporte (no el número)</span></li>
           <li><i class="fi fi-br-check"></i><span><strong>Opción votada</strong> — la respuesta elegida en la consulta</span></li>
           <li><i class="fi fi-br-check"></i><span><strong>País y provincia</strong> — solo si el usuario los aporta, opcional</span></li>
@@ -366,14 +369,14 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
       <div class="compare-card no">
         <div class="compare-header">
           <div class="badge"><i class="fi fi-br-cross-small"></i></div>
-          <h3>Lo que NUNCA se almacena</h3>
+          <h3>Lo que no se guarda con tu voto</h3>
         </div>
         <ul class="compare-list">
-          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu número de carné</strong> — ni en texto, ni cifrado reversible</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu número de carné</strong> — ni en texto ni en ninguna forma recuperable sin la clave secreta</span></li>
           <li><i class="fi fi-br-cross-small"></i><span><strong>Tu número de pasaporte</strong> — mismo principio</span></li>
           <li><i class="fi fi-br-cross-small"></i><span><strong>Tu nombre</strong> — nunca se pide</span></li>
           <li><i class="fi fi-br-cross-small"></i><span><strong>Tu correo electrónico</strong> — nunca se pide para votar</span></li>
-          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu dirección IP</strong> — no se vincula al hash</span></li>
+          <li><i class="fi fi-br-cross-small"></i><span><strong>Tu dirección IP</strong> — no la guardamos con el voto (el proveedor de la base de datos la registra en sus registros técnicos)</span></li>
           <li><i class="fi fi-br-cross-small"></i><span><strong>Tu ubicación precisa</strong> — no se recolecta</span></li>
         </ul>
       </div>
@@ -392,9 +395,9 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
       <ul class="contra-list">
         <li><i class="fi fi-br-check"></i><span>Un <strong>correo electrónico</strong> es un dato directamente identificable: es una cuenta real, ligada a un nombre, una empresa, un teléfono de recuperación. Queda almacenado en el servidor sin cifrar de manera irreversible.</span></li>
         <li><i class="fi fi-br-check"></i><span>Un <strong>número de teléfono</strong> identifica incluso más: los operadores de telefonía conocen al titular, su dirección y su historial de llamadas. Queda vinculado al usuario para siempre.</span></li>
-        <li><i class="fi fi-br-check"></i><span>Un <strong>hash SHA-256 de un número de documento</strong>, al contrario, no identifica a nadie sin el número original. Y el número original no existe en nuestro servidor.</span></li>
+        <li><i class="fi fi-br-check"></i><span>Un <strong>código cifrado del documento</strong> no lleva nombre, correo ni teléfono. Solo sirve para que cada documento vote una vez.</span></li>
       </ul>
-      <p class="contra-text" style="margin-top:22px">El diseño de ENTRE TODOS ofrece <strong style="color:#fff">más protección real de la identidad</strong> que los sistemas convencionales de verificación por email o SMS. Esto es un hecho técnico verificable en el código, no una afirmación de marketing.</p>
+      <p class="contra-text" style="margin-top:22px"><strong style="color:#fff">El límite que debes conocer:</strong> un código SHA-256 de un carné, solo, se podría descifrar probando todos los números posibles. Por eso el servidor lo vuelve a cifrar con una clave secreta y nadie puede leer la tabla desde fuera. Quien administra la base de datos tiene esa clave y, técnicamente, podría comprobar cómo votó un documento concreto si conociera su número. ENTRE TODOS no lo hace y nunca publica votos individuales.</p>
     </div>
   </div>
 </section>
@@ -403,29 +406,29 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
 <section class="white-section">
   <div class="shell">
     <div class="sec-label">04 · Verificación independiente</div>
-    <h2 class="sec-title">Todo esto es <em>auditable</em>. No tienes que creer en nuestra palabra.</h2>
-    <p class="sec-sub">El código que implementa el hasheo local, el esquema de base de datos y las reglas de validación están publicados. Cualquier persona con conocimientos técnicos puede reproducir el hash en su propio navegador y verificar que coincide con el que llega al servidor.</p>
+    <h2 class="sec-title">El código es <em>público</em>. Puedes revisarlo.</h2>
+    <p class="sec-sub">El código de las páginas y las reglas de la base de datos están publicados en GitHub. La clave secreta del servidor, no: si se publicara, dejaría de proteger.</p>
 
     <div class="audit-grid">
       <div class="audit-card">
         <h3>Cómo verificarlo tú mismo</h3>
-        <p>En cualquier navegador moderno, abre la consola de desarrollador (F12 en la mayoría). Ejecuta una línea de JavaScript con el mismo número que ingresaste en el formulario. Obtendrás exactamente el mismo hash de 64 caracteres. Eso demuestra que el proceso es puramente local y reproducible.</p>
-        <p>Los auditores externos no necesitan nuestra colaboración: pueden leer el código, ejecutar la función y confirmar de forma independiente que no hay transmisión oculta del número original.</p>
+        <p>Con conocimientos técnicos puedes comprobar en el código de la página de la consulta que tu número se convierte en código dentro del navegador y que solo se envía ese código.</p>
+        <p>También puedes revisar las reglas de la base de datos: la tabla de votos está cerrada y solo se pueden pedir totales.</p>
         <div class="audit-links">
-          <a href="https://github.com/entre-todos-cuba" target="_blank" rel="noopener" class="audit-link"><i class="fi fi-brands-github"></i> Ver el código en GitHub</a>
+          <a href="https://github.com/laxolingua/entre-todos" target="_blank" rel="noopener" class="audit-link"><i class="fi fi-brands-github"></i> Ver el código en GitHub</a>
           <a href="politica-privacidad.html" class="audit-link outline"><i class="fi fi-br-document"></i> Política de privacidad completa</a>
         </div>
       </div>
       <div class="audit-side">
         <i class="fi fi-br-shield-check audit-side-watermark"></i>
         <div>
-          <h3>Principio: el sistema debe imposibilitar el abuso</h3>
-          <p>No basta con prometer que no haremos algo. El diseño debe hacer técnicamente imposible que podamos hacerlo.</p>
+          <h3>Principio: reducir al mínimo lo que se guarda</h3>
+          <p>Lo que no se guarda no se puede filtrar. Por eso no pedimos nombres para votar y no guardamos tu número.</p>
         </div>
         <div class="audit-side-foot">
-          <div><i class="fi fi-br-check"></i>Sin número original, no hay identificación posible</div>
-          <div><i class="fi fi-br-check"></i>Sin registro de IP ligado al hash, no hay trazabilidad</div>
-          <div><i class="fi fi-br-check"></i>Sin nombres ni correos, no hay doxing posible</div>
+          <div><i class="fi fi-br-check"></i>Tu número no se guarda</div>
+          <div><i class="fi fi-br-check"></i>Ni tu nombre ni tu correo se piden para votar</div>
+          <div><i class="fi fi-br-check"></i>Solo se publican totales</div>
         </div>
       </div>
     </div>
@@ -442,21 +445,21 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
     <div class="resp-row">
       <div class="resp-card">
         <div class="resp-title">Datos del responsable</div>
-        <div class="resp-name">ENTRE TODOS — Iniciativa Ciudadana</div>
+        <div class="resp-name">Michel Estopiñán · ENTRE TODOS</div>
         <div class="resp-meta">
           <strong>Ubicación:</strong> Potsdam, Brandenburg, Alemania<br>
-          <strong>Naturaleza:</strong> Iniciativa ciudadana sin ánimo de lucro, sin financiación política, sin afiliación partidista.<br>
-          <strong>Marco legal aplicable:</strong> RGPD (UE) · Considerando 26 sobre datos seudonimizados.<br>
-          <strong>Base legal del tratamiento:</strong> Consentimiento explícito del usuario (Art. 6.1.a RGPD).
+          <strong>Naturaleza:</strong> Iniciativa ciudadana sin ánimo de lucro y sin afiliación partidista.<br>
+          <strong>Marco legal aplicable:</strong> RGPD (UE) y ley alemana de protección de datos.<br>
+          <strong>Base legal:</strong> tu consentimiento explícito (art. 6.1.a y 9.2.a RGPD).
         </div>
         <div class="resp-contact">
-          <a href="mailto:entretodos@entre-todos.org"><i class="fi fi-br-envelope"></i> entretodos@entre-todos.org</a>
+          <a href="mailto:sosplanet@gmail.com"><i class="fi fi-br-envelope"></i> sosplanet@gmail.com</a>
           <a href="politica-privacidad.html"><i class="fi fi-br-document"></i> Política de privacidad detallada</a>
         </div>
       </div>
       <div class="resp-aside">
         <h3>Tus derechos RGPD</h3>
-        <p>Tienes derecho a <strong>acceso, rectificación, supresión, oposición y portabilidad</strong>. Escríbenos al correo indicado para ejercerlos. Como no almacenamos datos que te identifiquen directamente, el ejercicio práctico es limitado — pero tu derecho a preguntar es total.</p>
+        <p>Tienes derecho a <strong>acceso, rectificación, supresión, oposición y portabilidad</strong>. Para tu voto en la consulta, escríbenos con el código de comprobante que te mostró la página al votar: con él podemos localizarlo o borrarlo.</p>
       </div>
     </div>
   </div>
@@ -465,11 +468,11 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
 <!-- ══ CTA FINAL ══ -->
 <section class="cta-final">
   <div class="shell">
-    <h2>Confianza no es promesa. <span class="soft">Es evidencia.</span></h2>
-    <p>Lee la política completa, inspecciona el código, reproduce el hash en tu navegador. ENTRE TODOS está diseñada para resistir escrutinio, no para pedirlo a ciegas.</p>
+    <h2>Lee la política completa.</h2>
+    <p>La política de privacidad explica con detalle qué datos tratamos, cuánto tiempo y cómo ejercer tus derechos.</p>
     <div class="cta-final-actions">
       <a href="politica-privacidad.html" class="cta-btn primary"><i class="fi fi-br-document"></i> Política de privacidad</a>
-      <a href="https://github.com/entre-todos-cuba" target="_blank" rel="noopener" class="cta-btn outline"><i class="fi fi-brands-github"></i> Código en GitHub</a>
+      <a href="https://github.com/laxolingua/entre-todos" target="_blank" rel="noopener" class="cta-btn outline"><i class="fi fi-brands-github"></i> Código en GitHub</a>
       <a href="index.html" class="cta-btn outline"><i class="fi fi-br-home"></i> Volver al inicio</a>
     </div>
   </div>
@@ -485,7 +488,7 @@ footer .f-gs a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255
       <a href="index.html">Inicio</a> &nbsp;·&nbsp;
       <a href="transparencia-cuba.html">Transparencia</a> &nbsp;·&nbsp;
       <a href="politica-privacidad.html">Privacidad</a> &nbsp;·&nbsp;
-      <a href="mailto:entretodos@entre-todos.org">Contacto</a>
+      <a href="mailto:sosplanet@gmail.com">Contacto</a>
     </div>
     <div class="f-gs">
       Metodología derivada de <a href="https://gobernanza-solucionaria.org" target="_blank" rel="noopener">Gobernanza Solucionaria</a>.

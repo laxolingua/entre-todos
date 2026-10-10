@@ -167,7 +167,7 @@ a{text-decoration:none;color:inherit}
             <button class="btn btn-primary" type="submit"><i class="fi fi-br-user-add"></i> Crear perfil</button>
           </form>
           <div class="msg" id="signup-msg">Perfil creado. Entrando a Mi perfil…</div>
-          <div class="auth-note">El registro crea un perfil público básico visible en la sección de miembros. El correo no se expone en esa capa pública.</div>
+          <div class="auth-note">El registro publica de inmediato tu perfil en la sección de miembros: nombre, alias, ciudad, país, origen, causa y biografía. El correo no se envía: se queda en tu navegador. Para borrar tu perfil, escríbenos (ver <a href="politica-privacidad.html">política de privacidad</a>).</div>
         </section>
 
         <section class="card founder-card">
@@ -316,6 +316,8 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <script>
+function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
 const PROFILE_KEY='et_member_profile_demo';
 const PROFILES_KEY='et_member_profiles_demo';
 const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
@@ -381,8 +383,8 @@ function renderProfile(profile){
   if(!profile) return;
   document.getElementById('generated-avatar').textContent=initials(profile.displayName || profile.fullName);
   document.getElementById('generated-name').textContent=profile.fullName || 'Miembro';
-  document.getElementById('generated-location').innerHTML='<i class="fi fi-br-marker"></i> '+(profile.city||'Ciudad')+', '+(profile.country||'País');
-  document.getElementById('generated-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+(profile.origin||'No indicado');
+  document.getElementById('generated-location').innerHTML='<i class="fi fi-br-marker"></i> '+escHtml(profile.city||'Ciudad')+', '+escHtml(profile.country||'País');
+  document.getElementById('generated-origin').innerHTML='<i class="fi fi-br-home-location-alt"></i> Natural de: '+escHtml(profile.origin||'No indicado');
   document.getElementById('generated-bio').textContent=profile.bio || 'Miembro activo dentro de ENTRE TODOS.';
   document.getElementById('generated-cause').textContent=profile.cause || 'Participación ciudadana';
   document.getElementById('generated-email').textContent=profile.email || 'No indicado';

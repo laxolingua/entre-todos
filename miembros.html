@@ -78,6 +78,8 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <script>
+function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
 const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
 const MEMBERS_TABLE='et_members';
@@ -85,7 +87,7 @@ function initials(name){
   return (name||'ET').split(' ').filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase();
 }
 function avatarMarkup(profile){
-  return '<div class="avatar">'+initials(profile.display_name||profile.displayName||profile.full_name||profile.fullName)+'</div>';
+  return '<div class="avatar">'+escHtml(initials(profile.display_name||profile.displayName||profile.full_name||profile.fullName))+'</div>';
 }
 async function fetchProfiles(){
   const params=new URLSearchParams({
@@ -124,10 +126,10 @@ async function renderMembers(){
       card.innerHTML=
         avatarMarkup(profile)+
         '<div class="badge">Miembro</div>'+
-        '<div class="name">'+(profile.full_name||'Miembro')+'</div>'+
-        '<div class="handle">'+(profile.display_name||'Sin alias')+'</div>'+
-        '<div class="bio">'+(profile.bio||'Miembro activo dentro de ENTRE TODOS.')+'</div>'+
-        '<div class="meta"><span>'+(profile.city||'Ciudad')+', '+(profile.country||'País')+'</span><span>'+(profile.cause||'Participación')+'</span></div>';
+        '<div class="name">'+escHtml(profile.full_name||'Miembro')+'</div>'+
+        '<div class="handle">'+escHtml(profile.display_name||'Sin alias')+'</div>'+
+        '<div class="bio">'+escHtml(profile.bio||'Miembro activo dentro de ENTRE TODOS.')+'</div>'+
+        '<div class="meta"><span>'+escHtml(profile.city||'Ciudad')+', '+escHtml(profile.country||'País')+'</span><span>'+escHtml(profile.cause||'Participación')+'</span></div>';
       grid.appendChild(card);
     });
   }catch(err){

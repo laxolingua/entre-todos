@@ -728,6 +728,7 @@ async function sbQuery(table, opts={}){
   const url=`${SUPABASE_URL}/rest/v1/${table}${opts.params?'?'+opts.params:''}`;
   const headers={'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
   if(opts.upsert) headers['Prefer']='resolution=merge-duplicates,return=representation';
+  if(opts.minimal) headers['Prefer']='return=minimal';
   try{
     const r=await fetch(url,{method:opts.method||'GET',headers,body:opts.body?JSON.stringify(opts.body):undefined});
     return r.ok?r.json():null;
@@ -739,6 +740,65 @@ function getOrCreateDeviceToken(){
   if(!t){t='dt_'+Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('et_device_token',t);}
   return t;
 }
+
+// ── Identificador del dispositivo cifrado ─────────────────────────────────
+// En la base de datos el identificador del dispositivo se guarda cifrado (SHA-256).
+// Para saber qué es "mío" se compara con el mismo cifrado del identificador local.
+function sha256Hex(ascii){
+  function rr(v,a){return (v>>>a)|(v<<(32-a));}
+  const mp=Math.pow, maxWord=mp(2,32); let result='', words=[], i, j;
+  const asciiBitLength=ascii.length*8;
+  const hash=[], k=[]; let primeCounter=0; const isComposite={};
+  for(let candidate=2; primeCounter<64; candidate++){
+    if(!isComposite[candidate]){
+      for(i=0;i<313;i+=candidate) isComposite[i]=candidate;
+      hash[primeCounter]=(mp(candidate,.5)*maxWord)|0;
+      k[primeCounter++]=(mp(candidate,1/3)*maxWord)|0;
+    }
+  }
+  const h=hash.slice(0,8);
+  ascii+='\x80';
+  while(ascii.length%64-56) ascii+='\x00';
+  for(i=0;i<ascii.length;i++){
+    j=ascii.charCodeAt(i);
+    if(j>>8) return '';
+    words[i>>2]|=j<<((3-i)%4)*8;
+  }
+  words[words.length]=((asciiBitLength/maxWord)|0);
+  words[words.length]=(asciiBitLength);
+  for(j=0;j<words.length;){
+    const w=words.slice(j,j+=16); const oldHash=h.slice(0);
+    let hh=h;
+    for(i=0;i<64;i++){
+      const w15=w[i-15], w2=w[i-2];
+      const a=hh[0], e=hh[4];
+      const temp1=hh[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hh[5])^((~e)&hh[6]))+k[i]
+        +(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0);
+      const temp2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hh[1])^(a&hh[2])^(hh[1]&hh[2]));
+      hh=[(temp1+temp2)|0].concat(hh); hh[4]=(hh[4]+temp1)|0; hh.length=8;
+    }
+    for(i=0;i<8;i++) h[i]=(hh[i]+oldHash[i])|0;
+  }
+  for(i=0;i<8;i++) for(j=3;j+1;j--){ const b=(h[i]>>(j*8))&255; result+=((b<16)?'0':'')+b.toString(16); }
+  return result;
+}
+let _ownerId=null;
+function getOwnerId(){ if(!_ownerId) _ownerId=sha256Hex(getOrCreateDeviceToken()); return _ownerId; }
+
+// Llamada a funciones del servidor (escrituras). Devuelve {ok,...} o null si falla la red.
+async function sbRpc(fn, args){
+  if(!SUPABASE_ENABLED) return null;
+  try{
+    const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+      method:'POST',
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json'},
+      body: JSON.stringify(args||{})
+    });
+    if(!res.ok){ console.warn('Supabase rpc error:', res.status, fn); return null; }
+    return await res.json();
+  }catch(e){ return null; }
+}
+function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
 function getOrCreateSessionToken(){
   let t=sessionStorage.getItem('et_session_token');
@@ -757,7 +817,7 @@ async function logEtEvent(eventType, meta={}){
   if(!SUPABASE_ENABLED) return null;
   try{
     return await sbQuery('et_event_log',{
-      insert:true,
+      insert:true, minimal:true, method:'POST',
       body:{
         event_type:eventType,
         session_token:getOrCreateSessionToken(),
@@ -1633,6 +1693,7 @@ function buildCatGrid(){
 
 function buildCat(cat){
   const el=document.getElementById('cat-'+cat);
+  if(!el) return;
   const m=CAT[cat], ps=PROPS.filter(p=>p.cat===cat);
   el.innerHTML=`<div class="cat-hdr">
     <div class="cat-lt" style="background:${m.c};"><i class="fi fi-br-${m.icon}" style="color:#fff;font-size:1.1rem;"></i></div>
@@ -1812,7 +1873,7 @@ function castV(pid,s){
   // Sync to Supabase (mismo votes table que transición — ID compartido)
   const _dt=getOrCreateDeviceToken();
   const _sc=Object.keys(checks).filter(k=>k.startsWith(pid+'-')&&checks[k]>0).map(k=>k.replace(pid+'-',''));
-  sbQuery('votes',{upsert:true,body:{device_token:_dt,proposal_id:pid,score:vd.my,selected_clauses:_sc,updated_at:new Date().toISOString()}}).catch(()=>{});
+  sbRpc('et_votar',{p_token:_dt,p_propuesta:pid,p_puntos:vd.my,p_incisos:_sc}).then(r=>{ if(!r||!r.ok) toast('Tu voto no se pudo guardar en el servidor. Inténtalo de nuevo.','e'); });
   logEtEvent('proposal_vote',{
     proposal_id: pid,
     category_code: (PROPS.find(p=>p.id===pid)||newProps.find(p=>p.id===pid)||{}).cat || null,
@@ -1836,7 +1897,7 @@ function togChk(pid,vi){
 // LOAD VOTES FROM SUPABASE
 // ═══════════════════════════════════════════════════════════
 async function loadVotesFromBackend(){
-  const dt=getOrCreateDeviceToken();
+  const dt=getOwnerId();
   const ids=PROPS.map(p=>`"${p.id}"`).join(',');
   // All votes for these proposals
   const all=await sbQuery('votes',{params:`proposal_id=in.(${ids})&select=proposal_id,score`});
@@ -1887,17 +1948,16 @@ function submitNew(){
   if(!txt){toast('Escribe tu propuesta primero','e');return;}
   const nid='CON-C'+(newProps.length+1);
   const myToken=getOrCreateDeviceToken();
-  newProps.push({id:nid,cat,text:txt,author:name,citizen:true,ownerToken:myToken});
+  newProps.push({id:nid,cat,text:escHtml(txt),author:escHtml(name),citizen:true,ownerToken:getOwnerId()});
   votes[nid]={my:0,count:0,total:0};
-  renderCitizenCard({id:nid,cat,text:txt,author:name},document.getElementById('citizen-list'));
+  renderCitizenCard({id:nid,cat:escHtml(cat),text:escHtml(txt),author:escHtml(name)},document.getElementById('citizen-list'));
   document.getElementById('nt').value='';
   document.getElementById('nn').value='';
   document.getElementById('nc').value='';
   if(document.getElementById('banner-total'))
     document.getElementById('banner-total').textContent=PROPS.length+newProps.length;
-  toast('Propuesta enviada. Gracias.');
-  sbQuery('citizen_proposals',{insert:true,body:{device_token:myToken,content:txt,category:cat,author_name:name}})
-    .catch(()=>{});
+  sbRpc('et_proponer',{p_token:myToken,p_texto:txt,p_categoria:cat||null,p_autor:name})
+    .then(r=>{ if(r&&r.ok) toast('Propuesta enviada. Queda pendiente de revisión.'); else toast('Tu propuesta no se pudo guardar en el servidor. Inténtalo de nuevo.','e'); });
 }
 
 function renderCitizenCard(p,list){
@@ -1928,9 +1988,10 @@ async function loadCitizenProposals(){
   rows.forEach(r=>{
     const nid='SB-'+r.id;
     if(newProps.find(p=>p.id===nid))return; // already rendered
-    newProps.push({id:nid,cat:r.category||'',text:r.content,author:r.author_name||'Anónimo',citizen:true});
+    const cat=escHtml(r.category||''), text=escHtml(r.content), author=escHtml(r.author_name||'Anónimo');
+    newProps.push({id:nid,cat,text,author,citizen:true});
     votes[nid]={my:0,count:0,total:0};
-    renderCitizenCard({id:nid,cat:r.category||'',text:r.content,author:r.author_name||'Anónimo'},list);
+    renderCitizenCard({id:nid,cat,text,author},list);
   });
 }
 
@@ -2100,14 +2161,14 @@ function _renderObjItems(items, list, cnt){
     return;
   }
   list.innerHTML=items.map(o=>{
-    const tipo=o.tipo||'otra';
+    const tipo=escHtml(o.tipo||'otra');
     const fecha=o.fecha
       ? new Date(o.fecha).toLocaleDateString('es-ES')
       : (o.fecha_local||'');
     return `<div class="obj-item">
       <span class="obj-tipo ${tipo}">${tipo.charAt(0).toUpperCase()+tipo.slice(1)}</span>
-      ${o.texto}
-      <div class="obj-item-meta">${o.autor||'Anónimo'} · ${fecha}</div>
+      ${escHtml(o.texto)}
+      <div class="obj-item-meta">${escHtml(o.autor||'Anónimo')} · ${escHtml(fecha)}</div>
     </div>`;
   }).join('');
 }
