@@ -731,10 +731,12 @@ const SB_KEY = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
 
 async function loadCounter() {
   try {
-    const r = await fetch(`${SB_URL}/rest/v1/consulta_continuidad_votos?select=id`, {
-      headers: { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'count=exact', 'Range': '0-0' }
+    const r = await fetch(`${SB_URL}/rest/v1/rpc/consulta_resultados`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}` },
+      body: JSON.stringify({ p_consulta: 'continuidad_2026_03_27' })
     });
-    const count = r.headers.get('content-range')?.split('/')?.[1];
+    const count = r.ok ? (await r.json()).total : null;
     if (count) {
       document.getElementById('counter-live').textContent = `${count} cubanos han participado`;
     } else {

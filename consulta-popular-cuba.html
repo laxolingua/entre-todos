@@ -829,8 +829,15 @@ async function enviarVoto() {
       return;
     }
 
-    // Guardar en Supabase
-    await sbInsertarVoto(hash, votoSel, tipoId);
+    // Guardar en Supabase (el servidor rechaza credenciales repetidas)
+    const res = await sbInsertarVoto(hash, votoSel, tipoId);
+    if (res && res.ok === false && res.error === 'duplicado') {
+      eTxt.textContent='Esta credencial ya fue utilizada para votar.';
+      eEl.classList.add('visible');
+      btn.disabled=false;
+      btn.innerHTML='<i class="fi fi-br-paper-plane"></i> Emitir voto anónimo';
+      return;
+    }
   } catch (err) {
     // Fallback: si Supabase falla, guardar solo en local con nota
     console.warn('Supabase no disponible, guardando localmente:', err);
@@ -866,39 +873,40 @@ async function sbFetch(method, path, body) {
   return method === 'GET' ? r.json() : null;
 }
 
-async function sbHashExiste(hash) {
-  try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?credential_hash=eq.${encodeURIComponent(hash)}&select=id&limit=1`
-    );
-    return rows && rows.length > 0;
-  } catch { return false; }
+async function sbRpc(fn, args) {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` },
+    body: JSON.stringify(args || {})
+  });
+  if (!r.ok) throw new Error(`Supabase rpc ${fn} error: ${r.status}`);
+  return r.json();
 }
 
+let _resultadosCache = null;
+async function sbResultados() {
+  if (_resultadosCache) return _resultadosCache;
+  _resultadosCache = await sbRpc('consulta_resultados', { p_consulta: 'continuidad_2026_03_27' });
+  setTimeout(() => { _resultadosCache = null; }, 5000);
+  return _resultadosCache;
+}
+
+// La comprobación de voto repetido la hace ahora el servidor al registrar el voto.
+async function sbHashExiste(hash) { return false; }
+
 async function sbInsertarVoto(hash, opcion, tipo) {
-  const payload = {
-    credential_hash: hash,
-    opcion,
-    tipo_credencial: tipo,
-    consulta_id: 'continuidad_2026_03_27'
-  };
-  if (ubicacion.pais)     payload.pais     = ubicacion.pais;
-  if (ubicacion.provincia) payload.provincia = ubicacion.provincia;
-  await sbFetch('POST', TABLA, payload);
+  const res = await sbRpc('consulta_votar', {
+    p_consulta: 'continuidad_2026_03_27', p_codigo: hash, p_opcion: opcion, p_tipo: tipo,
+    p_pais: ubicacion.pais || null, p_provincia: ubicacion.provincia || null
+  });
+  _resultadosCache = null;
+  return res;
 }
 
 async function sbContarVotos() {
   try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=opcion,tipo_credencial`
-    );
-    const c = { continuidad: 0, cambio: 0, cuba: 0, extranjero: 0 };
-    rows.forEach(r => {
-      if (c[r.opcion] !== undefined) c[r.opcion]++;
-      if (r.tipo_credencial === 'ci') c.cuba++;
-      else c.extranjero++;
-    });
-    return c;
+    const r = await sbResultados();
+    return { continuidad: r.continuidad || 0, cambio: r.cambio || 0, cuba: r.cuba || 0, extranjero: r.extranjero || 0 };
   } catch { return { ...cargarVotosLocal(), cuba: 0, extranjero: 0 }; }
 }
 
@@ -1009,16 +1017,9 @@ async function initMapa() {
 
 async function cargarDesglosePais() {
   try {
-    const rows = await sbFetch('GET',
-      `${TABLA}?consulta_id=eq.continuidad_2026_03_27&select=pais,provincia&pais=not.is.null`
-    );
-    if (!rows || rows.length === 0) return;
-
-    // Aggregate by country
-    const paises = {};
-    rows.forEach(r => {
-      if (r.pais) paises[r.pais] = (paises[r.pais] || 0) + 1;
-    });
+    const r = await sbResultados();
+    const paises = (r && r.paises) || {};
+    if (Object.keys(paises).length === 0) return;
 
     // Show breakdown
     const desglose = document.getElementById('mapa-pais-desglose');
