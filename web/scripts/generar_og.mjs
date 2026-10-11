@@ -64,7 +64,7 @@ for (const c of pub.propuestas) {
   trabajos.push({ ruta: `propuesta/${c.id}.png`, datos: {
     etiqueta: cats.get(c.categoria)?.nombre ?? 'Propuesta',
     titulo: recortar(c.titulo, 95), cuerpo: recortar(c.texto, 200),
-    pie: recortar(`${c.total_documentos} ${c.total_documentos === 1 ? 'documento' : 'documentos'} · ${quien.slice(0, 2).join(', ')}${quien.length > 2 ? '…' : ''}`, 70),
+    pie: `${c.total_documentos} ${c.total_documentos === 1 ? 'documento' : 'documentos'}`,
   } });
 }
 

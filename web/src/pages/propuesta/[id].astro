@@ -1,6 +1,5 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Quienes from '../../components/Quienes.astro';
 import {
   propuestas, propPorId, cuestionesDe, catPorClave, docPorId, documentosDe,
   autoriasCentrales, recortar, tonoCategoria, iconoCategoria, TIPOS_FUENTE,
@@ -11,7 +10,6 @@ export function getStaticPaths() {
 }
 const { c } = Astro.props;
 const cat = catPorClave.get(c.categoria);
-const centrales = autoriasCentrales(c);
 const qs = cuestionesDe(c.id);
 
 // Cada documento una sola vez, con lo que aporta a esta propuesta.
@@ -26,6 +24,9 @@ const lista = [...papeles.entries()]
   .filter((e) => e.d)
   .sort((a, b) => Number(!a.roles.includes('Idea central')) - Number(!b.roles.includes('Idea central')) || (a.d.anio ?? 9999) - (b.d.anio ?? 9999));
 const total = documentosDe(c).length;
+// Número de cada documento en la lista de abajo: los incisos y variantes citan el número, no el autor.
+const numDoc = new Map(lista.map((e, n) => [e.d.id, n + 1]));
+const refs = (ids) => [...new Set(ids.map((id) => numDoc.get(id)).filter(Boolean))].sort((a, b) => a - b);
 
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
@@ -42,10 +43,6 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     <h1>{c.titulo}</h1>
     <p class="texto-consolidado">{c.texto}</p>
     <p class="discreto nota-redaccion">Redacción de ENTRE TODOS a partir de {total} {total === 1 ? 'documento' : 'documentos'}, respetando su lenguaje. Cada documento enlaza a su original.</p>
-    <div class="respaldo">
-      <span class="dato-titulo">La {centrales.length === 1 ? 'plantea' : 'plantean'}</span>
-      <ul class="chips">{centrales.map((a) => <li>{a}</li>)}</ul>
-    </div>
     <section id="valoracion" class="valoracion" data-propuesta={c.id} aria-label="Valorar esta propuesta"></section>
     <div class="acciones">
       <a class="boton" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} rel="noopener" target="_blank"><i class="fi fi-br-share" aria-hidden="true"></i>Facebook</a>
@@ -57,14 +54,14 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
   {c.incisos.length > 0 && (
     <section aria-labelledby="t-incisos">
       <h2 id="t-incisos">Incisos y precisiones de las fuentes</h2>
-      <p class="discreto">Elementos que alguna fuente añade a la idea central. Cada uno indica quién lo propone.</p>
+      <p class="discreto">Elementos que alguna fuente añade a la idea central. Cada uno remite a los documentos de la lista de abajo.</p>
       <ol class="incisos">
         {c.incisos.map((i) => (
           <li>
             <span class="letra" aria-hidden="true">{i.letra}</span>
             <div>
               <p>{i.texto}</p>
-              <p class="quien">Lo propone: <Quienes ids={i.documentos} /></p>
+              <p class="quien">Documentos: {refs(i.documentos).map((n, k) => <>{k > 0 && ", "}<a href={`#doc-${n}`}>{n}</a></>)}</p>
             </div>
           </li>
         ))}
@@ -75,13 +72,13 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
   {c.variantes.length > 0 && (
     <section aria-labelledby="t-variantes">
       <h2 id="t-variantes">Diferencias entre las fuentes</h2>
-      <p class="discreto">Puntos en los que las fuentes difieren. Se muestra cada posición con su fuente.</p>
+      <p class="discreto">Puntos en los que las fuentes difieren. Cada posición remite a los documentos de la lista de abajo.</p>
       <div class="desplazable">
         <table class="tabla">
-          <thead><tr><th scope="col">Modalidad</th><th scope="col">Quién la propone</th></tr></thead>
+          <thead><tr><th scope="col">Modalidad</th><th scope="col">Documentos</th></tr></thead>
           <tbody>
             {c.variantes.map((v) => (
-              <tr><td>{v.texto}</td><td><Quienes ids={v.documentos} /></td></tr>
+              <tr><td>{v.texto}</td><td>{refs(v.documentos).map((n, k) => <>{k > 0 && ", "}<a href={`#doc-${n}`}>{n}</a></>)}</td></tr>
             ))}
           </tbody>
         </table>
@@ -110,9 +107,9 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     <details class="fuentes-detalle" open={lista.length <= 4}>
       <summary>Ver los {lista.length} documentos</summary>
       <ul class="lista">
-        {lista.map(({ d, roles }) => (
-          <li class="tarjeta">
-            <h3><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a></h3>
+        {lista.map(({ d, roles }, n) => (
+          <li class="tarjeta" id={`doc-${n + 1}`}>
+            <h3><span class="discreto">{n + 1}. </span><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a></h3>
             <p class="autoria">{d.actor ? <a href={`/actores/${d.actor}/`}>{d.autoria}</a> : d.autoria}{d.anio && <span class="discreto"> · {d.anio}</span>}<span class="discreto"> · {TIPOS_FUENTE[d.tipo]}</span></p>
             <div class="etiquetas">{roles.map((r) => <span class="etiqueta">{r}</span>)}</div>
           </li>
@@ -141,6 +138,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     }
   </script>
   <script>
+    document.addEventListener('click', (e) => { const a = e.target.closest('a[href^="#doc-"]'); if (a) { const d = document.querySelector('.fuentes-detalle'); if (d) d.open = true; } });
     import('../../lib/participacion.js').then((m) => m.iniciarParticipacion());
   </script>
 </Base>
