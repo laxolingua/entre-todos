@@ -30,7 +30,7 @@
   {
    "clave": "transicion",
    "nombre": "Transición Democrática",
-   "descripcion": "Propuestas sobre cómo se llega del régimen actual a la democracia: gobierno provisional, plazos, secuencia.",
+   "descripcion": "Propuestas sobre cómo se llega del sistema actual a la democracia: gobierno provisional, plazos, secuencia.",
    "fase": "Fase 1 — Hoja de Ruta",
    "orden": 1,
    "propuestas": 27
@@ -1151,7 +1151,7 @@
    "id": "transicion-inclusiva",
    "categoria": "transicion",
    "titulo": "Una transición que incluya a todos los cubanos, sin revancha",
-   "texto": "Garantizar que todos los cubanos participen en la transición, sin exclusiones de clase alguna y sin odios ni revanchas, incluidos quienes hoy apoyan al régimen.",
+   "texto": "Garantizar que todos los cubanos participen en la transición, sin exclusiones de clase alguna y sin odios ni revanchas, incluidos quienes hoy respaldan al Gobierno.",
    "nota": null,
    "orden": 10,
    "documentos": [
@@ -1422,8 +1422,8 @@
   {
    "id": "presion-externa-sanciones",
    "categoria": "transicion",
-   "titulo": "Presión internacional y sanciones contra las estructuras del régimen",
-   "texto": "Endurecer las sanciones contra las estructuras del régimen y coordinar un cerco internacional y económico hasta que haya apertura democrática.",
+   "titulo": "Presión internacional y sanciones contra las estructuras del Gobierno",
+   "texto": "Endurecer las sanciones contra las estructuras del Gobierno y coordinar una presión internacional y económica hasta que haya apertura democrática.",
    "nota": null,
    "orden": 17,
    "documentos": [
