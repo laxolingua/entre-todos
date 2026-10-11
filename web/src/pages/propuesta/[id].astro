@@ -45,6 +45,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     <p class="discreto nota-redaccion">Redacción de ENTRE TODOS a partir de {total} {total === 1 ? 'documento' : 'documentos'}, respetando su lenguaje. Cada documento enlaza a su original.</p>
     <section id="valoracion" class="valoracion" data-propuesta={c.id} aria-label="Valorar esta propuesta"></section>
     <div class="acciones">
+      <a class="boton" href="#t-fuentes" data-abrir-fuentes><i class="fi fi-br-document" aria-hidden="true"></i>Ver fuentes y autores</a>
       <a class="boton" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} rel="noopener" target="_blank"><i class="fi fi-br-share" aria-hidden="true"></i>Facebook</a>
       <a class="boton" href={`https://wa.me/?text=${encodeURIComponent(`${textoCompartir} ${url}`)}`} rel="noopener" target="_blank"><i class="fi fi-br-comment-alt" aria-hidden="true"></i>WhatsApp</a>
       <button class="boton" type="button" data-copiar={url} hidden><i class="fi fi-br-link-alt" aria-hidden="true"></i><span>Copiar enlace</span></button>
@@ -102,10 +103,10 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
   ))}
 
   <section aria-labelledby="t-fuentes">
-    <h2 id="t-fuentes">Documentos</h2>
-    <p class="discreto">Los documentos públicos de los que sale esta propuesta, con lo que aporta cada uno. Cada enlace lleva al original.</p>
-    <details class="fuentes-detalle" open={lista.length <= 4}>
-      <summary>Ver los {lista.length} documentos</summary>
+    <h2 id="t-fuentes">Fuentes y autores</h2>
+    <p class="discreto">Organizaciones y autores de los documentos públicos de los que sale esta propuesta, con lo que aporta cada uno. Cada enlace lleva al original.</p>
+    <details class="fuentes-detalle">
+      <summary>Ver fuentes y autores ({lista.length} {lista.length === 1 ? 'documento' : 'documentos'})</summary>
       <ul class="lista">
         {lista.map(({ d, roles }, n) => (
           <li class="tarjeta" id={`doc-${n + 1}`}>
@@ -138,7 +139,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     }
   </script>
   <script>
-    document.addEventListener('click', (e) => { const a = e.target.closest('a[href^="#doc-"]'); if (a) { const d = document.querySelector('.fuentes-detalle'); if (d) d.open = true; } });
+    document.addEventListener('click', (e) => { const a = e.target.closest('a[href^="#doc-"], a[data-abrir-fuentes]'); if (a) { const d = document.querySelector('.fuentes-detalle'); if (d) d.open = true; } });
     import('../../lib/participacion.js').then((m) => m.iniciarParticipacion());
   </script>
 </Base>
