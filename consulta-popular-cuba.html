@@ -295,7 +295,6 @@ footer a:hover{color:#fff;}
         </div>
         <div class="consulta-eyebrow">Cuba 2026 · Participación ciudadana</div>
         <h1 class="consulta-h1">
-          <span class="urgente">Urgente</span>
           Consulta popular por la continuidad de Miguel Díaz-Canel Bermúdez — según sus propias palabras
         </h1>
         <div class="consulta-fecha">
@@ -520,7 +519,7 @@ footer a:hover{color:#fff;}
 
       <div class="info-box amarillo" style="margin-top:20px;">
         <i class="fi fi-br-info"></i>
-        <span>Resultados almacenados en este dispositivo (prototipo). Para consulta nacional distribuida se requiere servidor. Exporta el CSV para auditoría independiente.</span>
+        <span>Resultados guardados en el servidor de ENTRE TODOS y actualizados en tiempo real. El CSV descarga los totales.</span>
       </div>
       <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
         <button class="btn-outline" onclick="exportarCSV()"><i class="fi fi-br-download"></i> Exportar CSV</button>
@@ -949,13 +948,12 @@ async function actualizarResultados() {
   if(document.getElementById('val-extranjero')) document.getElementById('val-extranjero').textContent = v.extranjero || 0;
 }
 
-function exportarCSV() {
-  const v=cargarVotos(),h=cargarHashes(),total=v.continuidad+v.cambio;
+async function exportarCSV() {
+  const v=await sbContarVotos(),total=v.continuidad+v.cambio;
   let csv='ENTRE TODOS — Consulta Popular Cuba 2026\nExportado: '+new Date().toLocaleString('es-ES')+'\n\nOpcion,Votos,Porcentaje\n';
   csv+=`Continuidad,${v.continuidad},${total?Math.round(v.continuidad/total*100):0}%\n`;
   csv+=`Cambio,${v.cambio},${total?Math.round(v.cambio/total*100):0}%\n`;
-  csv+=`Total,${total},100%\n\nHash SHA-256,Opcion,TipoCredencial,Timestamp\n`;
-  for(const[hash,d]of Object.entries(h))csv+=`${hash},${d.opcion},${d.tipo||'ci'},${d.ts}\n`;
+  csv+=`Total,${total},100%\n\nOrigen,Votos\nDesde Cuba,${v.cuba}\nDesde el extranjero,${v.extranjero}\n`;
   const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));
   a.download='consulta-popular-cuba-2026.csv'; a.click();
 }
