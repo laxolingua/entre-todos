@@ -16,6 +16,7 @@ const imagenAbs = new URL(imagen, Astro.site);
 const tituloCompleto = `${titulo} · ENTRE TODOS`;
 const UICONS = 'https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css';
 const enlaces = [
+  { href: '/', texto: 'Inicio', id: 'inicio' },
   { href: '/propuestas/', texto: 'Propuestas', id: 'propuestas' },
   { href: '/cuestiones/', texto: 'Cuestiones', id: 'cuestiones' },
   { href: '/fuentes/', texto: 'Documentos', id: 'fuentes' },
@@ -57,7 +58,7 @@ const enlaces = [
     <a class="saltar" href="#contenido">Saltar al contenido</a>
     <header class="cabecera">
       <div class="contenedor">
-        <a class="marca" href="/propuestas/">ENTRE TODOS</a>
+        <a class="marca" href="/">ENTRE TODOS</a>
         <nav class="nav" aria-label="Principal">
           {enlaces.map((e) => (
             <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}>{e.texto}</a>
