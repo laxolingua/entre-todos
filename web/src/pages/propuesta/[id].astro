@@ -111,7 +111,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
         {lista.map(({ d, roles }, n) => (
           <li class="tarjeta" id={`doc-${n + 1}`}>
             <h3><span class="discreto">{n + 1}. </span><a href={d.url} rel="noopener" target="_blank">{d.titulo}</a></h3>
-            <p class="autoria">{d.actor ? <a href={`/actores/${d.actor}/`}>{d.autoria}</a> : d.autoria}{d.anio && <span class="discreto"> · {d.anio}</span>}<span class="discreto"> · {TIPOS_FUENTE[d.tipo]}</span></p>
+            <p class="autoria">{d.actor ? <a href={`/actores/${d.actor}/`}>{d.autoria}</a> : <a href={d.url} rel="noopener" target="_blank">{d.autoria}</a>}{d.anio && <span class="discreto"> · {d.anio}</span>}<span class="discreto"> · {TIPOS_FUENTE[d.tipo]}</span></p>
             <div class="etiquetas">{roles.map((r) => <span class="etiqueta">{r}</span>)}</div>
           </li>
         ))}
@@ -121,7 +121,7 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
 
   <section id="aportes" class="aportes" data-propuesta={c.id} aria-labelledby="t-aportes">
     <h2 id="t-aportes">Aportes de la ciudadanía</h2>
-    <p class="discreto">Mejoras, objeciones, incisos y evidencias. Se publican tras moderación y se pueden apoyar.</p>
+    <p class="discreto">Mejoras, objeciones, incisos y evidencias. Se publicarán tras moderación y se podrán apoyar.</p>
     <div data-aportes></div>
   </section>
 
