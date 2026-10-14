@@ -23,15 +23,16 @@ import c from '../data/cifras-publicadas.json';
       <div class="franja-gris"></div>
       <div class="panel-marino puntos"></div>
       <div class="paralelo-rojo"></div>
-      <div class="paralelo-blanco"></div>
       <ul class="lista-vertical"><li>Proponer</li><li>Cuestionar</li><li>Mejorar</li><li>Valorar</li></ul>
       <span class="orn raya" style="width:62%;left:6%;bottom:30%;transform:rotate(-58deg)"></span>
       <span class="orn raya" style="width:48%;left:30%;bottom:18%;transform:rotate(-58deg)"></span>
     </div>
     <span class="orn bar-a escritorio" style="width:130px;right:6%;top:9%"></span>
     <span class="orn bar-r escritorio" style="width:84px;left:50%;top:24%"></span>
-    <span class="orn cuad escritorio" style="width:26px;height:26px;left:53%;bottom:22%"></span>
-    <span class="orn bar-a escritorio" style="width:70px;left:47%;bottom:13%"></span>
+    <nav class="preguntas" aria-label="Participa">
+      <a class="pregunta voz" href="/propuestas/"><span class="etq">Tu voz</span><strong>¿Qué propones?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      <a class="pregunta voto" href="/consulta/"><span class="etq">Tu voto</span><strong>¿Por qué votas?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+    </nav>
     <span class="orn bar-r escritorio" style="width:40px;left:4%;bottom:7%;height:7px"></span>
   </section>
 
@@ -65,9 +66,9 @@ import c from '../data/cifras-publicadas.json';
       <p class="kicker">Principio central</p>
       <h2 id="t-principio">Voz + Voto</h2>
       <div class="principio">
-        <div class="col"><h3>Voz</h3><p>Expresar necesidades, presentar soluciones, objetar, debatir, aportar información y mejorar propuestas.</p></div>
+        <div class="col"><h3>Voz</h3><p>Expresar necesidades, presentar soluciones, objetar, debatir, aportar información y mejorar propuestas.</p><a class="enlace-flecha" href="/propuestas/">¿Qué propones? <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
         <div class="signo" aria-hidden="true">+</div>
-        <div class="col voto"><h3>Voto</h3><p>Valorar, priorizar, aceptar o rechazar opciones mediante los mecanismos de consulta previstos.</p></div>
+        <div class="col voto"><h3>Voto</h3><p>Valorar, priorizar, aceptar o rechazar opciones mediante los mecanismos de consulta previstos.</p><a class="enlace-flecha" href="/consulta/">¿Por qué votas? <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
       </div>
       <p class="nota-principio">La voz antecede y acompaña al voto.</p>
     </div>
