@@ -35,4 +35,8 @@ for d in ['academia','consulta','sobre','img']:
 for f in ['favicon.svg','favicon.png','apple-touch-icon.png']: shutil.copy(f'{D}/{f}',f'{P}/{f}')
 for f in glob.glob(D+'/_astro/*'):
     if not os.path.exists(P+'/_astro/'+os.path.basename(f)): shutil.copy(f,P+'/_astro/')
+# correo real de contacto (el antiguo entretodos@entre-todos.org no existe)
+for f in glob.glob(P+'/*.html'):
+    t=open(f,encoding='utf-8').read()
+    if 'entretodos@entre-todos.org' in t: open(f,'w',encoding='utf-8').write(t.replace('entretodos@entre-todos.org','sosplanet@gmail.com'))
 print('ok')
