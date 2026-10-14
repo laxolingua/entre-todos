@@ -562,3 +562,51 @@ a.antetitulo:hover { color: var(--rojo); }
 .cabecera .icono-cab { order: 3; }
 .cabecera .menu-boton { order: 4; }
 @media (max-width: 820px) { .cabecera .nav { order: 5; margin-left: 0; } .cabecera .icono-cab { margin-left: auto; } }
+
+/* ================= geometría unificada =================
+   Una sola dirección (/) y un solo ángulo: 60° respecto a la horizontal (skewX -30°) en todo el sitio. */
+:root { --sesgo: -30deg; --contra: 30deg; }
+.hero::before, .hero-arte .franja-gris, .banda-fondo .franja-gris, .hero-arte .orn.raya { display: none; }
+.hero-arte, .banda-fondo { overflow: hidden; }
+.hero-arte .foto, .banda-fondo .foto { clip-path: none; left: 0; right: -60%; transform: skewX(var(--sesgo)); transform-origin: bottom left; }
+.hero-arte .foto img, .banda-fondo .foto img { position: absolute; top: 0; bottom: 0; left: -40%; width: 140%; height: 100%; transform: skewX(var(--contra)); transform-origin: bottom left; }
+.hero-arte .foto::after { transform: none; }
+.hero-arte .panel-marino, .banda-fondo .panel-marino { clip-path: none; left: 52%; right: -70%; width: auto; transform: skewX(var(--sesgo)); transform-origin: bottom left; }
+.hero-arte .paralelo-rojo { clip-path: none; right: -12%; width: 28%; transform: skewX(var(--sesgo)); }
+.ficha-foto { clip-path: none; overflow: hidden; }
+.ficha-foto > img { left: -30%; width: 130%; }
+.ficha-cab .ficha-foto { transform: skewX(var(--sesgo)); transform-origin: bottom left; margin-left: 18%; }
+.ficha-cab .ficha-foto > img { transform: skewX(var(--contra)); transform-origin: bottom left; }
+.ficha-cab .ficha-foto .ficha-orn { transform: none; }
+.ficha-orn.blo { clip-path: none; left: 0; width: 34%; }
+.ficha-orn.tri { clip-path: none; width: 26px; height: 90px; left: auto; right: 34%; top: 42%; }
+.tarjeta-foto::before, .banda .cifra-grande::before, .aviso-proximo::before { transform: skewX(var(--sesgo)); }
+.tarjeta.consolidada::before, .categoria::after, .garantias li::before { top: auto; bottom: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.principio .col::after { transform: none; right: 0; bottom: 0; width: 120px; height: 120px; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.bloque-marino .imagen img, .bloque-marino .imagen::after { clip-path: none; }
+.bloque-marino .imagen { overflow: hidden; }
+.bloque-marino .imagen > img { position: absolute; inset: 0 -40% 0 0; width: auto; transform: skewX(var(--sesgo)); transform-origin: top left; }
+.bloque-marino .textura { clip-path: none; left: 66%; right: -40%; width: auto; transform: skewX(var(--sesgo)); transform-origin: bottom left; }
+.subnav::after, .franja-cifras::after, .pie::before { clip-path: none; transform: skewX(var(--sesgo)); transform-origin: bottom left; right: -60px; }
+@media (max-width: 860px) {
+  .hero-arte .foto, .banda-fondo .foto { right: 0; left: -40%; }
+  .hero-arte .panel-marino, .banda-fondo .panel-marino { left: 62%; }
+  .ficha-cab .ficha-foto { transform: none; margin: 16px -20px 0; }
+  .ficha-cab .ficha-foto > img { transform: none; left: 0; width: 100%; }
+}
+.ficha-cab .ficha-foto > img { left: -45%; width: 190%; }
+/* diagonal por máscara: la foto queda entera y una pieza blanca inclinada le da el corte */
+.hero-arte .foto, .banda-fondo .foto { left: 0; right: 0; transform: none; }
+.hero-arte .foto img, .banda-fondo .foto img { left: 0; width: 100%; transform: none; }
+.hero-arte::before, .banda-fondo::before, .ficha-cab .ficha-foto::before { content: ""; position: absolute; top: 0; bottom: 0; left: -100%; width: 100%; background: var(--superficie); transform: skewX(var(--sesgo)); transform-origin: bottom left; z-index: 2; }
+.hero-arte .lista-vertical, .hero-arte .orn { z-index: 4; }
+.ficha-cab .ficha-foto { transform: none; margin-left: 0; }
+.ficha-cab .ficha-foto > img { left: 0; width: 100%; transform: none; }
+.ficha-cab .ficha-foto .ficha-orn { z-index: 3; }
+.ficha-orn.blo { left: 40%; width: 34%; transform: skewX(var(--sesgo)); transform-origin: top left; }
+.ficha-orn.tri, .ficha-orn.bar { transform: skewX(var(--sesgo)); }
+@media (max-width: 860px) {
+  .hero-arte .foto, .banda-fondo .foto { left: 0; }
+  .hero-arte::before, .banda-fondo::before { left: -100%; }
+  .ficha-cab .ficha-foto::before { display: none; }
+}
