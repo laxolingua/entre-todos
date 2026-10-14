@@ -5,6 +5,7 @@ import '@fontsource/barlow/latin-600.css';
 import '@fontsource/barlow/latin-700.css';
 import '@fontsource/barlow-condensed/latin-700.css';
 import '@fontsource/barlow-condensed/latin-800.css';
+import '@fontsource/montserrat/latin-900.css';
 import '../styles/global.css';
 
 interface Props {
@@ -69,10 +70,7 @@ const subenlaces = [
     <a class="saltar" href="#contenido">Saltar al contenido</a>
     <header class="cabecera" id="cabecera">
       <div class="contenedor">
-        <a class="marca" href="/" aria-label="ENTRE TODOS, inicio">
-          <svg class="sello" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21.5" fill="none" stroke="#0b1d3f" stroke-width="3.5"/><text x="24" y="31.5" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="22" fill="#0b1d3f">ET</text><rect x="30" y="9" width="11" height="3.2" fill="#d7192d"/></svg>
-          <span class="nombre">ENTRE TODOS</span>
-        </a>
+        <a class="marca" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
           {enlaces.map((e) => <a href={e.href} aria-current={e.activo ? 'page' : undefined}>{e.texto}</a>)}
@@ -91,10 +89,9 @@ const subenlaces = [
     <footer class="pie">
       <div class="contenedor">
         <div>
-          <a class="marca" href="/"><span class="nombre">ENTRE TODOS</span></a>
-          <p>Un espacio independiente para conocer, comparar y valorar propuestas sobre el futuro de Cuba. Cada propuesta se examina por su contenido y enlaza a su documento original.</p>
-          <span class="barra amarilla" style="margin-top:18px"></span>
-        </div>
+          <a class="marca" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
+          <p>Plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos.</p>
+                  </div>
         <div>
           <h2>Participa</h2>
           <ul>

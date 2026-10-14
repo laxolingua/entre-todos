@@ -1,0 +1,21 @@
+---
+// Cabecera de sección con el lenguaje visual VOZ + VOTO: foto en diagonal, panel marino punteado,
+// franja translúcida y barras de color. El texto lateral sale de la Carta de identidad.
+interface Props { imagen: string; lateral: string[]; posicion?: string }
+const { imagen, lateral, posicion = 'center' } = Astro.props;
+---
+<section class="banda">
+  <div class="banda-fondo" aria-hidden="true">
+    <div class="foto"><img src={imagen} alt="" style={`object-position:${posicion}`} /></div>
+    <div class="franja-gris"></div>
+    <div class="panel-marino puntos"></div>
+    <ul class="texto-lateral">{lateral.map((t) => <li>{t}</li>)}</ul>
+  </div>
+  <span class="orn bar-r" style="width:96px;right:30%;top:30px"></span>
+  <span class="orn bar-a" style="width:120px;right:4%;top:22px"></span>
+  <span class="orn cuad" style="width:22px;height:22px;right:41%;bottom:26px"></span>
+  <span class="orn bar-a" style="width:60px;right:38%;bottom:58px"></span>
+  <div class="contenedor">
+    <div class="contenido-banda"><slot /></div>
+  </div>
+</section>

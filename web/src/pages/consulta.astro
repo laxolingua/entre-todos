@@ -1,19 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
 ---
 <Base titulo="Consulta" seccion="consulta" ancho
   descripcion="Consultas ciudadanas no vinculantes. Voto anónimo con carné o pasaporte; se publican solo los totales.">
-  <section class="banda">
-    <div class="banda-fondo" aria-hidden="true"><img src="/img/habana.jpg" alt="" /><span class="texto-lateral">Diálogo, ideas, perspectivas</span></div>
-    <div class="contenedor">
-      <div class="contenido-banda">
-        <span class="barra"></span>
-        <h1>Consulta</h1>
-        <p class="lema">Tu opinión también cuenta</p>
-        <p class="entradilla">Consultas ciudadanas no vinculantes. El voto es anónimo, con carné o pasaporte, y solo se publican los totales.</p>
-      </div>
-    </div>
-  </section>
+  <Banda imagen="/img/habana.jpg" lateral={['Valorar', 'Priorizar', 'Aceptar', 'Rechazar']}>
+    <span class="barra"></span>
+    <h1>Consulta</h1>
+    <p class="lema">Consultas ciudadanas no vinculantes</p>
+    <p class="entradilla">Las consultas ayudan a identificar prioridades y grados de aceptación entre quienes participan. Sus resultados no se presentan como opinión representativa de toda la población. El voto es anónimo y solo se publican los totales.</p>
+  </Banda>
   <div class="contenedor">
     <div class="seccion">
       <article class="panel consulta-tarjeta">

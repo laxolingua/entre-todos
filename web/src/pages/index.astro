@@ -3,28 +3,36 @@ import Base from '../layouts/Base.astro';
 import c from '../data/cifras-publicadas.json';
 ---
 <Base titulo="Inicio" seccion="inicio" ancho imagen="/img/og-portada.jpg"
-  descripcion="Participación ciudadana para construir, entre todos, una Cuba más libre, humana y plural. Propuestas, Academia cívica y consulta ciudadana.">
+  descripcion="Plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos.">
   <section class="hero">
     <div class="contenedor">
       <div class="hero-texto">
         <span class="barra amarilla"></span>
-        <h1>Voz <span class="rojo">+</span><br />Voto</h1>
+        <h1>Voz <span class="mas">+</span><br />Voto</h1>
         <p class="sub"><span>Propuestas</span><span class="punto"></span><span>Academia cívica</span><span class="punto"></span><span>Consulta ciudadana</span></p>
-        <p>Participación ciudadana para construir, entre todos, una Cuba <strong>más libre, humana y plural</strong>.</p>
+        <p class="lema-carta">Voz para proponer. <span>Voto para decidir.</span></p>
+        <p>La participación ciudadana comienza antes de votar: incluye el derecho a proponer, cuestionar, mejorar y participar en las soluciones que afectan a nuestra vida colectiva.</p>
         <div class="acciones">
           <a class="boton rojo" href="/propuestas/">Explorar propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
           <a class="boton" href="/consulta/">Participa en la consulta</a>
         </div>
       </div>
     </div>
-    <div class="hero-imagen">
-      <img src="/img/capitolio.jpg" alt="El Capitolio de La Habana" fetchpriority="high" />
-      <ul class="lista-vertical" aria-hidden="true"><li>Personas</li><li>Animales</li><li>Medioambiente</li><li>Instituciones</li></ul>
+    <div class="hero-arte" aria-hidden="true">
+      <div class="foto"><img src="/img/capitolio.jpg" alt="" fetchpriority="high" /></div>
+      <div class="franja-gris"></div>
+      <div class="panel-marino puntos"></div>
+      <div class="paralelo-rojo"></div>
+      <div class="paralelo-blanco"></div>
+      <ul class="lista-vertical"><li>Proponer</li><li>Cuestionar</li><li>Mejorar</li><li>Valorar</li></ul>
+      <span class="orn raya" style="width:62%;left:6%;bottom:30%;transform:rotate(-58deg)"></span>
+      <span class="orn raya" style="width:48%;left:30%;bottom:18%;transform:rotate(-58deg)"></span>
     </div>
-    <span class="franja r1" aria-hidden="true"></span>
-    <span class="franja a1" aria-hidden="true"></span>
-    <span class="franja a2" aria-hidden="true"></span>
-    <span class="franja n1" aria-hidden="true"></span>
+    <span class="orn bar-a escritorio" style="width:130px;right:6%;top:9%"></span>
+    <span class="orn bar-r escritorio" style="width:84px;left:50%;top:24%"></span>
+    <span class="orn cuad escritorio" style="width:26px;height:26px;left:53%;bottom:22%"></span>
+    <span class="orn bar-a escritorio" style="width:70px;left:47%;bottom:13%"></span>
+    <span class="orn bar-r escritorio" style="width:40px;left:4%;bottom:7%;height:7px"></span>
   </section>
 
   <section class="seccion" aria-label="Qué puedes hacer">
@@ -33,33 +41,65 @@ import c from '../data/cifras-publicadas.json';
         <li>
           <span class="num">01</span><span class="barra"></span>
           <h3>Propuestas</h3>
-          <p>Un banco abierto de ideas sobre el futuro de Cuba: {c.propuestas} propuestas reunidas de {c.documentos} documentos públicos, examinadas por su contenido.</p>
+          <p>Conoce propuestas de diversas fuentes, presenta iniciativas propias, plantea objeciones y colabora en su mejora. {c.propuestas} propuestas de {c.documentos} documentos públicos.</p>
           <a class="enlace-flecha" href="/propuestas/">Explorar <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
         <li>
           <span class="num">02</span><span class="barra"></span>
           <h3>Academia cívica</h3>
-          <p>Cursos breves sobre derechos humanos y principios democráticos. Aprende, reflexiona y participa.</p>
+          <p>Contenidos de democracia, derechos humanos, ciudadanía y ética, con herramientas de pensamiento crítico, creativo, sistémico y solucionario.</p>
           <a class="enlace-flecha" href="/academia/">Ver la Academia <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
         <li>
           <span class="num">03</span><span class="barra"></span>
           <h3>Consulta</h3>
-          <p>Comparte tu posición con un voto anónimo. Se publican solo los totales.</p>
+          <p>Las consultas ayudan a identificar prioridades y grados de aceptación entre quienes participan. El voto es anónimo y se publican solo los totales.</p>
           <a class="enlace-flecha" href="/consulta/">Participar <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
       </ol>
     </div>
   </section>
 
-  <section class="bloque-marino" aria-labelledby="t-perspectivas">
-    <div class="imagen" aria-hidden="true"><img src="/img/habana.jpg" alt="" loading="lazy" /></div>
+  <section class="seccion" aria-labelledby="t-principio">
     <div class="contenedor">
-      <h2 class="titulo" id="t-perspectivas">Diferentes perspectivas,<br />un mismo objetivo</h2>
-      <div>
-        <p>ENTRE TODOS es un espacio independiente para el diálogo, la participación y la construcción de propuestas. Las ideas se examinan por lo que dicen, no por quién las formula.</p>
-        <a class="boton claro" href="/sobre/">Conocer más <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      <p class="kicker">Principio central</p>
+      <h2 id="t-principio">Voz + Voto</h2>
+      <div class="principio">
+        <div class="col"><h3>Voz</h3><p>Expresar necesidades, presentar soluciones, objetar, debatir, aportar información y mejorar propuestas.</p></div>
+        <div class="signo" aria-hidden="true">+</div>
+        <div class="col voto"><h3>Voto</h3><p>Valorar, priorizar, aceptar o rechazar opciones mediante los mecanismos de consulta previstos.</p></div>
       </div>
+      <p class="nota-principio">La voz antecede y acompaña al voto.</p>
+    </div>
+  </section>
+
+  <section class="bloque-marino" aria-labelledby="t-porque">
+    <div class="imagen" aria-hidden="true"><img src="/img/habana.jpg" alt="" loading="lazy" /></div>
+    <div class="textura puntos" aria-hidden="true"></div>
+    <span class="orn bar-a" style="width:120px;left:0;top:0"></span>
+    <span class="orn bar-r" style="width:70px;right:8%;bottom:40px"></span>
+    <div class="contenedor">
+      <div>
+        <p class="kicker claro">Por qué existe</p>
+        <h2 class="titulo" id="t-porque">Participar desde<br />el principio</h2>
+      </div>
+      <div>
+        <p>Habitualmente los programas políticos se presentan ya elaborados para que la ciudadanía los respalde o rechace.</p>
+        <p><strong>ENTRE TODOS abre ese proceso desde una etapa anterior:</strong> las personas pueden intervenir también en la definición de los problemas, la formulación de alternativas y el perfeccionamiento de las soluciones.</p>
+        <a class="boton claro" href="/sobre/">Sobre ENTRE TODOS <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="t-garantias">
+    <div class="contenedor">
+      <p class="kicker">Independencia y confianza</p>
+      <h2 id="t-garantias">Garantías</h2>
+      <ul class="garantias">
+        <li><i class="fi fi-br-document-signed" aria-hidden="true"></i><h3>Autoría e integridad</h3><p>Cada propuesta conserva su autor, su fuente original y una versión identificable.</p></li>
+        <li><i class="fi fi-br-scale" aria-hidden="true"></i><h3>Pluralismo y equidad</h3><p>Las mismas reglas de publicación, objeción, revisión y valoración se aplican a todas las propuestas compatibles con el marco democrático.</p></li>
+        <li><i class="fi fi-br-shield-check" aria-hidden="true"></i><h3>Privacidad y seguridad</h3><p>Se recogen los datos estrictamente necesarios. Los perfiles y las señales de participación son privados por defecto.</p></li>
+      </ul>
     </div>
   </section>
 
