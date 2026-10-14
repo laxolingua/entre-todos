@@ -610,3 +610,25 @@ a.antetitulo:hover { color: var(--rojo); }
   .hero-arte::before, .banda-fondo::before { left: -100%; }
   .ficha-cab .ficha-foto::before { display: none; }
 }
+
+/* paralelismo estricto: toda arista inclinada del sitio usa el mismo ángulo (60°, "/").
+   Proporción ancho/alto de cualquier triángulo o corte: tan(30°) ≈ 0,577 */
+.orn.bar-r, .orn.bar-a, .orn.bar-b, .orn.cuad { transform: skewX(var(--sesgo)); }
+.pregunta { clip-path: none; background: transparent !important; position: relative; isolation: isolate; box-shadow: none; padding-left: 44px; padding-right: 54px; }
+.pregunta::before { content: ""; position: absolute; inset: 0; z-index: -1; transform: skewX(var(--sesgo)); box-shadow: 0 10px 30px rgba(11,29,63,.25); transition: background .2s ease; }
+.pregunta.voz::before { background: var(--rojo); }
+.pregunta.voto::before { background: var(--marino); }
+.pregunta.voz:hover::before { background: var(--rojo-osc); }
+.pregunta.voto:hover::before { background: var(--marino-2); }
+.ficha-cab .ficha-foto .ficha-orn.tri, .ficha-cab .ficha-foto .ficha-orn.bar, .ficha-cab .ficha-foto .ficha-orn.blo { transform: skewX(var(--sesgo)); }
+.tarjeta.consolidada::before { width: 28px; height: 48px; }
+.categoria::after { width: 37px; height: 64px; }
+.garantias li::before { width: 40px; height: 70px; }
+.principio .col::after { width: 69px; height: 120px; }
+.curso::after { transform: none; top: auto; right: 0; bottom: 0; width: 28px; height: 48px; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.curso.con-foto .estado { clip-path: none; background: transparent; position: relative; isolation: isolate; padding: 4px 12px; }
+.curso.con-foto .estado::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--amarillo); transform: skewX(var(--sesgo)); }
+.aviso-proximo { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 23px) 100%, 0 100%); }
+.ficha-consolidada::after { clip-path: none; transform: skewX(var(--sesgo)); transform-origin: bottom left; right: -60px; }
+.curso.con-foto .estado { display: inline-block; align-self: flex-start; width: auto; }
+@media (max-width: 860px) { .preguntas { margin-left: 40px; margin-right: 40px; } .pregunta.voto { margin-left: 0; } }
