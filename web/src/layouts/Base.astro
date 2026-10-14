@@ -3,6 +3,7 @@ import '@fontsource/barlow/latin-400.css';
 import '@fontsource/barlow/latin-500.css';
 import '@fontsource/barlow/latin-600.css';
 import '@fontsource/barlow/latin-700.css';
+import '@fontsource/barlow-condensed/latin-300.css';
 import '@fontsource/barlow-condensed/latin-700.css';
 import '@fontsource/barlow-condensed/latin-800.css';
 import '@fontsource/montserrat/latin-900.css';
@@ -71,6 +72,7 @@ const subenlaces = [
     <header class="cabecera" id="cabecera">
       <div class="contenedor">
         <a class="marca" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
+        <a class="icono-cab" href="/propuestas/#buscador" aria-label="Buscar propuestas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20 20-4.5-4.5"/></svg></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
           {enlaces.map((e) => <a href={e.href} aria-current={e.activo ? 'page' : undefined}>{e.texto}</a>)}

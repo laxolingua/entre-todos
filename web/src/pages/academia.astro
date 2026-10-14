@@ -2,17 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
 const cursos = [
-  'Derechos humanos en la práctica',
-  'Libertad de expresión y de prensa',
-  'Justicia y Estado de derecho',
-  'Rendición de cuentas',
-  'Libertad religiosa',
-  'Sociedad civil independiente',
+  ['Derechos humanos en la práctica', 'derechos'],
+  ['Libertad de expresión y de prensa', 'sociedad_civil'],
+  ['Justicia y Estado de derecho', 'constitucion'],
+  ['Rendición de cuentas', 'modelo_pais'],
+  ['Libertad religiosa', 'familia'],
+  ['Sociedad civil independiente', 'transicion'],
 ];
 ---
 <Base titulo="Academia cívica" seccion="academia" ancho
   descripcion="Contenidos de democracia, derechos humanos, ciudadanía y ética. En preparación.">
-  <Banda imagen="/img/capitolio.jpg" posicion="center 20%" lateral={['Democracia', 'Derechos humanos', 'Ciudadanía', 'Ética']}>
+  <Banda imagen="/img/fotos/academia.jpg" lateral={['Democracia', 'Derechos humanos', 'Ciudadanía', 'Ética']}>
     <span class="barra"></span>
     <h1>Academia<br />cívica</h1>
     <p class="lema">Aprender a participar</p>
@@ -25,10 +25,10 @@ const cursos = [
         <p>La Academia cívica está en preparación. Cada curso será breve, terminará con una insignia y comparará cómo funcionan estas libertades en distintas democracias.</p>
         <p>Los contenidos parten de la Declaración Universal de Derechos Humanos y de los pactos internacionales de derechos que Cuba firmó en 2008.</p>
       </div>
-      <h2>Primeros cursos</h2>
+      <h2>Vistazo a los primeros cursos</h2>
       <ul class="cursos">
         {cursos.map((t, i) => (
-          <li class="curso"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><span class="estado">En preparación</span></li>
+          <li class="curso con-foto"><div class="duo"><img src={`/img/fotos/cat-${t[1]}.jpg`} alt="" loading="lazy" /></div><span class="num">{String(i + 1).padStart(2, '0')}</span><div class="pie-curso"><h3>{t[0]}</h3><span class="estado">En preparación</span></div></li>
         ))}
       </ul>
       <div class="acciones" style="margin-top:28px">

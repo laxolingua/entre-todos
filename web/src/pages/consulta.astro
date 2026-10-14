@@ -4,7 +4,7 @@ import Banda from '../components/Banda.astro';
 ---
 <Base titulo="Consulta" seccion="consulta" ancho
   descripcion="Consultas ciudadanas no vinculantes. Voto anónimo con carné o pasaporte; se publican solo los totales.">
-  <Banda imagen="/img/habana.jpg" lateral={['Valorar', 'Priorizar', 'Aceptar', 'Rechazar']}>
+  <Banda imagen="/img/fotos/consulta.jpg" lateral={['Valorar', 'Priorizar', 'Aceptar', 'Rechazar']}>
     <span class="barra"></span>
     <h1>Consulta</h1>
     <p class="lema">Consultas ciudadanas no vinculantes</p>
@@ -12,6 +12,11 @@ import Banda from '../components/Banda.astro';
   </Banda>
   <div class="contenedor">
     <div class="seccion">
+      <div class="tabs-consulta" role="tablist">
+        <button type="button" role="tab" aria-selected="true" aria-controls="tab-actual" id="b-actual">Consulta actual</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="tab-anteriores" id="b-anteriores">Resultados anteriores</button>
+      </div>
+      <div class="panel-tab" id="tab-actual" role="tabpanel" aria-labelledby="b-actual">
       <article class="panel consulta-tarjeta">
         <span class="num">01</span>
         <div>
@@ -29,9 +34,21 @@ import Banda from '../components/Banda.astro';
           </div>
         </div>
       </article>
+      </div>
+      <div class="panel-tab" id="tab-anteriores" role="tabpanel" aria-labelledby="b-anteriores" hidden>
+        <div class="panel"><p class="entradilla" style="margin:0">Todavía no hay consultas cerradas. Cuando una consulta termine, sus resultados quedarán aquí.</p></div>
+      </div>
       <p class="discreto" style="margin-top:18px">Los resultados reflejan a quienes participan y no a toda la población.</p>
     </div>
   </div>
+  <script is:inline>
+    document.querySelectorAll('.tabs-consulta [role=tab]').forEach((b) => b.addEventListener('click', () => {
+      document.querySelectorAll('.tabs-consulta [role=tab]').forEach((x) => {
+        const sel = x === b; x.setAttribute('aria-selected', String(sel));
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !sel;
+      });
+    }));
+  </script>
   <script>
     const URL_SB = 'https://pfjcumyygdwslwtrlebr.supabase.co';
     const CLAVE = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';

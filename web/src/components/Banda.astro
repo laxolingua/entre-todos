@@ -6,7 +6,7 @@ const { imagen, lateral, posicion = 'center' } = Astro.props;
 ---
 <section class="banda">
   <div class="banda-fondo" aria-hidden="true">
-    <div class="foto"><img src={imagen} alt="" style={`object-position:${posicion}`} /></div>
+    <div class="foto duo"><img src={imagen} alt="" style={`object-position:${posicion}`} /></div>
     <div class="franja-gris"></div>
     <div class="panel-marino puntos"></div>
     <ul class="texto-lateral">{lateral.map((t) => <li>{t}</li>)}</ul>
