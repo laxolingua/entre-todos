@@ -1,24 +1,35 @@
 ---
-import '@fontsource/inter/latin-400.css';
-import '@fontsource/inter/latin-600.css';
-import '@fontsource/inter/latin-700.css';
+import '@fontsource/barlow/latin-400.css';
+import '@fontsource/barlow/latin-500.css';
+import '@fontsource/barlow/latin-600.css';
+import '@fontsource/barlow/latin-700.css';
+import '@fontsource/barlow-condensed/latin-700.css';
+import '@fontsource/barlow-condensed/latin-800.css';
 import '../styles/global.css';
 
 interface Props {
   titulo: string;
   descripcion: string;
   imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
-  seccion?: 'propuestas' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos';
+  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos';
+  ancho?: boolean;     // true: la página controla su propio ancho (portada y secciones con banda)
 }
-const { titulo, descripcion, imagen = '/og/banco.png', seccion } = Astro.props;
+const { titulo, descripcion, imagen = '/og/banco.png', seccion, ancho = false } = Astro.props;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const imagenAbs = new URL(imagen, Astro.site);
-const tituloCompleto = `${titulo} · ENTRE TODOS`;
+const tituloCompleto = seccion === 'inicio' ? 'ENTRE TODOS · Voz + Voto' : `${titulo} · ENTRE TODOS`;
 const UICONS = 'https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css';
+const BANCO = ['propuestas', 'cuestiones', 'fuentes', 'actores', 'metodo', 'datos', 'archivo'];
+const enBanco = BANCO.includes(seccion ?? '');
 const enlaces = [
-  { href: '/', texto: 'Inicio', id: 'inicio' },
-  { href: '/propuestas/', texto: 'Propuestas', id: 'propuestas' },
-  { href: '/cuestiones/', texto: 'Cuestiones', id: 'cuestiones' },
+  { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
+  { href: '/academia/', texto: 'Academia', activo: seccion === 'academia' },
+  { href: '/consulta/', texto: 'Consulta', activo: seccion === 'consulta' },
+  { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
+];
+const subenlaces = [
+  { href: '/propuestas/', texto: 'Todas las propuestas', id: 'propuestas' },
+  { href: '/cuestiones/', texto: 'Cuestiones con alternativas', id: 'cuestiones' },
   { href: '/fuentes/', texto: 'Documentos', id: 'fuentes' },
   { href: '/actores/', texto: 'Actores', id: 'actores' },
   { href: '/metodo/', texto: 'Método', id: 'metodo' },
@@ -46,9 +57,9 @@ const enlaces = [
     <meta name="twitter:title" content={titulo} />
     <meta name="twitter:description" content={descripcion} />
     <meta name="twitter:image" content={imagenAbs} />
-    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0b1d3f" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- Iconos sin bloquear la lectura: el texto aparece antes que la fuente de iconos. -->
     <link rel="preconnect" href="https://cdn-uicons.flaticon.com" crossorigin />
     <link rel="stylesheet" href={UICONS} media="print" onload="this.media='all'" />
@@ -56,24 +67,61 @@ const enlaces = [
   </head>
   <body>
     <a class="saltar" href="#contenido">Saltar al contenido</a>
-    <header class="cabecera">
+    <header class="cabecera" id="cabecera">
       <div class="contenedor">
-        <a class="marca" href="/">ENTRE TODOS</a>
-        <nav class="nav" aria-label="Principal">
-          {enlaces.map((e) => (
-            <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}>{e.texto}</a>
-          ))}
+        <a class="marca" href="/" aria-label="ENTRE TODOS, inicio">
+          <svg class="sello" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21.5" fill="none" stroke="#0b1d3f" stroke-width="3.5"/><text x="24" y="31.5" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="22" fill="#0b1d3f">ET</text><rect x="30" y="9" width="11" height="3.2" fill="#d7192d"/></svg>
+          <span class="nombre">ENTRE TODOS</span>
+        </a>
+        <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
+        <nav class="nav" id="nav-principal" aria-label="Principal">
+          {enlaces.map((e) => <a href={e.href} aria-current={e.activo ? 'page' : undefined}>{e.texto}</a>)}
         </nav>
       </div>
     </header>
-    <main id="contenido" class="contenedor">
-      <slot />
-    </main>
+    {enBanco && (
+      <nav class="subnav" aria-label="Banco de propuestas">
+        <div class="contenedor">
+          {subenlaces.map((e) => <a href={e.href} aria-current={seccion === e.id ? 'page' : undefined}>{e.texto}</a>)}
+        </div>
+      </nav>
+    )}
+    {ancho ? <main id="contenido"><slot /></main> : <main id="contenido" class="contenedor"><slot /></main>}
+    <slot name="antes-del-pie" />
     <footer class="pie">
       <div class="contenedor">
-        <p style="margin:0">ENTRE TODOS reúne propuestas públicas sobre el futuro de Cuba. Cada propuesta conserva su autoría y enlaza al documento original.</p>
-        <p style="margin:0">Cada propuesta reúne las fuentes que dicen lo mismo; su redacción es editorial y conserva el lenguaje de las fuentes. <a href="/metodo/">Cómo se reúnen las propuestas</a>.</p>
+        <div>
+          <a class="marca" href="/"><span class="nombre">ENTRE TODOS</span></a>
+          <p>Un espacio independiente para conocer, comparar y valorar propuestas sobre el futuro de Cuba. Cada propuesta se examina por su contenido y enlaza a su documento original.</p>
+          <span class="barra amarilla" style="margin-top:18px"></span>
+        </div>
+        <div>
+          <h2>Participa</h2>
+          <ul>
+            <li><a href="/propuestas/">Propuestas</a></li>
+            <li><a href="/academia/">Academia cívica</a></li>
+            <li><a href="/consulta/">Consulta</a></li>
+            <li><a href="/abrazos.html">Abrazos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>ENTRE TODOS</h2>
+          <ul>
+            <li><a href="/sobre/">Sobre nosotros</a></li>
+            <li><a href="/metodo/">Cómo se reúnen las propuestas</a></li>
+            <li><a href="/datos/">Datos abiertos</a></li>
+            <li><a href="/politica-privacidad.html">Privacidad</a></li>
+          </ul>
+        </div>
       </div>
     </footer>
+    <script is:inline>
+      const c = document.getElementById('cabecera');
+      const b = c?.querySelector('.menu-boton');
+      b?.addEventListener('click', () => {
+        const abierta = c.classList.toggle('abierta');
+        b.setAttribute('aria-expanded', String(abierta));
+      });
+    </script>
   </body>
 </html>

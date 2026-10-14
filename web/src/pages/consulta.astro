@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Consulta" seccion="consulta" ancho
+  descripcion="Consultas ciudadanas no vinculantes. Voto anónimo con carné o pasaporte; se publican solo los totales.">
+  <section class="banda">
+    <div class="banda-fondo" aria-hidden="true"><img src="/img/habana.jpg" alt="" /><span class="texto-lateral">Diálogo, ideas, perspectivas</span></div>
+    <div class="contenedor">
+      <div class="contenido-banda">
+        <span class="barra"></span>
+        <h1>Consulta</h1>
+        <p class="lema">Tu opinión también cuenta</p>
+        <p class="entradilla">Consultas ciudadanas no vinculantes. El voto es anónimo, con carné o pasaporte, y solo se publican los totales.</p>
+      </div>
+    </div>
+  </section>
+  <div class="contenedor">
+    <div class="seccion">
+      <article class="panel consulta-tarjeta">
+        <span class="num">01</span>
+        <div>
+          <p class="antetitulo">Consulta en curso · abierta desde el 27 de marzo de 2026</p>
+          <h2>Continuidad o cambio</h2>
+          <p class="entradilla">Parte de una declaración de Miguel Díaz-Canel: «Mi continuidad o la de cualquier otra persona que en determinado momento tenga una responsabilidad de este nivel en nuestro país, depende del pueblo».</p>
+          <div class="marcador" id="marcador" aria-live="polite">
+            <div class="fila"><span>Continuidad</span><span class="barra-voto"><span data-barra="continuidad"></span></span><span class="pct" data-pct="continuidad">–</span></div>
+            <div class="fila cambio"><span>Cambio</span><span class="barra-voto"><span data-barra="cambio"></span></span><span class="pct" data-pct="cambio">–</span></div>
+          </div>
+          <p class="discreto" id="total-consulta">Cargando resultados…</p>
+          <div class="acciones">
+            <a class="boton rojo" href="/consulta-popular-cuba.html">Participa <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+            <a class="boton" href="/consulta-popular-cuba.html#resultados">Resultados completos</a>
+          </div>
+        </div>
+      </article>
+      <p class="discreto" style="margin-top:18px">Los resultados reflejan a quienes participan y no a toda la población.</p>
+    </div>
+  </div>
+  <script>
+    const URL_SB = 'https://pfjcumyygdwslwtrlebr.supabase.co';
+    const CLAVE = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+    const total = document.getElementById('total-consulta');
+    fetch(`${URL_SB}/rest/v1/rpc/consulta_resultados`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
+      body: JSON.stringify({ p_consulta: 'continuidad_2026_03_27' }),
+    }).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((d) => {
+      const t = d.total || 0;
+      for (const k of ['continuidad', 'cambio']) {
+        const p = t ? Math.round((d[k] / t) * 100) : 0;
+        const barra = document.querySelector(`[data-barra="${k}"]`);
+        const pct = document.querySelector(`[data-pct="${k}"]`);
+        if (barra) requestAnimationFrame(() => { barra.style.width = `${p}%`; });
+        if (pct) pct.textContent = `${p}%`;
+      }
+      if (total) total.textContent = `${t} votos · ${d.cuba || 0} desde Cuba · ${d.extranjero || 0} desde el extranjero`;
+    }).catch(() => { if (total) total.textContent = 'Los resultados se pueden ver en la página de la consulta.'; });
+  </script>
+</Base>

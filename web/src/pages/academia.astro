@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+const cursos = [
+  'Derechos humanos en la práctica',
+  'Libertad de expresión y de prensa',
+  'Justicia y Estado de derecho',
+  'Rendición de cuentas',
+  'Libertad religiosa',
+  'Sociedad civil independiente',
+];
+---
+<Base titulo="Academia cívica" seccion="academia" ancho
+  descripcion="Cursos breves sobre derechos humanos y principios democráticos. En preparación.">
+  <section class="banda">
+    <div class="banda-fondo" aria-hidden="true"><img src="/img/capitolio.jpg" alt="" /><span class="texto-lateral">Conocimiento para una mejor sociedad</span></div>
+    <div class="contenedor">
+      <div class="contenido-banda">
+        <span class="barra"></span>
+        <h1>Academia<br />cívica</h1>
+        <p class="lema">Aprender. Reflexionar. Participar.</p>
+        <p class="entradilla">Un espacio educativo sobre derechos humanos y principios democráticos, con herramientas de pensamiento crítico para analizar problemas y construir propuestas.</p>
+      </div>
+    </div>
+  </section>
+  <div class="contenedor">
+    <div class="seccion">
+      <div class="aviso-proximo">
+        <h2>Próximamente</h2>
+        <p>La Academia cívica está en preparación. Cada curso será breve, terminará con una insignia y comparará cómo funcionan estas libertades en distintas democracias.</p>
+        <p>Los contenidos parten de la Declaración Universal de Derechos Humanos y de los pactos internacionales de derechos que Cuba firmó en 2008.</p>
+      </div>
+      <h2>Primeros cursos</h2>
+      <ul class="cursos">
+        {cursos.map((t, i) => (
+          <li class="curso"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><span class="estado">En preparación</span></li>
+        ))}
+      </ul>
+      <div class="acciones" style="margin-top:28px">
+        <a class="boton rojo" href="/propuestas/">Mientras tanto, explora las propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</Base>

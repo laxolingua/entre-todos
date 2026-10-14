@@ -3,21 +3,27 @@ import Base from '../../layouts/Base.astro';
 import TarjetaCategoria from '../../components/TarjetaCategoria.astro';
 import TarjetaConsolidada from '../../components/TarjetaConsolidada.astro';
 import { categorias, meta, propuestas, cuestiones, propPorId } from '../../lib/banco.js';
-const t = meta.totales;
+import publicadas from '../../data/cifras-publicadas.json';
+const t = { ...meta.totales, ...publicadas };
 // Las propuestas con más documentos detrás: donde más coinciden las fuentes.
 const masRespaldadas = [...propuestas].sort((a, b) => b.total_documentos - a.total_documentos || a.orden - b.orden).slice(0, 6);
 ---
-<Base titulo="Propuestas" seccion="propuestas"
+<Base titulo="Propuestas" seccion="propuestas" ancho
   descripcion={`${t.propuestas} propuestas sobre el futuro de Cuba, reunidas a partir de ${t.documentos} documentos públicos.`}>
-  <h1>Propuestas para el futuro de Cuba</h1>
-  <p class="entradilla">Lo que han propuesto organizaciones, coaliciones y especialistas. Cada idea aparece una sola vez, con todas las fuentes que la plantean; lo que alguna fuente añade va como inciso, con su referencia.</p>
-  <p class="edicion"><strong>{meta.estado_documentacion.edicion}</strong> · {new Date(meta.estado_documentacion.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. La revisión de las fuentes continúa: <a href="/metodo/#estado">estado de la documentación</a>.</p>
-  <ul class="cifras">
-    <li><strong>{t.propuestas}</strong> propuestas</li>
-    <li><strong>{t.documentos}</strong> documentos</li>
-    <li><strong>{t.autorias}</strong> autorías</li>
-    <li><strong>{t.cuestiones}</strong> <a href="/cuestiones/">cuestiones con alternativas</a></li>
-  </ul>
+  <section class="banda">
+    <div class="banda-fondo" aria-hidden="true"><img src="/img/habana.jpg" alt="" /><span class="texto-lateral">Las ideas también construyen realidad</span></div>
+    <div class="contenedor">
+      <div class="contenido-banda">
+        <span class="barra"></span>
+        <h1>Propuestas</h1>
+        <p class="lema">Ideas reales para problemas reales</p>
+        <p class="entradilla">Lo que han propuesto organizaciones, coaliciones y especialistas. Cada idea aparece una sola vez, con todas las fuentes que la plantean; lo que alguna fuente añade va como inciso, con su referencia.</p>
+        <p class="cifra-grande">{t.propuestas}<small>propuestas · {t.documentos} documentos · {t.cuestiones} cuestiones con alternativas</small></p>
+      </div>
+    </div>
+  </section>
+  <div class="contenedor" id="banco-cuerpo">
+  <p class="edicion" style="margin-top:22px"><strong>{meta.estado_documentacion.edicion}</strong> · {new Date(meta.estado_documentacion.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}. La revisión de las fuentes continúa: <a href="/metodo/#estado">estado de la documentación</a>.</p>
 
   <form class="buscador" role="search" action="/propuestas/" method="get" id="buscador">
     <label for="q" class="oculto">Buscar propuestas</label>
@@ -52,6 +58,7 @@ const masRespaldadas = [...propuestas].sort((a, b) => b.total_documentos - a.tot
     </section>
   </div>
 
+  </div>
   <script>
     import { iniciarBuscador } from '../../lib/buscador.js';
     iniciarBuscador();

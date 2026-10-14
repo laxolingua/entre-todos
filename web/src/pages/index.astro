@@ -1,13 +1,75 @@
 ---
-// La portada general de ENTRE TODOS aún no forma parte de este desarrollo. Mientras tanto, lleva al banco.
+import Base from '../layouts/Base.astro';
+import c from '../data/cifras-publicadas.json';
 ---
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/propuestas/" />
-    <link rel="canonical" href="/propuestas/" />
-    <title>ENTRE TODOS</title>
-  </head>
-  <body><p><a href="/propuestas/">Ir al banco de propuestas</a></p></body>
-</html>
+<Base titulo="Inicio" seccion="inicio" ancho imagen="/img/og-portada.jpg"
+  descripcion="Participación ciudadana para construir, entre todos, una Cuba más libre, humana y plural. Propuestas, Academia cívica y consulta ciudadana.">
+  <section class="hero">
+    <div class="contenedor">
+      <div class="hero-texto">
+        <span class="barra amarilla"></span>
+        <h1>Voz <span class="rojo">+</span><br />Voto</h1>
+        <p class="sub"><span>Propuestas</span><span class="punto"></span><span>Academia cívica</span><span class="punto"></span><span>Consulta ciudadana</span></p>
+        <p>Participación ciudadana para construir, entre todos, una Cuba <strong>más libre, humana y plural</strong>.</p>
+        <div class="acciones">
+          <a class="boton rojo" href="/propuestas/">Explorar propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          <a class="boton" href="/consulta/">Participa en la consulta</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-imagen">
+      <img src="/img/capitolio.jpg" alt="El Capitolio de La Habana" fetchpriority="high" />
+      <ul class="lista-vertical" aria-hidden="true"><li>Personas</li><li>Animales</li><li>Medioambiente</li><li>Instituciones</li></ul>
+    </div>
+    <span class="franja r1" aria-hidden="true"></span>
+    <span class="franja a1" aria-hidden="true"></span>
+    <span class="franja a2" aria-hidden="true"></span>
+    <span class="franja n1" aria-hidden="true"></span>
+  </section>
+
+  <section class="seccion" aria-label="Qué puedes hacer">
+    <div class="contenedor">
+      <ol class="pilares">
+        <li>
+          <span class="num">01</span><span class="barra"></span>
+          <h3>Propuestas</h3>
+          <p>Un banco abierto de ideas sobre el futuro de Cuba: {c.propuestas} propuestas reunidas de {c.documentos} documentos públicos, examinadas por su contenido.</p>
+          <a class="enlace-flecha" href="/propuestas/">Explorar <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <span class="num">02</span><span class="barra"></span>
+          <h3>Academia cívica</h3>
+          <p>Cursos breves sobre derechos humanos y principios democráticos. Aprende, reflexiona y participa.</p>
+          <a class="enlace-flecha" href="/academia/">Ver la Academia <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <span class="num">03</span><span class="barra"></span>
+          <h3>Consulta</h3>
+          <p>Comparte tu posición con un voto anónimo. Se publican solo los totales.</p>
+          <a class="enlace-flecha" href="/consulta/">Participar <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bloque-marino" aria-labelledby="t-perspectivas">
+    <div class="imagen" aria-hidden="true"><img src="/img/habana.jpg" alt="" loading="lazy" /></div>
+    <div class="contenedor">
+      <h2 class="titulo" id="t-perspectivas">Diferentes perspectivas,<br />un mismo objetivo</h2>
+      <div>
+        <p>ENTRE TODOS es un espacio independiente para el diálogo, la participación y la construcción de propuestas. Las ideas se examinan por lo que dicen, no por quién las formula.</p>
+        <a class="boton claro" href="/sobre/">Conocer más <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="franja-cifras" slot="antes-del-pie" aria-label="Secciones">
+    <div class="contenedor">
+      <ul>
+        <li><a href="/propuestas/"><i class="fi fi-br-bulb" aria-hidden="true"></i><span><strong>{c.propuestas}</strong>Propuestas</span></a></li>
+        <li><a href="/academia/"><i class="fi fi-br-book-open-cover" aria-hidden="true"></i><span><strong>Academia cívica</strong>Próximamente</span></a></li>
+        <li><a href="/consulta/"><i class="fi fi-br-users-alt" aria-hidden="true"></i><span><strong>Consulta</strong>Participa</span></a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
