@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import d from '../../data/diversidad.json';
+import sitio from '../../data/sitio.json';
+export function getStaticPaths() {
+  return [
+    ...d.candidaturas.map((f) => ({ params: { slug: f.slug }, props: { f, tipo: 'candidatura' } })),
+    ...d.organizaciones.map((f) => ({ params: { slug: f.slug }, props: { f, tipo: 'organizacion' } })),
+  ];
+}
+const { f, tipo } = Astro.props as any;
+const sub = tipo === 'candidatura' ? `${f.estado} · ${f.espacio}` : f.tipo;
+---
+<Base titulo={f.nombre} seccion="diversidad" descripcion={f.resumen.slice(0, 155)}>
+  <a class="volver" href="/diversidad-politica/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i> Diversidad política</a>
+  <header class="perfil-cab">
+    <div class={tipo === 'candidatura' ? 'perfil-foto grande duo' : 'logo-org grande'}><img src={f.imagen} alt="" /></div>
+    <div>
+      <p class="antetitulo">{tipo === 'candidatura' ? 'Ficha de candidatura' : 'Ficha institucional'} · {f.fecha}</p>
+      <h1>{f.nombre}</h1>
+      <p class="lema">{sub}</p>
+      <p class="entradilla">{f.resumen}</p>
+    </div>
+  </header>
+  <p class="nota-neutral"><strong>Nota de neutralidad.</strong> ENTRE TODOS no respalda ni promueve {tipo === 'candidatura' ? 'esta candidatura' : 'esta organización'}. La ficha registra información pública verificable para que pueda conocerse y compararse.</p>
+  {f.datos.length > 0 && (
+    <dl class="datos-lista panel">{f.datos.map(([k, v]: any) => <Fragment><dt>{k}</dt><dd>{v}</dd></Fragment>)}</dl>
+  )}
+  {f.ejes.length > 0 && (
+    <section class="seccion">
+      <h2 class="vista-titulo">{tipo === 'candidatura' ? 'Plataforma conocida' : 'Ejes programáticos visibles'}</h2>
+      <ul class="ejes">{f.ejes.map(([a, t, p]: any) => <li><span class="kicker">{a}</span><h3>{t}</h3><p>{p}</p></li>)}</ul>
+    </section>
+  )}
+  {f.pendiente.length > 0 && (
+    <section class="seccion">
+      <h2 class="vista-titulo">Pendiente de publicación</h2>
+      <ul class="pendientes">{f.pendiente.map((p: string) => <li>{p}</li>)}</ul>
+    </section>
+  )}
+  {f.enlaces.length > 0 && (
+    <section class="seccion">
+      <h2 class="vista-titulo">Fuentes</h2>
+      <ul class="enlaces-fuente">{f.enlaces.map(([t, u]: any) => <li><a href={u} rel="noopener nofollow">{t} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a></li>)}</ul>
+    </section>
+  )}
+  <div class="panel solicitar">
+    <p>¿Representas a {f.nombre}? Puedes enviar tu programa completo para incorporarlo al banco y someterlo a la valoración ciudadana, o pedir correcciones de esta ficha.</p>
+    <a class="boton" href={`mailto:${sitio.contacto}?subject=${encodeURIComponent('Ficha: ' + f.nombre)}`}>Enviar programa o corrección</a>
+  </div>
+</Base>

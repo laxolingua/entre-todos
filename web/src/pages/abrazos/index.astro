@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import sitio from '../../data/sitio.json';
+---
+<Base titulo="Abrazos" seccion="abrazos" ancho imagen="/img/abrazos/anna-bensi-share.jpg"
+  descripcion="ABRAZOS, una campaña de ENTRE TODOS: fotos de abrazos, reales o hechas con IA, para cubanos que sufren por defender una Cuba democrática y plural.">
+  <Banda imagen="/img/fotos/cat-familia.jpg" lateral={['Fe', 'Valentía', 'Ideas', 'Derechos']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Una campaña de ENTRE TODOS</p>
+    <h1>Abrazos</h1>
+    <p class="entradilla">Fotos de abrazos, reales o hechas con IA, para cubanos que sufren por defender una Cuba democrática y plural. Cada persona la publica desde su propia cuenta.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <h2 class="vista-titulo">Abrazo activo</h2>
+      <a class="abrazo-activo panel" href="/abrazos/anna-bensi/">
+        <img src="/img/abrazos/anna-bensi.jpg" alt="Ejemplo de abrazo virtual con el texto Yo abrazo a Anna Bensi" loading="lazy" />
+        <div>
+          <p class="antetitulo">La Habana, Cuba</p>
+          <h3>Anna Bensi</h3>
+          <p>El 1 de octubre de 2026 un tribunal de La Habana la condenó, junto a su madre, a dos años de limitación de libertad por grabar a un agente de la Seguridad del Estado en la puerta de su casa.</p>
+          <p class="hashtag">#MiAbrazoParaAnnaBensi</p>
+          <span class="boton rojo">Darle mi abrazo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">Cómo funciona</h2>
+      <ol class="pilares">
+        <li><span class="num">01</span><span class="barra"></span><h3>Elige a quién abrazar</h3><p>Ahora mismo, Anna Bensi.</p></li>
+        <li><span class="num">02</span><span class="barra"></span><h3>Crea tu foto</h3><p>Si la conoces, una foto real. Si no estás cerca, con tu IA: te damos el texto listo para copiar.</p></li>
+        <li><span class="num">03</span><span class="barra"></span><h3>Publícala</h3><p>Desde tu cuenta, con el hashtag. En Instagram invita a @EntreTodosOrg como colaborador.</p></li>
+      </ol>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">Dónde verlos</h2>
+      <div class="redes-abrazos">
+        <a class="panel" href={sitio.instagram} rel="noopener"><i class="fi fi-br-camera" aria-hidden="true"></i><strong>Instagram</strong>@EntreTodosOrg</a>
+        <a class="panel" href={sitio.facebookGrupo} rel="noopener"><i class="fi fi-br-users" aria-hidden="true"></i><strong>Facebook</strong>Grupo ENTRE TODOS</a>
+      </div>
+      <p class="discreto">Los abrazos tienen límites: esta campaña acompaña a cubanos que aspiran a un país democrático y plural.</p>
+    </section>
+  </div>
+</Base>

@@ -1,9 +1,9 @@
 ---
-import Base from '../layouts/Base.astro';
-import Banda from '../components/Banda.astro';
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
 ---
 <Base titulo="Consulta" seccion="consulta" ancho
-  descripcion="Consultas ciudadanas no vinculantes. Voto anónimo con carné o pasaporte; se publican solo los totales.">
+  descripcion="Consultas ciudadanas no vinculantes sobre propuestas, temas de actualidad y la gestión del gobierno. Voto anónimo; se publican solo los totales.">
   <Banda imagen="/img/fotos/consulta.jpg" lateral={['Valorar', 'Priorizar', 'Aceptar', 'Rechazar']}>
     <span class="barra"></span>
     <h1>Consulta</h1>
@@ -14,7 +14,7 @@ import Banda from '../components/Banda.astro';
     <div class="seccion">
       <div class="tabs-consulta" role="tablist">
         <button type="button" role="tab" aria-selected="true" aria-controls="tab-actual" id="b-actual">Consulta actual</button>
-        <button type="button" role="tab" aria-selected="false" aria-controls="tab-anteriores" id="b-anteriores">Resultados anteriores</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="tab-anteriores" id="b-anteriores">Consultas cerradas</button>
       </div>
       <div class="panel-tab" id="tab-actual" role="tabpanel" aria-labelledby="b-actual">
       <article class="panel consulta-tarjeta">
@@ -29,8 +29,8 @@ import Banda from '../components/Banda.astro';
           </div>
           <p class="discreto" id="total-consulta">Cargando resultados…</p>
           <div class="acciones">
-            <a class="boton rojo" href="/consulta-popular-cuba.html">Participa <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
-            <a class="boton" href="/consulta-popular-cuba.html#resultados">Resultados completos</a>
+            <a class="boton rojo" href="/consulta/continuidad-o-cambio/">Participa <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+            <a class="boton" href="/consulta/continuidad-o-cambio/#resultados">Resultados completos</a>
           </div>
         </div>
       </article>
@@ -38,6 +38,18 @@ import Banda from '../components/Banda.astro';
       <div class="panel-tab" id="tab-anteriores" role="tabpanel" aria-labelledby="b-anteriores" hidden>
         <div class="panel"><p class="entradilla" style="margin:0">Todavía no hay consultas cerradas. Cuando una consulta termine, sus resultados quedarán aquí.</p></div>
       </div>
+      <h2 class="vista-titulo">Próximas consultas</h2>
+      <ul class="tipos-consulta">
+        <li><span class="num">02</span><span class="etiqueta">En preparación</span><h3>Termómetro de gestión</h3><p>Valoración periódica del desempeño del gobierno y de sus dirigentes, como se mide la aprobación en otros países. Una herramienta de transparencia que hoy no existe en Cuba.</p></li>
+        <li><span class="num">03</span><span class="etiqueta">En preparación</span><h3>Consultas sobre propuestas</h3><p>Preguntas sobre las propuestas del banco: qué priorizar, qué alternativa prefieres y por qué. Sus resultados alimentan la Plataforma plural de gobierno.</p></li>
+        <li><span class="num">04</span><span class="etiqueta">En preparación</span><h3>Temas de actualidad</h3><p>Consultas breves sobre asuntos del momento que afectan a la vida colectiva.</p></li>
+      </ul>
+      <article class="panel solicitud-civica">
+        <p class="antetitulo">Solicitud enviada · 11 de julio de 2026</p>
+        <h2>Que Cuba pueda decidir sin miedo</h2>
+        <p>Una solicitud internacional para promover una consulta cubana libre, directa, secreta y verificable, con observación independiente y garantías contra la coacción y las represalias.</p>
+        <a class="enlace-flecha" href="/consulta/solicitud-consulta-civica/">Conocer la solicitud <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </article>
       <p class="discreto" style="margin-top:18px">Los resultados reflejan a quienes participan y no a toda la población.</p>
     </div>
   </div>

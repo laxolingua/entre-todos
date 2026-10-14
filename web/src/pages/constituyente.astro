@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+const textos = [
+  ['1869', 'Guáimaro'], ['1895', 'Jimaguayú'], ['1897', 'La Yaya'], ['1901', 'República'], ['1940', 'Constitución de 1940'], ['1976', 'Constitución socialista'], ['2019', 'Constitución vigente'],
+];
+---
+<Base titulo="Proceso constituyente" seccion="otras" ancho
+  descripcion="Leer, comparar y valorar las constituciones cubanas y las propuestas constitucionales, para llegar con una base común a una futura constituyente.">
+  <Banda imagen="/img/fotos/cat-constitucion.jpg" lateral={['Leer', 'Comparar', 'Valorar']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Próximamente</p>
+    <h1>Proceso<br />constituyente</h1>
+    <p class="lema">Para que el día después no empiece desde cero</p>
+    <p class="entradilla">Un espacio para leer y comparar las constituciones que ha tenido Cuba y las propuestas constitucionales de la sociedad civil, y para valorar sus artículos. El resultado será un documento preconstitucional de referencia para una futura reforma o asamblea constituyente.</p>
+  </Banda>
+  <div class="contenedor">
+    <div class="aviso-proximo"><h2>Próximamente</h2><p>Esta sección está en preparación. Mientras tanto, puedes consultar las propuestas sobre el proceso constituyente que ya están en el banco.</p></div>
+    <section class="seccion">
+      <h2 class="vista-titulo">Los textos</h2>
+      <ol class="linea-constituciones">{textos.map(([a, n]) => <li><strong>{a}</strong>{n}</li>)}</ol>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">Cómo funcionará</h2>
+      <ol class="pilares">
+        <li><span class="num">01</span><span class="barra"></span><h3>Leer</h3><p>Cada constitución, organizada por bloques: fundamentos, derechos, participación, organización del Estado, economía y reforma.</p></li>
+        <li><span class="num">02</span><span class="barra"></span><h3>Comparar</h3><p>Cómo trató cada texto un mismo asunto, junto a lo que proponen hoy organizaciones y especialistas.</p></li>
+        <li><span class="num">03</span><span class="barra"></span><h3>Valorar</h3><p>Las valoraciones ciudadanas forman un documento preconstitucional vivo. Los derechos fundamentales se documentan, pero no se someten a votación.</p></li>
+      </ol>
+      <div class="acciones"><a class="boton rojo" href="/propuestas/categoria/constitucion/">Propuestas sobre el proceso constituyente <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,220 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+const provincias = ['Pinar del Río', 'Artemisa', 'La Habana', 'Mayabeque', 'Matanzas', 'Cienfuegos', 'Villa Clara', 'Sancti Spíritus', 'Ciego de Ávila', 'Camagüey', 'Las Tunas', 'Holguín', 'Granma', 'Santiago de Cuba', 'Guantánamo', 'Isla de la Juventud'];
+const paises = ['Estados Unidos', 'España', 'México', 'Argentina', 'Italia', 'Canadá', 'Ecuador', 'Colombia', 'Chile', 'Venezuela', 'Puerto Rico', 'Costa Rica', 'Panamá', 'República Dominicana', 'Uruguay', 'Alemania', 'Francia', 'Reino Unido', 'Portugal', 'Brasil', 'Otro'];
+---
+<Base titulo="Continuidad o cambio" seccion="consulta" ancho imagen="/og-consulta.jpg"
+  descripcion="Consulta ciudadana no vinculante a partir de una declaración de Miguel Díaz-Canel. Voto anónimo con carné o pasaporte; se publican solo los totales.">
+  <Banda imagen="/img/fotos/consulta.jpg" lateral={['Continuidad', 'Cambio']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Consulta en curso · abierta desde el 27 de marzo de 2026</p>
+    <h1>Continuidad<br />o cambio</h1>
+    <p class="entradilla">«Mi continuidad o la de cualquier otra persona que en determinado momento tenga una responsabilidad de este nivel en nuestro país, depende del pueblo».</p>
+    <p class="discreto">Miguel Díaz-Canel Bermúdez, entrevista con Luis Hernández Navarro (La Jornada), 27 de marzo de 2026.</p>
+  </Banda>
+
+  <div class="contenedor">
+    <div class="seccion">
+      <div class="tabs-consulta" role="tablist">
+        <button type="button" role="tab" aria-selected="true" aria-controls="p-votar" id="b-votar">Emitir voto</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="p-resultados" id="b-resultados">Resultados</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="p-redes" id="b-redes">La señal en redes</button>
+      </div>
+
+      <div class="panel-tab" id="p-votar" role="tabpanel" aria-labelledby="b-votar">
+        <div class="voto-rejilla">
+          <form class="panel voto-form" id="form-voto" novalidate>
+            <h2>Tu posición</h2>
+            <div class="opciones-voto" role="radiogroup" aria-label="Tu posición">
+              <label class="opcion-voto continuidad"><input type="radio" name="opcion" value="continuidad" /><span><strong>Continuidad</strong>Apoyo la continuidad del presidente Díaz-Canel y del sistema de gobierno actual.</span></label>
+              <label class="opcion-voto cambio"><input type="radio" name="opcion" value="cambio" /><span><strong>Cambio</strong>Estoy a favor de un cambio en el liderazgo y/o en el sistema de gobierno.</span></label>
+            </div>
+
+            <h2>Tu credencial</h2>
+            <div class="selector-doc" role="radiogroup" aria-label="Tipo de documento">
+              <label><input type="radio" name="tipo" value="ci" checked /><span>Carné de identidad (Cuba)</span></label>
+              <label><input type="radio" name="tipo" value="pasaporte" /><span>Pasaporte u otro documento</span></label>
+            </div>
+            <div class="campo" data-doc="ci">
+              <label for="in-ci">Número de carné de identidad (11 dígitos)</label>
+              <input id="in-ci" inputmode="numeric" autocomplete="off" maxlength="11" />
+              <p class="ayuda" id="ayuda-ci">Los primeros 6 dígitos son tu fecha de nacimiento (AAMMDD). El número no sale de tu dispositivo.</p>
+              <label for="in-provincia">Provincia (opcional)</label>
+              <select id="in-provincia"><option value="">— Sin indicar —</option>{provincias.map((p) => <option>{p}</option>)}</select>
+            </div>
+            <div class="campo" data-doc="pasaporte" hidden>
+              <label for="in-pas">Número de pasaporte u otro documento</label>
+              <input id="in-pas" autocomplete="off" maxlength="24" />
+              <p class="ayuda" id="ayuda-pas">Para cubanos en el exterior. Mínimo 6 caracteres. El número no sale de tu dispositivo.</p>
+              <label for="in-pais">País de residencia (opcional)</label>
+              <select id="in-pais"><option value="">— Sin indicar —</option>{paises.map((p) => <option>{p}</option>)}</select>
+            </div>
+
+            <label class="declaracion"><input type="checkbox" id="in-decl" /><span><strong>Declaración de honor.</strong> Certifico que los datos de identidad son los míos, que soy ciudadano cubano o de origen cubano y que voto por primera vez en esta consulta. Acepto la <a href="/privacidad/">política de privacidad</a>.</span></label>
+            <p class="error" id="error" role="alert" hidden></p>
+            <button class="boton rojo grande" type="submit" id="btn-votar" disabled>Emitir voto anónimo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></button>
+          </form>
+
+          <aside class="panel marino como-funciona">
+            <h2>Cómo se protege tu voto</h2>
+            <ol>
+              <li>Tu número se convierte en tu propio navegador en un código irreversible (SHA-256).</li>
+              <li>Solo ese código viaja al servidor, que lo vuelve a cifrar con una clave secreta antes de guardarlo.</li>
+              <li>El código sirve únicamente para impedir que la misma credencial vote dos veces.</li>
+              <li>No pedimos nombre, correo ni teléfono, y no creamos cuentas.</li>
+            </ol>
+            <p>Sin padrón electoral: se valida el formato del carné cubano (11 dígitos con fecha de nacimiento) o del pasaporte, más la declaración de honor.</p>
+            <a class="enlace-flecha claro" href="/seguridad/">Consejos para participar desde Cuba <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          </aside>
+        </div>
+
+        <div class="panel confirmacion" id="confirmacion" hidden>
+          <span class="sello"><i class="fi fi-br-check" aria-hidden="true"></i></span>
+          <h2>Voto registrado</h2>
+          <p>Tu participación quedó registrada de forma anónima. Este es tu comprobante: solo sirve si algún día quieres pedir que se retire tu voto.</p>
+          <code id="comprobante">—</code>
+          <div class="acciones"><button class="boton" type="button" data-ir="p-resultados">Ver resultados</button><a class="boton" href="/consulta/">Otras consultas</a></div>
+        </div>
+      </div>
+
+      <div class="panel-tab" id="p-resultados" role="tabpanel" aria-labelledby="b-resultados" hidden>
+        <div class="panel resultados-grandes">
+          <p class="antetitulo">Resultados en tiempo real</p>
+          <p class="total-grande"><span id="r-total">–</span> votos</p>
+          <div class="marcador grande">
+            <div class="fila"><span>Continuidad</span><span class="barra-voto"><span data-barra="continuidad"></span></span><span class="pct" data-pct="continuidad">–</span></div>
+            <div class="fila cambio"><span>Cambio</span><span class="barra-voto"><span data-barra="cambio"></span></span><span class="pct" data-pct="cambio">–</span></div>
+          </div>
+          <ul class="cifras-origen">
+            <li><strong id="r-cuba">–</strong>desde Cuba<span>Carné de identidad</span></li>
+            <li><strong id="r-ext">–</strong>desde el extranjero<span>Pasaporte u otro documento</span></li>
+          </ul>
+          <div id="r-paises" hidden><h3>Por país de residencia</h3><ul class="lista-paises" id="r-paises-lista"></ul></div>
+          <p class="discreto">Los resultados describen a quienes participan y no a toda la población. Totales guardados en el servidor de ENTRE TODOS.</p>
+          <div class="acciones"><button class="boton" type="button" id="btn-csv"><i class="fi fi-br-download" aria-hidden="true"></i> Descargar totales (CSV)</button></div>
+        </div>
+      </div>
+
+      <div class="panel-tab" id="p-redes" role="tabpanel" aria-labelledby="b-redes" hidden>
+        <div class="texto-largo">
+          <p class="entradilla">Días después de la declaración del 27 de marzo de 2026, comunicadores y ciudadanos cubanos replicaron la misma pregunta en Facebook. Surgieron de forma espontánea varias encuestas con decenas de miles de participaciones.</p>
+          <p><strong>Esos votos no se suman aquí.</strong> Si participaste en una de esas encuestas, puedes votar también en esta consulta para que tu voto cuente en estos resultados.</p>
+        </div>
+        <div class="desplazable">
+          <table class="tabla">
+            <caption>Encuestas en redes (Facebook, marzo y abril de 2026)</caption>
+            <thead><tr><th>Perfil</th><th>Reacciones</th><th>Rechazo</th><th>Apoyo</th></tr></thead>
+            <tbody>
+              <tr><td>Amelia Calzadilla <span class="etiqueta">Referencia</span></td><td>~30.000</td><td>96,6 %</td><td>3,4 %</td></tr>
+              <tr><td>Eliecer El Bayardo</td><td>Miles</td><td>~96–98 %</td><td>~2–4 %</td></tr>
+              <tr><td>Lara Crofs</td><td>Miles</td><td>~95–98,8 %</td><td>~1,2–5 %</td></tr>
+              <tr><td>Ma Chete</td><td>Miles</td><td>~95–98,8 %</td><td>~1,2–5 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="discreto">Nota de método: las audiencias de estos perfiles se solapan, por lo que sumar sus resultados duplicaría votos. Se toma como referencia la encuesta de mayor volumen. Las reacciones en redes no son una muestra representativa. Fuentes: publicaciones públicas de marzo y abril de 2026, recogidas por CiberCuba y otros medios independientes.</p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var URL_SB = 'https://pfjcumyygdwslwtrlebr.supabase.co';
+      var CLAVE = 'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8';
+      var CONSULTA = 'continuidad_2026_03_27';
+      var LOCAL = 'et_cuba_2026_hashes';
+      var $ = function (id) { return document.getElementById(id); };
+
+      function tab(id) {
+        document.querySelectorAll('.tabs-consulta [role=tab]').forEach(function (b) {
+          var sel = b.getAttribute('aria-controls') === id;
+          b.setAttribute('aria-selected', String(sel));
+          $(b.getAttribute('aria-controls')).hidden = !sel;
+        });
+        if (id === 'p-resultados') cargar();
+      }
+      document.querySelectorAll('.tabs-consulta [role=tab]').forEach(function (b) { b.addEventListener('click', function () { tab(b.getAttribute('aria-controls')); }); });
+      document.querySelectorAll('[data-ir]').forEach(function (b) { b.addEventListener('click', function () { tab(b.dataset.ir); }); });
+      if (location.hash === '#resultados') tab('p-resultados');
+
+      function rpc(fn, args) {
+        return fetch(URL_SB + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: CLAVE, Authorization: 'Bearer ' + CLAVE }, body: JSON.stringify(args) })
+          .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+      }
+      var datos = null;
+      function cargar() {
+        return rpc('consulta_resultados', { p_consulta: CONSULTA }).then(function (d) {
+          datos = d; var t = d.total || ((d.continuidad || 0) + (d.cambio || 0));
+          $('r-total').textContent = t.toLocaleString('es');
+          ['continuidad', 'cambio'].forEach(function (k) {
+            var p = t ? Math.round((d[k] || 0) / t * 100) : 0;
+            var b = document.querySelector('[data-barra="' + k + '"]'); if (b) requestAnimationFrame(function () { b.style.width = p + '%'; });
+            var e = document.querySelector('[data-pct="' + k + '"]'); if (e) e.textContent = p + ' %';
+          });
+          $('r-cuba').textContent = (d.cuba || 0).toLocaleString('es');
+          $('r-ext').textContent = (d.extranjero || 0).toLocaleString('es');
+          var paises = Object.entries(d.paises || {}).sort(function (a, b) { return b[1] - a[1]; });
+          if (paises.length) {
+            $('r-paises').hidden = false;
+            $('r-paises-lista').innerHTML = '';
+            paises.forEach(function (p) { var li = document.createElement('li'); li.textContent = p[0] + ' '; var s = document.createElement('strong'); s.textContent = p[1]; li.appendChild(s); $('r-paises-lista').appendChild(li); });
+          }
+        }).catch(function () { $('r-total').textContent = '—'; });
+      }
+      $('btn-csv').addEventListener('click', function () {
+        if (!datos) return;
+        var t = (datos.continuidad || 0) + (datos.cambio || 0);
+        var csv = 'ENTRE TODOS - Consulta Continuidad o cambio\nExportado,' + new Date().toISOString() + '\n\nOpcion,Votos\nContinuidad,' + (datos.continuidad || 0) + '\nCambio,' + (datos.cambio || 0) + '\nTotal,' + t + '\n\nOrigen,Votos\nDesde Cuba,' + (datos.cuba || 0) + '\nDesde el extranjero,' + (datos.extranjero || 0) + '\n';
+        var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); a.download = 'continuidad-o-cambio.csv'; a.click();
+      });
+
+      // formulario
+      var form = $('form-voto'), btn = $('btn-votar'), err = $('error');
+      function tipo() { return form.querySelector('input[name=tipo]:checked').value; }
+      function opcion() { var o = form.querySelector('input[name=opcion]:checked'); return o ? o.value : null; }
+      var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      function credValida() {
+        if (tipo() === 'ci') {
+          var v = $('in-ci').value.replace(/\D/g, ''); $('in-ci').value = v;
+          var a = $('ayuda-ci');
+          if (v.length < 11) { a.className = 'ayuda'; a.textContent = 'Los primeros 6 dígitos son tu fecha de nacimiento (AAMMDD). El número no sale de tu dispositivo.'; return false; }
+          var aa = +v.slice(0, 2), mm = +v.slice(2, 4), dd = +v.slice(4, 6);
+          if (mm < 1 || mm > 12 || dd < 1 || dd > 31) { a.className = 'ayuda mal'; a.textContent = 'El mes o el día no son válidos. Revisa el número.'; return false; }
+          var anio = (aa <= 26 ? 2000 : 1900) + aa;
+          a.className = 'ayuda bien'; a.textContent = 'Formato válido · nacimiento: ' + dd + ' de ' + meses[mm - 1] + ' de ' + anio + '. El número no se guarda.';
+          return true;
+        }
+        var p = $('in-pas').value.trim(), ap = $('ayuda-pas');
+        if (!p) { ap.className = 'ayuda'; return false; }
+        if (p.length < 6) { ap.className = 'ayuda mal'; ap.textContent = 'Mínimo 6 caracteres.'; return false; }
+        ap.className = 'ayuda bien'; ap.textContent = 'Formato válido. El número no se guarda.'; return true;
+      }
+      function validar() { btn.disabled = !(credValida() && opcion() && $('in-decl').checked); }
+      form.addEventListener('input', validar); form.addEventListener('change', function (e) {
+        if (e.target.name === 'tipo') document.querySelectorAll('[data-doc]').forEach(function (c) { c.hidden = c.dataset.doc !== tipo(); });
+        validar();
+      });
+      function sha256(t) { return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t.trim().toUpperCase())).then(function (b) { return Array.from(new Uint8Array(b)).map(function (x) { return x.toString(16).padStart(2, '0'); }).join(''); }); }
+      function fallo(m) { err.textContent = m; err.hidden = false; btn.disabled = false; btn.innerHTML = 'Emitir voto anónimo'; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); err.hidden = true; if (btn.disabled) return;
+        var t = tipo(), cred = t === 'ci' ? $('in-ci').value : $('in-pas').value;
+        btn.disabled = true; btn.textContent = 'Registrando…';
+        sha256(cred + t).then(function (h) {
+          var previos = {}; try { previos = JSON.parse(localStorage.getItem(LOCAL)) || {}; } catch (x) {}
+          if (previos[h]) return fallo('Esta credencial ya se usó para votar en este dispositivo.');
+          return rpc('consulta_votar', { p_consulta: CONSULTA, p_codigo: h, p_opcion: opcion(), p_tipo: t, p_pais: t === 'pasaporte' ? ($('in-pais').value || null) : null, p_provincia: t === 'ci' ? ($('in-provincia').value || null) : null })
+            .then(function (r) {
+              if (r && r.ok === false) return fallo(r.error === 'duplicado' ? 'Esta credencial ya se usó para votar.' : 'No se pudo registrar el voto. Inténtalo de nuevo.');
+              try { previos[h] = { t: Date.now() }; localStorage.setItem(LOCAL, JSON.stringify(previos)); } catch (x) {}
+              $('in-ci').value = ''; $('in-pas').value = '';
+              form.hidden = true; document.querySelector('.como-funciona').hidden = true;
+              $('comprobante').textContent = h; $('confirmacion').hidden = false;
+              $('confirmacion').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }).catch(function () { fallo('No hay conexión con el servidor. Tu voto no se registró; inténtalo más tarde.'); });
+      });
+    })();
+  </script>
+</Base>

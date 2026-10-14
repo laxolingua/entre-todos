@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+import datos from '../data/publico.json';
+const categorias = [...datos.categorias].sort((a, b) => a.orden - b.orden);
+const pasos = [
+  ['¿Qué te preocupa?', 'Eliges una preocupación de la lista, construida a partir de lo que la gente expresa, o escribes la tuya.'],
+  ['Qué se propone', 'Ves las propuestas de la sociedad civil que responden a esa preocupación, por su contenido y sin el nombre de quién las formula.'],
+  ['Compara', 'Revisas las alternativas cuando hay caminos distintos para un mismo asunto.'],
+  ['Valora', 'Indicas con qué propuesta te sientes más identificado. Tu valoración se suma al banco de ENTRE TODOS.'],
+  ['Tu plan', 'Te llevas un resumen personal: tus preocupaciones y las soluciones que prefieres, para guardarlo o compartirlo.'],
+  ['Sigue explorando', 'Descubres qué organizaciones piensan como tú y qué preocupaciones todavía no tienen respuesta.'],
+];
+---
+<Base titulo="¿Cuál es el plan?" seccion="plan" ancho
+  descripcion="De tus preocupaciones a las propuestas: qué plantean las organizaciones de la sociedad civil cubana para los problemas que más preocupan.">
+  <Banda imagen="/img/fotos/cat-modelo_pais.jpg" lateral={['Preocupación', 'Propuesta', 'Valoración', 'Plan']}>
+    <span class="barra"></span>
+    <h1>¿Cuál es<br />el plan?</h1>
+    <p class="lema">De tus preocupaciones a las propuestas · próximamente</p>
+    <p class="entradilla">Muchas organizaciones han escrito programas para el futuro de Cuba. Esta sección parte al revés: de lo que preocupa a la gente. Eliges un problema y ves qué se ha propuesto para resolverlo, quién atiende esa preocupación y quién no.</p>
+  </Banda>
+
+  <div class="contenedor">
+    <section class="seccion">
+      <h2 class="vista-titulo">Cómo funciona</h2>
+      <ol class="flujo-plan">
+        {pasos.map(([t, d], i) => <li><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></li>)}
+      </ol>
+      <!-- Punto de montaje del módulo «¿Cuál es el plan?». El equipo colaborador sustituye este bloque por su componente. -->
+      <div id="modulo-plan" data-modulo="cual-es-el-plan">
+        <div class="aviso-proximo">
+          <h2>Próximamente</h2>
+          <p>El recorrido completo, con la valoración de propuestas y tu plan personal, está en preparación. Mientras tanto, puedes empezar por los temas del banco de propuestas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="preocupaciones">
+      <h2 class="vista-titulo">¿Qué te preocupa?</h2>
+      <p class="entradilla">Elige un tema para ver las propuestas que se han hecho.</p>
+      <ul class="preocupaciones">
+        {categorias.map((c) => (
+          <li><a href={`/propuestas/categoria/${c.clave}/`}>
+            <span class="duo"><img src={`/img/fotos/cat-${c.clave}.jpg`} alt="" loading="lazy" /></span>
+            <span class="txt"><strong>{c.nombre}</strong><span>{c.descripcion}</span></span>
+            <i class="fi fi-br-arrow-right" aria-hidden="true"></i>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <div class="panel marino propia">
+        <div>
+          <p class="antetitulo">Próximamente</p>
+          <h2>¿Tu preocupación no está?</h2>
+          <p>Podrás escribirla con tus palabras. Si ninguna organización tiene una propuesta para ella, quedará registrada como preocupación sin respuesta, para que la sociedad civil sepa qué falta por atender.</p>
+        </div>
+        <a class="boton rojo" href="/propuestas/">Mientras tanto, explora el banco <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </div>
+</Base>

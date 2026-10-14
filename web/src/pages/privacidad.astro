@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+import sitio from '../data/sitio.json';
+const correo = sitio.contacto;
+---
+<Base titulo="Política de privacidad" seccion="otras" ancho
+  descripcion="Qué datos procesa ENTRE TODOS, por qué, durante cuánto tiempo y cómo ejercer tus derechos según el RGPD.">
+  <Banda imagen="/img/fotos/cat-derechos.jpg" lateral={['RGPD', 'Mínimos datos', 'Sin perfiles']}>
+    <span class="barra"></span>
+    <h1>Privacidad</h1>
+    <p class="lema">Política de privacidad · última actualización: octubre de 2026</p>
+    <p class="entradilla">ENTRE TODOS opera bajo el Reglamento General de Protección de Datos de la Unión Europea. Esta página detalla qué datos procesamos, por qué, durante cuánto tiempo y cómo ejercer tus derechos.</p>
+  </Banda>
+  <div class="contenedor">
+    <div class="seccion doc-legal">
+      <aside class="panel marino resumen-claro">
+        <h2>Resumen sin tecnicismos</h2>
+        <p>ENTRE TODOS <strong>no almacena</strong> tu número de carné ni tu número de pasaporte. Ese número se convierte en tu dispositivo en un código irreversible, y solo ese código llega a nuestro sistema. Para la explicación práctica, con consejos para quienes participan desde Cuba, consulta <a href="/seguridad/">Seguridad</a>.</p>
+      </aside>
+
+      <nav class="indice-doc" aria-label="Contenido">
+        <ol>
+          <li><a href="#responsable">Responsable del tratamiento</a></li>
+          <li><a href="#datos">Qué datos procesamos y cuáles no</a></li>
+          <li><a href="#anonimizacion">Cómo se protege la credencial</a></li>
+          <li><a href="#base">Base legal</a></li>
+          <li><a href="#finalidad">Finalidad</a></li>
+          <li><a href="#conservacion">Conservación</a></li>
+          <li><a href="#derechos">Tus derechos</a></li>
+          <li><a href="#terceros">Proveedores</a></li>
+          <li><a href="#menores">Menores de edad</a></li>
+          <li><a href="#cambios">Cambios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ol>
+      </nav>
+
+      <section id="responsable"><h2><span>01</span>Responsable del tratamiento</h2>
+        <dl class="datos-lista">
+          <dt>Proyecto</dt><dd>ENTRE TODOS, iniciativa ciudadana</dd>
+          <dt>Naturaleza</dt><dd>Iniciativa cívica sin ánimo de lucro y sin personalidad jurídica propia</dd>
+          <dt>Web</dt><dd>https://entre-todos.org</dd>
+          <dt>Correo</dt><dd><a href={`mailto:${correo}`}>{correo}</a></dd>
+          <dt>Ubicación del responsable</dt><dd>Potsdam, Brandeburgo, Alemania</dd>
+        </dl>
+        <p>Al estar el responsable establecido en Alemania, el tratamiento está sujeto al Reglamento (UE) 2016/679 (RGPD) y a la ley federal alemana de protección de datos (BDSG).</p>
+      </section>
+
+      <section id="datos"><h2><span>02</span>Qué datos procesamos y cuáles no</h2>
+        <p><strong>Nunca se almacenan</strong> tu número de carné de identidad, tu número de pasaporte u otro documento, tu nombre, tu dirección, tu correo electrónico ni otro dato que permita identificarte directamente.</p>
+        <div class="desplazable"><table class="tabla">
+          <thead><tr><th>Dato almacenado</th><th>Descripción</th><th>¿Identifica a la persona?</th></tr></thead>
+          <tbody>
+            <tr><td>Código de la credencial</td><td>Código de 64 caracteres generado de forma irreversible a partir del número de documento y cifrado de nuevo en el servidor con una clave secreta.</td><td>No. Es un seudónimo criptográfico.</td></tr>
+            <tr><td>Tipo de credencial</td><td>Carné de identidad cubano o pasaporte u otro documento. No incluye el número.</td><td>No.</td></tr>
+            <tr><td>Opción elegida</td><td>La respuesta marcada en la consulta.</td><td>No.</td></tr>
+            <tr><td>País o provincia (opcional)</td><td>Solo si la persona lo indica voluntariamente, para los totales por lugar.</td><td>No directamente.</td></tr>
+            <tr><td>Fecha y hora</td><td>Momento del registro.</td><td>No.</td></tr>
+            <tr><td>Identificador de consulta</td><td>A qué consulta pertenece el registro.</td><td>No.</td></tr>
+          </tbody>
+        </table></div>
+        <p>El conjunto de datos es, por diseño, seudónimo en el sentido del considerando 26 del RGPD: no permite identificar a una persona sin información adicional que ENTRE TODOS no posee.</p>
+      </section>
+
+      <section id="anonimizacion"><h2><span>03</span>Cómo se protege la credencial</h2>
+        <ol class="pasos">
+          <li>Introduces tu número de carné o pasaporte en el formulario.</li>
+          <li>Tu navegador aplica la función SHA-256 al número, en tu propio dispositivo.</li>
+          <li>Solo el código resultante viaja al servidor; el número original se descarta.</li>
+          <li>El servidor vuelve a cifrar ese código con una clave secreta que no se publica y guarda solo el resultado.</li>
+        </ol>
+        <p>Así, aunque alguien obtuviera una copia de la base de datos, no podría reconstruir los números de documento. El código sirve únicamente para impedir que la misma credencial vote dos veces en la misma consulta.</p>
+      </section>
+
+      <section id="base"><h2><span>04</span>Base legal del tratamiento</h2>
+        <p><strong>Consentimiento explícito</strong> (art. 6.1.a y 9.2.a RGPD): antes de votar, la persona marca una declaración en la que acepta el tratamiento para los fines de la consulta.</p>
+        <p><strong>Interés legítimo</strong> (art. 6.1.f RGPD): garantizar la integridad del proceso evitando votos duplicados, con un diseño que minimiza los datos tratados.</p>
+      </section>
+
+      <section id="finalidad"><h2><span>05</span>Finalidad</h2>
+        <ul class="lista-simple">
+          <li>Impedir que una misma credencial participe más de una vez en la misma consulta.</li>
+          <li>Publicar resultados agregados, nunca individuales.</li>
+          <li>Mostrar totales por país o provincia cuando la persona aporta ese dato.</li>
+        </ul>
+        <p>Los datos no se usan para elaborar perfiles ni con fines comerciales, y no se ceden a terceros.</p>
+      </section>
+
+      <section id="conservacion"><h2><span>06</span>Período de conservación</h2>
+        <p>Los registros se conservan mientras la consulta esté abierta. Tras su cierre se anonimizan por completo o se eliminan en un plazo máximo de 12 meses, salvo obligación legal en contrario. Los datos opcionales de lugar siguen el mismo plazo.</p>
+      </section>
+
+      <section id="derechos"><h2><span>07</span>Tus derechos</h2>
+        <div class="desplazable"><table class="tabla">
+          <thead><tr><th>Derecho</th><th>Cómo se aplica</th></tr></thead>
+          <tbody>
+            <tr><td>Acceso (art. 15)</td><td>Podemos localizar tu registro si nos facilitas el comprobante que aparece al votar.</td></tr>
+            <tr><td>Rectificación (art. 16)</td><td>Aplicable a los datos opcionales de lugar.</td></tr>
+            <tr><td>Supresión (art. 17)</td><td>Con tu comprobante eliminamos el registro, lo que retira tu voto del recuento.</td></tr>
+            <tr><td>Oposición (art. 21)</td><td>Puedes retirarte de la consulta en cualquier momento con tu comprobante.</td></tr>
+            <tr><td>Portabilidad (art. 20)</td><td>Los totales se pueden descargar en CSV; los datos de tu registro se facilitan a petición.</td></tr>
+            <tr><td>Limitación (art. 18)</td><td>Aplicable mientras se resuelve una reclamación.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Para ejercerlos, escribe a <a href={`mailto:${correo}`}>{correo}</a>. Respondemos en un plazo máximo de 30 días. También puedes reclamar ante la autoridad de control alemana: Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI), www.bfdi.bund.de.</p>
+      </section>
+
+      <section id="terceros"><h2><span>08</span>Proveedores</h2>
+        <div class="desplazable"><table class="tabla">
+          <thead><tr><th>Proveedor</th><th>Función</th><th>Datos</th></tr></thead>
+          <tbody>
+            <tr><td>Supabase, Inc.</td><td>Base de datos de las consultas</td><td>Los datos de la tabla anterior. Actúa como encargado del tratamiento.</td></tr>
+            <tr><td>GitHub Pages (GitHub, Inc.)</td><td>Alojamiento de la web</td><td>Registros técnicos de acceso (IP, navegador) que el proveedor puede conservar; no se vinculan a los votos.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Las tipografías y los iconos se sirven desde el propio sitio, sin solicitudes a terceros. ENTRE TODOS no usa cookies de seguimiento ni herramientas de analítica. No cedemos datos a ningún gobierno, partido, servicio de inteligencia ni entidad comercial.</p>
+      </section>
+
+      <section id="menores"><h2><span>09</span>Menores de edad</h2>
+        <p>Las consultas están dirigidas a mayores de 16 años. Los registros que correspondan a menores se eliminan.</p>
+      </section>
+
+      <section id="cambios"><h2><span>10</span>Cambios en esta política</h2>
+        <p>La política puede actualizarse por cambios técnicos o legales. La fecha de la última actualización aparece al inicio. Los cambios sustanciales se anunciarán en la portada durante al menos 14 días.</p>
+      </section>
+
+      <section id="contacto"><h2><span>11</span>Contacto</h2>
+        <p>Para consultas sobre esta política, ejercer tus derechos o informar de una incidencia: <a href={`mailto:${correo}`}>{correo}</a>. Tiempo habitual de respuesta: entre 5 y 30 días.</p>
+      </section>
+    </div>
+  </div>
+</Base>

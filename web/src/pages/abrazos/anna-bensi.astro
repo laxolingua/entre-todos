@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import sitio from '../../data/sitio.json';
+const opciones = ['su fe', 'su valentía', 'sus ideas', 'sus derechos', 'su libertad de expresión'];
+---
+<Base titulo="Un abrazo para Anna Bensi" seccion="abrazos" imagen="/img/abrazos/anna-bensi-share.jpg"
+  descripcion="ABRAZOS, una campaña de ENTRE TODOS. Crea tu abrazo para Anna Bensi y publícalo con #MiAbrazoParaAnnaBensi.">
+  <a class="volver" href="/abrazos/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i> Abrazos</a>
+  <section class="abrazo-cab">
+    <div>
+      <p class="antetitulo">ABRAZOS · una campaña de ENTRE TODOS</p>
+      <h1>Un abrazo para <span>Anna Bensi</span></h1>
+      <p class="entradilla">El 1 de octubre de 2026 un tribunal la declaró culpable, junto a su madre, y les impuso dos años de limitación de libertad por grabar y difundir un video de un agente de policía que acudió a su vivienda para entregar una citación.</p>
+      <p class="discreto">Fuente: EFE, vía Diario Libre.</p>
+    </div>
+    <figure><img src="/img/abrazos/anna-bensi.jpg" alt="Ejemplo de abrazo virtual con el texto Yo abrazo a Anna Bensi" /><figcaption>Ejemplo de abrazo virtual · IA</figcaption></figure>
+  </section>
+
+  <section class="seccion">
+    <h2 class="paso-titulo"><span>1</span>Crea tu abrazo</h2>
+    <div class="dos-col">
+      <div class="panel">
+        <p class="antetitulo">¿La conoces?</p>
+        <h3>Abrazo real</h3>
+        <p>Si puedes darle un abrazo en persona, hazte la foto con ella. Para ponerle el texto de la campaña, copia esta instrucción en tu IA junto con la foto.</p>
+        <div class="prompt" id="p-real"></div>
+        <button class="boton" type="button" data-copiar="p-real"><i class="fi fi-br-copy" aria-hidden="true"></i> Copiar</button>
+      </div>
+      <div class="panel">
+        <p class="antetitulo">¿No estás cerca?</p>
+        <h3>Abrazo virtual</h3>
+        <p>Sube a tu IA (ChatGPT, Gemini, Grok…) una foto tuya y una de Anna, pega esta instrucción y pídele que genere tu abrazo.</p>
+        <div class="prompt" id="p-ia"></div>
+        <button class="boton" type="button" data-copiar="p-ia"><i class="fi fi-br-copy" aria-hidden="true"></i> Copiar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2 class="paso-titulo"><span>2</span>Tu mensaje</h2>
+    <p>Marca lo que abrazas. Es opcional.</p>
+    <div class="chips" id="chips">
+      {opciones.map((o) => <label class="chip"><input type="checkbox" value={o} /><span>{o}</span></label>)}
+    </div>
+    <div class="panel texto-mensaje"><p id="mensaje"></p><button class="boton" type="button" data-copiar="mensaje"><i class="fi fi-br-copy" aria-hidden="true"></i> Copiar texto</button></div>
+  </section>
+
+  <section class="seccion">
+    <h2 class="paso-titulo"><span>3</span>Publícalo</h2>
+    <div class="dos-col">
+      <a class="panel red-social" href={sitio.instagram} rel="noopener"><h3><i class="fi fi-br-camera" aria-hidden="true"></i> Instagram</h3><p>Antes de publicar, toca <strong>Etiquetar personas → Invitar colaborador</strong> y escribe <strong>@EntreTodosOrg</strong>. Así sale también en nuestro perfil.</p><span class="enlace-flecha">Ver @EntreTodosOrg <i class="fi fi-br-arrow-right" aria-hidden="true"></i></span></a>
+      <a class="panel red-social" href={sitio.facebookGrupo} rel="noopener"><h3><i class="fi fi-br-users" aria-hidden="true"></i> Facebook</h3><p>Únete al grupo <strong>ENTRE TODOS</strong> y publícalo allí.</p><span class="enlace-flecha">Ir al grupo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+    <p class="discreto">¿Sin buena conexión? Un amigo puede generar tu abrazo y enviártelo. Lo publicas tú, desde tu cuenta. Antes de publicar, lee <a href="/seguridad/">cómo participar con seguridad</a>.</p>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var textoImg = 'En la parte inferior añade, en letras grandes y gruesas: "YO ABRAZO A" en azul marino y debajo "ANNA BENSI" en rojo; y debajo, más pequeño, "#MiAbrazoParaAnnaBensi". Texto con borde blanco, moderno y muy legible.';
+      document.getElementById('p-ia').textContent = 'Crea una imagen realista y emotiva, formato cuadrado, en la que aparezco dando un abrazo a Anna Bensi. Usa mi foto y las de Anna como referencia para las caras. El abrazo es fraternal, solidario y respetuoso, nunca romántico. Luz natural, exterior. ' + textoImg + ' En una esquina superior, en letra pequeña: "abrazo virtual · IA".';
+      document.getElementById('p-real').textContent = 'Edita esta foto real sin cambiar las caras ni la escena. Formato cuadrado. ' + textoImg;
+      var msg = document.getElementById('mensaje');
+      function texto() {
+        var v = [].map.call(document.querySelectorAll('#chips input:checked'), function (i) { return i.value; });
+        var s = 'Yo abrazo a Anna Bensi.';
+        if (v.length) s += ' Abrazo ' + (v.length > 1 ? v.slice(0, -1).join(', ') + ' y ' + v[v.length - 1] : v[0]) + '.';
+        msg.textContent = s + ' #MiAbrazoParaAnnaBensi';
+      }
+      document.querySelectorAll('#chips input').forEach(function (i) { i.addEventListener('change', texto); });
+      texto();
+      document.querySelectorAll('[data-copiar]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var t = document.getElementById(b.dataset.copiar).textContent, o = b.innerHTML;
+          var hecho = function () { b.textContent = 'Copiado'; setTimeout(function () { b.innerHTML = o; }, 1800); };
+          if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(hecho, hecho);
+          else { var a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); } catch (e) {} a.remove(); hecho(); }
+        });
+      });
+    })();
+  </script>
+</Base>

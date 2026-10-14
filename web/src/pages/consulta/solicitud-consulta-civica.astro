@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import sitio from '../../data/sitio.json';
+const garantias = [
+  ['Secreto real', 'Ningún registro, código o dispositivo podría relacionar a una persona con su opción.'],
+  ['Sin represalias', 'Protección frente a amenazas, vigilancia, pérdida de empleo o estudios, detención o castigo familiar.'],
+  ['Campaña libre', 'Derecho efectivo a defender el SÍ, el NO, la abstención o el voto en blanco.'],
+  ['Observación integral', 'Acceso al registro, la campaña, la votación, el conteo, las actas, las reclamaciones y el entorno posterior.'],
+  ['Conteo verificable', 'Actas públicas, auditorías independientes y un mecanismo de impugnación.'],
+  ['Seguimiento posterior', 'Un canal confidencial para documentar y responder rápidamente ante represalias.'],
+];
+const pedido = [
+  ['Consulta específica', 'Una pregunta clara sobre la continuidad del sistema político de partido único, separada de otros debates.'],
+  ['Buenos oficios activos', 'Interlocución diplomática para promover conversaciones, consentimiento, asistencia técnica y observación independiente.'],
+  ['Nación dentro y fuera', 'Participación de los nacionales cubanos en la isla y en el exterior, con resultados también publicados por separado.'],
+  ['Consecuencias acordadas', 'Reconocer el resultado y activar el paso previamente convenido, sin prometer una destitución ni una reforma automática.'],
+];
+const destinatarios = [
+  ['ONU', 'Secretaría General', 'Oficina del Secretario General António Guterres'],
+  ['OHCHR', 'Derechos humanos', 'Alto Comisionado Volker Türk'],
+  ['DE', 'Gobierno alemán', 'Comisionado Lars Castellucci'],
+  ['PE', 'Parlamento Europeo', 'Presidenta Roberta Metsola'],
+  ['UE', 'Delegación en Cuba', 'Embajador Jens Urban'],
+  ['CIDH', 'Sistema interamericano', 'Comisión Interamericana de Derechos Humanos'],
+];
+---
+<Base titulo="Que Cuba pueda decidir sin miedo" seccion="consulta" ancho
+  descripcion="Solicitud internacional para promover una consulta cubana libre, directa, secreta y verificable, con observación independiente y garantías contra las represalias.">
+  <Banda imagen="/img/fotos/cat-sistema_electoral.jpg" lateral={['Secreto', 'Directo', 'Verificable', 'Observado']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Solicitud enviada · 11 de julio de 2026</p>
+    <h1>Que Cuba pueda<br />decidir sin miedo</h1>
+    <p class="entradilla">Una solicitud internacional para promover una consulta cubana libre, directa, secreta y verificable, con observación independiente y garantías contra la coacción y las represalias.</p>
+    <p class="lema">No se propone que gane una opción. Se propone que la verdad pueda conocerse.</p>
+  </Banda>
+
+  <div class="contenedor">
+    <section class="seccion">
+      <div class="pregunta-propuesta">
+        <p class="antetitulo">Pregunta propuesta · una persona, un voto</p>
+        <p class="texto-pregunta">¿Respalda usted la continuidad del sistema político de partido único actualmente vigente en la República de Cuba?</p>
+        <div class="si-no"><span>Sí</span><span>No</span></div>
+      </div>
+      <ul class="metricas">
+        <li><strong>154.557</strong>visualizaciones</li>
+        <li><strong>75.895</strong>personas alcanzadas</li>
+        <li><strong>973</strong>comentarios</li>
+        <li><strong>378</strong>veces compartido</li>
+      </ul>
+      <p class="discreto">Datos de Meta Insights de la publicación original, al 11 de julio de 2026. Miden alcance e interés; no constituyen una encuesta ni demuestran una mayoría.</p>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Qué se solicitó</h2>
+      <p class="entradilla">La carta pide buenos oficios internacionales activos: no una intervención extranjera ni un resultado impuesto, sino condiciones que permitan conocer la voluntad popular sin miedo.</p>
+      <ol class="pilares cuatro">
+        {pedido.map(([t, d], i) => <li><span class="num">{String(i + 1).padStart(2, '0')}</span><span class="barra"></span><h3>{t}</h3><p>{d}</p></li>)}
+      </ol>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Sin garantías, no hay decisión libre</h2>
+      <p class="entradilla">La consulta solo tendría sentido si cada persona sabe que su voto no podrá vincularse con su identidad y que participar no traerá consecuencias.</p>
+      <ul class="garantias seis">
+        {garantias.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">La propuesta acepta cualquiera de los resultados</h2>
+      <div class="escenarios">
+        <div class="panel"><p class="antetitulo">Si gana el SÍ</p><h3>Reconocer la continuidad</h3><p>Se reconoce que el sistema cuenta con respaldo mayoritario bajo garantías auténticas. El derecho a la crítica pacífica permanece.</p></div>
+        <div class="panel"><p class="antetitulo">Si gana el NO</p><h3>Abrir el cauce posterior</h3><p>Se reconoce que el partido único carece de respaldo mayoritario y se inicia el procedimiento pacífico y constitucional previamente acordado.</p></div>
+        <div class="panel"><p class="antetitulo">Si hay negativa o silencio</p><h3>Crear una puerta institucional</h3><p>Se solicita un punto focal, un representante especial o un mecanismo periódico de escucha para la pluralidad cívica cubana excluida.</p></div>
+      </div>
+    </section>
+
+    <section class="seccion" id="demostracion">
+      <h2 class="vista-titulo">Ejercicio demostrativo</h2>
+      <div class="panel demo">
+        <p class="aviso-demo">Simulación local · no se envía ni se guarda nada</p>
+        <p>Esta simulación muestra cómo se presentaría una decisión binaria. No es una votación ni una encuesta, no verifica ciudadanía y no produce resultados.</p>
+        <p class="texto-pregunta">¿Respalda usted la continuidad del sistema político de partido único actualmente vigente en la República de Cuba?</p>
+        <label class="declaracion"><input type="checkbox" id="demo-ok" /><span>Comprendo que esto es únicamente una demostración.</span></label>
+        <div class="si-no botones"><button type="button" class="boton" data-demo="SÍ" disabled>Sí</button><button type="button" class="boton" data-demo="NO" disabled>No</button></div>
+        <p class="demo-fin" id="demo-fin" hidden></p>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Seguimiento</h2>
+      <p class="entradilla">No existe garantía de respuesta ni de aceptación. Sí existe el compromiso de documentar cada envío, acuse, remisión, respuesta o silencio.</p>
+      <ol class="linea-tiempo">
+        <li class="hecho"><span class="fecha">11 jul 2026</span><h3>Solicitud enviada</h3><p>Remitida a seis autoridades e instituciones internacionales.</p></li>
+        <li><span class="fecha">Pendiente</span><h3>Acuses y referencias</h3><p>Se solicitaron confirmación de recepción, número de referencia y unidad competente.</p></li>
+        <li><span class="fecha">Próximo paso</span><h3>Publicación documental</h3><p>El texto íntegro se publicará después de confirmar su recepción o de transcurrido el plazo inicial de seguimiento.</p></li>
+        <li><span class="fecha">Seguimiento</span><h3>Respuesta o silencio</h3><p>Se registrará cualquier acción, remisión, negativa o ausencia de respuesta.</p></li>
+      </ol>
+      <h3 class="subtitulo">Seis envíos separados</h3>
+      <ul class="destinatarios">
+        {destinatarios.map(([s, a, n]) => <li><span class="sigla">{s}</span><strong>{a}</strong>{n}</li>)}
+      </ul>
+      <blockquote class="cita-grande">«No represento a un partido, gobierno ni organización opositora, ni pretendo hablar por cada cubano.»<cite>Fragmento de la carta enviada · Michel Estopiñán</cite></blockquote>
+      <div class="texto-largo">
+        <p>Los comentarios disponibles se revisaron y, con ayuda de inteligencia artificial, se organizaron para identificar sugerencias, preocupaciones y objeciones. Las decisiones, la investigación y la responsabilidad editorial permanecieron en manos del promotor. La carta no se presenta como opinión legal vinculante ni como prueba de una mayoría.</p>
+        <div class="acciones"><a class="boton rojo" href={sitio.facebookGrupo} rel="noopener">Seguir la iniciativa en el grupo ENTRE TODOS</a><a class="boton" href={`mailto:${sitio.contacto}`}>Contactar</a></div>
+      </div>
+    </section>
+  </div>
+  <script is:inline>
+    (function () {
+      var ok = document.getElementById('demo-ok'), fin = document.getElementById('demo-fin');
+      var bs = document.querySelectorAll('[data-demo]');
+      ok.addEventListener('change', function () { bs.forEach(function (b) { b.disabled = !ok.checked; }); });
+      bs.forEach(function (b) { b.addEventListener('click', function () {
+        fin.hidden = false;
+        fin.textContent = 'Seleccionaste «' + b.dataset.demo + '». Tu selección no se envió ni se guardó. En una consulta real, el secreto, el registro electoral, la observación y la auditoría tendrían que estar garantizados.';
+      }); });
+    })();
+  </script>
+</Base>

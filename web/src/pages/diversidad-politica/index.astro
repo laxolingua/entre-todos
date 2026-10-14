@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import d from '../../data/diversidad.json';
+import sitio from '../../data/sitio.json';
+---
+<Base titulo="Diversidad política" seccion="diversidad" ancho
+  descripcion="Partidos, corrientes, organizaciones y candidaturas de la Cuba plural que el sistema de partido único no reconoce. Registro documental, sin respaldo a ninguna opción.">
+  <Banda imagen="/img/fotos/cat-sistema_electoral.jpg" lateral={['Partidos', 'Corrientes', 'Candidaturas', 'Organizaciones']}>
+    <span class="barra"></span>
+    <h1>Diversidad<br />política</h1>
+    <p class="lema">La Cuba plural que el partido único no reconoce</p>
+    <p class="entradilla">Partidos, corrientes, organizaciones y candidaturas que existen y proponen, aunque la ley cubana no les permita competir. Para que la gente los conozca: quiénes son, qué proponen y con qué documentos.</p>
+  </Banda>
+  <div class="contenedor">
+    <p class="nota-neutral"><strong>Nota de neutralidad.</strong> ENTRE TODOS no respalda ni promueve a ninguna de estas opciones. La inclusión responde a un criterio documental: existencia pública verificable y material propio. Presidir o representar un partido no equivale a ser candidato presidencial; cada candidatura se registra aparte.</p>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Candidaturas</h2>
+      <p class="entradilla">Cuba no tiene elecciones libres. Estas candidaturas se declaran para un escenario de transición democrática y forman parte del debate político real.</p>
+      <ul class="perfiles">
+        {d.candidaturas.map((c) => (
+          <li><a href={`/diversidad-politica/${c.slug}/`}>
+            <span class="perfil-foto duo"><img src={c.imagen} alt="" loading="lazy" /></span>
+            <span class="perfil-txt">
+              <span class="etiqueta">{c.estado}</span>
+              <strong>{c.nombre}</strong>
+              <span class="espacio">{c.espacio}</span>
+            </span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Partidos y corrientes</h2>
+      <ul class="organizaciones">
+        {d.organizaciones.map((o) => (
+          <li><a href={`/diversidad-politica/${o.slug}/`}>
+            <span class="logo-org"><img src={o.imagen} alt="" loading="lazy" /></span>
+            <span><span class="etiqueta">{o.tipo}</span><strong>{o.nombre}</strong><span class="resumen-corto">{o.resumen.split('. ')[0]}.</span></span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <div class="panel marino propia">
+        <div>
+          <h2>Organizaciones con propuestas en el banco</h2>
+          <p>Las organizaciones, especialistas y ciudadanos cuyos documentos alimentan el banco de propuestas tienen su propia ficha, con sus documentos y las propuestas que se extrajeron de cada uno.</p>
+        </div>
+        <a class="boton rojo" href="/actores/">Ver actores del banco <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="panel solicitar">
+        <h2>¿Falta tu organización o tu candidatura?</h2>
+        <p>Si representas un partido, una corriente o una candidatura declarada, puedes pedir tu inclusión y enviar tu programa o tus documentos para que se incorporen al banco y se sometan a la valoración ciudadana con las mismas reglas que todos.</p>
+        <a class="boton" href={`mailto:${sitio.contacto}?subject=${encodeURIComponent('Solicitud de inclusión en Diversidad política')}`}>Solicitar inclusión</a>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+const insignias = [['Derechos humanos en la práctica', true], ['Libertad de expresión y de prensa', true], ['Justicia y Estado de derecho', false], ['Rendición de cuentas', false], ['Libertad religiosa', false], ['Sociedad civil independiente', false]];
+---
+<Base titulo="Tu perfil" seccion="perfil" ancho
+  descripcion="Próximamente: un perfil propio en ENTRE TODOS para seguir tus propuestas, tus valoraciones y tu avance en la Academia cívica, con privacidad por defecto.">
+  <Banda imagen="/img/fotos/cat-educacion.jpg" lateral={['Seudónimo', 'Privado', 'Tuyo']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Próximamente</p>
+    <h1>Tu perfil</h1>
+    <p class="lema">Tu voz, tus votos y tu aprendizaje, en un solo lugar</p>
+    <p class="entradilla">Un espacio propio para seguir lo que aportas y lo que aprendes. Con seudónimo y privado por defecto: tú decides qué se ve.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <p class="aviso-demo">Vista de ejemplo · los datos son ficticios</p>
+      <div class="perfil-demo">
+        <aside class="panel perfil-tarjeta">
+          <span class="avatar" aria-hidden="true">LC</span>
+          <h2>Lucero del Caribe</h2>
+          <p class="discreto">Seudónimo · perfil privado</p>
+          <ul class="perfil-cifras">
+            <li><strong>12</strong>valoraciones</li>
+            <li><strong>3</strong>aportes</li>
+            <li><strong>2</strong>insignias</li>
+          </ul>
+          <div class="ajuste"><span>Mostrar mis aportes con mi seudónimo</span><span class="interruptor" aria-hidden="true"></span></div>
+          <div class="ajuste"><span>Perfil visible para otros</span><span class="interruptor apagado" aria-hidden="true"></span></div>
+        </aside>
+        <div class="perfil-cuerpo">
+          <div class="panel">
+            <h3>Mi plan</h3>
+            <p class="discreto">Mis preocupaciones y las soluciones que prefiero, desde ¿Cuál es el plan?</p>
+            <ul class="mi-plan">
+              <li><span class="etiqueta">Preocupación</span>Apagones y energía <i class="fi fi-br-arrow-right" aria-hidden="true"></i> <strong>Matriz energética renovable</strong></li>
+              <li><span class="etiqueta">Preocupación</span>Salarios y precios <i class="fi fi-br-arrow-right" aria-hidden="true"></i> <strong>Libertad de empresa para todos los cubanos</strong></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Academia cívica</h3>
+            <ul class="insignias">{insignias.map(([t, ok]) => <li class={ok ? 'ganada' : ''}><span class="medalla" aria-hidden="true"></span>{t}</li>)}</ul>
+            <p class="discreto">Con seis insignias se obtiene el certificado de formación cívica.</p>
+          </div>
+          <div class="panel">
+            <h3>Mis aportes</h3>
+            <ul class="aportes-demo">
+              <li><span class="etiqueta">Inciso</span>Propuesta: Autonomía municipal · <em>en revisión</em></li>
+              <li><span class="etiqueta">Objeción</span>Propuesta: Sistema impositivo · <em>publicada</em></li>
+              <li><span class="etiqueta">Preocupación nueva</span>Transporte interprovincial · <em>registrada</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">Principios del perfil</h2>
+      <ul class="principios">
+        <li><strong>Seudónimo</strong>No hace falta tu nombre real. Tu perfil se identifica con el nombre que elijas.</li>
+        <li><strong>Privado por defecto</strong>Nada de tu perfil es público hasta que tú lo decidas.</li>
+        <li><strong>Votos secretos</strong>Lo que votas en las consultas no aparece en tu perfil ni en ningún lugar.</li>
+        <li><strong>Borrado total</strong>Puedes eliminar tu perfil y todos sus datos cuando quieras.</li>
+      </ul>
+    </section>
+  </div>
+</Base>

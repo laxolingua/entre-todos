@@ -13,22 +13,23 @@ interface Props {
   titulo: string;
   descripcion: string;
   imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
-  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos';
+  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'otras';
   ancho?: boolean;     // true: la página controla su propio ancho (portada y secciones con banda)
 }
 const { titulo, descripcion, imagen = '/og/banco.png', seccion, ancho = false } = Astro.props;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const imagenAbs = new URL(imagen, Astro.site);
 const tituloCompleto = seccion === 'inicio' ? 'ENTRE TODOS · Voz + Voto' : `${titulo} · ENTRE TODOS`;
-const UICONS = 'https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css';
 const BANCO = ['propuestas', 'cuestiones', 'fuentes', 'actores', 'metodo', 'datos', 'archivo'];
 const enBanco = BANCO.includes(seccion ?? '');
 const enlaces = [
   { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
+  { href: '/cual-es-el-plan/', texto: '¿Cuál es el plan?', activo: seccion === 'plan' },
   { href: '/academia/', texto: 'Academia', activo: seccion === 'academia' },
   { href: '/consulta/', texto: 'Consulta', activo: seccion === 'consulta' },
   { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
 ];
+import sitio from '../data/sitio.json';
 const subenlaces = [
   { href: '/propuestas/', texto: 'Todas las propuestas', id: 'propuestas' },
   { href: '/cuestiones/', texto: 'Cuestiones con alternativas', id: 'cuestiones' },
@@ -62,16 +63,14 @@ const subenlaces = [
     <meta name="theme-color" content="#0b1d3f" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <!-- Iconos sin bloquear la lectura: el texto aparece antes que la fuente de iconos. -->
-    <link rel="preconnect" href="https://cdn-uicons.flaticon.com" crossorigin />
-    <link rel="stylesheet" href={UICONS} media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href={UICONS} /></noscript>
+    <link rel="stylesheet" href="/fonts/uicons-br.css" />
   </head>
   <body>
     <a class="saltar" href="#contenido">Saltar al contenido</a>
     <header class="cabecera" id="cabecera">
       <div class="contenedor">
         <a class="marca" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
+        <a class="icono-cab perfil-enlace" href="/perfil/" aria-label="Tu perfil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c1.4-4.2 4.6-6.3 8.5-6.3s7.1 2.1 8.5 6.3"/></svg></a>
         <a class="icono-cab" href="/propuestas/#buscador" aria-label="Buscar propuestas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20 20-4.5-4.5"/></svg></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
@@ -93,23 +92,35 @@ const subenlaces = [
         <div>
           <a class="marca" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
           <p>Plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos.</p>
-                  </div>
+          <p class="pie-seguro"><a href="/seguridad/"><i class="fi fi-br-shield-check" aria-hidden="true"></i> Cómo participar con seguridad</a></p>
+        </div>
         <div>
           <h2>Participa</h2>
           <ul>
             <li><a href="/propuestas/">Propuestas</a></li>
+            <li><a href="/cual-es-el-plan/">¿Cuál es el plan?</a></li>
+            <li><a href="/consulta/">Consultas</a></li>
             <li><a href="/academia/">Academia cívica</a></li>
-            <li><a href="/consulta/">Consulta</a></li>
-            <li><a href="/abrazos.html">Abrazos</a></li>
+            <li><a href="/abrazos/">Abrazos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="/diversidad-politica/">Diversidad política</a></li>
+            <li><a href="/constituyente/">Proceso constituyente</a></li>
+            <li><a href="/reconstruccion/">Reconstrucción</a></li>
+            <li><a href="/datos/">Datos abiertos</a></li>
           </ul>
         </div>
         <div>
           <h2>ENTRE TODOS</h2>
           <ul>
             <li><a href="/sobre/">Sobre nosotros</a></li>
-            <li><a href="/metodo/">Cómo se reúnen las propuestas</a></li>
-            <li><a href="/datos/">Datos abiertos</a></li>
-            <li><a href="/politica-privacidad.html">Privacidad</a></li>
+            <li><a href="/metodo/">Método</a></li>
+            <li><a href="/seguridad/">Seguridad</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+            <li><a href={`mailto:${sitio.contacto}`}>Contacto</a></li>
           </ul>
         </div>
       </div>

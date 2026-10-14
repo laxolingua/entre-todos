@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+const tipos = [
+  ['Capital e inversión', 'Declaraciones públicas de inversión, financiamiento o donación orientadas a sectores concretos.'],
+  ['Marco legal', 'Propuestas sobre propiedad, garantías de inversión, contratos, restitución y seguridad jurídica.'],
+  ['Instituciones', 'Diseños para justicia, administración pública, municipios, control anticorrupción y auditoría.'],
+  ['Infraestructura', 'Electricidad, agua, carreteras, puertos, telecomunicaciones, energía y transporte.'],
+  ['Economía productiva', 'Agricultura, pymes, industria, comercio, turismo, banca, tecnología y empleo.'],
+  ['Servicios esenciales', 'Salud, educación, vivienda, seguridad alimentaria y servicios públicos.'],
+];
+const niveles = [
+  ['Conceptual', 'Hay una idea, pero no estructura demostrable.'],
+  ['Técnica', 'Hay documento, hoja de ruta o equipo identificable.'],
+  ['Respaldada', 'Hay actores con capacidad de ejecución que la sostienen públicamente.'],
+  ['Verificable', 'Hay compromisos, recursos y condiciones que se pueden comprobar.'],
+];
+---
+<Base titulo="Reconstrucción" seccion="otras" ancho
+  descripcion="Registro de planes, marcos legales y compromisos públicos para reconstruir Cuba: qué se propone, con qué respaldo y con qué grado de evidencia.">
+  <Banda imagen="/img/fotos/cat-reconstruccion.jpg" lateral={['Planes', 'Compromisos', 'Evidencia']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Próximamente</p>
+    <h1>Reconstrucción</h1>
+    <p class="lema">Que lo prometido en nombre de Cuba pueda conocerse y recordarse</p>
+    <p class="entradilla">Muchas personas temen qué pasará después de un cambio y cómo se levantará un país en ruinas. Hay organizaciones, especialistas e inversores que ya trabajan en planes. Esta sección los reunirá para que se puedan ver, comparar y evaluar.</p>
+  </Banda>
+  <div class="contenedor">
+    <div class="aviso-proximo"><h2>Próximamente</h2><p>El registro está en preparación y se irá poblando a medida que se documenten planes y compromisos con trazabilidad suficiente. Mientras tanto, puedes consultar las propuestas de reconstrucción del banco.</p></div>
+    <section class="seccion">
+      <h2 class="vista-titulo">Qué se registrará</h2>
+      <ul class="garantias seis">{tipos.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}</ul>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">De la visión al compromiso verificable</h2>
+      <ol class="niveles">{niveles.map(([t, d], i) => <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}</ol>
+      <p class="nota-neutral"><strong>Nota de neutralidad.</strong> ENTRE TODOS no respalda ningún plan, actor, empresa, fondo ni candidatura. El registro existe para que la ciudadanía sepa qué se propone, con qué respaldo y bajo qué condiciones.</p>
+      <div class="acciones"><a class="boton rojo" href="/propuestas/categoria/reconstruccion/">Propuestas de reconstrucción nacional <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+    </section>
+  </div>
+</Base>

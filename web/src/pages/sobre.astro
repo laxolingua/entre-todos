@@ -1,30 +1,123 @@
 ---
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
+import sitio from '../data/sitio.json';
+import c from '../data/cifras-publicadas.json';
+const funciones = [
+  ['Banco de propuestas', 'Reúne ideas de múltiples fuentes, agrupa coincidencias y muestra las diferencias de contenido, procedimiento o alcance sin fusionar alternativas incompatibles.', 'Disponible', '/propuestas/'],
+  ['Consultas', 'Registran grados de aceptación cuando procede, distinguiendo los resultados de quienes participan de la opinión del conjunto de la población.', 'Disponible', '/consulta/'],
+  ['Diversidad política', 'Información pública y verificable sobre organizaciones, partidos, candidaturas, programas y fuentes.', 'Disponible', '/diversidad-politica/'],
+  ['Academia cívica', 'Recursos educativos de ética, derechos, sistemas democráticos y pensamiento crítico, creativo, sistémico y solucionario.', 'En preparación', '/academia/'],
+  ['Elaboración ciudadana', 'Objeciones, mejoras, alternativas e incisos atribuibles a sus autores, con historial de versiones y fuentes.', 'En desarrollo', null],
+  ['Plataforma plural de gobierno', 'Un documento vivo que recoge las propuestas mejor valoradas a medida que la gente vota.', 'En desarrollo', null],
+  ['Documentación constitucional', 'Lectura y comparación de textos constitucionales y propuestas institucionales, sin someter derechos básicos a votación.', 'En preparación', '/constituyente/'],
+];
+const clases = [
+  ['Fundamentos y garantías', 'Documentados, pero no votables.'],
+  ['Procedimientos e instituciones', 'Cómo hacer efectivos esos derechos.'],
+  ['Soluciones de política pública', 'Susceptibles de evaluación ciudadana.'],
+  ['Antecedentes históricos', 'Conservados con valor documental.'],
+  ['Asuntos mixtos o controvertidos', 'Se revisan antes de habilitar valoraciones.'],
+];
 ---
 <Base titulo="Sobre nosotros" seccion="sobre" ancho
-  descripcion="ENTRE TODOS es una plataforma cívica independiente para los cubanos que aspiran a un país democrático y plural.">
+  descripcion="ENTRE TODOS es una plataforma cívica, independiente, plural y no partidista para que los cubanos propongan, comparen y valoren soluciones para los asuntos públicos.">
   <Banda imagen="/img/fotos/sobre.jpg" lateral={['Independiente', 'Plural', 'No partidista']}>
     <span class="barra"></span>
     <h1>Sobre<br />nosotros</h1>
     <p class="lema">Qué es ENTRE TODOS</p>
+    <p class="entradilla">Una plataforma cívica independiente, plural y no partidista que facilita la participación de los cubanos, dentro y fuera de la isla, en el análisis y la elaboración de propuestas sobre asuntos públicos.</p>
   </Banda>
+
   <div class="contenedor">
-    <div class="seccion texto-largo">
-      <p class="entradilla">ENTRE TODOS es una plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos. Su aplicación inicial está dirigida a los cubanos, dentro y fuera de la isla, que aspiran a una Cuba democrática y plural.</p>
-      <p>La procedencia política de una propuesta no sustituye el examen de sus méritos.</p>
-    </div>
-    <ul class="principios">
-      <li><strong>Por su contenido</strong>Las propuestas se examinan por lo que dicen y no por quién las formula. Las autorías se consultan aparte, junto a cada documento.</li>
-      <li><strong>Con su fuente</strong>Cada propuesta conserva su origen, con enlace al documento original.</li>
-      <li><strong>Desde el principio</strong>La ciudadanía interviene mientras las propuestas se elaboran, y no solo para respaldarlas cuando ya están redactadas.</li>
-      <li><strong>Independiente</strong>Administrada sin dirección ni subordinación a partidos, gobiernos u organizaciones externas.</li>
-      <li><strong>Marco democrático</strong>Derechos humanos, pluralismo, libertad de pensamiento y expresión, elecciones libres, igualdad ante la ley y alternancia en el poder.</li>
-    </ul>
-    <div class="texto-largo">
-      <p>El proyecto se desarrolla desde 2024 por iniciativa individual. El sitio entre-todos.org se publicó el 14 de marzo de 2026.</p>
-      <p>Contacto: <a href="mailto:sosplanet@gmail.com">sosplanet@gmail.com</a></p>
-      <div class="acciones"><a class="boton" href="/metodo/">Cómo se reúnen las propuestas</a></div>
-    </div>
+    <section class="seccion sobre-intro">
+      <div class="texto-largo">
+        <h2 class="vista-titulo">Para qué existe</h2>
+        <p class="entradilla">Su propósito es ampliar la participación ciudadana desde la identificación de necesidades y la formulación de propuestas, no únicamente en la etapa de su valoración.</p>
+        <p>No se trata de seleccionar previamente un programa para que las personas se limiten a respaldarlo. ENTRE TODOS busca que cada persona pueda identificar necesidades, presentar propuestas, formular objeciones, comparar soluciones, mejorarlas individual o colectivamente y conocer los resultados de las consultas.</p>
+        <p>Durante años, organizaciones, especialistas y ciudadanos han escrito propuestas para una Cuba democrática, dispersas en documentos que casi nunca se leen juntos. ENTRE TODOS las reúne, las ordena por temas y las presenta para que se examinen por su contenido.</p>
+      </div>
+      <aside class="panel marino cifras-sobre">
+        <p><strong>{c.propuestas}</strong>propuestas consolidadas</p>
+        <p><strong>{c.documentos}</strong>documentos públicos de origen</p>
+        <p><strong>{c.cuestiones}</strong>cuestiones con alternativas</p>
+        <a class="enlace-flecha claro" href="/metodo/">Cómo se reúnen <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      </aside>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Voz + Voto</h2>
+      <div class="voz-voto">
+        <div><p class="kicker">Voz</p><p>Expresar necesidades y opiniones, aportar datos, presentar alternativas, formular objeciones, dialogar y construir propuestas con otras personas.</p></div>
+        <div><p class="kicker rojo">Voto</p><p>Valorar opciones, priorizar y participar en consultas sobre las cuestiones para las que resulte legítimo y metodológicamente apropiado consultar.</p></div>
+      </div>
+      <p class="discreto">La voz no se reduce a una fase previa al voto: acompaña la formulación, la deliberación, la revisión y el seguimiento de las soluciones. Las consultas son cívicas y no vinculantes; no sustituyen elecciones ni decisiones legalmente atribuidas a las instituciones.</p>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Cómo trabajamos</h2>
+      <ul class="principios">
+        <li><strong>Por su contenido</strong>Las propuestas se examinan por lo que dicen y no por quién las formula. Las autorías se consultan aparte, junto a cada documento.</li>
+        <li><strong>Con su fuente</strong>Cada propuesta conserva su origen, con enlace al documento original. El texto de una fuente no se modifica para adaptarlo a un estilo.</li>
+        <li><strong>Coincidencias y diferencias</strong>Lo que varios autores proponen se integra en una propuesta que los cita a todos. Las diferencias sustantivas se presentan como alternativas separadas.</li>
+        <li><strong>Inclusión no es respaldo</strong>Que una propuesta figure en el banco no significa que ENTRE TODOS la respalde.</li>
+        <li><strong>Resultados honestos</strong>Los resultados describen a quienes participan. Se comunica cuántas personas participaron, cuándo y con qué límites.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Lo que no se vota</h2>
+      <div class="dos-col">
+        <div class="texto-largo">
+          <p class="entradilla">Los derechos humanos y las garantías democráticas fundamentales no se someten a votación sobre su existencia. Sí pueden examinarse los mecanismos que permiten garantizarlos.</p>
+          <p>La diversidad de opiniones es compatible con una condición de reciprocidad: reconocer a los demás los mismos derechos que se reclaman para uno mismo. Ningún derecho depende de una puntuación, de su popularidad o de un umbral de votos.</p>
+        </div>
+        <ol class="clases-contenido">
+          {clases.map(([t, d], i) => <li><span>{String.fromCharCode(97 + i)}</span><div><strong>{t}</strong>{d}</div></li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Qué ofrece y qué viene</h2>
+      <p class="entradilla">Cada función se publica cuando está lista y verificada. Esta lista dice con claridad qué funciona hoy y qué está en camino.</p>
+      <ul class="funciones">
+        {funciones.map(([t, d, e, h]) => (
+          <li class={e === 'Disponible' ? 'activa' : ''}>
+            <span class="etiqueta">{e}</span>
+            <h3>{h ? <a href={h}>{t}</a> : t}</h3>
+            <p>{d}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2 class="vista-titulo">Independencia</h2>
+      <div class="dos-col">
+        <div class="texto-largo">
+          <p>ENTRE TODOS no es un partido político ni representa a un gobierno, organización o entidad financiadora. Ser no partidista no significa negar el derecho de los partidos a participar en la vida pública ni evitar el análisis crítico de las políticas de gobierno.</p>
+          <p>Gobiernos, partidos, financiadores y colaboradores no determinan las opiniones de quienes participan ni sustituyen la dirección del proyecto. Cada apoyo se administra conforme a sus condiciones, sin intervenir en las propuestas ciudadanas ni en los resultados de las consultas.</p>
+        </div>
+        <div class="texto-largo">
+          <p>ENTRE TODOS promueve soluciones cívicas, pacíficas y democráticas. No propone intervenciones militares extranjeras, acciones violentas ni imposiciones coercitivas.</p>
+          <p>Su enfoque es humano, postideológico y transpolítico: examina problemas, necesidades y soluciones por sus fundamentos, viabilidad y consecuencias, con independencia de la filiación de quienes los planteen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="panel origen">
+        <div>
+          <h2>Origen</h2>
+          <p>El proyecto comenzó a desarrollarse en 2024 con trabajo y recursos propios de su fundador. El sitio entre-todos.org se publicó el 14 de marzo de 2026. Su aplicación inicial se dirige a Cuba; la metodología puede adaptarse a otros países.</p>
+        </div>
+        <div class="acciones">
+          <a class="boton rojo" href={`mailto:${sitio.contacto}`}>Escríbenos</a>
+          <a class="boton" href="/seguridad/">Seguridad</a>
+          <a class="boton" href="/privacidad/">Privacidad</a>
+        </div>
+      </div>
+    </section>
   </div>
 </Base>
