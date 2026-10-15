@@ -924,6 +924,3 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 @media (max-width: 820px) { .cabecera .icono-cab + .icono-cab { margin-left: 0; } }
 .dos-col .panel h3, .panel > h3 { font-family: var(--display); text-transform: uppercase; font-size: 1.5rem; color: var(--marino); margin: 4px 0 8px; }
 
-/* Dirección de arte 15-10: Cuba presente en B/N (cabeceras), Cuba soñada a COLOR (propuestas, categorías, cursos). */
-.tarjeta-foto img, .ficha-foto img, .ficha-foto > img, .preocupaciones .duo img, .curso.con-foto .duo img, .perfil-foto img { filter: none !important; }
-.tarjeta-foto.duo::after, .ficha-foto.duo::after, .preocupaciones .duo::after { background: linear-gradient(180deg, rgba(11,29,63,0) 55%, rgba(11,29,63,.35)); mix-blend-mode: normal; }
