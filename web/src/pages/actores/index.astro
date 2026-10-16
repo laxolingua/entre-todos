@@ -7,7 +7,7 @@ const extranjeros = datos.organizaciones.filter((o) => o.grupo === 'extranjeros'
 const nombreGrupo = Object.fromEntries(grupos);
 const AMBITO = { isla: 'Isla', exilio: 'Exilio', ambos: 'Isla y exilio' };
 const conPropuestas = orgs.filter((o) => o.actor).length;
-const PAISES = ['Cuba', 'EE. UU.', 'España', 'Alemania', 'Serbia', 'Europa'];
+const PAISES = ['Cuba', 'EE. UU.', 'España', 'Alemania', 'Serbia', 'Uruguay', 'Europa'];
 const paisDe = (o) => {
   const p = PAISES.filter((x) => (o.pais || '').includes(x));
   if (o.ambito === 'isla' && !p.includes('Cuba')) p.push('Cuba');

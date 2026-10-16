@@ -129,6 +129,9 @@ for d in div:
 salida.append({'nombre': 'Humanitarna Rešenja – Soluciones Humanitarias', 'siglas': '', 'grupo': 'diaspora', 'ambito': 'exilio', 'pais': 'Serbia',
                'fundada': '2025', 'que': 'Organización registrada en Belgrado que ofrece asesoramiento jurídico, protección de derechos e integración a personas migrantes y refugiadas en Serbia, en español, inglés, francés y serbio. En 2026 presentó ante el Comisionado para la Protección de la Igualdad de Serbia una comunicación sobre los ciudadanos cubanos que no pueden regularizar su residencia por las demoras de la Embajada de Cuba en expedir y renovar pasaportes.',
                'web': 'https://humanitariansolutions.org/', 'estado': '', 'actor': '', 'diversidad': ''})
+salida.append({'nombre': 'Cubanos Libres en Uruguay', 'siglas': '', 'grupo': 'diaspora', 'ambito': 'exilio', 'pais': 'Uruguay',
+               'fundada': '', 'que': 'Agrupación de emigrados cubanos en Uruguay que une activismo y cultura. En marzo de 2024 se reunió con el embajador de la Unión Europea en Montevideo para pedir que se revise la cláusula de derechos humanos del acuerdo entre la UE y Cuba, y le entregó una lista actualizada de presos políticos.',
+               'web': '', 'estado': '', 'actor': '', 'diversidad': ''})
 out = {'grupos': GRUPOS, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)'}
 destino = os.path.join(os.path.dirname(__file__), '../../web/src/data/organizaciones.json')
 json.dump(out, open(destino, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
