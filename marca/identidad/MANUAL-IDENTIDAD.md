@@ -132,7 +132,7 @@ La identidad se reconoce por su corte inclinado (componente `CorteDiagonal`):
 - Pie: línea `marino` fina; «ENTRE TODOS · entre-todos.org · correo · Potsdam, Alemania» en 8 pt `texto-3`; número de página a la derecha; esquina roja y amarilla.
 - Página A4, márgenes de 20 mm a los lados. Texto en Barlow 11 pt, color `texto`.
 - No se cambia la cabecera ni el pie de un documento a otro; solo el tipo, el asunto, el contenido y la ficha.
-- Nombre del archivo en el Espacio Común: AAMMDD-HHMM_INICIALES_Asunto (reglas en la carpeta 0-ESPACIO-COMUN de Drive).
+- Nombre del archivo en el Espacio Común: número, iniciales y asunto, solo con espacios (por ejemplo: 007 CL Acuerdo de colaboracion). Reglas en la carpeta 0-ESPACIO-COMUN de Drive.
 
 ## Archivos fuente
 
