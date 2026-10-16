@@ -120,21 +120,63 @@ La identidad se reconoce por su corte inclinado (componente `CorteDiagonal`):
 - Dentro de su módulo usa estos tokens (`tokens.css`), las fuentes Barlow y Barlow Condensed y la regla de la diagonal, para que el sitio se lea como una sola pieza.
 - No modifica la cabecera, el pie, otras páginas ni la rama `main`; trabaja mediante pull request a `rediseno-2026-10-14`.
 
-## Documentos oficiales: el membrete
+## Documentos oficiales: aspecto y edición
 
-- Todo documento oficial de E/T (acuerdos, cartas, informes, actas, informes a financiadores) luce como la Carta de Identidad E/T-Cu-2026-002 (`documentos-oficiales/carta-de-identidad-E-T-Cu-2026-002.pdf`): es el modelo aprobado. Se genera con `scripts/documentos/generar.js` (instrucciones en `scripts/documentos/LEEME.md`) o sobre la plantilla `marca/membrete/membrete-ENTRE-TODOS.docx`. Grupo de recursos «Membrete».
-- Cada documento lleva la cabecera de su país bajo el logotipo (— CUBA —, — ESPAÑA —) y la referencia con el país: E/T-Cu-2026-001, E/T-Es-2026-001, E/T-De-2026-001.
-- El texto va justificado; los títulos de principio en negrita `marino`; las subsecciones en `rojo`. Nunca notas internas de trabajo dentro del documento.
-- Cabecera: franja de 210 × 32 mm con el logotipo a la izquierda y, a la derecha, el corte diagonal (franja `acento-suave`, panel `marino`, barra `amarillo`, puntos y paralelogramo `rojo`) con **entre-todos.org** en blanco.
-- Primera página, bajo la cabecera, para saber de qué trata el documento nada más abrirlo:
-  1. tipo de documento en `rojo` y mayúsculas («DOCUMENTO OFICIAL · ACUERDO»);
-  2. asunto en Barlow Condensed, mayúsculas, `marino`, 20 pt;
-  3. recuadro `acento-suave` con borde izquierdo `marino`: a la izquierda CONTENIDO (micro índice numerado de los apartados) y a la derecha FICHA (Ref., Fecha, Para, Estado).
-- Referencia: E/T-País-AAAA-NNN, numerada en orden por país y año (E/T-Cu-2026-001, E/T-Cu-2026-002…).
-- Pie: línea `marino` fina; «ENTRE TODOS · entre-todos.org · contacto.entretodos@gmail.com · Potsdam, Alemania» en 8 pt `texto-3`; número de página a la derecha; esquina roja y amarilla.
-- Página A4, márgenes de 20 mm a los lados. Texto en Barlow 11 pt, color `texto`.
-- No se cambia la cabecera ni el pie de un documento a otro; solo el tipo, el asunto, el contenido y la ficha.
-- Nombre del archivo en el Espacio Común: número, iniciales y asunto, solo con espacios (por ejemplo: 007 CL Acuerdo de colaboracion). Reglas en la carpeta 0-ESPACIO-COMUN de Drive.
+Modelo aprobado por Mitch el 16/10/2026: la Carta de Identidad E/T-Cu-2026-002 (`documentos-oficiales/carta-de-identidad-E-T-Cu-2026-002.pdf`). Todo documento oficial de E/T luce exactamente así: acuerdos, cartas, informes, actas, anexos, informes a financiadores y documentos para colaboradores. Grupo de recursos «Membrete».
+
+### Página y membrete
+
+- A4, márgenes laterales de 20 mm, superior de 42 mm (deja sitio a la cabecera) e inferior de 28 mm.
+- **Cabecera** a sangre, de 210 × 32 mm, igual en todas las páginas: logotipo a la izquierda con el país debajo, en `texto-3`, mayúsculas espaciadas y entre rayas (— CUBA —, — ESPAÑA —). A la derecha va el corte diagonal: franja `acento-suave`, panel `marino`, barra `amarillo`, puntos y paralelogramo `rojo`, con **entre-todos.org** en blanco. Cada país tiene su imagen de cabecera (`scripts/documentos/recursos/cabecera-<país>.png`).
+- **Pie** en todas las páginas: línea `marino` fina; «ENTRE TODOS · entre-todos.org · contacto.entretodos@gmail.com · Potsdam, Alemania» en 8 pt `texto-3`; número de página a la derecha; esquina roja y amarilla abajo a la derecha.
+- La cabecera y el pie no se modifican de un documento a otro.
+
+### Primera página: saber de qué trata al abrirlo
+
+1. **Tipo**, en `rojo`, 8 pt, negrita, mayúsculas: «DOCUMENTO OFICIAL · CARTA», «· ACUERDO», «· INFORME», «· ACTA», «· ANEXO», «· CARTA DE IDENTIDAD».
+2. **Asunto**, en Barlow Condensed 800, 20 pt, mayúsculas, `marino`. Una línea, dos como máximo. Dice de qué trata, sin lemas.
+3. **Recuadro** `acento-suave` con borde izquierdo `marino` de 4,5 pt:
+   - a la izquierda, **CONTENIDO**: el índice numerado de los apartados, que coincide exactamente con los títulos del cuerpo;
+   - a la derecha, **FICHA**: Ref., Fecha, Para, Versión (si la hay) y Estado.
+4. En las cartas, después del recuadro: lugar y fecha a la derecha, destinatario (nombre en negrita, cargo y organización debajo, copias en `texto-3`) y saludo.
+
+### Cuerpo del texto
+
+- Barlow 11 pt, color `texto`, interlínea 1,25, justificado. Párrafos de 3 a 5 líneas.
+- Apartados numerados «1. Título», en Barlow negrita 12 pt `marino`, con aire antes y pegados a su texto (nunca un título solo al final de una página).
+- Subapartados sin número en Barlow negrita 11 pt `rojo` (como «Unidad nacional en la diversidad»).
+- Principios o cláusulas con título en línea: el título en negrita `marino` seguido de punto y el texto en la misma línea («**Financiamiento.** La plataforma publica…»).
+- Viñetas y listas numeradas con sangría de 6 mm; nunca se escriben los símbolos a mano.
+- Tablas solo cuando se comparan cosas: cabecera en negrita `marino`, filas sin colores de fondo.
+- Firma al final: nombre en negrita y cargo debajo en `texto-2`.
+- Nada de colores fuera de la paleta, nada de emojis, nada de imágenes decorativas.
+
+### Referencia, versiones y estado
+
+- Referencia: **E/T-País-Año-Número**, numerada en orden dentro de cada país y año: E/T-Cu-2026-001, E/T-Cu-2026-002, E/T-Es-2026-001. El número no se reutiliza.
+- Una versión nueva conserva la referencia y cambia la ficha: «Versión: v2» y una línea que dice qué cambió y cuándo. El documento anterior nunca se sobrescribe: se hace una copia y se edita la copia.
+- Estados: Borrador · Para aprobar · Aprobado · Firmado · Vigente · Sustituido.
+- Nada se envía ni se publica sin la aprobación de Mitch.
+
+### Lo que nunca va dentro de un documento oficial
+
+- Notas internas de trabajo, comentarios entre IA, listas de pendientes o razonamientos sobre la redacción. Eso va al Espacio Común, aparte.
+- Claves, contraseñas, datos personales de participantes ni identidades de personas en Cuba.
+- Importes de subvenciones o números de expediente, salvo en los documentos para el financiador y con la aprobación de Mitch.
+
+### Cómo se edita
+
+- **Para hacer un documento nuevo:** usar la herramienta `scripts/documentos/generar.js` (instrucciones en `scripts/documentos/LEEME.md`). Se le da el país, el tipo, el asunto, el índice, la ficha y los bloques de texto, y devuelve el Word con el membrete. Después, `incrustar_fuentes.py` mete Barlow dentro del archivo.
+- **Para escribirlo a mano:** partir de la plantilla `marca/membrete/membrete-ENTRE-TODOS.docx` y escribir sobre los textos entre corchetes, sin cambiar estilos, márgenes, cabecera ni pie.
+- **En Word:** se edita directamente; las fuentes van incrustadas. Al terminar, guardar también como PDF.
+- **En Google Docs:** abrir el .docx con Google Docs; Barlow está disponible. Revisar que la cabecera y el pie se mantengan antes de exportar a PDF.
+- Al cambiar un apartado, actualizar también el índice del recuadro para que coincidan.
+- Se envía siempre el **PDF**: lleva las fuentes dentro y se ve igual en cualquier pantalla. El Word es para editar.
+
+### Nombres de archivo
+
+- En el repositorio: tipo, referencia y asunto breve, con guiones (`carta-E-T-Cu-2026-001-sitio-nuevo.pdf`). La barra de E/T se escribe E-T.
+- En el Espacio Común: número del índice, iniciales y asunto, solo con espacios (`011 CL Carta de Identidad documento oficial`). Sin guiones bajos ni fechas en el nombre; la fecha va dentro del documento.
 
 ## Archivos fuente
 
