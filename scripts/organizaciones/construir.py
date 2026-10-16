@@ -109,6 +109,21 @@ for f in filas:
         'web': f['Web oficial'].strip() if verif else '',
         'estado': ESTADO.get(n, ''), 'actor': ACTOR.get(n, ''),
     })
+# Organizaciones con ficha en «Diversidad política» que no están en el dossier, y enlace a esa ficha.
+div = json.load(open(os.path.join(os.path.dirname(__file__), '../../web/src/data/diversidad.json'), encoding='utf-8'))['organizaciones']
+DIV_NOMBRE = {'Partido Libertario de Cuba': 'partido-libertario-de-cuba', 'Partido Nacionalista Cubano': 'partido-nacionalista-cubano'}
+for o in salida:
+    o['diversidad'] = DIV_NOMBRE.get(o['nombre'], '')
+EXTRA = {
+  'alternativa-no-partidista-de-cuba': {'grupo': 'partidos', 'ambito': 'ambos', 'pais': '', 'que': 'Corriente cívica no partidista: una opción organizada para quienes no desean afiliarse a un partido; reconoce a los partidos como actores legítimos.', 'web': 'https://nopartidistacuba.org/'},
+  'partido-pro-derechos-humanos-de-cuba': {'grupo': 'partidos', 'ambito': 'ambos', 'pais': '', 'que': 'Organización política independiente centrada en derechos humanos, democracia participativa y lucha no violenta.', 'web': ''},
+}
+nombres = {o['nombre'] for o in salida}
+for d in div:
+    if d['slug'] in EXTRA and d['nombre'] not in nombres:
+        e = EXTRA[d['slug']]
+        salida.append({'nombre': d['nombre'], 'siglas': '', 'grupo': e['grupo'], 'ambito': e['ambito'], 'pais': e['pais'],
+                       'fundada': d.get('fecha', ''), 'que': e['que'], 'web': e['web'], 'estado': '', 'actor': '', 'diversidad': d['slug']})
 out = {'grupos': GRUPOS, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)'}
 destino = os.path.join(os.path.dirname(__file__), '../../web/src/data/organizaciones.json')
 json.dump(out, open(destino, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
