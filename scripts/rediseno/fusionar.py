@@ -34,6 +34,8 @@ open(f,'w',encoding='utf-8').write(s)
 shutil.copy(D+'/index.html',P+'/index.html')
 for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','perfil']:
     shutil.copytree(f'{D}/{d}',f'{P}/{d}',dirs_exist_ok=True)
+# El directorio de actores cívicos sale del diseño nuevo (dossier de organizaciones); las fichas de cada actor siguen siendo las del banco.
+shutil.copy(D+'/actores/index.html',P+'/actores/index.html')
 for f in ['favicon.svg','favicon.png','apple-touch-icon.png']: shutil.copy(f'{D}/{f}',f'{P}/{f}')
 for f in glob.glob(D+'/_astro/*'):
     if not os.path.exists(P+'/_astro/'+os.path.basename(f)): shutil.copy(f,P+'/_astro/')

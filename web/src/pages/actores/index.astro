@@ -1,20 +1,97 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { actores, TIPOS_FUENTE } from '../../lib/banco.js';
+import datos from '../../data/organizaciones.json';
+const { grupos } = datos;
+const orgs = datos.organizaciones.filter((o) => o.grupo !== 'extranjeros');
+const extranjeros = datos.organizaciones.filter((o) => o.grupo === 'extranjeros');
+const nombreGrupo = Object.fromEntries(grupos);
+const AMBITO = { isla: 'Isla', exilio: 'Exilio', ambos: 'Isla y exilio' };
+const conPropuestas = orgs.filter((o) => o.actor).length;
 ---
 <Base titulo="Actores cívicos" seccion="actores"
-  descripcion={`${actores.length} organizaciones, coaliciones y centros de estudios cuyas propuestas reúne ENTRE TODOS.`}>
+  descripcion={`${orgs.length} organizaciones de la sociedad civil cubana, dentro y fuera de la isla. Solo información pública, con su fuente.`}>
   <h1>Actores cívicos</h1>
-  <p class="entradilla">Organizaciones, coaliciones y centros de estudios cuyas propuestas están reunidas aquí. Solo se registra información ya pública y su fuente.</p>
-  <p class="discreto">Cada autoría está comprobada: en el sitio oficial del actor, leyendo el propio documento o por el equipo de revisión.</p>
-  <div class="desplazable">
-    <table class="tabla">
-      <thead><tr><th scope="col">Actor</th><th scope="col">Tipo</th><th scope="col">Propuestas</th></tr></thead>
-      <tbody>
-        {actores.map((a) => (
-          <tr><td><a href={`/actores/${a.id}/`}>{a.nombre}</a></td><td>{TIPOS_FUENTE[a.tipo]}</td><td>{a.propuestas}</td></tr>
-        ))}
-      </tbody>
-    </table>
+  <p class="entradilla">{orgs.length} organizaciones de cubanos, dentro y fuera de la isla: derechos humanos, prensa independiente, coaliciones, partidos, centros de estudio y diáspora. Solo información pública, con su fuente.</p>
+  <p class="discreto">{conPropuestas} tienen propuestas en el banco de ENTRE TODOS; su ficha enlaza a ellas.</p>
+
+  <div class="org-filtros" data-filtros>
+    <div class="org-chips" role="group" aria-label="Filtrar por tipo">
+      <button type="button" class="org-chip activo" data-grupo="">Todas <span>{orgs.length}</span></button>
+      {grupos.map(([id, nombre]) => (
+        <button type="button" class="org-chip" data-grupo={id}>{nombre} <span>{orgs.filter((o) => o.grupo === id).length}</span></button>
+      ))}
+    </div>
+    <div class="org-busqueda">
+      <label class="sr-only" for="org-q">Buscar organización</label>
+      <input id="org-q" type="search" placeholder="Buscar organización" autocomplete="off" />
+      <label class="sr-only" for="org-ambito">Dónde trabaja</label>
+      <select id="org-ambito">
+        <option value="">Isla y exilio</option>
+        <option value="isla">Solo isla</option>
+        <option value="exilio">Solo exilio</option>
+        <option value="ambos">Ambos</option>
+      </select>
+    </div>
   </div>
+
+  <ul class="org-lista" data-lista>
+    {orgs.map((o) => (
+      <li class={`org-ficha${o.actor ? ' con-propuestas' : ''}`} data-grupo={o.grupo} data-ambito={o.ambito} data-texto={`${o.nombre} ${o.siglas} ${o.que}`.toLowerCase()}>
+        <p class="org-meta">{nombreGrupo[o.grupo]} · {AMBITO[o.ambito]}{o.pais && o.pais !== 'Exilio' && o.pais !== 'Mixto' ? ` · ${o.pais}` : ''}{o.fundada ? ` · desde ${o.fundada}` : ''}</p>
+        <h2>{o.nombre}{o.siglas && !o.nombre.includes(o.siglas) ? <span class="org-siglas"> ({o.siglas})</span> : null}</h2>
+        {o.estado && <span class="etiqueta">{o.estado}</span>}
+        <p>{o.que}</p>
+        <p class="org-enlaces">
+          {o.web && <a href={o.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
+          {o.actor && <a href={`/actores/${o.actor}/`}>Sus propuestas en el banco <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>}
+        </p>
+      </li>
+    ))}
+  </ul>
+  <p class="org-vacio" data-vacio hidden>No hay organizaciones con ese filtro.</p>
+
+  {extranjeros.length > 0 && (
+    <section class="org-nota">
+      <h2>Medios extranjeros sobre Cuba</h2>
+      {extranjeros.map((o) => (
+        <p><strong>{o.nombre}.</strong> {o.que} No es una organización cubana independiente; se menciona como referencia. {o.web && <a href={o.web} rel="noopener" target="_blank">Web oficial</a>}</p>
+      ))}
+    </section>
+  )}
+
+  <section class="org-nota">
+    <h2>Cómo se elabora este registro</h2>
+    <p>Reúne información ya pública sobre organizaciones de cubanos y por cubanos, con su web oficial cuando se ha comprobado. No incluye datos personales. Aparecer aquí no implica respaldo de ENTRE TODOS ni de la organización hacia ENTRE TODOS.</p>
+    <p>Cualquier organización puede pedir que se corrija, se complete o se retire su ficha escribiendo a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+  </section>
+
+  <script>
+    const chips = [...document.querySelectorAll('.org-chip')];
+    const q = document.getElementById('org-q');
+    const amb = document.getElementById('org-ambito');
+    const fichas = [...document.querySelectorAll('.org-ficha')];
+    const vacio = document.querySelector('[data-vacio]');
+    let grupo = '';
+    const aplicar = () => {
+      const texto = (q?.value || '').trim().toLowerCase();
+      const ambito = amb?.value || '';
+      let n = 0;
+      fichas.forEach((f) => {
+        const ok = (!grupo || f.dataset.grupo === grupo)
+          && (!ambito || f.dataset.ambito === ambito)
+          && (!texto || (f.dataset.texto || '').includes(texto));
+        f.hidden = !ok;
+        if (ok) n++;
+      });
+      if (vacio) vacio.hidden = n > 0;
+    };
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.classList.remove('activo'));
+      c.classList.add('activo');
+      grupo = c.dataset.grupo || '';
+      aplicar();
+    }));
+    q?.addEventListener('input', aplicar);
+    amb?.addEventListener('change', aplicar);
+  </script>
 </Base>
