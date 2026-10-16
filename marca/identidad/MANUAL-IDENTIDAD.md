@@ -19,6 +19,7 @@ ENTRE TODOS es una plataforma cívica, independiente, plural y no partidista. La
 
 - Logotipo tipográfico en dos líneas: **ENTRE** en `marino` sobre **TODOS** en `rojo`, Montserrat 900, mayúsculas, interlínea 0,84, espaciado -0,035em (estilo `logotipo`). Sobre marino, ENTRE pasa a blanco.
 - Componente `Logotipo`. Se escribe como texto HTML, no como imagen.
+- **Abreviatura: E/T**, siempre con barra. Nunca «ET», que es la abreviatura de elTOQUE. La barra viene de la abreviatura tradicional de «entre» («e/», como en las direcciones cubanas: «e/ 23 y 25») y repite la diagonal de la marca. En referencias de documentos se escribe E/T-2026-001; en nombres de archivo, donde la barra no se admite, E-T.
 - **Monograma E/T** para espacios cuadrados y redondos (avatar de redes, icono de aplicación): letras E y T juntas, cortadas por una raya `amarillo` inclinada. Versiones marino y blanca en el grupo de recursos «Marca».
 - Espacio libre alrededor: como mínimo la altura de la letra E. Tamaño mínimo: 18 px de alto por línea.
 - Prohibido: cambiar colores, poner el logotipo en una línea, inclinarlo, añadir sombras, contornos o degradados, o redibujarlo en otra fuente.
