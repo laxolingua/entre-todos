@@ -13,6 +13,8 @@ GRUPOS = [
   ('partidos', 'Partidos y movimientos'),
   ('estudios', 'Centros de estudio'),
   ('tematicas', 'Causas temáticas'),
+  ('animales', 'Protección animal'),
+  ('ambiente', 'Medio ambiente'),
   ('diaspora', 'Diáspora por país'),
 ]
 def grupo(cat):
@@ -132,6 +134,27 @@ salida.append({'nombre': 'Humanitarna Rešenja – Soluciones Humanitarias', 'si
 salida.append({'nombre': 'Cubanos Libres en Uruguay', 'siglas': '', 'grupo': 'diaspora', 'ambito': 'exilio', 'pais': 'Uruguay',
                'fundada': '', 'que': 'Agrupación de emigrados cubanos en Uruguay que une activismo y cultura. En marzo de 2024 se reunió con el embajador de la Unión Europea en Montevideo para pedir que se revise la cláusula de derechos humanos del acuerdo entre la UE y Cuba, y le entregó una lista actualizada de presos políticos.',
                'web': '', 'estado': '', 'actor': '', 'diversidad': ''})
+# Protección animal y medio ambiente (inventario de Instinct, 17/10/2026). Solo grupos independientes con
+# actividad documentada; se excluyen los estatales o vinculados a universidades, iglesias o al Estado,
+# los que solo figuran en directorios o logos, y las ONG extranjeras.
+def _o(nombre, grupo, que, web='', fundada='', ambito='isla', pais='Cuba', estado=''):
+    salida.append({'nombre': nombre, 'siglas': '', 'grupo': grupo, 'ambito': ambito, 'pais': pais, 'fundada': fundada,
+                   'que': que, 'web': web, 'estado': estado, 'actor': '', 'diversidad': ''})
+_o('Bienestar Animal Cuba (BAC)', 'animales', 'Red nacional de voluntariado con sede en La Habana y grupos en Camagüey, Matanzas, Villa Clara, Holguín y Pinar del Río. Rescates, adopciones responsables, campañas de esterilización y desparasitación, hogares temporales y ferias. Sin reconocimiento legal.', 'https://bacuba.org/', '2020')
+_o('Cubanos en Defensa de los Animales (CeDA)', 'animales', 'Proyecto de La Habana dedicado al rescate de animales callejeros, la esterilización, la adopción responsable y la educación de niños y jóvenes.', 'https://cedacuba.org/', '2016')
+_o('Protección Animal S.O.S (Pasos)', 'animales', 'Protectora de La Habana, con presencia en Puerto Padre (Las Tunas): rescates, refugio, esterilización, ferias de adopción y concienciación.', 'https://proteccionanimalpasos.com/', '2021')
+_o('Aldameros (Colonia Aldama)', 'animales', 'Colonia protegida en el parque Aldama, Centro Habana, con más de 120 animales, en su mayoría gatos. Cuidado, rescates y adopciones.', '', '2020')
+_o('Equipo de Protección Animal (EPA)', 'animales', 'Grupo comunitario de San Antonio de los Baños (Artemisa): rescates, hogares temporales, atención veterinaria y denuncias de maltrato amparadas en el Decreto-Ley 31/2021. No recibe apoyo de ninguna institución.', '', '2019')
+_o('Santiagueros por el Bienestar Animal (SALBA)', 'animales', 'Grupo de Santiago de Cuba que rescata y protege animales callejeros y promueve adopciones. Organizó albergue para animales durante el huracán Melissa, en octubre de 2025.', '', '2019')
+_o('Adopciones por Amor', 'animales', 'Refugio y red de adopciones en La Habana; según AP, realojó unas 300 mascotas en 2023.')
+_o('Espíritu Animal', 'animales', 'Grupo de Pinar del Río: rescates, campañas y atención veterinaria a animales abandonados.')
+_o('Protectores en Ciego de Ávila (PeCA)', 'animales', 'Grupo de Ciego de Ávila dedicado al rescate, la protección, la adopción responsable y el cuidado de animales callejeros; reubicó 260 animales en su primer año.', 'https://editosupervieda.wixsite.com/pecaprotectoresencie')
+_o('APA Ciego de Ávila', 'animales', 'Grupo de Ciego de Ávila: rescate, adopción, esterilización, desparasitación, vacunación y educación contra la violencia hacia los animales.')
+_o('Huellitas de mi Ciudad', 'animales', 'Grupo de Matanzas con refugio propio desde 2019, rescates y casas de tránsito.', '', '2019')
+_o('Citykleta', 'ambiente', 'Comunidad ciclista de La Habana que promueve la movilidad sostenible y el activismo urbano; organiza el Festival de la Bicicleta.', 'https://citykleta.org/')
+_o('Bicicletear La Habana', 'ambiente', 'Iniciativa ciudadana que promueve la bicicleta como transporte sostenible, con bicicletadas mensuales.', '', '2015')
+_o('Guardabosques', 'ambiente', 'Organización ambiental independiente nacida en La Habana: denuncia de daños ecológicos urbanos, reforestación, limpieza de ríos y boletín nacional. En 2019 pidió al gobierno firmar el Acuerdo de Escazú. Su actividad en la isla terminó ese año, con el exilio de sus organizadores.', '', '2007', estado='Histórica')
+_o('Canal Guardabosques', 'ambiente', 'Medio ambiental digital desde el exilio, continuador del boletín Guardabosques: ciencia, imagen y denuncia ambiental sobre Cuba.', 'https://canalguardabosques.com/', '2019', ambito='exilio', pais='')
 out = {'grupos': GRUPOS, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)'}
 destino = os.path.join(os.path.dirname(__file__), '../../web/src/data/organizaciones.json')
 json.dump(out, open(destino, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
