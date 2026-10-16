@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
+import { secciones, contextoLegal, NIVELES, actualizado } from '../data/reconstruccion.js';
+const total = secciones.reduce((n, s) => n + s.entradas.length, 0);
 const tipos = [
   ['Capital e inversión', 'Declaraciones públicas de inversión, financiamiento o donación orientadas a sectores concretos.'],
   ['Marco legal', 'Propuestas sobre propiedad, garantías de inversión, contratos, restitución y seguridad jurídica.'],
@@ -20,20 +22,46 @@ const niveles = [
   descripcion="Registro de planes, marcos legales y compromisos públicos para reconstruir Cuba: qué se propone, con qué respaldo y con qué grado de evidencia.">
   <Banda imagen="/img/fotos/cat-reconstruccion.jpg" lateral={['Planes', 'Compromisos', 'Evidencia']}>
     <span class="barra"></span>
-    <p class="antetitulo">Próximamente</p>
     <h1>Reconstrucción</h1>
     <p class="lema">Que lo prometido en nombre de Cuba pueda conocerse y recordarse</p>
-    <p class="entradilla">Muchas personas temen qué pasará después de un cambio y cómo se levantará un país en ruinas. Hay organizaciones, especialistas e inversores que ya trabajan en planes. Esta sección los reunirá para que se puedan ver, comparar y evaluar.</p>
+    <p class="entradilla">Muchas personas temen qué pasará después de un cambio y cómo se levantará un país en ruinas. Hay organizaciones, especialistas e inversores que ya trabajan en planes. Aquí se reúnen para que se puedan ver, comparar y evaluar, cada uno con su fuente y su grado de evidencia.</p>
   </Banda>
   <div class="contenedor">
-    <div class="aviso-proximo"><h2>Próximamente</h2><p>El registro está en preparación y se irá poblando a medida que se documenten planes y compromisos con trazabilidad suficiente. Mientras tanto, puedes consultar las propuestas de reconstrucción del banco.</p></div>
     <section class="seccion">
-      <h2 class="vista-titulo">Qué se registrará</h2>
+      <p class="discreto">{total} compromisos y planes documentados · actualizado el {actualizado}. Las cifras no se suman: son estimaciones, ofertas y disposiciones de naturaleza distinta.</p>
+      <ol class="niveles rec-niveles">{niveles.map(([t, d], i) => <li class={`rec-nivel-${['conceptual','tecnica','respaldada','verificable'][i]}`}><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}</ol>
+      <aside class="rec-contexto">
+        <h2>{contextoLegal.titulo}</h2>
+        <p>{contextoLegal.texto} <a href={contextoLegal.fuente.url} rel="noopener" target="_blank">{contextoLegal.fuente.t}</a></p>
+      </aside>
+    </section>
+    {secciones.map((sec) => (
+      <section class="seccion" id={sec.id}>
+        <h2 class="vista-titulo">{sec.titulo}</h2>
+        {sec.nota && <p class="discreto">{sec.nota}</p>}
+        <ul class="rec-lista">
+          {sec.entradas.map((e) => (
+            <li class={`rec-ficha rec-${e.nivel}`}>
+              <p class="rec-meta"><span class={`rec-badge rec-${e.nivel}`}>{NIVELES[e.nivel]}</span> {e.fecha}</p>
+              <h3>{e.actor}</h3>
+              <p class="rec-cifra">{e.cifra}</p>
+              <p>{e.que}</p>
+              {e.condiciones && <p class="rec-cond"><strong>Condiciones:</strong> {e.condiciones}</p>}
+              {e.cautela && <p class="rec-cautela">{e.cautela}</p>}
+              <p class="rec-fuentes">{e.fuentes.map((f) => <a href={f.url} rel="noopener" target="_blank">{f.t} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>)}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <section class="seccion">
+      <p class="nota-neutral"><strong>Qué no se incluye.</strong> Ayudas, créditos o acuerdos de cooperación con el gobierno actual. Este registro recoge solo lo destinado al pueblo cubano o a una Cuba en transición democrática.</p>
+    </section>
+    <section class="seccion">
+      <h2 class="vista-titulo">Qué se irá registrando</h2>
       <ul class="garantias seis">{tipos.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}</ul>
     </section>
     <section class="seccion">
-      <h2 class="vista-titulo">De la visión al compromiso verificable</h2>
-      <ol class="niveles">{niveles.map(([t, d], i) => <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}</ol>
       <p class="nota-neutral"><strong>Nota de neutralidad.</strong> ENTRE TODOS no respalda ningún plan, actor, empresa, fondo ni candidatura. El registro existe para que la ciudadanía sepa qué se propone, con qué respaldo y bajo qué condiciones.</p>
       <div class="acciones"><a class="boton rojo" href="/propuestas/categoria/reconstruccion/">Propuestas de reconstrucción nacional <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
     </section>

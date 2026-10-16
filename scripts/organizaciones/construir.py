@@ -49,7 +49,7 @@ QUE = {
   'Comisión para la Ayuda a una Cuba Libre': 'Apoyo a la sociedad civil.',
   'Brigada 2506 (Asociación de Veteranos de Bahía de Cochinos)': 'Asociación de veteranos de Bahía de Cochinos.',
   'Frente Constitucionalista Cubano': 'Movimiento constitucionalista.',
-  'VOZ | Cuba': 'Plataforma por el bienestar animal y el medio ambiente.',
+  'VOZ | Cuba': 'Plataforma programática: «la voz de las personas, los animales y el medioambiente, y el eco de las causas que los defienden». Propone, argumenta y defiende soluciones propias.',
   'Partido del Pueblo': 'Partido político con programa publicado en 2020-2021.',
   'Partido Liberal Clásico Cubano': 'Partido político fundado en 2026.',
   'Partido Libertario de Cuba': 'Partido político; «Plan de la Libertad».',
@@ -102,8 +102,9 @@ for f in filas:
     if not que.endswith('.'): que += '.'
     que = que[0].upper() + que[1:]
     verif = f['Verificación'].strip().startswith('Verificada')
+    g = 'partidos' if n == 'VOZ | Cuba' else grupo(f['Categoría'])
     salida.append({
-        'nombre': n, 'siglas': f['Siglas'].strip(), 'grupo': grupo(f['Categoría']),
+        'nombre': n, 'siglas': f['Siglas'].strip(), 'grupo': g,
         'ambito': ambito(f['Ámbito']), 'pais': re.sub(r'\s*\(.*?\)', '', f['País base']).strip().replace('EEUU', 'EE. UU.'),
         'fundada': f['Fundada'].strip(), 'que': que,
         'web': f['Web oficial'].strip() if verif else '',
