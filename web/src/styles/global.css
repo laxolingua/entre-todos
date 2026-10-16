@@ -977,3 +977,9 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .campo-nombre input { font: inherit; padding: 10px; border: 1px solid var(--borde); }
 .fuentes-curso { padding-left: 1.2em; display: grid; gap: 6px; max-width: 80ch; }
 .curso-pagina .seccion[id] { scroll-margin-top: 80px; }
+.apoyo-eeuu { margin: 48px 0 40px; padding: 20px; border: 1px solid var(--borde); background: var(--superficie); display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: start; font-size: .9rem; color: var(--texto-2); }
+.apoyo-eeuu p { margin: 0 0 8px; max-width: 80ch; }
+.apoyo-eeuu .apoyo-titulo { font-family: var(--display); font-weight: 800; text-transform: uppercase; color: var(--marino); font-size: 1.05rem; }
+.apoyo-eeuu .apoyo-en { font-style: italic; color: var(--texto-3); }
+.bandera-eeuu { width: 96px; height: auto; display: block; border: 1px solid var(--borde); }
+@media (max-width: 560px) { .apoyo-eeuu { grid-template-columns: 1fr; } }

@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
+import ApoyoEEUU from '../../components/ApoyoEEUU.astro';
 import { cursos } from '../../data/academia.js';
 
 export function getStaticPaths() {
@@ -128,6 +129,7 @@ const datosCuestionario = disponible
         <script type="application/json" id="datos-curso" set:html={datosCuestionario}></script>
       </>
     )}
+    <ApoyoEEUU pieza="curso" />
   </div>
 
   <script>

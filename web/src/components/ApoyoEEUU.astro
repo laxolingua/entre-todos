@@ -1,0 +1,36 @@
+---
+// Reconocimiento obligatorio del apoyo del Gobierno de EE. UU. en materiales financiados por la subvención.
+// La Embajada confirmó el 08/10/2026 que no hay excepción de marca: bandera y mención escrita.
+// Va solo en las piezas producidas con la subvención (Academia). Sin importes ni números de expediente.
+interface Props { pieza?: string }
+const { pieza = 'material' } = Astro.props;
+const W = 190, H = 100, cw = 76, ch = 100 * 7 / 13;
+const franjas = Array.from({ length: 13 }, (_, i) => i);
+const estrellas: [number, number][] = [];
+for (let f = 0; f < 9; f++) {
+  const n = f % 2 === 0 ? 6 : 5;
+  for (let k = 0; k < n; k++) {
+    const x = (f % 2 === 0 ? (2 * k + 1) : (2 * k + 2)) * (cw / 12);
+    const y = (f + 1) * (ch / 10);
+    estrellas.push([x, y]);
+  }
+}
+const r = 3.0;
+const punta = (cx: number, cy: number) => Array.from({ length: 10 }, (_, i) => {
+  const a = -Math.PI / 2 + i * Math.PI / 5; const rr = i % 2 === 0 ? r : r * 0.382;
+  return `${(cx + rr * Math.cos(a)).toFixed(2)},${(cy + rr * Math.sin(a)).toFixed(2)}`;
+}).join(' ');
+---
+<aside class="apoyo-eeuu" aria-label="Reconocimiento de financiación">
+  <svg class="bandera-eeuu" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Bandera de los Estados Unidos">
+    {franjas.map((i) => <rect x="0" y={i * H / 13} width={W} height={H / 13 + 0.2} fill={i % 2 === 0 ? '#B22234' : '#FFFFFF'} />)}
+    <rect x="0" y="0" width={cw} height={ch} fill="#3C3B6E" />
+    {estrellas.map(([x, y]) => <polygon points={punta(x, y)} fill="#FFFFFF" />)}
+  </svg>
+  <div>
+    <p class="apoyo-titulo">Con el apoyo del Gobierno de los Estados Unidos</p>
+    <p>Este {pieza} ha sido financiado en parte mediante una subvención del Departamento de Estado de los Estados Unidos. Las opiniones, hallazgos y conclusiones aquí expresados son de sus autores y no reflejan necesariamente los del Departamento de Estado de los Estados Unidos.</p>
+    <p lang="en" class="apoyo-en">This {pieza === 'curso' ? 'course' : 'material'} was funded in part by a grant from the United States Department of State. The opinions, findings and conclusions stated herein are those of the authors and do not necessarily reflect those of the United States Department of State.</p>
+    <p class="discreto">ENTRE TODOS mantiene su independencia editorial. <a href="/sobre/">Cómo se financia y quién decide</a>.</p>
+  </div>
+</aside>

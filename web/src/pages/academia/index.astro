@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
+import ApoyoEEUU from '../../components/ApoyoEEUU.astro';
 import { cursos, PAISES_COMPARADOS } from '../../data/academia.js';
 ---
 <Base titulo="Academia cívica" seccion="academia" ancho
@@ -41,6 +42,7 @@ import { cursos, PAISES_COMPARADOS } from '../../data/academia.js';
       </ul>
       <p class="discreto" style="margin-top:20px">Países que se comparan: {PAISES_COMPARADOS.join(', ')}. Los contenidos parten de la Declaración Universal de Derechos Humanos y de los dos pactos internacionales de 1966, que Cuba firmó en 2008.</p>
     </section>
+    <ApoyoEEUU pieza="material" />
   </div>
   <script>
     // Marca como obtenida la insignia guardada en este dispositivo. Nada sale del navegador.
