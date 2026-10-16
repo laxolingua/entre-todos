@@ -7,6 +7,13 @@ const extranjeros = datos.organizaciones.filter((o) => o.grupo === 'extranjeros'
 const nombreGrupo = Object.fromEntries(grupos);
 const AMBITO = { isla: 'Isla', exilio: 'Exilio', ambos: 'Isla y exilio' };
 const conPropuestas = orgs.filter((o) => o.actor).length;
+const PAISES = ['Cuba', 'EE. UU.', 'España', 'Alemania', 'Europa'];
+const paisDe = (o) => {
+  const p = PAISES.filter((x) => (o.pais || '').includes(x));
+  if (o.ambito === 'isla' && !p.includes('Cuba')) p.push('Cuba');
+  return p;
+};
+const cuentaPais = Object.fromEntries(PAISES.map((x) => [x, orgs.filter((o) => paisDe(o).includes(x)).length]));
 ---
 <Base titulo="Actores cívicos" seccion="actores"
   descripcion={`${orgs.length} organizaciones de la sociedad civil cubana, dentro y fuera de la isla. Solo información pública, con su fuente.`}>
@@ -31,12 +38,17 @@ const conPropuestas = orgs.filter((o) => o.actor).length;
         <option value="exilio">Solo exilio</option>
         <option value="ambos">Ambos</option>
       </select>
+      <label class="sr-only" for="org-pais">País base</label>
+      <select id="org-pais">
+        <option value="">Todos los países</option>
+        {PAISES.filter((x) => cuentaPais[x] > 0).map((x) => <option value={x}>{x} ({cuentaPais[x]})</option>)}
+      </select>
     </div>
   </div>
 
   <ul class="org-lista" data-lista>
     {orgs.map((o) => (
-      <li class={`org-ficha${o.actor ? ' con-propuestas' : ''}`} data-grupo={o.grupo} data-ambito={o.ambito} data-texto={`${o.nombre} ${o.siglas} ${o.que}`.toLowerCase()}>
+      <li class={`org-ficha${o.actor ? ' con-propuestas' : ''}`} data-grupo={o.grupo} data-ambito={o.ambito} data-pais={paisDe(o).join('|')} data-texto={`${o.nombre} ${o.siglas} ${o.que}`.toLowerCase()}>
         <p class="org-meta">{nombreGrupo[o.grupo]} · {AMBITO[o.ambito]}{o.pais && o.pais !== 'Exilio' && o.pais !== 'Mixto' ? ` · ${o.pais}` : ''}{o.fundada ? ` · desde ${o.fundada}` : ''}</p>
         <h2>{o.nombre}{o.siglas && !o.nombre.includes(o.siglas) ? <span class="org-siglas"> ({o.siglas})</span> : null}</h2>
         {o.estado && <span class="etiqueta">{o.estado}</span>}
@@ -69,16 +81,19 @@ const conPropuestas = orgs.filter((o) => o.actor).length;
     const chips = [...document.querySelectorAll('.org-chip')];
     const q = document.getElementById('org-q');
     const amb = document.getElementById('org-ambito');
+    const pais = document.getElementById('org-pais');
     const fichas = [...document.querySelectorAll('.org-ficha')];
     const vacio = document.querySelector('[data-vacio]');
     let grupo = '';
     const aplicar = () => {
       const texto = (q?.value || '').trim().toLowerCase();
       const ambito = amb?.value || '';
+      const p = pais?.value || '';
       let n = 0;
       fichas.forEach((f) => {
         const ok = (!grupo || f.dataset.grupo === grupo)
           && (!ambito || f.dataset.ambito === ambito)
+          && (!p || (f.dataset.pais || '').split('|').includes(p))
           && (!texto || (f.dataset.texto || '').includes(texto));
         f.hidden = !ok;
         if (ok) n++;
@@ -93,5 +108,6 @@ const conPropuestas = orgs.filter((o) => o.actor).length;
     }));
     q?.addEventListener('input', aplicar);
     amb?.addEventListener('change', aplicar);
+    pais?.addEventListener('change', aplicar);
   </script>
 </Base>
