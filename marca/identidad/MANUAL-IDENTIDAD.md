@@ -120,10 +120,25 @@ La identidad se reconoce por su corte inclinado (componente `CorteDiagonal`):
 - Dentro de su módulo usa estos tokens (`tokens.css`), las fuentes Barlow y Barlow Condensed y la regla de la diagonal, para que el sitio se lea como una sola pieza.
 - No modifica la cabecera, el pie, otras páginas ni la rama `main`; trabaja mediante pull request a `rediseno-2026-10-14`.
 
+## Documentos oficiales: el membrete
+
+- Todo documento oficial de E/T (acuerdos, cartas, informes, actas, informes a financiadores) se hace sobre la plantilla `marca/membrete/membrete-ENTRE-TODOS.docx`. Grupo de recursos «Membrete».
+- Cabecera: franja de 210 × 32 mm con el logotipo a la izquierda y, a la derecha, el corte diagonal (franja `acento-suave`, panel `marino`, barra `amarillo`, puntos y paralelogramo `rojo`) con **entre-todos.org** en blanco.
+- Primera página, bajo la cabecera, para saber de qué trata el documento nada más abrirlo:
+  1. tipo de documento en `rojo` y mayúsculas («DOCUMENTO OFICIAL · ACUERDO»);
+  2. asunto en Barlow Condensed, mayúsculas, `marino`, 20 pt;
+  3. recuadro `acento-suave` con borde izquierdo `marino`: a la izquierda CONTENIDO (micro índice numerado de los apartados) y a la derecha FICHA (Ref., Fecha, Para, Estado).
+- Referencia: E/T-AAAA-NNN, numerada en orden por año (E/T-2026-001, E/T-2026-002…).
+- Pie: línea `marino` fina; «ENTRE TODOS · entre-todos.org · correo · Potsdam, Alemania» en 8 pt `texto-3`; número de página a la derecha; esquina roja y amarilla.
+- Página A4, márgenes de 20 mm a los lados. Texto en Barlow 11 pt, color `texto`.
+- No se cambia la cabecera ni el pie de un documento a otro; solo el tipo, el asunto, el contenido y la ficha.
+- Nombre del archivo en el Espacio Común: AAMMDD-HHMM_INICIALES_Asunto (reglas en la carpeta 0-ESPACIO-COMUN de Drive).
+
 ## Archivos fuente
 
 - Estilos: `web/src/styles/global.css` (todas las variables en `:root` al principio; la geometría unificada en el bloque «geometría unificada»).
 - Plantilla general: `web/src/layouts/Base.astro`.
 - Datos de contacto y redes: `web/src/data/sitio.json` (único lugar donde se cambia el correo).
 - Recursos de marca para redes: carpeta `marca/` del repositorio.
+- Membrete: `marca/membrete/` (plantilla Word, muestra PDF e imágenes de cabecera y pie).
 - Repositorio: github.com/laxolingua/entre-todos.
