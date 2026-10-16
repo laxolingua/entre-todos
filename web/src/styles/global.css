@@ -584,8 +584,8 @@ a.antetitulo:hover { color: var(--rojo); }
 .tarjeta.consolidada::before, .categoria::after, .garantias li::before { top: auto; bottom: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
 .principio .col::after { transform: none; right: 0; bottom: 0; width: 120px; height: 120px; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
 .bloque-marino .imagen img, .bloque-marino .imagen::after { clip-path: none; }
-.bloque-marino .imagen { overflow: hidden; }
-.bloque-marino .imagen > img { position: absolute; inset: 0 -40% 0 0; width: auto; transform: skewX(var(--sesgo)); transform-origin: top left; }
+.bloque-marino .imagen { overflow: hidden; transform: skewX(var(--sesgo)); transform-origin: 0 0; }
+.bloque-marino .imagen > img { position: absolute; inset: 0 -40% 0 0; width: auto; transform: skewX(var(--contra)); transform-origin: 0 0; }
 .bloque-marino .textura { clip-path: none; left: 66%; right: -40%; width: auto; transform: skewX(var(--sesgo)); transform-origin: bottom left; }
 .subnav::after, .franja-cifras::after, .pie::before { clip-path: none; transform: skewX(var(--sesgo)); transform-origin: bottom left; right: -60px; }
 @media (max-width: 860px) {
