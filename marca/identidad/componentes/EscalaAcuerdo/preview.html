@@ -1,0 +1,7 @@
+<!-- @dsCard group="Participación" height=150 -->
+<!doctype html><html lang="es"><head><meta charset="utf-8"></head><body>
+<div style="padding:18px 8px;background:var(--superficie)">
+<div class="escala elegida" role="radiogroup" aria-label="Tu nivel de acuerdo">
+<button data-v="1" role="radio" aria-checked="false">Muy en contra</button><button data-v="2" role="radio" aria-checked="false">En contra</button><button data-v="3" role="radio" aria-checked="false">Neutral</button><button data-v="4" role="radio" aria-checked="true" class="on">A favor</button><button data-v="5" role="radio" aria-checked="false">Muy a favor</button></div></div>
+<script>document.querySelectorAll('.escala button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.escala button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-checked',x===b)})})});</script>
+</body></html>

@@ -1,0 +1,70 @@
+/* ENTRE TODOS — generated from tokens.json */
+:root, [data-theme="sitio"] {
+  --marino: #0b1d3f;
+  --marino-2: #13295a;
+  --rojo: #d7192d;
+  --rojo-osc: #b31224;
+  --amarillo: #f4c20d;
+  --fondo: #f3f4f6;
+  --superficie: #ffffff;
+  --superficie-2: #f7f8fa;
+  --texto: #0b1630;
+  --texto-2: #3a4458;
+  --texto-3: #5f6b80;
+  --numeral: #9aa4b6;
+  --borde: #dfe3ea;
+  --acento-suave: #e8edf7;
+  --aviso: #8a5a00;
+  --aviso-suave: #fff4d6;
+  --voto-1: #d7192d;
+  --voto-2: #ec7c88;
+  --voto-3: #9aa3b2;
+  --voto-4: #5b6e95;
+  --voto-5: #0b1d3f;
+  --voto-1-suave: #f2b3ba;
+  --voto-2-suave: #f9dde0;
+  --voto-3-suave: #e6e9ef;
+  --voto-4-suave: #cdd6e8;
+  --voto-5-suave: #a9b8d6;
+  --sombra: 0 1px 2px rgba(11, 29, 63, .05), 0 8px 24px rgba(11, 29, 63, .06);
+}
+:root {
+  --margen-movil: 16px;
+  --margen-escritorio: 28px;
+  --hueco: 14px;
+  --hueco-fotos: 18px;
+  --relleno-panel: 24px;
+  --relleno-tarjeta: 22px;
+  --ancho-maximo: 1180px;
+  --control-minimo: 44px;
+  --radio: 4px;
+  --radio-sm: 3px;
+  --radio-etiqueta: 2px;
+  --radio-circulo: 50%;
+  --sesgo: -30deg;
+  --contra: 30deg;
+  --pendiente: 0.577;
+  --font-display: "Barlow Condensed", "Arial Narrow", Barlow, sans-serif;
+  --font-texto: Barlow, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-logo: Montserrat, Barlow, sans-serif;
+}
+.titular-1 { font-family: var(--font-display); font-size: 58px; line-height: 0.95; font-weight: 800; letter-spacing: -0.005em; }
+.titular-2 { font-family: var(--font-display); font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -0.005em; }
+.titular-tarjeta { font-family: var(--font-display); font-size: 23px; line-height: 1.05; font-weight: 800; }
+.numeral { font-family: var(--font-display); font-size: 42px; line-height: 1; font-weight: 300; }
+.entradilla { font-family: var(--font-texto); font-size: 18px; line-height: 1.55; font-weight: 400; }
+.cuerpo { font-family: var(--font-texto); font-size: 17px; line-height: 1.55; font-weight: 400; }
+.subtitulo { font-family: var(--font-texto); font-size: 18px; line-height: 1.25; font-weight: 700; }
+.nota { font-family: var(--font-texto); font-size: 15px; line-height: 1.5; font-weight: 400; }
+.boton { font-family: var(--font-texto); font-size: 15px; line-height: 1; font-weight: 700; letter-spacing: 0.03em; }
+.antetitulo { font-family: var(--font-texto); font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 0.14em; }
+.etiqueta { font-family: var(--font-texto); font-size: 12px; line-height: 1.2; font-weight: 700; letter-spacing: 0.04em; }
+.logotipo { font-family: var(--font-logo); font-size: 23px; line-height: 0.84; font-weight: 900; letter-spacing: -0.035em; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-300-normal.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/montserrat-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }

@@ -1,0 +1,85 @@
+/* ENTRE TODOS — componentes base, copiados de web/src/styles/global.css (rama rediseno-2026-10-14).
+   Todo color, medida y ángulo sale de tokens.css. */
+body { margin: 0; background: var(--fondo); color: var(--texto); font-family: var(--font-texto); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid var(--rojo); outline-offset: 2px; }
+
+/* logotipo */
+.logo { display: grid; font-family: var(--font-logo); font-weight: 900; line-height: .84; letter-spacing: -.035em; font-size: 1.42rem; text-transform: uppercase; }
+.logo .l1 { color: var(--marino); }
+.logo .l2 { color: var(--rojo); }
+.logo.sobre-oscuro .l1 { color: var(--superficie); }
+
+/* titulares y ornamentos */
+.titular { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; color: var(--marino); line-height: .95; margin: 0; }
+.barra { display: block; width: 64px; height: 6px; background: var(--rojo); }
+.barra.amarilla { background: var(--amarillo); }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin: 0; }
+.kicker::before { content: ""; width: 34px; height: 4px; background: var(--rojo); }
+.kicker.claro { color: var(--superficie); }
+.kicker.claro::before { background: var(--amarillo); }
+
+/* botones */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 20px; border-radius: var(--radio-sm); border: 2px solid var(--marino); background: var(--superficie); color: var(--marino); font: inherit; font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .03em; text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.boton:hover { background: var(--marino); color: var(--superficie); }
+.boton.rojo { background: var(--rojo); border-color: var(--rojo); color: var(--superficie); }
+.boton.rojo:hover { background: var(--rojo-osc); border-color: var(--rojo-osc); }
+.boton.claro { border-color: var(--superficie); color: var(--superficie); background: transparent; }
+.boton.claro:hover { background: var(--superficie); color: var(--marino); }
+.enlace-flecha { font-weight: 700; text-transform: uppercase; font-size: .88rem; letter-spacing: .04em; color: var(--rojo); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; gap: 8px; align-items: center; }
+
+/* etiquetas */
+.etiqueta { display: inline-flex; align-items: center; gap: 6px; font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 4px 8px; background: var(--fondo); color: var(--texto-2); border-radius: var(--radio-etiqueta); }
+.etiqueta.aviso { background: var(--aviso-suave); color: var(--aviso); }
+.etiqueta.alterna { background: var(--acento-suave); color: var(--marino-2); }
+.etiqueta.fundamental { background: var(--amarillo); color: var(--marino); }
+
+/* foto en blanco y negro */
+.duo { position: relative; overflow: hidden; background: var(--marino); }
+.duo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.1) brightness(1.05); }
+.duo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(19,41,90,.15), rgba(11,29,63,.55)); mix-blend-mode: multiply; pointer-events: none; }
+
+/* tarjeta de propuesta con foto */
+.tarjeta { position: relative; background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); box-shadow: var(--sombra); display: flex; flex-direction: column; overflow: hidden; }
+.tarjeta-foto { aspect-ratio: 16 / 9; position: relative; }
+.tarjeta-foto img { position: absolute; inset: 0; }
+.tarjeta-foto::before { content: ""; position: absolute; right: 18px; top: 18px; width: 70px; height: 9px; background: var(--amarillo); z-index: 2; transform: skewX(var(--sesgo)); }
+.tarjeta-cuerpo { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.tarjeta-cat { margin: 0 0 4px; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--marino); }
+.tarjeta-num { display: block; font-family: var(--font-display); font-weight: 300; font-size: 2.6rem; line-height: 1; color: var(--numeral); margin-bottom: 6px; }
+.tarjeta h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.45rem; line-height: 1.05; margin: 0 0 8px; color: var(--marino); }
+.tarjeta h3.rojo { color: var(--rojo); }
+.tarjeta .texto { margin: 0 0 12px; font-size: .93rem; color: var(--texto-2); }
+
+/* panel y aviso «Próximamente» */
+.panel { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 24px; box-shadow: var(--sombra); }
+.panel.marino { background: var(--marino); color: var(--superficie); border-color: var(--marino); }
+.panel.marino h2 { color: var(--superficie); }
+.aviso-proximo { position: relative; overflow: hidden; background: var(--marino); color: var(--superficie); padding: 26px 40px 26px 28px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%); }
+.aviso-proximo h2 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; margin: 0 0 6px; color: var(--superficie); }
+.aviso-proximo p { margin: 0; color: var(--acento-suave); }
+.aviso-proximo::before { content: ""; position: absolute; left: -10px; top: 0; width: 60px; height: 100%; background: rgba(255,255,255,.08); transform: skewX(var(--sesgo)); }
+
+/* escala de acuerdo (votación de propuestas) */
+.escala { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 0 14px; }
+.escala button { position: relative; border: 0; background: none; padding: 0; cursor: pointer; font: inherit; isolation: isolate; min-height: 74px; color: var(--marino); font-weight: 700; font-size: .84rem; line-height: 1.15; display: grid; place-items: center; text-align: center; }
+.escala button::before { content: ""; position: absolute; inset: 0; z-index: -1; transform: skewX(var(--sesgo)); border: 2px solid transparent; transition: .15s; }
+.escala button[data-v="1"]::before { background: var(--voto-1-suave); }
+.escala button[data-v="2"]::before { background: var(--voto-2-suave); }
+.escala button[data-v="3"]::before { background: var(--voto-3-suave); }
+.escala button[data-v="4"]::before { background: var(--voto-4-suave); }
+.escala button[data-v="5"]::before { background: var(--voto-5-suave); }
+.escala button:hover::before { border-color: var(--marino); }
+.escala.elegida button:not(.on) { opacity: .45; }
+.escala button[data-v="1"].on::before { background: var(--voto-1); }
+.escala button[data-v="2"].on::before { background: var(--voto-2); }
+.escala button[data-v="3"].on::before { background: var(--voto-3); }
+.escala button[data-v="4"].on::before { background: var(--voto-4); }
+.escala button[data-v="5"].on::before { background: var(--voto-5); }
+.escala button[data-v="1"].on, .escala button[data-v="4"].on, .escala button[data-v="5"].on { color: var(--superficie); }
+
+/* diagonal: el patrón de corte de foto */
+.corte { position: relative; overflow: hidden; background: var(--superficie); }
+.corte .duo { position: absolute; inset: 0; }
+.corte .mascara { position: absolute; top: 0; bottom: 0; left: -20%; width: 46%; background: var(--superficie); transform: skewX(var(--sesgo)); transform-origin: bottom left; z-index: 2; }
+.corte .panel-marino { position: absolute; top: 0; bottom: 0; left: 62%; right: -40%; background: var(--marino); opacity: .93; transform: skewX(var(--sesgo)); transform-origin: bottom left; z-index: 2; }
+.corte .paralelo-rojo { position: absolute; right: -8%; bottom: 14%; width: 26%; height: 15%; background: var(--rojo); transform: skewX(var(--sesgo)); z-index: 3; }
