@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
+import ApoyoEEUU from '../components/ApoyoEEUU.astro';
 import sitio from '../data/sitio.json';
 import c from '../data/cifras-publicadas.json';
 const funciones = [
@@ -104,6 +105,33 @@ const clases = [
           <p>Su enfoque es humano, postideológico y transpolítico: examina problemas, necesidades y soluciones por sus fundamentos, viabilidad y consecuencias, con independencia de la filiación de quienes los planteen.</p>
         </div>
       </div>
+    </section>
+
+    <section class="seccion" id="financiacion">
+      <h2 class="vista-titulo">Financiación y sostenibilidad</h2>
+      <div class="dos-col">
+        <div class="texto-largo">
+          <h3>Origen y desarrollo</h3>
+          <p>ENTRE TODOS nació como una iniciativa independiente de su fundador, Michel Estopiñán, para reunir, ordenar y hacer accesibles las propuestas de ciudadanos y organizaciones sobre el presente y el futuro de Cuba.</p>
+          <p>Desde 2024 lo ha desarrollado íntegramente él, con sus propios recursos y muchas horas de trabajo no remunerado, sin financiación externa ni colaboración de otras personas u organizaciones. Eso incluye la investigación documental, la recopilación y clasificación de las propuestas, el diseño y la programación del sitio, los servicios digitales y las herramientas de inteligencia artificial necesarias para procesar los documentos.</p>
+          <p>El crecimiento del proyecto hace necesario contar con recursos que garanticen su continuidad y repartan un trabajo que hasta ahora ha recaído en una sola persona.</p>
+          <h3>Primera subvención</h3>
+          <p>En 2026 el fundador presentó una propuesta a la convocatoria <em>Towards a Free and Prosperous Cuba</em> («Hacia una Cuba libre y próspera»), del programa de Diplomacia Pública de la Embajada de Estados Unidos en La Habana. Fue seleccionada, y el Departamento de Estado le concedió una subvención para un periodo de doce meses. Es el primer apoyo económico externo que recibe ENTRE TODOS.</p>
+        </div>
+        <div class="texto-largo">
+          <h3>Qué cubre</h3>
+          <ol>
+            <li>Mejoras del banco de propuestas para compararlas, valorarlas y aportar nuevas formulaciones.</li>
+            <li>La Academia cívica: cursos breves sobre derechos y libertades, con comparaciones entre democracias, Estados Unidos incluido.</li>
+            <li>El registro de actores cívicos, con información pública y fuentes.</li>
+            <li>Privacidad y seguridad: datos mínimos, privacidad por defecto y acceso con conexiones lentas.</li>
+          </ol>
+          <p>La subvención se paga como reembolso de gastos ya realizados y justificados, conforme al presupuesto aprobado.</p>
+          <h3>Independencia</h3>
+          <p>La subvención financia actividades concretas. No hace al financiador autor de las propuestas ni implica que respalde las opiniones de quienes participan. Las propuestas conservan su autoría y su fuente, y cada persona puede valorarlas con independencia de su procedencia.</p>
+        </div>
+      </div>
+      <ApoyoEEUU pieza="proyecto" />
     </section>
 
     <section class="seccion">

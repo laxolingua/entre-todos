@@ -30,7 +30,7 @@ const punta = (cx: number, cy: number) => Array.from({ length: 10 }, (_, i) => {
   <div>
     <p class="apoyo-titulo">Con el apoyo del Gobierno de los Estados Unidos</p>
     <p>Este {pieza} ha sido financiado en parte mediante una subvención del Departamento de Estado de los Estados Unidos. Las opiniones, hallazgos y conclusiones aquí expresados son de sus autores y no reflejan necesariamente los del Departamento de Estado de los Estados Unidos.</p>
-    <p lang="en" class="apoyo-en">This {pieza === 'curso' ? 'course' : 'material'} was funded in part by a grant from the United States Department of State. The opinions, findings and conclusions stated herein are those of the authors and do not necessarily reflect those of the United States Department of State.</p>
-    <p class="discreto">ENTRE TODOS mantiene su independencia editorial. <a href="/sobre/">Cómo se financia y quién decide</a>.</p>
+    <p lang="en" class="apoyo-en">This {pieza === 'curso' ? 'course' : pieza === 'proyecto' ? 'project' : 'material'} was funded in part by a grant from the United States Department of State. The opinions, findings and conclusions stated herein are those of the authors and do not necessarily reflect those of the United States Department of State.</p>
+    {pieza !== 'proyecto' && <p class="discreto">ENTRE TODOS mantiene su independencia editorial. <a href="/sobre/#financiacion">Cómo se financia ENTRE TODOS</a>.</p>}
   </div>
 </aside>
