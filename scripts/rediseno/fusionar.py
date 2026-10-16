@@ -40,7 +40,8 @@ for f in glob.glob(D+'/_astro/*'):
 # correo real de contacto (el antiguo entretodos@entre-todos.org no existe)
 for f in glob.glob(P+'/*.html'):
     t=open(f,encoding='utf-8').read()
-    if 'entretodos@entre-todos.org' in t: open(f,'w',encoding='utf-8').write(t.replace('entretodos@entre-todos.org','sosplanet@gmail.com'))
+    if 'sosplanet@gmail.com' in t: t=t.replace('sosplanet@gmail.com','contacto.entretodos@gmail.com'); open(f,'w',encoding='utf-8').write(t)
+    if 'entretodos@entre-todos.org' in t: open(f,'w',encoding='utf-8').write(t.replace('entretodos@entre-todos.org','contacto.entretodos@gmail.com'))
 # páginas de la web anterior: redirección a su equivalente con el diseño nuevo
 REDIR={
  'consulta-popular-cuba.html':'/consulta/continuidad-o-cambio/','consulta-fix-counters.html':'/consulta/continuidad-o-cambio/',
