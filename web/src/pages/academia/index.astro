@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import { cursos, PAISES_COMPARADOS } from '../../data/academia.js';
+---
+<Base titulo="Academia cívica" seccion="academia" ancho
+  descripcion="Cursos breves sobre derechos humanos, libertades y democracia, con comparaciones entre países, comprobación inicial y final e insignia privada.">
+  <Banda imagen="/img/fotos/academia.jpg" lateral={['Democracia', 'Derechos humanos', 'Ciudadanía', 'Ética']}>
+    <span class="barra"></span>
+    <h1>Academia<br />cívica</h1>
+    <p class="lema">Aprender a participar</p>
+    <p class="entradilla">Cursos breves sobre derechos, libertades y democracia. Cada uno compara cómo funcionan estas libertades en distintos países, cita sus fuentes y no impone una posición ideológica.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <h2>Cómo funciona</h2>
+      <ol class="pasos-curso">
+        <li><span class="paso-num">1</span><strong>Comprobación inicial</strong><span>Ocho preguntas para saber de dónde partes.</span></li>
+        <li><span class="paso-num">2</span><strong>Lecciones breves</strong><span>Cuatro lecciones de cinco a siete minutos, pensadas para conexiones lentas.</span></li>
+        <li><span class="paso-num">3</span><strong>Comprobación final</strong><span>Las mismas preguntas, con la explicación de cada respuesta.</span></li>
+        <li><span class="paso-num">4</span><strong>Insignia</strong><span>Si aciertas seis de ocho. Es tuya y decides si la compartes.</span></li>
+      </ol>
+      <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tus respuestas y tus insignias se guardan solo en tu dispositivo. ENTRE TODOS no las recibe ni pide cuenta, correo o nombre para hacer un curso.</p>
+    </section>
+    <section class="seccion">
+      <h2>Cursos</h2>
+      <ul class="cursos">
+        {cursos.map((c) => (
+          <li class="curso con-foto">
+            <a class="curso-enlace" href={`/academia/${c.id}/`} aria-label={c.titulo}></a>
+            <div class="duo"><img src={`/img/fotos/cat-${c.foto}.jpg`} alt="" loading="lazy" /></div>
+            <span class="num">{String(c.num).padStart(2, '0')}</span>
+            <div class="pie-curso">
+              <h3>{c.titulo}</h3>
+              {c.estado === 'disponible'
+                ? <span class="estado disponible" data-insignia-curso={c.id}>Disponible · {c.minutos} min</span>
+                : <span class="estado">En preparación</span>}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="discreto" style="margin-top:20px">Países que se comparan: {PAISES_COMPARADOS.join(', ')}. Los contenidos parten de la Declaración Universal de Derechos Humanos y de los dos pactos internacionales de 1966, que Cuba firmó en 2008.</p>
+    </section>
+  </div>
+  <script>
+    // Marca como obtenida la insignia guardada en este dispositivo. Nada sale del navegador.
+    document.querySelectorAll('[data-insignia-curso]').forEach((el) => {
+      try {
+        const d = JSON.parse(localStorage.getItem('et-academia-' + el.getAttribute('data-insignia-curso')) || '{}');
+        if (d.insignia) { el.textContent = 'Insignia obtenida'; el.classList.add('obtenida'); }
+      } catch (e) { /* sin almacenamiento: no pasa nada */ }
+    });
+  </script>
+</Base>

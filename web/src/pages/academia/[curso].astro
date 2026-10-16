@@ -1,0 +1,241 @@
+---
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import { cursos } from '../../data/academia.js';
+
+export function getStaticPaths() {
+  return cursos.map((c) => ({ params: { curso: c.id }, props: { c } }));
+}
+const { c } = Astro.props;
+const disponible = c.estado === 'disponible';
+const datosCuestionario = disponible
+  ? JSON.stringify({ id: c.id, titulo: c.insignia, preguntas: c.preguntas.map((p) => ({ c: p.c, e: p.e })) })
+  : '';
+---
+<Base titulo={c.titulo} seccion="academia" ancho descripcion={c.resumen}>
+  <Banda imagen={`/img/fotos/cat-${c.foto}.jpg`} lateral={['Academia cívica', `Curso ${String(c.num).padStart(2, '0')}`]}>
+    <span class="barra"></span>
+    <p class="antetitulo"><a href="/academia/">Academia cívica</a> · Curso {String(c.num).padStart(2, '0')}</p>
+    <h1>{c.titulo}</h1>
+    <p class="entradilla">{c.resumen}</p>
+    <p class="discreto">{disponible ? `${c.lecciones.length} lecciones · unos ${c.minutos} minutos` : 'En preparación'}</p>
+  </Banda>
+
+  <div class="contenedor curso-pagina">
+    {!disponible && (
+      <section class="seccion">
+        <div class="aviso-proximo">
+          <h2>En preparación</h2>
+          <p>Este curso seguirá el mismo formato que el primero: comprobación inicial, lecciones breves con fuentes, comprobación final e insignia privada.</p>
+        </div>
+        <h2>Lecciones previstas</h2>
+        <ol class="indice-lecciones">{c.plan.map((t) => <li>{t}</li>)}</ol>
+        <div class="acciones"><a class="boton rojo" href="/academia/derechos-humanos/">Empieza por el curso 01 <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+      </section>
+    )}
+
+    {disponible && (
+      <>
+        <section class="seccion">
+          <h2>Contenido</h2>
+          <ol class="indice-lecciones">
+            <li><a href="#inicial">Comprobación inicial</a> <span class="discreto">3 min</span></li>
+            {c.lecciones.map((l) => <li><a href={`#${l.id}`}>{l.titulo}</a> <span class="discreto">{l.minutos} min</span></li>)}
+            <li><a href="#final">Comprobación final e insignia</a> <span class="discreto">3 min</span></li>
+          </ol>
+          <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tus respuestas se guardan solo en este dispositivo. ENTRE TODOS no las recibe. <button type="button" class="enlace-boton" data-borrar>Borrar mis respuestas</button></p>
+        </section>
+
+        <section class="seccion" id="inicial">
+          <p class="antetitulo">Antes de empezar</p>
+          <h2>Comprobación inicial</h2>
+          <p class="discreto">Responde sin consultar. Verás tu resultado, pero no las respuestas correctas: esas llegan al final.</p>
+          <form class="cuestionario" data-fase="inicial">
+            {c.preguntas.map((p, i) => (
+              <div class="ac-pregunta" data-i={i} role="radiogroup" aria-labelledby={`ini-q-${i}`}>
+                <p class="enunciado" id={`ini-q-${i}`}><span class="pregunta-num">{i + 1}</span>{p.q}</p>
+                {p.o.map((op, j) => <label><input type="radio" name={`ini-${i}`} value={j} required /> <span>{op}</span></label>)}
+              </div>
+            ))}
+            <button class="boton rojo" type="submit">Ver mi resultado</button>
+            <p class="resultado" aria-live="polite"></p>
+          </form>
+        </section>
+
+        {c.lecciones.map((l, n) => (
+          <section class="seccion leccion" id={l.id}>
+            <p class="antetitulo">Lección {n + 1} · {l.minutos} min</p>
+            <h2>{l.titulo}</h2>
+            <div class="leccion-cuerpo">
+              {l.bloques.map((b) =>
+                b.h ? <h3>{b.h}</h3>
+                : b.cita ? <figure class="cita-fuente"><blockquote class="cita">{b.cita}</blockquote><figcaption>{b.fuente}</figcaption></figure>
+                : b.lista ? <ol class="lista-preguntas">{b.lista.map((x) => <li>{x}</li>)}</ol>
+                : <p>{b.p}</p>
+              )}
+            </div>
+            {l.tabla && (
+              <div class="desplazable comparativa">
+                <table class="tabla">
+                  <caption>{l.tabla.titulo}</caption>
+                  <thead><tr>{l.tabla.columnas.map((t) => <th scope="col">{t}</th>)}</tr></thead>
+                  <tbody>{l.tabla.filas.map((f) => <tr>{f.map((v, k) => k === 0 ? <th scope="row">{v}</th> : <td>{v}</td>)}</tr>)}</tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        ))}
+
+        <section class="seccion" id="final">
+          <p class="antetitulo">Para terminar</p>
+          <h2>Comprobación final</h2>
+          <p class="discreto">Las mismas ocho preguntas. Con seis aciertos obtienes la insignia del curso.</p>
+          <form class="cuestionario" data-fase="final">
+            {c.preguntas.map((p, i) => (
+              <div class="ac-pregunta" data-i={i} role="radiogroup" aria-labelledby={`fin-q-${i}`}>
+                <p class="enunciado" id={`fin-q-${i}`}><span class="pregunta-num">{i + 1}</span>{p.q}</p>
+                {p.o.map((op, j) => <label><input type="radio" name={`fin-${i}`} value={j} required /> <span>{op}</span></label>)}
+                <p class="explicacion" hidden></p>
+              </div>
+            ))}
+            <button class="boton rojo" type="submit">Comprobar</button>
+            <p class="resultado" aria-live="polite"></p>
+          </form>
+
+          <div class="insignia-bloque" hidden>
+            <div class="insignia-muestra" aria-hidden="true">
+              <span class="insignia-marca">ENTRE TODOS · Academia cívica</span>
+              <span class="insignia-titulo">{c.insignia}</span>
+              <span class="insignia-fecha"></span>
+            </div>
+            <div>
+              <h3>Insignia obtenida</h3>
+              <p>La insignia está guardada en este dispositivo y nadie más la ve. Si quieres compartirla, descárgala como imagen; puedes añadir el nombre o seudónimo que prefieras, o ninguno.</p>
+              <label class="campo-nombre">Nombre en la imagen (opcional)<input type="text" maxlength="40" data-nombre autocomplete="off" /></label>
+              <div class="acciones"><button class="boton rojo" type="button" data-descargar>Descargar insignia <i class="fi fi-br-download" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="seccion">
+          <h2>Fuentes</h2>
+          <ul class="fuentes-curso">{c.fuentes.map((f) => <li><a href={f.url} rel="noopener" target="_blank">{f.t}</a></li>)}</ul>
+          <div class="acciones">
+            <a class="boton" href="/propuestas/">Ver propuestas sobre derechos <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+            <a class="boton" href="/academia/">Volver a la Academia</a>
+          </div>
+        </section>
+        <script type="application/json" id="datos-curso" set:html={datosCuestionario}></script>
+      </>
+    )}
+  </div>
+
+  <script>
+    // Cuestionarios de la Academia. Todo ocurre en el navegador: no hay envío al servidor.
+    const nodo = document.getElementById('datos-curso');
+    if (nodo) {
+      const datos = JSON.parse(nodo.textContent || '{}');
+      const clave = 'et-academia-' + datos.id;
+      const MINIMO = 6;
+      const leer = () => { try { return JSON.parse(localStorage.getItem(clave) || '{}'); } catch (e) { return {}; } };
+      const guardar = (d) => { try { localStorage.setItem(clave, JSON.stringify(d)); } catch (e) { /* sin almacenamiento */ } };
+      let estado = leer();
+      const total = datos.preguntas.length;
+      const bloqueInsignia = document.querySelector('.insignia-bloque');
+      const fechaTexto = (iso) => new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      const mostrarInsignia = () => {
+        if (!estado.insignia || !bloqueInsignia) return;
+        bloqueInsignia.hidden = false;
+        const f = bloqueInsignia.querySelector('.insignia-fecha');
+        if (f) f.textContent = fechaTexto(estado.insignia);
+      };
+
+      const corregir = (form, conExplicacion) => {
+        let aciertos = 0;
+        form.querySelectorAll('.ac-pregunta').forEach((fs) => {
+          const i = Number(fs.getAttribute('data-i'));
+          const marcada = fs.querySelector('input:checked');
+          const ok = marcada && Number(marcada.value) === datos.preguntas[i].c;
+          if (ok) aciertos++;
+          if (conExplicacion) {
+            fs.classList.toggle('acierto', !!ok);
+            fs.classList.toggle('fallo', !ok);
+            const ex = fs.querySelector('.explicacion');
+            if (ex) { ex.hidden = false; ex.textContent = (ok ? 'Correcto. ' : 'No es correcto. ') + datos.preguntas[i].e; }
+          }
+        });
+        return aciertos;
+      };
+
+      document.querySelectorAll('form.cuestionario').forEach((form) => {
+        const fase = form.getAttribute('data-fase');
+        const salida = form.querySelector('.resultado');
+        if (fase === 'inicial' && typeof estado.inicial === 'number' && salida) {
+          salida.textContent = `Ya hiciste la comprobación inicial: ${estado.inicial} de ${total}. Puedes pasar a las lecciones.`;
+        }
+        form.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          const n = corregir(form, fase === 'final');
+          if (fase === 'inicial') {
+            if (typeof estado.inicial !== 'number') estado.inicial = n;
+            guardar(estado);
+            if (salida) salida.textContent = `Resultado inicial: ${n} de ${total}. Ahora sigue con las lecciones.`;
+          } else {
+            estado.final = Math.max(n, estado.final || 0);
+            let texto = `Resultado final: ${n} de ${total}.`;
+            if (typeof estado.inicial === 'number') {
+              const d = n - estado.inicial;
+              texto += d > 0 ? ` Has mejorado ${d} ${d === 1 ? 'respuesta' : 'respuestas'} desde el inicio.` : ' Tu resultado inicial fue ' + estado.inicial + '.';
+            }
+            if (n >= MINIMO && !estado.insignia) estado.insignia = new Date().toISOString();
+            if (n < MINIMO) texto += ` Necesitas ${MINIMO} para la insignia: revisa las explicaciones y vuelve a intentarlo.`;
+            guardar(estado);
+            if (salida) salida.textContent = texto;
+            mostrarInsignia();
+          }
+        });
+      });
+
+      document.querySelector('[data-borrar]')?.addEventListener('click', () => {
+        try { localStorage.removeItem(clave); } catch (e) { /* nada */ }
+        estado = {};
+        document.querySelectorAll('form.cuestionario').forEach((f) => {
+          f.reset();
+          f.querySelectorAll('.ac-pregunta').forEach((fs) => { fs.classList.remove('acierto', 'fallo'); const ex = fs.querySelector('.explicacion'); if (ex) ex.hidden = true; });
+          const s = f.querySelector('.resultado'); if (s) s.textContent = '';
+        });
+        if (bloqueInsignia) bloqueInsignia.hidden = true;
+      });
+
+      // Imagen de la insignia, dibujada en el propio navegador.
+      document.querySelector('[data-descargar]')?.addEventListener('click', async () => {
+        try { await document.fonts.ready; } catch (e) { /* fuentes del sistema */ }
+        const W = 1200, H = 630;
+        const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+        const x = cv.getContext('2d');
+        if (!x) return;
+        x.fillStyle = '#0b1d3f'; x.fillRect(0, 0, W, H);
+        x.save(); x.transform(1, 0, -0.577, 1, 0, 0); x.fillStyle = '#d7192d'; x.fillRect(W * 0.78, 0, 70, H); x.restore();
+        x.fillStyle = '#f4c20d'; x.fillRect(80, 120, 96, 10);
+        x.fillStyle = '#ffffff';
+        x.font = '900 34px Montserrat, sans-serif'; x.fillText('ENTRE TODOS', 80, 96);
+        x.font = '700 30px "Barlow Condensed", sans-serif'; x.fillText('ACADEMIA CÍVICA · INSIGNIA', 80, 190);
+        x.font = '800 72px "Barlow Condensed", sans-serif';
+        const palabras = datos.titulo.toUpperCase().split(' '); let linea = '', y = 290;
+        for (const p of palabras) { const prueba = linea ? linea + ' ' + p : p; if (x.measureText(prueba).width > 820 && linea) { x.fillText(linea, 80, y); linea = p; y += 78; } else linea = prueba; }
+        x.fillText(linea, 80, y);
+        const nombre = (document.querySelector('[data-nombre]')?.value || '').trim();
+        x.font = '500 30px Barlow, sans-serif'; x.fillStyle = '#dfe6f4';
+        if (nombre) x.fillText(nombre, 80, H - 120);
+        x.fillText(fechaTexto(estado.insignia || new Date().toISOString()) + ' · entre-todos.org', 80, H - 70);
+        const a = document.createElement('a');
+        a.download = 'insignia-' + datos.id + '.png';
+        a.href = cv.toDataURL('image/png');
+        a.click();
+      });
+
+      mostrarInsignia();
+    }
+  </script>
+</Base>

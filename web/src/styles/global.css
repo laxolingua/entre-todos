@@ -924,3 +924,56 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 @media (max-width: 820px) { .cabecera .icono-cab + .icono-cab { margin-left: 0; } }
 .dos-col .panel h3, .panel > h3 { font-family: var(--display); text-transform: uppercase; font-size: 1.5rem; color: var(--marino); margin: 4px 0 8px; }
 
+
+/* ===== Academia cívica: cursos, lecciones y comprobaciones ===== */
+.pasos-curso { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+.pasos-curso li { background: var(--superficie); border-top: 5px solid var(--marino); padding: 18px; display: grid; gap: 6px; }
+.pasos-curso li:nth-child(4) { border-top-color: var(--rojo); }
+.pasos-curso strong { font-family: var(--display); text-transform: uppercase; font-size: 1.15rem; color: var(--marino); }
+.pasos-curso span:not(.paso-num) { color: var(--texto-2); font-size: .95rem; }
+.paso-num { font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--rojo); }
+.nota-privacidad { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin: 18px 0 0; padding: 12px 14px; background: var(--acento-suave); color: var(--texto); font-size: .94rem; max-width: 80ch; }
+.enlace-boton { background: none; border: 0; padding: 0; color: var(--rojo); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.curso.con-foto { position: relative; }
+.curso-enlace { position: absolute; inset: 0; z-index: 3; }
+.curso-enlace:focus-visible { outline: 3px solid var(--amarillo); outline-offset: -3px; }
+.curso .estado.disponible { background: #fff; }
+.curso .estado.obtenida { background: var(--rojo); color: #fff; }
+.indice-lecciones { margin: 0; padding-left: 1.4em; display: grid; gap: 8px; max-width: 70ch; }
+.indice-lecciones li::marker { font-family: var(--display); font-weight: 800; color: var(--rojo); }
+.leccion { border-top: 1px solid var(--borde); }
+.leccion-cuerpo { max-width: 68ch; }
+.leccion-cuerpo p { line-height: 1.65; }
+.leccion-cuerpo h3 { font-family: var(--display); text-transform: uppercase; color: var(--marino); font-size: 1.2rem; margin: 26px 0 6px; }
+.cita-fuente { margin: 18px 0; }
+.cita-fuente figcaption { margin-top: 6px; padding-left: 22px; font-size: .86rem; color: var(--texto-3); }
+.lista-preguntas { padding-left: 1.4em; display: grid; gap: 10px; }
+.lista-preguntas li { padding-left: 4px; }
+.comparativa { margin-top: 22px; }
+.comparativa caption { text-align: left; font-family: var(--display); font-weight: 800; text-transform: uppercase; color: var(--marino); padding: 0 0 8px; }
+.comparativa tbody th { color: var(--marino); background: var(--fondo); text-transform: none; letter-spacing: 0; font-size: .94rem; }
+.comparativa table { min-width: 720px; }
+.cuestionario { min-width: 0; display: grid; gap: 14px; max-width: 760px; margin-top: 14px; }
+.ac-pregunta { min-width: 0; min-inline-size: 0; border: 1px solid var(--borde); background: var(--superficie); padding: 16px 18px; margin: 0; display: grid; gap: 8px; }
+.enunciado { font-weight: 600; margin: 0 0 4px; }
+.pregunta-num { margin-right: 10px; font-family: var(--display); font-weight: 800; color: var(--rojo); font-size: 1.2rem; }
+.ac-pregunta label span { min-width: 0; overflow-wrap: anywhere; }
+.ac-pregunta label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; padding: 6px 4px; }
+.ac-pregunta input { margin-top: 4px; accent-color: var(--marino); }
+.ac-pregunta.acierto { border-left: 5px solid var(--marino); }
+.ac-pregunta.fallo { border-left: 5px solid var(--rojo); }
+.explicacion { margin: 4px 0 0; padding: 10px 12px; background: var(--fondo); font-size: .93rem; }
+.cuestionario .boton { justify-self: start; }
+.resultado { font-weight: 700; color: var(--marino); margin: 0; min-height: 1.4em; }
+.insignia-bloque { margin-top: 28px; display: grid; gap: 24px; grid-template-columns: minmax(0, 340px) 1fr; align-items: start; }
+.insignia-bloque[hidden] { display: none; }
+@media (max-width: 720px) { .insignia-bloque { grid-template-columns: 1fr; } }
+.insignia-muestra { aspect-ratio: 1200 / 630; background: var(--marino); color: #fff; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.insignia-muestra::after { content: ""; position: absolute; top: 0; bottom: 0; right: 14%; width: 26px; background: var(--rojo); transform: skewX(-30deg); }
+.insignia-marca { font-family: var(--display); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; border-top: 4px solid var(--amarillo); padding-top: 6px; align-self: flex-start; }
+.insignia-titulo { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.4rem; line-height: 1.05; max-width: 75%; }
+.insignia-fecha { font-size: .8rem; color: #dfe6f4; }
+.campo-nombre { display: grid; gap: 6px; font-size: .9rem; color: var(--texto-2); max-width: 340px; }
+.campo-nombre input { font: inherit; padding: 10px; border: 1px solid var(--borde); }
+.fuentes-curso { padding-left: 1.2em; display: grid; gap: 6px; max-width: 80ch; }
+.curso-pagina .seccion[id] { scroll-margin-top: 80px; }
