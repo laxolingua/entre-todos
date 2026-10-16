@@ -125,6 +125,10 @@ for d in div:
         e = EXTRA[d['slug']]
         salida.append({'nombre': d['nombre'], 'siglas': '', 'grupo': e['grupo'], 'ambito': e['ambito'], 'pais': e['pais'],
                        'fundada': d.get('fecha', ''), 'que': e['que'], 'web': e['web'], 'estado': '', 'actor': '', 'diversidad': d['slug']})
+# Añadidas a petición del fundador, con fuente pública propia.
+salida.append({'nombre': 'Humanitarna Rešenja – Soluciones Humanitarias', 'siglas': '', 'grupo': 'diaspora', 'ambito': 'exilio', 'pais': 'Serbia',
+               'fundada': '2025', 'que': 'Organización registrada en Belgrado que ofrece asesoramiento jurídico, protección de derechos e integración a personas migrantes y refugiadas en Serbia, en español, inglés, francés y serbio. En 2026 presentó ante el Comisionado para la Protección de la Igualdad de Serbia una comunicación sobre los ciudadanos cubanos que no pueden regularizar su residencia por las demoras de la Embajada de Cuba en expedir y renovar pasaportes.',
+               'web': 'https://humanitariansolutions.org/', 'estado': '', 'actor': '', 'diversidad': ''})
 out = {'grupos': GRUPOS, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)'}
 destino = os.path.join(os.path.dirname(__file__), '../../web/src/data/organizaciones.json')
 json.dump(out, open(destino, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
