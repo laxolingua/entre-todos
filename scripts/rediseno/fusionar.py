@@ -80,3 +80,5 @@ for d in ['consulta-civica-11j-2026','eval-portada']:
         if os.path.isfile(f) and not f.endswith('.html'): os.remove(f)
 print('redirecciones:',len(REDIR))
 print('ok')
+# GitHub Pages ignora las carpetas que empiezan por «_» (como _astro) salvo que exista este archivo; sin él los scripts de las páginas dan 404.
+open(P + '/.nojekyll', 'w').close()

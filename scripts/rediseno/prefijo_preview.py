@@ -21,4 +21,5 @@ for a in archivos:
         open(t, 'w', encoding='utf-8').write(prefijar(open(o, encoding='utf-8').read()))
     else:
         shutil.copy(o, t)
+open(os.path.join(dest, '.nojekyll'), 'w').close()  # sin esto Pages no sirve _astro y los scripts fallan
 print(len(archivos), 'archivos')
