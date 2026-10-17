@@ -1190,3 +1190,7 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .org-ficha:target { outline: 3px solid var(--amarillo); }
 .org-coal:target > summary { background: var(--acento-suave); }
 .subnav { overflow: hidden; }
+.apoyo-mini { display: flex; gap: 10px; align-items: center; margin: 36px 0 24px; padding-top: 12px; border-top: 1px solid var(--borde); font-size: .8rem; color: var(--texto-3); }
+.apoyo-mini .bandera-eeuu { width: 30px; height: auto; flex: 0 0 auto; }
+.apoyo-mini p { margin: 0; max-width: 90ch; }
+@media print { .apoyo-mini { color: #000; } }

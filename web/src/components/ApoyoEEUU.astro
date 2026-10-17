@@ -21,6 +21,16 @@ const punta = (cx: number, cy: number) => Array.from({ length: 10 }, (_, i) => {
   return `${(cx + rr * Math.cos(a)).toFixed(2)},${(cy + rr * Math.sin(a)).toFixed(2)}`;
 }).join(' ');
 ---
+{pieza !== 'proyecto' ? (
+<aside class="apoyo-mini" aria-label="Reconocimiento de financiación">
+  <svg class="bandera-eeuu" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Bandera de los Estados Unidos">
+    {franjas.map((i) => <rect x="0" y={i * H / 13} width={W} height={H / 13 + 0.2} fill={i % 2 === 0 ? '#B22234' : '#FFFFFF'} />)}
+    <rect x="0" y="0" width={cw} height={ch} fill="#3C3B6E" />
+    {estrellas.map(([x, y]) => <polygon points={punta(x, y)} fill="#FFFFFF" />)}
+  </svg>
+  <p>Material financiado en parte por el Departamento de Estado de los Estados Unidos. Las opiniones son de sus autores y no reflejan necesariamente las del Departamento de Estado. <a href="/sobre/#financiacion">Financiación</a></p>
+</aside>
+) : (
 <aside class="apoyo-eeuu" aria-label="Reconocimiento de financiación">
   <svg class="bandera-eeuu" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Bandera de los Estados Unidos">
     {franjas.map((i) => <rect x="0" y={i * H / 13} width={W} height={H / 13 + 0.2} fill={i % 2 === 0 ? '#B22234' : '#FFFFFF'} />)}
@@ -38,3 +48,4 @@ const punta = (cx: number, cy: number) => Array.from({ length: 10 }, (_, i) => {
     {pieza !== 'proyecto' && <p class="discreto">ENTRE TODOS mantiene su independencia editorial. <a href="/sobre/#financiacion">Cómo se financia ENTRE TODOS</a>.</p>}
   </div>
 </aside>
+)}
