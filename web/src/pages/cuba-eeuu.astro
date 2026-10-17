@@ -6,6 +6,8 @@ import Banda from '../components/Banda.astro';
 import { ACTUALIZADO, exigencias, seguridad, hammer, hammerFuentes, posiciones, leyes, condiciones } from '../data/cuba-eeuu.js';
 import cronologia from '../data/cuba-eeuu-cronologia.json';
 import datos from '../data/publico.json';
+import { desdeAnio, propPorId } from '../lib/banco.js';
+const desde = (ids) => Math.min(...ids.map((id) => propPorId.get(id) ? desdeAnio(propPorId.get(id)) || 9999 : 9999));
 const prop = Object.fromEntries(datos.propuestas.map((p) => [p.id, p]));
 const dominio = (u) => new URL(u).hostname.replace(/^www\./, '');
 const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).size;
@@ -34,8 +36,8 @@ const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).s
               <p class="ce-quien">{x.quien}. <a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p>
             </div>
             <div class="ce-banco">
-              <p class="ce-etq">En el banco · {docs(x.propuestas)} documentos</p>
-              <ul>{x.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a></li>)}</ul>
+              <p class="ce-etq">En el banco desde {desde(x.propuestas)} · {docs(x.propuestas)} documentos</p>
+              <ul>{x.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a> <span class="discreto">desde {desdeAnio(propPorId.get(id))}</span></li>)}</ul>
             </div>
           </li>
         ))}

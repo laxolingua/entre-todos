@@ -1,12 +1,14 @@
 ---
-import { catPorClave, recortar } from '../lib/banco.js';
+import { catPorClave, recortar, desdeAnio } from '../lib/banco.js';
 interface Props { c: any; mostrarCategoria?: boolean }
 const { c, mostrarCategoria = false } = Astro.props;
+const desde = desdeAnio(c);
 ---
 <li class="tarjeta consolidada">
   <h3><a href={`/propuesta/${c.id}/`}>{c.titulo}</a></h3>
   <p class="texto">{recortar(c.texto, 230)}</p>
   <div class="etiquetas">
+    {desde && <span class="etiqueta desde" title="Año del documento más antiguo que la plantea">Desde {desde}</span>}
     <span class="etiqueta">{c.total_documentos} {c.total_documentos === 1 ? 'documento' : 'documentos'}</span>
     {c.incisos.length > 0 && <span class="etiqueta">{c.incisos.length} {c.incisos.length === 1 ? 'inciso' : 'incisos'}</span>}
     {c.variantes.length > 0 && <span class="etiqueta aviso">Las fuentes difieren en el cómo</span>}

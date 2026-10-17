@@ -21,6 +21,12 @@ export function documentosDe(p) {
   return [...new Set([...p.documentos, ...p.incisos.flatMap((i) => i.documentos), ...p.variantes.flatMap((v) => v.documentos)])];
 }
 
+/** Año del documento más antiguo que plantea la propuesta (idea central, incisos o variantes). */
+export function desdeAnio(p) {
+  const a = documentosDe(p).map((id) => Number(docPorId.get(id)?.anio)).filter((n) => n > 1900);
+  return a.length ? Math.min(...a) : null;
+}
+
 const autorias = (ids) => [...new Set(ids.map((id) => docPorId.get(id)?.autoria).filter(Boolean))];
 
 /** Autorías de la idea central, en orden de aparición. */
