@@ -1,0 +1,40 @@
+---
+// Actualidad: noticias de medios independientes enlazadas a las propuestas del banco.
+// Contenido: data/actualidad.json (lo rellena Instinct; Claude revisa).
+import Base from '../layouts/Base.astro';
+import datos from '../data/actualidad.json';
+import publico from '../data/publico.json';
+const prop = Object.fromEntries(publico.propuestas.map((p) => [p.id, p]));
+const dominio = (u) => new URL(u).hostname.replace(/^www\./, '');
+const { noticias, actualizado } = datos;
+---
+<Base titulo="Actualidad" seccion="otras"
+  descripcion="Noticias de la semana sobre Cuba, cada una enlazada a las propuestas del banco que tratan el mismo tema.">
+  <div class="contenedor">
+    <h1>Actualidad</h1>
+    <p class="entradilla">Noticias de la semana publicadas por medios independientes, cada una con su fuente y las propuestas del banco que tratan el mismo tema.</p>
+    {actualizado && <p class="discreto">Actualizado el {actualizado}.</p>}
+    {noticias.length === 0 ? (
+      <p class="org-vacio">En preparación.</p>
+    ) : (
+      <ol class="ce-crono">
+        {noticias.map((x) => (
+          <li>
+            <span class="ce-fecha">{x.fecha}</span>
+            <div>
+              <p>{x.titular}</p>
+              <p class="ce-quien">{x.medio}. <a href={x.enlace} rel="noopener" target="_blank">{dominio(x.enlace)}</a></p>
+              {(x.propuestas || []).filter((id) => prop[id]).length > 0 && (
+                <p class="discreto">En el banco: {x.propuestas.filter((id) => prop[id]).map((id, i) => <>{i > 0 && ' · '}<a href={`/propuesta/${id}/`}>{prop[id].titulo}</a></>)}</p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    )}
+    <section class="seccion org-nota">
+      <h2>Cómo se elabora</h2>
+      <p>Se recogen noticias publicadas por medios independientes, con un titular propio y neutro y el enlace a la fuente original. Las correcciones se pueden enviar a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+    </section>
+  </div>
+</Base>

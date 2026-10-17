@@ -10,17 +10,18 @@ const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
 const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
   c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: `/img/fotos/cat-${FOTOS[n] || c.foto}.jpg` })));
 ---
-<Base titulo="Blog académico" seccion="academia" ancho
+<Base titulo="Blog A+" seccion="academia" ancho
   descripcion="Lecturas breves sobre derechos, libertades y democracia que se convierten en lección con un botón: actividades, insignias y certificado. Sin cuenta y sin datos personales.">
   <Banda imagen="/img/fotos/academia.jpg" lateral={['Democracia', 'Derechos humanos', 'Ciudadanía', 'Ética']}>
     <span class="barra"></span>
-    <h1>Blog<br />académico</h1>
+    <h1>Blog A<sup>+</sup></h1>
     <p class="lema">Academia cívica de ENTRE TODOS</p>
     <p class="entradilla">Lecturas de cinco minutos sobre derechos, libertades y democracia. Cada una empieza con una pregunta y se puede convertir en lección con actividades, insignia e informe.</p>
   </Banda>
   <div class="contenedor">
     <section class="seccion">
       <h2>Entradas</h2>
+      <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a></p>
       <ul class="bl-tarjetas">
         {publicadas.map(({ c, l, n, e, foto }) => (
           <li class="bl-tarjeta" data-clave={`et-blog-${c.id}-${l.id}`}>

@@ -1,0 +1,11 @@
+{
+  "nota": "Generado desde 021 IN. Una entrada por pregunta; nunca se suman. tipo: representativa | abierta | firmas.",
+  "encuestas": {
+    "bendixen-2015": { "nombre": "National Survey of Cubans Living in Cuba", "autor": "Bendixen & Amandi para Univision, Fusion y The Washington Post", "fecha": "marzo de 2015", "poblacion": "Isla", "muestra": "1.200 adultos", "metodo": "Entrevistas presenciales; margen ±2,8 puntos", "tipo": "representativa", "fuente": "http://bendixenandamandi.com/wp-content/uploads/2017/01/Cuba-Final-4.7.15-Web.pdf" },
+    "ocdh-2026": { "nombre": "IX Estudio sobre Derechos Sociales en Cuba", "autor": "Observatorio Cubano de Derechos Humanos", "fecha": "junio y julio de 2026", "poblacion": "Isla", "muestra": "1.318 personas", "metodo": "Entrevistas personales; muestreo aleatorio estratificado; margen ±2,8 puntos según el OCDH", "tipo": "representativa", "fuente": "https://observacuba.org/derechos-sociales-cuba-2026-extrema-pobreza-y-rechazo-gestion-gobierno-ascienden/" }
+  },
+  "preguntas": [
+    { "encuesta": "bendixen-2015", "pregunta": "Do you think Cuba should have more political parties or is one political party enough?", "resultado": "Más partidos 52 %; un partido basta 28 %; no sabe 20 %", "propuestas": ["pluripartidismo", "legalizacion-organizaciones"], "nota": "" },
+    { "encuesta": "ocdh-2026", "pregunta": "¿Debería permitirse la educación y la salud privadas? (formulación según el OCDH)", "resultado": "Pública y privada 66 %; solo pública 21 %; solo privada 6 %", "propuestas": ["salud-mixta", "libertad-educativa"], "nota": "" }
+  ]
+}

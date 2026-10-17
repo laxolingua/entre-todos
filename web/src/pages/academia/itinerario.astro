@@ -1,0 +1,42 @@
+---
+// Itinerario del Blog A+: para qué sirve cada bloque en estudios y trabajo.
+// Contenido: data/itinerario.json (lo rellena Instinct; Claude revisa).
+import Base from '../../layouts/Base.astro';
+import { cursos } from '../../data/academia.js';
+import it from '../../data/itinerario.json';
+---
+<Base titulo="Itinerario" seccion="academia"
+  descripcion="Para qué sirve cada bloque de la Academia: carreras, profesiones y empleos relacionados.">
+  <div class="contenedor">
+    <h1>Itinerario</h1>
+    <p class="entradilla">Cada bloque de la Academia se relaciona con estudios y trabajos concretos. Aquí se indica para qué sirve cada uno.</p>
+    <ol class="ce-crono ce-crono-corta">
+      {cursos.map((c) => {
+        const b = it.bloques[c.id] || { utilPara: [] };
+        return (
+          <li>
+            <span class="ce-fecha">Bloque {c.num}</span>
+            <div>
+              <p><strong>{c.estado === 'disponible' ? <a href={`/academia/${c.id}/`}>{c.titulo}</a> : c.titulo}</strong>{c.estado !== 'disponible' && <span class="etiqueta">En preparación</span>}</p>
+              <p class="discreto">Útil para: {b.utilPara.length ? b.utilPara.join(' · ') : 'en preparación'}</p>
+            </div>
+          </li>
+        );
+      })}
+      {it.nuevos.map((n) => (
+        <li>
+          <span class="ce-fecha">Nuevo</span>
+          <div>
+            <p><strong>{n.titulo}</strong><span class="etiqueta">En preparación</span></p>
+            <p>{n.resumen}</p>
+            <p class="discreto">Útil para: {n.utilPara.length ? n.utilPara.join(' · ') : 'en preparación'}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <section class="seccion org-nota">
+      <h2>Certificados</h2>
+      <p>Cada bloque completado da un certificado que se puede imprimir o guardar en PDF. La verificación en línea y el reconocimiento por una universidad están en preparación.</p>
+    </section>
+  </div>
+</Base>

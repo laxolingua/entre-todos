@@ -1221,3 +1221,9 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .ce-posiciones h3 { margin: 4px 0 8px; font-family: var(--display); text-transform: uppercase; color: var(--marino); font-size: 1.15rem; }
 .etiqueta.desde { background: var(--marino); color: #fff; border-color: var(--marino); }
 .desde-anio { margin: 0 0 6px; color: var(--marino); }
+
+/* Qué dicen las encuestas (fichas de propuesta) */
+.encuestas-prop { margin-top: 2rem; }
+.enc-lista { list-style: none; padding: 0; margin: 0; }
+.enc-lista > li { border-top: 1px solid currentColor; padding: 1rem 0; }
+.enc-lista blockquote { margin: .5rem 0; font-style: italic; }

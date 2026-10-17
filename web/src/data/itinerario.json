@@ -1,0 +1,14 @@
+{
+  "nota": "Rellena Instinct (hoja 024 CL Plantillas, pestaña Itinerario). utilPara: 3 a 5 carreras, profesiones o empleos por bloque, con fuente.",
+  "bloques": {
+    "derechos-humanos": { "utilPara": [], "fuente": "" },
+    "libertad-de-expresion": { "utilPara": [], "fuente": "" },
+    "justicia": { "utilPara": [], "fuente": "" },
+    "rendicion-de-cuentas": { "utilPara": [], "fuente": "" },
+    "libertad-religiosa": { "utilPara": [], "fuente": "" },
+    "sociedad-civil": { "utilPara": [], "fuente": "" }
+  },
+  "nuevos": [
+    { "id": "mipymes", "titulo": "Crear y gestionar una mipyme", "resumen": "Cómo funciona una micro, pequeña o mediana empresa privada en Cuba según el Decreto-Ley 88/2024: constitución, obligaciones, contabilidad básica y derechos laborales.", "utilPara": [], "temas": [] }
+  ]
+}
