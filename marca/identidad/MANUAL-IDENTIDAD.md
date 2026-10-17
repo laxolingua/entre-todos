@@ -75,6 +75,16 @@ La identidad se reconoce por su corte inclinado (componente `CorteDiagonal`):
 - Los iconos acompañan a una palabra; no la sustituyen. Color heredado del texto.
 - Sin emojis en ninguna parte del sitio.
 
+### Redes sociales
+
+- Van en el pie de página, como botones redondos de 44 px con borde fino blanco, solo con el icono. Cada botón lleva `aria-label` y `title` con el nombre de la red.
+- Logotipos de marca: Flaticon UIcons Brands (`fi fi-brands-instagram`, `fi fi-brands-facebook`), en un subconjunto propio de 2 iconos (`/fonts/uicons-brands.woff2` y `.css`). Tampoco se enlaza la CDN.
+- Instagram: el logotipo solo (@EntreTodosOrg).
+- Página de Facebook: logotipo de Facebook con una insignia amarilla redonda con una bandera (`fi-br-flag`), que es el icono con el que Facebook identifica las Páginas.
+- Grupo de Facebook: logotipo de Facebook con la misma insignia amarilla con el icono de personas (`fi-br-users`).
+- Las direcciones están en `web/src/data/sitio.json`. Si una red no tiene dirección, no se muestra su botón.
+- Excepción a la regla de que los iconos acompañan a una palabra: aquí el icono basta porque es el signo reconocido de cada red.
+
 ## Componentes
 
 - **Botón** (`Boton`): `.boton.rojo` para la acción principal, `.boton` con borde marino para las secundarias, `.boton.claro` sobre fondos marinos, `.enlace-flecha` dentro de tarjetas.
@@ -92,7 +102,7 @@ La identidad se reconoce por su corte inclinado (componente `CorteDiagonal`):
 - Contenedor de 1180 px como máximo; márgenes de 16 px en móvil y 28 px desde 720 px.
 - Rejillas con `gap` de 14 px (18 px si llevan fotos), columnas de al menos 280 px.
 - Una sola sombra (`sombra`). Las tarjetas sobre `fondo`, nunca tarjetas dentro de tarjetas.
-- Cabecera blanca y fija: logotipo a la izquierda; menú (Propuestas, ¿Cuál es el plan?, Academia, Consulta, Sobre nosotros); iconos de perfil y búsqueda.
+- Cabecera blanca y fija: logotipo a la izquierda; menú (Propuestas, ¿Cuál es el plan?, Blog A+, Consulta, Sobre nosotros); iconos de perfil y búsqueda.
 - Pie marino en cuatro columnas con «Cómo participar con seguridad».
 - Todo debe funcionar a 360 px de ancho sin desplazamiento horizontal.
 
