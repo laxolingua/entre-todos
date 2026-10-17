@@ -260,6 +260,9 @@ h3 { font-size: 1.12rem; line-height: 1.25; margin: 0 0 6px; font-weight: 700; }
 .pie a { color: #dbe3f3; text-decoration: none; }
 .pie a:hover { color: #fff; text-decoration: underline; }
 .pie p { margin: 12px 0 0; max-width: 52ch; }
+.pie .pie-redes { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; }
+.pie .pie-redes a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-weight: 600; color: #fff; }
+.pie .pie-redes span { font-weight: 400; color: #b9c4dc; }
 @media (max-width: 760px) { .pie .contenedor { grid-template-columns: 1fr; } }
 
 main { padding: 0; }
