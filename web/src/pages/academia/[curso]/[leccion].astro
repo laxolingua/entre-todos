@@ -424,14 +424,20 @@ const solucion = (a) =>
 
     // Actividades.
     const totalAct = D.actividades.length;
+    const puntos = () => {
+      let ok = 0, total = 0;
+      Object.values(S.act).forEach((a) => { if (a && a.hecha && a.total) { ok += a.ok; total += a.total; } });
+      return { ok, total, pct: total ? Math.round((ok / total) * 100) : 0 };
+    };
     const pintarProgreso = () => {
       const hechas = Object.values(S.act).filter((a) => a && a.hecha).length;
-      const tx = $('[data-progreso-texto]'); if (tx) tx.textContent = `${hechas} de ${totalAct}`;
+      const pt = puntos();
+      const tx = $('[data-progreso-texto]'); if (tx) tx.textContent = `${hechas} de ${totalAct}` + (pt.total ? ` · ${pt.ok} de ${pt.total} puntos (${pt.pct} %)` : '');
       const br = $('[data-progreso-barra]'); if (br instanceof HTMLElement) br.style.width = `${Math.round((hechas / totalAct) * 100)}%`;
       $$('details.bl-act').forEach((d) => {
         const i = d.getAttribute('data-act'); const a = S.act[i];
         d.classList.toggle('hecha', !!(a && a.hecha));
-        const est = $('.bl-estado', d); if (est) est.textContent = a && a.hecha ? (a.total ? `${a.ok} de ${a.total}` : 'Hecha') : 'Completar';
+        const est = $('.bl-estado', d); if (est) est.textContent = a && a.hecha ? (a.total ? `${a.ok} de ${a.total} · ${Math.round((a.ok / a.total) * 100)} %` : 'Hecha') : 'Completar';
       });
     };
     const restaurarActividad = (d, i) => {
@@ -506,6 +512,7 @@ const solucion = (a) =>
     const lineasInforme = () => {
       const l = [];
       if (typeof S.antes === 'number' || typeof S.despues === 'number') l.push(`${D.gancho} Antes: ${typeof S.antes === 'number' ? D.opciones[S.antes] : 'sin responder'}. Después: ${typeof S.despues === 'number' ? D.opciones[S.despues] : 'sin responder'}.`);
+      const pt = puntos(); if (pt.total) l.push(`Puntuación: ${pt.ok} de ${pt.total} (${pt.pct} %).`);
       D.actividades.forEach((a, i) => {
         const r = S.act[i]; if (!r || !r.hecha) return;
         if (a.tipo === 'escribe') l.push(`${a.titulo}: «${r.resp.texto}» (${r.resp.auto.toLowerCase()}).`);
