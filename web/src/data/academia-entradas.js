@@ -128,4 +128,41 @@ export const entradas = {
       },
     ],
   },
+  'sin-permiso-previo': {
+    gancho: { q: '¿Debería un periódico pedir permiso al gobierno antes de publicar?', o: ['Sí', 'Depende del tema', 'No'] },
+    entradilla: 'Qué protege la libertad de expresión, qué límites admite el derecho internacional y por qué la censura previa es otra cosa.',
+    th: 'Ya conoces las tres partes del derecho y la diferencia entre responder después y pedir permiso antes. ¿Sabrías aplicarlo a casos concretos? Compruébalo.',
+    relacionadas: ['libertad-expresion', 'despenalizacion-disenso', 'acceso-informacion-internet'],
+    actividades: [
+      {
+        tipo: 'vf', titulo: 'Verdadero o falso', instrucciones: 'Marca si cada afirmación es verdadera o falsa.',
+        items: [
+          { t: 'El artículo 19 de la Declaración Universal protege también el derecho a buscar y recibir información.', v: true, e: 'Protege opinar, investigar y recibir información, y difundirla.' },
+          { t: 'Según el derecho internacional, la libertad de expresión no admite ningún límite.', v: false, e: 'Admite límites fijados por ley, necesarios y con fines concretos, como proteger la reputación de otras personas.' },
+          { t: 'La Convención Americana prohíbe la censura previa.', v: true, e: 'Quien abusa responde después ante un juez. La excepción es clasificar espectáculos para proteger a menores.' },
+          { t: 'La Constitución cubana de 2019 permite periódicos de propiedad privada.', v: false, e: 'El artículo 55 dice que los medios fundamentales no pueden ser objeto de otro tipo de propiedad que la socialista o la de las organizaciones políticas, sociales y de masas.' },
+        ],
+      },
+      {
+        tipo: 'relaciona', titulo: '¿Censura previa o responsabilidad posterior?', instrucciones: 'Elige qué es cada caso.',
+        opciones: ['Censura previa', 'Responsabilidad posterior'],
+        items: [
+          { a: 'Un funcionario revisa un artículo y decide si puede publicarse', b: 'Censura previa' },
+          { a: 'Un juez condena a pagar una indemnización por una mentira que dañó a alguien', b: 'Responsabilidad posterior' },
+          { a: 'Hace falta una licencia del gobierno para abrir un blog', b: 'Censura previa' },
+          { a: 'Un periodista rectifica tras una demanda por difamación', b: 'Responsabilidad posterior' },
+        ],
+      },
+      {
+        tipo: 'huecos', titulo: 'Completa', instrucciones: 'Elige la palabra que falta en cada frase.',
+        texto: 'Las restricciones deben estar fijadas por una [ley]. Quien abusa de su libertad responde [después], ante un juez. El Pacto obliga a prohibir la propaganda en favor de la [guerra]. Cuba firmó el Pacto en 2008 y no lo ha [ratificado].',
+        extra: ['antes', 'decreto', 'aprobado'],
+      },
+      {
+        tipo: 'escribe', titulo: 'Escribe tu versión', instrucciones: 'En dos o tres frases: ¿cómo redactarías la libertad de prensa en una futura Constitución?',
+        guia: ['Qué protege', 'Qué no puede exigirse antes de publicar', 'Quién puede ser dueño de un medio'],
+        ejemplo: 'Toda persona puede fundar un medio de comunicación y publicar sin autorización previa. Solo un juez, según la ley, puede exigir responsabilidades después de publicar. Ningún medio puede ser monopolio del Estado ni de un partido.',
+      },
+    ],
+  },
 };

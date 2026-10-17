@@ -19,9 +19,9 @@ export function getStaticPaths() {
 }
 const { c, l, n } = Astro.props;
 const e = entradas[l.id];
-const total = c.lecciones.length;
+const total = Math.max(c.lecciones.length, c.plan?.length || 0);
 const anterior = n > 0 ? c.lecciones[n - 1] : null;
-const siguiente = n < total - 1 ? c.lecciones[n + 1] : null;
+const siguiente = c.lecciones[n + 1] || null;
 const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
 const foto = `/img/fotos/cat-${FOTOS[n] || c.foto}.jpg`;
 
@@ -249,7 +249,7 @@ const solucion = (a) =>
 
     <nav class="bl-nav" aria-label="Entradas del bloque">
       {anterior ? <a href={`/academia/${c.id}/${anterior.id}/`} class="bl-nav-ant"><span>Anterior</span>{entradas[anterior.id]?.gancho.q}</a> : <span></span>}
-      {siguiente ? <a href={`/academia/${c.id}/${siguiente.id}/`} class="bl-nav-sig"><span>Siguiente</span>{entradas[siguiente.id]?.gancho.q}</a> : <a href={`/academia/${c.id}/`} class="bl-nav-sig"><span>Bloque completo</span>Ver tu progreso y el certificado</a>}
+      {siguiente ? <a href={`/academia/${c.id}/${siguiente.id}/`} class="bl-nav-sig"><span>Siguiente</span>{entradas[siguiente.id]?.gancho.q}</a> : <a href={`/academia/${c.id}/`} class="bl-nav-sig">{c.lecciones.length < total ? <><span>Volver al bloque</span>Próximas entradas en preparación</> : <><span>Bloque completo</span>Ver tu progreso y el certificado</>}</a>}
     </nav>
 
     <footer class="bl-pie">

@@ -122,7 +122,33 @@ export const cursos = [
     ],
   },
   {
-    id: 'libertad-de-expresion', num: 2, titulo: 'Libertad de expresión y de prensa', foto: 'sociedad_civil', estado: 'preparacion', minutos: 25,
+    id: 'libertad-de-expresion', num: 2, titulo: 'Libertad de expresión y de prensa', foto: 'sociedad_civil', estado: 'disponible', minutos: 25,
+    insignia: 'Libertad de expresión y de prensa',
+    // Lección modelo: las siguientes del plan siguen el mismo formato (ver 023 CL Tareas IN y GPT).
+    fuentes: [
+      { t: 'Declaración Universal de Derechos Humanos (ONU)', url: 'https://www.un.org/es/about-us/universal-declaration-of-human-rights' },
+      { t: 'Pacto Internacional de Derechos Civiles y Políticos (ACNUDH)', url: 'https://www.ohchr.org/es/instruments-mechanisms/instruments/international-covenant-civil-and-political-rights' },
+      { t: 'Convención Americana sobre Derechos Humanos (OEA)', url: 'https://www.oas.org/dil/esp/tratados_b-32_convencion_americana_sobre_derechos_humanos.htm' },
+      { t: 'Constitución de Cuba de 2019 (Constitute Project)', url: 'https://www.constituteproject.org/constitution/Cuba_2019?lang=es' },
+    ],
+    lecciones: [
+      {
+        id: 'sin-permiso-previo',
+        titulo: 'Expresarse sin permiso previo',
+        minutos: 6,
+        bloques: [
+          { p: 'La Declaración Universal de Derechos Humanos dedica su artículo 19 a la libertad de opinión y de expresión:' },
+          { cita: 'Todo individuo tiene derecho a la libertad de opinión y de expresión; este derecho incluye el de no ser molestado a causa de sus opiniones, el de investigar y recibir informaciones y opiniones, y el de difundirlas, sin limitación de fronteras, por cualquier medio de expresión.', fuente: 'Declaración Universal de Derechos Humanos, artículo 19' },
+          { p: 'El artículo protege tres cosas a la vez: tener una opinión sin que nadie te moleste por ella, buscar y recibir información, y difundirla por el medio que elijas. Quien solo puede hablar, pero no informarse, o solo puede informarse, pero no publicar, no tiene la libertad completa.' },
+          { h: 'Los límites que admite el derecho internacional' },
+          { p: 'La libertad de expresión no es absoluta. El Pacto Internacional de Derechos Civiles y Políticos de 1966 admite restricciones, pero con tres condiciones: tienen que estar fijadas por una ley, tienen que ser necesarias y solo pueden servir para proteger los derechos o la reputación de otras personas, la seguridad nacional, el orden público o la salud o la moral públicas. El mismo Pacto obliga a prohibir la propaganda en favor de la guerra y la incitación al odio nacional, racial o religioso.' },
+          { h: 'Responder después, no pedir permiso antes' },
+          { p: 'La Convención Americana sobre Derechos Humanos de 1969 añade una regla clara: la expresión no puede estar sujeta a censura previa. Quien abusa de su libertad responde después, ante un juez y según la ley. Nadie tiene que pedir permiso antes de hablar o publicar. La única excepción que admite es la clasificación de espectáculos públicos para proteger a menores.' },
+          { h: 'Qué dice la Constitución cubana de 2019' },
+          { p: 'El artículo 54 reconoce la libertad de pensamiento, conciencia y expresión. El artículo 55 reconoce la libertad de prensa, pero añade que se ejerce «de conformidad con la ley y los fines de la sociedad» y que los medios fundamentales de comunicación son de propiedad socialista de todo el pueblo o de las organizaciones políticas, sociales y de masas, y no pueden ser de otro tipo de propiedad. Cuba firmó el Pacto de derechos civiles y políticos en 2008 y no lo ha ratificado.' },
+        ],
+      },
+    ],
     resumen: 'Qué protege la libertad de expresión, dónde están sus límites en distintas democracias y qué hace falta para que exista una prensa independiente.',
     plan: ['Expresarse sin permiso previo', 'Estados Unidos, Alemania, España y Costa Rica: límites distintos', 'Prensa independiente: propiedad, licencias y acceso a la información', 'Internet y expresión: el caso cubano y las leyes que lo regulan'],
   },
