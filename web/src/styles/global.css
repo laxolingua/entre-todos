@@ -1227,3 +1227,8 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .enc-lista { list-style: none; padding: 0; margin: 0; }
 .enc-lista > li { border-top: 1px solid currentColor; padding: 1rem 0; }
 .enc-lista blockquote { margin: .5rem 0; font-style: italic; }
+
+/* Una foto por sección del banco; las tarjetas van sin foto. */
+.cat-banda { margin: 0 0 18px; height: clamp(160px, 24vw, 280px); overflow: hidden; }
+.cat-banda img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tarjeta.con-foto .tarjeta-cuerpo { padding-top: 26px; }

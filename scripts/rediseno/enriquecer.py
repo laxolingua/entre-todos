@@ -31,7 +31,10 @@ def barra(activa):
     h += '<a class="enlace-flecha" href="/propuestas/">Ver todas →</a></aside>'
     return frag(h)
 
-def tarjeta(li, soup):
+def banda(clave):
+    return frag(f'<figure class="cat-banda duo" aria-hidden="true"><img src="/img/fotos/cat-{clave}.jpg" alt=""></figure>')
+
+def tarjeta(li, soup, foto=False):
     a = li.find('h3').find('a'); pid = a['href'].rstrip('/').split('/')[-1]
     clave, num = rango.get(pid, (None, 0))
     if not clave: return
@@ -40,8 +43,9 @@ def tarjeta(li, soup):
     for hijo in list(li.contents): cuerpo.append(hijo.extract())
     cuerpo.insert(0, frag(f'<p class="tarjeta-cat">{nombre_cat[clave]}</p><span class="tarjeta-num">{num:02d}</span>'))
     cuerpo.append(frag(f'<a class="enlace-flecha ver" href="{a["href"]}">Ver propuesta →</a>'))
-    li.append(frag(f'<div class="tarjeta-foto duo"><img src="/img/fotos/cat-{clave}.jpg" alt="" loading="lazy"></div>'))
+    if foto: li.append(frag(f'<div class="tarjeta-foto duo"><img src="/img/fotos/cat-{clave}.jpg" alt="" loading="lazy"></div>'))
     li.append(cuerpo)
+    return clave
 
 # 1. Portada del banco
 cuerpo = idx.find(id='banco-cuerpo')
@@ -52,7 +56,8 @@ grid.append(barra(None)); grid.append(princ)
 for ul in princ.select('#categorias ul.lista'):
     if ul.select_one('li.tarjeta.consolidada'):
         ul['class'] = ul.get('class', []) + ['con-fotos']
-        for li in ul.select('li.tarjeta.consolidada'): tarjeta(li, idx)
+        # Portada: categorías mezcladas, cada tarjeta con la foto de su categoría.
+        for li in ul.select('li.tarjeta.consolidada'): tarjeta(li, idx, foto=True)
 guardar(f'{P}/propuestas/index.html', idx)
 
 # 2. Páginas de categoría
@@ -61,8 +66,9 @@ for clave, _, _ in cats:
     ul = main.find('ul', class_='lista', recursive=False)
     grid = s.new_tag('div', attrs={'class': 'banco-grid'}); ul.insert_before(grid)
     ul = ul.extract(); ul['class'] = ul.get('class', []) + ['con-fotos']
+    # Página de categoría: una sola foto arriba y tarjetas sin foto (no se repite la imagen).
     for li in ul.select('li.tarjeta.consolidada'): tarjeta(li, s)
-    cont = s.new_tag('div'); cont.append(ul)
+    cont = s.new_tag('div'); cont.append(banda(clave)); cont.append(ul)
     grid.append(barra(clave)); grid.append(cont)
     guardar(f, s)
 
