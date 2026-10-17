@@ -86,6 +86,8 @@ const P = [
   const raiz = document.querySelector('[data-hoy]');
   if (raiz) {
     const D = JSON.parse(document.getElementById('datos-hoy')?.textContent || '{}');
+    // Prefijo de la web (vacío en el sitio; /entre-todos-preview en la vista previa).
+    const B = (document.querySelector('a.marca')?.getAttribute('href') || '/').replace(/\/$/, '');
     const hoy = new Date();
     const dia = Math.floor(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()) / 86400000);
     const q = D.preguntas[dia % D.preguntas.length];
@@ -95,8 +97,8 @@ const P = [
     const fh = $('[data-hoy-hoy]'); if (fh) fh.textContent = fecha;
     // Pregunta del día
     const pq = $('[data-pq]'); if (pq) pq.textContent = q.q;
-    const pu = $('[data-purl]'); if (pu) pu.setAttribute('href', q.url);
-    raiz.querySelectorAll('[data-hoy-foto="pregunta"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(${q.foto})`; });
+    const pu = $('[data-purl]'); if (pu) pu.setAttribute('href', B + q.url);
+    raiz.querySelectorAll('[data-hoy-foto="pregunta"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(${B}${q.foto})`; });
     const ops = $('[data-pops]'); const res = $('[data-pres]');
     const clave = `et-hoy-${dia}`;
     const pintar = (i) => {
@@ -112,8 +114,8 @@ const P = [
     // Propuesta del día
     const rt = $('[data-rt]'); if (rt) rt.textContent = r.t;
     const rx = $('[data-rx]'); if (rx) rx.textContent = r.x;
-    const ru = $('[data-rurl]'); if (ru) ru.setAttribute('href', `/propuesta/${r.id}/`);
-    raiz.querySelectorAll('[data-hoy-foto="propuesta"],[data-hoy-foto="propuesta2"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(/img/fotos/cat-${r.c}.jpg)`; });
+    const ru = $('[data-rurl]'); if (ru) ru.setAttribute('href', `${B}/propuesta/${r.id}/`);
+    raiz.querySelectorAll('[data-hoy-foto="propuesta"],[data-hoy-foto="propuesta2"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(${B}/img/fotos/cat-${r.c}.jpg)`; });
     // «Nuevo» si la última noticia tiene menos de 7 días
     const fa = raiz.getAttribute('data-fecha-act') || '';
     const m = fa.match(/(\d+)\/(\d+)\/(\d+)/);
