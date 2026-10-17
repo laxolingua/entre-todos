@@ -1,30 +1,56 @@
 ---
+// Blog académico: entradas que se leen como artículos y se convierten en lección con un botón.
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
 import ApoyoEEUU from '../../components/ApoyoEEUU.astro';
-import { cursos, PAISES_COMPARADOS } from '../../data/academia.js';
+import { cursos } from '../../data/academia.js';
+import { entradas } from '../../data/academia-entradas.js';
+
+const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
+const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
+  c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: `/img/fotos/cat-${FOTOS[n] || c.foto}.jpg` })));
 ---
-<Base titulo="Academia cívica" seccion="academia" ancho
-  descripcion="Cursos breves sobre derechos humanos, libertades y democracia, con comparaciones entre países, comprobación inicial y final e insignia privada.">
+<Base titulo="Blog académico" seccion="academia" ancho
+  descripcion="Lecturas breves sobre derechos, libertades y democracia que se convierten en lección con un botón: actividades, insignias y certificado. Sin cuenta y sin datos personales.">
   <Banda imagen="/img/fotos/academia.jpg" lateral={['Democracia', 'Derechos humanos', 'Ciudadanía', 'Ética']}>
     <span class="barra"></span>
-    <h1>Academia<br />cívica</h1>
-    <p class="lema">Aprender a participar</p>
-    <p class="entradilla">Cursos breves sobre derechos, libertades y democracia. Cada uno compara cómo funcionan estas libertades en distintos países, cita sus fuentes y no impone una posición ideológica.</p>
+    <h1>Blog<br />académico</h1>
+    <p class="lema">Academia cívica de ENTRE TODOS</p>
+    <p class="entradilla">Lecturas de cinco minutos sobre derechos, libertades y democracia. Cada una empieza con una pregunta y se puede convertir en lección con actividades, insignia e informe.</p>
   </Banda>
   <div class="contenedor">
     <section class="seccion">
+      <h2>Entradas</h2>
+      <ul class="bl-tarjetas">
+        {publicadas.map(({ c, l, n, e, foto }) => (
+          <li class="bl-tarjeta" data-clave={`et-blog-${c.id}-${l.id}`}>
+            <a href={`/academia/${c.id}/${l.id}/`}>
+              <img src={foto} alt="" loading="lazy" />
+              <span class="bl-tarjeta-txt">
+                <span class="bl-tarjeta-meta">{c.titulo} · {n + 1} de {c.lecciones.length} · {l.minutos} min</span>
+                <strong>{e.gancho.q}</strong>
+                <span>{e.entradilla}</span>
+                <span class="bl-estado" data-estado></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion">
       <h2>Cómo funciona</h2>
       <ol class="pasos-curso">
-        <li><span class="paso-num">1</span><strong>Comprobación inicial</strong><span>Ocho preguntas para saber de dónde partes.</span></li>
-        <li><span class="paso-num">2</span><strong>Lecciones breves</strong><span>Cuatro lecciones de cinco a siete minutos, pensadas para conexiones lentas.</span></li>
-        <li><span class="paso-num">3</span><strong>Comprobación final</strong><span>Las mismas preguntas, con la explicación de cada respuesta.</span></li>
-        <li><span class="paso-num">4</span><strong>Insignia</strong><span>Si aciertas seis de ocho. Es tuya y decides si la compartes.</span></li>
+        <li><span class="paso-num">1</span><strong>Lee</strong><span>Cada entrada empieza con una pregunta de opinión y se lee en unos cinco minutos.</span></li>
+        <li><span class="paso-num">2</span><strong>Conviértela en lección</strong><span>Resalta, subraya y anota el texto. Luego, tres actividades cortas.</span></li>
+        <li><span class="paso-num">3</span><strong>Gana la insignia</strong><span>Vuelve a la pregunta inicial y descarga tu informe para compartirlo si quieres.</span></li>
+        <li><span class="paso-num">4</span><strong>Certificado</strong><span>Con todas las insignias de un bloque, descarga tu certificado en PDF.</span></li>
       </ol>
-      <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tus respuestas y tus insignias se guardan solo en tu dispositivo. ENTRE TODOS no las recibe ni pide cuenta, correo o nombre para hacer un curso.</p>
+      <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Todo se guarda solo en tu dispositivo. ENTRE TODOS no pide cuenta, correo ni nombre.</p>
     </section>
+
     <section class="seccion">
-      <h2>Cursos</h2>
+      <h2>Bloques</h2>
       <ul class="cursos">
         {cursos.map((c) => (
           <li class="curso con-foto">
@@ -34,23 +60,23 @@ import { cursos, PAISES_COMPARADOS } from '../../data/academia.js';
             <div class="pie-curso">
               <h3>{c.titulo}</h3>
               {c.estado === 'disponible'
-                ? <span class="estado disponible" data-insignia-curso={c.id}>Disponible · {c.minutos} min</span>
+                ? <span class="estado disponible">{c.lecciones.length} entradas · {c.minutos} min</span>
                 : <span class="estado">En preparación</span>}
             </div>
           </li>
         ))}
       </ul>
-      <p class="discreto" style="margin-top:20px">Países que se comparan: {PAISES_COMPARADOS.join(', ')}. Los contenidos parten de la Declaración Universal de Derechos Humanos y de los dos pactos internacionales de 1966, que Cuba firmó en 2008.</p>
     </section>
     <ApoyoEEUU pieza="material" />
   </div>
   <script>
-    // Marca como obtenida la insignia guardada en este dispositivo. Nada sale del navegador.
-    document.querySelectorAll('[data-insignia-curso]').forEach((el) => {
+    document.querySelectorAll('[data-clave]').forEach((li) => {
       try {
-        const d = JSON.parse(localStorage.getItem('et-academia-' + el.getAttribute('data-insignia-curso')) || '{}');
-        if (d.insignia) { el.textContent = 'Insignia obtenida'; el.classList.add('obtenida'); }
-      } catch (e) { /* sin almacenamiento: no pasa nada */ }
+        const s = JSON.parse(localStorage.getItem(li.getAttribute('data-clave') || '') || '{}');
+        const est = li.querySelector('[data-estado]');
+        if (est && s.insignia) { est.textContent = 'Insignia obtenida'; li.classList.add('hecha'); }
+        else if (est && (s.antes !== undefined || s.modo)) est.textContent = 'Empezada';
+      } catch (e) { /* sin almacenamiento */ }
     });
   </script>
 </Base>

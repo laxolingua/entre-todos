@@ -1,0 +1,565 @@
+---
+// Entrada del Blog académico. Se lee como un artículo; «Convertir en lección» activa la lectura activa,
+// las actividades, la insignia y el informe. Nada sale del navegador de la persona.
+import Base from '../../../layouts/Base.astro';
+import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
+import { cursos } from '../../../data/academia.js';
+import { entradas, PUBLICADO, ACTUALIZADO } from '../../../data/academia-entradas.js';
+import datos from '../../../data/publico.json';
+
+export function getStaticPaths() {
+  const rutas = [];
+  for (const c of cursos) {
+    if (c.estado !== 'disponible') continue;
+    c.lecciones.forEach((l, n) => {
+      if (entradas[l.id]) rutas.push({ params: { curso: c.id, leccion: l.id }, props: { c, l, n } });
+    });
+  }
+  return rutas;
+}
+const { c, l, n } = Astro.props;
+const e = entradas[l.id];
+const total = c.lecciones.length;
+const anterior = n > 0 ? c.lecciones[n - 1] : null;
+const siguiente = n < total - 1 ? c.lecciones[n + 1] : null;
+const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
+const foto = `/img/fotos/cat-${FOTOS[n] || c.foto}.jpg`;
+
+// La lectura se divide en secciones por sus subtítulos.
+const secciones = [];
+let actual = { titulo: l.titulo, bloques: [] };
+for (const b of l.bloques) {
+  if (b.h) { if (actual.bloques.length) secciones.push(actual); actual = { titulo: b.h, bloques: [] }; }
+  else actual.bloques.push(b);
+}
+if (actual.bloques.length) secciones.push(actual);
+let k = 0;
+const conClave = secciones.map((s) => ({ ...s, bloques: s.bloques.map((b) => ({ ...b, k: b.lista ? null : k++ })) }));
+
+const propuestas = e.relacionadas.map((id) => datos.propuestas.find((p) => p.id === id)).filter(Boolean);
+const otras = c.lecciones.filter((x) => x.id !== l.id && entradas[x.id]);
+
+// Mezcla estable para que las opciones no aparezcan siempre en el mismo orden.
+const mezcla = (arr, semilla) => arr.map((v, i) => [((i + 1) * 7919 + semilla * 104729) % 97, v]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
+const huecos = (texto) => texto.split(/(\[[^\]]+\])/).map((t) => (t.startsWith('[') ? { r: t.slice(1, -1) } : { t }));
+
+const actividades = e.actividades.map((a, i) => {
+  if (a.tipo === 'huecos') {
+    const partes = huecos(a.texto);
+    const banco = [...partes.filter((p) => p.r).map((p) => p.r), ...(a.extra || [])].sort((x, y) => x.localeCompare(y, 'es'));
+    return { ...a, partes, banco };
+  }
+  if (a.tipo === 'relaciona') return { ...a, opcionesMezcla: mezcla(a.opciones, i + n) };
+  return a;
+});
+
+const datosCliente = JSON.stringify({
+  id: `${c.id}-${l.id}`, curso: c.id, leccion: l.id, titulo: l.titulo, gancho: e.gancho.q, opciones: e.gancho.o,
+  actividades: actividades.map((a) => ({
+    tipo: a.tipo, titulo: a.titulo,
+    items: a.tipo === 'vf' ? a.items.map((x) => ({ v: x.v, e: x.e }))
+      : a.tipo === 'opcion' ? a.items.map((x) => ({ c: x.c, e: x.e }))
+      : a.tipo === 'relaciona' ? a.items.map((x) => ({ b: x.b }))
+      : a.tipo === 'huecos' ? a.partes.filter((p) => p.r).map((p) => ({ r: p.r }))
+      : a.tipo === 'examen' ? a.preguntas.map(() => ({}))
+      : [],
+  })),
+});
+const solucion = (a) =>
+  a.tipo === 'vf' ? a.items.map((x) => `${x.t} ${x.v ? 'Verdadero' : 'Falso'}.`)
+  : a.tipo === 'opcion' ? a.items.map((x) => `${x.q} ${x.o[x.c]}.`)
+  : a.tipo === 'relaciona' ? a.items.map((x) => `${x.a}: ${x.b}.`)
+  : a.tipo === 'huecos' ? [a.partes.filter((p) => p.r).map((p) => p.r).join(', ') + '.']
+  : a.tipo === 'escribe' ? [`Ejemplo de respuesta: ${a.ejemplo}`]
+  : ['Respuesta abierta.'];
+---
+<Base titulo={e.gancho.q} seccion="academia" descripcion={`${l.titulo}. ${e.entradilla}`}>
+  <article class="bl-entrada" data-entrada>
+    <p class="antetitulo"><a href={`/academia/${c.id}/`}>{c.titulo}</a> · {n + 1} de {total}</p>
+    <h1 class="bl-gancho">{e.gancho.q}</h1>
+    <p class="bl-sub">{l.titulo}</p>
+    <p class="entradilla">{e.entradilla}</p>
+    <p class="bl-meta"><span><i class="fi fi-br-clock" aria-hidden="true"></i> {l.minutos} min de lectura</span><span>Publicado el {PUBLICADO}</span></p>
+
+    <section class="bl-sondeo" data-sondeo="antes" aria-labelledby="sondeo-antes">
+      <p class="bl-sondeo-tit" id="sondeo-antes">Antes de leer, ¿tú qué piensas?</p>
+      <div class="bl-opciones" role="group" aria-labelledby="sondeo-antes">
+        {e.gancho.o.map((o, i) => <button type="button" class="bl-op" data-op={i}>{o}</button>)}
+      </div>
+      <p class="bl-sondeo-nota" aria-live="polite"></p>
+    </section>
+
+    <figure class="bl-foto"><img src={foto} alt="" loading="eager" /></figure>
+
+    <div class="bl-barra-modo">
+      <button type="button" class="boton rojo" data-modo><i class="fi fi-br-graduation-cap" aria-hidden="true"></i> <span>Convertir en lección</span></button>
+      <span class="bl-modo-ayuda">Añade lectura activa, actividades, insignia e informe. Unos {Math.max(4, e.actividades.length * 2)} minutos más.</span>
+    </div>
+
+    <div class="bl-leccion-solo bl-herramientas">
+      <span><i class="fi fi-br-highlighter" aria-hidden="true"></i> Selecciona un fragmento del texto para resaltarlo, subrayarlo o añadir una nota.</span>
+      <button type="button" class="enlace-boton" data-abrir-todo>Abrir todo</button>
+    </div>
+
+    <div class="bl-lectura" data-lectura>
+      {conClave.map((s, i) => (
+        <details class="bl-seccion" open data-seccion={i}>
+          <summary><span class="bl-num">{i + 1}</span><span class="bl-sec-tit">{s.titulo}</span><span class="bl-check bl-leccion-solo" aria-hidden="true"></span></summary>
+          <div class="bl-sec-cuerpo">
+            {s.bloques.map((b) =>
+              b.cita ? <figure class="cita-fuente"><blockquote class="cita ar-p" data-k={b.k}>{b.cita}</blockquote><figcaption>{b.fuente}</figcaption></figure>
+              : b.lista ? <ol class="lista-preguntas">{b.lista.map((x) => <li>{x}</li>)}</ol>
+              : <p class="ar-p" data-k={b.k}>{b.p}</p>
+            )}
+            {i === conClave.length - 1 && l.tabla && (
+              <div class="desplazable comparativa">
+                <table class="tabla">
+                  <caption>{l.tabla.titulo}</caption>
+                  <thead><tr>{l.tabla.columnas.map((t) => <th scope="col">{t}</th>)}</tr></thead>
+                  <tbody>{l.tabla.filas.map((f) => <tr>{f.map((v, j) => j === 0 ? <th scope="row">{v}</th> : <td>{v}</td>)}</tr>)}</tbody>
+                </table>
+              </div>
+            )}
+            <button type="button" class="bl-completar bl-leccion-solo" data-completar-seccion={i}>Completar</button>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <aside class="bl-th">
+      <p>{e.th}</p>
+      <button type="button" class="boton" data-ir-actividades>Seguir <i class="fi fi-br-arrow-down" aria-hidden="true"></i></button>
+    </aside>
+
+    <section class="bl-actividades bl-leccion-solo" id="actividades" aria-labelledby="act-tit">
+      <div class="bl-act-cab">
+        <h2 id="act-tit">Actividades</h2>
+        <span class="bl-progreso"><span data-progreso-texto>0 de {e.actividades.length}</span><span class="bl-barra"><i data-progreso-barra></i></span></span>
+      </div>
+      {actividades.map((a, i) => (
+        <details class="bl-act" data-act={i} data-tipo={a.tipo}>
+          <summary><span class="bl-num">{i + 1}</span><span class="bl-sec-tit">{a.titulo}</span><span class="bl-estado">Completar</span></summary>
+          <div class="bl-act-cuerpo">
+            <p class="bl-instr">{a.instrucciones}</p>
+            {a.tipo === 'vf' && a.items.map((x, j) => (
+              <div class="bl-item" data-item={j} role="radiogroup" aria-label={x.t}>
+                <p>{x.t}</p>
+                <div class="bl-vf">
+                  <label><input type="radio" name={`a${i}-${j}`} value="1" /> <span>Verdadero</span></label>
+                  <label><input type="radio" name={`a${i}-${j}`} value="0" /> <span>Falso</span></label>
+                </div>
+                <p class="bl-fb" hidden></p>
+              </div>
+            ))}
+            {a.tipo === 'opcion' && a.items.map((x, j) => (
+              <div class="bl-item" data-item={j} role="radiogroup" aria-label={x.q}>
+                <p>{x.q}</p>
+                {x.o.map((op, m) => <label class="bl-op-linea"><input type="radio" name={`a${i}-${j}`} value={m} /> <span>{op}</span></label>)}
+                <p class="bl-fb" hidden></p>
+              </div>
+            ))}
+            {a.tipo === 'relaciona' && a.items.map((x, j) => (
+              <div class="bl-item bl-par" data-item={j}>
+                <label for={`a${i}-${j}`}>{x.a}</label>
+                <select id={`a${i}-${j}`}><option value="">Elige</option>{a.opcionesMezcla.map((o) => <option value={o}>{o}</option>)}</select>
+                <p class="bl-fb" hidden></p>
+              </div>
+            ))}
+            {a.tipo === 'huecos' && (
+              <p class="bl-huecos">
+                {(() => { let h = -1; return a.partes.map((p) => p.r ? (h++, <select class="bl-hueco" data-item={h} aria-label={`Hueco ${h + 1}`}><option value="">…</option>{a.banco.map((w) => <option value={w}>{w}</option>)}</select>) : p.t); })()}
+              </p>
+            )}
+            {a.tipo === 'examen' && (
+              <div class="bl-examen">
+                <label class="bl-campo">Derecho que examinas<select data-derecho><option value="">Elige un derecho</option>{a.derechos.map((d) => <option value={d}>{d}</option>)}</select></label>
+                {a.preguntas.map((q, j) => (
+                  <div class="bl-item" data-item={j} role="radiogroup" aria-label={q}>
+                    <p>{q}</p>
+                    <div class="bl-vf">
+                      <label><input type="radio" name={`a${i}-${j}`} value="si" /> <span>Sí</span></label>
+                      <label><input type="radio" name={`a${i}-${j}`} value="no" /> <span>No</span></label>
+                      <label><input type="radio" name={`a${i}-${j}`} value="ns" /> <span>No lo sé</span></label>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {a.tipo === 'escribe' && (
+              <div class="bl-escribe">
+                <p class="bl-guia-tit">Puedes seguir este orden:</p>
+                <ol class="bl-guia">{a.guia.map((g) => <li>{g}</li>)}</ol>
+                <details class="bl-ejemplo"><summary>Ver un ejemplo</summary><blockquote>{a.ejemplo}</blockquote></details>
+                <label class="bl-campo">Tu texto<textarea rows="5" maxlength="1200" data-escrito></textarea></label>
+                <p class="bl-guia-tit">¿Cómo crees que te ha quedado?</p>
+                <div class="bl-vf" role="radiogroup" aria-label="Autovaloración">
+                  <label><input type="radio" name={`a${i}-auto`} value="Me ha costado" /> <span>Me ha costado</span></label>
+                  <label><input type="radio" name={`a${i}-auto`} value="Bien, con dudas" /> <span>Bien, con dudas</span></label>
+                  <label><input type="radio" name={`a${i}-auto`} value="Lo tengo claro" /> <span>Lo tengo claro</span></label>
+                </div>
+              </div>
+            )}
+            <div class="bl-act-pie">
+              <button type="button" class="boton rojo" data-comprobar={i}>{a.tipo === 'examen' || a.tipo === 'escribe' ? 'Guardar' : 'Comprobar'}</button>
+              <span class="bl-resultado" aria-live="polite"></span>
+            </div>
+            <div class="bl-solucion"><strong>Soluciones.</strong> {solucion(a).join(' ')}</div>
+          </div>
+        </details>
+      ))}
+
+      <section class="bl-sondeo" data-sondeo="despues" aria-labelledby="sondeo-despues">
+        <p class="bl-sondeo-tit" id="sondeo-despues">Después de leer: {e.gancho.q}</p>
+        <div class="bl-opciones" role="group" aria-labelledby="sondeo-despues">
+          {e.gancho.o.map((o, i) => <button type="button" class="bl-op" data-op={i}>{o}</button>)}
+        </div>
+        <p class="bl-sondeo-nota" aria-live="polite"></p>
+      </section>
+
+      <section class="bl-informe" data-informe hidden aria-labelledby="inf-tit">
+        <div class="bl-insignia" aria-hidden="true">
+          <span class="insignia-marca">ENTRE TODOS · Academia cívica</span>
+          <span class="insignia-titulo">{l.titulo}</span>
+          <span class="insignia-fecha" data-fecha-insignia></span>
+        </div>
+        <div>
+          <h2 id="inf-tit">Tu informe</h2>
+          <ul class="bl-resumen" data-resumen></ul>
+          <label class="bl-campo">Tu reflexión (opcional)<textarea rows="3" maxlength="600" data-reflexion placeholder="Qué te ha sorprendido, qué cambiarías, qué preguntarías"></textarea></label>
+          <label class="bl-campo">Nombre o seudónimo en la imagen (opcional)<input type="text" maxlength="40" data-nombre autocomplete="off" /></label>
+          <div class="acciones">
+            <button type="button" class="boton rojo" data-imagen>Descargar imagen <i class="fi fi-br-download" aria-hidden="true"></i></button>
+            <button type="button" class="boton" data-compartir>Compartir <i class="fi fi-br-share" aria-hidden="true"></i></button>
+            <button type="button" class="boton" data-imprimir>Guardar en PDF <i class="fi fi-br-print" aria-hidden="true"></i></button>
+          </div>
+          <p class="discreto">Tu informe se queda en este dispositivo. Solo sale si tú lo descargas o lo compartes.</p>
+        </div>
+      </section>
+    </section>
+
+    {propuestas.length > 0 && (
+      <section class="bl-propuestas">
+        <h2>Propuestas del banco sobre este tema</h2>
+        <ul>
+          {propuestas.map((p) => <li><a href={`/propuesta/${p.id}/`}><strong>{p.titulo}</strong><span>{p.texto}</span></a></li>)}
+        </ul>
+        <p class="discreto">Pronto podrás valorarlas desde aquí y presentar las tuyas.</p>
+      </section>
+    )}
+
+    <nav class="bl-nav" aria-label="Entradas del bloque">
+      {anterior ? <a href={`/academia/${c.id}/${anterior.id}/`} class="bl-nav-ant"><span>Anterior</span>{entradas[anterior.id]?.gancho.q}</a> : <span></span>}
+      {siguiente ? <a href={`/academia/${c.id}/${siguiente.id}/`} class="bl-nav-sig"><span>Siguiente</span>{entradas[siguiente.id]?.gancho.q}</a> : <a href={`/academia/${c.id}/`} class="bl-nav-sig"><span>Bloque completo</span>Ver tu progreso y el certificado</a>}
+    </nav>
+
+    <footer class="bl-pie">
+      <p>Publicado el {PUBLICADO}. Última actualización: {ACTUALIZADO}. Autoría: equipo editorial de ENTRE TODOS.</p>
+      <details class="bl-fuentes"><summary>Fuentes</summary><ul>{c.fuentes.map((f) => <li><a href={f.url} rel="noopener" target="_blank">{f.t}</a></li>)}</ul></details>
+      <p class="bl-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tus respuestas, resaltados y notas se guardan solo en este dispositivo. <button type="button" class="enlace-boton" data-borrar>Borrar todo</button></p>
+    </footer>
+
+    {otras.length > 0 && (
+      <section class="bl-relacionadas">
+        <h2>Otras entradas del bloque</h2>
+        <ul>{otras.map((x) => <li><a href={`/academia/${c.id}/${x.id}/`}>{entradas[x.id].gancho.q}</a><span>{x.titulo}</span></li>)}</ul>
+      </section>
+    )}
+
+    <ApoyoEEUU pieza="material" />
+  </article>
+
+  <div class="ar-barra" data-ar-barra hidden>
+    <button type="button" data-ar="resaltado"><i class="fi fi-br-highlighter" aria-hidden="true"></i> Resaltar</button>
+    <button type="button" data-ar="subrayado"><i class="fi fi-br-underline" aria-hidden="true"></i> Subrayar</button>
+    <button type="button" data-ar="nota"><i class="fi fi-br-comment-alt" aria-hidden="true"></i> Nota</button>
+    <button type="button" data-ar="quitar" hidden><i class="fi fi-br-cross-small" aria-hidden="true"></i> Quitar</button>
+    <div class="ar-nota" data-ar-nota hidden>
+      <label class="sr-only" for="ar-nota-texto">Tu nota</label>
+      <textarea id="ar-nota-texto" rows="2" maxlength="300" placeholder="Escribe tu nota"></textarea>
+      <button type="button" class="boton rojo" data-ar-guardar>Guardar nota</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="datos-entrada" set:html={datosCliente}></script>
+
+  <script>
+    const D = JSON.parse(document.getElementById('datos-entrada')?.textContent || '{}');
+    const CLAVE = 'et-blog-' + D.id;
+    const leer = () => { try { return JSON.parse(localStorage.getItem(CLAVE) || '{}'); } catch (e) { return {}; } };
+    let S = leer();
+    S.act = S.act || {}; S.anot = S.anot || []; S.secc = S.secc || {};
+    const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify(S)); } catch (e) { /* sin almacenamiento */ } };
+    const art = document.querySelector('[data-entrada]');
+    const $ = (sel, raiz = document) => raiz.querySelector(sel);
+    const $$ = (sel, raiz = document) => [...raiz.querySelectorAll(sel)];
+    const fecha = (iso) => new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+    const esc = (t) => t.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+
+    // Modo blog o modo lección.
+    const botonModo = $('[data-modo]');
+    const ponerModo = (leccion) => {
+      art?.classList.toggle('modo-leccion', leccion);
+      const t = botonModo?.querySelector('span');
+      if (t) t.textContent = leccion ? 'Volver a modo lectura' : 'Convertir en lección';
+    };
+    botonModo?.addEventListener('click', () => {
+      S.modo = !art?.classList.contains('modo-leccion');
+      guardar(); ponerModo(S.modo);
+      if (S.modo) $('[data-lectura]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    ponerModo(!!S.modo);
+
+    // Sondeo de opinión antes y después.
+    const pintarSondeo = () => {
+      $$('[data-sondeo]').forEach((s) => {
+        const fase = s.getAttribute('data-sondeo');
+        const valor = fase === 'antes' ? S.antes : S.despues;
+        $$('.bl-op', s).forEach((b) => b.classList.toggle('elegida', Number(b.getAttribute('data-op')) === valor));
+        const nota = $('.bl-sondeo-nota', s);
+        if (!nota) return;
+        if (typeof valor !== 'number') { nota.textContent = ''; return; }
+        if (fase === 'antes') nota.textContent = 'Anotado. Al final de la lección volverás a esta pregunta.';
+        else {
+          const a = typeof S.antes === 'number' ? D.opciones[S.antes] : null;
+          nota.textContent = a ? (S.antes === valor ? `Mantienes tu respuesta: «${a}».` : `Antes respondiste «${a}». Ahora, «${D.opciones[valor]}».`) : 'Anotado.';
+        }
+      });
+    };
+    $$('[data-sondeo]').forEach((s) => {
+      const fase = s.getAttribute('data-sondeo');
+      $$('.bl-op', s).forEach((b) => b.addEventListener('click', () => {
+        const v = Number(b.getAttribute('data-op'));
+        if (fase === 'antes') S.antes = v; else S.despues = v;
+        guardar(); pintarSondeo(); revisarInsignia(); pintarInforme();
+      }));
+    });
+
+    // Secciones de lectura: completar y abrir todo.
+    const pintarSecciones = () => {
+      $$('[data-seccion]').forEach((d) => {
+        const i = d.getAttribute('data-seccion');
+        d.classList.toggle('hecha', !!S.secc[i]);
+        const b = $(`[data-completar-seccion="${i}"]`);
+        if (b) b.textContent = S.secc[i] ? 'Completada' : 'Completar';
+      });
+    };
+    $$('[data-completar-seccion]').forEach((b) => b.addEventListener('click', () => {
+      const i = b.getAttribute('data-completar-seccion');
+      S.secc[i] = !S.secc[i]; guardar(); pintarSecciones();
+      if (S.secc[i]) { const d = b.closest('details'); if (d) d.open = false; const sig = d?.nextElementSibling; if (sig instanceof HTMLDetailsElement) sig.open = true; }
+    }));
+    $('[data-abrir-todo]')?.addEventListener('click', () => $$('details.bl-seccion, details.bl-act').forEach((d) => { d.open = true; }));
+    $('[data-ir-actividades]')?.addEventListener('click', () => {
+      if (!art?.classList.contains('modo-leccion')) { S.modo = true; guardar(); ponerModo(true); }
+      const primera = $$('details.bl-act').find((d) => !d.classList.contains('hecha')) || $('details.bl-act');
+      if (primera instanceof HTMLDetailsElement) primera.open = true;
+      $('#actividades')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Lectura activa: resaltar, subrayar y notas sobre el texto original de cada párrafo.
+    const originales = new Map();
+    $$('.ar-p').forEach((p) => originales.set(p.getAttribute('data-k'), p.textContent || ''));
+    const pintarParrafo = (k) => {
+      const p = $(`.ar-p[data-k="${k}"]`); if (!p) return;
+      const txt = originales.get(k) || '';
+      const marcas = S.anot.filter((a) => String(a.k) === String(k)).sort((a, b) => a.s - b.s);
+      let html = '', pos = 0;
+      for (const m of marcas) {
+        if (m.s < pos) continue;
+        html += esc(txt.slice(pos, m.s));
+        const cls = m.tipo === 'subrayado' ? 'ar-sub' : 'ar-res';
+        html += `<mark class="${cls}${m.nota ? ' ar-con-nota' : ''}" data-id="${m.id}"${m.nota ? ` data-nota="${esc(m.nota)}"` : ''}>${esc(txt.slice(m.s, m.e))}</mark>`;
+        pos = m.e;
+      }
+      html += esc(txt.slice(pos));
+      p.innerHTML = html;
+    };
+    const pintarAnotaciones = () => originales.forEach((_, k) => pintarParrafo(k));
+    const barra = $('[data-ar-barra]');
+    const panelNota = $('[data-ar-nota]');
+    let pendiente = null; let marcaActiva = null;
+    const offset = (p, nodo, desp) => { const r = document.createRange(); r.setStart(p, 0); r.setEnd(nodo, desp); return r.toString().length; };
+    const ocultarBarra = () => { if (barra) barra.hidden = true; if (panelNota) panelNota.hidden = true; pendiente = null; marcaActiva = null; };
+    const mostrarBarra = (quitar) => {
+      if (!barra) return; barra.hidden = false;
+      $$('[data-ar]', barra).forEach((b) => { b.hidden = quitar ? b.getAttribute('data-ar') !== 'quitar' : b.getAttribute('data-ar') === 'quitar'; });
+    };
+    document.addEventListener('selectionchange', () => {
+      if (!art?.classList.contains('modo-leccion')) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.rangeCount) { if (!marcaActiva && !(panelNota && !panelNota.hidden)) ocultarBarra(); return; }
+      const r = sel.getRangeAt(0);
+      const p = (r.startContainer.nodeType === 1 ? r.startContainer : r.startContainer.parentElement)?.closest('.ar-p');
+      const p2 = (r.endContainer.nodeType === 1 ? r.endContainer : r.endContainer.parentElement)?.closest('.ar-p');
+      if (!p || p !== p2) return;
+      const s = offset(p, r.startContainer, r.startOffset); const e2 = offset(p, r.endContainer, r.endOffset);
+      if (e2 - s < 2) return;
+      pendiente = { k: p.getAttribute('data-k'), s, e: e2 }; marcaActiva = null;
+      mostrarBarra(false);
+    });
+    art?.addEventListener('click', (ev) => {
+      const m = ev.target instanceof Element ? ev.target.closest('mark[data-id]') : null;
+      if (!m || !art.classList.contains('modo-leccion')) return;
+      marcaActiva = m.getAttribute('data-id'); pendiente = null; mostrarBarra(true);
+    });
+    const anadir = (tipo, nota) => {
+      if (!pendiente) return;
+      const solapa = S.anot.some((a) => String(a.k) === String(pendiente.k) && !(pendiente.e <= a.s || pendiente.s >= a.e));
+      if (solapa) { ocultarBarra(); return; }
+      S.anot.push({ id: Date.now().toString(36), k: pendiente.k, s: pendiente.s, e: pendiente.e, tipo, nota: nota || '' });
+      guardar(); pintarParrafo(pendiente.k); window.getSelection()?.removeAllRanges(); ocultarBarra(); pintarInforme();
+    };
+    barra?.addEventListener('mousedown', (ev) => ev.preventDefault());
+    $$('[data-ar]', barra || document).forEach((b) => b.addEventListener('click', () => {
+      const t = b.getAttribute('data-ar');
+      if (t === 'quitar' && marcaActiva) { const a = S.anot.find((x) => x.id === marcaActiva); S.anot = S.anot.filter((x) => x.id !== marcaActiva); guardar(); if (a) pintarParrafo(a.k); ocultarBarra(); pintarInforme(); return; }
+      if (t === 'nota') { if (panelNota) { panelNota.hidden = false; $('textarea', panelNota)?.focus(); } return; }
+      anadir(t || 'resaltado');
+    }));
+    $('[data-ar-guardar]')?.addEventListener('click', () => {
+      const t = /** @type {HTMLTextAreaElement|null} */ ($('textarea', panelNota || document));
+      const v = (t?.value || '').trim(); if (t) t.value = '';
+      anadir('resaltado', v);
+    });
+
+    // Actividades.
+    const totalAct = D.actividades.length;
+    const pintarProgreso = () => {
+      const hechas = Object.values(S.act).filter((a) => a && a.hecha).length;
+      const tx = $('[data-progreso-texto]'); if (tx) tx.textContent = `${hechas} de ${totalAct}`;
+      const br = $('[data-progreso-barra]'); if (br instanceof HTMLElement) br.style.width = `${Math.round((hechas / totalAct) * 100)}%`;
+      $$('details.bl-act').forEach((d) => {
+        const i = d.getAttribute('data-act'); const a = S.act[i];
+        d.classList.toggle('hecha', !!(a && a.hecha));
+        const est = $('.bl-estado', d); if (est) est.textContent = a && a.hecha ? (a.total ? `${a.ok} de ${a.total}` : 'Hecha') : 'Completar';
+      });
+    };
+    const restaurarActividad = (d, i) => {
+      const a = S.act[i]; if (!a || !a.resp) return;
+      const tipo = d.getAttribute('data-tipo');
+      if (tipo === 'escribe') { const t = $('[data-escrito]', d); if (t instanceof HTMLTextAreaElement) t.value = a.resp.texto || ''; const r = $(`input[value="${a.resp.auto}"]`, d); if (r instanceof HTMLInputElement) r.checked = true; return; }
+      if (tipo === 'examen') { const s = $('[data-derecho]', d); if (s instanceof HTMLSelectElement) s.value = a.resp.derecho || ''; }
+      (a.resp.items || []).forEach((v, j) => {
+        if (v === null || v === undefined || v === '') return;
+        const sel = tipo === 'huecos' ? $(`select[data-item="${j}"]`, d) : $(`[data-item="${j}"] select`, d);
+        if (sel instanceof HTMLSelectElement) { sel.value = v; return; }
+        const r = $(`[data-item="${j}"] input[value="${v}"]`, d); if (r instanceof HTMLInputElement) r.checked = true;
+      });
+    };
+    $$('details.bl-act').forEach((d) => {
+      const i = Number(d.getAttribute('data-act'));
+      const tipo = d.getAttribute('data-tipo');
+      const salida = $('.bl-resultado', d);
+      restaurarActividad(d, i);
+      $(`[data-comprobar="${i}"]`, d)?.addEventListener('click', () => {
+        const def = D.actividades[i];
+        if (tipo === 'escribe') {
+          const t = $('[data-escrito]', d); const texto = t instanceof HTMLTextAreaElement ? t.value.trim() : '';
+          const auto = /** @type {HTMLInputElement|null} */ ($('input[type=radio]:checked', d))?.value || '';
+          if (texto.length < 20) { if (salida) salida.textContent = 'Escribe al menos una frase.'; return; }
+          if (!auto) { if (salida) salida.textContent = 'Elige cómo crees que te ha quedado.'; return; }
+          S.act[i] = { hecha: true, resp: { texto, auto } }; guardar();
+          if (salida) salida.textContent = 'Guardado en tu informe.';
+          pintarProgreso(); revisarInsignia(); pintarInforme(); return;
+        }
+        if (tipo === 'examen') {
+          const der = $('[data-derecho]', d); const derecho = der instanceof HTMLSelectElement ? der.value : '';
+          const items = def.items.map((_, j) => /** @type {HTMLInputElement|null} */ ($(`[data-item="${j}"] input:checked`, d))?.value || '');
+          if (!derecho) { if (salida) salida.textContent = 'Elige primero un derecho.'; return; }
+          if (items.some((v) => !v)) { if (salida) salida.textContent = 'Responde las cinco preguntas.'; return; }
+          const si = items.filter((v) => v === 'si').length;
+          S.act[i] = { hecha: true, resp: { derecho, items } }; guardar();
+          if (salida) salida.textContent = `${derecho}: ${si} de 5 respuestas afirmativas. ${si >= 4 ? 'Según tu análisis, el derecho funciona más allá del papel.' : si >= 2 ? 'Según tu análisis, funciona solo en parte.' : 'Según tu análisis, se queda en el papel.'}`;
+          pintarProgreso(); revisarInsignia(); pintarInforme(); return;
+        }
+        const items = def.items.map((_, j) => {
+          if (tipo === 'huecos') { const s = $(`select[data-item="${j}"]`, d); return s instanceof HTMLSelectElement ? s.value : ''; }
+          const s = $(`[data-item="${j}"] select`, d); if (s instanceof HTMLSelectElement) return s.value;
+          return /** @type {HTMLInputElement|null} */ ($(`[data-item="${j}"] input:checked`, d))?.value ?? '';
+        });
+        if (items.some((v) => v === '')) { if (salida) salida.textContent = 'Responde todo antes de comprobar.'; return; }
+        let ok = 0;
+        items.forEach((v, j) => {
+          const it = def.items[j];
+          const bien = tipo === 'vf' ? (v === '1') === it.v : tipo === 'opcion' ? Number(v) === it.c : tipo === 'relaciona' ? v === it.b : v === it.r;
+          if (bien) ok++;
+          const caja = tipo === 'huecos' ? $(`select[data-item="${j}"]`, d) : $(`[data-item="${j}"]`, d);
+          caja?.classList.toggle('acierto', bien); caja?.classList.toggle('fallo', !bien);
+          const fb = tipo === 'huecos' ? null : $(`[data-item="${j}"] .bl-fb`, d);
+          if (fb instanceof HTMLElement) { fb.hidden = false; fb.textContent = (bien ? 'Correcto. ' : `No es correcto${tipo === 'relaciona' ? `: ${it.b}` : ''}. `) + (it.e || ''); }
+        });
+        const previo = S.act[i];
+        S.act[i] = { hecha: true, ok: Math.max(ok, previo?.ok || 0), total: items.length, resp: { items } }; guardar();
+        if (salida) salida.textContent = ok === items.length ? `${ok} de ${items.length}. Perfecto.` : `${ok} de ${items.length}. Revisa las correcciones y vuelve a intentarlo si quieres.`;
+        pintarProgreso(); revisarInsignia(); pintarInforme();
+      });
+    });
+
+    // Insignia e informe.
+    const informe = $('[data-informe]');
+    function revisarInsignia() {
+      const hechas = Object.values(S.act).filter((a) => a && a.hecha).length;
+      if (!S.insignia && hechas >= totalAct && typeof S.despues === 'number') { S.insignia = new Date().toISOString(); guardar(); }
+      if (informe) informe.hidden = !S.insignia;
+      const f = $('[data-fecha-insignia]'); if (f && S.insignia) f.textContent = 'Insignia · ' + fecha(S.insignia);
+    }
+    const lineasInforme = () => {
+      const l = [];
+      if (typeof S.antes === 'number' || typeof S.despues === 'number') l.push(`${D.gancho} Antes: ${typeof S.antes === 'number' ? D.opciones[S.antes] : 'sin responder'}. Después: ${typeof S.despues === 'number' ? D.opciones[S.despues] : 'sin responder'}.`);
+      D.actividades.forEach((a, i) => {
+        const r = S.act[i]; if (!r || !r.hecha) return;
+        if (a.tipo === 'escribe') l.push(`${a.titulo}: «${r.resp.texto}» (${r.resp.auto.toLowerCase()}).`);
+        else if (a.tipo === 'examen') l.push(`${a.titulo}: ${r.resp.derecho}, ${r.resp.items.filter((v) => v === 'si').length} de 5 respuestas afirmativas.`);
+        else l.push(`${a.titulo}: ${r.ok} de ${r.total}.`);
+      });
+      const res = S.anot.filter((a) => !a.nota).length; const notas = S.anot.filter((a) => a.nota);
+      if (res) l.push(`${res} ${res === 1 ? 'fragmento marcado' : 'fragmentos marcados'} en la lectura.`);
+      notas.forEach((a) => l.push(`Nota: «${(originales.get(String(a.k)) || '').slice(a.s, a.e)}» → ${a.nota}`));
+      if (S.reflexion) l.push(`Reflexión: ${S.reflexion}`);
+      return l;
+    };
+    function pintarInforme() {
+      const ul = $('[data-resumen]'); if (!ul) return;
+      ul.innerHTML = lineasInforme().map((t) => `<li>${esc(t)}</li>`).join('');
+    }
+    const refl = $('[data-reflexion]');
+    if (refl instanceof HTMLTextAreaElement) { refl.value = S.reflexion || ''; refl.addEventListener('input', () => { S.reflexion = refl.value.trim(); guardar(); pintarInforme(); }); }
+
+    const textoCompartir = () => `${D.gancho}\nAntes respondí «${typeof S.antes === 'number' ? D.opciones[S.antes] : '—'}»; después, «${typeof S.despues === 'number' ? D.opciones[S.despues] : '—'}».\nAcademia cívica de ENTRE TODOS: ${location.origin}${location.pathname}`;
+    $('[data-compartir]')?.addEventListener('click', async () => {
+      const t = textoCompartir();
+      try { if (navigator.share) { await navigator.share({ title: D.gancho, text: t }); return; } } catch (e) { return; }
+      try { await navigator.clipboard.writeText(t); const b = $('[data-compartir]'); if (b) b.textContent = 'Texto copiado'; } catch (e) { /* sin portapapeles */ }
+    });
+    $('[data-imprimir]')?.addEventListener('click', () => window.print());
+    window.addEventListener('beforeprint', () => $$('details').forEach((d) => { d.open = true; }));
+    $('[data-imagen]')?.addEventListener('click', async () => {
+      try { await document.fonts.ready; } catch (e) { /* fuentes del sistema */ }
+      const W = 1080, H = 1350; const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      const x = cv.getContext('2d'); if (!x) return;
+      x.fillStyle = '#0b1d3f'; x.fillRect(0, 0, W, H);
+      x.save(); x.transform(1, 0, -0.577, 1, 0, 0); x.fillStyle = '#d7192d'; x.fillRect(W * 0.95, 0, 60, H); x.restore();
+      x.fillStyle = '#f4c20d'; x.fillRect(80, 150, 96, 10);
+      x.fillStyle = '#fff'; x.font = '900 36px Montserrat, sans-serif'; x.fillText('ENTRE TODOS', 80, 120);
+      x.font = '700 30px "Barlow Condensed", sans-serif'; x.fillText('ACADEMIA CÍVICA', 80, 220);
+      const parrafo = (texto, fuente, alto, y0, ancho) => { x.font = fuente; let linea = '', y = y0; for (const p of texto.split(' ')) { const pr = linea ? linea + ' ' + p : p; if (x.measureText(pr).width > ancho && linea) { x.fillText(linea, 80, y); linea = p; y += alto; } else linea = pr; } x.fillText(linea, 80, y); return y + alto; };
+      let y = parrafo(D.gancho.toUpperCase(), '800 76px "Barlow Condensed", sans-serif', 82, 340, 860);
+      x.fillStyle = '#dfe6f4';
+      if (typeof S.antes === 'number') y = parrafo(`Antes de leer: ${D.opciones[S.antes]}`, '500 40px Barlow, sans-serif', 52, y + 40, 860);
+      if (typeof S.despues === 'number') y = parrafo(`Después de leer: ${D.opciones[S.despues]}`, '500 40px Barlow, sans-serif', 52, y, 860);
+      x.fillStyle = '#f4c20d'; x.font = '700 34px "Barlow Condensed", sans-serif'; x.fillText(('Insignia: ' + D.titulo).toUpperCase().slice(0, 52), 80, H - 230);
+      const nombre = (/** @type {HTMLInputElement|null} */ ($('[data-nombre]'))?.value || '').trim();
+      x.fillStyle = '#fff'; x.font = '500 32px Barlow, sans-serif';
+      if (nombre) x.fillText(nombre, 80, H - 160);
+      x.fillText((S.insignia ? fecha(S.insignia) : fecha(new Date().toISOString())) + ' · entre-todos.org', 80, H - 100);
+      const a = document.createElement('a'); a.download = `entre-todos-${D.leccion}.png`; a.href = cv.toDataURL('image/png'); a.click();
+    });
+
+    $('[data-borrar]')?.addEventListener('click', () => {
+      try { localStorage.removeItem(CLAVE); } catch (e) { /* nada */ }
+      location.reload();
+    });
+
+    pintarSondeo(); pintarSecciones(); pintarAnotaciones(); pintarProgreso(); revisarInsignia(); pintarInforme();
+  </script>
+</Base>

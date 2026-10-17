@@ -1,0 +1,136 @@
+---
+// Página de un bloque de la Academia: sus entradas, el progreso y el certificado al completarlo.
+import Base from '../../../layouts/Base.astro';
+import Banda from '../../../components/Banda.astro';
+import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
+import { cursos } from '../../../data/academia.js';
+import { entradas } from '../../../data/academia-entradas.js';
+
+export function getStaticPaths() {
+  return cursos.map((c) => ({ params: { curso: c.id }, props: { c } }));
+}
+const { c } = Astro.props;
+const disponible = c.estado === 'disponible';
+const lecciones = disponible ? c.lecciones.filter((l) => entradas[l.id]) : [];
+const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecciones.map((l) => l.id) });
+---
+<Base titulo={c.titulo} seccion="academia" ancho descripcion={c.resumen}>
+  <Banda imagen={`/img/fotos/cat-${c.foto}.jpg`} lateral={['Academia cívica', `Bloque ${String(c.num).padStart(2, '0')}`]}>
+    <span class="barra"></span>
+    <p class="antetitulo"><a href="/academia/">Blog académico</a> · Bloque {String(c.num).padStart(2, '0')}</p>
+    <h1>{c.titulo}</h1>
+    <p class="entradilla">{c.resumen}</p>
+    <p class="discreto">{disponible ? `${lecciones.length} entradas · unos ${c.minutos} minutos en total` : 'En preparación'}</p>
+  </Banda>
+
+  <div class="contenedor curso-pagina">
+    {!disponible && (
+      <section class="seccion">
+        <div class="aviso-proximo">
+          <h2>En preparación</h2>
+          <p>Este bloque tendrá el mismo formato que el primero: entradas breves que se leen como un artículo y se convierten en lección, con actividades, insignias y certificado.</p>
+        </div>
+        <h2>Entradas previstas</h2>
+        <ol class="indice-lecciones">{c.plan.map((t) => <li>{t}</li>)}</ol>
+        <div class="acciones"><a class="boton rojo" href="/academia/derechos-humanos/">Empieza por Derechos humanos <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+      </section>
+    )}
+
+    {disponible && (
+      <>
+        <section class="seccion">
+          <div class="bl-act-cab">
+            <h2>Entradas del bloque</h2>
+            <span class="bl-progreso"><span data-bloque-texto>0 de {lecciones.length} insignias</span><span class="bl-barra"><i data-bloque-barra></i></span></span>
+          </div>
+          <ol class="bl-bloque-lista">
+            {lecciones.map((l, i) => (
+              <li data-leccion={l.id}>
+                <a href={`/academia/${c.id}/${l.id}/`}>
+                  <span class="bl-num">{i + 1}</span>
+                  <span class="bl-bloque-txt"><strong>{entradas[l.id].gancho.q}</strong><span>{l.titulo} · {l.minutos} min</span></span>
+                  <span class="bl-estado" data-estado>Pendiente</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tu progreso se guarda solo en este dispositivo. ENTRE TODOS no pide cuenta, correo ni nombre.</p>
+        </section>
+
+        <section class="seccion" id="certificado">
+          <h2>Certificado</h2>
+          <div data-cert-pendiente>
+            <p>Cuando consigas las {lecciones.length} insignias del bloque podrás descargar tu certificado en PDF, con tu nombre y un código propio.</p>
+          </div>
+          <div class="bl-cert-zona" data-cert-listo hidden>
+            <div class="bl-certificado" data-certificado>
+              <p class="bl-cert-marca">ENTRE TODOS · Academia cívica</p>
+              <p class="bl-cert-tipo">Certificado de participación</p>
+              <p class="bl-cert-nombre" data-cert-nombre>Tu nombre</p>
+              <p>ha completado el bloque</p>
+              <p class="bl-cert-curso">{c.titulo}</p>
+              <p>{lecciones.length} entradas con sus actividades · unos {c.minutos} minutos</p>
+              <p class="bl-cert-pie"><span data-cert-fecha></span><span>Código <strong data-cert-codigo></strong></span><span>entre-todos.org</span></p>
+            </div>
+            <div>
+              <label class="bl-campo">Nombre que aparecerá en el certificado<input type="text" maxlength="60" data-cert-input autocomplete="name" /></label>
+              <div class="acciones"><button type="button" class="boton rojo" data-cert-pdf>Descargar certificado en PDF <i class="fi fi-br-download" aria-hidden="true"></i></button></div>
+              <p class="discreto">Se genera en tu dispositivo. Para guardarlo como PDF, elige «Guardar como PDF» en la ventana de impresión.</p>
+            </div>
+          </div>
+        </section>
+
+        <script type="application/json" id="datos-bloque" set:html={datosBloque}></script>
+      </>
+    )}
+    <ApoyoEEUU pieza="material" />
+  </div>
+
+  <script>
+    const nodo = document.getElementById('datos-bloque');
+    if (nodo) {
+      const B = JSON.parse(nodo.textContent || '{}');
+      const leer = (k) => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch (e) { return {}; } };
+      const fecha = (iso) => new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+      let hechas = 0; let ultima = '';
+      B.lecciones.forEach((id) => {
+        const s = leer(`et-blog-${B.id}-${id}`);
+        const li = document.querySelector(`[data-leccion="${id}"]`);
+        const est = li?.querySelector('[data-estado]');
+        if (s.insignia) { hechas++; if (s.insignia > ultima) ultima = s.insignia; li?.classList.add('hecha'); if (est) est.textContent = 'Insignia'; }
+        else if (s.antes !== undefined || s.modo) { if (est) est.textContent = 'Empezada'; }
+      });
+      const t = document.querySelector('[data-bloque-texto]'); if (t) t.textContent = `${hechas} de ${B.lecciones.length} insignias`;
+      const br = document.querySelector('[data-bloque-barra]'); if (br instanceof HTMLElement) br.style.width = `${Math.round((hechas / B.lecciones.length) * 100)}%`;
+      if (hechas === B.lecciones.length && B.lecciones.length) {
+        const claveCert = `et-cert-${B.id}`;
+        const cert = leer(claveCert);
+        if (!cert.codigo) {
+          const az = new Uint8Array(5); crypto.getRandomValues(az);
+          cert.codigo = 'ET-' + B.id.slice(0, 2).toUpperCase() + '-' + [...az].map((v) => v.toString(36).padStart(2, '0')).join('').toUpperCase().slice(0, 8);
+          cert.fecha = ultima;
+          try { localStorage.setItem(claveCert, JSON.stringify(cert)); } catch (e) { /* sin almacenamiento */ }
+        }
+        document.querySelector('[data-cert-pendiente]')?.setAttribute('hidden', '');
+        document.querySelector('[data-cert-listo]')?.removeAttribute('hidden');
+        const cod = document.querySelector('[data-cert-codigo]'); if (cod) cod.textContent = cert.codigo;
+        const fe = document.querySelector('[data-cert-fecha]'); if (fe) fe.textContent = fecha(cert.fecha || new Date().toISOString());
+        const inp = document.querySelector('[data-cert-input]');
+        const nom = document.querySelector('[data-cert-nombre]');
+        if (inp instanceof HTMLInputElement) {
+          inp.value = cert.nombre || '';
+          if (nom && cert.nombre) nom.textContent = cert.nombre;
+          inp.addEventListener('input', () => {
+            cert.nombre = inp.value.trim(); if (nom) nom.textContent = cert.nombre || 'Tu nombre';
+            try { localStorage.setItem(claveCert, JSON.stringify(cert)); } catch (e) { /* nada */ }
+          });
+        }
+        document.querySelector('[data-cert-pdf]')?.addEventListener('click', () => {
+          document.body.classList.add('imprimir-certificado');
+          window.print();
+          setTimeout(() => document.body.classList.remove('imprimir-certificado'), 500);
+        });
+      }
+    }
+  </script>
+</Base>
