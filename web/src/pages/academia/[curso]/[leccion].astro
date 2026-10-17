@@ -218,7 +218,7 @@ const solucion = (a) =>
 
       <section class="bl-informe" data-informe hidden aria-labelledby="inf-tit">
         <div class="bl-insignia" aria-hidden="true">
-          <span class="insignia-marca">ENTRE TODOS · Academia cívica</span>
+          <span class="insignia-marca">ENTRE TODOS · Blog A+</span>
           <span class="insignia-titulo">{l.titulo}</span>
           <span class="insignia-fecha" data-fecha-insignia></span>
         </div>
@@ -532,7 +532,7 @@ const solucion = (a) =>
     const refl = $('[data-reflexion]');
     if (refl instanceof HTMLTextAreaElement) { refl.value = S.reflexion || ''; refl.addEventListener('input', () => { S.reflexion = refl.value.trim(); guardar(); pintarInforme(); }); }
 
-    const textoCompartir = () => `${D.gancho}\nAntes respondí «${typeof S.antes === 'number' ? D.opciones[S.antes] : '—'}»; después, «${typeof S.despues === 'number' ? D.opciones[S.despues] : '—'}».\nAcademia cívica de ENTRE TODOS: ${location.origin}${location.pathname}`;
+    const textoCompartir = () => `${D.gancho}\nAntes respondí «${typeof S.antes === 'number' ? D.opciones[S.antes] : '—'}»; después, «${typeof S.despues === 'number' ? D.opciones[S.despues] : '—'}».\nBlog A+ de ENTRE TODOS: ${location.origin}${location.pathname}`;
     $('[data-compartir]')?.addEventListener('click', async () => {
       const t = textoCompartir();
       try { if (navigator.share) { await navigator.share({ title: D.gancho, text: t }); return; } } catch (e) { return; }

@@ -1,5 +1,5 @@
 ---
-// Página de un bloque de la Academia: sus entradas, el progreso y el certificado al completarlo.
+// Página de un bloque del Blog A+: sus entradas, el progreso y el certificado al completarlo.
 import Base from '../../../layouts/Base.astro';
 import Banda from '../../../components/Banda.astro';
 import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
@@ -17,7 +17,7 @@ const completo = disponible && pendientes.length === 0;
 const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecciones.map((l) => l.id) });
 ---
 <Base titulo={c.titulo} seccion="academia" ancho descripcion={c.resumen}>
-  <Banda imagen={`/img/fotos/cat-${c.foto}.jpg`} lateral={['Academia cívica', `Bloque ${String(c.num).padStart(2, '0')}`]}>
+  <Banda imagen={`/img/fotos/cat-${c.foto}.jpg`} lateral={['Blog A+', `Bloque ${String(c.num).padStart(2, '0')}`]}>
     <span class="barra"></span>
     <p class="antetitulo"><a href="/academia/">Blog A<sup>+</sup></a> · Bloque {String(c.num).padStart(2, '0')}</p>
     <h1>{c.titulo}</h1>
@@ -73,7 +73,7 @@ const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecc
           </div>
           <div class="bl-cert-zona" data-cert-listo hidden>
             <div class="bl-certificado" data-certificado>
-              <p class="bl-cert-marca">ENTRE TODOS · Academia cívica</p>
+              <p class="bl-cert-marca">ENTRE TODOS · Blog A+</p>
               <p class="bl-cert-tipo">Certificado de participación</p>
               <p class="bl-cert-nombre" data-cert-nombre>Tu nombre</p>
               <p>ha completado el bloque</p>

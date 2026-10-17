@@ -1,4 +1,4 @@
-// Academia cívica de ENTRE TODOS.
+// Blog A+ de ENTRE TODOS.
 // Cada curso: comprobación inicial, lecciones breves, comprobación final e insignia.
 // El progreso se guarda solo en el navegador de la persona; nada se envía al servidor.
 // Comparaciones entre democracias sin ranking: cada país se describe con sus fuentes.

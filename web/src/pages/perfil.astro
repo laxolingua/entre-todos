@@ -4,7 +4,7 @@ import Banda from '../components/Banda.astro';
 const insignias = [['Derechos humanos en la práctica', true], ['Libertad de expresión y de prensa', true], ['Justicia y Estado de derecho', false], ['Rendición de cuentas', false], ['Libertad religiosa', false], ['Sociedad civil independiente', false]];
 ---
 <Base titulo="Tu perfil" seccion="perfil" ancho
-  descripcion="Próximamente: un perfil propio en ENTRE TODOS para seguir tus propuestas, tus valoraciones y tu avance en la Academia cívica, con privacidad por defecto.">
+  descripcion="Próximamente: un perfil propio en ENTRE TODOS para seguir tus propuestas, tus valoraciones y tu avance en la Blog A+, con privacidad por defecto.">
   <Banda imagen="/img/fotos/cat-educacion.jpg" lateral={['Seudónimo', 'Privado', 'Tuyo']}>
     <span class="barra"></span>
     <p class="antetitulo">Próximamente</p>
@@ -38,7 +38,7 @@ const insignias = [['Derechos humanos en la práctica', true], ['Libertad de exp
             </ul>
           </div>
           <div class="panel">
-            <h3>Academia cívica</h3>
+            <h3>Blog A+</h3>
             <ul class="insignias">{insignias.map(([t, ok]) => <li class={ok ? 'ganada' : ''}><span class="medalla" aria-hidden="true"></span>{t}</li>)}</ul>
             <p class="discreto">Con seis insignias se obtiene el certificado de formación cívica.</p>
           </div>
