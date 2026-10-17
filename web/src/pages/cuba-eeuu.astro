@@ -1,0 +1,103 @@
+---
+// Cuba y Estados Unidos en 2026: lo que pide Washington junto a lo que ya proponen los cubanos.
+// Solo hechos con fuente y fecha. ENTRE TODOS no adopta ninguna de las posiciones que se recogen.
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+import { ACTUALIZADO, exigencias, seguridad, hammer, hammerFuentes, posiciones, leyes, condiciones } from '../data/cuba-eeuu.js';
+import cronologia from '../data/cuba-eeuu-cronologia.json';
+import datos from '../data/publico.json';
+const prop = Object.fromEntries(datos.propuestas.map((p) => [p.id, p]));
+const dominio = (u) => new URL(u).hostname.replace(/^www\./, '');
+const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).size;
+---
+<Base titulo="Cuba y Estados Unidos en 2026" seccion="otras" ancho
+  descripcion="Qué pide Washington, qué responde La Habana y qué han propuesto ya los cubanos. Hechos de 2026 con fuente y fecha.">
+  <Banda imagen="/img/fotos/morro.jpg" lateral={['2026', 'Con fuente', 'Sin tomar partido']}>
+    <span class="barra"></span>
+    <h1>Cuba y<br />Estados Unidos</h1>
+    <p class="lema">Lo que se pide y lo que ya se ha propuesto</p>
+    <p class="entradilla">En 2026 Washington ha puesto condiciones a cualquier nueva relación con Cuba. Muchas coinciden con lo que organizaciones cubanas llevan años proponiendo. Esta página reúne los hechos con su fuente y su fecha, para que cada persona saque sus conclusiones.</p>
+  </Banda>
+
+  <div class="contenedor ce">
+    <p class="discreto ce-act">Actualizado el {ACTUALIZADO}. Las citas se reproducen como las publicaron las fuentes.</p>
+
+    <section class="seccion" id="coincidencias">
+      <h2 class="vista-titulo">Lo que pide EE. UU. y lo que ya proponen los cubanos</h2>
+      <p class="entradilla">A la izquierda, lo que han pedido públicamente responsables del gobierno de Estados Unidos. A la derecha, las propuestas del banco de ENTRE TODOS que piden lo mismo, reunidas de documentos de organizaciones y autores cubanos.</p>
+      <ol class="ce-lista">
+        {exigencias.map((x) => (
+          <li class="ce-fila">
+            <div class="ce-pide">
+              <h3>{x.pide}</h3>
+              {x.cita && <blockquote>{x.cita}</blockquote>}
+              <p class="ce-quien">{x.quien}. <a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p>
+            </div>
+            <div class="ce-banco">
+              <p class="ce-etq">En el banco · {docs(x.propuestas)} documentos</p>
+              <ul>{x.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a></li>)}</ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <aside class="ce-seguridad">
+        <h3>Exigencias de seguridad</h3>
+        <p>EE. UU. pide también asuntos de seguridad entre los dos Estados. No son derechos de las personas y no forman parte del banco de propuestas.</p>
+        <ul>{seguridad.map((x) => <li>{x.pide.replace(/\.$/, "")}. <span class="discreto">{x.quien}. <a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></span></li>)}</ul>
+      </aside>
+    </section>
+
+    <section class="seccion" id="cronologia">
+      <h2 class="vista-titulo">Cronología de 2026</h2>
+      <ol class="ce-crono">
+        {cronologia.map((x) => (
+          <li>
+            <span class="ce-fecha">{x.fecha}</span>
+            <div>
+              <p>{x.hecho}{x.marca && <span class="etiqueta">{x.marca}</span>}</p>
+              <p class="ce-quien">{x.quien}{x.quien ? '. ' : ''}<a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="seccion" id="hammer">
+      <h2 class="vista-titulo">Mike Hammer en la isla</h2>
+      <p>Jefe de misión de la Embajada de EE. UU. en La Habana. En 2026 ha recorrido varias provincias y ha visitado a organizaciones de la diáspora.</p>
+      <ol class="ce-crono ce-crono-corta">
+        {hammer.map((x) => <li><span class="ce-fecha">{x.fecha}</span><div><p>{x.texto}</p></div></li>)}
+      </ol>
+      <p class="discreto">Fuentes: {hammerFuentes.map((f, i) => <>{i > 0 && ', '}<a href={f} rel="noopener" target="_blank">{dominio(f)}</a></>)}. ENTRE TODOS recibió una subvención de la convocatoria citada el 15 de junio (<a href="/sobre/#financiacion">Financiación</a>).</p>
+    </section>
+
+    <section class="seccion" id="posiciones">
+      <h2 class="vista-titulo">Seis posiciones sobre el embargo</h2>
+      <p>Las principales posturas públicas en 2026, cada una con quién la defiende y su fuente. ENTRE TODOS no adopta ninguna.</p>
+      <ul class="ce-posiciones">
+        {posiciones.map((x, i) => (
+          <li>
+            <span class="num">{i + 1}</span>
+            <h3>{x.titulo}</h3>
+            <p>{x.quien}.</p>
+            {x.cita && <blockquote>{x.cita}</blockquote>}
+            <p class="ce-quien"><a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion" id="contexto">
+      <h2 class="vista-titulo">Contexto en breve</h2>
+      <ol class="ce-crono ce-crono-corta">
+        {leyes.map((x) => <li><span class="ce-fecha">{x.anio}</span><div><p>{x.texto} <a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p></div></li>)}
+      </ol>
+      <p>{condiciones.texto} {condiciones.fuentes.map((f, i) => <>{i > 0 && ' · '}<a href={f} rel="noopener" target="_blank">{dominio(f)}</a></>)}</p>
+    </section>
+
+    <section class="seccion org-nota">
+      <h2>Cómo se elabora esta página</h2>
+      <p>Reúne declaraciones y hechos públicos de 2026, con su fuente y su fecha. Cuando un hecho procede de una sola fuente o solo se ha anunciado, se indica. Las propuestas enlazadas son del banco de ENTRE TODOS; sus autores y documentos se consultan en cada ficha. Las correcciones se pueden enviar a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+    </section>
+  </div>
+</Base>
