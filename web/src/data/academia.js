@@ -134,6 +134,7 @@ export const cursos = [
     lecciones: [
       {
         id: 'sin-permiso-previo',
+        foto: 'educacion', // provisional hasta la foto propia (GPT-1)
         titulo: 'Expresarse sin permiso previo',
         minutos: 6,
         bloques: [

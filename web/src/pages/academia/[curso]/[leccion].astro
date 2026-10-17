@@ -23,7 +23,7 @@ const total = Math.max(c.lecciones.length, c.plan?.length || 0);
 const anterior = n > 0 ? c.lecciones[n - 1] : null;
 const siguiente = c.lecciones[n + 1] || null;
 const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
-const foto = `/img/fotos/cat-${FOTOS[n] || c.foto}.jpg`;
+const foto = `/img/fotos/cat-${l.foto || FOTOS[n] || c.foto}.jpg`;
 
 // La lectura se divide en secciones por sus subtítulos.
 const secciones = [];
