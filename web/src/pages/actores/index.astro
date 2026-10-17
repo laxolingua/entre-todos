@@ -5,6 +5,10 @@ const { grupos } = datos;
 const orgs = datos.organizaciones.filter((o) => o.grupo !== 'extranjeros');
 const extranjeros = datos.organizaciones.filter((o) => o.grupo === 'extranjeros');
 const nombreGrupo = Object.fromEntries(grupos);
+const coaliciones = datos.coaliciones || [];
+const slug = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const coalPorFicha = Object.fromEntries(coaliciones.filter((x) => x.ficha).map((x) => [x.ficha, x]));
+const totalMiembros = (x) => new Set(x.listas.flatMap((l) => l.miembros.map((m) => m.nombre))).size;
 const AMBITO = { isla: 'Isla', exilio: 'Exilio', ambos: 'Isla y exilio' };
 const conPropuestas = orgs.filter((o) => o.actor).length;
 const PAISES = ['Cuba', 'EE. UU.', 'España', 'Alemania', 'Serbia', 'Uruguay', 'Europa'];
@@ -48,7 +52,7 @@ const cuentaPais = Object.fromEntries(PAISES.map((x) => [x, orgs.filter((o) => p
 
   <ul class="org-lista" data-lista>
     {orgs.map((o) => (
-      <li class={`org-ficha${o.actor ? ' con-propuestas' : ''}`} data-grupo={o.grupo} data-ambito={o.ambito} data-pais={paisDe(o).join('|')} data-texto={`${o.nombre} ${o.siglas} ${o.que}`.toLowerCase()}>
+      <li id={`o-${slug(o.nombre)}`} class={`org-ficha${o.actor ? ' con-propuestas' : ''}`} data-grupo={o.grupo} data-ambito={o.ambito} data-pais={paisDe(o).join('|')} data-texto={`${o.nombre} ${o.siglas} ${o.que}`.toLowerCase()}>
         <p class="org-meta">{nombreGrupo[o.grupo]} · {AMBITO[o.ambito]}{o.pais && o.pais !== 'Exilio' && o.pais !== 'Mixto' ? ` · ${o.pais}` : ''}{o.fundada ? ` · desde ${o.fundada}` : ''}</p>
         <h2>{o.nombre}{o.siglas && !o.nombre.includes(o.siglas) ? <span class="org-siglas"> ({o.siglas})</span> : null}</h2>
         {o.estado && <span class="etiqueta">{o.estado}</span>}
@@ -57,11 +61,34 @@ const cuentaPais = Object.fromEntries(PAISES.map((x) => [x, orgs.filter((o) => p
           {o.web && <a href={o.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
           {o.actor && <a href={`/actores/${o.actor}/`}>Sus propuestas en el banco <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>}
           {o.diversidad && <a href={`/diversidad-politica/${o.diversidad}/`}>Su ficha en Diversidad política <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>}
+          {coalPorFicha[o.nombre] && <a href={`#coal-${slug(coalPorFicha[o.nombre].nombre)}`} data-abre-coal>{coalPorFicha[o.nombre].listas.length ? `Quién la integra (${totalMiembros(coalPorFicha[o.nombre])})` : 'Quién la integra'} <i class="fi fi-br-arrow-down" aria-hidden="true"></i></a>}
         </p>
       </li>
     ))}
   </ul>
   <p class="org-vacio" data-vacio hidden>No hay organizaciones con ese filtro.</p>
+
+
+  {coaliciones.length > 0 && (
+    <section class="org-coaliciones" id="coaliciones">
+      <h2>Coaliciones y quién las integra</h2>
+      <p class="discreto">Solo organizaciones, según las listas que publican las propias coaliciones o la prensa que las cita, con su fecha. Las listas cambian con el tiempo.</p>
+      {coaliciones.map((x) => (
+        <details class="org-coal" id={`coal-${slug(x.nombre)}`}>
+          <summary><strong>{x.nombre}</strong><span>{x.listas.length ? `${totalMiembros(x)} organizaciones` : 'Sin lista pública'}</span></summary>
+          <div class="org-coal-cuerpo">
+            {x.nota && <p>{x.nota}</p>}
+            {x.listas.map((l) => (
+              <div class="org-coal-lista">
+                <p class="org-meta">Lista de {l.fecha} · {l.miembros.length} · Fuente: {l.fuentes.map((f, i) => <>{i > 0 && ', '}<a href={f} rel="noopener" target="_blank">{new URL(f).hostname.replace('www.', '')}</a></>)}</p>
+                <ul>{l.miembros.map((m) => <li>{m.ficha ? <a href={`#o-${slug(m.ficha)}`} data-ir-ficha>{m.nombre}</a> : m.nombre}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </section>
+  )}
 
   {extranjeros.length > 0 && (
     <section class="org-nota">
@@ -110,5 +137,14 @@ const cuentaPais = Object.fromEntries(PAISES.map((x) => [x, orgs.filter((o) => p
     q?.addEventListener('input', aplicar);
     amb?.addEventListener('change', aplicar);
     pais?.addEventListener('change', aplicar);
+    // Al saltar a una ficha o a una coalición, se quitan los filtros para que se vea.
+    document.querySelectorAll('[data-ir-ficha]').forEach((a) => a.addEventListener('click', () => {
+      grupo = ''; chips.forEach((x) => x.classList.toggle('activo', !x.dataset.grupo));
+      if (q) q.value = ''; if (amb) amb.value = ''; if (pais) pais.value = ''; aplicar();
+    }));
+    document.querySelectorAll('[data-abre-coal]').forEach((a) => a.addEventListener('click', () => {
+      const d = document.querySelector(a.getAttribute('href') || '');
+      if (d instanceof HTMLDetailsElement) d.open = true;
+    }));
   </script>
 </Base>

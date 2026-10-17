@@ -1179,3 +1179,14 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
   body.imprimir-certificado .bl-certificado, body.imprimir-certificado .bl-certificado * { visibility: visible; }
   body.imprimir-certificado .bl-certificado { position: absolute; left: 0; top: 0; width: 100%; }
 }
+/* Coaliciones en Actores cívicos */
+.org-coaliciones { margin: 34px 0; }
+.org-coal { background: var(--superficie); border: 1px solid var(--borde); margin: 0 0 8px; }
+.org-coal > summary { cursor: pointer; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 12px 16px; color: var(--marino); }
+.org-coal > summary span { color: var(--texto-3); font-size: .9rem; }
+.org-coal-cuerpo { padding: 0 16px 14px; }
+.org-coal-lista ul { columns: 2 260px; column-gap: 24px; padding-left: 1.1em; margin: 6px 0 14px; }
+.org-coal-lista li { break-inside: avoid; margin: 0 0 4px; }
+.org-ficha:target { outline: 3px solid var(--amarillo); }
+.org-coal:target > summary { background: var(--acento-suave); }
+.subnav { overflow: hidden; }

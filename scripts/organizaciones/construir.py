@@ -20,7 +20,8 @@ GRUPOS = [
 def grupo(cat):
     c = cat.lower()
     if c.startswith('medios extranjeros'): return 'extranjeros'
-    if c.startswith('diáspora'): return 'diaspora'
+    if c.startswith('diáspora') or '(diáspora' in c: return 'diaspora'
+    if c.startswith(('sociedad civil', 'sindicato')): return 'tematicas'
     if c.startswith('periodismo'): return 'prensa'
     if c.startswith(('ddhh', 'libertad de prensa')): return 'ddhh'
     if c.startswith(('think tank', 'centro de estudios')): return 'estudios'
@@ -91,7 +92,7 @@ ACTOR = {
   'Consejo para la Transición Democrática en Cuba': 'ctdc', 'Centro de Estudios Convivencia': 'centro-convivencia',
   'Cuba Próxima': 'cuba-proxima', 'Cuba Siglo 21': 'cuba-siglo-21', 'Cuba Posible': 'cuba-posible', 'VOZ | Cuba': 'voz-cuba',
 }
-PERSONAS = re.compile(r'(fundad[oa] por|Fundador|Director|Figura|Lider|Líder|Coordinador|Dirige)', re.I)
+PERSONAS = re.compile(r'(fundad[oa] por|(?-i:\bFundador\b)|Director|Figura|Lider|Líder|Coordinador|Dirige)', re.I)
 salida = []
 for f in filas:
     n = f['Nombre'].strip()
@@ -155,8 +156,73 @@ _o('Citykleta', 'ambiente', 'Comunidad ciclista de La Habana que promueve la mov
 _o('Bicicletear La Habana', 'ambiente', 'Iniciativa ciudadana que promueve la bicicleta como transporte sostenible, con bicicletadas mensuales.', '', '2015')
 _o('Guardabosques', 'ambiente', 'Organización ambiental independiente nacida en La Habana: denuncia de daños ecológicos urbanos, reforestación, limpieza de ríos y boletín nacional. En 2019 pidió al gobierno firmar el Acuerdo de Escazú. Su actividad en la isla terminó ese año, con el exilio de sus organizadores.', '', '2007', estado='Histórica')
 _o('Canal Guardabosques', 'ambiente', 'Medio ambiental digital desde el exilio, continuador del boletín Guardabosques: ciencia, imagen y denuncia ambiental sobre Cuba.', 'https://canalguardabosques.com/', '2019', ambito='exilio', pais='')
-out = {'grupos': GRUPOS, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)'}
+
+# Coaliciones y organizaciones que las integran (pestaña «Coaliciones» del Dossier, encargo 017).
+def norm(t):
+    t = re.sub(r'\s*\(.*?\)', '', t).lower().strip()
+    return re.sub(r'[^a-z0-9áéíóúñü ]', '', t)
+por_norm = {norm(o['nombre']): o['nombre'] for o in salida}
+for o in salida:
+    if o['siglas']: por_norm.setdefault(o['siglas'].lower(), o['nombre'])
+def buscar(nombre):
+    n = norm(nombre)
+    if n in por_norm: return por_norm[n]
+    m = re.search(r'\(([^)]+)\)', nombre)
+    if m and m.group(1).lower() in por_norm: return por_norm[m.group(1).lower()]
+    for k, v in por_norm.items():
+        if len(n) > 6 and (k.startswith(n) or n.startswith(k)) and len(k) > 6: return v
+    return ''
+NOTA_COAL = {
+  'Concertación Democrática Cubana D Frente': 'Hay dos listas publicadas, de mayo de 2023 y diciembre de 2025, y no coinciden del todo. También la integran personas a título individual, que no se muestran.',
+  'Pasos de Cambio': 'Lista de firmantes publicada en su web (octubre de 2024) y organizaciones que aparecen en comunicados posteriores. Según El País (abril de 2026) reúne unos 50 grupos; la lista pública es menor.',
+  'Asamblea de la Resistencia Cubana (ARC)': 'Se define como una coalición de 41 organizaciones, pero no publica sus nombres.',
+  'Acuerdo de Liberación (ARC + Pasos de Cambio)': 'Firmado en Miami en marzo de 2026 por la ARC y Pasos de Cambio en nombre de más de 50 organizaciones. No hay lista completa: se muestran las nombradas en la prensa.',
+  'Consejo para la Transición Democrática en Cuba (CTDC)': 'En 2021 reunía a más de treinta organizaciones. Se muestran las citadas en la prensa; no hay lista completa pública.',
+  'Plataforma Democrática Cubana': 'Fundada en 1990 por tres organizaciones. No hay lista pública de sus miembros actuales.',
+  'Foro Acción por la Amnistía': 'Constituido el 5 de febrero de 2026 por más de 50 organizaciones y personas. Se muestran las organizaciones fundadoras citadas en la prensa.',
+  'Proyecto Cuba (exilio europeo)': 'Convocatoria de organizaciones del exilio en Europa (marzo de 2026) que no publica sus nombres.',
+  'Concilio Cubano (histórica, 1995)': 'Reunió a 130 organizaciones en 1995, sin lista pública de nombres. Fue desarticulado por la represión en 1996.',
+  'Acuerdo por la Democracia en Cuba (histórica, 1998)': 'Lista acumulativa de firmantes publicada por la Asamblea de la Resistencia Cubana, con ratificaciones hasta 2018.',
+}
+MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+ABR = {'ene':1,'feb':2,'mar':3,'abr':4,'may':5,'jun':6,'jul':7,'ago':8,'sep':9,'oct':10,'nov':11,'dic':12}
+def fecha_es(t):
+    m = re.match(r'(\d{4})-(\d{2})-(\d{2})', t)
+    if m: return f"{int(m.group(3))} de {MESES[int(m.group(2))-1]} de {m.group(1)}"
+    m = re.match(r'(\d{1,2})-([a-z]{3})-(\d{4})', t.lower())
+    if m and m.group(2) in ABR: return f"{int(m.group(1))} de {MESES[ABR[m.group(2)]-1]} de {m.group(3)}"
+    m = re.match(r'02/03-mar-(\d{4})', t)
+    if m: return f"2 y 3 de marzo de {m.group(1)}"
+    if re.match(r'^\d{4}\.0$', t): return t[:4]
+    if t == '2024-2025': return 'comunicados de 2024 y 2025'
+    return t
+coal_src = src.split('## Sheet name: Coaliciones')[1].split('## Sheet name:')[0].strip() if '## Sheet name: Coaliciones' in src else ''
+coaliciones = []
+if coal_src:
+    vistas = {}
+    for f in csv.DictReader(io.StringIO(coal_src)):
+        c = f['Coalición'].strip(); m = f['Organización miembro'].strip()
+        if not c: continue
+        if c not in vistas:
+            vistas[c] = {'nombre': re.sub(r'\s*\((histórica, \d+|exilio europeo|ARC \+ Pasos de Cambio)\)', '', c).strip(), 'ficha': buscar(c), 'nota': NOTA_COAL.get(c, ''), 'listas': []}
+            coaliciones.append(vistas[c])
+        if m.startswith('(sin lista'):
+            continue
+        fuente = f['Fuente de la lista de miembros (enlace)'].strip(); fecha = fecha_es(f['Fecha de esa lista'].strip())
+        lista = next((l for l in vistas[c]['listas'] if l['fecha'] == fecha), None)
+        if not lista:
+            lista = {'fecha': fecha, 'fuentes': [], 'miembros': []}; vistas[c]['listas'].append(lista)
+        if fuente and fuente not in lista['fuentes']: lista['fuentes'].append(fuente)
+        m = re.sub(r'\s*-\s*coalición firmante$', '', m)
+        if m not in [x['nombre'] for x in lista['miembros']]:
+            lista['miembros'].append({'nombre': m, 'ficha': buscar(m)})
+    for c in coaliciones:
+        if c['ficha']:
+            for o in salida:
+                if o['nombre'] == c['ficha']: o['coalicion'] = True
+
+out = {'grupos': GRUPOS, 'coaliciones': coaliciones, 'organizaciones': salida, 'fuente': 'Dossier de organizaciones independientes de Cuba (v4, 17/10/2026)'}
 destino = os.path.join(os.path.dirname(__file__), '../../web/src/data/organizaciones.json')
 json.dump(out, open(destino, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 from collections import Counter
-print(len(salida), Counter(o['grupo'] for o in salida), sum(1 for o in salida if o['web']), 'con web', sum(1 for o in salida if o['actor']), 'con propuestas')
+print(len(coaliciones), 'coaliciones', sum(len(m['miembros']) for c in coaliciones for m in c['listas']), 'miembros', sum(1 for c in coaliciones for l in c['listas'] for m in l['miembros'] if m['ficha']), 'enlazados');print(len(salida), Counter(o['grupo'] for o in salida), sum(1 for o in salida if o['web']), 'con web', sum(1 for o in salida if o['actor']), 'con propuestas')

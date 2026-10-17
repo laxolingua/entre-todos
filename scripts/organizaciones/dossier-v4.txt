@@ -1,0 +1,381 @@
+## Sheet name: LEER-PRIMERO
+DOSSIER - ORGANIZACIONES INDEPENDIENTES DE CUBA (v1),
+Autor,"IN (Instinct), 16 de octubre de 2026"
+Qué responde,"Petición de Mitch (iMessage, 16-oct-2026): dossier de todas las organizaciones independientes que hay en Cuba: orgs que producen servicios (Cubalex, Justicia 11J...), periodismo independiente, coaliciones, y orgs por países."
+Resumen (3 líneas),"v3 con 78 organizaciones cubanas (y 1 nota de medio extranjero): DDHH y servicios jurídicos, periodismo independiente, coaliciones y plataformas, partidos y movimientos, think tanks, sociedad civil temática y diáspora por país (EEUU, España, Alemania, Europa). Cada fila lleva categoría, ámbito, país base, qué hace, web oficial y estado de verificación. Cruza con el Banco de Propuestas de ENTRE TODOS. Lo que falta va a Por-investigar."
+Carpeta,001- AI AGENTS COWORK > 1-GOBERNANZA-SOLUCIONARIA > 1.2-ENTRE-TODOS > DESARROLLO. Alimenta el bloque «registro de actores» del grant de la embajada.
+Estado,"v3 (16-oct-2026), trabajo por fases. Nada publicado a entre-todos.org."
+Método,"Solo información pública con fuente. «Verificada 16-oct-2026» = web oficial confirmada en vivo ese día. «Doc interno» = compilaciones internas de E/T (organizaciones-cuba-links, abril 2026; registros del peine del Banco, 13-oct-2026; inventario v1, marzo 2026). Campo vacío = dato aún no verificado, no adivinado."
+Reglas,Sin datos bancarios. Sin datos personales de personas en Cuba (regla del Espacio Común): solo nombres de organizaciones y sus figuras públicas ya conocidas. Nada de contacto con las organizaciones.
+Fuentes internas,"organizaciones-cuba-links.md (abril 2026, Drive); FASE1/FASE2/FASE3_REGISTRO_CITAS_INSTINCT_2026-10-13 (DESARROLLO/1-BANCO-PROPUESTAS); inventario_orgs_cuba_v1.csv (marzo 2026); indice-propuestas.json publicado en entre-todos.org."
+Decisiones de Mitch (16-oct-2026),"Solo organizaciones de cubanos y por cubanos. Fuera: HRW, Amnistía, Freedom House, People in Need, Civil Rights Defenders, CADAL y similares. Radio/TV Martí entra solo como nota en la categoría «Medios extranjeros sobre Cuba»."
+
+## Sheet name: Dossier
+Nombre,Siglas,Categoría,Ámbito,País base,Fundada,Qué hace,Web oficial,En el Banco E/T,Verificación,Fuente,Notas
+Cubalex (Centro de Información Legal Cubalex),Cubalex,DDHH y servicios jurídicos,Isla y exilio,EEUU (equipo dentro y fuera de Cuba),,"Defensa legal gratuita, documentación de violaciones de DDHH, asistencia jurídica a activistas y personas presas políticas",https://cubalex.org/,No,Verificada 16-oct-2026,https://cubalex.org/quienes-somos/,
+Justicia 11J,J11J,DDHH y servicios jurídicos,Exilio (documenta la isla),,,"Registro de la represión política en Cuba: personas presas políticas, manifestantes del 11J, apoyo a familias",https://justicia11j.org/,No,Verificada 16-oct-2026,https://justicia11j.org/quienes-somos/,
+Observatorio Cubano de Derechos Humanos,OCDH,DDHH y servicios jurídicos,Exilio,España (Madrid),2009.0,Informes periódicos de violaciones de DDHH en Cuba; integrado sobre todo por ex presos de conciencia,https://observacuba.org/,No,Verificada 16-oct-2026,https://observacuba.org/sobre-nosotros/,
+Prisoners Defenders,PD,DDHH y servicios jurídicos,Exilio,España (por confirmar),,"Defensa de personas presas políticas cubanas: listas, denuncia ante organismos internacionales",https://www.prisonersdefenders.org/,No,Verificada 16-oct-2026,https://www.prisonersdefenders.org/2020/03/13/declaracion-institucional/,
+Cuba Archive (Archivo Cuba),,DDHH y memoria,Exilio,EEUU,,Base de datos de muertes y desapariciones atribuidas al régimen; documentos y análisis de transición,https://cubaarchive.org/,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md (abril 2026),Directora: María Werlau
+Damas de Blanco,,DDHH y servicios jurídicos,Isla,Cuba,2003.0,Apoyo a personas presas políticas y sus familias; marchas dominicales,https://damasdeblanco.com/,Mencionada en declaración conjunta citada en el Banco,Verificada 16-oct-2026,https://damasdeblanco.com/,
+Observatorio de Derechos Culturales,,DDHH y derechos culturales,Isla y exilio,,,Monitoreo y defensa de los derechos culturales en Cuba,https://www.4metrica.org/observatorio-de-derechos-culturales,No,Verificada 16-oct-2026,https://www.4metrica.org/observatorio-de-derechos-culturales,Mitch lo mencionó como «Derechos Académicos y Culturales» (16-oct): probablemente se refiere a este y al OLA
+Observatorio de Libertad Académica,OLA-Cuba,DDHH y libertad académica,Isla y exilio,,,Monitoreo de la libertad académica y de cátedra en Cuba,https://www.olacademica.org/,No,Verificada 16-oct-2026,https://www.olacademica.org/,
+14ymedio,,Periodismo independiente,Isla y exilio,Cuba (edición desde el exilio por bloqueo),,Diario digital de noticias e investigación; fundado por Yoani Sánchez,https://www.14ymedio.com/,No,Verificada 16-oct-2026,https://www.14ymedio.com/,
+elTOQUE,ET,Periodismo independiente y servicios,Isla y exilio,Mixto (entidad legal: Más Voces Foundation),,"Medio multimedia; servicios: tasa de cambio, elTOQUE Jurídico, verificación",https://eltoque.com/,No,Verificada 16-oct-2026,https://eltoque.com/,Socio de ENTRE TODOS. Director: José Jasán Nieves
+Árbol Invertido,,Periodismo independiente,Exilio,Exilio (por confirmar),,"Medio informativo independiente cubano: análisis, sociedad, cultura",https://www.arbolinvertido.com/,No,Verificada 16-oct-2026,https://arbolinvertido.com/quienes-somos,
+Periodismo de Barrio,,Periodismo independiente,Isla,Cuba (La Habana),,Revista de periodismo narrativo y comunitario; formación de periodistas,https://periodismodebarrio.org/,No,Verificada 16-oct-2026,https://periodismodebarrio.org/,
+Diario de Cuba,DDC (medio),Periodismo independiente,Exilio,España,,Diario digital de noticias y opinión,https://diariodecuba.com/,No,Verificada 16-oct-2026,https://diariodecuba.com/,Ojo: siglas DDC también las usa el Directorio Democrático Cubano
+CiberCuba,,Periodismo independiente,Exilio,España,,Portal de noticias de alto tráfico,https://www.cibercuba.com/,No,Verificada 16-oct-2026,https://www.cibercuba.com/,
+ADN Cuba,,Periodismo independiente,Exilio,EEUU,,Medio digital de noticias,https://adncuba.com/,No,Verificada 16-oct-2026,https://adncuba.com/,
+Cubanet,,Periodismo independiente,Exilio,EEUU,,Diario digital; red de corresponsales dentro de Cuba,https://www.cubanet.org/,No,Verificada 16-oct-2026,https://www.cubanet.org/sobre-cubanet/,
+El Estornudo,,Periodismo independiente,Exilio,Exilio (varios países),,Revista de periodismo narrativo,https://revistaelestornudo.com/,No,Verificada 16-oct-2026,https://revistaelestornudo.com/,
+La Hora de Cuba,,Periodismo independiente,Isla,Cuba (Camagüey),,Revista digital; miembro de la Sociedad Interamericana de Prensa,https://www.lahoradecuba.com/,No,Verificada 16-oct-2026,https://www.lahoradecuba.com/,
+Tremenda Nota,,Periodismo independiente (LGBTIQ+),Exilio,Exilio,,Revista sobre derechos LGBTIQ+ y minorías,https://tremendanota.com/,No,Verificación parcial 16-oct-2026,https://t.me/TremendaNota_Cuba,Web caída o bloqueada; accesible por espejo de Qurium y Telegram
+Hypermedia Magazine,,Periodismo independiente,Exilio,Exilio,,"Revista digital de cultura, sociedad y política",https://hypermediamagazine.com/,No,Verificada 16-oct-2026,https://hypermediamagazine.com/,
+Concertación Democrática Cubana D Frente,D Frente,Coalición / plataforma,Isla y exilio,,,Articulación opositora; propuesta de nueva Ley Electoral y marco constitucional provisional,,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md; arbolinvertido.com (propuesta ley electoral),"Figuras: Roberto Veiga, Manuel Cuesta Morúa"
+Pasos de Cambio,,Coalición / plataforma,Exilio,EEUU,2025.0,"Coalición del exilio; firmó el Acuerdo de Liberación con la ARC (2-mar-2026, 50+ organizaciones)",https://www.pasosdecambio.com,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md; pasosdecambio.com,"Figura: Rosa María Payá. 16-oct-2026: Payá anuncia (Madrid, Premio Libertad FAES) que el 3-nov-2026, en la Cumbre Iberoamericana de Madrid, se presentarán el equipo y el plan de transición (Acuerdo de Liberación, ARC + Pasos de Cambio). Anunciado, no ocurrido; fuente = su propia declaración (Martí Noticias, red del gobierno de EE. UU.; Infobae, mismo texto de agencia); sin confirmación independiente."
+Acuerdo por la Democracia en Cuba,,Coalición / documento fundacional,Exilio y disidencia interna,,1998.0,"Documento fundacional del exilio democrático; base de muchas propuestas posteriores (Constitución de 1940, gobierno provisional)",,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md (texto completo enlazado),
+Plataforma Democrática Cubana,,Coalición / plataforma,Isla y exilio,,,Plataforma de grupos opositores; autoría en varias citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Concilio Cubano,,Coalición (histórica),Isla,Cuba,1995.0,Primera gran coalición de la oposición interna; desarticulada por la represión en 1996,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),Histórica
+Archipiélago,,Plataforma cívica,Isla y exilio,,2021.0,Plataforma que convocó la Marcha Cívica por el Cambio (15N-2021),,No,Doc externo (Wikipedia),es.wikipedia.org/wiki/Archipiélago_(movimiento_social_cubano),Figura: Yunior García Aguilera
+Movimiento San Isidro,MSI,Colectivo cívico,Isla,Cuba (La Habana),2018.0,Colectivo de artistas y activistas; protestas por la libertad de expresión,,No,Doc externo (Wikipedia),es.wikipedia.org/wiki/Movimiento_San_Isidro,
+Movimiento 27N,27N,Colectivo cívico,Isla,Cuba,2020.0,Artistas e intelectuales reunidos tras el plantón del 27 de noviembre de 2020,,No,Verificación parcial 16-oct-2026,rialta.org/27n/; Princeton 27N web archive (library.princeton.edu),Sin web propia localizada; hemeroteca web archivada por Princeton
+Cuba Humanista,,Plataforma cívico-política,Isla y exilio,,2021.0,Plataforma por la transición pacífica; participa en el Diálogo Nacional,https://cubahumanista.org,No,Doc interno E/T,organizaciones-cuba-links.md,Coordinador: Yaxys Cires Dib
+Foro Acción por la Amnistía,,Alianza (2026),Isla y exilio,,2026.0,Alianza de ~50 grupos y familiares de presos: anteproyecto de Ley de Amnistía y Despenalización del Disenso,,No,Doc interno E/T,organizaciones-cuba-links.md (martinoticias.com),Coordinado por el CTDC
+Movimiento Cristiano Liberación,MCL,Partido / movimiento,Isla y exilio,,,"Autor del Proyecto Varela (2002, referéndum por el Art. 88) y del Programa Transitorio",https://mcliberacion.org,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,Fundador: Oswaldo Payá (†2012); continúa Eduardo Cardet
+Cuba Decide,,Movimiento,Isla y exilio,,2015.0,Campaña por un plebiscito vinculante para cambiar el sistema,https://cubadecide.org,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,Lideresa: Rosa María Payá
+Unión Patriótica de Cuba,UNPACU,Movimiento,Isla,Cuba (Santiago de Cuba),,La mayor organización opositora dentro de la isla; programa propio incorporado al Banco en fase 1 del peine,,"Sí (fase 1 del peine, 13-oct-2026)",Doc interno E/T,FASE1_REGISTRO_CITAS_INSTINCT_2026-10-13.md,Fundador: José Daniel Ferrer
+Partido Republicano de Cuba,PRC,Partido,Exilio,EEUU,,Partido del exilio histórico; 24 propuestas como fuentes en fichas del Banco,,Sí (publicado 13-oct-2026),Doc interno E/T,ENTREGA-INSTINCT-PRC-2026-10-13.md; entre-todos.org/actores/partido-republicano-cuba/,
+Partido Cuba Primero,PCP,Partido,Exilio,,,Partido del exilio; incorporado en fase 1 del peine,,Sí (fase 1 del peine),Doc interno E/T,FASE1_REGISTRO_CITAS_INSTINCT_2026-10-13.md,
+Partido Nacionalista Cubano,PNC,Partido,Exilio,,,Anteproyecto para el Período de Transición (base: Constitución de 1940); manifiesto propio,https://nacionalistacubano.com,Sí (fase 1 del peine),Doc interno E/T,organizaciones-cuba-links.md; FASE1,
+Partido Nacionalista Democrático de Cuba,PND,Partido,Exilio,,,Incorporado en fase 1 del peine,,Sí (fase 1 del peine),Doc interno E/T,FASE1_REGISTRO_CITAS_INSTINCT_2026-10-13.md,
+Proyecto Demócrata Cubano,PRODECU,Partido / proyecto,Isla y exilio,,,Incorporado en fase 1 del peine,,Sí (fase 1 del peine),Doc interno E/T,FASE1_REGISTRO_CITAS_INSTINCT_2026-10-13.md,
+Cuba Transformación,CTR,Movimiento,Exilio,,,Programa económico e institucional (36 citas); incorporado en fase 2 del peine,,Sí (fase 2 del peine),Doc interno E/T,FASE2_REGISTRO_CITAS_INSTINCT_2026-10-13.md,
+Partido Demócrata Cristiano de Cuba,PDC,Partido,Isla y exilio,,,Partido democristiano; autoría en citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Cuba Independiente y Democrática,CID,Movimiento,Isla y exilio,,2011.0,Proyecto constitucional articulado completo,https://cubacid.com,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,
+Asamblea de la Resistencia Cubana,ARC,Coalición de resistencia,Exilio,EEUU,,"Plataforma de organizaciones del exilio; Plan de Salvación Nacional (sin texto oficial publicado, en hold en el Banco)",,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,Figura: Orlando Gutiérrez-Boronat
+Directorio Democrático Cubano,DDC,Organización cívica,Exilio,EEUU (Miami),,"Cabildeo internacional, apoyo a activistas en la isla, ayuda humanitaria",https://www.directorio.org/,Sí (autoría en citas publicadas),Verificada 16-oct-2026,https://www.directorio.org/,Ojo: siglas DDC también las usa Diario de Cuba
+Comisión para la Ayuda a una Cuba Libre,CAFC,Organización cívica,Exilio,EEUU,,Apoyo a la sociedad civil; autoría en citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Brigada 2506 (Asociación de Veteranos de Bahía de Cochinos),,Organización histórica,Exilio,EEUU,,Asociación de veteranos; autoría en citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Grupo de Trabajo de la Disidencia Interna,GTDI,Grupo opositor,Isla,Cuba,,Grupo de la disidencia interna; autoría en citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Movimiento C40,C40,Movimiento,Isla y exilio,,,Corriente por la restauración de la Constitución de 1940,https://movimientoc40.com,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,
+Frente Constitucionalista Cubano,FCC,Movimiento,Isla y exilio,,,Constitucionalismo; autoría en citas del Banco,,Sí (autoría en citas publicadas),Doc interno E/T,indice-propuestas.json (entre-todos.org),
+Movimiento Somos+,Somos+,Movimiento,Isla,Cuba,,Movimiento político progresista de la isla,https://www.somosmascuba.com/,Mención en declaración conjunta citada en el Banco,Verificada 16-oct-2026,https://www.somosmascuba.com/,
+Proyecto Emilia (Unión por Cuba Libre),,Movimiento,Isla y exilio,,2013.0,Declara ilegítima la Constitución de 1976/2019; exige Asamblea Constituyente,http://www.cubalibreconemilia.org,No,Doc interno E/T,organizaciones-cuba-links.md,Líder: Dr. Oscar Elías Biscet
+Consejo para la Transición Democrática en Cuba,CTDC,Plataforma,Isla y exilio,,2020.0,«Ruta Constitucional»: reforma por el Art. 227 de la Constitución de 2019; iniciativa Cuba11J,http://www.webstc.org,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,Figura central: Manuel Cuesta Morúa
+Partido del Pueblo,PDP,Partido,Isla y exilio,,,Partido de José Daniel Ferrer; programa del sitio archivado 2020-21,,"Preparado en fase 3 del peine, pendiente del OK de Mitch",Doc interno E/T,FASE3_REGISTRO_CITAS_INSTINCT_2026-10-13.md,Caveat: partidodelpueblo.com ya solo redirige a un formulario
+Partido Liberal Clásico Cubano,,Partido,Exilio,España,2026.0,Partido de Amelia Calzadilla (candidata 19-may-2026),,"Preparado en fase 3 del peine, pendiente del OK de Mitch",Doc interno E/T,FASE3_REGISTRO_CITAS_INSTINCT_2026-10-13.md,Sin sigla PLC por colisión con el Partido Libertario
+Partido Libertario de Cuba,,Partido,Exilio,,,"«Plan de la Libertad»; 3 fichas únicas pendientes de decisión de Mitch (armas, secesión provincial, justicia privada competitiva)",,"Preparado en fase 3 del peine, pendiente del OK de Mitch",Doc interno E/T,FASE3_REGISTRO_CITAS_INSTINCT_2026-10-13.md,Sin sigla PLC por colisión con el Liberal Clásico
+Centro de Estudios Convivencia,CEC,Think tank / centro de estudios,Isla y exilio,Cuba (Pinar del Río) y exilio,,"Primer think tank plural dentro y fuera de Cuba; «Itinerario de Pensamiento y Propuestas» (XIX informes), revista Convivencia",https://centroconvivencia.org,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,Director: Dagoberto Valdés Hernández
+Cuba Próxima,,Centro de estudios / plataforma,Exilio,Exilio,2022.0,El cuerpo documental constitucional más completo de la oposición; «La Cuba que queremos»,https://cubaproxima.org,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,"Figuras: Roberto Veiga González, Julio Antonio Fernández Estrada. Continúa el legado de Cuba Posible"
+Cuba Siglo 21,,Think tank,Exilio,España,,Análisis económico y jurídico (Emilio Morales); incorporado en fase 2 del peine,https://cubasiglo21.com/,Sí (fase 2 del peine),Verificada 16-oct-2026,https://cubasiglo21.com/quienes-somos/,
+Cuba Posible,,Think tank (histórico),Isla,Cuba,2013.0,Proyecto de debate reformista dentro de la isla; clausurado en 2019; su legado lo retoma Cuba Próxima,,Sí (autoría en citas publicadas),Doc interno E/T,organizaciones-cuba-links.md,"Histórico (2013-2019). Fundadores: Roberto Veiga, Lenier González"
+VOZ | Cuba,VOZ,Sociedad civil temática (animales y medio ambiente),Isla y exilio,,,Plataforma por el bienestar animal y el medio ambiente; programa interno incorporado al Banco (28 fichas),,Sí (en vivo 13-oct-2026; fuente: documento interno),Doc interno E/T,entre-todos.org/actores/voz-cuba/,"Fuente citada como «Documento interno, no publicado»"
+Yo Sí Te Creo en Cuba,YSTCC,Sociedad civil temática (género),Isla y exilio,Cuba,,Plataforma feminista; su Observatorio de Feminicidios registró y verificó feminicidios en Cuba,https://www.yositecreoencuba.org/observatorio-feminicidios,No,Verificada 16-oct-2026,alastensas.com (17-abr-2026),El Observatorio de Feminicidios cerró en abril 2026 (falta de recursos y represión); el registro continúa en el Observatorio de Alas Tensas (OGAT)
+Alas Tensas,,Periodismo independiente (feminista),Isla y exilio,,,"Revista feminista cubana; aloja el Observatorio de Alas Tensas (OGAT), que continúa el registro de feminicidios",https://alastensas.com/,No,Verificada 16-oct-2026,https://alastensas.com/acerca-de/,
+Rialta,,Periodismo independiente / revista,Exilio,,,Revista de cultura y sociedad; pensamiento cubano dentro y fuera de la isla,https://rialta.org/,No,Verificada 16-oct-2026,https://rialta.org/sobre-rialta/,
+Translating Cuba,,Periodismo independiente (traducción),Exilio,,,Traduce al inglés textos de cubanos que escriben desde la isla,https://translatingcuba.com/,No,Verificada 16-oct-2026,https://translatingcuba.com/about_translating_cuba/,
+FANTU (Frente Antitotalitario Unido),FANTU,Movimiento,Isla,Cuba,,Movimiento opositor no violento dentro de la isla,,No,Verificación parcial 16-oct-2026,cubanet.org («FANTU: baluarte de la oposición y la lucha no violenta en Cuba»),Figura: Guillermo Fariñas; blog en WordPress sin confirmar como oficial
+Estado de SATS,,Think tank / foro,Isla,Cuba (La Habana),,"Foro de debate intelectual, artístico y político dentro de la isla",,No,Verificación parcial 16-oct-2026,cubanet.org/author/estado-de-sats/; en.wikipedia.org/wiki/Antonio_Rodiles,Dirige: Antonio Rodiles
+ICLEP (Instituto Cubano por la Libertad de Expresión y Prensa),ICLEP,Libertad de prensa,Isla y exilio,,,Defensa de la libertad de expresión y de prensa; informes y pronunciamientos,https://iclep.org/,No,Verificada 16-oct-2026,https://iclep.org/informes/,
+Radio Televisión Martí (Martí Noticias),RTM,Medios extranjeros sobre Cuba,Exilio,EEUU,,"Cadena de radio, TV y web sobre Cuba financiada por el gobierno de EEUU (USAGM / OCB)",https://www.martinoticias.com/,No,Verificada 16-oct-2026,https://www.usagm.gov/networks/ocb/,NO es organización cubana independiente: entra solo como nota de «medios extranjeros» por decisión de Mitch (16-oct-2026)
+Fundación Nacional Cubano-Americana,CANF,Diáspora - EEUU,Exilio,EEUU (Miami),,La organización más antigua e influyente del exilio cubano; cabildeo y programas cívicos,https://canf.org/,No,Verificada 16-oct-2026,https://canf.org/es/,
+Cuba Study Group,CSG,Diáspora - EEUU,Exilio,EEUU,,Grupo cubano-americano de análisis y propuestas de política hacia Cuba,https://cubastudygroup.org/,No,Verificada 16-oct-2026,https://cubastudygroup.org/about-us/,
+Center for a Free Cuba,CFC,Diáspora - EEUU,Exilio,EEUU (Washington DC),,Defensa de los DDHH y la democracia en Cuba; incidencia internacional,https://cubacenter.org/,No,Verificada 16-oct-2026,https://cubacenter.org/,
+Movimiento Democracia,MD,Diáspora - EEUU,Exilio,EEUU (Miami),,Advocación democrática; red de abogados voluntarios por los detenidos del 11J (SOS Cuba),https://democracia.org/,No (solo comunicado de prensa localizado en el peine del Banco),Verificada 16-oct-2026,https://democracia.org/; local10.com (abogados SOS Cuba),
+CAMACOL (Cámara de Comercio Latina de los EEUU),CAMACOL,Diáspora - EEUU,Exilio,EEUU (Miami),,Cámara empresarial de raíz cubano-americana; apoyo a negocios de la diáspora,https://camacol.org/,No,Verificada 16-oct-2026,https://camacol.org/,En 2026 se creó además una Cámara de Comercio Cubano-Americana para la reconstrucción (elnuevoherald.com); pendiente de ficha propia
+Foundation for Human Rights in Cuba,FHRC,Diáspora - EEUU,Exilio,EEUU (Miami),,Apoyo a activistas y a la sociedad civil dentro de Cuba,https://fhrcuba.org/,No,Verificada 16-oct-2026,https://fhrcuba.org/,
+Puentes de Amor,,Diáspora - EEUU,Exilio,EEUU,,Campaña de la diáspora por el levantamiento de las sanciones y el acercamiento EEUU-Cuba,,No,Verificación parcial 16-oct-2026,periodicocubano.com; miamiherald.com,Disuelta por el estado de Washington (según periodicocubano.com). Postura pro-acercamiento; su fundador Carlos Lazo niega vínculos con el gobierno cubano (Miami Herald)
+Revista Encuentro de la Cultura Cubana,,Diáspora - España (histórica),Exilio,España (Madrid),1996.0,Revista cultural y de pensamiento del exilio; cerró en 2009,,No,Verificación parcial 16-oct-2026,rialta.org (homenaje 25 aniversario y expediente 1996-2009),Histórica
+Menschen de Cuba (Asociación de Ciudadanos Cubanos en Alemania por la Democracia),,Diáspora - Alemania,Exilio,Alemania,,Asociación de cubanos residentes en Alemania por la democracia en Cuba,https://menschendecuba.de/,No,Verificada 16-oct-2026,https://menschendecuba.de/es/ueber-uns/,
+Berlin Opus Cuba (Obra por la Libertad de Cuba),,Diáspora - Alemania,Exilio,Alemania (Berlín),,Iniciativa de cubanos en Berlín por la libertad de Cuba,https://berlin-opus-cuba.de/,No,Verificada 16-oct-2026,https://berlin-opus-cuba.de/,
+Proyecto Cuba (exilio europeo),,Diáspora - Europa (coalición),Exilio,Europa (coordinado desde Madrid),2026.0,Convocatoria de organizaciones del exilio europeo a una Asamblea Constituyente y consulta popular sobre el modelo político,,No,Doc interno E/T,organizaciones-cuba-links.md; somosmascuba.com; click-cuba.com,Texto publicado por Somos+
+ClickCuba,,Periodismo independiente,Exilio,Exilio (por confirmar),,"Medio digital cubano: actualidad, presos políticos, inmigración",https://click-cuba.com/,No,Verificada 16-oct-2026,https://click-cuba.com/; página de autora: click-cuba.com/author/ilianahcuba/,Publica a la periodista independiente cubana Iliana Hernández. Ya citado como fuente en la compilación interna de abril 2026 (Proyecto Cuba)
+Asociación Francia por la Democracia en Cuba,AFDC,Diáspora - Francia,Exilio,Francia,,Asociación de cubanos en Francia; integrante de D Frente (asume la representación de la Concertación en Francia),,No,Doc: lista D Frente (cubaproxima.org 02-may-2023; CiberCuba 18-dic-2025),,
+Red Femenina de Cuba,RFC,Sociedad civil temática (género),Isla y exilio,,,Red independiente de mujeres cubanas; integrante de D Frente y fundadora del Foro Acción por la Amnistía,https://redfemeninadecuba.com/,No,Verificación parcial 17-oct-2026,,
+Asociación Raíces de Esperanza de España,,Diáspora - España,Exilio,España,,Asociación del exilio en España; integrante de D Frente (lista de dic-2025),,No,Doc: CiberCuba 18-dic-2025,,
+Casa Nación,,Coalición / plataforma,Isla y exilio,Cuba y España,,"Agrupa a cubanos en la Isla, España y otros lugares; integrante de D Frente (lista de dic-2025)",,No,Doc: CiberCuba 18-dic-2025,,
+Corporación Feminista de Cuba,,Sociedad civil temática (género),Isla y exilio,,,Organización feminista; integrante de D Frente (lista de 2023),,No,Doc: cubaproxima.org 02-may-2023,,
+Cuba En Plural,,Plataforma cívica,Isla y exilio,,,Plataforma de la sociedad civil; integrante del CTDC,,No,Doc: ABC 15-jun-2021,,
+Mesa de Diálogo de la Juventud Cubana,MDJC,Plataforma cívica (juventud),Isla y exilio,,,Mesa de diálogo de jóvenes; integrante del CTDC,,No,Doc: ABC 15-jun-2021,,
+Asociación Sindical Independiente de Cuba,ASIC,Sindicato independiente,Isla,Cuba,,Sindicato independiente; integrante del CTDC y firmante de Pasos de Cambio,https://www.cubasindical.org/,No,Verificación parcial 17-oct-2026,,
+Alianza Cubana por la Inclusión,,Sociedad civil temática,Isla y exilio,,,Integrante del CTDC,,No,Doc: ABC 15-jun-2021,,
+Partido por la Democracia Pedro Luis Boitel,PLB,Partido,Isla y exilio,,,Partido opositor; integrante del CTDC y firmante de Pasos de Cambio,,No,Doc: ABC 15-jun-2021,,
+Ciudadanía y Libertad,CyL,Plataforma cívica,Isla y exilio,,,Plataforma de educación cívica; organización fundadora del Foro Acción por la Amnistía,https://ciudadaniaylibertad.org/,No,Verificación parcial 17-oct-2026,,
+V Formation,,Sociedad civil (por confirmar),,,,Organización fundadora del Foro Acción por la Amnistía; datos pendientes,,No,Doc: CiberCuba 24-mar-2026,,
+Cuba en Familia,CEF,Sociedad civil (familias),Isla y exilio,,,Organización de familias cubanas; fundadora del Foro Acción por la Amnistía,https://cubaenfamilia.org/,No,Verificación parcial 17-oct-2026,,
+NaturPaz,,Sociedad civil temática (medio ambiente y paz),Isla,Cuba,,ONG ambientalista y pacifista; fundadora del Foro Acción por la Amnistía; firmante de comunicados de Pasos de Cambio,https://naturpaz.com/,No,Verificación parcial 17-oct-2026,,
+Di.Verso,,Sociedad civil (por confirmar),,,,Organización fundadora del Foro Acción por la Amnistía; datos pendientes,,No,Doc: CiberCuba 24-mar-2026,,
+Cuban Freedom March,CFM,Diáspora - EEUU,Exilio,EEUU,,Movimiento del exilio; firmante de Pasos de Cambio y del Acuerdo de Liberación,https://www.cubanfreedommarch.com/,No,Verificación parcial 17-oct-2026,,
+Foundation NewGeneration,,Diáspora - EEUU (fundación),Exilio,,,Fundación del exilio; firmante de Pasos de Cambio,,No,Doc: pasosdecambio.com 26-oct-2024,,
+Fundación para la Democracia Panamericana,FDP,Diáspora - EEUU (fundación),Exilio,EEUU,,Fundación prodemocracia; firmante de Pasos de Cambio,,No,Doc: pasosdecambio.com 26-oct-2024,,
+Instituto Patmos,,Sociedad civil temática (libertad religiosa),Isla y exilio,,,Instituto interreligioso; firmante de Pasos de Cambio,https://institutopatmos.wordpress.com/,No,Verificación parcial 17-oct-2026,,
+Movimiento Libertad y Democracia,,Movimiento,,,,Firmante de Pasos de Cambio; datos pendientes,,No,Doc: pasosdecambio.com 26-oct-2024,,
+Movimiento Opositores por una Nueva República,MONR,Movimiento,Isla y exilio,,,Movimiento opositor; integrante del CTDC y firmante de Pasos de Cambio,,No,Doc: ABC 15-jun-2021; pasosdecambio.com,,
+Patria de Martí,,Diáspora - EEUU (plataforma),Exilio,EEUU,,Plataforma del exilio; firmante de Pasos de Cambio,https://www.patriademarti.com/,No,Verificación parcial 17-oct-2026,,
+Plantados hasta la Libertad y la Democracia,,Diáspora - EEUU (ex presos políticos),Exilio,EEUU,,Asociación de ex presos políticos; firmante de Pasos de Cambio y del Acuerdo por la Democracia (1998),https://losplantados.com/,No,Verificación parcial 17-oct-2026,,
+Instituto La Rosa Blanca,,Diáspora (institución histórica),Exilio,,,Institución del exilio histórico; firmante de Pasos de Cambio y del Acuerdo por la Democracia,,No,Doc: pasosdecambio.com 26-oct-2024,,
+MAR por Cuba,MAR,Diáspora - EEUU,Exilio,EEUU,,"Organización del exilio; firmante de Pasos de Cambio y del Acuerdo de Liberación (Alas Tensas, 3-mar-2026)",https://marporcuba.org,No,Verificación parcial 17-oct-2026 (web localizada vía búsqueda),,
+Bacardi Family Foundation,,Fundación (diáspora - EEUU),Exilio,EEUU,,Fundación de la familia Bacardí; firmante del memorando de Pasos de Cambio a EE.UU.,,No,Doc: pasosdecambio.com (memorando),,
+Fundación Cubana Anticomunista,,Diáspora - EEUU (fundación),Exilio,,,Firmante de comunicados de Pasos de Cambio,,No,Doc: pasosdecambio.com,,
+Observatorio de Género de Alas Tensas,OGAT,Sociedad civil temática (género),Isla y exilio,,,Observatorio de feminicidios alojado en Alas Tensas; firmante de Pasos de Cambio,,No,Doc: pasosdecambio.com 26-oct-2024,,
+Fundación Rescate Jurídico,,Diáspora - EEUU (servicios jurídicos),Exilio,EEUU,,"Asistencia jurídica a la sociedad civil; firmante del Acuerdo de Liberación (Alas Tensas, 3-mar-2026)",https://fundacionrescatejuridico.com/,No,Verificación parcial 17-oct-2026,,
+Unión Liberal Cubana,ULC,Partido (histórico),Exilio,,,Partido liberal del exilio; fundador de la Plataforma Democrática Cubana (1990); firmante del Acuerdo por la Democracia,,No,Doc: cultdemocratica.org,,
+Coordinadora Social Demócrata Cubana,,Coalición (histórica),Exilio,,,Fundadora de la Plataforma Democrática Cubana (1990),,No,Doc: cultdemocratica.org,,
+Democratic Spaces,,Diáspora (think tank),Exilio,,,Organización de análisis del exilio; adherida al Acuerdo por la Democracia (ratificación posterior),,No,Doc: republicadecuba.org/prensa/firmantes.html,,
+
+## Sheet name: Por-investigar
+Nombre / tema,Tipo,Por qué está aquí,Siguiente paso
+Directorio Cubano de Derechos Humanos,DDHH,Mitch la mencionó (16-oct-2026) pero no se encontró web propia; podría ser confusión con el Directorio Democrático Cubano (directorio.org) o con el OCDH,"Cerrada: Mitch confirmó (16-oct-2026) que era un nombre aproximado de memoria, no una organización real. Las orgs reales cercanas (Directorio Democrático Cubano, OCDH) ya están en el Dossier"
+Centro Cubano de Derechos Humanos (CCDH),DDHH (isla),"Sucesor de la CCDHRN dentro de la isla (14ymedio, oct-2019)",Sin web propia localizada; último rastro: informe fundacional 2019 (14ymedio). Verificar actividad actual en fase 3
+Comisión Cubana de DDHH y Reconciliación Nacional (CCDHRN),DDHH (histórica),Antecesora del CCDH; décadas de informes desde la isla,Fase 2
+Yo Sí Te Creo en Cuba / Observatorio de Feminicidios,Temática,Registro de feminicidios en Cuba,Incorporada al Dossier v2 (16-oct-2026). OJO: su Observatorio de Feminicidios cerró en abril 2026; el registro sigue en el OGAT de Alas Tensas
+Alas Tensas,Revista feminista,Medio independiente de género,Incorporada al Dossier v2 (16-oct-2026)
+Rialta,Revista,Pensamiento y cultura,Incorporada al Dossier v2 (16-oct-2026)
+Translating Cuba,Traducción,Traduce al inglés a blogueros cubanos,Incorporada al Dossier v2 (16-oct-2026)
+El Chama,Medio,Medio independiente reciente,Fase 2
+FANTU,Movimiento (isla),"Guillermo Fariñas; del inventario v1, sin verificar","Incorporada al Dossier v2 (16-oct-2026), verificación parcial"
+Radio Televisión Martí / Martinoticias,Medio,Financiado por USAGM (gobierno de EEUU): no es independiente en sentido estricto,"Incorporada al Dossier v2 como «Medios extranjeros sobre Cuba», por decisión de Mitch (16-oct-2026)"
+Fundación Nacional Cubano-Americana (CANF),Diáspora EEUU,"Del inventario v1, pendiente de verificación",Incorporada al Dossier v3 (16-oct-2026)
+Cuba Study Group,Diáspora EEUU,Inventario v1,Incorporada al Dossier v3 (16-oct-2026)
+Center for a Free Cuba,Diáspora EEUU,Inventario v1,Incorporada al Dossier v3 (16-oct-2026)
+Movimiento Democracia,Diáspora EEUU,Inventario v1,Incorporada al Dossier v3 (16-oct-2026)
+CAMACOL / Cámara Cubano-Americana de Comercio,Diáspora EEUU,"Del peine del Banco, sin programa público",Incorporada al Dossier v3 (16-oct-2026). OJO: la nueva Cámara de Comercio Cubano-Americana (2026) va como nota dentro de la ficha CAMACOL
+"Proyecto Cuba (exilio europeo, 2026)",Coalición,Convocatoria de Asamblea Constituyente desde Europa (doc interno abril 2026),Incorporada al Dossier v3 (16-oct-2026) como Diáspora - Europa (coalición)
+Fundación para la Democracia Panamericana y otras del exilio,Diáspora,Ampliación por país pedida por Mitch («orgs por países»),"Fase 3 hecha para EEUU, España, Alemania y Europa (11 fichas nuevas). México: no se localizaron orgs propias (solo declaraciones conjuntas, 14ymedio). Ampliación por más países queda abierta"
+"Human Rights Watch, Amnistía Internacional, Freedom House (cobertura Cuba)",Internacionales,No son cubanas; documentan Cuba,Descartada por Mitch (16-oct-2026): solo organizaciones de cubanos y por cubanos
+"People in Need, Civil Rights Defenders, CADAL",Internacionales de apoyo,Apoyan a la sociedad civil cubana,Descartada por Mitch (16-oct-2026): solo organizaciones de cubanos y por cubanos
+"Organizaciones religiosas (Conferencia de Obispos Católicos, Alianza Evangélica)",Religiosas,"Sociedad civil, pero encaje por decidir",Decisión de Mitch
+
+## Sheet name: Coaliciones
+Coalición,Organización miembro,¿Está ya en el Dossier?,Fuente de la lista de miembros (enlace),Fecha de esa lista,Nota
+Concertación Democrática Cubana D Frente,Cuba Próxima (Centro de Estudios sobre el Estado de Derecho),sí,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,Lista publicada por Cuba Próxima (organización miembro): «integrada por» estas 6 organizaciones y personas a título individual
+Concertación Democrática Cubana D Frente,Asociación Francia por la Democracia en Cuba (AFDC),no,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,
+Concertación Democrática Cubana D Frente,Movimiento San Isidro,sí,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,
+Concertación Democrática Cubana D Frente,Corporación Feminista de Cuba,no,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,
+Concertación Democrática Cubana D Frente,Red Femenina de Cuba,no,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,
+Concertación Democrática Cubana D Frente,Consejo para la Transición Democrática en Cuba (CTDC),sí,https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/,2023-05-02 00:00:00,
+Concertación Democrática Cubana D Frente,Cuba Próxima (Centro de Estudios sobre el Estado de Derecho),sí,https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico,18-dic-2025,Lista citada por CiberCuba: 5 organizaciones. MSI y Corporación Feminista (lista 2023) ya no aparecen; Casa Nación y Raíces de Esperanza son nuevas
+Concertación Democrática Cubana D Frente,Asociación Francia por la Democracia en Cuba (AFDC),no,https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico,18-dic-2025,
+Concertación Democrática Cubana D Frente,Red Femenina de Cuba,no,https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico,18-dic-2025,
+Concertación Democrática Cubana D Frente,Asociación Raíces de Esperanza de España,no,https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico,18-dic-2025,
+Concertación Democrática Cubana D Frente,Casa Nación,no,https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico,18-dic-2025,
+Pasos de Cambio,Asociación Sindical Independiente de Cuba (ASIC),no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,Lista de firmantes del comunicado «Unidos por la Democracia para Cuba ya» en la web oficial (última actualización declarada: 26-oct-2024). Pasos de Cambio se define como plataforma de organizaciones firmantes del Acuerdo por la Democracia. El País (11-abr-2026) la describe como ~50 grupos: la lista pública es menor
+Pasos de Cambio,Center for a Free Cuba,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Cuban Freedom March,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Damas de Blanco,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Foundation NewGeneration,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Fundación para la Democracia Panamericana,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Instituto Patmos,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,La Rosa Blanca,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,MAR por Cuba,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Movimiento Democracia,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Movimiento Libertad y Democracia,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Movimiento Opositores por una Nueva República (MONR),no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Movimiento San Isidro,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Movimiento Somos+,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Observatorio Cubano de Derechos Humanos,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Observatorio de Género de Alas Tensas (OGAT),no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Partido del Pueblo,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Partido Demócrata Cristiano de Cuba,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Partido por la Democracia Pedro Luis Boitel,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Patria de Martí,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Plantados,no,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Promotores de Cuba Decide,sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Unión Patriótica de Cuba (UNPACU),sí,https://www.pasosdecambio.com/,2024-10-26 00:00:00,
+Pasos de Cambio,Bacardi Family Foundation,no,https://www.pasosdecambio.com/,2024-2025,"Figura como firmante en otro comunicado de la misma web (agradecimiento por Radio Martí / memorando a EE.UU.), no en la lista del 26-oct-2024"
+Pasos de Cambio,Fundación Cubana Anticomunista,no,https://www.pasosdecambio.com/,2024-2025,
+Pasos de Cambio,NaturPaz,no,https://www.pasosdecambio.com/,2024-2025,
+Pasos de Cambio,Fundación para los Derechos Humanos en Cuba (FHRC),sí,https://www.pasosdecambio.com/,2024-2025,
+Pasos de Cambio,Consejo para la Transición Democrática en Cuba (CTDC),sí,https://www.pasosdecambio.com/,2024-2025,
+Asamblea de la Resistencia Cubana (ARC),(sin lista pública),,https://republicadecuba.org/prensa/la-asamblea-de-la-resistencia-cubana.html,consulta 17-oct-2026,Sin lista pública: la propia ARC se define como «coalición de 41 organizaciones» sin nombrarlas; El País (11-abr-2026) dice «más de 50 grupos». No se reconstruye a partir de suposiciones (regla del encargo)
+Acuerdo de Liberación (ARC + Pasos de Cambio),Asamblea de la Resistencia Cubana (ARC) - coalición firmante,sí,https://www.republicadecuba.org/prensa/acuerdo-de-liberacion.html,02/03-mar-2026,"Firmado en Miami por las dos coaliciones en nombre de sus 50+ organizaciones miembros; sin lista completa publicada. Filas siguientes: organizaciones nombradas en prensa como firmantes (Cubanet, Alas Tensas)"
+Acuerdo de Liberación (ARC + Pasos de Cambio),Pasos de Cambio - coalición firmante,sí,https://www.pasosdecambio.com/_files/ugd/32a33a_5862c06bc8dd4edda1009610182a6f38.pdf,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),Brigada 2506,sí,https://www.cubanet.org/fuerzas-democraticas-cubanas-anuncian-acuerdo-de-liberacion-para-la-isla/,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),Observatorio Cubano de Derechos Humanos,sí,https://www.cubanet.org/fuerzas-democraticas-cubanas-anuncian-acuerdo-de-liberacion-para-la-isla/,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),Unión Patriótica de Cuba (UNPACU),sí,https://www.cubanet.org/fuerzas-democraticas-cubanas-anuncian-acuerdo-de-liberacion-para-la-isla/,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),MAR por Cuba,no,https://alastensas.com/noticias/organizaciones-del-exilio-firman-en-miami-el-acuerdo-de-liberacion-para-cuba/,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),Center for a Free Cuba,sí,https://alastensas.com/noticias/organizaciones-del-exilio-firman-en-miami-el-acuerdo-de-liberacion-para-cuba/,02/03-mar-2026,
+Acuerdo de Liberación (ARC + Pasos de Cambio),Fundación Rescate Jurídico,no,https://alastensas.com/noticias/organizaciones-del-exilio-firman-en-miami-el-acuerdo-de-liberacion-para-cuba/,02/03-mar-2026,
+Consejo para la Transición Democrática en Cuba (CTDC),Movimiento San Isidro,sí,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,"ABC: «más de una treintena de organizaciones, entre ellas» estas. Sin lista completa pública. Nueva directiva desde el 10-ene-2026 (CiberCuba, 24-mar-2026)"
+Consejo para la Transición Democrática en Cuba (CTDC),Unión Patriótica de Cuba (UNPACU),sí,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Cuba en Plural,no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Red Femenina de Cuba,no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Mesa de Diálogo de la Juventud Cubana,no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Asociación Sindical Independiente de Cuba (ASIC),no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Movimiento Opositores por una Nueva República (MONR),no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Alianza Cubana por la Inclusión,no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Partido por la Democracia Pedro Luis Boitel,no,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Consejo para la Transición Democrática en Cuba (CTDC),Partido Demócrata Cristiano de Cuba,sí,https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html,2021-06-15 00:00:00,
+Plataforma Democrática Cubana,Unión Liberal Cubana,no,https://cuba.cultdemocratica.org/iniciativa/plataforma-democratica-cubana-2/,1990.0,"Plataforma histórica fundada en 1990 (Madrid-Caracas-Miami) por estas tres organizaciones (impulsores: Montaner, Rasco, Baloyra). Sin lista pública de miembros actuales"
+Plataforma Democrática Cubana,Partido Demócrata Cristiano de Cuba,sí,https://cuba.cultdemocratica.org/iniciativa/plataforma-democratica-cubana-2/,1990.0,
+Plataforma Democrática Cubana,Coordinadora Social Demócrata Cubana,no,https://cuba.cultdemocratica.org/iniciativa/plataforma-democratica-cubana-2/,1990.0,
+Foro Acción por la Amnistía,Consejo para la Transición Democrática en Cuba (CTDC),sí,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,Constituido el 5-feb-2026; agrupa a 50+ organizaciones y participantes individuales. CiberCuba cita estas organizaciones fundadoras; sin lista completa pública
+Foro Acción por la Amnistía,Ciudadanía y Libertad,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Foro Acción por la Amnistía,V Formation,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Foro Acción por la Amnistía,Red Femenina de Cuba,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Foro Acción por la Amnistía,Cuba en Familia,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Foro Acción por la Amnistía,NaturPaz,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Foro Acción por la Amnistía,Di.Verso,no,https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar,2026-03-24 00:00:00,
+Proyecto Cuba (exilio europeo),(sin lista pública),,https://alastensas.com/documentos/convocatoria-del-proyecto-cuba/,2026-03-17 00:00:00,"Convocatoria publicada por «diversas organizaciones del exilio cubano en Europa» (feb-mar-2026) sin nombrarlas; retoma la base de Pasos de Cambio Europa (Madrid, 2022). Registrada en las oficinas del Parlamento Europeo en España. Misma convocatoria en ClickCuba: https://click-cuba.com/2026/03/17/organizaciones-del-exilio-cubano-en-europa-convocan-a-firmar-el-proyecto-cuba-para-impulsar-una-transicion-democratica/"
+"Concilio Cubano (histórica, 1995)",(sin lista pública),,https://cuba.cultdemocratica.org/iniciativa/concilio-cubano/,1995.0,130 organizaciones adheridas según Cultura x Cuba (cultdemocratica.org); sin lista pública de nombres. Desarticulado por la represión en 1996
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Abogados Independientes,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,"Lista acumulativa publicada por la ARC (republicadecuba.org), fechada 20-feb-1998 y ampliada con ratificaciones posteriores (2002, 2007, 2009-2018); incluye organizaciones de la diáspora. Solo nombres de organizaciones (los delegados personas se omiten por regla del encargo). Bloque: diáspora"
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Alpha 66,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Acción Cívica Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Acción Democrática,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Acción Democrática Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Agenda Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Alianza Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación Cofradía Helvérica,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociacion de Cubanos Libres en Andalucia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Alianza de Jóvenes Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",American Missile Crisis Veterans,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación de Ex-Presos Políticos Cubanos en Tampa,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación Integral Mambisa,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación Medioambientalista Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación Nacional de Ganaderos de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación Democrática de Profesionales del Servicio Exterior,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Bacardi Family Foundation,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",BelgoCuba - Cubanos Libres de Bélgica,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Brigada 2506,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Center for a Free Cuba,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Círculo Naval Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Círculos Democráticos Municipalistas de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Coalición de Mujeres Cubano-Americanas,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Coordinadora Internacional de Ex-Prisioneros Políticos Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Coordinadora Social Demócrata,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comité Cubano Pro Derechos Humanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comité de Ayuda a los Activistas de Derechos Humanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Consejo de Presidio Político Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Confederación Campesina de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cruzada Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuban American Veterans Association,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuba Decide,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuba Democracy Advocates,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuba Démocratique,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuba Independiente y Democrática (Cid),sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cuban Liberty Council,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cubalex,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cubanos Unidos de Puerto Rico,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Cultivamos una Rosa Blanca,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Democratic Spaces,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Directorio Gestor de la Nueva Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Directorio Revolucionario Democrático Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Instituto La Rosa Blanca,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Ex-Club (Asoc. de Ex-Prisioneros y Combatientes Políticos Cubanos),no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Ex-Confinados Políticos de la UMAP,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Federación Mundial de Ex-Presos Políticos Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)","Federación Sindical de Plantas Eléctricas, Gas y Agua en El Exilio",no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Free Cuba Foundation,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Frente Nacional del Presidio Político Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Fundación Nacional Cubano-Americana,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Fundacion Vueltaabajo por Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Global Community Action,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Gran Logia Masónica,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Grupo de Apoyo a la Disidencia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Grupo de Trabajo de la Disidencia Interna,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Hermanos al Rescate,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Inspira America,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Instituto Cubano por la Libertad de Expresion y Prensa,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Instituto Patmos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Junta Patriótica Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Jóvenes Anticastro,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",La Rosa Blanca,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Liga Cívica Martiana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",M.A.R. por Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Miami Medical Team,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Morris County Cuban Association,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cívico Nacionalista Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Democracia,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Iniciadores de la Lucha,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento de Luchadores por la Libertad y la Independencia de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento 30 de Noviembre Frank País,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Recuperación Revolucionaria (MRR),no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Humanista Evolucionario Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Rebelión Nacional,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Somos Más,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Municipios de Cuba en El Exilio,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Mujer Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Mujeres Luchadoras por la Democracia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Nueva Generación,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Organizaciones Cubanas Unidas de la Zona Norte (OCU),no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Independentista Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Acción Nacionalista,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Cubano de Renovación Ortodoxa,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Social Demócrata Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Nacionalista Cubano,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Unión Nacional,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Pen-Club de Escritores Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Plantados hasta la Libertad y la Democracia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Plataforma Unitaria Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Presidio Político Histórico Cubano - Casa del Preso,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Proyecto de Bibliotecas Independientes de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Proyecto Instituto Independiente Cultura y Democracia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Puente de Jóvenes Profesionales Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Red Femenina de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",The Cuba Corps,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Unión de Ex-Presos Políticos Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Unión Liberal Cubana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",U.S.-Cuba Democracy Pac,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Unión de Soldados y Oficiales Libres,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Diáspora
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Acción Democrática,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Agencia de Prensa CubanaCán Press,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Agencia de Prensa Sindical Independiente de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Alianza Democrática Oriental,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asamblea para Promover la Sociedad Civil,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociacion de Balseros y Derechos Humanos por Democracia y Libertad,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación de Abogados Independientes,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Asociación de Presos y Ex-Presos Políticos Pedro Luis Boitel,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Bibliotecas Independientes,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Buró de Prensa Manzanillo La Patria Libre,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Colegio de Pedagogos Independientes de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comisión Cubana de Derechos Humanos para Personas con VIH-SIDA,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comisión Cubana de Derechos Humanos José Martí,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comité Cubano de Opositores Pacíficos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Comité Cubano Pro-Derechos Humanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Consejo Nacional de los Derechos Civiles,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Consejo Nacional por los Derechos Civiles en Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Consejo Unitario de Trabajadores Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Corriente Martiniana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Foro de Estudios Sociales Martha Abreu,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Frente Democrático Independiente (Zona Central),no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Frente Línea Dura,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Fundación Cubana de Derechos Humanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Fundación Elena Mederos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Fundación Nacional de Derechos Humanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Grupo de Trabajo de la Disidencia Interna,sí,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Hijos de la Virgen de Regla,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Instituto Cubano de Estudios Sindicales,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Jóvenes Anti-Castro,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Las Marianas,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Liga Cívica Martiana,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cívico Nacionalista Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento 24 de Febrero,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Acción Democrática,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento al Rescate de la Libertad y la Democracia,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cívico Nacional Máximo Gómez Báez,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cristiano Amor y Paz,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cubano Jóvenes por Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Cubano Reflexión,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Demócrata Cristiano de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Hermanos Fraternales,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Libertad,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Nacional de Resistencia Cívica Pedro Luis Boitel,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Nacional del Pueblo Libre de Cuba Josué País,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Plantados por la Libertad de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Presidio Político Pedro Luis Boitel,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Movimiento Pro Derechos Humanos del Golfo de Guacanayabo,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Organización Feminista Independiente,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido 30 de Noviembre,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Acción Nacionalista,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Cubano de Renovación Ortodoxa,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido del Pueblo Cubano Ortodoxo - Zona Oriental,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Democrático 30 de Noviembre Frank País,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Liberal de Cuba,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Liberal Nacional Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Liberal de Cuba (Región Central),no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Pro Derechos Humanos Afiliado a la Fundación Andréi Sájarov,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Republicano Cubano,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Partido Solidaridad Democrática,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Unión Nacional de Ex-Presos Políticos Cubanos,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla
+"Acuerdo por la Democracia en Cuba (histórica, 1998)",Unión Nacional de Opositores,no,https://www.republicadecuba.org/prensa/firmantes.html,1998-02-20 00:00:00,Isla

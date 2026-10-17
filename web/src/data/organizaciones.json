@@ -37,6 +37,1034 @@
    "Diáspora por país"
   ]
  ],
+ "coaliciones": [
+  {
+   "nombre": "Concertación Democrática Cubana D Frente",
+   "ficha": "Concertación Democrática Cubana D Frente",
+   "nota": "Hay dos listas publicadas, de mayo de 2023 y diciembre de 2025, y no coinciden del todo. También la integran personas a título individual, que no se muestran.",
+   "listas": [
+    {
+     "fecha": "2 de mayo de 2023",
+     "fuentes": [
+      "https://cubaproxima.org/una-plataforma-ideologica-plural-con-objetivos-y-valores-compartidos-para-una-solucion-civica-en-cuba/"
+     ],
+     "miembros": [
+      {
+       "nombre": "Cuba Próxima (Centro de Estudios sobre el Estado de Derecho)",
+       "ficha": "Cuba Próxima"
+      },
+      {
+       "nombre": "Asociación Francia por la Democracia en Cuba (AFDC)",
+       "ficha": "Asociación Francia por la Democracia en Cuba"
+      },
+      {
+       "nombre": "Movimiento San Isidro",
+       "ficha": "Movimiento San Isidro"
+      },
+      {
+       "nombre": "Corporación Feminista de Cuba",
+       "ficha": "Corporación Feminista de Cuba"
+      },
+      {
+       "nombre": "Red Femenina de Cuba",
+       "ficha": "Red Femenina de Cuba"
+      },
+      {
+       "nombre": "Consejo para la Transición Democrática en Cuba (CTDC)",
+       "ficha": "Consejo para la Transición Democrática en Cuba"
+      }
+     ]
+    },
+    {
+     "fecha": "18 de diciembre de 2025",
+     "fuentes": [
+      "https://www.cibercuba.com/noticias/2025-12-18-u1-e43231-s27061-nid316976-ciudadania-nace-republica-frente-democratico"
+     ],
+     "miembros": [
+      {
+       "nombre": "Cuba Próxima (Centro de Estudios sobre el Estado de Derecho)",
+       "ficha": "Cuba Próxima"
+      },
+      {
+       "nombre": "Asociación Francia por la Democracia en Cuba (AFDC)",
+       "ficha": "Asociación Francia por la Democracia en Cuba"
+      },
+      {
+       "nombre": "Red Femenina de Cuba",
+       "ficha": "Red Femenina de Cuba"
+      },
+      {
+       "nombre": "Asociación Raíces de Esperanza de España",
+       "ficha": "Asociación Raíces de Esperanza de España"
+      },
+      {
+       "nombre": "Casa Nación",
+       "ficha": "Casa Nación"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Pasos de Cambio",
+   "ficha": "Pasos de Cambio",
+   "nota": "Lista de firmantes publicada en su web (octubre de 2024) y organizaciones que aparecen en comunicados posteriores. Según El País (abril de 2026) reúne unos 50 grupos; la lista pública es menor.",
+   "listas": [
+    {
+     "fecha": "26 de octubre de 2024",
+     "fuentes": [
+      "https://www.pasosdecambio.com/"
+     ],
+     "miembros": [
+      {
+       "nombre": "Asociación Sindical Independiente de Cuba (ASIC)",
+       "ficha": "Asociación Sindical Independiente de Cuba"
+      },
+      {
+       "nombre": "Center for a Free Cuba",
+       "ficha": "Center for a Free Cuba"
+      },
+      {
+       "nombre": "Cuban Freedom March",
+       "ficha": "Cuban Freedom March"
+      },
+      {
+       "nombre": "Damas de Blanco",
+       "ficha": "Damas de Blanco"
+      },
+      {
+       "nombre": "Foundation NewGeneration",
+       "ficha": "Foundation NewGeneration"
+      },
+      {
+       "nombre": "Fundación para la Democracia Panamericana",
+       "ficha": "Fundación para la Democracia Panamericana"
+      },
+      {
+       "nombre": "Instituto Patmos",
+       "ficha": "Instituto Patmos"
+      },
+      {
+       "nombre": "La Rosa Blanca",
+       "ficha": ""
+      },
+      {
+       "nombre": "MAR por Cuba",
+       "ficha": "MAR por Cuba"
+      },
+      {
+       "nombre": "Movimiento Democracia",
+       "ficha": "Movimiento Democracia"
+      },
+      {
+       "nombre": "Movimiento Libertad y Democracia",
+       "ficha": "Movimiento Libertad y Democracia"
+      },
+      {
+       "nombre": "Movimiento Opositores por una Nueva República (MONR)",
+       "ficha": "Movimiento Opositores por una Nueva República"
+      },
+      {
+       "nombre": "Movimiento San Isidro",
+       "ficha": "Movimiento San Isidro"
+      },
+      {
+       "nombre": "Movimiento Somos+",
+       "ficha": "Movimiento Somos+"
+      },
+      {
+       "nombre": "Observatorio Cubano de Derechos Humanos",
+       "ficha": "Observatorio Cubano de Derechos Humanos"
+      },
+      {
+       "nombre": "Observatorio de Género de Alas Tensas (OGAT)",
+       "ficha": "Observatorio de Género de Alas Tensas"
+      },
+      {
+       "nombre": "Partido del Pueblo",
+       "ficha": "Partido del Pueblo"
+      },
+      {
+       "nombre": "Partido Demócrata Cristiano de Cuba",
+       "ficha": "Partido Demócrata Cristiano de Cuba"
+      },
+      {
+       "nombre": "Partido por la Democracia Pedro Luis Boitel",
+       "ficha": "Partido por la Democracia Pedro Luis Boitel"
+      },
+      {
+       "nombre": "Patria de Martí",
+       "ficha": "Patria de Martí"
+      },
+      {
+       "nombre": "Plantados",
+       "ficha": "Plantados hasta la Libertad y la Democracia"
+      },
+      {
+       "nombre": "Promotores de Cuba Decide",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión Patriótica de Cuba (UNPACU)",
+       "ficha": "Unión Patriótica de Cuba"
+      }
+     ]
+    },
+    {
+     "fecha": "comunicados de 2024 y 2025",
+     "fuentes": [
+      "https://www.pasosdecambio.com/"
+     ],
+     "miembros": [
+      {
+       "nombre": "Bacardi Family Foundation",
+       "ficha": "Bacardi Family Foundation"
+      },
+      {
+       "nombre": "Fundación Cubana Anticomunista",
+       "ficha": "Fundación Cubana Anticomunista"
+      },
+      {
+       "nombre": "NaturPaz",
+       "ficha": "NaturPaz"
+      },
+      {
+       "nombre": "Fundación para los Derechos Humanos en Cuba (FHRC)",
+       "ficha": "Foundation for Human Rights in Cuba"
+      },
+      {
+       "nombre": "Consejo para la Transición Democrática en Cuba (CTDC)",
+       "ficha": "Consejo para la Transición Democrática en Cuba"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Asamblea de la Resistencia Cubana (ARC)",
+   "ficha": "Asamblea de la Resistencia Cubana",
+   "nota": "Se define como una coalición de 41 organizaciones, pero no publica sus nombres.",
+   "listas": []
+  },
+  {
+   "nombre": "Acuerdo de Liberación",
+   "ficha": "",
+   "nota": "Firmado en Miami en marzo de 2026 por la ARC y Pasos de Cambio en nombre de más de 50 organizaciones. No hay lista completa: se muestran las nombradas en la prensa.",
+   "listas": [
+    {
+     "fecha": "2 y 3 de marzo de 2026",
+     "fuentes": [
+      "https://www.republicadecuba.org/prensa/acuerdo-de-liberacion.html",
+      "https://www.pasosdecambio.com/_files/ugd/32a33a_5862c06bc8dd4edda1009610182a6f38.pdf",
+      "https://www.cubanet.org/fuerzas-democraticas-cubanas-anuncian-acuerdo-de-liberacion-para-la-isla/",
+      "https://alastensas.com/noticias/organizaciones-del-exilio-firman-en-miami-el-acuerdo-de-liberacion-para-cuba/"
+     ],
+     "miembros": [
+      {
+       "nombre": "Asamblea de la Resistencia Cubana (ARC)",
+       "ficha": "Asamblea de la Resistencia Cubana"
+      },
+      {
+       "nombre": "Pasos de Cambio",
+       "ficha": "Pasos de Cambio"
+      },
+      {
+       "nombre": "Brigada 2506",
+       "ficha": "Brigada 2506 (Asociación de Veteranos de Bahía de Cochinos)"
+      },
+      {
+       "nombre": "Observatorio Cubano de Derechos Humanos",
+       "ficha": "Observatorio Cubano de Derechos Humanos"
+      },
+      {
+       "nombre": "Unión Patriótica de Cuba (UNPACU)",
+       "ficha": "Unión Patriótica de Cuba"
+      },
+      {
+       "nombre": "MAR por Cuba",
+       "ficha": "MAR por Cuba"
+      },
+      {
+       "nombre": "Center for a Free Cuba",
+       "ficha": "Center for a Free Cuba"
+      },
+      {
+       "nombre": "Fundación Rescate Jurídico",
+       "ficha": "Fundación Rescate Jurídico"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Consejo para la Transición Democrática en Cuba (CTDC)",
+   "ficha": "Consejo para la Transición Democrática en Cuba",
+   "nota": "En 2021 reunía a más de treinta organizaciones. Se muestran las citadas en la prensa; no hay lista completa pública.",
+   "listas": [
+    {
+     "fecha": "15 de junio de 2021",
+     "fuentes": [
+      "https://www.abc.es/internacional/abci-treinta-organizaciones-opositoras-alian-para-viabilizar-transicion-democratica-cuba-202106160126_noticia.html"
+     ],
+     "miembros": [
+      {
+       "nombre": "Movimiento San Isidro",
+       "ficha": "Movimiento San Isidro"
+      },
+      {
+       "nombre": "Unión Patriótica de Cuba (UNPACU)",
+       "ficha": "Unión Patriótica de Cuba"
+      },
+      {
+       "nombre": "Cuba en Plural",
+       "ficha": "Cuba En Plural"
+      },
+      {
+       "nombre": "Red Femenina de Cuba",
+       "ficha": "Red Femenina de Cuba"
+      },
+      {
+       "nombre": "Mesa de Diálogo de la Juventud Cubana",
+       "ficha": "Mesa de Diálogo de la Juventud Cubana"
+      },
+      {
+       "nombre": "Asociación Sindical Independiente de Cuba (ASIC)",
+       "ficha": "Asociación Sindical Independiente de Cuba"
+      },
+      {
+       "nombre": "Movimiento Opositores por una Nueva República (MONR)",
+       "ficha": "Movimiento Opositores por una Nueva República"
+      },
+      {
+       "nombre": "Alianza Cubana por la Inclusión",
+       "ficha": "Alianza Cubana por la Inclusión"
+      },
+      {
+       "nombre": "Partido por la Democracia Pedro Luis Boitel",
+       "ficha": "Partido por la Democracia Pedro Luis Boitel"
+      },
+      {
+       "nombre": "Partido Demócrata Cristiano de Cuba",
+       "ficha": "Partido Demócrata Cristiano de Cuba"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Plataforma Democrática Cubana",
+   "ficha": "Plataforma Democrática Cubana",
+   "nota": "Fundada en 1990 por tres organizaciones. No hay lista pública de sus miembros actuales.",
+   "listas": [
+    {
+     "fecha": "1990",
+     "fuentes": [
+      "https://cuba.cultdemocratica.org/iniciativa/plataforma-democratica-cubana-2/"
+     ],
+     "miembros": [
+      {
+       "nombre": "Unión Liberal Cubana",
+       "ficha": "Unión Liberal Cubana"
+      },
+      {
+       "nombre": "Partido Demócrata Cristiano de Cuba",
+       "ficha": "Partido Demócrata Cristiano de Cuba"
+      },
+      {
+       "nombre": "Coordinadora Social Demócrata Cubana",
+       "ficha": "Coordinadora Social Demócrata Cubana"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Foro Acción por la Amnistía",
+   "ficha": "Foro Acción por la Amnistía",
+   "nota": "Constituido el 5 de febrero de 2026 por más de 50 organizaciones y personas. Se muestran las organizaciones fundadoras citadas en la prensa.",
+   "listas": [
+    {
+     "fecha": "24 de marzo de 2026",
+     "fuentes": [
+      "https://www.cibercuba.com/noticias/2026-03-24-u1-e192519-s27061-nid323854-foro-accion-amnistia-2026-busca-presentar"
+     ],
+     "miembros": [
+      {
+       "nombre": "Consejo para la Transición Democrática en Cuba (CTDC)",
+       "ficha": "Consejo para la Transición Democrática en Cuba"
+      },
+      {
+       "nombre": "Ciudadanía y Libertad",
+       "ficha": "Ciudadanía y Libertad"
+      },
+      {
+       "nombre": "V Formation",
+       "ficha": "V Formation"
+      },
+      {
+       "nombre": "Red Femenina de Cuba",
+       "ficha": "Red Femenina de Cuba"
+      },
+      {
+       "nombre": "Cuba en Familia",
+       "ficha": "Cuba en Familia"
+      },
+      {
+       "nombre": "NaturPaz",
+       "ficha": "NaturPaz"
+      },
+      {
+       "nombre": "Di.Verso",
+       "ficha": "Di.Verso"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nombre": "Proyecto Cuba",
+   "ficha": "Proyecto Cuba (exilio europeo)",
+   "nota": "Convocatoria de organizaciones del exilio en Europa (marzo de 2026) que no publica sus nombres.",
+   "listas": []
+  },
+  {
+   "nombre": "Concilio Cubano",
+   "ficha": "Concilio Cubano",
+   "nota": "Reunió a 130 organizaciones en 1995, sin lista pública de nombres. Fue desarticulado por la represión en 1996.",
+   "listas": []
+  },
+  {
+   "nombre": "Acuerdo por la Democracia en Cuba",
+   "ficha": "Acuerdo por la Democracia en Cuba",
+   "nota": "Lista acumulativa de firmantes publicada por la Asamblea de la Resistencia Cubana, con ratificaciones hasta 2018.",
+   "listas": [
+    {
+     "fecha": "20 de febrero de 1998",
+     "fuentes": [
+      "https://www.republicadecuba.org/prensa/firmantes.html"
+     ],
+     "miembros": [
+      {
+       "nombre": "Abogados Independientes",
+       "ficha": ""
+      },
+      {
+       "nombre": "Alpha 66",
+       "ficha": ""
+      },
+      {
+       "nombre": "Acción Cívica Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Acción Democrática",
+       "ficha": ""
+      },
+      {
+       "nombre": "Acción Democrática Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Agenda Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Alianza Cubana",
+       "ficha": "Alianza Cubana por la Inclusión"
+      },
+      {
+       "nombre": "Asociación Cofradía Helvérica",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociacion de Cubanos Libres en Andalucia",
+       "ficha": ""
+      },
+      {
+       "nombre": "Alianza de Jóvenes Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "American Missile Crisis Veterans",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación de Ex-Presos Políticos Cubanos en Tampa",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación Integral Mambisa",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación Medioambientalista Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación Nacional de Ganaderos de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación Democrática de Profesionales del Servicio Exterior",
+       "ficha": ""
+      },
+      {
+       "nombre": "Bacardi Family Foundation",
+       "ficha": "Bacardi Family Foundation"
+      },
+      {
+       "nombre": "BelgoCuba - Cubanos Libres de Bélgica",
+       "ficha": ""
+      },
+      {
+       "nombre": "Brigada 2506",
+       "ficha": "Brigada 2506 (Asociación de Veteranos de Bahía de Cochinos)"
+      },
+      {
+       "nombre": "Center for a Free Cuba",
+       "ficha": "Center for a Free Cuba"
+      },
+      {
+       "nombre": "Círculo Naval Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Círculos Democráticos Municipalistas de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Coalición de Mujeres Cubano-Americanas",
+       "ficha": ""
+      },
+      {
+       "nombre": "Coordinadora Internacional de Ex-Prisioneros Políticos Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Coordinadora Social Demócrata",
+       "ficha": "Coordinadora Social Demócrata Cubana"
+      },
+      {
+       "nombre": "Comité Cubano Pro Derechos Humanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Comité de Ayuda a los Activistas de Derechos Humanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Consejo de Presidio Político Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Confederación Campesina de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cruzada Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cuban American Veterans Association",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cuba Decide",
+       "ficha": "Cuba Decide"
+      },
+      {
+       "nombre": "Cuba Democracy Advocates",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cuba Démocratique",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cuba Independiente y Democrática (Cid)",
+       "ficha": "Cuba Independiente y Democrática"
+      },
+      {
+       "nombre": "Cuban Liberty Council",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cubalex",
+       "ficha": "Cubalex (Centro de Información Legal Cubalex)"
+      },
+      {
+       "nombre": "Cubanos Unidos de Puerto Rico",
+       "ficha": ""
+      },
+      {
+       "nombre": "Cultivamos una Rosa Blanca",
+       "ficha": ""
+      },
+      {
+       "nombre": "Democratic Spaces",
+       "ficha": "Democratic Spaces"
+      },
+      {
+       "nombre": "Directorio Gestor de la Nueva Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Directorio Revolucionario Democrático Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Instituto La Rosa Blanca",
+       "ficha": "Instituto La Rosa Blanca"
+      },
+      {
+       "nombre": "Ex-Club (Asoc. de Ex-Prisioneros y Combatientes Políticos Cubanos)",
+       "ficha": ""
+      },
+      {
+       "nombre": "Ex-Confinados Políticos de la UMAP",
+       "ficha": ""
+      },
+      {
+       "nombre": "Federación Mundial de Ex-Presos Políticos Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Federación Sindical de Plantas Eléctricas, Gas y Agua en El Exilio",
+       "ficha": ""
+      },
+      {
+       "nombre": "Free Cuba Foundation",
+       "ficha": ""
+      },
+      {
+       "nombre": "Frente Nacional del Presidio Político Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Fundación Nacional Cubano-Americana",
+       "ficha": "Fundación Nacional Cubano-Americana"
+      },
+      {
+       "nombre": "Fundacion Vueltaabajo por Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Global Community Action",
+       "ficha": ""
+      },
+      {
+       "nombre": "Gran Logia Masónica",
+       "ficha": ""
+      },
+      {
+       "nombre": "Grupo de Apoyo a la Disidencia",
+       "ficha": ""
+      },
+      {
+       "nombre": "Grupo de Trabajo de la Disidencia Interna",
+       "ficha": "Grupo de Trabajo de la Disidencia Interna"
+      },
+      {
+       "nombre": "Hermanos al Rescate",
+       "ficha": ""
+      },
+      {
+       "nombre": "Inspira America",
+       "ficha": ""
+      },
+      {
+       "nombre": "Instituto Cubano por la Libertad de Expresion y Prensa",
+       "ficha": ""
+      },
+      {
+       "nombre": "Instituto Patmos",
+       "ficha": "Instituto Patmos"
+      },
+      {
+       "nombre": "Junta Patriótica Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Jóvenes Anticastro",
+       "ficha": ""
+      },
+      {
+       "nombre": "La Rosa Blanca",
+       "ficha": ""
+      },
+      {
+       "nombre": "Liga Cívica Martiana",
+       "ficha": ""
+      },
+      {
+       "nombre": "M.A.R. por Cuba",
+       "ficha": "MAR por Cuba"
+      },
+      {
+       "nombre": "Miami Medical Team",
+       "ficha": ""
+      },
+      {
+       "nombre": "Morris County Cuban Association",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Cívico Nacionalista Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Democracia",
+       "ficha": "Movimiento Democracia"
+      },
+      {
+       "nombre": "Movimiento Iniciadores de la Lucha",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento de Luchadores por la Libertad y la Independencia de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento 30 de Noviembre Frank País",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Recuperación Revolucionaria (MRR)",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Humanista Evolucionario Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Rebelión Nacional",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Somos Más",
+       "ficha": "Movimiento Somos+"
+      },
+      {
+       "nombre": "Municipios de Cuba en El Exilio",
+       "ficha": ""
+      },
+      {
+       "nombre": "Mujer Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Mujeres Luchadoras por la Democracia",
+       "ficha": ""
+      },
+      {
+       "nombre": "Nueva Generación",
+       "ficha": ""
+      },
+      {
+       "nombre": "Organizaciones Cubanas Unidas de la Zona Norte (OCU)",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Independentista Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Acción Nacionalista",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Cubano de Renovación Ortodoxa",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Social Demócrata Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Nacionalista Cubano",
+       "ficha": "Partido Nacionalista Cubano"
+      },
+      {
+       "nombre": "Partido Unión Nacional",
+       "ficha": ""
+      },
+      {
+       "nombre": "Pen-Club de Escritores Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Plantados hasta la Libertad y la Democracia",
+       "ficha": "Plantados hasta la Libertad y la Democracia"
+      },
+      {
+       "nombre": "Plataforma Unitaria Cubana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Presidio Político Histórico Cubano - Casa del Preso",
+       "ficha": ""
+      },
+      {
+       "nombre": "Proyecto de Bibliotecas Independientes de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Proyecto Instituto Independiente Cultura y Democracia",
+       "ficha": ""
+      },
+      {
+       "nombre": "Puente de Jóvenes Profesionales Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Red Femenina de Cuba",
+       "ficha": "Red Femenina de Cuba"
+      },
+      {
+       "nombre": "The Cuba Corps",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión de Ex-Presos Políticos Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión Liberal Cubana",
+       "ficha": "Unión Liberal Cubana"
+      },
+      {
+       "nombre": "U.S.-Cuba Democracy Pac",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión de Soldados y Oficiales Libres",
+       "ficha": ""
+      },
+      {
+       "nombre": "Agencia de Prensa CubanaCán Press",
+       "ficha": ""
+      },
+      {
+       "nombre": "Agencia de Prensa Sindical Independiente de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Alianza Democrática Oriental",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asamblea para Promover la Sociedad Civil",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociacion de Balseros y Derechos Humanos por Democracia y Libertad",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación de Abogados Independientes",
+       "ficha": ""
+      },
+      {
+       "nombre": "Asociación de Presos y Ex-Presos Políticos Pedro Luis Boitel",
+       "ficha": ""
+      },
+      {
+       "nombre": "Bibliotecas Independientes",
+       "ficha": ""
+      },
+      {
+       "nombre": "Buró de Prensa Manzanillo La Patria Libre",
+       "ficha": ""
+      },
+      {
+       "nombre": "Colegio de Pedagogos Independientes de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Comisión Cubana de Derechos Humanos para Personas con VIH-SIDA",
+       "ficha": ""
+      },
+      {
+       "nombre": "Comisión Cubana de Derechos Humanos José Martí",
+       "ficha": ""
+      },
+      {
+       "nombre": "Comité Cubano de Opositores Pacíficos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Comité Cubano Pro-Derechos Humanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Consejo Nacional de los Derechos Civiles",
+       "ficha": ""
+      },
+      {
+       "nombre": "Consejo Nacional por los Derechos Civiles en Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Consejo Unitario de Trabajadores Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Corriente Martiniana",
+       "ficha": ""
+      },
+      {
+       "nombre": "Foro de Estudios Sociales Martha Abreu",
+       "ficha": ""
+      },
+      {
+       "nombre": "Frente Democrático Independiente (Zona Central)",
+       "ficha": ""
+      },
+      {
+       "nombre": "Frente Línea Dura",
+       "ficha": ""
+      },
+      {
+       "nombre": "Fundación Cubana de Derechos Humanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Fundación Elena Mederos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Fundación Nacional de Derechos Humanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Hijos de la Virgen de Regla",
+       "ficha": ""
+      },
+      {
+       "nombre": "Instituto Cubano de Estudios Sindicales",
+       "ficha": ""
+      },
+      {
+       "nombre": "Jóvenes Anti-Castro",
+       "ficha": ""
+      },
+      {
+       "nombre": "Las Marianas",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento 24 de Febrero",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Acción Democrática",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento al Rescate de la Libertad y la Democracia",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Cívico Nacional Máximo Gómez Báez",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Cristiano Amor y Paz",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Cubano Jóvenes por Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Cubano Reflexión",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Demócrata Cristiano de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Hermanos Fraternales",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Libertad",
+       "ficha": "Movimiento Libertad y Democracia"
+      },
+      {
+       "nombre": "Movimiento Nacional de Resistencia Cívica Pedro Luis Boitel",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Nacional del Pueblo Libre de Cuba Josué País",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Plantados por la Libertad de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Presidio Político Pedro Luis Boitel",
+       "ficha": ""
+      },
+      {
+       "nombre": "Movimiento Pro Derechos Humanos del Golfo de Guacanayabo",
+       "ficha": ""
+      },
+      {
+       "nombre": "Organización Feminista Independiente",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido 30 de Noviembre",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido del Pueblo Cubano Ortodoxo - Zona Oriental",
+       "ficha": "Partido del Pueblo"
+      },
+      {
+       "nombre": "Partido Democrático 30 de Noviembre Frank País",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Liberal de Cuba",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Liberal Nacional Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Liberal de Cuba (Región Central)",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Pro Derechos Humanos Afiliado a la Fundación Andréi Sájarov",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Republicano Cubano",
+       "ficha": ""
+      },
+      {
+       "nombre": "Partido Solidaridad Democrática",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión Nacional de Ex-Presos Políticos Cubanos",
+       "ficha": ""
+      },
+      {
+       "nombre": "Unión Nacional de Opositores",
+       "ficha": ""
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "organizaciones": [
   {
    "nombre": "Cubalex (Centro de Información Legal Cubalex)",
@@ -70,7 +1098,7 @@
    "grupo": "ddhh",
    "ambito": "exilio",
    "pais": "España",
-   "fundada": "2009",
+   "fundada": "2009.0",
    "que": "Informes periódicos de violaciones de derechos humanos en Cuba; integrado sobre todo por ex presos de conciencia.",
    "web": "https://observacuba.org/",
    "estado": "",
@@ -109,7 +1137,7 @@
    "grupo": "ddhh",
    "ambito": "isla",
    "pais": "Cuba",
-   "fundada": "2003",
+   "fundada": "2003.0",
    "que": "Apoyo a personas presas políticas y sus familias; marchas dominicales.",
    "web": "https://damasdeblanco.com/",
    "estado": "",
@@ -309,7 +1337,8 @@
    "web": "",
    "estado": "",
    "actor": "d-frente",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Pasos de Cambio",
@@ -317,12 +1346,13 @@
    "grupo": "coaliciones",
    "ambito": "exilio",
    "pais": "EE. UU.",
-   "fundada": "2025",
+   "fundada": "2025.0",
    "que": "Coalición del exilio; firmó el Acuerdo de Liberación con la Asamblea de la Resistencia Cubana (marzo de 2026).",
    "web": "",
    "estado": "",
    "actor": "pasos-de-cambio",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Acuerdo por la Democracia en Cuba",
@@ -330,12 +1360,13 @@
    "grupo": "coaliciones",
    "ambito": "exilio",
    "pais": "",
-   "fundada": "1998",
+   "fundada": "1998.0",
    "que": "Documento fundacional del exilio democrático; base de muchas propuestas posteriores (Constitución de 1940, gobierno provisional).",
    "web": "",
    "estado": "Documento de 1998",
    "actor": "acuerdo-democracia-cuba",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Plataforma Democrática Cubana",
@@ -348,7 +1379,8 @@
    "web": "",
    "estado": "",
    "actor": "plataforma-democratica-cubana",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Concilio Cubano",
@@ -356,12 +1388,13 @@
    "grupo": "coaliciones",
    "ambito": "isla",
    "pais": "Cuba",
-   "fundada": "1995",
+   "fundada": "1995.0",
    "que": "Primera gran coalición de la oposición interna; desarticulada por la represión en 1996.",
    "web": "",
    "estado": "Histórica",
    "actor": "concilio-cubano",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Archipiélago",
@@ -369,7 +1402,7 @@
    "grupo": "coaliciones",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2021",
+   "fundada": "2021.0",
    "que": "Plataforma que convocó la Marcha Cívica por el Cambio (15N-2021).",
    "web": "",
    "estado": "",
@@ -382,7 +1415,7 @@
    "grupo": "coaliciones",
    "ambito": "isla",
    "pais": "Cuba",
-   "fundada": "2018",
+   "fundada": "2018.0",
    "que": "Colectivo de artistas y activistas; protestas por la libertad de expresión.",
    "web": "",
    "estado": "",
@@ -395,7 +1428,7 @@
    "grupo": "coaliciones",
    "ambito": "isla",
    "pais": "Cuba",
-   "fundada": "2020",
+   "fundada": "2020.0",
    "que": "Artistas e intelectuales reunidos tras el plantón del 27 de noviembre de 2020.",
    "web": "",
    "estado": "",
@@ -408,7 +1441,7 @@
    "grupo": "coaliciones",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2021",
+   "fundada": "2021.0",
    "que": "Plataforma por la transición pacífica; participa en el Diálogo Nacional.",
    "web": "",
    "estado": "",
@@ -421,12 +1454,13 @@
    "grupo": "coaliciones",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2026",
+   "fundada": "2026.0",
    "que": "Alianza de unos 50 grupos y familiares de presos: anteproyecto de Ley de Amnistía y Despenalización del Disenso.",
    "web": "",
    "estado": "",
    "actor": "",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Movimiento Cristiano Liberación",
@@ -447,7 +1481,7 @@
    "grupo": "partidos",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2015",
+   "fundada": "2015.0",
    "que": "Campaña por un plebiscito vinculante para cambiar el sistema político.",
    "web": "",
    "estado": "",
@@ -564,7 +1598,7 @@
    "grupo": "partidos",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2011",
+   "fundada": "2011.0",
    "que": "Proyecto constitucional articulado.",
    "web": "",
    "estado": "",
@@ -582,7 +1616,8 @@
    "web": "",
    "estado": "",
    "actor": "arc-pasos-de-cambio",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Directorio Democrático Cubano",
@@ -681,7 +1716,7 @@
    "grupo": "partidos",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2013",
+   "fundada": "2013.0",
    "que": "Declara ilegítima la Constitución de 1976/2019; exige Asamblea Constituyente.",
    "web": "",
    "estado": "",
@@ -694,12 +1729,13 @@
    "grupo": "coaliciones",
    "ambito": "ambos",
    "pais": "",
-   "fundada": "2020",
+   "fundada": "2020.0",
    "que": "«Ruta Constitucional»: reforma por el Art. 227 de la Constitución de 2019; iniciativa Cuba11J.",
    "web": "",
    "estado": "",
    "actor": "ctdc",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "Partido del Pueblo",
@@ -720,7 +1756,7 @@
    "grupo": "partidos",
    "ambito": "exilio",
    "pais": "España",
-   "fundada": "2026",
+   "fundada": "2026.0",
    "que": "Partido político fundado en 2026.",
    "web": "",
    "estado": "",
@@ -759,7 +1795,7 @@
    "grupo": "estudios",
    "ambito": "exilio",
    "pais": "Exilio",
-   "fundada": "2022",
+   "fundada": "2022.0",
    "que": "Propuestas constitucionales e institucionales; «La Cuba que queremos».",
    "web": "",
    "estado": "",
@@ -785,7 +1821,7 @@
    "grupo": "estudios",
    "ambito": "isla",
    "pais": "Cuba",
-   "fundada": "2013",
+   "fundada": "2013.0",
    "que": "Proyecto de debate reformista dentro de la isla (2013-2019).",
    "web": "",
    "estado": "Histórica",
@@ -1006,7 +2042,7 @@
    "grupo": "diaspora",
    "ambito": "exilio",
    "pais": "España",
-   "fundada": "1996",
+   "fundada": "1996.0",
    "que": "Revista cultural y de pensamiento del exilio; cerró en 2009.",
    "web": "",
    "estado": "Histórica",
@@ -1045,12 +2081,13 @@
    "grupo": "diaspora",
    "ambito": "exilio",
    "pais": "Europa",
-   "fundada": "2026",
+   "fundada": "2026.0",
    "que": "Convocatoria de organizaciones del exilio europeo a una Asamblea Constituyente y consulta popular sobre el modelo político.",
    "web": "",
    "estado": "",
    "actor": "",
-   "diversidad": ""
+   "diversidad": "",
+   "coalicion": true
   },
   {
    "nombre": "ClickCuba",
@@ -1061,6 +2098,422 @@
    "fundada": "",
    "que": "Medio digital: actualidad, presos políticos, migración.",
    "web": "https://click-cuba.com/",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Asociación Francia por la Democracia en Cuba",
+   "siglas": "AFDC",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "Francia",
+   "fundada": "",
+   "que": "Asociación de cubanos en Francia; integrante de D Frente (asume la representación de la Concertación en Francia).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Red Femenina de Cuba",
+   "siglas": "RFC",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Red independiente de mujeres cubanas; integrante de D Frente y fundadora del Foro Acción por la Amnistía.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Asociación Raíces de Esperanza de España",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "España",
+   "fundada": "",
+   "que": "Asociación del exilio en España; integrante de D Frente (lista de dic-2025).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Casa Nación",
+   "siglas": "",
+   "grupo": "coaliciones",
+   "ambito": "ambos",
+   "pais": "Cuba y España",
+   "fundada": "",
+   "que": "Agrupa a cubanos en la Isla, España y otros lugares; integrante de D Frente (lista de dic-2025).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Corporación Feminista de Cuba",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Organización feminista; integrante de D Frente (lista de 2023).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Cuba En Plural",
+   "siglas": "",
+   "grupo": "coaliciones",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Plataforma de la sociedad civil; integrante del CTDC.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Mesa de Diálogo de la Juventud Cubana",
+   "siglas": "MDJC",
+   "grupo": "coaliciones",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Mesa de diálogo de jóvenes; integrante del CTDC.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Asociación Sindical Independiente de Cuba",
+   "siglas": "ASIC",
+   "grupo": "tematicas",
+   "ambito": "isla",
+   "pais": "Cuba",
+   "fundada": "",
+   "que": "Sindicato independiente; integrante del CTDC y firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Alianza Cubana por la Inclusión",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Integrante del CTDC.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Partido por la Democracia Pedro Luis Boitel",
+   "siglas": "PLB",
+   "grupo": "partidos",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Partido opositor; integrante del CTDC y firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Ciudadanía y Libertad",
+   "siglas": "CyL",
+   "grupo": "coaliciones",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Plataforma de educación cívica; organización fundadora del Foro Acción por la Amnistía.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "V Formation",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Organización fundadora del Foro Acción por la Amnistía; datos pendientes.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Cuba en Familia",
+   "siglas": "CEF",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Organización de familias cubanas; fundadora del Foro Acción por la Amnistía.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "NaturPaz",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "isla",
+   "pais": "Cuba",
+   "fundada": "",
+   "que": "ONG ambientalista y pacifista; fundadora del Foro Acción por la Amnistía; firmante de comunicados de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Di.Verso",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Organización fundadora del Foro Acción por la Amnistía; datos pendientes.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Cuban Freedom March",
+   "siglas": "CFM",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Movimiento del exilio; firmante de Pasos de Cambio y del Acuerdo de Liberación.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Foundation NewGeneration",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Fundación del exilio; firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Fundación para la Democracia Panamericana",
+   "siglas": "FDP",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Fundación prodemocracia; firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Instituto Patmos",
+   "siglas": "",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Instituto interreligioso; firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Movimiento Libertad y Democracia",
+   "siglas": "",
+   "grupo": "partidos",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Firmante de Pasos de Cambio; datos pendientes.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Movimiento Opositores por una Nueva República",
+   "siglas": "MONR",
+   "grupo": "partidos",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Movimiento opositor; integrante del CTDC y firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Patria de Martí",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Plataforma del exilio; firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Plantados hasta la Libertad y la Democracia",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Asociación de ex presos políticos; firmante de Pasos de Cambio y del Acuerdo por la Democracia (1998).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Instituto La Rosa Blanca",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Institución del exilio histórico; firmante de Pasos de Cambio y del Acuerdo por la Democracia.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "MAR por Cuba",
+   "siglas": "MAR",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Organización del exilio; firmante de Pasos de Cambio y del Acuerdo de Liberación (Alas Tensas, 3-mar-2026).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Bacardi Family Foundation",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Fundación de la familia Bacardí; firmante del memorando de Pasos de Cambio a EE.UU.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Fundación Cubana Anticomunista",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Firmante de comunicados de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Observatorio de Género de Alas Tensas",
+   "siglas": "OGAT",
+   "grupo": "tematicas",
+   "ambito": "ambos",
+   "pais": "",
+   "fundada": "",
+   "que": "Observatorio de feminicidios alojado en Alas Tensas; firmante de Pasos de Cambio.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Fundación Rescate Jurídico",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "EE. UU.",
+   "fundada": "",
+   "que": "Asistencia jurídica a la sociedad civil; firmante del Acuerdo de Liberación (Alas Tensas, 3-mar-2026).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Unión Liberal Cubana",
+   "siglas": "ULC",
+   "grupo": "partidos",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Partido liberal del exilio; fundador de la Plataforma Democrática Cubana (1990); firmante del Acuerdo por la Democracia.",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Coordinadora Social Demócrata Cubana",
+   "siglas": "",
+   "grupo": "coaliciones",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Fundadora de la Plataforma Democrática Cubana (1990).",
+   "web": "",
+   "estado": "",
+   "actor": "",
+   "diversidad": ""
+  },
+  {
+   "nombre": "Democratic Spaces",
+   "siglas": "",
+   "grupo": "diaspora",
+   "ambito": "exilio",
+   "pais": "",
+   "fundada": "",
+   "que": "Organización de análisis del exilio; adherida al Acuerdo por la Democracia (ratificación posterior).",
+   "web": "",
    "estado": "",
    "actor": "",
    "diversidad": ""
@@ -1313,5 +2766,5 @@
    "diversidad": ""
   }
  ],
- "fuente": "Dossier de organizaciones independientes de Cuba (v3, 16/10/2026)"
+ "fuente": "Dossier de organizaciones independientes de Cuba (v4, 17/10/2026)"
 }
