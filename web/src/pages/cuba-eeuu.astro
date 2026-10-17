@@ -36,8 +36,8 @@ const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).s
               <p class="ce-quien">{x.quien}. <a href={x.fuente} rel="noopener" target="_blank">{dominio(x.fuente)}</a></p>
             </div>
             <div class="ce-banco">
-              <p class="ce-etq">En el banco desde {desde(x.propuestas)} · {docs(x.propuestas)} documentos</p>
-              <ul>{x.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a> <span class="discreto">desde {desdeAnio(propPorId.get(id))}</span></li>)}</ul>
+              <p class="ce-etq" data-ids={x.propuestas.join(',')}>En el banco desde {desde(x.propuestas)} · {docs(x.propuestas)} documentos</p>
+              <ul>{x.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a> <span class="discreto" data-desde={id}>desde {desdeAnio(propPorId.get(id))}</span></li>)}</ul>
             </div>
           </li>
         ))}

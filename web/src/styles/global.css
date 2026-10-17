@@ -1220,3 +1220,4 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .ce-posiciones .num { font-family: var(--display); font-weight: 800; color: var(--rojo); }
 .ce-posiciones h3 { margin: 4px 0 8px; font-family: var(--display); text-transform: uppercase; color: var(--marino); font-size: 1.15rem; }
 .etiqueta.desde { background: var(--marino); color: #fff; border-color: var(--marino); }
+.desde-anio { margin: 0 0 6px; color: var(--marino); }
