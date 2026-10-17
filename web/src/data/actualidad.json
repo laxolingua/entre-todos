@@ -1,5 +1,118 @@
 {
-  "actualizado": "",
-  "nota": "Rellena Instinct cada semana (hoja 024 CL Plantillas, pestaña Actualidad). Claude la convierte a este archivo.",
-  "noticias": []
+ "actualizado": "17 de octubre de 2026",
+ "nota": "Muestra de Instinct (semana del 11 al 17 de octubre), revisada por Claude.",
+ "noticias": [
+  {
+   "fecha": "17/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "El Gobierno reconoce más de 6.900 nuevas personas en situación de vulnerabilidad",
+   "enlace": "https://diariodecuba.com/cuba/1792240367_69426.html",
+   "propuestas": [
+    "atencion-vulnerables"
+   ]
+  },
+  {
+   "fecha": "16/10/2026",
+   "medio": "14ymedio",
+   "titular": "Un incendio afecta la termoeléctrica de Santa Cruz del Norte",
+   "enlace": "https://www.14ymedio.com/cuba/grave-incendio-termoelectrica-cubana-santa_1_1132017.html",
+   "propuestas": [
+    "energia"
+   ]
+  },
+  {
+   "fecha": "16/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "EEUU pide en la ONU rechazar la resolución cubana contra el embargo",
+   "enlace": "https://diariodecuba.com/cuba/1792192524_69423.html",
+   "propuestas": [
+    "presion-externa-sanciones",
+    "normalizacion-cuba-eeuu"
+   ]
+  },
+  {
+   "fecha": "16/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "Los nuevos mercados de barrio de Santiago de Cuba",
+   "enlace": "https://diariodecuba.com/cuba/1792151356_69415.html",
+   "propuestas": [
+    "derecho-alimentacion",
+    "economia-abierta"
+   ]
+  },
+  {
+   "fecha": "15/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "La inflación interanual se acerca al 30% y el salario medio pierde valor",
+   "enlace": "https://diariodecuba.com/economia/1792046011_69398.html",
+   "propuestas": [
+    "estabilizacion-monetaria"
+   ]
+  },
+  {
+   "fecha": "15/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "El dólar llega a 800 pesos en el mercado informal",
+   "enlace": "https://diariodecuba.com/economia/1792105832_69409.html",
+   "propuestas": [
+    "estabilizacion-monetaria"
+   ]
+  },
+  {
+   "fecha": "15/10/2026",
+   "medio": "14ymedio",
+   "titular": "EEUU sanciona al banco BICSA por sus vínculos con Irán",
+   "enlace": "https://www.14ymedio.com/cuba/ee-uu-sanciona-vinculos-iran_1_1132005.html",
+   "propuestas": [
+    "presion-externa-sanciones"
+   ]
+  },
+  {
+   "fecha": "15/10/2026",
+   "medio": "elTOQUE",
+   "titular": "El dólar sube de 750 a 795 pesos en tres días en el mercado informal",
+   "enlace": "https://eltoque.com/de-750-a-795-tres-dias-de-alza-del-dolar",
+   "propuestas": [
+    "estabilizacion-monetaria"
+   ]
+  },
+  {
+   "fecha": "14/10/2026",
+   "medio": "elTOQUE",
+   "titular": "La nueva Ley de la Vivienda permite tener hasta dos viviendas y comprar sin efectivo",
+   "enlace": "https://eltoque.com/publicada-nueva-ley-de-la-vivienda-en-cuba",
+   "propuestas": [
+    "vivienda"
+   ]
+  },
+  {
+   "fecha": "13/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "El canciller de Uruguay afirma que Cuba vive su \"momento más grave\"",
+   "enlace": "https://diariodecuba.com/cuba/1791882331_69368.html",
+   "propuestas": [
+    "cambio-de-modelo"
+   ]
+  },
+  {
+   "fecha": "12/10/2026",
+   "medio": "Diario de Cuba",
+   "titular": "La Habana deroga leyes de 1938 y 1959",
+   "enlace": "https://diariodecuba.com/economia/1791830569_69363.html",
+   "propuestas": [
+    "libertad-empresa",
+    "emprendimiento"
+   ]
+  },
+  {
+   "fecha": "12/10/2026",
+   "medio": "CiberCuba",
+   "titular": "Cuba estrena un marco legal de petróleo y gas tras 88 años",
+   "enlace": "https://www.cibercuba.com/s/gacetaoficial/decreto-ley-135-de-2026-de-consejo-de-estado",
+   "propuestas": [
+    "energia",
+    "economia-abierta"
+   ]
+  }
+ ]
 }

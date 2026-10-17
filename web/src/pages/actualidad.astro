@@ -1,7 +1,8 @@
 ---
 // Actualidad: noticias de medios independientes enlazadas a las propuestas del banco.
-// Contenido: data/actualidad.json (lo rellena Instinct; Claude revisa).
+// Diseño de Instinct (17/10/2026). Contenido: data/actualidad.json (lo rellena Instinct; Claude revisa).
 import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
 import datos from '../data/actualidad.json';
 import publico from '../data/publico.json';
 const prop = Object.fromEntries(publico.propuestas.map((p) => [p.id, p]));
@@ -10,31 +11,32 @@ const { noticias, actualizado } = datos;
 ---
 <Base titulo="Actualidad" seccion="otras"
   descripcion="Noticias de la semana sobre Cuba, cada una enlazada a las propuestas del banco que tratan el mismo tema.">
-  <div class="contenedor">
+  <Banda imagen="/img/fotos/cat-economia.jpg" lateral={['La semana', 'Con fuente', 'Enlazada al banco']}>
+    <span class="barra"></span>
     <h1>Actualidad</h1>
+    <p class="lema">La semana de Cuba, noticia a noticia</p>
     <p class="entradilla">Noticias de la semana publicadas por medios independientes, cada una con su fuente y las propuestas del banco que tratan el mismo tema.</p>
-    {actualizado && <p class="discreto">Actualizado el {actualizado}.</p>}
-    {noticias.length === 0 ? (
-      <p class="org-vacio">En preparación.</p>
-    ) : (
-      <ol class="ce-crono">
+  </Banda>
+  <div class="contenedor">
+    {actualizado && <p class="discreto">Actualizado el {actualizado} · {noticias.length} noticias esta semana.</p>}
+    {noticias.length === 0 ? <p class="org-vacio">En preparación.</p> : (
+      <ul class="lista">
         {noticias.map((x) => (
-          <li>
-            <span class="ce-fecha">{x.fecha}</span>
-            <div>
-              <p>{x.titular}</p>
-              <p class="ce-quien">{x.medio}. <a href={x.enlace} rel="noopener" target="_blank">{dominio(x.enlace)}</a></p>
-              {(x.propuestas || []).filter((id) => prop[id]).length > 0 && (
-                <p class="discreto">En el banco: {x.propuestas.filter((id) => prop[id]).map((id, i) => <>{i > 0 && ' · '}<a href={`/propuesta/${id}/`}>{prop[id].titulo}</a></>)}</p>
-              )}
+          <li class="tarjeta consolidada">
+            <p class="autoria"><i class="fi fi-br-clock" aria-hidden="true"></i>{x.fecha} · {x.medio}</p>
+            <h3><a href={x.enlace} rel="noopener" target="_blank">{x.titular}</a></h3>
+            <div class="etiquetas">
+              <a class="etiqueta" href={x.enlace} rel="noopener" target="_blank">Fuente: {dominio(x.enlace)} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              {(x.propuestas || []).filter((id) => prop[id]).map((id) => <a class="etiqueta alterna act-prop" href={`/propuesta/${id}/`}><i class="fi fi-br-bulb" aria-hidden="true"></i>En el banco: {prop[id].titulo}</a>)}
             </div>
           </li>
         ))}
-      </ol>
+      </ul>
     )}
     <section class="seccion org-nota">
       <h2>Cómo se elabora</h2>
-      <p>Se recogen noticias publicadas por medios independientes, con un titular propio y neutro y el enlace a la fuente original. Las correcciones se pueden enviar a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+      <p>Se recogen noticias publicadas por medios independientes que tratan leyes, medidas, derechos o hechos verificables relacionados con alguna propuesta del banco. Cada una lleva un titular propio y neutro y el enlace a la fuente original. Las correcciones se pueden enviar a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
     </section>
+    <div class="acciones"><a class="boton rojo" href="/propuestas/">Ver el banco de propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </Base>

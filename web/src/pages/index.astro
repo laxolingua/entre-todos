@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import c from '../data/cifras-publicadas.json';
+import HoyET from '../components/HoyET.astro';
 ---
 <Base titulo="Inicio" seccion="inicio" ancho imagen="/img/og-portada.jpg"
   descripcion="Plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos.">
@@ -33,6 +34,8 @@ import c from '../data/cifras-publicadas.json';
     </nav>
     <span class="orn bar-r escritorio" style="width:40px;left:4%;bottom:7%;height:7px"></span>
   </section>
+
+  <HoyET />
 
   <section class="seccion" aria-label="Qué puedes hacer">
     <div class="contenedor">

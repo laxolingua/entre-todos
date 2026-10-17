@@ -1,42 +1,51 @@
 ---
-// Itinerario del Blog A+: para qué sirve cada bloque en estudios y trabajo.
+// Itinerario del Blog A+: para qué sirve cada bloque. Diseño de Instinct (17/10/2026).
 // Contenido: data/itinerario.json (lo rellena Instinct; Claude revisa).
 import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
 import { cursos } from '../../data/academia.js';
+import { entradas } from '../../data/academia-entradas.js';
 import it from '../../data/itinerario.json';
+const n = (c) => (c.lecciones || []).filter((l) => entradas[l.id]).length;
 ---
 <Base titulo="Itinerario" seccion="academia"
   descripcion="Para qué sirve cada bloque de la Academia: carreras, profesiones y empleos relacionados.">
-  <div class="contenedor">
+  <Banda imagen="/img/fotos/cat-trabajo.jpg" lateral={['Estudiar', 'Trabajar', 'Certificar']}>
+    <span class="barra"></span>
     <h1>Itinerario</h1>
+    <p class="lema">Para qué sirve cada bloque</p>
     <p class="entradilla">Cada bloque de la Academia se relaciona con estudios y trabajos concretos. Aquí se indica para qué sirve cada uno.</p>
-    <ol class="ce-crono ce-crono-corta">
+  </Banda>
+  <div class="contenedor">
+    <ul class="lista">
       {cursos.map((c) => {
         const b = it.bloques[c.id] || { utilPara: [] };
+        const disp = c.estado === 'disponible';
         return (
-          <li>
-            <span class="ce-fecha">Bloque {c.num}</span>
-            <div>
-              <p><strong>{c.estado === 'disponible' ? <a href={`/academia/${c.id}/`}>{c.titulo}</a> : c.titulo}</strong>{c.estado !== 'disponible' && <span class="etiqueta">En preparación</span>}</p>
-              <p class="discreto">Útil para: {b.utilPara.length ? b.utilPara.join(' · ') : 'en preparación'}</p>
+          <li class={`tarjeta${disp ? ' consolidada' : ''}`}>
+            <p class="autoria"><i class="fi fi-br-book-open-cover" aria-hidden="true"></i>Bloque {c.num}{disp ? ` · ${n(c)} ${n(c) === 1 ? 'entrada' : 'entradas'} · ${c.minutos} min` : ''}</p>
+            <h3>{disp ? <a href={`/academia/${c.id}/`}>{c.titulo}</a> : c.titulo}</h3>
+            <p class="texto">{c.resumen}</p>
+            <div class="etiquetas">
+              {!disp && <span class="etiqueta aviso">En preparación</span>}
+              {b.utilPara.map((u) => <span class="etiqueta alterna"><i class="fi fi-br-graduation-cap" aria-hidden="true"></i>{u}</span>)}
             </div>
           </li>
         );
       })}
-      {it.nuevos.map((n) => (
-        <li>
-          <span class="ce-fecha">Nuevo</span>
-          <div>
-            <p><strong>{n.titulo}</strong><span class="etiqueta">En preparación</span></p>
-            <p>{n.resumen}</p>
-            <p class="discreto">Útil para: {n.utilPara.length ? n.utilPara.join(' · ') : 'en preparación'}</p>
-          </div>
+      {it.nuevos.map((x) => (
+        <li class="tarjeta">
+          <p class="autoria"><i class="fi fi-br-book-open-cover" aria-hidden="true"></i>Bloque nuevo</p>
+          <h3>{x.titulo}</h3>
+          <p class="texto">{x.resumen}</p>
+          <div class="etiquetas"><span class="etiqueta aviso">En preparación</span>{x.utilPara.map((u) => <span class="etiqueta alterna"><i class="fi fi-br-graduation-cap" aria-hidden="true"></i>{u}</span>)}</div>
         </li>
       ))}
-    </ol>
+    </ul>
     <section class="seccion org-nota">
       <h2>Certificados</h2>
       <p>Cada bloque completado da un certificado que se puede imprimir o guardar en PDF. La verificación en línea y el reconocimiento por una universidad están en preparación.</p>
     </section>
+    <div class="acciones"><a class="boton rojo" href="/academia/">Ir al Blog A+ <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </Base>

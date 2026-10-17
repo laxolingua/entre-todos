@@ -1232,3 +1232,49 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .cat-banda { margin: 0 0 18px; height: clamp(160px, 24vw, 280px); overflow: hidden; }
 .cat-banda img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tarjeta.con-foto .tarjeta-cuerpo { padding-top: 26px; }
+
+/* Actualidad: enlaces al banco en minúscula normal */
+.etiqueta.act-prop { text-transform: none; letter-spacing: 0; font-size: .8rem; }
+
+/* «Hoy en ENTRE TODOS» (portada) */
+.hoy-pila { display: flex; height: 450px; }
+.hoy-tabs { display: flex; flex: none; padding-right: 46px; }
+.hoy-tab { position: relative; width: 150px; margin-right: -46px; height: 100%; border: 0; padding: 0; background: none; cursor: pointer; font: inherit; }
+.hoy-num { position: absolute; top: 0; left: 62px; width: 58px; height: 26px; background: var(--amarillo); color: var(--marino); font-family: var(--display); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; transform: skewX(-9deg); z-index: 3; }
+.hoy-tab.activa .hoy-num { background: var(--rojo); color: #fff; }
+.hoy-franja { position: absolute; top: 26px; bottom: 0; left: 0; right: 0; background-size: cover; background-position: center; clip-path: polygon(70px 0, 100% 0, calc(100% - 70px) 100%, 0 100%); }
+.hoy-franja::after { content: ""; position: absolute; inset: 0; background: rgba(11, 29, 63, .62); transition: background .2s; }
+.hoy-tab:hover .hoy-franja::after, .hoy-tab:focus-visible .hoy-franja::after { background: rgba(11, 29, 63, .4); }
+.hoy-franja { filter: saturate(0); }
+.hoy-tab.activa .hoy-franja { filter: none; }
+.hoy-tab.activa .hoy-franja::after { background: rgba(215, 25, 45, .6); }
+.hoy-nombre { position: absolute; left: 60px; bottom: 26px; z-index: 2; color: #fff; font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; transform-origin: left bottom; transform: rotate(-80deg); }
+.hoy-nuevo { background: var(--rojo); color: #fff; font-family: var(--cuerpo, inherit); font-size: 11px; padding: 2px 6px; margin-left: 8px; letter-spacing: .05em; }
+.hoy-panel { flex: 1; min-width: 0; margin: 26px 0 0 -70px; position: relative; z-index: 2; background: #fff; clip-path: polygon(70px 0, 100% 0, 100% 100%, 0 100%); display: flex; flex-direction: column; }
+.hoy-panel[hidden] { display: none; }
+.hoy-foto { height: 180px; flex: none; background-size: cover; background-position: center 35%; filter: grayscale(1); }
+.hoy-cuerpo { padding: 22px 36px 24px 100px; position: relative; overflow: hidden; }
+.hoy-cuerpo::before { content: ""; position: absolute; left: 100px; top: 0; width: 60px; height: 4px; background: var(--amarillo); }
+.hoy-n { float: right; font-family: var(--display); font-weight: 300; font-size: 44px; line-height: 1; color: #9aa3b2; }
+.hoy-cat { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 8px 0 6px; }
+.hoy-cuerpo h3 { font-family: var(--display); font-weight: 800; font-size: 1.85rem; line-height: 1.03; text-transform: uppercase; margin: 0 0 12px; }
+.hoy-txt { margin: 0 0 12px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hoy-ops { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.hoy-ops .boton.elegida { background: var(--marino); color: #fff; }
+.hoy-res { margin: 0 0 10px; font-size: .92rem; }
+.hoy-noticias { list-style: none; padding: 0; margin: 0 0 12px; }
+.hoy-noticias li { padding: 6px 0; border-top: 1px solid var(--borde, #e3e6ec); }
+@media (max-width: 760px) {
+  .hoy-pila { flex-direction: column; height: auto; }
+  .hoy-tabs { padding: 0; }
+  .hoy-tab { width: 25%; margin: 0; height: 74px; }
+  .hoy-num { left: 8px; width: 34px; height: 20px; font-size: 13px; }
+  .hoy-franja { top: 20px; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .hoy-nombre { left: 8px; right: 6px; bottom: 6px; transform: none; font-size: 12px; white-space: normal; line-height: 1.05; }
+  .hoy-nuevo { display: none; }
+  .hoy-panel { margin: 0; clip-path: none; }
+  .hoy-foto { height: 140px; }
+  .hoy-cuerpo { padding: 18px 16px 20px; }
+  .hoy-cuerpo::before { left: 16px; }
+  .hoy-cuerpo h3 { font-size: 1.45rem; }
+}

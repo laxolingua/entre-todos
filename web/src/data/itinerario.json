@@ -1,14 +1,79 @@
 {
-  "nota": "Rellena Instinct (hoja 024 CL Plantillas, pestaña Itinerario). utilPara: 3 a 5 carreras, profesiones o empleos por bloque, con fuente.",
-  "bloques": {
-    "derechos-humanos": { "utilPara": [], "fuente": "" },
-    "libertad-de-expresion": { "utilPara": [], "fuente": "" },
-    "justicia": { "utilPara": [], "fuente": "" },
-    "rendicion-de-cuentas": { "utilPara": [], "fuente": "" },
-    "libertad-religiosa": { "utilPara": [], "fuente": "" },
-    "sociedad-civil": { "utilPara": [], "fuente": "" }
+ "nota": "Rellena Instinct (hoja 024 CL Plantillas, pestaña Itinerario). utilPara: 3 a 5 carreras, profesiones o empleos por bloque, con fuente.",
+ "bloques": {
+  "derechos-humanos": {
+   "utilPara": [
+    "Derecho",
+    "Relaciones internacionales",
+    "Trabajo social",
+    "Recursos humanos",
+    "Asesoría a migrantes"
+   ],
+   "fuente": ""
   },
-  "nuevos": [
-    { "id": "mipymes", "titulo": "Crear y gestionar una mipyme", "resumen": "Cómo funciona una micro, pequeña o mediana empresa privada en Cuba según el Decreto-Ley 88/2024: constitución, obligaciones, contabilidad básica y derechos laborales.", "utilPara": [], "temas": [] }
-  ]
+  "libertad-de-expresion": {
+   "utilPara": [
+    "Periodismo",
+    "Comunicación",
+    "Medios",
+    "Verificación de datos",
+    "Comunicación institucional"
+   ],
+   "fuente": ""
+  },
+  "justicia": {
+   "utilPara": [
+    "Derecho",
+    "Ciencia política",
+    "Cumplimiento normativo",
+    "Mediación"
+   ],
+   "fuente": ""
+  },
+  "rendicion-de-cuentas": {
+   "utilPara": [
+    "Administración pública",
+    "Economía",
+    "Auditoría",
+    "Transparencia",
+    "Gobierno local"
+   ],
+   "fuente": ""
+  },
+  "libertad-religiosa": {
+   "utilPara": [
+    "Estudios religiosos",
+    "Trabajo comunitario",
+    "Educación",
+    "Mediación",
+    "Defensa de derechos humanos"
+   ],
+   "fuente": ""
+  },
+  "sociedad-civil": {
+   "utilPara": [
+    "Sociología",
+    "Gestión de proyectos",
+    "Coordinación de ong",
+    "Cooperación internacional",
+    "Captación de fondos"
+   ],
+   "fuente": ""
+  }
+ },
+ "nuevos": [
+  {
+   "id": "mipymes",
+   "titulo": "Crear y gestionar una mipyme",
+   "resumen": "Cómo funciona una micro, pequeña o mediana empresa privada en Cuba según el Decreto-Ley 88/2024: constitución, obligaciones, contabilidad básica y derechos laborales.",
+   "utilPara": [
+    "Emprendimiento",
+    "Contabilidad",
+    "Administración de empresas",
+    "Asesoría jurídica",
+    "Recursos humanos"
+   ],
+   "temas": []
+  }
+ ]
 }

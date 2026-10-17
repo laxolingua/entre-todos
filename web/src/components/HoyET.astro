@@ -1,0 +1,131 @@
+---
+// «Hoy en ENTRE TODOS»: cuatro tarjetas apiladas en la portada (boceto A2 aprobado por Mitch, 17/10/2026).
+// 01 Pregunta del día · 02 Propuesta del día · 03 Último Blog A+ · 04 Actualidad.
+// La pregunta y la propuesta cambian cada día en el navegador; no hace falta reconstruir el sitio.
+import { cursos } from '../data/academia.js';
+import { entradas } from '../data/academia-entradas.js';
+import publico from '../data/publico.json';
+import actualidad from '../data/actualidad.json';
+const pub = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
+  c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({
+    q: entradas[l.id].gancho.q, o: entradas[l.id].gancho.o, e: entradas[l.id].entradilla,
+    url: `/academia/${c.id}/${l.id}/`, foto: `/img/fotos/cat-${l.foto || ['derechos', 'constitucion', 'sociedad_civil', 'transicion'][n] || c.foto}.jpg`, curso: c.titulo,
+  })));
+const ultima = pub[pub.length - 1];
+const preguntas = pub.length > 1 ? pub.slice(0, -1) : pub;
+const props = publico.propuestas.map((p) => ({ id: p.id, t: p.titulo, x: (p.texto || '').slice(0, 220), c: p.categoria }));
+const noticias = actualidad.noticias.slice(0, 3);
+const fechaAct = actualidad.noticias[0]?.fecha || '';
+const datos = JSON.stringify({ preguntas, props });
+const P = [
+  { k: 'pregunta', n: '01', nombre: 'Pregunta del día', foto: preguntas[0]?.foto },
+  { k: 'propuesta', n: '02', nombre: 'Propuesta del día', foto: `/img/fotos/cat-${props[0].c}.jpg` },
+  { k: 'blog', n: '03', nombre: 'Blog A+', foto: ultima.foto },
+  { k: 'actualidad', n: '04', nombre: 'Actualidad', foto: '/img/fotos/morro.jpg' },
+];
+---
+<section class="seccion hoy" aria-labelledby="t-hoy">
+  <div class="contenedor">
+    <h2 id="t-hoy" class="vista-titulo">Hoy en ENTRE TODOS</h2>
+    <div class="hoy-pila" data-hoy data-fecha-act={fechaAct}>
+      <div class="hoy-tabs" role="tablist" aria-label="Hoy en ENTRE TODOS">
+        {P.map((p, i) => (
+          <button type="button" role="tab" class="hoy-tab" data-hoy-tab={i} aria-selected={i === 0 ? 'true' : 'false'}>
+            <span class="hoy-num">{p.n}</span>
+            <span class="hoy-franja" style={`background-image:url(${p.foto})`} data-hoy-foto={p.k}></span>
+            <span class="hoy-nombre">{p.nombre}{p.k === 'actualidad' && <span class="hoy-nuevo" data-hoy-nuevo hidden>Nuevo</span>}</span>
+          </button>
+        ))}
+      </div>
+      <div class="hoy-panel" role="tabpanel" data-hoy-panel="0">
+        <div class="hoy-foto" style={`background-image:url(${P[0].foto})`} data-hoy-foto="pregunta"></div>
+        <div class="hoy-cuerpo">
+          <span class="hoy-n">01</span>
+          <p class="hoy-cat">Pregunta del día · <span data-hoy-hoy></span></p>
+          <h3 data-pq>{preguntas[0].q}</h3>
+          <div class="hoy-ops" data-pops>{preguntas[0].o.map((o, i) => <button type="button" class="boton" data-op={i}>{o}</button>)}</div>
+          <p class="hoy-res" data-pres hidden></p>
+          <a class="enlace-flecha" data-purl href={preguntas[0].url}>Ver la lección <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="hoy-panel" role="tabpanel" data-hoy-panel="1" hidden>
+        <div class="hoy-foto" style={`background-image:url(${P[1].foto})`} data-hoy-foto="propuesta2"></div>
+        <div class="hoy-cuerpo">
+          <span class="hoy-n">02</span>
+          <p class="hoy-cat">Propuesta del día</p>
+          <h3 data-rt>{props[0].t}</h3>
+          <p class="hoy-txt" data-rx>{props[0].x}</p>
+          <a class="enlace-flecha" data-rurl href={`/propuesta/${props[0].id}/`}>Ver la propuesta <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="hoy-panel" role="tabpanel" data-hoy-panel="2" hidden>
+        <div class="hoy-foto" style={`background-image:url(${P[2].foto})`}></div>
+        <div class="hoy-cuerpo">
+          <span class="hoy-n">03</span>
+          <p class="hoy-cat">Blog A+ · Última entrada · {ultima.curso}</p>
+          <h3>{ultima.q}</h3>
+          <p class="hoy-txt">{ultima.e}</p>
+          <a class="enlace-flecha" href={ultima.url}>Leer la entrada <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="hoy-panel" role="tabpanel" data-hoy-panel="3" hidden>
+        <div class="hoy-foto" style={`background-image:url(${P[3].foto})`}></div>
+        <div class="hoy-cuerpo">
+          <span class="hoy-n">04</span>
+          <p class="hoy-cat">Actualidad · {actualidad.actualizado}</p>
+          {noticias.length ? <ul class="hoy-noticias">{noticias.map((x) => <li><a href={x.enlace} rel="noopener" target="_blank">{x.titular}</a> <span class="discreto">{x.medio}</span></li>)}</ul> : <p class="hoy-txt">En preparación.</p>}
+          <a class="enlace-flecha" href="/actualidad/">Todas las noticias de la semana <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" id="datos-hoy" set:html={datos}></script>
+</section>
+
+<script>
+  const raiz = document.querySelector('[data-hoy]');
+  if (raiz) {
+    const D = JSON.parse(document.getElementById('datos-hoy')?.textContent || '{}');
+    const hoy = new Date();
+    const dia = Math.floor(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()) / 86400000);
+    const q = D.preguntas[dia % D.preguntas.length];
+    const r = D.props[(dia * 7) % D.props.length];
+    const $ = (s) => raiz.querySelector(s);
+    const fecha = hoy.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
+    const fh = $('[data-hoy-hoy]'); if (fh) fh.textContent = fecha;
+    // Pregunta del día
+    const pq = $('[data-pq]'); if (pq) pq.textContent = q.q;
+    const pu = $('[data-purl]'); if (pu) pu.setAttribute('href', q.url);
+    raiz.querySelectorAll('[data-hoy-foto="pregunta"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(${q.foto})`; });
+    const ops = $('[data-pops]'); const res = $('[data-pres]');
+    const clave = `et-hoy-${dia}`;
+    const pintar = (i) => {
+      if (!ops || !res) return;
+      ops.querySelectorAll('button').forEach((b, j) => b.classList.toggle('elegida', j === i));
+      res.hidden = false; res.textContent = `Tu respuesta: ${q.o[i]}. Lee la lección y vuelve a responder al final para ver si cambia.`;
+    };
+    if (ops) {
+      ops.innerHTML = '';
+      q.o.forEach((o, i) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'boton'; b.textContent = o; b.addEventListener('click', () => { try { localStorage.setItem(clave, String(i)); } catch (e) { /* sin almacenamiento */ } pintar(i); }); ops.appendChild(b); });
+      try { const v = localStorage.getItem(clave); if (v !== null) pintar(Number(v)); } catch (e) { /* sin almacenamiento */ }
+    }
+    // Propuesta del día
+    const rt = $('[data-rt]'); if (rt) rt.textContent = r.t;
+    const rx = $('[data-rx]'); if (rx) rx.textContent = r.x;
+    const ru = $('[data-rurl]'); if (ru) ru.setAttribute('href', `/propuesta/${r.id}/`);
+    raiz.querySelectorAll('[data-hoy-foto="propuesta"],[data-hoy-foto="propuesta2"]').forEach((el) => { if (el instanceof HTMLElement) el.style.backgroundImage = `url(/img/fotos/cat-${r.c}.jpg)`; });
+    // «Nuevo» si la última noticia tiene menos de 7 días
+    const fa = raiz.getAttribute('data-fecha-act') || '';
+    const m = fa.match(/(\d+)\/(\d+)\/(\d+)/);
+    if (m && (hoy.getTime() - new Date(+m[3], +m[2] - 1, +m[1]).getTime()) < 7 * 86400000) { const nv = $('[data-hoy-nuevo]'); if (nv instanceof HTMLElement) nv.hidden = false; }
+    // Pestañas
+    const tabs = [...raiz.querySelectorAll('[data-hoy-tab]')];
+    const paneles = [...raiz.querySelectorAll('[data-hoy-panel]')];
+    const activar = (i) => {
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); t.classList.toggle('activa', j === i); });
+      paneles.forEach((p, j) => { if (p instanceof HTMLElement) p.hidden = j !== i; });
+    };
+    tabs.forEach((t, i) => t.addEventListener('click', () => activar(i)));
+    activar(0);
+  }
+</script>
