@@ -1,6 +1,6 @@
 # Reestructura las páginas publicadas del banco según el concepto (barra de categorías, tarjetas con
 # foto y número, ficha con número rojo, foto y pestañas). No cambia ningún texto ni dato del banco.
-import glob, re, sys, copy, html
+import os, glob, re, sys, copy, html
 from bs4 import BeautifulSoup
 P = sys.argv[1]
 leer = lambda f: BeautifulSoup(open(f, encoding='utf-8').read(), 'html.parser')
@@ -118,3 +118,16 @@ for f in glob.glob(f'{P}/propuesta/*/index.html'):
         s.find('nav', class_='pestanas').insert_after(bloque)
     guardar(f, s); n += 1
 print('categorías', len(cats), '· fichas', n, '· total', total)
+
+# 4. Participación (escala de acuerdo y aportes): las páginas de main traen la sección vacía; se monta con el script de la compilación.
+# Sin PUBLIC_PARTICIPACION=true la escala sale desactivada y explica que se activará con la base de datos.
+nuevo = [a for a in glob.glob(f'{P}/_astro/participacion.*.js') if 'Muy en contra' in open(a, encoding='utf-8').read()]
+if nuevo:
+    ruta = '/_astro/' + os.path.basename(nuevo[0])
+    montaje = f'<script type="module">import("{ruta}").then(function(m){{m.iniciarParticipacion()}})</script>'
+    montadas = 0
+    for f in glob.glob(f'{P}/propuesta/*/index.html'):
+        t = open(f, encoding='utf-8').read()
+        if 'id="valoracion"' in t and 'iniciarParticipacion' not in t:
+            open(f, 'w', encoding='utf-8').write(t.replace('</body>', montaje + '</body>', 1)); montadas += 1
+    print('participación montada en', montadas, 'propuestas')

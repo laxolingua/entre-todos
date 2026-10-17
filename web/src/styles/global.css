@@ -340,10 +340,26 @@ a.etiqueta:hover { background: var(--marino); color: #fff; }
 .valoracion { margin-top: 18px; padding: 16px 18px; background: var(--superficie-2); border: 1px dashed var(--borde); }
 .valoracion:empty { display: none; }
 .valoracion p { margin: 6px 0 0; }
-.estrellas { display: flex; gap: 6px; }
-.estrellas button { width: 44px; height: 44px; border: 1px solid var(--borde); background: var(--superficie); color: var(--texto-3); font-size: 1.2rem; display: grid; place-items: center; cursor: pointer; }
-.estrellas button.llena { color: var(--amarillo); border-color: var(--amarillo); }
-.estrellas button:disabled { cursor: not-allowed; opacity: .7; }
+/* Escala de acuerdo (sustituye a las estrellas): ver marca/identidad/componentes/EscalaAcuerdo */
+:root { --voto-1: #d7192d; --voto-2: #ec7c88; --voto-3: #9aa3b2; --voto-4: #5b6e95; --voto-5: #0b1d3f; --voto-1-suave: #f2b3ba; --voto-2-suave: #f9dde0; --voto-3-suave: #e6e9ef; --voto-4-suave: #cdd6e8; --voto-5-suave: #a9b8d6; }
+.escala { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 10px 14px 6px; max-width: 560px; }
+.escala button { position: relative; border: 0; background: none; padding: 0 4px; cursor: pointer; font: inherit; isolation: isolate; min-height: 74px; color: var(--marino); font-weight: 700; font-size: .84rem; line-height: 1.15; display: grid; place-items: center; text-align: center; }
+.escala button::before { content: ""; position: absolute; inset: 0; z-index: -1; transform: skewX(var(--sesgo)); border: 2px solid transparent; transition: .15s; }
+.escala button[data-v="1"]::before { background: var(--voto-1-suave); }
+.escala button[data-v="2"]::before { background: var(--voto-2-suave); }
+.escala button[data-v="3"]::before { background: var(--voto-3-suave); }
+.escala button[data-v="4"]::before { background: var(--voto-4-suave); }
+.escala button[data-v="5"]::before { background: var(--voto-5-suave); }
+.escala button:hover::before, .escala button:focus-visible::before { border-color: var(--marino); }
+.escala.elegida button:not(.on) { opacity: .45; }
+.escala button[data-v="1"].on::before { background: var(--voto-1); }
+.escala button[data-v="2"].on::before { background: var(--voto-2); }
+.escala button[data-v="3"].on::before { background: var(--voto-3); }
+.escala button[data-v="4"].on::before { background: var(--voto-4); }
+.escala button[data-v="5"].on::before { background: var(--voto-5); }
+.escala button[data-v="1"].on, .escala button[data-v="4"].on, .escala button[data-v="5"].on { color: #fff; }
+.escala button:disabled { cursor: not-allowed; }
+@media (max-width: 480px) { .escala { gap: 5px; margin-inline: 8px; } .escala button { font-size: .72rem; } }
 
 .incisos { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .incisos > li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--superficie); border: 1px solid var(--borde); padding: 16px 18px; }

@@ -11,6 +11,7 @@ encima de lo publicado, sin tocar el contenido.
 5. python3 scripts/rediseno/no_traducir.py ../pub    (después de encuestas.py: ENTRE TODOS y E/T con translate="no",
    para que los traductores automáticos no los cambien por «Between us»)
    fusionar.py crea .nojekyll: sin él GitHub Pages no sirve la carpeta _astro y los botones de las páginas (como «Convertir en lección») no funcionan.
+   enriquecer.py monta la escala de acuerdo y los aportes en cada propuesta (desactivados hasta publicar con Supabase).
 6. Revisar, guardar main como rama estable-AAAA-MM-DD y publicar solo con el «publica» de Mitch.
 
 Fotos: web/public/img/fotos/. Las actuales son provisionales; se sustituyen por las definitivas
