@@ -33,6 +33,24 @@ window.pintar=(D,F)=>{
  const S=[];
  const L=(c='')=>'<div class="logo '+c+'">Entre<b>Todos</b></div>';
  const P=(c='')=>'<div class="paso '+c+'">#/#</div>';
+
+ if (D.diapositivas) {
+  D.diapositivas.forEach((x)=>{
+   const osc = x.fondo !== 'claro'; const c = osc ? 'blanco' : '';
+   let bg = '';
+   if (x.fondo === 'foto') bg = '<div class="foto" style="background-image:url('+F+x.foto+'.jpg)"></div><div class="velo"></div>';
+   else if (x.fondo === 'oscuro') bg = '<div class="mini"></div><div class="panel"></div>';
+   const etq = x.etq ? '<div class="etq" style="color:'+(osc?'var(--a)':'var(--r)')+'">'+x.etq+'</div><div class="am"></div>' : '';
+   const num = x.num ? '<div class="num" style="color:'+(osc?'var(--a)':'var(--r)')+'">'+x.num+'</div>' : '';
+   const tit = x.titulo ? '<div class="'+(x.grande?'h':'h2')+'">'+x.titulo+'</div>' : '';
+   const txt = x.texto ? '<p class="p" style="margin-top:44px">'+x.texto+'</p>' : '';
+   const url = x.url ? '<p class="url">'+x.url+'</p>' : '';
+   const pos = x.fondo === 'foto' ? 'bottom:240px' : 'top:'+(x.top||560)+'px';
+   const fl = x.financiacion ? '<div class="fl"><i></i>Material financiado en parte por el Departamento de Estado de los Estados Unidos.</div>' : '';
+   S.push('<div class="s">'+bg+L(c)+P(c)+'<div class="c '+c+'" style="'+pos+'">'+(x.fondo==='foto'?'<div class="barra"></div>':'')+etq+num+tit+txt+url+'</div>'+fl+'</div>');
+  });
+  const n=S.length; document.getElementById('r').innerHTML=S.map((x,i)=>x.replace('#/#',(i+1)+'/'+n)).join(''); return n;
+ }
  S.push('<div class="s"><div class="foto" style="background-image:url('+F+D.foto+'.jpg)"></div><div class="velo"></div>'+L('blanco')+P('blanco')+'<div class="c blanco" style="bottom:240px"><div class="barra"></div><div class="etq">'+D.categoria+'</div><div class="am"></div><div class="h">'+D.gancho+'</div></div></div>');
  S.push('<div class="s">'+L()+P()+'<div class="c" style="top:560px"><div class="etq" style="color:var(--r)">La propuesta</div><div class="am"></div><div class="h">'+D.titulo+'</div><p class="p" style="margin-top:56px">'+D.resumen+'</p>'+(D.derecho?'<p class="peq">Derecho fundamental: en ENTRE TODOS no se somete a votación.</p>':'')+'</div></div>');
  S.push('<div class="s">'+L()+P()+'<div class="c" style="top:480px"><div class="etq" style="color:var(--r)">Qué incluye</div><div class="am"></div><ul class="inc">'+D.incisos.map((x,i)=>'<li><span>'+'abcdef'[i]+'</span>'+x+'</li>').join('')+'</ul></div></div>');

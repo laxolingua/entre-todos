@@ -1,0 +1,12 @@
+{
+ "id": "00-que-es-entre-todos",
+ "duraciones": [4, 6, 6, 6, 6, 5],
+ "diapositivas": [
+  {"fondo": "foto", "foto": "portada", "etq": "ENTRE TODOS", "titulo": "¿Qué proponen los cubanos para el futuro de Cuba?", "grande": true},
+  {"fondo": "claro", "etq": "Qué es", "titulo": "Un banco de propuestas", "texto": "Reúne lo que organizaciones y autores cubanos, de la isla y del exilio, han propuesto en documentos públicos."},
+  {"fondo": "oscuro", "etq": "Hasta hoy", "num": "168", "titulo": "propuestas", "texto": "Salen de 81 documentos públicos. Cada una enlaza a sus originales y dice desde qué año está documentada.", "top": 480},
+  {"fondo": "claro", "etq": "Cómo se leen", "titulo": "Primero la idea, después el autor", "texto": "Las propuestas aparecen sin el nombre de quien las propone. Quien quiera saberlo, lo consulta con un clic."},
+  {"fondo": "claro", "etq": "Qué más hay", "titulo": "Aprender y opinar", "texto": "Lecturas breves de la Academia cívica, con certificado. Consultas abiertas a cubanos de dentro y de fuera."},
+  {"fondo": "foto", "foto": "propuestas", "etq": "Independiente, plural y no partidista", "titulo": "Entra, lee y opina", "url": "entre-todos.org", "financiacion": true}
+ ]
+}
