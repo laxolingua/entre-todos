@@ -1,0 +1,24 @@
+{
+ "id": "pluripartidismo",
+ "foto": "cat-sistema_electoral",
+ "categoria": "Sistema electoral",
+ "derecho": true,
+ "gancho": "¿Qué cambia si en Cuba se pueden formar partidos?",
+ "titulo": "Pluripartidismo",
+ "resumen": "Reconocer en la Constitución el derecho de todos los ciudadanos a formar partidos y competir lealmente en elecciones limpias, en igualdad de condiciones.",
+ "incisos": [
+  "Incluidos los comunistas, en igualdad de derechos.",
+  "Que sea posible derrotar en las urnas al partido que ha ejercido el poder y reemplazar a quienes han gobernado.",
+  "Desmantelar el monopolio del Partido Comunista, o de cualquier otro que lo intente, sin abandonar las garantías sociales."
+ ],
+ "desde": "1980",
+ "documentos": "17",
+ "encuesta": {
+  "cifra": "52 %",
+  "texto": "de los adultos encuestados en la isla respondió que Cuba debería tener más partidos.",
+  "pregunta": "Pregunta, traducida del inglés: «¿Cree que Cuba debería tener más partidos políticos o basta con uno?»",
+  "fuente": "Bendixen & Amandi, 2015 · 1.200 adultos · muestra representativa",
+  "nota": "Encuesta de 2015. Su pregunta no evalúa el texto exacto de esta propuesta."
+ },
+ "duraciones": [3, 5, 8, 5, 7, 5]
+}
