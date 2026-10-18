@@ -12,4 +12,4 @@ Patrón maestro aprobado por Mitch el 18/10/2026: 6 diapositivas verticales (108
 Uso: `./reel.sh ficha.json` deja el MP4 y las imágenes en `salida/`.
 Ficha: ver `pluripartidismo.json`. Para preparar fichas (Instinct o ChatGPT): textos literales del banco publicado, encuesta solo de la hoja 021, sin nombres de autores.
 
-Audio: `musica.py` genera una pista propia de estilo documental (pad, piano en arpegio y pulso grave; el piano entra tras la pregunta y el pulso desde la diapositiva 3). No usa música de terceros. Si se publica con música de la biblioteca de TikTok o Instagram, subir la versión sin audio.
+Audio: `musica.py` genera una pista propia optimista (108 bpm, tonalidad mayor: pulsación de marimba, bajo sincopado, bombo, palmas y charles; el ritmo entra tras la pregunta y una melodía corta desde la diapositiva 3). No usa música de terceros. Si se publica con música de la biblioteca de TikTok o Instagram, subir la versión sin audio.
