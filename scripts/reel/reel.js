@@ -6,7 +6,7 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
   fs.mkdirSync(out, { recursive: true });
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   await p.goto('file://' + path.join(__dirname, 'plantilla.html'));
-  const n = await p.evaluate(([D, F]) => window.pintar(D, F), [D, '/tmp/pub/img/fotos/']);
+  const n = await p.evaluate(([D, F, C]) => window.pintar(D, F, C), [D, '/tmp/pub/img/fotos/', path.join(__dirname, 'capturas') + '/']);
   await p.waitForTimeout(800);
   const s = await p.$$('.s'); for (let i = 0; i < s.length; i++) await s[i].screenshot({ path: path.join(out, `d${i + 1}.png`) });
   await b.close(); console.log(n);

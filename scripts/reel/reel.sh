@@ -4,7 +4,7 @@ set -e
 F=$1; DIR=$(dirname "$0"); ID=$(python3 -c "import json,sys;print(json.load(open('$F'))['id'])")
 T=$(mktemp -d); N=$(NODE_PATH=/opt/npm-tools/node_modules node "$DIR/reel.js" "$F" "$T")
 DUR=($(python3 -c "import json;d=json.load(open('$F'));du=d.get('duraciones',[3,5,8,5,7,5]);
-du=du if d.get('encuesta') else du[:4]+du[5:];print(' '.join(map(str,du)))"))
+du=du if (d.get('encuesta') or d.get('diapositivas')) else du[:4]+du[5:];print(' '.join(map(str,du)))"))
 X=0.5; IN=""; FIL=""; OFF=0
 for i in $(seq 1 $N); do d=${DUR[$((i-1))]}; IN="$IN -loop 1 -t $(python3 -c "print($d+$X)") -i $T/d$i.png"; done
 PREV="[0:v]"; for i in $(seq 1 $((N-1))); do

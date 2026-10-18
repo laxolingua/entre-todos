@@ -1,0 +1,16 @@
+{
+ "id": "001-que-es-entre-todos",
+ "duraciones": [4, 6, 6, 6, 6, 6, 6, 6, 6, 7],
+ "diapositivas": [
+  {"fondo": "foto", "foto": "portada", "etq": "ENTRE TODOS", "titulo": "¿Qué proponen los cubanos para el futuro de Cuba?", "grande": true},
+  {"fondo": "claro", "etq": "Qué es", "titulo": "Un banco de propuestas", "texto": "Reúne lo que organizaciones y autores cubanos, de la isla y del exilio, han propuesto en documentos públicos."},
+  {"fondo": "oscuro", "etq": "Hasta hoy", "num": "168", "titulo": "propuestas", "texto": "Salen de 81 documentos públicos. Cada una enlaza a sus originales y dice desde qué año está documentada.", "top": 480},
+  {"fondo": "claro", "captura": "propuestas", "etq": "Propuestas", "titulo": "Ordenadas por tema", "texto": "Transición, constitución, economía, derechos, medio ambiente y más."},
+  {"fondo": "claro", "captura": "ficha", "etq": "Cada propuesta", "titulo": "Primero la idea, después el autor", "texto": "Sin nombres a la vista. Fuentes y autores, con un clic."},
+  {"fondo": "claro", "captura": "academia", "etq": "Blog A+", "titulo": "Lecturas de cinco minutos", "texto": "Cada una se convierte en lección, con actividades y certificado."},
+  {"fondo": "claro", "captura": "actores", "etq": "Actores cívicos", "titulo": "129 organizaciones", "texto": "De la isla y del exilio, con su web y sus propuestas en el banco."},
+  {"fondo": "claro", "captura": "cuba-eeuu", "etq": "Cuba y Estados Unidos", "titulo": "Lo que se pide y lo que ya se propuso", "texto": "Hechos de 2026, cada uno con su fuente y su fecha."},
+  {"fondo": "claro", "captura": "portada", "etq": "Cada día", "titulo": "Una pregunta y una propuesta", "texto": "Y las noticias de la semana enlazadas al banco."},
+  {"fondo": "foto", "foto": "propuestas", "etq": "Independiente, plural y no partidista", "titulo": "Explora el sitio", "texto": "Propuestas · Academia · Actores · Consultas · Actualidad", "url": "entre-todos.org", "financiacion": true}
+ ]
+}

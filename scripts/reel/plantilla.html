@@ -26,10 +26,14 @@
 .fl{position:absolute;left:80px;right:80px;bottom:70px;font:500 24px B;color:rgba(255,255,255,.7);display:flex;gap:16px;align-items:center}
 .fl i{flex:none;display:inline-block;width:46px;height:26px;background:linear-gradient(#b22234 0 14%,#fff 14% 28%,#b22234 28% 42%,#fff 42% 57%,#b22234 57% 71%,#fff 71% 85%,#b22234 85%);position:relative}
 .fl i::before{content:"";position:absolute;left:0;top:0;width:20px;height:14px;background:#3c3b6e}
+.h3{font:800 84px/0.98 BC;text-transform:uppercase}.p2{font:500 42px/1.3 B;margin:26px 0 0}
+.movil{position:absolute;left:50%;margin-left:-330px;width:660px;bottom:-200px;height:1340px;border:16px solid var(--m);border-radius:56px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(11,29,63,.35)}
+.movil img{width:100%;display:block}
+.cap-fondo{position:absolute;left:-200px;right:-200px;bottom:300px;height:420px;background:var(--r);transform:skewY(-8deg);opacity:.9}
 .url{font:800 84px BC;color:var(--a);margin:14px 0 0}
 </style></head><body><div id="r"></div>
 <script>
-window.pintar=(D,F)=>{
+window.pintar=(D,F,C)=>{
  const S=[];
  const L=(c='')=>'<div class="logo '+c+'">Entre<b>Todos</b></div>';
  const P=(c='')=>'<div class="paso '+c+'">#/#</div>';
@@ -46,6 +50,11 @@ window.pintar=(D,F)=>{
    const txt = x.texto ? '<p class="p" style="margin-top:44px">'+x.texto+'</p>' : '';
    const url = x.url ? '<p class="url">'+x.url+'</p>' : '';
    const pos = x.fondo === 'foto' ? 'bottom:240px' : 'top:'+(x.top||560)+'px';
+   if (x.captura) {
+     const bgc = osc ? '<div class="mini"></div>' : '';
+     S.push('<div class="s">'+bgc+'<div class="cap-fondo"></div>'+L(c)+P(c)+'<div class="c '+c+'" style="top:250px">'+etq+'<div class="h3">'+x.titulo+'</div>'+(x.texto?'<p class="p2">'+x.texto+'</p>':'')+'</div><div class="movil"><img src="'+C+x.captura+'.png"></div></div>');
+     return;
+   }
    const fl = x.financiacion ? '<div class="fl"><i></i>Material financiado en parte por el Departamento de Estado de los Estados Unidos.</div>' : '';
    S.push('<div class="s">'+bg+L(c)+P(c)+'<div class="c '+c+'" style="'+pos+'">'+(x.fondo==='foto'?'<div class="barra"></div>':'')+etq+num+tit+txt+url+'</div>'+fl+'</div>');
   });
