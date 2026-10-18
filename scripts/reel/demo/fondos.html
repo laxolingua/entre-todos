@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:B;font-weight:500;src:url(/tmp/pub/_astro/barlow-latin-500-normal.BPAOfeC8.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+:root{--m:#0b1d3f;--r:#d7192d;--a:#f4c20d;--g:#f2f3f5}
+body{margin:0}.s{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--g);color:var(--m);font-family:B}
+.logo{position:absolute;left:80px;top:150px;font:800 52px/0.9 BC;text-transform:uppercase}.logo b{display:block;color:var(--r)}
+.demo{position:absolute;right:80px;top:165px;background:var(--a);color:var(--m);font:700 26px B;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px}
+.c{position:absolute;left:80px;right:80px;top:300px}
+.n{font:800 40px BC;color:var(--r);letter-spacing:.06em;text-transform:uppercase}
+.am{width:90px;height:10px;background:var(--a);margin:22px 0}
+.h{font:800 84px/0.98 BC;text-transform:uppercase}
+.p{font:500 42px/1.3 B;margin-top:18px}
+.banda{position:absolute;left:-200px;right:-200px;bottom:380px;height:420px;background:var(--r);transform:skewY(-8deg);opacity:.9}
+.movil{position:absolute;left:174px;top:686px;width:732px;height:1500px;border:16px solid var(--m);border-radius:56px;background:#000}
+</style></head><body><div id="r"></div><script>
+const F=[['1 · Lee','La propuesta','Sin el nombre de quien la propone. Las fuentes, con un clic.'],
+['2 · Valora','¿Cuánto la apoyas?','De «Muy en contra» a «Muy a favor». Es anónimo.'],
+['3 · Aporta','Mejora, objeción, inciso o evidencia','Elige el tipo de aporte.'],
+['3 · Aporta','Escribe tu aporte','Sobre la propuesta, no sobre personas.'],
+['4 · Moderación','Se publica tras revisarlo','Después, otros pueden apoyarlo.']];
+document.getElementById('r').innerHTML=F.map(x=>'<div class="s"><div class="banda"></div><div class="logo">Entre<b>Todos</b></div><div class="demo">Demostración</div><div class="c"><div class="n">'+x[0]+'</div><div class="am"></div><div class="h">'+x[1]+'</div><p class="p">'+x[2]+'</p></div><div class="movil"></div></div>').join('');
+</script></body></html>

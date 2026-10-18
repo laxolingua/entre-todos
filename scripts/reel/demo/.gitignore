@@ -1,0 +1,11 @@
+fotogramas/
+video/
+ext/
+*.mp4
+*.wav
+fondo*.png
+f*.png
+g*.png
+lista.txt
+fondos.txt
+dbg.*
