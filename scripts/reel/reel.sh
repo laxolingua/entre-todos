@@ -10,4 +10,9 @@ for i in $(seq 1 $N); do d=${DUR[$((i-1))]}; IN="$IN -loop 1 -t $(python3 -c "pr
 PREV="[0:v]"; for i in $(seq 1 $((N-1))); do
   OFF=$(python3 -c "print($OFF+${DUR[$((i-1))]})"); FIL="$FIL$PREV[$i:v]xfade=transition=fade:duration=$X:offset=$OFF[v$i];"; PREV="[v$i]"; done
 ffmpeg -y -loglevel error $IN -filter_complex "${FIL}${PREV}format=yuv420p[out]" -map "[out]" -r 30 -c:v libx264 -preset medium -crf 20 "$DIR/salida/$ID.mp4"
+# Música propia (sin derechos de terceros) y volumen normalizado para redes
+L=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$DIR/salida/$ID.mp4")
+python3 "$DIR/musica.py" "$L" "$T/m.wav" >/dev/null
+ffmpeg -y -loglevel error -i "$DIR/salida/$ID.mp4" -i "$T/m.wav" -c:v copy -c:a aac -b:a 192k -af "loudnorm=I=-16:TP=-1.5:LRA=11" -shortest "$DIR/salida/$ID-audio.mp4"
+mv "$DIR/salida/$ID-audio.mp4" "$DIR/salida/$ID.mp4"
 cp $T/d*.png "$DIR/salida/" 2>/dev/null || true; echo "$DIR/salida/$ID.mp4"
