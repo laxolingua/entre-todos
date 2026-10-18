@@ -21,6 +21,7 @@ for d,sec in mapa.items():
         s=re.sub(r'<noscript>\s*<link[^>]*flaticon[^>]*>\s*</noscript>','',s)
         s=re.sub(r'<link[^>]*flaticon[^>]*>','',s)
         if '/fonts/uicons-br.css' not in s: s=s.replace('</head>','<link rel="stylesheet" href="/fonts/uicons-br.css"></head>',1)
+        if '/fonts/uicons-brands.css' not in s: s=s.replace('</head>','<link rel="stylesheet" href="/fonts/uicons-brands.css"></head>',1)
         s=s.replace('<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">','<meta name="theme-color" content="#0b1d3f">')
         open(f,'w',encoding='utf-8').write(s); n+=1
 print('paginas del banco:',n)
