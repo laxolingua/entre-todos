@@ -1,0 +1,37 @@
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:BC;font-weight:300;src:url(/tmp/pub/_astro/barlow-condensed-latin-300-normal.Cnd1AN-G.woff2)}
+@font-face{font-family:B;font-weight:400;src:url(/tmp/pub/_astro/barlow-latin-400-normal.qiz4-Cze.woff2)}
+@font-face{font-family:B;font-weight:600;src:url(/tmp/pub/_astro/barlow-latin-600-normal.DILqtrty.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+:root{--m:#0b1d3f;--r:#d7192d;--a:#f4c20d;--g:#f2f3f5;--t:#3b4a66}
+@page{size:A4;margin:22mm 18mm 20mm}
+body{font-family:B;font-weight:400;color:var(--m);font-size:10.5pt;line-height:1.5;margin:0}
+h1,h2,h3,h4{font-family:BC;font-weight:800;text-transform:uppercase;line-height:1.05}
+.portada{height:245mm;position:relative;page-break-after:always;padding-top:20mm}
+.portada .logo{font:800 64pt/0.85 BC;text-transform:uppercase}.portada .logo b{display:block;color:var(--r)}
+.portada::before{content:"";position:absolute;right:-18mm;top:-22mm;width:80mm;height:120mm;background:var(--m);transform:skewX(-12deg)}
+.portada::after{content:"";position:absolute;left:0;top:8mm;width:30mm;height:4mm;background:var(--r);transform:skewX(-20deg)}
+.estado{display:inline-block;margin-top:14mm;background:var(--a);font:700 9pt B;letter-spacing:.1em;text-transform:uppercase;padding:2mm 3mm}
+.portada h1{font-size:40pt;margin:6mm 0 4mm;max-width:120mm}
+.sub{font-size:13pt;color:var(--t);max-width:120mm}
+.ficha{display:flex;gap:10mm;margin:12mm 0}.ficha dt{font:700 8pt B;letter-spacing:.1em;text-transform:uppercase;color:var(--r)}.ficha dd{margin:1mm 0 0;font:800 20pt BC}
+.indice{list-style:none;padding:0;margin:0;columns:2;font-size:10.5pt}.indice li{padding:1.5mm 0;border-top:1px solid #d9dde5}.indice span{display:inline-block;width:10mm;font-weight:700;color:var(--r)}
+h2{font-size:20pt;margin:0 0 4mm}
+.preambulo{page-break-after:always}.preambulo h2::after,.cuestiones h2::after{content:"";display:block;width:18mm;height:2.5mm;background:var(--a);margin-top:3mm}
+.cuestiones{page-break-after:always}
+.cuestion{border-left:3px solid var(--r);background:var(--g);padding:3mm 5mm;margin:0 0 4mm;break-inside:avoid}
+.cq-n{font:700 8pt B;letter-spacing:.1em;text-transform:uppercase;color:var(--r);margin:0}
+.cuestion h3{font-size:13pt;margin:1mm 0}.cuestion p{margin:1mm 0}.cuestion ul{margin:2mm 0 0;padding-left:5mm}
+.nota-d{font-size:9.5pt;font-style:italic}
+.titulo{page-break-before:always;font-size:24pt;margin-bottom:6mm}.titulo span{display:block;font:700 10pt B;letter-spacing:.12em;color:var(--r)}.titulo small{display:block;font:400 10pt B;text-transform:none;color:var(--t);margin-top:2mm}
+article{margin:0 0 6mm;break-inside:avoid-page}
+h4{font-family:B;font-weight:700;text-transform:none;font-size:11.5pt;margin:0 0 1mm}
+.texto{margin:1mm 0 2mm}
+.marca-d{display:inline-block;background:var(--m);color:#fff;font:700 7.5pt B;letter-spacing:.08em;text-transform:uppercase;padding:1mm 2mm;margin:0.5mm 0 1mm}
+.sub-h{font:700 9pt B;color:var(--r);margin:2mm 0 1mm}
+.inc,.var{margin:0;padding-left:7mm}.inc li,.var li{margin:0.5mm 0}
+.meta{font-size:8.5pt;color:#7a849a;margin:1.5mm 0 0}
+table{width:100%;border-collapse:collapse;font-size:8.5pt}th{text-align:left;font:700 8pt B;letter-spacing:.08em;text-transform:uppercase;color:var(--r);border-bottom:2px solid var(--m);padding:1.5mm}
+td{border-bottom:1px solid #e1e4ea;padding:1.5mm;vertical-align:top}td:first-child{white-space:nowrap}
+a{color:var(--m)}
+.cierre{margin-top:8mm;font-size:9pt;color:var(--t)}
