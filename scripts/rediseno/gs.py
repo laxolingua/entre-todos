@@ -7,7 +7,8 @@ from bs4 import BeautifulSoup
 
 P = sys.argv[1]
 G = json.load(open(os.path.join(os.path.dirname(__file__), 'gs.json'), encoding='utf-8'))
-D = G['documento']
+DOCS = G['documentos']
+D = DOCS['gs']
 rd = lambda f: open(f, encoding='utf-8').read()
 def wr(f, s): os.makedirs(os.path.dirname(f), exist_ok=True); open(f, 'w', encoding='utf-8').write(s)
 esc = html.escape
@@ -21,7 +22,8 @@ if any(n['id'] in por_id for n in G['nuevas']):
 def corto(t, n=110):
     return t if len(t) <= n else t[:n].rsplit(' ', 1)[0] + '…'
 
-def doc_li(n, etiquetas):
+def doc_li(n, etiquetas, D=None):
+    D = D or DOCS['gs']
     tit = f'<a href="{D["url"]}" rel="noopener" target="_blank">{esc(D["titulo"])}</a>' if D['url'] else \
           f'<span>{esc(D["titulo"])}<span class="discreto"> · {esc(D["estado"])}</span></span>'
     et = ''.join(f'<span class="etiqueta">{esc(e)}</span>' for e in etiquetas)
@@ -98,10 +100,11 @@ for n in G['nuevas']:
     sec_f = m.find('section', attrs={'aria-labelledby': 't-fuentes'})
     sec_f.find('summary').string = 'Ver fuentes y autores (1 documento)'
     ul = sec_f.find('ul', class_='lista'); ul.clear()
-    ul.append(BeautifulSoup(doc_li(1, ['Idea central', n['loc']] + [f'Inciso {LETRAS[k]})' for k in range(len(n['i']))]), 'html.parser'))
+    Dn = DOCS[n.get('doc', 'gs')]
+    ul.append(BeautifulSoup(doc_li(1, ['Idea central', n['loc']] + [f'Inciso {LETRAS[k]})' for k in range(len(n['i']))], Dn), 'html.parser'))
     cuerpo = str(s).replace(f'/propuesta/{viejo}/', f'/propuesta/{pid}/')
     wr(f'{P}/propuesta/{pid}/index.html', cab + cuerpo)
-    idx.append({'id': pid, 't': n['t'], 'x': n['x'], 'i': ' '.join(n['i']), 'a': D['autoria'], 'k': cat_nombre[n['cat']], 'n': 1})
+    idx.append({'id': pid, 't': n['t'], 'x': n['x'], 'i': ' '.join(n['i']), 'a': DOCS[n.get('doc', 'gs')]['autoria'], 'k': cat_nombre[n['cat']], 'n': 1})
     n['_k'] = cat_nombre[n['cat']]
 
 # ---------- 2. GS como fuente añadida ----------
@@ -127,8 +130,8 @@ for e in G['fuente_en']:
 json.dump(idx, open(idx_f, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 
 # Textos de ficha: el documento GS aún no tiene enlace público
-if not D['url']:
-    for pid in [n['id'] for n in G['nuevas']] + [e['id'] for e in G['fuente_en']]:
+if True:
+    for pid in [n['id'] for n in G['nuevas'] if not DOCS[n.get('doc','gs')]['url']] + ([e['id'] for e in G['fuente_en']] if not D['url'] else []):
         f = f'{P}/propuesta/{pid}/index.html'; t = rd(f)
         t = t.replace('de los documentos públicos de los que sale esta propuesta, con lo que aporta cada uno. Cada enlace lleva al original.',
                       'de los documentos de los que sale esta propuesta, con lo que aporta cada uno. Las fuentes públicas enlazan a su original; las internas se indican sin enlace público.')
@@ -197,8 +200,13 @@ wr(f, t)
 
 # ---------- 6. Documentos ----------
 f = f'{P}/fuentes/index.html'; t = rd(f)
-fila = (f'<tr> <td><span>{esc(D["titulo"])}<span class="discreto"> · {esc(D["estado"])}</span></span><div class="discreto">{esc(D["tipo"])}</div></td> '
-        f'<td>{esc(D["autoria"])}</td> <td>{D["anio"]}</td> <td>{len(G["nuevas"]) + len(G["fuente_en"])}</td> </tr>')
+filas = ''
+for k, Dk in DOCS.items():
+    cuenta = sum(1 for n in G['nuevas'] if n.get('doc', 'gs') == k) + (len(G['fuente_en']) if k == 'gs' else 0)
+    celda = f'<a href="{Dk["url"]}" rel="noopener" target="_blank">{esc(Dk["titulo"])}</a>' if Dk['url'] else f'<span>{esc(Dk["titulo"])}<span class="discreto"> · {esc(Dk["estado"])}</span></span>'
+    filas += (f'<tr> <td>{celda}<div class="discreto">{esc(Dk["tipo"])}</div></td> '
+              f'<td>{esc(Dk["autoria"])}</td> <td>{Dk["anio"]}</td> <td>{cuenta}</td> </tr>')
+fila = filas
 i = t.index('<tbody>', t.index('<main')) + len('<tbody>'); fin = t.index('</tbody>', i)
 t = t[:fin] + fila + t[fin:]
 ndocs = t[i:fin + len(fila)].count('<tr')
