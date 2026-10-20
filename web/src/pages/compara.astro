@@ -9,7 +9,7 @@ const datos = { cuestiones, actores };
   descripcion="Elige tu opción en las cuestiones en que las organizaciones cubanas proponen caminos distintos y compara tus posturas con las suyas.">
   <div class="cmp" id="cmp">
     <section class="cmp-pant" data-pant="inicio">
-      <p class="ante-cmp">Banco de propuestas</p>
+      <p class="ante-cmp">Paso 1 de 2</p>
       <h1>Compara tus posturas</h1>
       <p class="entradilla">{cuestiones.length} cuestiones sobre el futuro de Cuba en las que las organizaciones proponen caminos distintos. Elige en cada una la opción que más se acerque a lo que piensas. Al final verás con qué organizaciones coincides.</p>
       <ul class="cmp-reglas">
@@ -50,6 +50,10 @@ const datos = { cuestiones, actores };
       <div class="cmp-nav">
         <button type="button" class="boton" data-ir="cambiar">Cambiar mis respuestas</button>
         <button type="button" class="enlace-saltar" data-ir="reiniciar">Empezar de nuevo</button>
+      </div>
+      <div class="cmp-aviso" style="border-left-color:var(--rojo);background:#eef1f6;margin-top:28px">
+        <strong>Paso 2: arma tu plataforma completa.</strong> Aquí elegiste entre caminos opuestos. En el paso siguiente eliges, tema por tema, todas las propuestas que incluirías, vengan de quien vengan.
+        <p style="margin:10px 0 0"><a class="boton rojo" href="/plataforma/">Arma tu plataforma</a></p>
       </div>
     </section>
   </div>
