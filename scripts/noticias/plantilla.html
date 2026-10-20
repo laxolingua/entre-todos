@@ -74,7 +74,7 @@
 .pagina .props a .v{margin-top:auto;font:700 14px B;color:var(--r)}
 .pagina .props a::after{content:"";position:absolute;right:0;bottom:0;border-style:solid;border-width:0 0 26px 15px;border-color:transparent transparent var(--f) transparent}
 .pagina .voto{background:var(--m);color:#fff;padding:30px;border-radius:4px}
-.pagina .voto .q{font:800 32px/1 BC;text-transform:uppercase;margin:6px 0 18px}
+.pagina .voto .q{font:800 28px/1.05 BC;text-transform:uppercase;margin:6px 0 18px}
 .pagina .voto .ops{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pagina .voto .ops span{border:2px solid rgba(255,255,255,.35);padding:14px 16px;font:600 17px B;border-radius:4px}
 .pagina .voto .ante{color:var(--a)}
@@ -86,13 +86,14 @@
 <script>
 window.pintar=(D,F,P)=>{
  const f=F+D.foto.archivo+'.jpg';
+ const ENC=D.encuestas||(D.encuesta?[D.encuesta]:[]);
  const logo=(c)=>'<div class="logo '+(c||'')+'">Entre<b>Todos</b></div>';
  const ancha='<div class="pieza ancha" id="ancha"><div class="foto" style="background-image:url('+f+');background-position:70% center"></div><div class="panel"></div>'+
   '<div class="c">'+logo('bl')+'<div style="height:26px"></div><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div>'+
   '<div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div><div class="cred">'+D.foto.credito+'</div></div>';
  const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
   '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div></div>'+
-  '<div class="cta"><span class="btn">Vota en la encuesta</span><span class="url">entre-todos.org</span></div></div>';
+  '<div class="cta"><span class="btn">'+(ENC.length>1?'Vota en las encuestas':'Vota en la encuesta')+'</span><span class="url">entre-todos.org</span></div></div>';
  const props=D.propuestas.map(id=>{const p=P[id]||{t:id,k:''};return '<a><span class="k">'+p.k+'</span><span class="t">'+p.t+'</span><span class="v">Ver propuesta →</span></a>';}).join('');
  const pagina='<div class="pieza pagina" id="pagina"><div class="cab">'+logo()+'<nav><span>Propuestas</span><span>¿Cuál es el plan?</span><span class="act">Actualidad</span><span>Blog A+</span><span>Sobre nosotros</span></nav></div>'+
   '<div class="art"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><p class="entr">'+D.entradilla+'</p><div class="meta"><span>'+D.fecha+'</span><span>Redacción de ENTRE TODOS</span></div>'+
@@ -103,7 +104,7 @@ window.pintar=(D,F,P)=>{
   '<h2>Contexto</h2><p class="cuerpo">'+D.contexto+'</p>'+
   (D.por_verificar.length?'<div class="aviso"><b>Por verificar</b><ul>'+D.por_verificar.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>':'')+
   '<h2>Propuestas del banco relacionadas</h2><div class="props">'+props+'</div>'+
-  '<h2>Tu opinión</h2><div class="voto"><div class="ante">Encuesta</div><div class="q">'+D.encuesta.pregunta+'</div><div class="ops">'+D.encuesta.opciones.map(o=>'<span>'+o+'</span>').join('')+'</div><div class="n">Mientras la votación del sitio no esté activa, se vota en el grupo de Facebook de ENTRE TODOS.</div></div>'+
+  '<h2>Tu opinión</h2>'+ENC.map((e,i)=>'<div class="voto" style="margin-bottom:16px"><div class="ante">Encuesta'+(ENC.length>1?' '+(i+1):'')+'</div><div class="q">'+e.pregunta+'</div><div class="ops">'+e.opciones.map(o=>'<span>'+o+'</span>').join('')+'</div></div>').join('')+'<p class="nota">Mientras la votación del sitio no esté activa, se vota en el grupo de Facebook de ENTRE TODOS.</p>'+
   '<h2>Fuentes</h2><ol class="fuentes">'+D.fuentes.map(x=>'<li>'+x.nombre+' · '+x.url.replace(/^https?:\/\//,'').slice(0,70)+'…</li>').join('')+'</ol>'+
   '<p class="neutral">ENTRE TODOS publica los hechos y las posiciones de cada parte con su fuente, sin tomar partido. ¿Ves un error? Escríbenos.</p></div>'+
   '<div class="pieweb"><span>ENTRE TODOS · entre-todos.org</span><span>Plataforma cívica, independiente, plural y no partidista</span></div></div>';

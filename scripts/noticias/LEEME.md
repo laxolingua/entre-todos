@@ -40,7 +40,7 @@ El resultado queda en `salida/<id>/`.
 - `contexto`: un párrafo.
 - `por_verificar`: lo que viene solo de prensa o sin original. Si todo está verificado, se deja vacío.
 - `propuestas`: ids del banco relacionados, como máximo tres.
-- `encuesta`: una pregunta y de tres a cuatro opciones. Una de ellas siempre es «Necesito más información».
+- `encuestas`: una o dos encuestas, cada una con una pregunta y de tres a cuatro opciones. Una opción siempre es «Necesito más información». La primera puede ser la cuestión del banco relacionada y la segunda, sobre el hecho de la noticia. Con dos encuestas, el botón de la portada cuadrada dice «Vota en las encuestas».
 - `fuentes`: nombre del medio con su fecha y la URL.
 
 ## Reglas editoriales

@@ -8,7 +8,7 @@
  "foto": {
   "archivo": "001-onu-cuba-libre",
   "pie": "Panel «Cuba Libre» en la sede de la ONU, Nueva York, 19 de octubre de 2026.",
-  "credito": "Foto: Misión de EE. UU. ante la ONU"
+  "credito": "Foto: Misión de EE. UU. ante la ONU (usun.usmission.gov)"
  },
  "hechos": [
   "El panel se celebró en la sede de la ONU en Nueva York y lo organizó la Misión de Estados Unidos.",
@@ -38,15 +38,26 @@
   "presion-externa-sanciones",
   "normalizacion-cuba-eeuu"
  ],
- "encuesta": {
-  "pregunta": "¿Qué camino debería seguir la relación con Estados Unidos?",
-  "opciones": [
-   "Mantener la presión y las sanciones",
-   "Normalizar relaciones y levantar el embargo",
-   "Otra vía",
-   "Necesito más información"
-  ]
- },
+ "encuestas": [
+  {
+   "pregunta": "¿Qué camino debería seguir la relación con Estados Unidos?",
+   "opciones": [
+    "Mantener la presión y las sanciones",
+    "Normalizar relaciones y levantar el embargo",
+    "Otra vía",
+    "Necesito más información"
+   ]
+  },
+  {
+   "pregunta": "La ONU votará los días 27 y 28 de octubre la resolución de Cuba contra el embargo de EE. UU. ¿Qué crees que deberían hacer los gobiernos?",
+   "opciones": [
+    "Votar a favor de la resolución de Cuba",
+    "Votar en contra",
+    "Abstenerse",
+    "Necesito más información antes de decidir"
+   ]
+  }
+ ],
  "fuentes": [
   {
    "nombre": "CiberCuba, 19/10/2026",
