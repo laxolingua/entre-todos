@@ -1,0 +1,69 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:B;font-weight:400;src:url(/tmp/pub/_astro/barlow-latin-400-normal.qiz4-Cze.woff2)}
+@font-face{font-family:B;font-weight:500;src:url(/tmp/pub/_astro/barlow-latin-500-normal.BPAOfeC8.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+@font-face{font-family:M;font-weight:900;src:url(/tmp/pub/_astro/montserrat-latin-900-normal.B0TD3Qnu.woff2)}
+:root{--m:#0b1d3f;--r:#d7192d;--a:#f4c20d;--t3:#5f6b80;--v1:#d7192d;--v2:#ec7c88;--v3:#9aa3b2;--v4:#5b6e95;--v5:#0b1d3f}
+*{box-sizing:border-box}body{margin:0;background:#c9cdd4;font-family:B;color:#0b1630}
+.pieza{position:relative;overflow:hidden;margin:40px;background:#fff}
+.logo{font:900 28px/0.84 M;letter-spacing:-.035em;text-transform:uppercase;color:var(--m)}.logo b{display:block;color:var(--r)}
+.ante{font:700 13px/1.2 B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+.foto{position:absolute;background-size:cover;background-position:center;filter:grayscale(1)}
+/* imagen de la publicación 1080 */
+.pub{width:1080px;height:1080px}
+.pub .foto{left:0;top:0;width:1080px;height:470px}
+.pub .marca{position:absolute;left:0;top:0;width:330px;height:150px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 87px) 100%,0 100%)}
+.pub .logo{position:absolute;left:56px;top:42px;font-size:40px;color:#fff}
+.pub .barra{position:absolute;left:0;top:460px;width:240px;height:10px;background:var(--a)}
+.pub .c{position:absolute;left:64px;right:64px;top:510px;display:flex;flex-direction:column;gap:14px}
+.pub .ante{font-size:20px}
+.pub .cod{font:800 30px BC;color:var(--t3)}
+.pub h1{margin:0;font:800 74px/0.95 BC;text-transform:uppercase;color:var(--m)}
+.pub .preg{font:700 30px B;color:var(--m);margin-top:6px}
+.pub .escala{position:absolute;left:64px;right:64px;bottom:118px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.pub .escala span{height:18px}
+.pub .esc-t{position:absolute;left:64px;right:64px;bottom:84px;display:flex;justify-content:space-between;font:700 18px B;color:var(--t3)}
+.pub .nota{position:absolute;left:64px;right:64px;bottom:34px;font:500 18px B;color:var(--t3)}
+/* opción 600: se lee también en miniatura */
+.op{width:600px;height:600px;position:relative}
+.op .et{position:absolute;left:44px;top:36px;font:800 40px BC}
+.op .n{position:absolute;left:0;right:0;top:40px;text-align:center;font:800 400px/1 BC}
+.op .mini{position:absolute;left:44px;right:44px;bottom:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end}
+.op .mini span{height:22px;opacity:.35}
+.op .mini span.on{opacity:1;height:44px}
+/* simulación del grupo */
+.fb{width:430px;background:#f0f2f5;padding:0 0 14px;font-family:-apple-system,Helvetica,Arial,sans-serif;color:#050505}
+.fb .post{background:#fff}
+.fb .cab{display:flex;gap:10px;align-items:center;padding:12px 14px}
+.fb .av{width:40px;height:40px;background:var(--m);display:flex;align-items:center;justify-content:center;border-radius:50%}
+.fb .av .logo{font-size:9px;color:#fff}
+.fb .n{font-size:15px;font-weight:600}.fb .s{font-size:13px;color:#65676b}
+.fb .txt{padding:0 14px 10px;font-size:15px;line-height:1.35}
+.fb img.pubimg{width:100%;display:block}
+.fb .poll{padding:12px 14px 6px}
+.fb .pq{font-size:16px;font-weight:600;margin-bottom:10px}
+.fb .row{display:flex;align-items:center;gap:10px;border:1px solid #ced0d4;border-radius:8px;padding:6px 10px 6px 6px;margin-bottom:8px;font-size:15px;font-weight:600}
+.fb .row img{width:46px;height:46px;border-radius:4px;display:block}
+.fb .row i{width:20px;height:20px;border:2px solid #8a8d91;border-radius:50%;flex:none}
+.fb .row span{flex:1}
+.fb .aviso{font-size:13px;color:#65676b;padding:2px 14px 12px}
+.fb .acc{display:flex;justify-content:space-around;border-top:1px solid #ced0d4;padding:10px 0;font-size:14px;color:#65676b;font-weight:600}
+</style></head><body><div id="r"></div>
+<script>
+window.pintar=(D,F,OP)=>{
+ const ESC=[['Muy en contra','var(--v1)','#fff'],['En contra','var(--v2)','var(--m)'],['Neutral','var(--v3)','var(--m)'],['A favor','var(--v4)','#fff'],['Muy a favor','var(--v5)','#fff']];
+ const logo=(c)=>'<div class="logo" style="color:'+(c||'')+'">Entre<b>Todos</b></div>';
+ let h='<div class="pieza pub" id="pub"><div class="foto" style="background-image:url('+F+')"></div><div class="barra"></div><div class="marca"></div>'+logo('#fff')+
+  '<div class="c"><div class="ante">Consulta del día · '+D.categoria+'</div><div class="cod">'+D.codigo+'</div><h1>'+D.titulo+'</h1><div class="preg">¿Cuánto apoyas esta propuesta? Vota abajo.</div></div>'+
+  '<div class="escala">'+ESC.map(e=>'<span style="background:'+e[1]+'"></span>').join('')+'</div><div class="esc-t"><span>Muy en contra</span><span>Muy a favor</span></div>'+
+  '<div class="nota">Encuesta del grupo: tu voto lo pueden ver los miembros. Ficha completa en entre-todos.org</div></div>';
+ ESC.forEach((e,i)=>{const c=e[2]==='#fff'?'#fff':'var(--m)';h+='<div class="pieza op" id="op'+(i+1)+'" style="background:'+e[1]+';color:'+c+'"><div class="et">E/T</div><div class="n">'+(i+1)+'</div><div class="mini">'+ESC.map((x,j)=>'<span class="'+(j===i?'on':'')+'" style="background:'+c+'"></span>').join('')+'</div></div>';});
+ h+='<div class="fb" id="fb"><div class="post"><div class="cab"><div class="av">'+logo()+'</div><div><div class="n">ENTRE TODOS</div><div class="s">Grupo · Ahora</div></div></div>'+
+  '<div class="txt">Consulta del día. '+D.codigo+': '+D.titulo+'.<br>'+D.resumen+'<br>Lee la ficha y sus '+D.documentos+' documentos en entre-todos.org</div>'+
+  '<img class="pubimg" src="'+OP.pub+'"><div class="poll"><div class="pq">'+D.codigo+' · ¿Cuánto apoyas esta propuesta?</div>'+
+  ESC.map((e,i)=>'<div class="row"><i></i><img src="'+OP['op'+(i+1)]+'"><span>'+e[0]+'</span></div>').join('')+'</div>'+
+  '<div class="aviso">Tu voto es visible para los miembros del grupo.</div><div class="acc"><span>Me gusta</span><span>Comentar</span><span>Compartir</span></div></div></div>';
+ document.getElementById('r').innerHTML=h;
+};
+</script></body></html>
