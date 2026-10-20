@@ -1,0 +1,26 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:B;font-weight:500;src:url(/tmp/pub/_astro/barlow-latin-500-normal.BPAOfeC8.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+@font-face{font-family:M;font-weight:900;src:url(/tmp/pub/_astro/montserrat-latin-900-normal.B0TD3Qnu.woff2)}
+:root{--m:#0b1d3f;--r:#d7192d;--a:#f4c20d;--t3:#5f6b80}
+*{box-sizing:border-box}body{margin:0;background:#c9cdd4;font-family:B}
+.t{position:relative;width:1080px;height:1080px;background:#fff;overflow:hidden;margin:40px}
+.foto{position:absolute;left:0;top:0;width:1080px;height:400px;background-size:cover;filter:grayscale(1)}
+.marca{position:absolute;left:0;top:0;width:330px;height:150px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 87px) 100%,0 100%)}
+.logo{position:absolute;left:56px;top:42px;font:900 40px/0.84 M;letter-spacing:-.035em;text-transform:uppercase;color:#fff}.logo b{display:block;color:var(--r)}
+.barra{position:absolute;left:0;top:390px;width:240px;height:10px;background:var(--a)}
+.cred{position:absolute;right:24px;top:408px;font:500 15px B;color:var(--t3)}
+.c{position:absolute;left:64px;right:64px;top:450px}
+.ante{font:700 20px/1.2 B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+h1{margin:14px 0 26px;font:800 54px/1 BC;text-transform:uppercase;color:var(--m)}
+.op{display:flex;align-items:center;gap:18px;border:2px solid #d5d9e0;border-radius:4px;padding:12px 18px;margin-bottom:12px;font:700 26px B;color:var(--m)}
+.op i{width:26px;height:26px;border:3px solid var(--m);border-radius:50%;flex:none}
+.pie{position:absolute;left:64px;right:64px;bottom:34px;display:flex;justify-content:space-between;font:700 22px B;color:var(--m)}
+.pie span:last-child{color:var(--t3);font-weight:500}
+</style></head><body><div id="r"></div><script>
+window.pintar=(D,F,POS)=>{document.getElementById('r').innerHTML=D.encuestas.map((e,i)=>
+'<div class="t" id="t'+(i+1)+'"><div class="foto" style="background-image:url('+F+');background-position:'+POS+'"></div><div class="barra"></div><div class="marca"></div><div class="logo">Entre<b>Todos</b></div><div class="cred">'+D.foto.credito+'</div>'+
+'<div class="c"><div class="ante">Encuesta '+(i+1)+' de '+D.encuestas.length+' · '+D.titular_corto+'</div><h1>'+e.pregunta+'</h1>'+e.opciones.map(o=>'<div class="op"><i></i>'+o+'</div>').join('')+'</div>'+
+'<div class="pie"><span>Vota en la encuesta, justo debajo de esta imagen.</span><span>entre-todos.org</span></div></div>').join('')};
+</script></body></html>
