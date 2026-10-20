@@ -1,0 +1,112 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:BC;font-weight:300;src:url(/tmp/pub/_astro/barlow-condensed-latin-300-normal.Cnd1AN-G.woff2)}
+@font-face{font-family:B;font-weight:400;src:url(/tmp/pub/_astro/barlow-latin-400-normal.qiz4-Cze.woff2)}
+@font-face{font-family:B;font-weight:500;src:url(/tmp/pub/_astro/barlow-latin-500-normal.BPAOfeC8.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+@font-face{font-family:M;font-weight:900;src:url(/tmp/pub/_astro/montserrat-latin-900-normal.B0TD3Qnu.woff2)}
+:root{--m:#0b1d3f;--m2:#13295a;--r:#d7192d;--a:#f4c20d;--f:#f3f4f6;--t:#0b1630;--t2:#3a4458;--t3:#5f6b80;--b:#dfe3ea;--av:#8a5a00;--avs:#fff4d6}
+*{box-sizing:border-box}body{margin:0;background:#c9cdd4;font-family:B;color:var(--t)}
+.pieza{position:relative;overflow:hidden;margin:40px;background:#fff}
+.logo{font:900 28px/0.84 M;letter-spacing:-.035em;text-transform:uppercase;color:var(--m)}.logo b{display:block;color:var(--r);font-weight:900}
+.logo.bl{color:#fff}
+.ante{font:700 13px/1.2 B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+.foto{position:absolute;background-size:cover;background-position:center;filter:grayscale(1)}
+.am{height:6px;background:var(--a)}
+/* ancha 1200x630 */
+.ancha{width:1200px;height:630px}
+.ancha .foto{inset:0}
+.ancha .panel{position:absolute;left:0;top:0;bottom:0;width:760px;background:rgba(11,29,63,.93);clip-path:polygon(0 0,100% 0,calc(100% - 364px) 100%,0 100%)}
+.ancha .rojo{position:absolute;top:0;bottom:0;left:700px;width:60px;background:var(--r);clip-path:polygon(364px 0,100% 0,calc(100% - 364px) 100%,0 100%);display:none}
+.ancha .c{position:absolute;left:64px;top:56px;width:560px;color:#fff;display:flex;flex-direction:column;gap:18px;height:518px}
+.ancha .ante{color:var(--a)}
+.ancha h1{margin:0;font:800 54px/0.96 BC;text-transform:uppercase}
+.ancha .am{width:90px}
+.ancha .pie{margin-top:auto;font:500 16px B;color:rgba(255,255,255,.8);display:flex;gap:14px}
+.ancha .cred{position:absolute;right:28px;bottom:16px;font:500 12px B;color:rgba(255,255,255,.75)}
+.franja{position:absolute;height:14px;background:var(--r);transform:skewX(-30deg)}
+/* cuadrada 1080x1080 */
+.cuadrada{width:1080px;height:1080px}
+.cuadrada .foto{left:0;right:0;top:0;height:620px}
+.cuadrada .barra-am{position:absolute;left:0;top:608px;width:240px;height:12px;background:var(--a)}
+.cuadrada .marca{position:absolute;left:0;top:0;width:330px;height:150px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 87px) 100%,0 100%)}
+.cuadrada .c{position:absolute;left:72px;right:72px;top:668px;display:flex;flex-direction:column;gap:18px}
+.cuadrada .ante{font-size:20px}
+.cuadrada h1{margin:0;font:800 62px/0.95 BC;text-transform:uppercase;color:var(--m)}
+.cuadrada .am{width:110px}
+.cuadrada .logo{position:absolute;left:56px;top:42px;font-size:40px;color:#fff}
+.cuadrada .cta{position:absolute;left:72px;bottom:64px;display:flex;align-items:center;gap:22px}
+.cuadrada .cta span.btn{background:var(--r);color:#fff;font:700 24px B;letter-spacing:.06em;text-transform:uppercase;padding:18px 26px}
+.cuadrada .cta span.url{font:700 22px B;color:var(--t3)}
+.cuadrada .cred{position:absolute;right:24px;top:630px;font:500 14px B;color:var(--t3)}
+/* página */
+.pagina{width:1200px;background:var(--f)}
+.pagina .cab{background:#fff;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;padding:20px 48px}
+.pagina .cab nav{display:flex;gap:30px;font:600 15px B;color:var(--m)}
+.pagina .cab nav .act{border-bottom:3px solid var(--r);padding-bottom:4px}
+.pagina .art{width:1000px;margin:0 auto;padding:48px 0 64px}
+.pagina h1{margin:12px 0 18px;font:800 58px/0.95 BC;text-transform:uppercase;color:var(--m);max-width:900px}
+.pagina .entr{font:400 21px/1.55 B;color:var(--t2);max-width:820px;margin:0}
+.pagina .meta{margin-top:18px;font:500 14px B;color:var(--t3);display:flex;gap:18px}
+.pagina figure{margin:34px 0 8px;position:relative;height:520px;background:#000}
+.pagina figure .foto{inset:0}
+.pagina figure .am{position:absolute;left:0;bottom:0;width:180px}
+.pagina figcaption{font:400 14px/1.5 B;color:var(--t3);margin-bottom:40px}
+.pagina h2{font:800 30px/1 BC;text-transform:uppercase;color:var(--m);margin:44px 0 16px;display:flex;align-items:center;gap:14px}
+.pagina h2::before{content:"";width:34px;height:8px;background:var(--r);transform:skewX(-30deg)}
+.pagina .cuerpo{font:400 18px/1.6 B;max-width:760px}
+.pagina ul.hechos{list-style:none;margin:0;padding:0;max-width:820px}
+.pagina ul.hechos li{font:400 18px/1.55 B;padding:12px 0 12px 34px;border-top:1px solid var(--b);position:relative}
+.pagina ul.hechos li::before{content:"";position:absolute;left:4px;top:22px;width:14px;height:6px;background:var(--a);transform:skewX(-30deg)}
+.pagina .pos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pagina .pos article{background:#fff;border-top:6px solid var(--m);padding:24px;border-radius:4px}
+.pagina .pos h3{margin:0 0 10px;font:800 23px/1.05 BC;text-transform:uppercase;color:var(--m)}
+.pagina .pos p{margin:0;font:400 17px/1.55 B}
+.pagina .pos .f{margin-top:14px;font:500 14px B;color:var(--t3)}
+.pagina .nota{font:400 15px/1.5 B;color:var(--t3);margin-top:10px}
+.pagina .aviso{background:var(--avs);border-left:6px solid var(--av);padding:18px 22px;border-radius:4px;max-width:820px}
+.pagina .aviso b{font:700 13px B;letter-spacing:.14em;text-transform:uppercase;color:var(--av)}
+.pagina .aviso ul{margin:8px 0 0;padding-left:20px;font:400 16px/1.5 B;color:var(--t)}
+.pagina .props{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pagina .props a{background:#fff;border-radius:4px;padding:20px;text-decoration:none;color:var(--m);display:flex;flex-direction:column;gap:10px;min-height:150px;position:relative}
+.pagina .props a .k{font:700 12px B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+.pagina .props a .t{font:800 21px/1.05 BC;text-transform:uppercase}
+.pagina .props a .v{margin-top:auto;font:700 14px B;color:var(--r)}
+.pagina .props a::after{content:"";position:absolute;right:0;bottom:0;border-style:solid;border-width:0 0 26px 15px;border-color:transparent transparent var(--f) transparent}
+.pagina .voto{background:var(--m);color:#fff;padding:30px;border-radius:4px}
+.pagina .voto .q{font:800 32px/1 BC;text-transform:uppercase;margin:6px 0 18px}
+.pagina .voto .ops{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pagina .voto .ops span{border:2px solid rgba(255,255,255,.35);padding:14px 16px;font:600 17px B;border-radius:4px}
+.pagina .voto .ante{color:var(--a)}
+.pagina .voto .n{margin-top:14px;font:500 14px B;color:rgba(255,255,255,.75)}
+.pagina ol.fuentes{margin:0;padding-left:22px;font:400 15px/1.7 B;color:var(--t2)}
+.pagina .neutral{margin-top:40px;font:500 14px/1.5 B;color:var(--t3);border-top:1px solid var(--b);padding-top:16px}
+.pagina .pieweb{background:var(--m);color:rgba(255,255,255,.75);padding:26px 48px;display:flex;justify-content:space-between;font:500 14px B}
+</style></head><body><div id="r"></div>
+<script>
+window.pintar=(D,F,P)=>{
+ const f=F+D.foto.archivo+'.jpg';
+ const logo=(c)=>'<div class="logo '+(c||'')+'">Entre<b>Todos</b></div>';
+ const ancha='<div class="pieza ancha" id="ancha"><div class="foto" style="background-image:url('+f+');background-position:70% center"></div><div class="panel"></div>'+
+  '<div class="c">'+logo('bl')+'<div style="height:26px"></div><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div>'+
+  '<div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div><div class="cred">'+D.foto.credito+'</div></div>';
+ const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
+  '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div></div>'+
+  '<div class="cta"><span class="btn">Vota en la encuesta</span><span class="url">entre-todos.org</span></div></div>';
+ const props=D.propuestas.map(id=>{const p=P[id]||{t:id,k:''};return '<a><span class="k">'+p.k+'</span><span class="t">'+p.t+'</span><span class="v">Ver propuesta →</span></a>';}).join('');
+ const pagina='<div class="pieza pagina" id="pagina"><div class="cab">'+logo()+'<nav><span>Propuestas</span><span>¿Cuál es el plan?</span><span class="act">Actualidad</span><span>Blog A+</span><span>Sobre nosotros</span></nav></div>'+
+  '<div class="art"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><p class="entr">'+D.entradilla+'</p><div class="meta"><span>'+D.fecha+'</span><span>Redacción de ENTRE TODOS</span></div>'+
+  '<figure><div class="foto" style="background-image:url('+f+')"></div><div class="am"></div></figure><figcaption>'+D.foto.pie+' '+D.foto.credito+'</figcaption>'+
+  '<h2>Lo que pasó</h2><ul class="hechos">'+D.hechos.map(h=>'<li>'+h+'</li>').join('')+'</ul>'+
+  '<h2>Las posiciones</h2><div class="pos">'+D.posiciones.map(p=>'<article><h3>'+p.quien+'</h3><p>'+p.texto+'</p><div class="f">Fuente: '+p.fuente+'</div></article>').join('')+'</div>'+
+  '<p class="nota">Cada posición se recoge con sus propias palabras y su fuente. ENTRE TODOS no toma partido.</p>'+
+  '<h2>Contexto</h2><p class="cuerpo">'+D.contexto+'</p>'+
+  (D.por_verificar.length?'<div class="aviso"><b>Por verificar</b><ul>'+D.por_verificar.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>':'')+
+  '<h2>Propuestas del banco relacionadas</h2><div class="props">'+props+'</div>'+
+  '<h2>Tu opinión</h2><div class="voto"><div class="ante">Encuesta</div><div class="q">'+D.encuesta.pregunta+'</div><div class="ops">'+D.encuesta.opciones.map(o=>'<span>'+o+'</span>').join('')+'</div><div class="n">Mientras la votación del sitio no esté activa, se vota en el grupo de Facebook de ENTRE TODOS.</div></div>'+
+  '<h2>Fuentes</h2><ol class="fuentes">'+D.fuentes.map(x=>'<li>'+x.nombre+' · '+x.url.replace(/^https?:\/\//,'').slice(0,70)+'…</li>').join('')+'</ol>'+
+  '<p class="neutral">ENTRE TODOS publica los hechos y las posiciones de cada parte con su fuente, sin tomar partido. ¿Ves un error? Escríbenos.</p></div>'+
+  '<div class="pieweb"><span>ENTRE TODOS · entre-todos.org</span><span>Plataforma cívica, independiente, plural y no partidista</span></div></div>';
+ document.getElementById('r').innerHTML=ancha+cuadrada+pagina;
+};
+</script></body></html>

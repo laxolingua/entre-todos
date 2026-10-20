@@ -1,0 +1,47 @@
+{
+ "id": "001-onu-cuba-libre",
+ "fecha": "20 de octubre de 2026",
+ "seccion": "ONU",
+ "titular": "EE. UU. reúne en la ONU a opositores cubanos y el Gobierno de Cuba lo denuncia",
+ "titular_corto": "Panel sobre Cuba en la ONU",
+ "entradilla": "La Misión de Estados Unidos ante la ONU celebró el 19 de octubre el panel «Cuba Libre: la opresión que La Habana oculta». El embajador de Cuba lo calificó de maniobra contra la resolución sobre el embargo, que la Asamblea General vota el 27 y el 28 de octubre.",
+ "foto": {
+  "archivo": "001-onu-cuba-libre",
+  "pie": "Panel «Cuba Libre» en la sede de la ONU, Nueva York, 19 de octubre de 2026.",
+  "credito": "Foto: [fuente por confirmar]"
+ },
+ "hechos": [
+  "El panel se celebró en la sede de la ONU en Nueva York y lo organizó la Misión de Estados Unidos.",
+  "Participaron, entre otros, José Daniel Ferrer, Luis Manuel Otero Alcántara, María Werlau y Emilio Morales.",
+  "Los temas fueron los presos políticos, la situación de los médicos cubanos en misiones en el exterior y la corrupción.",
+  "La Asamblea General vota el 27 y el 28 de octubre la resolución anual contra el embargo de Estados Unidos."
+ ],
+ "posiciones": [
+  {
+   "quien": "Quienes organizaron y participaron",
+   "texto": "Presentaron el panel como una forma de mostrar en la ONU la situación de los presos políticos y otras violaciones de derechos humanos en Cuba.",
+   "fuente": "CiberCuba y EFE (vía Infobae), 19/10/2026"
+  },
+  {
+   "quien": "Gobierno de Cuba",
+   "texto": "El embajador Ernesto Soberón Guzmán lo calificó de «maniobra política» para debilitar el apoyo a la resolución contra el embargo y dijo que el uso de las instalaciones de la ONU incumplía sus normas.",
+   "fuente": "EFE (vía Infobae), 19/10/2026; Ministerio de Relaciones Exteriores de Cuba"
+  }
+ ],
+ "contexto": "Días antes, el 12 de octubre, el Directorio Democrático Cubano difundió el llamamiento «Appeal by Cuba's Democratic Organizations and Activists», ligado al Acuerdo de Liberación, con más de 550 firmantes de la isla y el exilio.",
+ "por_verificar": [
+  "El texto original del llamamiento en inglés: las citas proceden de prensa (CubaNet, Infobae).",
+  "La cifra de firmantes, tomada de prensa."
+ ],
+ "propuestas": ["presos-politicos", "presion-externa-sanciones", "normalizacion-cuba-eeuu"],
+ "encuesta": {
+  "pregunta": "¿Qué camino debería seguir la relación con Estados Unidos?",
+  "opciones": ["Mantener la presión y las sanciones", "Normalizar relaciones y levantar el embargo", "Otra vía", "Necesito más información"]
+ },
+ "fuentes": [
+  {"nombre": "CiberCuba, 19/10/2026", "url": "https://en.cibercuba.com/noticias/2026-10-19-u1-e208512-s27061-nid343294-diplomaticos-regimen-montan-acto-repudio-onu-contra"},
+  {"nombre": "EFE vía Infobae, 19/10/2026", "url": "https://www.infobae.com/america/agencias/2026/10/19/cuba-acusa-a-ee-uu-de-instrumentalizar-la-onu-antes-de-la-votacion-sobre-el-embargo/"},
+  {"nombre": "Página 12, 19/10/2026", "url": "https://www.pagina12.com.ar/2026/10/19/cuba-denuncio-en-la-onu-una-maniobra-politica-de-eeuu-para-desacreditar-al-pais/"},
+  {"nombre": "ABC Color, 16/10/2026", "url": "https://www.abc.com.py/internacionales/2026/10/16/cuba-denuncia-que-eeuu-organiza-un-evento-en-la-onu-para-debilitar-el-rechazo-al-embargo/"}
+ ]
+}
