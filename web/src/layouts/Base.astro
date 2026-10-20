@@ -13,14 +13,14 @@ interface Props {
   titulo: string;
   descripcion: string;
   imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
-  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'otras';
+  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'compara' | 'otras';
   ancho?: boolean;     // true: la página controla su propio ancho (portada y secciones con banda)
 }
 const { titulo, descripcion, imagen = '/og/banco.png', seccion, ancho = false } = Astro.props;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const imagenAbs = new URL(imagen, Astro.site);
 const tituloCompleto = seccion === 'inicio' ? 'ENTRE TODOS · Voz + Voto' : `${titulo} · ENTRE TODOS`;
-const BANCO = ['propuestas', 'cuestiones', 'fuentes', 'actores', 'metodo', 'datos', 'archivo'];
+const BANCO = ['propuestas', 'cuestiones', 'compara', 'fuentes', 'actores', 'metodo', 'datos', 'archivo'];
 const enBanco = BANCO.includes(seccion ?? '');
 const enlaces = [
   { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
@@ -33,6 +33,7 @@ import sitio from '../data/sitio.json';
 const subenlaces = [
   { href: '/propuestas/', texto: 'Todas las propuestas', id: 'propuestas' },
   { href: '/cuestiones/', texto: 'Cuestiones con alternativas', id: 'cuestiones' },
+  { href: '/compara/', texto: 'Compara tus posturas', id: 'compara' },
   { href: '/fuentes/', texto: 'Documentos', id: 'fuentes' },
   { href: '/actores/', texto: 'Actores', id: 'actores' },
   { href: '/metodo/', texto: 'Método', id: 'metodo' },

@@ -1,0 +1,178 @@
+---
+// Compara tus posturas: la persona elige su opción en cada cuestión del banco y ve con qué organizaciones coincide.
+// Los nombres de las organizaciones no aparecen hasta el resultado. Nada se envía: todo queda en el navegador.
+import Base from '../layouts/Base.astro';
+import { cuestiones, actores } from '../lib/compara.js';
+const datos = { cuestiones, actores };
+---
+<Base titulo="Compara tus posturas" seccion="compara"
+  descripcion="Elige tu opción en las cuestiones en que las organizaciones cubanas proponen caminos distintos y compara tus posturas con las suyas.">
+  <div class="cmp" id="cmp">
+    <section class="cmp-pant" data-pant="inicio">
+      <p class="ante-cmp">Banco de propuestas</p>
+      <h1>Compara tus posturas</h1>
+      <p class="entradilla">{cuestiones.length} cuestiones sobre el futuro de Cuba en las que las organizaciones proponen caminos distintos. Elige en cada una la opción que más se acerque a lo que piensas. Al final verás con qué organizaciones coincides.</p>
+      <ul class="cmp-reglas">
+        <li>Respondes viendo solo las ideas. Los nombres de las organizaciones aparecen al final.</li>
+        <li>Puedes saltar una cuestión y marcar las que más te importan para que cuenten doble.</li>
+        <li>Tus respuestas se quedan en tu navegador. No se envían ni se guardan a tu nombre.</li>
+      </ul>
+      <p class="cmp-aviso">Es una comparación de posturas, no una recomendación de voto. Las posturas proceden de los documentos de cada organización y todavía no han sido confirmadas por ellas.</p>
+      <button type="button" class="boton rojo" data-ir="empezar">Empezar</button>
+    </section>
+
+    <section class="cmp-pant" data-pant="pregunta" hidden>
+      <div class="cmp-progreso" aria-hidden="true"></div>
+      <p class="ante-cmp" data-num></p>
+      <h2 data-preg></h2>
+      <p class="discreto" data-texto></p>
+      <p class="cmp-tipo" data-tipo></p>
+      <div class="cmp-opciones" role="radiogroup"></div>
+      <label class="cmp-doble"><input type="checkbox" data-doble /> Esta cuestión es importante para mí (cuenta doble)</label>
+      <div class="cmp-nav">
+        <button type="button" class="boton" data-ir="atras">Atrás</button>
+        <button type="button" class="enlace-saltar" data-ir="saltar">Saltar cuestión →</button>
+      </div>
+    </section>
+
+    <section class="cmp-pant" data-pant="resultado" hidden>
+      <p class="ante-cmp">Tu resultado</p>
+      <h1>Con qué organizaciones coincides</h1>
+      <p class="cmp-aviso">Es una comparación de posturas, no una recomendación de voto. El porcentaje solo cuenta las cuestiones en las que la organización tiene una postura conocida en sus documentos. Las organizaciones con el mismo porcentaje aparecen en orden aleatorio.</p>
+      <div class="cmp-tabs" role="tablist">
+        <button type="button" role="tab" data-tab="res" aria-selected="true">Resultado</button>
+        <button type="button" role="tab" data-tab="cue">Por cuestión</button>
+        <button type="button" role="tab" data-tab="org">Por organización</button>
+      </div>
+      <div data-panel="res"></div>
+      <div data-panel="cue" hidden></div>
+      <div data-panel="org" hidden></div>
+      <div class="cmp-nav">
+        <button type="button" class="boton" data-ir="cambiar">Cambiar mis respuestas</button>
+        <button type="button" class="enlace-saltar" data-ir="reiniciar">Empezar de nuevo</button>
+      </div>
+    </section>
+  </div>
+  <script type="application/json" id="cmp-datos" set:html={JSON.stringify(datos)} />
+</Base>
+
+<style is:global>
+.cmp { max-width: 820px; margin: 0 auto; padding: 8px 0 48px; }
+.ante-cmp { font: 700 .82rem/1.2 var(--texto, inherit); letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin: 0 0 6px; }
+.cmp-reglas { margin: 18px 0; padding-left: 20px; line-height: 1.5; }
+.cmp-aviso { border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 10px 14px; font-size: .95rem; margin: 16px 0 22px; }
+.cmp-progreso { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 22px; }
+.cmp-progreso span { width: 14px; height: 14px; border: 2px solid var(--marino); border-radius: 50%; }
+.cmp-progreso span.hecha { background: var(--marino); }
+.cmp-progreso span.saltada { border-style: dashed; }
+.cmp-progreso span.actual { outline: 3px solid var(--rojo); outline-offset: 2px; }
+.cmp-tipo { display: inline-block; font-size: .8rem; font-weight: 700; color: var(--marino); background: #eef1f6; padding: 3px 10px; border-radius: 4px; }
+.cmp-opciones { display: grid; gap: 10px; margin: 18px 0; }
+.cmp-op { text-align: left; background: #fff; border: 2px solid #d5d9e0; border-radius: 4px; padding: 14px 16px; cursor: pointer; font: inherit; color: inherit; }
+.cmp-op:hover { border-color: var(--marino); }
+.cmp-op[aria-checked="true"] { border-color: var(--marino); background: var(--marino); color: #fff; }
+.cmp-op strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+.cmp-op span { font-size: .93rem; opacity: .85; }
+.cmp-op.ninguna { border-style: dashed; }
+.cmp-doble { display: flex; gap: 8px; align-items: center; margin: 6px 0 18px; font-weight: 600; }
+.cmp-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
+.enlace-saltar { background: none; border: 0; font: inherit; font-weight: 700; color: var(--marino); cursor: pointer; }
+.cmp-tabs { display: flex; gap: 4px; border-bottom: 3px solid var(--marino); margin: 8px 0 18px; flex-wrap: wrap; }
+.cmp-tabs button { background: #eef1f6; border: 0; padding: 10px 16px; font: inherit; font-weight: 700; color: var(--marino); cursor: pointer; border-radius: 4px 4px 0 0; }
+.cmp-tabs button[aria-selected="true"] { background: var(--marino); color: #fff; }
+.cmp-fila { padding: 12px 0; border-bottom: 1px solid #e3e6ec; }
+.cmp-fila-cab { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; color: var(--marino); }
+.cmp-barra { height: 12px; background: #e3e6ec; margin: 8px 0 4px; }
+.cmp-barra i { display: block; height: 100%; background: var(--marino); }
+.cmp-fila small, .cmp-sin { color: #5f6b80; font-size: .88rem; }
+.cmp-q { margin: 0 0 22px; }
+.cmp-q h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--marino); }
+.cmp-q li { margin: 4px 0; }
+.cmp-q .tuya { font-weight: 700; }
+.cmp-q .tuya::after { content: " · tu opción"; color: var(--rojo); font-weight: 700; }
+.cmp-sel { margin: 0 0 14px; padding: 8px; font: inherit; max-width: 100%; }
+.cmp-marca { font-weight: 700; }
+.cmp-marca.si { color: #1f7a3a; } .cmp-marca.no { color: var(--rojo); } .cmp-marca.nd { color: #5f6b80; }
+</style>
+
+<script>
+type Op = { id: string; titulo: string; texto: string; actores: string[] };
+type Q = { id: string; pregunta: string; texto: string; excluyentes: boolean; opciones: Op[] };
+type A = { id: string; nombre: string; web: string };
+const D: { cuestiones: Q[]; actores: A[] } = JSON.parse(document.getElementById('cmp-datos')!.textContent || '{}');
+const Q = D.cuestiones;
+const nombre = new Map(D.actores.map((a) => [a.id, a.nombre]));
+const CLAVE = 'et-compara-v1';
+type Estado = { r: Record<string, string>; doble: Record<string, boolean>; i: number };
+let E: Estado = { r: {}, doble: {}, i: 0 };
+try { const g = localStorage.getItem(CLAVE); if (g) E = { ...E, ...JSON.parse(g) }; } catch {}
+const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify(E)); } catch {} };
+const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => r.querySelector(s) as T;
+const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+const pant = (n: string) => document.querySelectorAll<HTMLElement>('.cmp-pant').forEach((p) => (p.hidden = p.dataset.pant !== n));
+
+function pintarPregunta() {
+  const q = Q[E.i];
+  $('.cmp-progreso').innerHTML = Q.map((x, j) => `<span class="${E.r[x.id] && E.r[x.id] !== '-' ? 'hecha' : E.r[x.id] === '-' ? 'saltada' : ''}${j === E.i ? ' actual' : ''}"></span>`).join('');
+  $('[data-num]').textContent = `Cuestión ${E.i + 1} de ${Q.length}`;
+  $('[data-preg]').textContent = q.pregunta;
+  $('[data-texto]').textContent = q.texto || '';
+  $('[data-tipo]').textContent = q.excluyentes ? 'Opciones incompatibles entre sí' : 'Elige la que priorizarías';
+  const ops = [...q.opciones.map((o) => ({ id: o.id, t: o.titulo, x: o.texto })), { id: 'ninguna', t: 'Ninguna me convence', x: '' }];
+  $('.cmp-opciones').innerHTML = ops.map((o) => `<button type="button" role="radio" class="cmp-op${o.id === 'ninguna' ? ' ninguna' : ''}" data-op="${o.id}" aria-checked="${E.r[q.id] === o.id}"><strong>${esc(o.t)}</strong>${o.x ? `<span>${esc(o.x.length > 220 ? o.x.slice(0, 217) + '…' : o.x)}</span>` : ''}</button>`).join('');
+  $<HTMLInputElement>('[data-doble]').checked = !!E.doble[q.id];
+  pant('pregunta');
+  window.scrollTo({ top: 0 });
+}
+function avanzar() { if (E.i < Q.length - 1) { E.i++; guardar(); pintarPregunta(); } else { guardar(); resultado(); } }
+
+function calcular() {
+  return D.actores.map((a) => {
+    let pts = 0, max = 0, conocidas = 0, coinciden = 0;
+    for (const q of Q) {
+      const r = E.r[q.id]; if (!r || r === '-' || r === 'ninguna') continue;
+      const suyas = q.opciones.filter((o) => o.actores.includes(a.id)).map((o) => o.id);
+      if (!suyas.length) continue;
+      const w = E.doble[q.id] ? 2 : 1; conocidas++; max += w;
+      if (suyas.includes(r)) { pts += w; coinciden++; }
+    }
+    return { a, pct: max ? Math.round((pts / max) * 1000) / 10 : null, conocidas, coinciden, azar: Math.random() };
+  });
+}
+const MIN = 2;
+function resultado() {
+  const res = calcular();
+  const con = res.filter((x) => x.pct !== null && x.conocidas >= MIN).sort((a, b) => (b.pct! - a.pct!) || (a.azar - b.azar));
+  const pocas = res.filter((x) => !(x.pct !== null && x.conocidas >= MIN)).sort((a, b) => a.a.nombre.localeCompare(b.a.nombre, 'es'));
+  const respondidas = Q.filter((q) => E.r[q.id] && !['-', 'ninguna'].includes(E.r[q.id])).length;
+  $('[data-panel="res"]').innerHTML = `<p class="discreto">Respondiste ${respondidas} de ${Q.length} cuestiones.</p>` +
+    (con.length ? con.map((x) => `<div class="cmp-fila"><div class="cmp-fila-cab"><span>${esc(x.a.nombre)}</span><span>${x.pct!.toLocaleString('es')} %</span></div><div class="cmp-barra"><i style="width:${x.pct}%"></i></div><small>Coincides en ${x.coinciden} de ${x.conocidas} cuestiones con postura conocida.</small></div>`).join('') : '<p>Responde más cuestiones para poder comparar.</p>') +
+    (pocas.length ? `<p class="cmp-sin" style="margin-top:18px">Sin datos suficientes para comparar (postura conocida en menos de ${MIN} de tus respuestas): ${pocas.map((x) => esc(x.a.nombre)).join(', ')}.</p>` : '');
+  $('[data-panel="cue"]').innerHTML = Q.map((q) => `<div class="cmp-q"><h3>${esc(q.pregunta)}</h3><ul>${q.opciones.map((o) => `<li class="${E.r[q.id] === o.id ? 'tuya' : ''}"><a href="/propuesta/${o.id}/">${esc(o.titulo)}</a><br><small class="cmp-sin">${o.actores.length ? o.actores.map((id) => esc(nombre.get(id) || id)).join(' · ') : 'Ninguna organización la propone en sus documentos del banco'}</small></li>`).join('')}</ul>${!E.r[q.id] || E.r[q.id] === '-' ? '<p class="cmp-sin">No respondiste esta cuestión.</p>' : E.r[q.id] === 'ninguna' ? '<p class="cmp-sin">Marcaste: ninguna me convence.</p>' : ''}</div>`).join('');
+  const opts = D.actores.map((a) => `<option value="${a.id}">${esc(a.nombre)}</option>`).join('');
+  $('[data-panel="org"]').innerHTML = `<label for="cmp-org" class="discreto">Elige una organización</label><br><select id="cmp-org" class="cmp-sel">${opts}</select><div data-org></div>`;
+  const pintarOrg = (id: string) => {
+    $('[data-org]').innerHTML = Q.map((q) => {
+      const suyas = q.opciones.filter((o) => o.actores.includes(id));
+      const r = E.r[q.id];
+      const marca = !suyas.length ? '<span class="cmp-marca nd">Sin postura conocida</span>' : !r || ['-', 'ninguna'].includes(r) ? '' : suyas.some((o) => o.id === r) ? '<span class="cmp-marca si">Coincides</span>' : '<span class="cmp-marca no">No coincides</span>';
+      return `<div class="cmp-q"><h3>${esc(q.pregunta)} ${marca}</h3>${suyas.length ? `<ul>${suyas.map((o) => `<li><a href="/propuesta/${o.id}/">${esc(o.titulo)}</a></li>`).join('')}</ul>` : ''}</div>`;
+    }).join('') + '<p class="cmp-sin">Postura tomada de los documentos de la organización recogidos en el banco; no confirmada por ella.</p>';
+  };
+  const sel = $<HTMLSelectElement>('#cmp-org'); sel.onchange = () => pintarOrg(sel.value); pintarOrg(sel.value);
+  pant('resultado'); window.scrollTo({ top: 0 });
+}
+
+document.getElementById('cmp')!.addEventListener('click', (ev) => {
+  const t = (ev.target as HTMLElement).closest<HTMLElement>('[data-ir],[data-op],[data-tab]'); if (!t) return;
+  if (t.dataset.op) { E.r[Q[E.i].id] = t.dataset.op; guardar(); setTimeout(avanzar, 180); pintarPregunta(); return; }
+  if (t.dataset.tab) { document.querySelectorAll<HTMLElement>('[data-tab]').forEach((b) => b.setAttribute('aria-selected', String(b === t))); document.querySelectorAll<HTMLElement>('[data-panel]').forEach((p) => (p.hidden = p.dataset.panel !== t.dataset.tab)); return; }
+  const ir = t.dataset.ir;
+  if (ir === 'empezar') { E.i = Math.min(E.i, Q.length - 1); pintarPregunta(); }
+  if (ir === 'atras') { if (E.i > 0) { E.i--; pintarPregunta(); } else pant('inicio'); }
+  if (ir === 'saltar') { E.r[Q[E.i].id] = '-'; avanzar(); }
+  if (ir === 'cambiar') { E.i = 0; pintarPregunta(); }
+  if (ir === 'reiniciar') { E = { r: {}, doble: {}, i: 0 }; guardar(); pant('inicio'); }
+});
+document.querySelector<HTMLInputElement>('[data-doble]')!.addEventListener('change', (ev) => { E.doble[Q[E.i].id] = (ev.target as HTMLInputElement).checked; guardar(); });
+</script>
