@@ -83,3 +83,9 @@ print('redirecciones:',len(REDIR))
 print('ok')
 # GitHub Pages ignora las carpetas que empiezan por «_» (como _astro) salvo que exista este archivo; sin él los scripts de las páginas dan 404.
 open(P + '/.nojekyll', 'w').close()
+# Método: la sección de la metodología (Gobernanza Solucionaria) viene del diseño nuevo y se coloca tras la entradilla.
+f=P+'/metodo/index.html'; s=rd(f); m=re.search(r'<section class="panel" id="gobernanza-solucionaria".*?</section>',rd(D+'/metodo/index.html'),re.S)
+if m and 'id="gobernanza-solucionaria"' not in s:
+    i=s.index('<main'); j=s.find('</p>',s.find('class="entradilla"',i))
+    if j<0: j=s.find('</h1>',i)
+    j=s.index('>',j)+1; s=s[:j]+m.group(0)+s[j:]; open(f,'w',encoding='utf-8').write(s); print('metodo: metodología GS insertada')
