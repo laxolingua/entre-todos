@@ -11,7 +11,7 @@ Mismo sistema que el sitio, para que los resultados se puedan sumar a las fichas
   - Las imágenes `opcion-1…5.png` quedan sin uso.
 - **Qué imagen va en cada sitio (noticias):**
   - En la foto de la pregunta de cada encuesta va su `tarjeta-encuesta-N.png`.
-  - El post de contexto lleva la portada cuadrada de la noticia (`noticias/salida/<id>/portada-cuadrada.png`), con el titular, la entradilla y la indicación de votar en el texto. Es un solo post de contexto para todas las encuestas de la noticia, publicado después de la última encuesta.
+  - El post de contexto lleva `contexto.png` (1080 × 1350): la noticia (lo que pasó, las posiciones, el contexto) y, al final, «Cómo votar». Se genera con `node contexto.js <id de la noticia>`. Es un solo post de contexto para todas las encuestas de la noticia, publicado después de la última encuesta.
 - **Código:** el encabezado de la encuesta empieza por el código de la propuesta, por ejemplo «P-001 · ¿Cuánto apoyas esta propuesta?». Es lo que permite pasar el resultado a su ficha.
 - **Ajustes de Facebook, siempre apagados:** Allow members to add options y Allow people to choose multiple options.
 - **Aviso:** la publicación dice siempre que el voto es visible para los miembros del grupo.

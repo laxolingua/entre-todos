@@ -1,0 +1,40 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+@font-face{font-family:BC;font-weight:800;src:url(/tmp/pub/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2)}
+@font-face{font-family:B;font-weight:400;src:url(/tmp/pub/_astro/barlow-latin-400-normal.qiz4-Cze.woff2)}
+@font-face{font-family:B;font-weight:500;src:url(/tmp/pub/_astro/barlow-latin-500-normal.BPAOfeC8.woff2)}
+@font-face{font-family:B;font-weight:700;src:url(/tmp/pub/_astro/barlow-latin-700-normal.A9pxMQ4z.woff2)}
+@font-face{font-family:M;font-weight:900;src:url(/tmp/pub/_astro/montserrat-latin-900-normal.B0TD3Qnu.woff2)}
+:root{--m:#0b1d3f;--r:#d7192d;--a:#f4c20d;--t3:#5f6b80;--t2:#2a3550}
+*{box-sizing:border-box}body{margin:0;background:#c9cdd4;font-family:B;color:var(--t2)}
+.t{position:relative;width:1080px;height:1350px;background:#fff;overflow:hidden;margin:40px}
+.foto{position:absolute;left:0;top:0;width:1080px;height:330px;background-size:cover;filter:grayscale(1)}
+.marca{position:absolute;left:0;top:0;width:330px;height:150px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 87px) 100%,0 100%)}
+.logo{position:absolute;left:56px;top:42px;font:900 40px/0.84 M;letter-spacing:-.035em;text-transform:uppercase;color:#fff}.logo b{display:block;color:var(--r)}
+.barra{position:absolute;left:0;top:320px;width:240px;height:10px;background:var(--a)}
+.cred{position:absolute;right:24px;top:336px;font:500 14px B;color:var(--t3)}
+.c{position:absolute;left:60px;right:60px;top:370px}
+.ante{font:700 18px/1.2 B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
+h1{margin:10px 0 18px;font:800 48px/0.98 BC;text-transform:uppercase;color:var(--m)}
+h2{margin:0 0 8px;font:800 24px BC;text-transform:uppercase;color:var(--m);display:flex;align-items:center;gap:10px}
+h2:before{content:"";width:14px;height:20px;background:var(--r);transform:skewX(-30deg)}
+ul{margin:0 0 18px;padding-left:22px;font:400 21px/1.3 B}li{margin-bottom:3px}
+.pos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+.pos div{border-top:4px solid var(--m);padding-top:8px;font:400 19px/1.3 B}.pos b{display:block;font:700 19px B;color:var(--m);margin-bottom:4px}
+.pos small{display:block;margin-top:6px;font:500 14px B;color:var(--t3)}
+.ctx{margin:0;font:400 19px/1.3 B}
+.voto{position:absolute;left:0;right:0;bottom:0;background:var(--m);color:#fff;padding:24px 60px 26px}
+.voto h3{margin:0 0 10px;font:800 30px BC;text-transform:uppercase;color:var(--a)}
+.voto ol{margin:0;padding-left:24px;font:500 20px/1.32 B}
+.voto .n{margin-top:10px;font:400 16px B;color:#c3cbe0}
+</style></head><body><div id="r"></div><script>
+window.pintar=(D,F,POS)=>{const n=D.encuestas.length;document.getElementById('r').innerHTML=
+'<div class="t" id="ctx"><div class="foto" style="background-image:url('+F+');background-position:'+POS+'"></div><div class="barra"></div><div class="marca"></div><div class="logo">Entre<b>Todos</b></div><div class="cred">'+D.foto.credito+'</div>'+
+'<div class="c"><div class="ante">'+D.seccion+' · '+D.fecha+'</div><h1>'+D.titular+'</h1>'+
+'<h2>Lo que pasó</h2><ul>'+D.hechos.map(h=>'<li>'+h+'</li>').join('')+'</ul>'+
+'<h2>Las posiciones</h2><div class="pos">'+D.posiciones.map(p=>'<div><b>'+p.quien+'</b>'+p.texto+'<small>'+p.fuente+'</small></div>').join('')+'</div>'+(D.contexto?'<h2>Contexto</h2><p class="ctx">'+D.contexto+'</p>':'')+'</div>'+
+'<div class="voto"><h3>Cómo votar</h3><ol>'+
+'<li>Justo debajo de esta publicación '+(n>1?'hay '+n+' encuestas':'está la encuesta')+'. Cada una tiene su código (N-'+D.id.slice(0,3)+'-1'+(n>1?', N-'+D.id.slice(0,3)+'-2':'')+').</li>'+
+'<li>Marca una sola opción en cada encuesta, la que más se acerque a lo que piensas.</li>'+
+'<li>Si aún no tienes una opinión formada, marca «Necesito más información».</li></ol>'+
+'<div class="n">Tu voto lo ven los miembros del grupo. Los resultados se suman al banco de propuestas de entre-todos.org.</div></div></div>'};
+</script></body></html>
