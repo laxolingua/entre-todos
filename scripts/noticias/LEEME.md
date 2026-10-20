@@ -56,10 +56,8 @@ El resultado queda en `salida/<id>/`.
 
 - **Foto del hecho:** del propio evento y pública. Se convierte a blanco y negro con brillo medio cerca de 100 y lado largo de 1400 px. El crédito va siempre visible. Es la única excepción a «sin políticos» del manual: en Actualidad la foto muestra el hecho.
 - **Colores:** solo marino, rojo y amarillo. El amarillo nunca va como texto sobre blanco.
-- **Diagonal única «/» a 60°:**
-  - en la portada ancha, el panel marino corta la foto;
-  - en la cuadrada, el bloque del logotipo;
-  - en la página, la marca roja de cada sección.
+- **Foto completa:** en las portadas y en la página la foto se ve entera, sin recortar bordes ni escudos y sin que nada tape a las personas. El titular va en una banda inferior: marino en la portada ancha y blanca en la cuadrada.
+- **Diagonal única «/» a 60°:** solo en la marca roja de cada sección de la página.
 - **Tipografía:** titulares en Barlow Condensed 800 en mayúsculas; texto en Barlow; logotipo en Montserrat 900, escrito como texto.
 - **Esquinas:** rectas, con un radio máximo de 4 px.
 
