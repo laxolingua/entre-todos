@@ -1302,3 +1302,18 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 
 .bl-tarjeta .bl-gancho { font-weight: 700; color: var(--rojo); font-size: .95rem; }
 .bl-neutral { border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 8px 12px; font-size: .92rem; }
+
+/* Conceptos y Biblioteca */
+.cpt { max-width: 900px; margin: 0 auto; padding: 8px 0 48px; }
+.cpt-indice { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; background: #fff; padding: 18px; border-top: 6px solid var(--rojo); margin: 22px 0; }
+.cpt-indice strong { color: var(--marino); font-size: .9rem; text-transform: uppercase; }
+.cpt-indice ul { margin: 6px 0 0; padding-left: 18px; font-size: .95rem; }
+.cpt-grupo h2 { margin-top: 34px; }
+.cpt-item { background: #fff; padding: 16px 18px; margin: 12px 0; border-left: 4px solid var(--marino); scroll-margin-top: 90px; }
+.cpt-item h3 { margin: 0 0 6px; color: var(--marino); }
+.cpt-item p { margin: 0 0 8px; }
+.cpt-item dl { margin: 0; display: grid; grid-template-columns: 190px 1fr; gap: 6px 14px; font-size: .95rem; }
+.cpt-item dt { font-weight: 700; color: var(--marino); }
+.cpt-item dd { margin: 0; }
+.cpt-item:target { box-shadow: 0 0 0 3px var(--amarillo); }
+@media (max-width: 640px) { .cpt-item dl { grid-template-columns: 1fr; } .cpt-item dd { margin-bottom: 6px; } }

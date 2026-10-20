@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { grupos } from '../../data/conceptos.js';
+const total = grupos.reduce((n, g) => n + g.conceptos.length, 0);
+---
+<Base titulo="Conceptos" seccion="academia" descripcion="Qué es cada forma de gobierno, cada institución y cada mecanismo de participación, en qué se diferencian y qué cambia para quien vota.">
+  <div class="cpt">
+    <p class="antetitulo"><a href="/academia/">Blog A+</a></p>
+    <h1>Conceptos</h1>
+    <p class="entradilla">{total} conceptos para saber qué se está eligiendo cuando se vota: qué es cada uno, en qué se diferencia de su par y qué cambia para quien vota.</p>
+    <nav class="cpt-indice" aria-label="Índice">
+      {grupos.map((g) => <div><strong>{g.titulo}</strong><ul>{g.conceptos.map((c) => <li><a href={`#${c.id}`}>{c.t}</a></li>)}</ul></div>)}
+    </nav>
+    {grupos.map((g) => (
+      <section class="cpt-grupo" id={g.id}>
+        <h2>{g.titulo}</h2>
+        {g.conceptos.map((c) => (
+          <article class="cpt-item" id={c.id}>
+            <h3>{c.t}</h3>
+            <p>{c.que}</p>
+            <dl>
+              <dt>En qué se diferencia</dt><dd>{c.dif}</dd>
+              <dt>Ejemplos</dt><dd>{c.ej}</dd>
+              <dt>Qué cambia para quien vota</dt><dd>{c.voto}</dd>
+            </dl>
+          </article>
+        ))}
+      </section>
+    ))}
+    <p class="bl-neutral">Estos conceptos describen modelos y sus efectos conocidos; no recomiendan ninguno.</p>
+    <p><a class="boton" href="/academia/biblioteca/">Biblioteca de documentos internacionales</a> <a class="boton rojo" href="/compara/">Compara tus posturas</a></p>
+  </div>
+</Base>

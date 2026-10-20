@@ -22,7 +22,7 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
   <div class="contenedor">
     <section class="seccion">
       <h2>Entradas</h2>
-      <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a></p>
+      <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a> · <a href="/academia/conceptos/">Conceptos</a> · <a href="/academia/biblioteca/">Biblioteca de documentos internacionales</a></p>
       <ul class="bl-tarjetas">
         {publicadas.map(({ c, l, n, e, foto }) => (
           <li class="bl-tarjeta" data-clave={`et-blog-${c.id}-${l.id}`}>

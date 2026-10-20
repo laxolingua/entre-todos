@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { grupos, notaOEA } from '../../data/biblioteca.js';
+const total = grupos.reduce((n, g) => n + g.docs.length, 0);
+---
+<Base titulo="Biblioteca" seccion="academia" descripcion="Documentos internacionales sobre derechos humanos, democracia y organización del Estado, con el texto oficial en español y la situación de Cuba.">
+  <div class="cpt">
+    <p class="antetitulo"><a href="/academia/">Blog A+</a></p>
+    <h1>Biblioteca</h1>
+    <p class="entradilla">Documentos internacionales sobre derechos humanos, democracia y organización del Estado. {total} entradas, con enlace al texto oficial en español, para su libre consulta.</p>
+    <div class="bib-claves">
+      <p><strong>Declaración o principios:</strong> orientan y sirven de referencia, pero no se ratifican.</p>
+      <p><strong>Tratado:</strong> obliga a los Estados que lo ratifican y los somete a supervisión internacional. Firmarlo solo expresa la intención de cumplirlo.</p>
+    </div>
+    {grupos.map((g) => (
+      <section class="cpt-grupo">
+        <h2>{g.titulo}</h2>
+        {g.docs.map((d) => (
+          <article class="cpt-item bib-doc">
+            <p class="bib-meta"><span class:list={['bib-tipo', { tratado: d.tipo === 'Tratado' }]}>{d.tipo}</span> {d.inst}{d.anio ? ` · ${d.anio}` : ''}</p>
+            <h3><a href={d.url} rel="noopener" target="_blank">{d.t} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a></h3>
+            <p>{d.que}</p>
+            {(d.cuba || d.gana) && <dl>
+              {d.cuba && <><dt>Cuba</dt><dd>{d.cuba}</dd></>}
+              {d.gana && <><dt>Qué ganaría la nueva Cuba</dt><dd>{d.gana}</dd></>}
+            </dl>}
+          </article>
+        ))}
+      </section>
+    ))}
+    <section class="cmp-aviso bib-nota"><strong>Cuba y la OEA.</strong> {notaOEA}</section>
+    <p class="discreto">La situación de Cuba se ha comprobado con la Biblioteca de Derechos Humanos de la Universidad de Minnesota y el registro de la ONU, que es la fuente que se actualiza: <a href="https://indicators.ohchr.org/" rel="noopener" target="_blank">indicators.ohchr.org</a>. Los textos de la ONU sin enlace directo se encuentran por su título en el <a href="https://www.ohchr.org/es/instruments-listings" rel="noopener" target="_blank">catálogo oficial de instrumentos</a>.</p>
+    <p><a class="boton" href="/academia/conceptos/">Conceptos</a></p>
+  </div>
+</Base>
+<style is:global>
+.bib-claves { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+.bib-claves p { margin: 0; background: #eef1f6; padding: 12px 14px; font-size: .95rem; }
+.bib-meta { font-size: .85rem; color: #5f6b80; margin: 0 0 4px !important; }
+.bib-tipo { display: inline-block; font-weight: 700; color: var(--marino); background: #eef1f6; padding: 1px 8px; border-radius: 4px; margin-right: 6px; }
+.bib-tipo.tratado { background: var(--marino); color: #fff; }
+.bib-doc h3 a { text-decoration: none; }
+.bib-nota { margin-top: 28px; border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 12px 14px; }
+@media (max-width: 640px) { .bib-claves { grid-template-columns: 1fr; } }
+</style>
