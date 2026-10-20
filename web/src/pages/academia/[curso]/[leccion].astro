@@ -6,6 +6,7 @@ import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
 import { cursos } from '../../../data/academia.js';
 import { entradas, PUBLICADO, ACTUALIZADO } from '../../../data/academia-entradas.js';
 import datos from '../../../data/publico.json';
+import { fotoLeccion } from '../../../data/academia-fotos.js';
 
 export function getStaticPaths() {
   const rutas = [];
@@ -22,8 +23,7 @@ const e = entradas[l.id];
 const total = Math.max(c.lecciones.length, c.plan?.length || 0);
 const anterior = n > 0 ? c.lecciones[n - 1] : null;
 const siguiente = c.lecciones[n + 1] || null;
-const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
-const foto = `/img/fotos/cat-${l.foto || FOTOS[n] || c.foto}.jpg`;
+const { src: foto, ia: fotoIA } = fotoLeccion(c, l, n);
 
 // La lectura se divide en secciones por sus subtítulos.
 const secciones = [];
@@ -90,6 +90,7 @@ const solucion = (a) =>
     </section>
 
     <figure class="bl-foto"><img src={foto} alt="" loading="eager" /></figure>
+    {fotoIA && <p class="bl-foto-pie">Imagen generada con IA</p>}
 
     <div class="bl-barra-modo">
       <button type="button" class="boton rojo" data-modo><i class="fi fi-br-graduation-cap" aria-hidden="true"></i> <span>Convertir en lección</span></button>

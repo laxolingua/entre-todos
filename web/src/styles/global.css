@@ -1069,6 +1069,7 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .bl-op.elegida { background: var(--amarillo); border-color: var(--amarillo); color: var(--marino); }
 .bl-sondeo-nota { margin: 10px 0 0; font-size: .92rem; color: #dfe6f4; min-height: 1em; }
 .bl-foto { margin: 0 0 18px; aspect-ratio: 16 / 7; overflow: hidden; background: var(--superficie-2); }
+.bl-foto-pie { margin: -12px 0 18px; font-size: 12px; color: var(--texto-3, #5f6b80); text-align: right; }
 .bl-foto img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
 .bl-barra-modo { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 20px; }
 .bl-modo-ayuda { color: var(--texto-3); font-size: .9rem; }

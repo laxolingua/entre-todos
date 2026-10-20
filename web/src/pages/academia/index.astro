@@ -1,4 +1,5 @@
 ---
+import { fotoLeccion } from '../../data/academia-fotos.js';
 // Blog académico: entradas que se leen como artículos y se convierten en lección con un botón.
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
@@ -8,7 +9,7 @@ import { entradas } from '../../data/academia-entradas.js';
 
 const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
 const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
-  c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: `/img/fotos/cat-${l.foto || FOTOS[n] || c.foto}.jpg` })));
+  c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: fotoLeccion(c, l, n).src })));
 ---
 <Base titulo="Blog A+" seccion="academia" ancho
   descripcion="Lecturas breves sobre derechos, libertades y democracia que se convierten en lección con un botón: actividades, insignias y certificado. Sin cuenta y sin datos personales.">
