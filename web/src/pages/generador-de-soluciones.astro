@@ -1,0 +1,216 @@
+---
+// Generador de soluciones: aplica el Marco Solucionario (Instituto para la Educación Humana) y lo enseñado en «Pensar y debatir»
+// para pasar de un problema a una propuesta. Primera etapa: todo queda en el navegador; se comparte con enlace o archivo.
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Generador de soluciones" seccion="academia"
+  descripcion="De un problema a una propuesta, paso a paso: investiga sus causas, genera ideas, evalúalas con el criterio del mayor bien y el menor daño y escribe tu propuesta.">
+  <div class="gen" id="gen">
+    <header class="gen-cab">
+      <p class="ante-cmp">Pensar y debatir · Herramienta</p>
+      <h1>Generador de soluciones</h1>
+      <p class="entradilla">De un problema a una propuesta, en nueve pasos. Sigue el Marco Solucionario del Instituto para la Educación Humana y aplica lo que enseñan los bloques de pensamiento crítico, creativo, sistémico y solucionario.</p>
+      <p class="discreto">Tu proyecto se guarda solo en este navegador. Puedes compartirlo con otras personas mediante un enlace o un archivo para que lo completen contigo.</p>
+    </header>
+    <ol class="gen-pasos" aria-label="Pasos"></ol>
+    <section class="gen-paso" aria-live="polite"></section>
+    <div class="gen-nav">
+      <button type="button" class="boton" data-ir="atras">Atrás</button>
+      <button type="button" class="boton rojo" data-ir="sig">Siguiente</button>
+    </div>
+    <details class="gen-herr">
+      <summary>Guardar y compartir</summary>
+      <div class="gen-herr-c">
+        <button type="button" class="boton" data-ir="enlace">Copiar enlace del proyecto</button>
+        <button type="button" class="boton" data-ir="descargar">Descargar archivo</button>
+        <label class="boton">Abrir archivo<input type="file" accept="application/json" data-abrir hidden /></label>
+        <button type="button" class="enlace-saltar" data-ir="nuevo">Empezar un proyecto nuevo</button>
+        <p class="discreto" data-aviso></p>
+      </div>
+    </details>
+  </div>
+</Base>
+
+<style is:global>
+.gen { max-width: 900px; margin: 0 auto; padding: 8px 0 48px; }
+.gen .ante-cmp { font-weight: 700; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin: 0 0 6px; }
+.gen-pasos { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 18px 0; }
+.gen-pasos button { border: 2px solid var(--marino); background: #fff; color: var(--marino); font-family: inherit; font-weight: 700; font-size: .82rem; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+.gen-pasos button.hecho { background: #eef1f6; }
+.gen-pasos button[aria-current="step"] { background: var(--marino); color: #fff; }
+.gen-paso { background: #fff; padding: 22px; border-top: 6px solid var(--rojo); }
+.gen-paso h2 { margin-top: 0; }
+.gen-fase { font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rojo); margin: 0 0 4px; }
+.gen-ayuda { background: #eef1f6; padding: 10px 14px; font-size: .94rem; margin: 10px 0 16px; }
+.gen-paso label.campo { display: block; font-weight: 700; color: var(--marino); margin: 14px 0 6px; }
+.gen-paso textarea, .gen-paso input[type="text"], .gen-paso select { width: 100%; font: inherit; padding: 10px; border: 2px solid #d5d9e0; border-radius: 4px; box-sizing: border-box; }
+.gen-paso textarea { min-height: 84px; }
+.gen-alerta { color: var(--rojo); font-weight: 700; font-size: .92rem; margin: 6px 0 0; }
+.gen-lista { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+.gen-lista li { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; background: #f6f7f9; padding: 8px; border-radius: 4px; }
+.gen-lista li .doble { display: grid; grid-template-columns: 1fr 200px; gap: 8px; }
+.gen-quitar { border: 0; background: none; color: var(--rojo); font-weight: 800; cursor: pointer; font-size: 1.1rem; }
+.gen-anadir { display: flex; gap: 8px; margin-top: 8px; }
+.gen-anadir input { flex: 1; }
+.gen-cont { font-weight: 800; color: var(--marino); }
+.gen-tabla { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .95rem; }
+.gen-tabla th, .gen-tabla td { border-bottom: 1px solid #e3e6ec; padding: 8px 6px; text-align: left; vertical-align: top; }
+.gen-tabla input[type="number"] { width: 56px; font: inherit; padding: 4px; }
+.gen-tabla .total { font-weight: 800; color: var(--marino); }
+.gen-tabla tr.mejor { background: #fbf6e3; }
+.gen-nav { display: flex; justify-content: space-between; margin: 16px 0; }
+.gen-herr { margin-top: 24px; background: #fff; padding: 12px 16px; border: 1px solid #d5d9e0; }
+.gen-herr summary { font-weight: 800; color: var(--marino); cursor: pointer; }
+.gen-herr-c { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.gen-herr-c label.boton { cursor: pointer; }
+.gen .enlace-saltar { background: none; border: 0; font: inherit; font-weight: 700; color: var(--marino); cursor: pointer; }
+.gen-res h3 { margin: 18px 0 6px; color: var(--marino); }
+.gen-res p, .gen-res ul { margin: 0 0 8px; }
+.gen-res .vacio { color: #5f6b80; font-style: italic; }
+@media (max-width: 640px) { .gen-lista li .doble { grid-template-columns: 1fr; } .gen-tabla { font-size: .85rem; } }
+@media print { .cabecera, .subnav, .pie, .gen-cab, .gen-pasos, .gen-nav, .gen-herr, .gen-imprimir { display: none !important; } .gen-paso { border: 0; padding: 0; } }
+</style>
+
+<script>
+type Item = { t: string; extra?: string };
+type Idea = { t: string; palanca: string; causas: number; bien: number; viable: number };
+type P = {
+  titulo: string; problema: string; preguntas: Item[];
+  iceberg: { hecho: string; patrones: string; estructuras: string; mentales: string };
+  afectados: { personas: string; animales: string; ambiente: string; beneficiados: string };
+  otros: Item[]; ideas: Idea[]; elegida: number;
+  plan: { tipo: string; que: string; quien: string; cuando: string; recursos: string };
+  impacto: string; porque: string;
+};
+const vacio = (): P => ({ titulo: '', problema: '', preguntas: [], iceberg: { hecho: '', patrones: '', estructuras: '', mentales: '' }, afectados: { personas: '', animales: '', ambiente: '', beneficiados: '' }, otros: [], ideas: [], elegida: -1, plan: { tipo: '', que: '', quien: '', cuando: '', recursos: '' }, impacto: '', porque: '' });
+const CLAVE = 'et-generador-v1';
+let S: P = vacio(); let paso = 0;
+const leerHash = () => { try { const h = location.hash.match(/#p=(.+)$/); if (h) return JSON.parse(decodeURIComponent(escape(atob(h[1])))); } catch {} return null; };
+try { const g = localStorage.getItem(CLAVE); if (g) S = { ...vacio(), ...JSON.parse(g) }; } catch {}
+const hp = leerHash(); if (hp) { S = { ...vacio(), ...hp }; history.replaceState(null, '', location.pathname); }
+const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify(S)); } catch {} };
+const esc = (s: string) => (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+const $ = (s: string, r: ParentNode = document) => r.querySelector(s) as HTMLElement;
+const total = (i: Idea) => (i.causas || 0) + (i.bien || 0) + (i.viable || 0);
+const PALANCAS = ['Números', 'Información', 'Reglas', 'Objetivos', 'Mentalidad'];
+const TIPOS = ['Acción inmediata', 'Colaborar con quien ya trabaja en el problema', 'Campaña educativa', 'Petición o cambio de política', 'Invención o intervención'];
+
+const PASOS = [
+  { fase: 'I. Identificar', t: 'El problema' },
+  { fase: 'I. Identificar', t: 'Preguntas para investigar' },
+  { fase: 'II. Investigar', t: 'El iceberg' },
+  { fase: 'II. Investigar', t: 'Los afectados' },
+  { fase: 'II. Investigar', t: 'Qué han hecho otros' },
+  { fase: 'III. Innovar', t: 'Lluvia de ideas' },
+  { fase: 'III. Innovar', t: 'Evaluar las ideas' },
+  { fase: 'III. Innovar', t: 'Plan de acción' },
+  { fase: 'IV. Aplicar', t: 'Tu propuesta' },
+];
+const area = (k: string, v: string, ph = '') => `<textarea data-k="${k}" placeholder="${esc(ph)}">${esc(v)}</textarea>`;
+const lista = (k: 'preguntas' | 'otros', ph: string, ph2?: string) => `<ul class="gen-lista">${S[k].map((x, i) => `<li><div class="${ph2 ? 'doble' : ''}"><span>${esc(x.t)}</span>${ph2 ? `<span class="discreto">${esc(x.extra || '')}</span>` : ''}</div><button type="button" class="gen-quitar" data-quitar="${k}" data-i="${i}" aria-label="Quitar">×</button></li>`).join('')}</ul>
+  <div class="gen-anadir"><input type="text" data-nuevo="${k}" placeholder="${esc(ph)}" />${ph2 ? `<input type="text" data-nuevo2="${k}" placeholder="${esc(ph2)}" />` : ''}<button type="button" class="boton" data-anadir="${k}">Añadir</button></div>`;
+
+function pantalla() {
+  const p = PASOS[paso]; let h = `<p class="gen-fase">${p.fase} · Paso ${paso + 1} de ${PASOS.length}</p><h2>${p.t}</h2>`;
+  if (paso === 0) {
+    h += `<p class="gen-ayuda">Describe qué pasa, a quién afecta, dónde y desde cuándo. No incluyas todavía la solución: «hay que comprar un camión» es una solución disfrazada; «la basura se acumula tres días por semana en esta esquina y atrae ratas» es un problema.</p>
+      <label class="campo" for="g-tit">Título corto del proyecto</label><input id="g-tit" type="text" data-k="titulo" value="${esc(S.titulo)}" placeholder="Ej.: Basura en la esquina de mi calle" />
+      <label class="campo">El problema</label>${area('problema', S.problema, 'Qué pasa, a quién afecta, dónde y desde cuándo')}<p class="gen-alerta" data-alerta></p>`;
+  }
+  if (paso === 1) h += `<p class="gen-ayuda">Escribe las preguntas que necesitas responder. Empieza por «¿Por qué…?» para buscar causas y por «¿Cómo podríamos…?» para abrir soluciones.</p>${lista('preguntas', '¿Por qué…? / ¿Cómo podríamos…?')}`;
+  if (paso === 2) h += `<p class="gen-ayuda">Lo que se ve es solo la punta. Baja nivel por nivel para encontrar lo que hace que el problema vuelva.</p>
+    <label class="campo">El hecho: qué pasa y se ve</label>${area('iceberg.hecho', S.iceberg.hecho)}
+    <label class="campo">Los patrones: qué se repite con el tiempo</label>${area('iceberg.patrones', S.iceberg.patrones)}
+    <label class="campo">Las estructuras: reglas, instituciones, recursos, quién decide</label>${area('iceberg.estructuras', S.iceberg.estructuras)}
+    <label class="campo">Los modelos mentales: creencias y costumbres que lo sostienen</label>${area('iceberg.mentales', S.iceberg.mentales)}`;
+  if (paso === 3) h += `<p class="gen-ayuda">Piensa en todos los afectados, también en los que no tienen voz.</p>
+    <label class="campo">Personas afectadas</label>${area('afectados.personas', S.afectados.personas)}
+    <label class="campo">Animales afectados</label>${area('afectados.animales', S.afectados.animales)}
+    <label class="campo">Medio ambiente afectado</label>${area('afectados.ambiente', S.afectados.ambiente)}
+    <label class="campo">¿Quién se beneficia de que el problema siga?</label>${area('afectados.beneficiados', S.afectados.beneficiados)}`;
+  if (paso === 4) h += `<p class="gen-ayuda">¿Qué han hecho otros barrios, municipios o países? ¿Qué funcionó y qué no? Anota la fuente para que se pueda comprobar: quién, qué, dónde y cuándo.</p>${lista('otros', 'Qué se hizo y con qué resultado', 'Fuente')}`;
+  if (paso === 5) {
+    h += `<p class="gen-ayuda">Cantidad antes que calidad. No juzgues todavía: las ideas raras son bienvenidas y una idea imposible puede llevar a otra posible. Prueba a invertir el problema, combinar ideas o mirar cómo lo resolvería otra persona. Luego indica en qué palanca actúa cada una.</p>
+      <p class="gen-cont">${S.ideas.length} ${S.ideas.length === 1 ? 'idea' : 'ideas'}</p>
+      <ul class="gen-lista">${S.ideas.map((x, i) => `<li><div class="doble"><span>${esc(x.t)}</span><select data-palanca="${i}" aria-label="Palanca"><option value="">¿Qué palanca?</option>${PALANCAS.map((p) => `<option ${x.palanca === p ? 'selected' : ''}>${p}</option>`).join('')}</select></div><button type="button" class="gen-quitar" data-quitar="ideas" data-i="${i}" aria-label="Quitar">×</button></li>`).join('')}</ul>
+      <div class="gen-anadir"><input type="text" data-nuevo="ideas" placeholder="Una idea" /><button type="button" class="boton" data-anadir="ideas">Añadir</button></div>`;
+  }
+  if (paso === 6) {
+    h += `<p class="gen-ayuda">Puntúa cada idea de 0 a 5 en tres criterios. Las de más puntuación aparecen resaltadas. Elige la que vas a desarrollar.</p>`;
+    h += S.ideas.length ? `<table class="gen-tabla"><thead><tr><th>Idea</th><th>¿Ataca las causas?</th><th>¿Mayor bien, menor daño?</th><th>¿Se puede hacer?</th><th>Total</th><th>Elegir</th></tr></thead><tbody>${S.ideas.map((x, i) => ({ x, i })).sort((a, b) => total(b.x) - total(a.x)).map(({ x, i }, n) => `<tr class="${n === 0 && total(x) > 0 ? 'mejor' : ''}"><td>${esc(x.t)}</td>${(['causas', 'bien', 'viable'] as const).map((c) => `<td><input type="number" min="0" max="5" value="${x[c] || 0}" data-punt="${i}" data-c="${c}" aria-label="${c}" /></td>`).join('')}<td class="total">${total(x)}</td><td><input type="radio" name="elegida" value="${i}" ${S.elegida === i ? 'checked' : ''} data-elegir /></td></tr>`).join('')}</tbody></table>` : '<p class="vacio">Añade ideas en el paso anterior.</p>';
+  }
+  if (paso === 7) {
+    const el = S.ideas[S.elegida];
+    h += `<p class="gen-ayuda">${el ? `Solución elegida: <strong>${esc(el.t)}</strong>.` : 'Elige una solución en el paso anterior.'} Concreta cómo llevarla a cabo.</p>
+      <label class="campo" for="g-tipo">Tipo de acción</label><select id="g-tipo" data-k="plan.tipo"><option value="">Elige</option>${TIPOS.map((t) => `<option ${S.plan.tipo === t ? 'selected' : ''}>${t}</option>`).join('')}</select>
+      <label class="campo">Qué se hará</label>${area('plan.que', S.plan.que)}
+      <label class="campo">Quién lo hará</label>${area('plan.quien', S.plan.quien)}
+      <label class="campo">Cuándo</label>${area('plan.cuando', S.plan.cuando)}
+      <label class="campo">Con qué recursos</label>${area('plan.recursos', S.plan.recursos)}
+      <label class="campo">Por qué funcionaría (evidencia y ejemplos)</label>${area('porque', S.porque)}
+      <label class="campo">Impacto en personas, animales y medio ambiente, incluidos posibles efectos negativos</label>${area('impacto', S.impacto)}`;
+  }
+  if (paso === 8) {
+    const el = S.ideas[S.elegida]; const v = (s: string) => (s ? esc(s).replace(/\n/g, '<br>') : '<span class="vacio">Sin completar</span>');
+    h += `<div class="gen-res"><p class="discreto">Propuesta generada con el Generador de soluciones de ENTRE TODOS, a partir del Marco Solucionario del Instituto para la Educación Humana.</p>
+      <h3>${esc(S.titulo) || 'Proyecto sin título'}</h3>
+      <h3>El problema</h3><p>${v(S.problema)}</p>
+      <h3>Por qué pasa</h3><p>${[S.iceberg.patrones, S.iceberg.estructuras, S.iceberg.mentales].filter(Boolean).map(esc).join(' ') || '<span class="vacio">Sin completar</span>'}</p>
+      <h3>La propuesta</h3><p>${el ? esc(el.t) : '<span class="vacio">Sin elegir</span>'}${S.plan.tipo ? ` <span class="discreto">(${esc(S.plan.tipo)})</span>` : ''}</p>
+      <p>${S.plan.que ? v(S.plan.que) : ''}</p>
+      <h3>Por qué funcionaría</h3><p>${v(S.porque)}</p>
+      ${S.otros.length ? `<ul>${S.otros.map((o) => `<li>${esc(o.t)}${o.extra ? ` <span class="discreto">(${esc(o.extra)})</span>` : ''}</li>`).join('')}</ul>` : ''}
+      <h3>Impacto en personas, animales y medio ambiente</h3><p>${v(S.impacto)}</p>
+      <h3>Cómo se haría</h3><p>${[S.plan.quien && 'Quién: ' + esc(S.plan.quien), S.plan.cuando && 'Cuándo: ' + esc(S.plan.cuando), S.plan.recursos && 'Recursos: ' + esc(S.plan.recursos)].filter(Boolean).join('<br>') || '<span class="vacio">Sin completar</span>'}</p>
+      ${el ? `<p class="discreto">Evaluación: causas ${el.causas}/5 · mayor bien y menor daño ${el.bien}/5 · viabilidad ${el.viable}/5.</p>` : ''}
+      </div>
+      <p class="gen-imprimir"><button type="button" class="boton rojo" data-ir="imprimir">Imprimir o guardar en PDF</button> <button type="button" class="boton" data-ir="copiar">Copiar texto de la propuesta</button></p>
+      <p class="discreto gen-imprimir">Pronto podrás enviarla directamente al banco de propuestas de ENTRE TODOS.</p>`;
+  }
+  $('.gen-paso').innerHTML = h;
+  $('.gen-pasos').innerHTML = PASOS.map((p, i) => `<li><button type="button" data-paso="${i}" ${i === paso ? 'aria-current="step"' : ''}>${i + 1}. ${p.t}</button></li>`).join('');
+  $('[data-ir="atras"]').style.visibility = paso === 0 ? 'hidden' : 'visible';
+  $('[data-ir="sig"]').style.visibility = paso === PASOS.length - 1 ? 'hidden' : 'visible';
+  alerta();
+}
+function alerta() {
+  const a = document.querySelector('[data-alerta]') as HTMLElement | null; if (!a) return;
+  a.textContent = /^\s*(hay que|se debe|deber[ií]an|tienen que|necesitamos|quiero que|propongo)/i.test(S.problema) ? 'Parece una solución disfrazada. Describe qué pasa y a quién afecta, sin decir todavía qué hacer.' : '';
+}
+const setK = (k: string, v: string) => { const [a, b] = k.split('.'); if (b) (S as any)[a][b] = v; else (S as any)[a] = v; guardar(); };
+const g = document.getElementById('gen')!;
+g.addEventListener('input', (ev) => {
+  const t = ev.target as HTMLInputElement;
+  if (t.dataset.k) { setK(t.dataset.k, t.value); if (t.dataset.k === 'problema') alerta(); }
+  if (t.dataset.punt) { const n = Math.max(0, Math.min(5, Number(t.value) || 0)); const idea = S.ideas[+t.dataset.punt]; (idea as any)[t.dataset.c!] = n; guardar(); const td = t.closest('tr')?.querySelector('.total'); if (td) td.textContent = String(total(idea)); }
+});
+g.addEventListener('change', (ev) => {
+  const t = ev.target as HTMLInputElement;
+  if (t.dataset.palanca) { S.ideas[+t.dataset.palanca].palanca = t.value; guardar(); }
+  if (t.hasAttribute('data-elegir')) { S.elegida = +t.value; guardar(); }
+  if (t.hasAttribute('data-abrir') && t.files?.[0]) { t.files[0].text().then((x) => { try { S = { ...vacio(), ...JSON.parse(x) }; guardar(); paso = 0; pantalla(); aviso('Proyecto abierto.'); } catch { aviso('El archivo no es un proyecto válido.'); } }); }
+});
+const aviso = (m: string) => { $('[data-aviso]').textContent = m; };
+g.addEventListener('keydown', (ev) => { const t = ev.target as HTMLInputElement; if (ev.key === 'Enter' && (t.dataset.nuevo || t.dataset.nuevo2)) { ev.preventDefault(); ($(`[data-anadir="${t.dataset.nuevo || t.dataset.nuevo2}"]`) as HTMLButtonElement).click(); } });
+g.addEventListener('click', (ev) => {
+  const t = (ev.target as HTMLElement).closest<HTMLElement>('[data-ir],[data-paso],[data-anadir],[data-quitar]'); if (!t) return;
+  if (t.dataset.paso) { paso = +t.dataset.paso; pantalla(); window.scrollTo({ top: 0 }); return; }
+  if (t.dataset.anadir) {
+    const k = t.dataset.anadir as 'preguntas' | 'otros' | 'ideas'; const i1 = $(`[data-nuevo="${k}"]`) as HTMLInputElement; const i2 = document.querySelector(`[data-nuevo2="${k}"]`) as HTMLInputElement | null;
+    if (!i1.value.trim()) return;
+    if (k === 'ideas') S.ideas.push({ t: i1.value.trim(), palanca: '', causas: 0, bien: 0, viable: 0 }); else S[k].push({ t: i1.value.trim(), extra: i2?.value.trim() || '' });
+    guardar(); pantalla(); ($(`[data-nuevo="${k}"]`) as HTMLInputElement).focus(); return;
+  }
+  if (t.dataset.quitar) { const k = t.dataset.quitar as 'preguntas' | 'otros' | 'ideas'; S[k].splice(+t.dataset.i!, 1); if (k === 'ideas') S.elegida = -1; guardar(); pantalla(); return; }
+  const ir = t.dataset.ir;
+  if (ir === 'sig' && paso < PASOS.length - 1) { paso++; pantalla(); window.scrollTo({ top: 0 }); }
+  if (ir === 'atras' && paso > 0) { paso--; pantalla(); window.scrollTo({ top: 0 }); }
+  if (ir === 'imprimir') window.print();
+  if (ir === 'copiar') { navigator.clipboard?.writeText(($('.gen-res') as HTMLElement).innerText).then(() => aviso('Texto copiado.')); }
+  if (ir === 'enlace') { const u = location.origin + location.pathname + '#p=' + btoa(unescape(encodeURIComponent(JSON.stringify(S)))); navigator.clipboard?.writeText(u).then(() => aviso('Enlace copiado. Quien lo abra verá tu proyecto y podrá continuarlo en su navegador.'), () => aviso(u)); }
+  if (ir === 'descargar') { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' })); a.download = (S.titulo || 'proyecto').replace(/[^\wáéíóúñ ]/gi, '').trim() + '.json'; a.click(); }
+  if (ir === 'nuevo') { if (confirmarNuevo()) { S = vacio(); guardar(); paso = 0; pantalla(); aviso('Proyecto nuevo.'); } }
+});
+let pidio = false; const confirmarNuevo = () => { if (pidio) { pidio = false; return true; } pidio = true; aviso('Pulsa otra vez para borrar el proyecto actual y empezar uno nuevo.'); return false; };
+pantalla();
+</script>

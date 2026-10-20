@@ -29,6 +29,7 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
       {MODULOS.map((m) => <a href={`#${m.id}`}><strong>{m.titulo}</strong><span>{m.texto}</span></a>)}
       <a href="/academia/conceptos/"><strong>Conceptos</strong><span>República, parlamentario, separación de poderes, referéndum: qué es cada cosa y qué cambia para quien vota.</span></a>
       <a href="/academia/biblioteca/"><strong>Biblioteca</strong><span>Tratados y documentos internacionales, con el texto oficial y la situación de Cuba.</span></a>
+      <a href="/generador-de-soluciones/"><strong>Generador de soluciones</strong><span>De un problema a una propuesta, paso a paso, solo o en grupo.</span></a>
     </nav>
     <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a></p>
     {MODULOS.map((m) => (

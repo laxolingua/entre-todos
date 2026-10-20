@@ -70,7 +70,7 @@ export const lecciones = [
         '<strong>Por qué funcionaría</strong>, con evidencia y, si existe, un ejemplo de otro lugar.',
         '<strong>Su impacto</strong> en personas, animales y medio ambiente, incluidos los posibles efectos negativos.',
       ] },
-      { p: 'Con este bloque terminas el módulo «Pensar y debatir». Ahora puedes aplicar todo lo aprendido: argumentar, comprobar fuentes, pensar en sistemas, discrepar con respeto y proponer soluciones.' },
+      { p: 'Con este bloque terminas el módulo «Pensar y debatir». Ahora puedes aplicar todo lo aprendido, solo o en grupo, con el <a href="/generador-de-soluciones/">Generador de soluciones</a>: del problema a la propuesta, paso a paso.' },
     ],
   },
 ];
