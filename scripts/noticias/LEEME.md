@@ -50,7 +50,7 @@ Eso la deja en blanco y negro, con el tono de E/T, en `fotos/<id>.jpg`.
 - `contexto`: un párrafo.
 - `por_verificar`: lo que viene solo de prensa o sin original. Si todo está verificado, se deja vacío.
 - `propuestas`: ids del banco relacionados, como máximo tres.
-- `encuestas`: una o dos encuestas, cada una con una pregunta y de tres a cuatro opciones. Una opción siempre es «Necesito más información». La primera puede ser la cuestión del banco relacionada y la segunda, sobre el hecho de la noticia. Con dos encuestas, el botón de la portada cuadrada dice «Vota en las encuestas».
+- `encuestas`: una o dos encuestas, cada una con una pregunta y de tres a cuatro opciones. Una opción siempre es «Necesito más información». La primera puede ser la cuestión del banco relacionada y la segunda, sobre el hecho de la noticia. Con dos encuestas, el botón de la portada cuadrada dice «Vota en las encuestas». En el grupo de Facebook se publica una sola encuesta a la vez: la segunda, otro día.
 - `fuentes`: nombre del medio con su fecha y la URL.
 
 ## Reglas editoriales

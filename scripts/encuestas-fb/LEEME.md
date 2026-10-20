@@ -7,11 +7,11 @@ Mismo sistema que el sitio, para que los resultados se puedan sumar a las fichas
   1. Primero se publica la encuesta. Su encabezado repite la noticia o la propuesta, con su código, y la pregunta, para que los datos se puedan recoger bien aunque se vea suelta. Facebook permite una foto solo en la pregunta, no en las opciones; las opciones van en texto.
   2. Después, en un post aparte, la imagen con el contexto y la indicación de votar.
   - Facebook muestra primero lo último publicado, así que en el grupo se ve arriba el contexto y justo debajo la encuesta.
-  - Con varias encuestas: encuesta 1, encuesta 2 y, al final, el post de contexto.
+  - **Una sola encuesta a la vez (decidido por Mitch, 20/10/2026):** dos preguntas juntas confunden. Si una noticia tiene dos encuestas, la segunda se publica otro día, con su propio post de contexto.
   - Las imágenes `opcion-1…5.png` quedan sin uso.
 - **Qué imagen va en cada sitio (noticias):**
   - En la foto de la pregunta de cada encuesta va su `tarjeta-encuesta-N.png`.
-  - El post de contexto lleva `contexto.png` (1080 × 1350): la noticia (lo que pasó, las posiciones, el contexto) y, al final, «Cómo votar». Se genera con `node contexto.js <id de la noticia>`. Es un solo post de contexto para todas las encuestas de la noticia, publicado después de la última encuesta.
+  - El post de contexto lleva `contexto.png` (1080 × 1350): la noticia (lo que pasó, las posiciones, el contexto) y, al final, «Cómo votar». Se genera con `node contexto.js <id de la noticia>`. Se publica justo después de su encuesta.
 - **Código:** el encabezado de la encuesta empieza por el código de la propuesta, por ejemplo «P-001 · ¿Cuánto apoyas esta propuesta?». Es lo que permite pasar el resultado a su ficha.
 - **Ajustes de Facebook, siempre apagados:** Allow members to add options y Allow people to choose multiple options.
 - **Aviso:** la publicación dice siempre que el voto es visible para los miembros del grupo.
