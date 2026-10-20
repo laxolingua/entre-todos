@@ -6,6 +6,7 @@ import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
 import { cursos } from '../../../data/academia.js';
 import { entradas, PUBLICADO, ACTUALIZADO } from '../../../data/academia-entradas.js';
 import datos from '../../../data/publico.json';
+import extra from '../../../data/propuestas-extra.json';
 import { fotoLeccion } from '../../../data/academia-fotos.js';
 
 export function getStaticPaths() {
@@ -36,7 +37,7 @@ if (actual.bloques.length) secciones.push(actual);
 let k = 0;
 const conClave = secciones.map((s) => ({ ...s, bloques: s.bloques.map((b) => ({ ...b, k: b.lista ? null : k++ })) }));
 
-const propuestas = e.relacionadas.map((id) => datos.propuestas.find((p) => p.id === id)).filter(Boolean);
+const propuestas = e.relacionadas.map((id) => datos.propuestas.find((p) => p.id === id) || extra[id]).filter(Boolean);
 const otras = c.lecciones.filter((x) => x.id !== l.id && entradas[x.id]);
 
 // Mezcla estable para que las opciones no aparezcan siempre en el mismo orden.
@@ -256,7 +257,7 @@ const solucion = (a) =>
 
     <footer class="bl-pie">
       <p>Publicado el {PUBLICADO}. Última actualización: {ACTUALIZADO}. Autoría: equipo editorial de ENTRE TODOS.</p>
-      <details class="bl-fuentes"><summary>Fuentes</summary><ul>{c.fuentes.map((f) => <li><a href={f.url} rel="noopener" target="_blank">{f.t}</a></li>)}</ul></details>
+      {c.fuentes?.length > 0 && <details class="bl-fuentes"><summary>Fuentes</summary><ul>{c.fuentes.map((f) => <li><a href={f.url} rel="noopener" target="_blank">{f.t}</a></li>)}</ul></details>}
       <p class="bl-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tus respuestas, resaltados y notas se guardan solo en este dispositivo. <button type="button" class="enlace-boton" data-borrar>Borrar todo</button></p>
     </footer>
 

@@ -10,6 +10,8 @@ import * as c4 from './academia/c4.js';
 import * as c5 from './academia/c5.js';
 import * as c6 from './academia/c6.js';
 import * as c7 from './academia/c7.js';
+import * as c8 from './academia/c8.js';
+import * as c9 from './academia/c9.js';
 
 export const PAISES_COMPARADOS = ['Cuba', 'Estados Unidos', 'Alemania', 'España', 'Costa Rica'];
 
@@ -82,6 +84,18 @@ export const cursos = [
     insignia: 'Pensamiento crítico',
     resumen: 'Cómo construir y defender un argumento, juzgar la evidencia y las fuentes, citar, reconocer falacias y sesgos, y usar la inteligencia artificial con criterio. Basado en los contenidos de los cursos preparatorios de acceso a universidades europeas.',
     lecciones: c7.lecciones, preguntas: c7.preguntas, fuentes: c7.fuentes,
+  },
+  {
+    id: 'pensamiento-creativo', num: 8, modulo: 'Pensar y debatir', titulo: 'Pensamiento creativo', foto: 'reconstruccion', estado: 'disponible',
+    insignia: 'Pensamiento creativo',
+    resumen: 'Plantear bien un problema, generar muchas ideas antes de elegir y llevar el ingenio de «inventar» a soluciones que sirvan a todos.',
+    lecciones: c8.lecciones, preguntas: c8.preguntas, fuentes: c8.fuentes,
+  },
+  {
+    id: 'pensamiento-etico', num: 9, modulo: 'Pensar y debatir', titulo: 'Pensamiento ético', foto: 'animales', estado: 'disponible',
+    insignia: 'Pensamiento ético',
+    resumen: 'Tres formas de juzgar qué está bien, el problema de los fines y los medios, y hasta dónde llega nuestra responsabilidad: personas, animales y medio ambiente.',
+    lecciones: c9.lecciones, preguntas: c9.preguntas, fuentes: c9.fuentes,
   },
 ];
 

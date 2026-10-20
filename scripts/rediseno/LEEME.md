@@ -18,3 +18,5 @@ encima de lo publicado, sin tocar el contenido.
 
 Fotos: web/public/img/fotos/. Las actuales son provisionales; se sustituyen por las definitivas
 con el mismo nombre (portada, propuestas, academia, consulta, morro, sobre, cat-<categoría>.jpg).
+
+- web/src/data/propuestas-extra.json: propuestas que están en el banco publicado pero no en publico.json (GS, NP, añadidas). Las usan las lecciones del Blog A+ para enlazar propuestas relacionadas. Regenerar tras cambiar gs.json, desde datos/indice-propuestas.json de la vista previa.

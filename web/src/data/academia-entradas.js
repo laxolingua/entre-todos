@@ -11,6 +11,8 @@
 
 import { entradas as e1 } from './academia/c1.js';
 import { entradas as e7 } from './academia/c7.js';
+import { entradas as e8 } from './academia/c8.js';
+import { entradas as e9 } from './academia/c9.js';
 import { entradas as e2 } from './academia/c2.js';
 import { entradas as e3 } from './academia/c3.js';
 import { entradas as e4 } from './academia/c4.js';
@@ -180,4 +182,6 @@ export const entradas = {
   ...e6,
   ...e1,
   ...e7,
+  ...e8,
+  ...e9,
 };

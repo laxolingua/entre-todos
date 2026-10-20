@@ -1,0 +1,127 @@
+{
+"estatuto-juridico-animales": {
+"id": "estatuto-juridico-animales",
+"titulo": "Que los animales dejen de ser cosas ante la ley",
+"texto": "Reformar el Código Civil para reconocer a los animales como seres dotados de sensibilidad, con una categoría jurídica propia, y acompañar ese reconocimiento de la reforma de las normas procesales y de garantía para que tenga efectos reales."
+},
+"defensoria-proteccion-animal": {
+"id": "defensoria-proteccion-animal",
+"titulo": "Una Defensoría Nacional de Protección Animal, independiente y con poder de litigar",
+"texto": "Crear un órgano público de defensa de los animales, separado de los organismos encargados de la producción ganadera, pesquera y comercial, con recursos y poderes propios para inspeccionar, actuar y acudir a los tribunales."
+},
+"costa-adaptacion-climatica": {
+"id": "costa-adaptacion-climatica",
+"titulo": "Planificar la costa antes de que el mar la gane",
+"texto": "Anticipar el retroceso costero en lugar de esperarlo: reasentamiento planificado y compensado de los asentamientos en riesgo, protección y restauración de manglares y dunas como defensa natural, y datos del monitoreo costero abiertos a la ciudadanía."
+},
+"agua-reduccion-fugas-bombeo-solar": {
+"id": "agua-reduccion-fugas-bombeo-solar",
+"titulo": "Agua: reparar lo que se pierde y desacoplar el bombeo de los apagones",
+"texto": "Un programa nacional de reducción de fugas antes que nuevas obras de captación, bombeo solar autónomo en las estaciones críticas para que el agua no dependa de la red eléctrica, y una meta pública y verificable de tratamiento de aguas residuales."
+},
+"residuos-servicio-exigible": {
+"id": "residuos-servicio-exigible",
+"titulo": "La recogida de residuos como servicio básico exigible, no como campaña",
+"texto": "Tratar la recogida y el tratamiento de la basura como un servicio básico permanente y exigible, con separación en origen y aprovechamiento de la fracción orgánica, en lugar de campañas periódicas cuyo efecto dura semanas."
+},
+"informacion-ambiental-abierta": {
+"id": "informacion-ambiental-abierta",
+"titulo": "Medir el ambiente en público: datos abiertos de agua, aire y suelos",
+"texto": "Monitoreo público, continuo y auditable del agua, el aire y los suelos, con acceso ciudadano a los datos en formato abierto y publicación íntegra de los estudios de impacto ambiental de toda obra pública. No se puede reparar lo que no se ha medido."
+},
+"bienestar-animal-granjas-traccion": {
+"id": "bienestar-animal-granjas-traccion",
+"titulo": "Condiciones verificables en granjas, mataderos y animales de trabajo",
+"texto": "Estándares auditables y exigibles para los animales usados en la producción de alimentos y como fuerza de trabajo, con supervisión veterinaria y alternativas económicas para quienes dependen de esa actividad."
+},
+"transicion-espectaculos-experimentacion": {
+"id": "transicion-espectaculos-experimentacion",
+"titulo": "Transición ordenada fuera de peleas, exhibición y experimentación con animales",
+"texto": "Sustituir de forma planificada las prácticas que infligen sufrimiento evitable -peleas, exhibición en zoológicos y experimentación- por alternativas sin animales, con reconversión de quienes viven de ellas."
+},
+"sustitucion-materiales-traccion": {
+"id": "sustitucion-materiales-traccion",
+"titulo": "Sustitución gradual de la tracción y los materiales de origen animal",
+"texto": "Programas voluntarios y progresivos para reemplazar el trabajo animal y los materiales de origen animal por alternativas asequibles, evaluadas por coste, durabilidad e impacto ambiental."
+},
+"impacto-personas-animales-entorno": {
+"id": "impacto-personas-animales-entorno",
+"titulo": "Evaluar el impacto sobre personas, animales y entorno antes de aprobar una política",
+"texto": "Que toda decisión pública se oriente a producir el mayor beneficio posible con el menor daño posible para personas, animales y entorno, y que cada propuesta pase una evaluación de impacto en esas tres dimensiones antes de deliberarse."
+},
+"comites-deliberativos-sorteo": {
+"id": "comites-deliberativos-sorteo",
+"titulo": "Comités deliberativos con ciudadanos elegidos por sorteo",
+"texto": "Que las políticas públicas se evalúen en comités deliberativos formados a partes iguales por especialistas, ciudadanos elegidos por sorteo y representantes de los grupos afectados, que hacen recomendaciones fundamentadas al parlamento."
+},
+"evaluacion-independiente-politicas": {
+"id": "evaluacion-independiente-politicas",
+"titulo": "Un órgano independiente que mida si las políticas funcionan",
+"texto": "Crear un órgano constitucional autónomo que mida los resultados reales de las políticas aplicadas, audite el desempeño de los funcionarios y publique sus informes para el parlamento y la ciudadanía."
+},
+"revision-continua-politicas": {
+"id": "revision-continua-politicas",
+"titulo": "Ninguna política es permanente: revisarla cuando los datos lo justifiquen",
+"texto": "Que toda política pública pueda revisarse, mejorarse o sustituirse cuando los indicadores muestren malos resultados, aparezca un daño no previsto o surjan nuevas evidencias, tecnologías o ideas que den mejores resultados con menor daño."
+},
+"ejecutivo-tecnico-no-partidista": {
+"id": "ejecutivo-tecnico-no-partidista",
+"titulo": "Un ejecutivo técnico y no partidista, elegido por concurso público",
+"texto": "Que el Poder Ejecutivo sea un órgano técnico y no partidista que aplique las políticas aprobadas, con integrantes seleccionados por concurso público y evaluados por su desempeño, mientras los partidos compiten por el parlamento."
+},
+"enfriamiento-puertas-giratorias": {
+"id": "enfriamiento-puertas-giratorias",
+"titulo": "Tres años sin trabajar en el sector sobre el que se decidió",
+"texto": "Que quienes hayan ejercido cargos en el ejecutivo esperen al menos tres años antes de aceptar trabajos remunerados en sectores directamente relacionados con las decisiones que tomaron."
+},
+"proteccion-denunciantes": {
+"id": "proteccion-denunciantes",
+"titulo": "Protección para quien denuncia la corrupción",
+"texto": "Proteger frente a cualquier represalia a quien denuncie de buena fe irregularidades, corrupción o violaciones de la Constitución cometidas por funcionarios, e investigar toda denuncia fundamentada en un máximo de noventa días."
+},
+"ia-asesora-no-decide": {
+"id": "ia-asesora-no-decide",
+"titulo": "La inteligencia artificial asesora, no decide",
+"texto": "Que ninguna decisión que afecte derechos de personas, animales o entorno pueda adoptarse solo por un sistema algorítmico, sin validación humana documentada."
+},
+"generaciones-futuras": {
+"id": "generaciones-futuras",
+"titulo": "Evaluar las decisiones a diez, veinticinco y cincuenta años",
+"texto": "Evaluar las decisiones con efectos a largo plazo en horizontes de diez, veinticinco y cincuenta años, y que ninguna decisión comprometa de forma irreversible las condiciones de vida de quienes aún no han nacido."
+},
+"accion-ciudadana-colectiva": {
+"id": "accion-ciudadana-colectiva",
+"titulo": "Cualquier ciudadano puede ir a los tribunales en defensa del ambiente, los animales o la probidad pública",
+"texto": "Que cualquier ciudadano pueda actuar ante los tribunales en defensa de intereses colectivos: derechos ambientales, bienestar animal, probidad pública o integridad de los procesos de decisión."
+},
+"emergencia-caduca": {
+"id": "emergencia-caduca",
+"titulo": "Las medidas de emergencia caducan a los sesenta días",
+"texto": "Que las medidas urgentes adoptadas en una emergencia declarada valgan como máximo sesenta días, en los que el parlamento las confirma, modifica o anula; las que no se confirman expiran solas."
+},
+"voto-delegable": {
+"id": "voto-delegable",
+"titulo": "Voto delegable y revocable en temas concretos",
+"texto": "Permitir delegar el voto, de forma revocable, en personas de confianza para materias concretas en las decisiones de la plataforma de participación ciudadana."
+},
+"financiamiento-solo-publico": {
+"id": "financiamiento-solo-publico",
+"titulo": "Partidos y campañas financiados solo con fondos públicos",
+"texto": "Que el financiamiento político sea exclusivamente público y proporcional, sin fondos del exterior y sin uso de recursos del Estado en beneficio de un partido."
+},
+"estado-neutral-juramento": {
+"id": "estado-neutral-juramento",
+"titulo": "Un Estado ideológicamente neutral, con juramento público de neutralidad",
+"texto": "Que el Estado sea ideológicamente neutral en su estructura y funcionamiento, y que toda persona que asuma una función pública suscriba un juramento público de neutralidad e imparcialidad política e ideológica, verificable y auditado."
+},
+"parlamento-mixto-sorteo": {
+"id": "parlamento-mixto-sorteo",
+"titulo": "Un parlamento mixto: representantes electos y ciudadanos elegidos por sorteo",
+"texto": "Una Asamblea Nacional formada en un sesenta por ciento por representantes electos por sufragio directo, en un treinta por ciento por ciudadanos sorteados del padrón con mandato de dos años y en un diez por ciento por voces técnicas sin voto."
+},
+"candidaturas-independientes-plataforma-plural": {
+"id": "candidaturas-independientes-plataforma-plural",
+"titulo": "Candidaturas independientes comprometidas con una plataforma plural",
+"texto": "Que quienes no militan en ningún partido puedan respaldar y presentar candidaturas independientes comprometidas públicamente a gobernar con una plataforma plural, construida con las propuestas ciudadanas y de organizaciones que la ciudadanía haya comparado y priorizado."
+}
+}
