@@ -8,6 +8,11 @@ import { cursos } from '../../data/academia.js';
 import { entradas } from '../../data/academia-entradas.js';
 
 const FOTOS = ['derechos', 'constitucion', 'sociedad_civil', 'transicion'];
+const MODULOS = [
+  { id: 'la-nueva-cuba', titulo: 'La nueva Cuba', texto: 'Cómo podría funcionar la nueva Cuba: derechos, libertades, justicia y democracia, comparados con el derecho internacional y otras democracias.' },
+  { id: 'pensar-y-debatir', titulo: 'Pensar y debatir', texto: 'Pensamiento crítico, creativo, ético, sistémico, humano y solucionario: argumentar, comprobar fuentes y debatir sin ofender.' },
+];
+const modDe = (c) => (c.modulo === 'Pensar y debatir' ? 'pensar-y-debatir' : 'la-nueva-cuba');
 const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
   c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: fotoLeccion(c, l, n).src })));
 ---
@@ -20,41 +25,19 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
     <p class="entradilla">Lecturas sobre cómo podría funcionar la nueva Cuba: derechos, libertades y democracia. Cada una parte de una duda y se puede convertir en lección con actividades, insignia e informe.</p>
   </Banda>
   <div class="contenedor">
-    <section class="seccion">
-      <h2>Entradas</h2>
-      <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a> · <a href="/academia/conceptos/">Conceptos</a> · <a href="/academia/biblioteca/">Biblioteca de documentos internacionales</a></p>
-      <ul class="bl-tarjetas">
-        {publicadas.map(({ c, l, n, e, foto }) => (
-          <li class="bl-tarjeta" data-clave={`et-blog-${c.id}-${l.id}`}>
-            <a href={`/academia/${c.id}/${l.id}/`}>
-              <img src={foto} alt="" loading="lazy" />
-              <span class="bl-tarjeta-txt">
-                <span class="bl-tarjeta-meta">{c.titulo} · {n + 1} de {c.lecciones.length} · {l.minutos} min</span>
-                <strong>{l.titulo}</strong>
-                <span>{e.entradilla}</span>
-                <span class="bl-estado" data-estado></span>
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <section class="seccion">
-      <h2>Cómo funciona</h2>
-      <ol class="pasos-curso">
-        <li><span class="paso-num">1</span><strong>Lee</strong><span>Cada entrada parte de una duda e indica su tiempo de lectura.</span></li>
-        <li><span class="paso-num">2</span><strong>Conviértela en lección</strong><span>Resalta, subraya y anota el texto. Luego, tres actividades cortas.</span></li>
-        <li><span class="paso-num">3</span><strong>Gana la insignia</strong><span>Vuelve a la pregunta inicial y descarga tu informe para compartirlo si quieres.</span></li>
-        <li><span class="paso-num">4</span><strong>Certificado</strong><span>Con todas las insignias de un bloque, descarga tu certificado en PDF.</span></li>
-      </ol>
-      <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Todo se guarda solo en tu dispositivo. ENTRE TODOS no pide cuenta, correo ni nombre.</p>
-    </section>
-
-    <section class="seccion">
-      <h2>Bloques</h2>
-      <ul class="cursos">
-        {cursos.map((c) => (
+    <nav class="bl-modulos" aria-label="Secciones del Blog A+">
+      {MODULOS.map((m) => <a href={`#${m.id}`}><strong>{m.titulo}</strong><span>{m.texto}</span></a>)}
+      <a href="/academia/conceptos/"><strong>Conceptos</strong><span>República, parlamentario, separación de poderes, referéndum: qué es cada cosa y qué cambia para quien vota.</span></a>
+      <a href="/academia/biblioteca/"><strong>Biblioteca</strong><span>Tratados y documentos internacionales, con el texto oficial y la situación de Cuba.</span></a>
+    </nav>
+    <p class="discreto"><a href="/academia/itinerario/">Itinerario: para qué sirve cada bloque</a></p>
+    {MODULOS.map((m) => (
+      <section class="seccion bl-modulo" id={m.id}>
+        <h2>{m.titulo}</h2>
+        <p class="discreto">{m.texto}</p>
+        <h3 class="bl-sub-h">Bloques</h3>
+        <ul class="cursos">
+        {cursos.filter((c) => modDe(c) === m.id).map((c) => (
           <li class="curso con-foto">
             <a class="curso-enlace" href={`/academia/${c.id}/`} aria-label={c.titulo}></a>
             <div class="duo"><img src={`/img/fotos/cat-${c.foto}.jpg`} alt="" loading="lazy" /></div>
@@ -68,7 +51,24 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
           </li>
         ))}
       </ul>
-    </section>
+        <h3 class="bl-sub-h">Entradas</h3>
+        <ul class="bl-tarjetas">
+        {publicadas.filter((x) => modDe(x.c) === m.id).map(({ c, l, n, e, foto }) => (
+          <li class="bl-tarjeta" data-clave={`et-blog-${c.id}-${l.id}`}>
+            <a href={`/academia/${c.id}/${l.id}/`}>
+              <img src={foto} alt="" loading="lazy" />
+              <span class="bl-tarjeta-txt">
+                <span class="bl-tarjeta-meta">{c.titulo} · {n + 1} de {c.lecciones.length} · {l.minutos} min</span>
+                <strong>{l.titulo}</strong>
+                <span>{e.entradilla}</span>
+                <span class="bl-estado" data-estado></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      </section>
+    ))}
     <ApoyoEEUU pieza="material" />
   </div>
   <script>

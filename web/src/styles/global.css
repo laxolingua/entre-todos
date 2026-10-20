@@ -1318,3 +1318,12 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .cpt-item:target { box-shadow: 0 0 0 3px var(--amarillo); }
 @media (max-width: 640px) { .cpt-item dl { grid-template-columns: 1fr; } .cpt-item dd { margin-bottom: 6px; } }
 .bl-propuestas a.enlace-texto { display: inline; padding: 0; background: none; border: 0; color: var(--marino-2); text-decoration: underline; }
+
+.bl-modulos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 28px 0 10px; }
+.bl-modulos a { display: grid; gap: 6px; background: var(--marino); color: #fff; padding: 18px; text-decoration: none; border-radius: 4px; border-bottom: 5px solid var(--rojo); }
+.bl-modulos a:nth-child(n+3) { background: #fff; color: var(--marino); border: 1px solid #d5d9e0; border-bottom: 5px solid var(--amarillo); }
+.bl-modulos strong { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.3rem; }
+.bl-modulos span { font-size: .92rem; opacity: .9; }
+.bl-modulo { scroll-margin-top: 90px; }
+.bl-sub-h { margin: 22px 0 10px; font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--rojo); }
+.subnav-academia a[aria-current] { font-weight: 800; }

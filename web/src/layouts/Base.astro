@@ -81,6 +81,17 @@ const subenlaces = [
         </nav>
       </div>
     </header>
+    {seccion === 'academia' && (
+      <nav class="subnav subnav-academia" aria-label="Blog A+">
+        <div class="contenedor">
+          <a href="/academia/">Inicio del Blog A+</a>
+          <a href="/academia/#la-nueva-cuba">La nueva Cuba</a>
+          <a href="/academia/#pensar-y-debatir">Pensar y debatir</a>
+          <a href="/academia/conceptos/" aria-current={Astro.url.pathname.startsWith('/academia/conceptos') ? 'page' : undefined}>Conceptos</a>
+          <a href="/academia/biblioteca/" aria-current={Astro.url.pathname.startsWith('/academia/biblioteca') ? 'page' : undefined}>Biblioteca</a>
+        </div>
+      </nav>
+    )}
     {enBanco && (
       <nav class="subnav" aria-label="Banco de propuestas">
         <div class="contenedor">
