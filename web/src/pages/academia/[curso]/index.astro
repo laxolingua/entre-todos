@@ -50,7 +50,7 @@ const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecc
               <li data-leccion={l.id}>
                 <a href={`/academia/${c.id}/${l.id}/`}>
                   <span class="bl-num">{i + 1}</span>
-                  <span class="bl-bloque-txt"><strong>{entradas[l.id].gancho.q}</strong><span>{l.titulo} · {l.minutos} min</span></span>
+                  <span class="bl-bloque-txt"><strong>{l.titulo}</strong><span>{entradas[l.id].gancho.q} · {l.minutos} min</span></span>
                   <span class="bl-estado" data-estado>Pendiente</span>
                 </a>
               </li>

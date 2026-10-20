@@ -30,7 +30,8 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
               <img src={foto} alt="" loading="lazy" />
               <span class="bl-tarjeta-txt">
                 <span class="bl-tarjeta-meta">{c.titulo} · {n + 1} de {c.lecciones.length} · {l.minutos} min</span>
-                <strong>{e.gancho.q}</strong>
+                <strong>{l.titulo}</strong>
+                <span class="bl-gancho">{e.gancho.q}</span>
                 <span>{e.entradilla}</span>
                 <span class="bl-estado" data-estado></span>
               </span>

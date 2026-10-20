@@ -1299,3 +1299,5 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
   .hoy-cuerpo::before { left: 16px; }
   .hoy-cuerpo h3 { font-size: 1.45rem; }
 }
+
+.bl-tarjeta .bl-gancho { font-weight: 700; color: var(--rojo); font-size: .95rem; }
