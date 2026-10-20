@@ -96,15 +96,16 @@
 <script>
 window.pintar=(D,F,P)=>{
  const f=F+D.foto.archivo+'.jpg';
+ const POS=D.foto.posicion||'center top';
  const ENC=D.encuestas||(D.encuesta?[D.encuesta]:[]);
  const logo=(c)=>'<div class="logo '+(c||'')+'">Entre<b>Todos</b></div>';
  const anchaRelleno='<div class="pieza ancha" id="ancha"><div class="foto" style="background-image:url('+f+');background-position:70% center"></div><div class="panel"></div>'+
   '<div class="c">'+logo('bl')+'<div style="height:26px"></div><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div>'+
   '<div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div><div class="cred">'+D.foto.credito+'</div></div>';
- const anchaFoto='<div class="pieza anchaf" id="ancha"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
+ const anchaFoto='<div class="pieza anchaf" id="ancha"><div class="foto" style="background-image:url('+f+');background-position:'+POS+'"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
   '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1></div><div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div>';
  const ancha=(D.portada==='relleno')?anchaRelleno:anchaFoto;
- const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
+ const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+');background-position:'+POS+'"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
   '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div></div>'+
   '<div class="cta"><span class="btn">'+(ENC.length>1?'Vota en las encuestas':'Vota en la encuesta')+'</span><span class="url">entre-todos.org</span></div></div>';
  const props=D.propuestas.map(id=>{const p=P[id]||{t:id,k:''};return '<a><span class="k">'+p.k+'</span><span class="t">'+p.t+'</span><span class="v">Ver propuesta →</span></a>';}).join('');
