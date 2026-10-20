@@ -17,7 +17,7 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
     <span class="barra"></span>
     <h1>Blog A<sup>+</sup></h1>
     <p class="lema">Blog A+ de ENTRE TODOS</p>
-    <p class="entradilla">Lecturas de cinco minutos sobre derechos, libertades y democracia. Cada una empieza con una pregunta y se puede convertir en lección con actividades, insignia e informe.</p>
+    <p class="entradilla">Lecturas sobre cómo podría funcionar la nueva Cuba: derechos, libertades y democracia. Cada una parte de una duda y se puede convertir en lección con actividades, insignia e informe.</p>
   </Banda>
   <div class="contenedor">
     <section class="seccion">
@@ -31,7 +31,6 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
               <span class="bl-tarjeta-txt">
                 <span class="bl-tarjeta-meta">{c.titulo} · {n + 1} de {c.lecciones.length} · {l.minutos} min</span>
                 <strong>{l.titulo}</strong>
-                <span class="bl-gancho">{e.gancho.q}</span>
                 <span>{e.entradilla}</span>
                 <span class="bl-estado" data-estado></span>
               </span>
@@ -44,7 +43,7 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
     <section class="seccion">
       <h2>Cómo funciona</h2>
       <ol class="pasos-curso">
-        <li><span class="paso-num">1</span><strong>Lee</strong><span>Cada entrada empieza con una pregunta de opinión y se lee en unos cinco minutos.</span></li>
+        <li><span class="paso-num">1</span><strong>Lee</strong><span>Cada entrada parte de una duda e indica su tiempo de lectura.</span></li>
         <li><span class="paso-num">2</span><strong>Conviértela en lección</strong><span>Resalta, subraya y anota el texto. Luego, tres actividades cortas.</span></li>
         <li><span class="paso-num">3</span><strong>Gana la insignia</strong><span>Vuelve a la pregunta inicial y descarga tu informe para compartirlo si quieres.</span></li>
         <li><span class="paso-num">4</span><strong>Certificado</strong><span>Con todas las insignias de un bloque, descarga tu certificado en PDF.</span></li>

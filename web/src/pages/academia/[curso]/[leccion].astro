@@ -70,19 +70,18 @@ const solucion = (a) =>
   : a.tipo === 'opcion' ? a.items.map((x) => `${x.q} ${x.o[x.c]}.`)
   : a.tipo === 'relaciona' ? a.items.map((x) => `${x.a}: ${x.b}.`)
   : a.tipo === 'huecos' ? [a.partes.filter((p) => p.r).map((p) => p.r).join(', ') + '.']
-  : a.tipo === 'escribe' ? [`Ejemplo de respuesta: ${a.ejemplo}`]
+  : a.tipo === 'escribe' ? (a.ejemplo ? [`Ejemplo de respuesta: ${a.ejemplo}`] : [])
   : ['Respuesta abierta.'];
 ---
-<Base titulo={e.gancho.q} seccion="academia" descripcion={`${l.titulo}. ${e.entradilla}`}>
+<Base titulo={l.titulo} seccion="academia" descripcion={`${l.titulo}. ${e.entradilla}`}>
   <article class="bl-entrada" data-entrada>
     <p class="antetitulo"><a href={`/academia/${c.id}/`}>{c.titulo}</a> · {n + 1} de {total}</p>
-    <h1 class="bl-gancho">{e.gancho.q}</h1>
-    <p class="bl-sub">{l.titulo}</p>
+    <h1 class="bl-gancho">{l.titulo}</h1>
     <p class="entradilla">{e.entradilla}</p>
     <p class="bl-meta"><span><i class="fi fi-br-clock" aria-hidden="true"></i> {l.minutos} min de lectura</span><span>Publicado el {PUBLICADO}</span></p>
 
     <section class="bl-sondeo" data-sondeo="antes" aria-labelledby="sondeo-antes">
-      <p class="bl-sondeo-tit" id="sondeo-antes">Antes de leer, ¿tú qué piensas?</p>
+      <p class="bl-sondeo-tit" id="sondeo-antes">Antes de leer: {e.gancho.q}</p>
       <div class="bl-opciones" role="group" aria-labelledby="sondeo-antes">
         {e.gancho.o.map((o, i) => <button type="button" class="bl-op" data-op={i}>{o}</button>)}
       </div>
@@ -110,9 +109,9 @@ const solucion = (a) =>
             {s.bloques.map((b) =>
               b.cita ? <figure class="cita-fuente"><blockquote class="cita ar-p" data-k={b.k}>{b.cita}</blockquote><figcaption>{b.fuente}</figcaption></figure>
               : b.lista ? <ol class="lista-preguntas">{b.lista.map((x) => <li>{x}</li>)}</ol>
-              : <p class="ar-p" data-k={b.k}>{b.p}</p>
+              : <p class="ar-p" data-k={b.k} set:html={b.p} />
             )}
-            {i === conClave.length - 1 && l.tabla && (
+            {(l.tabla?.tras ? s.titulo === l.tabla.tras : i === conClave.length - 1) && l.tabla && (
               <div class="desplazable comparativa">
                 <table class="tabla">
                   <caption>{l.tabla.titulo}</caption>
@@ -190,7 +189,7 @@ const solucion = (a) =>
               <div class="bl-escribe">
                 <p class="bl-guia-tit">Puedes seguir este orden:</p>
                 <ol class="bl-guia">{a.guia.map((g) => <li>{g}</li>)}</ol>
-                <details class="bl-ejemplo"><summary>Ver un ejemplo</summary><blockquote>{a.ejemplo}</blockquote></details>
+                {a.ejemplo && <details class="bl-ejemplo"><summary>Ver un ejemplo</summary><blockquote>{a.ejemplo}</blockquote></details>}
                 <label class="bl-campo">Tu texto<textarea rows="5" maxlength="1200" data-escrito></textarea></label>
                 <p class="bl-guia-tit">¿Cómo crees que te ha quedado?</p>
                 <div class="bl-vf" role="radiogroup" aria-label="Autovaloración">
@@ -240,17 +239,19 @@ const solucion = (a) =>
 
     {propuestas.length > 0 && (
       <section class="bl-propuestas">
-        <h2>Propuestas del banco sobre este tema</h2>
-        <ul>
+        <h2>Qué proponen las propuestas del banco</h2>
+        <p class="discreto">En orden aleatorio. Cada una enlaza a su ficha, con sus fuentes.</p>
+        <ul data-aleatorio>
           {propuestas.map((p) => <li><a href={`/propuesta/${p.id}/`}><strong>{p.titulo}</strong><span>{p.texto}</span></a></li>)}
         </ul>
-        <p class="discreto">Pronto podrás valorarlas desde aquí y presentar las tuyas.</p>
+        <p class="bl-neutral">Esta lección presenta opciones y experiencias; no recomienda ninguna.</p>
+        <p class="discreto">Puedes elegir entre ellas, tema por tema, en <a href="/plataforma/">Arma tu plataforma</a>.</p>
       </section>
     )}
 
     <nav class="bl-nav" aria-label="Entradas del bloque">
-      {anterior ? <a href={`/academia/${c.id}/${anterior.id}/`} class="bl-nav-ant"><span>Anterior</span>{entradas[anterior.id]?.gancho.q}</a> : <span></span>}
-      {siguiente ? <a href={`/academia/${c.id}/${siguiente.id}/`} class="bl-nav-sig"><span>Siguiente</span>{entradas[siguiente.id]?.gancho.q}</a> : <a href={`/academia/${c.id}/`} class="bl-nav-sig">{c.lecciones.length < total ? <><span>Volver al bloque</span>Próximas entradas en preparación</> : <><span>Bloque completo</span>Ver tu progreso y el certificado</>}</a>}
+      {anterior ? <a href={`/academia/${c.id}/${anterior.id}/`} class="bl-nav-ant"><span>Anterior</span>{anterior.titulo}</a> : <span></span>}
+      {siguiente ? <a href={`/academia/${c.id}/${siguiente.id}/`} class="bl-nav-sig"><span>Siguiente</span>{siguiente.titulo}</a> : <a href={`/academia/${c.id}/`} class="bl-nav-sig">{c.lecciones.length < total ? <><span>Volver al bloque</span>Próximas entradas en preparación</> : <><span>Bloque completo</span>Ver tu progreso y el certificado</>}</a>}
     </nav>
 
     <footer class="bl-pie">
@@ -262,7 +263,7 @@ const solucion = (a) =>
     {otras.length > 0 && (
       <section class="bl-relacionadas">
         <h2>Otras entradas del bloque</h2>
-        <ul>{otras.map((x) => <li><a href={`/academia/${c.id}/${x.id}/`}>{entradas[x.id].gancho.q}</a><span>{x.titulo}</span></li>)}</ul>
+        <ul>{otras.map((x) => <li><a href={`/academia/${c.id}/${x.id}/`}>{x.titulo}</a></li>)}</ul>
       </section>
     )}
 
@@ -281,6 +282,7 @@ const solucion = (a) =>
     </div>
   </div>
 
+  <script is:inline>document.querySelectorAll("[data-aleatorio]").forEach((u)=>{const l=[...u.children];for(let i=l.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[l[i],l[j]]=[l[j],l[i]];}l.forEach((x)=>u.appendChild(x));});</script>
   <script type="application/json" id="datos-entrada" set:html={datosCliente}></script>
 
   <script>

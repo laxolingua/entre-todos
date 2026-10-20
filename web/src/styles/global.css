@@ -1301,3 +1301,4 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 }
 
 .bl-tarjeta .bl-gancho { font-weight: 700; color: var(--rojo); font-size: .95rem; }
+.bl-neutral { border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 8px 12px; font-size: .92rem; }

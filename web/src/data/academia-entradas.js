@@ -9,6 +9,7 @@
 //   huecos    completar huecos con un banco de palabras: texto con [palabra]
 //   escribe   escritura breve con guía, ejemplo y autovaloración
 
+import { entradas as e1 } from './academia/c1.js';
 import { entradas as e2 } from './academia/c2.js';
 import { entradas as e3 } from './academia/c3.js';
 import { entradas as e4 } from './academia/c4.js';
@@ -176,4 +177,5 @@ export const entradas = {
   ...e4,
   ...e5,
   ...e6,
+  ...e1,
 };
