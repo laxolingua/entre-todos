@@ -3,6 +3,12 @@
 // El progreso se guarda solo en el navegador de la persona; nada se envía al servidor.
 // Comparaciones entre democracias sin ranking: cada país se describe con sus fuentes.
 
+import * as c2 from './academia/c2.js';
+import * as c3 from './academia/c3.js';
+import * as c4 from './academia/c4.js';
+import * as c5 from './academia/c5.js';
+import * as c6 from './academia/c6.js';
+
 export const PAISES_COMPARADOS = ['Cuba', 'Estados Unidos', 'Alemania', 'España', 'Costa Rica'];
 
 export const cursos = [
@@ -124,12 +130,12 @@ export const cursos = [
   {
     id: 'libertad-de-expresion', num: 2, titulo: 'Libertad de expresión y de prensa', foto: 'sociedad_civil', estado: 'disponible', minutos: 25,
     insignia: 'Libertad de expresión y de prensa',
-    // Lección modelo: las siguientes del plan siguen el mismo formato (ver 023 CL Tareas IN y GPT).
     fuentes: [
       { t: 'Declaración Universal de Derechos Humanos (ONU)', url: 'https://www.un.org/es/about-us/universal-declaration-of-human-rights' },
       { t: 'Pacto Internacional de Derechos Civiles y Políticos (ACNUDH)', url: 'https://www.ohchr.org/es/instruments-mechanisms/instruments/international-covenant-civil-and-political-rights' },
       { t: 'Convención Americana sobre Derechos Humanos (OEA)', url: 'https://www.oas.org/dil/esp/tratados_b-32_convencion_americana_sobre_derechos_humanos.htm' },
       { t: 'Constitución de Cuba de 2019 (Constitute Project)', url: 'https://www.constituteproject.org/constitution/Cuba_2019?lang=es' },
+      ...c2.fuentes,
     ],
     lecciones: [
       {
@@ -149,29 +155,34 @@ export const cursos = [
           { p: 'El artículo 54 reconoce la libertad de pensamiento, conciencia y expresión. El artículo 55 reconoce la libertad de prensa, pero añade que se ejerce «de conformidad con la ley y los fines de la sociedad» y que los medios fundamentales de comunicación son de propiedad socialista de todo el pueblo o de las organizaciones políticas, sociales y de masas, y no pueden ser de otro tipo de propiedad. Cuba firmó el Pacto de derechos civiles y políticos en 2008 y no lo ha ratificado.' },
         ],
       },
+      ...c2.lecciones,
     ],
     resumen: 'Qué protege la libertad de expresión, dónde están sus límites en distintas democracias y qué hace falta para que exista una prensa independiente.',
     plan: ['Expresarse sin permiso previo', 'Estados Unidos, Alemania, España y Costa Rica: límites distintos', 'Prensa independiente: propiedad, licencias y acceso a la información', 'Internet y expresión: el caso cubano y las leyes que lo regulan'],
   },
   {
-    id: 'justicia', num: 3, titulo: 'Justicia y Estado de derecho', foto: 'constitucion', estado: 'preparacion', minutos: 25,
+    id: 'justicia', num: 3, titulo: 'Justicia y Estado de derecho', foto: 'constitucion', estado: 'disponible', minutos: 25,
     resumen: 'Qué significa que nadie esté por encima de la ley, por qué importa que los jueces no dependan del gobierno y cómo se garantiza un juicio justo.',
     plan: ['Nadie por encima de la ley', 'Jueces independientes: cómo se eligen en cinco países', 'El juicio justo y la presunción de inocencia', 'Del papel a la práctica: preguntas para examinar un sistema judicial'],
+    insignia: 'Justicia y Estado de derecho', lecciones: c3.lecciones, fuentes: c3.fuentes,
   },
   {
-    id: 'rendicion-de-cuentas', num: 4, titulo: 'Rendición de cuentas', foto: 'modelo_pais', estado: 'preparacion', minutos: 25,
+    id: 'rendicion-de-cuentas', num: 4, titulo: 'Rendición de cuentas', foto: 'modelo_pais', estado: 'disponible', minutos: 25,
     resumen: 'Cómo controlan los ciudadanos a quienes gobiernan: separación de poderes, elecciones libres, transparencia y prensa.',
     plan: ['Separación de poderes y contrapesos', 'Elecciones libres y alternancia', 'Transparencia: acceso a la información pública en distintas democracias', 'El papel de la prensa y de las organizaciones ciudadanas'],
+    insignia: 'Rendición de cuentas', lecciones: c4.lecciones, fuentes: c4.fuentes,
   },
   {
-    id: 'libertad-religiosa', num: 5, titulo: 'Libertad religiosa', foto: 'familia', estado: 'preparacion', minutos: 20,
+    id: 'libertad-religiosa', num: 5, titulo: 'Libertad religiosa', foto: 'familia', estado: 'disponible', minutos: 20,
     resumen: 'Creer, no creer o cambiar de creencia: cómo distintos Estados separan religión y poder y protegen a las minorías.',
     plan: ['Libertad de conciencia y de culto', 'Modelos de relación entre Estado y religión en cinco países', 'Minorías religiosas y no creyentes', 'Del papel a la práctica'],
+    insignia: 'Libertad religiosa', lecciones: c5.lecciones, fuentes: c5.fuentes,
   },
   {
-    id: 'sociedad-civil', num: 6, titulo: 'Sociedad civil independiente', foto: 'transicion', estado: 'preparacion', minutos: 25,
+    id: 'sociedad-civil', num: 6, titulo: 'Sociedad civil independiente', foto: 'transicion', estado: 'disponible', minutos: 25,
     resumen: 'Asociarse sin permiso del poder: qué son las organizaciones independientes, cómo se registran y financian en democracia y por qué importan.',
     plan: ['Asociarse libremente', 'Registro y financiación de organizaciones en cinco países', 'Organizaciones independientes en la historia de Cuba', 'Cómo participar con seguridad'],
+    insignia: 'Sociedad civil independiente', lecciones: c6.lecciones, fuentes: c6.fuentes,
   },
 ];
 

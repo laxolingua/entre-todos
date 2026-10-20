@@ -9,8 +9,14 @@
 //   huecos    completar huecos con un banco de palabras: texto con [palabra]
 //   escribe   escritura breve con guía, ejemplo y autovaloración
 
+import { entradas as e2 } from './academia/c2.js';
+import { entradas as e3 } from './academia/c3.js';
+import { entradas as e4 } from './academia/c4.js';
+import { entradas as e5 } from './academia/c5.js';
+import { entradas as e6 } from './academia/c6.js';
+
 export const PUBLICADO = '17 de octubre de 2026';
-export const ACTUALIZADO = '17 de octubre de 2026';
+export const ACTUALIZADO = '20 de octubre de 2026';
 
 export const entradas = {
   universales: {
@@ -165,4 +171,9 @@ export const entradas = {
       },
     ],
   },
+  ...e2,
+  ...e3,
+  ...e4,
+  ...e5,
+  ...e6,
 };
