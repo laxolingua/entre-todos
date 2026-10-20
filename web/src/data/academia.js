@@ -12,6 +12,9 @@ import * as c6 from './academia/c6.js';
 import * as c7 from './academia/c7.js';
 import * as c8 from './academia/c8.js';
 import * as c9 from './academia/c9.js';
+import * as c10 from './academia/c10.js';
+import * as c11 from './academia/c11.js';
+import * as c12 from './academia/c12.js';
 
 export const PAISES_COMPARADOS = ['Cuba', 'Estados Unidos', 'Alemania', 'España', 'Costa Rica'];
 
@@ -96,6 +99,24 @@ export const cursos = [
     insignia: 'Pensamiento ético',
     resumen: 'Tres formas de juzgar qué está bien, el problema de los fines y los medios, y hasta dónde llega nuestra responsabilidad: personas, animales y medio ambiente.',
     lecciones: c9.lecciones, preguntas: c9.preguntas, fuentes: c9.fuentes,
+  },
+  {
+    id: 'pensamiento-sistemico', num: 10, modulo: 'Pensar y debatir', titulo: 'Pensamiento sistémico', foto: 'medio_ambiente', estado: 'disponible',
+    insignia: 'Pensamiento sistémico',
+    resumen: 'Por qué las soluciones rápidas a veces empeoran el problema, el modelo del iceberg y los puntos de palanca: dónde empujar para que algo cambie de verdad.',
+    lecciones: c10.lecciones, preguntas: c10.preguntas, fuentes: c10.fuentes,
+  },
+  {
+    id: 'educacion-humana', num: 11, modulo: 'Pensar y debatir', titulo: 'Educación humana', foto: 'familia', estado: 'disponible',
+    insignia: 'Educación humana',
+    resumen: 'El mayor bien y el menor daño a personas, animales y medio ambiente; discrepar sin humillar; y el precio real de lo que elegimos. Basado en el trabajo de Zoe Weil y el Instituto para la Educación Humana.',
+    lecciones: c11.lecciones, preguntas: c11.preguntas, fuentes: c11.fuentes,
+  },
+  {
+    id: 'pensamiento-solucionario', num: 12, modulo: 'Pensar y debatir', titulo: 'Pensamiento solucionario', foto: 'reconstruccion', estado: 'disponible',
+    insignia: 'Pensamiento solucionario',
+    resumen: 'De la queja a la solución y de la solución a la propuesta, con el Marco Solucionario del Instituto para la Educación Humana.',
+    lecciones: c12.lecciones, preguntas: c12.preguntas, fuentes: c12.fuentes,
   },
 ];
 
