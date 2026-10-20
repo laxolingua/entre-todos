@@ -13,28 +13,42 @@
 .ante{font:700 13px/1.2 B;letter-spacing:.14em;text-transform:uppercase;color:var(--r)}
 .foto{position:absolute;background-size:cover;background-position:center;filter:grayscale(1)}
 .am{height:6px;background:var(--a)}
-/* ancha 1200x630: foto completa arriba, banda del titular abajo */
-.ancha{width:1200px;height:630px;background:var(--m)}
-.ancha .foto{left:247px;top:0;width:705px;height:470px;background-size:contain;background-repeat:no-repeat}
-.ancha .logo{position:absolute;left:40px;top:36px;font-size:34px;color:#fff}
-.ancha .banda{position:absolute;left:0;right:0;top:470px;height:160px;padding:22px 40px 0;display:flex;flex-direction:column;gap:8px;color:#fff}
-.ancha .banda .ante{color:var(--a)}
-.ancha .banda h1{margin:0;font:800 38px/1 BC;text-transform:uppercase;max-width:1000px}
-.ancha .am{position:absolute;left:0;top:464px;width:247px;height:6px}
-.ancha .cred{position:absolute;right:40px;top:410px;width:190px;text-align:right;font:500 12px/1.4 B;color:rgba(255,255,255,.7)}
-.ancha .pie{position:absolute;right:40px;top:36px;width:200px;text-align:right;font:500 15px/1.5 B;color:rgba(255,255,255,.8)}
-/* cuadrada 1080x1080: foto completa arriba, banda blanca abajo */
+/* ancha 1200x630 */
+.ancha{width:1200px;height:630px}
+.ancha .foto{inset:0}
+.ancha .panel{position:absolute;left:0;top:0;bottom:0;width:760px;background:rgba(11,29,63,.93);clip-path:polygon(0 0,100% 0,calc(100% - 364px) 100%,0 100%)}
+.ancha .rojo{position:absolute;top:0;bottom:0;left:700px;width:60px;background:var(--r);clip-path:polygon(364px 0,100% 0,calc(100% - 364px) 100%,0 100%);display:none}
+.ancha .c{position:absolute;left:64px;top:56px;width:560px;color:#fff;display:flex;flex-direction:column;gap:18px;height:518px}
+.ancha .ante{color:var(--a)}
+.ancha h1{margin:0;font:800 54px/0.96 BC;text-transform:uppercase}
+.ancha .am{width:90px}
+.ancha .pie{margin-top:auto;font:500 16px B;color:rgba(255,255,255,.8);display:flex;gap:14px}
+.ancha .cred{position:absolute;right:28px;bottom:16px;font:500 12px B;color:rgba(255,255,255,.75)}
+.franja{position:absolute;height:14px;background:var(--r);transform:skewX(-30deg)}
+/* ancha, modo foto (por defecto): misma dirección que la cuadrada */
+.anchaf{width:1200px;height:630px}
+.anchaf .foto{left:0;top:0;width:1200px;height:400px;background-position:center 26%}
+.anchaf .barra-am{position:absolute;left:0;top:390px;width:240px;height:10px;background:var(--a)}
+.anchaf .marca{position:absolute;left:0;top:0;width:230px;height:96px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 64px) 100%,0 100%)}
+.anchaf .logo{position:absolute;left:34px;top:24px;font-size:28px;color:#fff}
+.anchaf .cred{position:absolute;right:24px;top:408px;font:500 12px B;color:var(--t3)}
+.anchaf .c{position:absolute;left:56px;right:56px;top:424px;display:flex;flex-direction:column;gap:10px}
+.anchaf h1{margin:0;font:800 44px/0.96 BC;text-transform:uppercase;color:var(--m)}
+.anchaf .pie{position:absolute;left:56px;bottom:22px;font:600 15px B;color:var(--t3);display:flex;gap:18px}
+/* cuadrada 1080x1080 */
 .cuadrada{width:1080px;height:1080px}
-.cuadrada .foto{left:0;top:0;width:1080px;height:720px;background-size:contain;background-repeat:no-repeat}
-.cuadrada .am{position:absolute;left:0;top:720px;width:240px;height:10px}
-.cuadrada .cred{position:absolute;right:28px;top:732px;font:500 13px B;color:var(--t3)}
-.cuadrada .c{position:absolute;left:64px;right:64px;top:760px;display:flex;flex-direction:column;gap:12px}
-.cuadrada .ante{font-size:18px}
-.cuadrada h1{margin:0;font:800 54px/0.96 BC;text-transform:uppercase;color:var(--m)}
-.cuadrada .cta{position:absolute;left:64px;bottom:44px;display:flex;align-items:center;gap:22px}
-.cuadrada .cta span.btn{background:var(--r);color:#fff;font:700 21px B;letter-spacing:.06em;text-transform:uppercase;padding:15px 22px}
-.cuadrada .cta span.url{font:700 20px B;color:var(--t3)}
-.cuadrada .logo{position:absolute;right:64px;bottom:44px;font-size:30px}
+.cuadrada .foto{left:0;right:0;top:0;height:620px}
+.cuadrada .barra-am{position:absolute;left:0;top:608px;width:240px;height:12px;background:var(--a)}
+.cuadrada .marca{position:absolute;left:0;top:0;width:330px;height:150px;background:var(--m);clip-path:polygon(0 0,100% 0,calc(100% - 87px) 100%,0 100%)}
+.cuadrada .c{position:absolute;left:72px;right:72px;top:668px;display:flex;flex-direction:column;gap:18px}
+.cuadrada .ante{font-size:20px}
+.cuadrada h1{margin:0;font:800 62px/0.95 BC;text-transform:uppercase;color:var(--m)}
+.cuadrada .am{width:110px}
+.cuadrada .logo{position:absolute;left:56px;top:42px;font-size:40px;color:#fff}
+.cuadrada .cta{position:absolute;left:72px;bottom:64px;display:flex;align-items:center;gap:22px}
+.cuadrada .cta span.btn{background:var(--r);color:#fff;font:700 24px B;letter-spacing:.06em;text-transform:uppercase;padding:18px 26px}
+.cuadrada .cta span.url{font:700 22px B;color:var(--t3)}
+.cuadrada .cred{position:absolute;right:24px;top:630px;font:500 14px B;color:var(--t3)}
 /* página */
 .pagina{width:1200px;background:var(--f)}
 .pagina .cab{background:#fff;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;padding:20px 48px}
@@ -84,11 +98,15 @@ window.pintar=(D,F,P)=>{
  const f=F+D.foto.archivo+'.jpg';
  const ENC=D.encuestas||(D.encuesta?[D.encuesta]:[]);
  const logo=(c)=>'<div class="logo '+(c||'')+'">Entre<b>Todos</b></div>';
- const ancha='<div class="pieza ancha" id="ancha"><div class="foto" style="background-image:url('+f+')"></div>'+logo('bl')+'<div class="pie">'+D.fecha+'<br>entre-todos.org</div><div class="cred">'+D.foto.credito+'</div><div class="am"></div>'+
-  '<div class="banda"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1></div></div>';
- const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+')"></div><div class="am"></div><div class="cred">'+D.foto.credito+'</div>'+
-  '<div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1></div>'+
-  '<div class="cta"><span class="btn">'+(ENC.length>1?'Vota en las encuestas':'Vota en la encuesta')+'</span><span class="url">entre-todos.org</span></div>'+logo()+'</div>';
+ const anchaRelleno='<div class="pieza ancha" id="ancha"><div class="foto" style="background-image:url('+f+');background-position:70% center"></div><div class="panel"></div>'+
+  '<div class="c">'+logo('bl')+'<div style="height:26px"></div><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div>'+
+  '<div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div><div class="cred">'+D.foto.credito+'</div></div>';
+ const anchaFoto='<div class="pieza anchaf" id="ancha"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
+  '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1></div><div class="pie"><span>'+D.fecha+'</span><span>entre-todos.org/actualidad</span></div></div>';
+ const ancha=(D.portada==='relleno')?anchaRelleno:anchaFoto;
+ const cuadrada='<div class="pieza cuadrada" id="cuadrada"><div class="foto" style="background-image:url('+f+')"></div><div class="barra-am"></div><div class="marca"></div>'+logo()+
+  '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div></div>'+
+  '<div class="cta"><span class="btn">'+(ENC.length>1?'Vota en las encuestas':'Vota en la encuesta')+'</span><span class="url">entre-todos.org</span></div></div>';
  const props=D.propuestas.map(id=>{const p=P[id]||{t:id,k:''};return '<a><span class="k">'+p.k+'</span><span class="t">'+p.t+'</span><span class="v">Ver propuesta →</span></a>';}).join('');
  const pagina='<div class="pieza pagina" id="pagina"><div class="cab">'+logo()+'<nav><span>Propuestas</span><span>¿Cuál es el plan?</span><span class="act">Actualidad</span><span>Blog A+</span><span>Sobre nosotros</span></nav></div>'+
   '<div class="art"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><p class="entr">'+D.entradilla+'</p><div class="meta"><span>'+D.fecha+'</span><span>Redacción de ENTRE TODOS</span></div>'+
