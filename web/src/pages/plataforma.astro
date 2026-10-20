@@ -1,0 +1,151 @@
+---
+// Arma tu plataforma: elección horizontal. En cada tema la persona elige las propuestas que incluiría,
+// vengan de quien vengan. Al final ve de qué organizaciones salen sus ideas. Nada se envía: todo queda en el navegador.
+import Base from '../layouts/Base.astro';
+import { categoriasPlat, actoresPlat } from '../lib/compara.js';
+const datos = { cats: categoriasPlat, actores: actoresPlat };
+const total = categoriasPlat.reduce((n, c) => n + c.propuestas.length, 0);
+---
+<Base titulo="Arma tu plataforma" seccion="plataforma"
+  descripcion="Elige en cada tema las propuestas que incluirías, vengan de quien vengan, y mira de qué organizaciones salen tus ideas.">
+  <div class="plt" id="plt">
+    <section data-pant="inicio">
+      <p class="ante-cmp">Banco de propuestas</p>
+      <h1>Arma tu plataforma</h1>
+      <p class="entradilla">Un partido presenta un programa cerrado: se acepta entero o no se acepta. Aquí puedes hacer lo contrario: en cada tema eliges las propuestas que incluirías, vengan de quien vengan. Hay {total} propuestas en {categoriasPlat.length} temas.</p>
+      <ul class="cmp-reglas">
+        <li>Ves solo las ideas. Quién propone cada una aparece al final.</li>
+        <li>Puedes elegir varias por tema, ninguna, o saltar temas enteros.</li>
+        <li>Tu plataforma se queda en tu navegador. Puedes imprimirla o guardarla en PDF.</li>
+      </ul>
+      <p class="cmp-aviso">Las organizaciones de cada propuesta salen de sus documentos recogidos en el banco. Es una herramienta para informarse y comparar, no una recomendación de voto.</p>
+      <div class="plt-temas"></div>
+    </section>
+
+    <section data-pant="tema" hidden>
+      <div class="cmp-progreso" aria-hidden="true"></div>
+      <p class="ante-cmp" data-num></p>
+      <h2 data-tit></h2>
+      <p class="discreto">Marca las propuestas que incluirías en tu plataforma.</p>
+      <div class="plt-grid"></div>
+      <div class="cmp-nav">
+        <button type="button" class="boton" data-ir="atras">Atrás</button>
+        <button type="button" class="boton rojo" data-ir="siguiente">Siguiente tema</button>
+      </div>
+      <p style="text-align:right"><button type="button" class="enlace-saltar" data-ir="final">Ver mi plataforma ahora →</button></p>
+    </section>
+
+    <section data-pant="final" hidden>
+      <p class="ante-cmp">Tu plataforma</p>
+      <h1>Tu plataforma plural</h1>
+      <div data-resumen></div>
+      <h2 class="plt-h2">De dónde salen tus ideas</h2>
+      <p class="discreto">Cuántas de las propuestas que elegiste propone cada organización en sus documentos.</p>
+      <div data-origen></div>
+      <h2 class="plt-h2">Tus propuestas por tema</h2>
+      <div data-lista></div>
+      <div class="cmp-nav plt-noimp">
+        <button type="button" class="boton" data-ir="volver">Seguir eligiendo</button>
+        <button type="button" class="boton rojo" data-ir="imprimir">Imprimir o guardar en PDF</button>
+      </div>
+      <p style="text-align:right" class="plt-noimp"><button type="button" class="enlace-saltar" data-ir="borrar">Empezar de nuevo</button></p>
+    </section>
+  </div>
+  <script type="application/json" id="plt-datos" set:html={JSON.stringify(datos)} />
+</Base>
+
+<style is:global>
+.plt { max-width: 980px; margin: 0 auto; padding: 8px 0 48px; }
+.plt .ante-cmp { font-weight: 700; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin: 0 0 6px; }
+.plt .cmp-reglas { margin: 18px 0; padding-left: 20px; line-height: 1.5; }
+.plt .cmp-aviso { border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 10px 14px; font-size: .95rem; margin: 16px 0 22px; }
+.plt-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; }
+.plt-temas button { text-align: left; background: #fff; border: 2px solid #d5d9e0; border-radius: 4px; padding: 12px 14px; font: inherit; cursor: pointer; color: var(--marino); }
+.plt-temas button:hover { border-color: var(--marino); }
+.plt-temas b { display: block; font-size: 1rem; }
+.plt-temas small { color: #5f6b80; }
+.plt-temas .hecho { border-color: var(--marino); box-shadow: inset 6px 0 0 var(--rojo); }
+.plt .cmp-progreso { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 18px; }
+.plt .cmp-progreso span { width: 12px; height: 12px; border: 2px solid var(--marino); border-radius: 50%; }
+.plt .cmp-progreso span.hecha { background: var(--marino); }
+.plt .cmp-progreso span.actual { outline: 3px solid var(--rojo); outline-offset: 2px; }
+.plt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 16px 0; }
+.plt-op { position: relative; text-align: left; background: #fff; border: 2px solid #d5d9e0; border-radius: 4px; padding: 14px 16px 14px 48px; cursor: pointer; font: inherit; color: inherit; }
+.plt-op::before { content: ""; position: absolute; left: 14px; top: 16px; width: 20px; height: 20px; border: 2px solid var(--marino); border-radius: 3px; background: #fff; }
+.plt-op[aria-pressed="true"] { border-color: var(--marino); background: #eef1f6; }
+.plt-op[aria-pressed="true"]::before { background: var(--marino); box-shadow: inset 0 0 0 3px #fff; }
+.plt-op strong { display: block; color: var(--marino); margin-bottom: 4px; }
+.plt-op span { font-size: .92rem; color: #2a3550; }
+.plt .cmp-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
+.plt .enlace-saltar { background: none; border: 0; font: inherit; font-weight: 700; color: var(--marino); cursor: pointer; }
+.plt-h2 { margin-top: 32px; }
+.plt .cmp-fila { padding: 10px 0; border-bottom: 1px solid #e3e6ec; }
+.plt .cmp-fila-cab { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; color: var(--marino); }
+.plt .cmp-barra { height: 12px; background: #e3e6ec; margin: 6px 0 2px; }
+.plt .cmp-barra i { display: block; height: 100%; background: var(--marino); }
+.plt-res { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 14px 0; }
+.plt-res div { background: var(--marino); color: #fff; padding: 14px 16px; border-radius: 4px; }
+.plt-res b { display: block; font-size: 2rem; line-height: 1; color: var(--amarillo); }
+.plt-cat { margin: 18px 0; }
+.plt-cat h3 { color: var(--marino); margin: 0 0 6px; font-size: 1.05rem; }
+.plt-cat li { margin: 6px 0; }
+.plt-cat small { color: #5f6b80; }
+@media print { .cabecera, .subnav, .pie, .plt-noimp { display: none !important; } .plt-res div { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+
+<script>
+type Prop = { id: string; titulo: string; texto: string; actores: string[] };
+type Cat = { clave: string; nombre: string; propuestas: Prop[] };
+const D: { cats: Cat[]; actores: { id: string; nombre: string }[] } = JSON.parse(document.getElementById('plt-datos')!.textContent || '{}');
+const C = D.cats;
+const nombre = new Map(D.actores.map((a) => [a.id, a.nombre]));
+const CLAVE = 'et-plataforma-v1';
+let sel = new Set<string>(); let vistos = new Set<string>(); let i = 0;
+try { const g = JSON.parse(localStorage.getItem(CLAVE) || '{}'); sel = new Set(g.sel || []); vistos = new Set(g.vistos || []); } catch {}
+const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify({ sel: [...sel], vistos: [...vistos] })); } catch {} };
+const $ = (s: string) => document.querySelector(s) as HTMLElement;
+const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+const pant = (n: string) => document.querySelectorAll<HTMLElement>('#plt > section').forEach((p) => (p.hidden = p.dataset.pant !== n));
+const elegidasEn = (c: Cat) => c.propuestas.filter((p) => sel.has(p.id)).length;
+
+function pintarInicio() {
+  $('.plt-temas').innerHTML = C.map((c, j) => `<button type="button" data-tema="${j}" class="${vistos.has(c.clave) ? 'hecho' : ''}"><b>${esc(c.nombre)}</b><small>${c.propuestas.length} propuestas${elegidasEn(c) ? ` · elegiste ${elegidasEn(c)}` : ''}</small></button>`).join('');
+  pant('inicio');
+}
+function pintarTema() {
+  const c = C[i]; vistos.add(c.clave); guardar();
+  $('.cmp-progreso').innerHTML = C.map((x, j) => `<span class="${vistos.has(x.clave) ? 'hecha' : ''}${j === i ? ' actual' : ''}"></span>`).join('');
+  $('[data-num]').textContent = `Tema ${i + 1} de ${C.length}`;
+  $('[data-tit]').textContent = c.nombre;
+  $('.plt-grid').innerHTML = c.propuestas.map((p) => `<button type="button" class="plt-op" data-p="${p.id}" aria-pressed="${sel.has(p.id)}"><strong>${esc(p.titulo)}</strong><span>${esc(p.texto.length > 200 ? p.texto.slice(0, 197) + '…' : p.texto)}</span></button>`).join('');
+  $('[data-ir="siguiente"]').textContent = i < C.length - 1 ? 'Siguiente tema' : 'Ver mi plataforma';
+  pant('tema'); window.scrollTo({ top: 0 });
+}
+function pintarFinal() {
+  const todas = C.flatMap((c) => c.propuestas.filter((p) => sel.has(p.id)));
+  const temas = C.filter((c) => elegidasEn(c)).length;
+  const cuenta = new Map<string, number>();
+  for (const p of todas) for (const a of p.actores) cuenta.set(a, (cuenta.get(a) || 0) + 1);
+  const orden = [...cuenta.entries()].sort((a, b) => b[1] - a[1] || Math.random() - 0.5);
+  const max = orden.length ? orden[0][1] : 0;
+  $('[data-resumen]').innerHTML = todas.length ? `<div class="plt-res"><div><b>${todas.length}</b>propuestas elegidas</div><div><b>${temas}</b>temas</div><div><b>${orden.length}</b>organizaciones de origen</div></div>
+    <p>${max < todas.length ? `Ninguna organización propone todo lo que elegiste. La que más se acerca recoge ${max} de tus ${todas.length} propuestas. Tu plataforma combina ideas de ${orden.length} fuentes distintas.` : 'Una organización propone todas las propuestas que elegiste.'}</p>` : '<p>Todavía no has elegido ninguna propuesta.</p>';
+  $('[data-origen]').innerHTML = orden.map(([a, n]) => `<div class="cmp-fila"><div class="cmp-fila-cab"><span>${esc(nombre.get(a) || a)}</span><span>${n} de ${todas.length}</span></div><div class="cmp-barra"><i style="width:${(n / todas.length) * 100}%"></i></div></div>`).join('') +
+    (todas.some((p) => !p.actores.length) ? '<p class="discreto">Algunas propuestas proceden de documentos sin organización identificada.</p>' : '');
+  $('[data-lista]').innerHTML = C.filter((c) => elegidasEn(c)).map((c) => `<div class="plt-cat"><h3>${esc(c.nombre)}</h3><ul>${c.propuestas.filter((p) => sel.has(p.id)).map((p) => `<li><a href="/propuesta/${p.id}/">${esc(p.titulo)}</a><br><small>${p.actores.length ? p.actores.map((a) => esc(nombre.get(a) || a)).join(' · ') : 'Fuente sin organización identificada'}</small></li>`).join('')}</ul></div>`).join('');
+  pant('final'); window.scrollTo({ top: 0 });
+}
+document.getElementById('plt')!.addEventListener('click', (ev) => {
+  const t = (ev.target as HTMLElement).closest<HTMLElement>('[data-tema],[data-p],[data-ir]'); if (!t) return;
+  if (t.dataset.tema) { i = Number(t.dataset.tema); pintarTema(); return; }
+  if (t.dataset.p) { const id = t.dataset.p; sel.has(id) ? sel.delete(id) : sel.add(id); t.setAttribute('aria-pressed', String(sel.has(id))); guardar(); return; }
+  const ir = t.dataset.ir;
+  if (ir === 'siguiente') { if (i < C.length - 1) { i++; pintarTema(); } else pintarFinal(); }
+  if (ir === 'atras') { if (i > 0) { i--; pintarTema(); } else pintarInicio(); }
+  if (ir === 'final') pintarFinal();
+  if (ir === 'volver') pintarInicio();
+  if (ir === 'imprimir') window.print();
+  if (ir === 'borrar') { sel.clear(); vistos.clear(); guardar(); pintarInicio(); }
+});
+pintarInicio();
+</script>

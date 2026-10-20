@@ -36,3 +36,14 @@ cuestiones = cuestiones.map((q) => ({
 const conPostura = new Set(cuestiones.flatMap((q) => q.opciones.flatMap((o) => o.actores)));
 export const actores = actoresBase.filter((a) => conPostura.has(a.id)).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 export { cuestiones };
+
+// Para «Arma tu plataforma»: todas las propuestas por categoría, con las organizaciones que las proponen.
+const catGS = new Map(gs.nuevas.map((n) => [n.id, n.cat]));
+export const categoriasPlat = [...publico.categorias].sort((a, b) => a.orden - b.orden).map((c) => ({
+  clave: c.clave, nombre: c.nombre,
+  propuestas: [...publico.propuestas.filter((p) => p.categoria === c.clave).sort((a, b) => a.orden - b.orden).map((p) => p.id),
+    ...gs.nuevas.filter((n) => catGS.get(n.id) === c.clave).map((n) => n.id)]
+    .filter((id, i, arr) => arr.indexOf(id) === i)
+    .map((id) => ({ ...P.get(id), actores: [...(apoyos.get(id) || [])] })),
+})).filter((c) => c.propuestas.length);
+export const actoresPlat = actoresBase.filter((a) => categoriasPlat.some((c) => c.propuestas.some((p) => p.actores.includes(a.id)))).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
