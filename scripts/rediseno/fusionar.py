@@ -33,7 +33,7 @@ i=s.index('<main'); j=s.index('<form class="buscador"'); k=s.index('</main>')
 s=s[:i]+pre+s[j:k]+'</div></main>'+s[k+7:]
 open(f,'w',encoding='utf-8').write(s)
 shutil.copy(D+'/index.html',P+'/index.html')
-for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','perfil','cuba-eeuu','actualidad','compara','plataforma']:
+for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','perfil','cuba-eeuu','actualidad','compara','plataforma','candidatura-solucionaria']:
     shutil.copytree(f'{D}/{d}',f'{P}/{d}',dirs_exist_ok=True)
 # El directorio de actores cívicos sale del diseño nuevo (dossier de organizaciones); las fichas de cada actor siguen siendo las del banco.
 shutil.copy(D+'/actores/index.html',P+'/actores/index.html')
@@ -59,7 +59,7 @@ REDIR={
  'partido-libertario-cuba-2026.html':'/diversidad-politica/partido-libertario-de-cuba/',
  'partido-pro-derechos-humanos-cuba-2026.html':'/diversidad-politica/partido-pro-derechos-humanos-de-cuba/',
  'alternativa-no-partidista-cuba-2026.html':'/diversidad-politica/alternativa-no-partidista-de-cuba/',
- 'candidato-plural-independiente-cuba.html':'/sobre/',
+ 'candidato-plural-independiente-cuba.html':'/candidatura-solucionaria/',
  'constituyente-cuba.html':'/constituyente/','proceso-constituyente-cuba.html':'/constituyente/','constituyente-workplan.html':'/constituyente/',
  'plan-reconstruccion-cuba.html':'/reconstruccion/','actor-carlos-saladrigas-2026.html':'/reconstruccion/','actor-fnca-caba-roadmap-2026.html':'/reconstruccion/','actor-jorge-mas-santos-2026.html':'/reconstruccion/',
  'propuestas-transicion-cuba.html':'/propuestas/','plataforma-gobierno-cuba.html':'/propuestas/','plataforma-gobierno/index.html':'/propuestas/','transicion/index.html':'/propuestas/categoria/transicion/',

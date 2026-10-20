@@ -1,0 +1,107 @@
+---
+// Candidatura solucionaria: el candidato no partidista de la Gobernanza Solucionaria.
+// Recupera la ficha del sitio anterior (candidato-plural-independiente-cuba.html) con el diseño nuevo.
+import Base from '../layouts/Base.astro';
+const juramento = [
+  ['Neutralidad activa', 'No adoptaré posiciones ideológicas en el ejercicio de mis funciones. Evaluaré cada propuesta por su evidencia y su mérito, no por su origen político.'],
+  ['Transparencia total', 'Todas las decisiones del proceso serán públicas, documentadas y abiertas al escrutinio ciudadano, sin excepción.'],
+  ['Sometimiento al consenso', 'Las propuestas que integran la plataforma no son mías. Son el resultado del proceso participativo. Las aplicaré como mandato ciudadano.'],
+  ['Reemplazabilidad aceptada', 'El marco de participación, los consensos y las reglas del proceso son permanentes e independientes de mi persona.'],
+  ['Rendición de cuentas continua', 'Me someto a evaluación ciudadana periódica durante el ejercicio de mis funciones, con posibilidad de revocación si incumplo este juramento.'],
+  ['No instrumentalización', 'No usaré el acceso al poder para favorecer intereses propios, de mi grupo, de mi familia o de mi red de relaciones por encima del mandato ciudadano.'],
+];
+const contraste = [
+  ['Qué trae', 'Un sistema de participación. La plataforma se construye con la ciudadanía.', 'Un programa de gobierno definido antes de la campaña por el partido o su equipo.'],
+  ['Su plataforma', 'Cada propuesta se valora y se vota por separado. Ninguna arrastra a las demás.', 'Un bloque. Votar al candidato implica aceptar el programa entero.'],
+  ['A quién representa', 'Al proceso. Su legitimidad nace de la calidad del proceso que garantiza.', 'A su partido, a su base electoral y a la corriente ideológica que lo respalda.'],
+  ['Su compromiso', '«Esto es lo que vamos a decidir juntos, con reglas claras, verificables y públicas.»', '«Esto es lo que voy a hacer.»'],
+  ['Ideología', 'Neutral por juramento mientras esté en el cargo.', 'Anclada a una corriente política concreta.'],
+  ['Si es reemplazado', 'La plataforma plural y las reglas de participación continúan.', 'El programa puede cambiar con un nuevo candidato del mismo partido.'],
+];
+---
+<Base titulo="Candidatura solucionaria" seccion="diversidad"
+  descripcion="El candidato no partidista de la Gobernanza Solucionaria: sin programa propio, con la plataforma plural construida por la ciudadanía en ENTRE TODOS y bajo juramento de neutralidad.">
+  <div class="cs">
+    <p class="ante-cs">Gobernanza Solucionaria · Diversidad política</p>
+    <h1>Candidatura solucionaria</h1>
+    <p class="entradilla">Un tipo de candidato que no llega con un programa cerrado. Su plataforma de gobierno es la plataforma plural que la ciudadanía construye en ENTRE TODOS, propuesta por propuesta, sin compromisos de partido ni de ideología.</p>
+
+    <section class="cs-perfil">
+      <div class="cs-avatar" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="44" r="22" fill="currentColor"/><path d="M18 112c4-26 22-40 42-40s38 14 42 40z" fill="currentColor"/></svg></div>
+      <div>
+        <h2>El candidato no partidista</h2>
+        <p>Se presenta como garante del proceso colectivo, no como portador de una ideología. Gobierna con la plataforma plural generada en ENTRE TODOS y presta juramento de imparcialidad política e ideológica mientras esté en el cargo.</p>
+        <p>Funciona como un árbitro. Le acompañan dos asesores: uno de una coalición de izquierdas y otro de una coalición de derechas. Así cada decisión se examina desde las dos miradas antes de aplicarse.</p>
+        <p class="discreto">Es la figura que propondría la Alternativa No Partidista de Cuba, la iniciativa que puede presentar un candidato no partidista.</p>
+      </div>
+    </section>
+
+    <h2>Tres cualidades</h2>
+    <div class="cs-tres">
+      <div><b>1</b><h3>Integridad ética</h3><p>No instrumentaliza el poder. Somete su propia conducta a los mismos criterios con que se evalúan las políticas: evidencia, transparencia y rendición de cuentas permanente.</p></div>
+      <div><b>2</b><h3>Competencia sistémica</h3><p>Sabe diseñar y sostener procesos complejos de decisión colectiva. No necesita tener todas las respuestas: garantiza el sistema que las produce.</p></div>
+      <div><b>3</b><h3>Madurez personal</h3><p>Trabaja sin necesidad de protagonismo ni de validación ideológica. Es reemplazable por diseño: lo que permanece es la plataforma plural.</p></div>
+    </div>
+
+    <h2>Candidato no partidista y candidato de partido</h2>
+    <p class="discreto">Son modelos distintos, no incompatibles. Un candidato de partido puede adoptar este marco sin abandonar su partido: su programa pasa a votarse propuesta por propuesta.</p>
+    <div class="cs-tabla" role="table">
+      <div class="cs-fila cab" role="row"><span role="columnheader"></span><span role="columnheader">No partidista</span><span role="columnheader">De partido</span></div>
+      {contraste.map(([t, a, b]) => <div class="cs-fila" role="row"><span role="rowheader">{t}</span><span role="cell">{a}</span><span role="cell">{b}</span></div>)}
+    </div>
+
+    <h2>Cómo se construye su plataforma</h2>
+    <ol class="cs-pasos">
+      <li><b>Cualquiera propone.</b> Personas, organizaciones y partidos presentan propuestas. Cada una es un punto independiente, con su fuente.</li>
+      <li><b>Se organiza y se comprueba.</b> ENTRE TODOS reúne las propuestas, combina las que dicen lo mismo y conserva todas las fuentes.</li>
+      <li><b>La ciudadanía vota propuesta por propuesta.</b> Un voto en contra de una no afecta a las demás.</li>
+      <li><b>Cada solución pasa el filtro ético.</b> El mayor bien posible y el menor daño posible para las personas, los animales y el medio ambiente.</li>
+      <li><b>La plataforma plural emerge.</b> Las propuestas mejor valoradas forman el programa que el candidato aplica como mandato ciudadano.</li>
+    </ol>
+    <p><a class="boton rojo" href="/plataforma/">Arma tu plataforma</a> <a class="boton" href="/metodo/#gobernanza-solucionaria">La metodología</a></p>
+
+    <section class="cs-jur">
+      <h2>Juramento de neutralidad ideológica y política</h2>
+      <blockquote>«Me comprometo a ejercer esta función como garante del proceso colectivo y no como portador de verdades propias. No favoreceré ninguna corriente, partido, grupo ni agenda por afinidad personal, presión política o conveniencia. Mi única lealtad es al proceso de construcción del mayor bien con el menor daño posible, basado en evidencia, participación ciudadana y evaluación continua.»</blockquote>
+      <ol>{juramento.map(([t, x]) => <li><b>{t}.</b> {x}</li>)}</ol>
+      <p class="discreto">Firmarlo es condición para ser reconocido como candidatura solucionaria en ENTRE TODOS. Incumplirlo es causa de descalificación.</p>
+    </section>
+
+    <h2>Quién puede ser candidato</h2>
+    <p>No lo designa un partido. Puede nominarlo cualquier persona u organización, y también puede adoptar el marco un candidato que ya se presenta por un partido. Requisitos:</p>
+    <ul>
+      <li>Firmar y publicar el juramento de neutralidad.</li>
+      <li>Presentar un perfil público verificable: trayectoria, competencias y referencias.</li>
+      <li>Aceptar la evaluación ciudadana periódica.</li>
+      <li>Declarar que no tiene conflictos de interés conocidos.</li>
+      <li>Comprometerse a someter sus decisiones de gobierno a la plataforma plural.</li>
+    </ul>
+    <p class="cs-aviso">Aún no hay ningún candidato no partidista declarado para Cuba. Esta página mostrará su perfil, su juramento firmado y el estado de la plataforma plural cuando se reciba la primera nominación válida.</p>
+  </div>
+</Base>
+
+<style is:global>
+.cs { max-width: 900px; margin: 0 auto; padding: 8px 0 48px; }
+.ante-cs { font-weight: 700; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin: 0 0 6px; }
+.cs h2 { margin-top: 36px; }
+.cs-perfil { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: start; margin: 26px 0; padding: 22px; background: #fff; border-top: 6px solid var(--rojo); }
+.cs-perfil h2 { margin-top: 0; }
+.cs-avatar { width: 140px; height: 140px; background: var(--marino); color: #c3cbe0; display: grid; place-items: end center; overflow: hidden; border-radius: 4px; }
+.cs-avatar svg { width: 112px; height: 112px; }
+.cs-tres { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.cs-tres div { background: #fff; padding: 18px; border-left: 4px solid var(--marino); }
+.cs-tres b { font: 800 2rem/1 var(--display); color: var(--rojo); }
+.cs-tres h3 { margin: 6px 0; color: var(--marino); }
+.cs-tabla { margin: 14px 0; }
+.cs-fila { display: grid; grid-template-columns: 150px 1fr 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid #e3e6ec; }
+.cs-fila.cab span { font-weight: 800; color: var(--marino); text-transform: uppercase; font-size: .85rem; }
+.cs-fila [role="rowheader"] { font-weight: 700; color: var(--marino); }
+.cs-fila [role="cell"]:nth-child(2) { background: #eef1f6; padding: 0 8px; }
+.cs-pasos li { margin: 8px 0; }
+.cs-jur { background: var(--marino); color: #fff; padding: 22px 24px; margin-top: 36px; border-radius: 4px; }
+.cs-jur h2 { color: #fff; margin-top: 0; }
+.cs-jur blockquote { margin: 0 0 16px; padding-left: 14px; border-left: 4px solid var(--amarillo); font-size: 1.05rem; }
+.cs-jur .discreto { color: #c3cbe0; }
+.cs-aviso { border-left: 4px solid var(--amarillo); background: #fbf6e3; padding: 10px 14px; margin-top: 20px; }
+@media (max-width: 640px) { .cs-perfil { grid-template-columns: 1fr; } .cs-fila { grid-template-columns: 1fr; gap: 4px; } .cs-fila.cab { display: none; } }
+</style>

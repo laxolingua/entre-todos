@@ -1,142 +1,404 @@
 {
-  "candidaturas": [
-    {
-      "slug": "armando-labrador",
-      "nombre": "Armando Labrador",
-      "espacio": "Cuba Primero",
-      "estado": "Candidatura declarada",
-      "fecha": "Marzo de 2026",
-      "imagen": "/img/diversidad/armando-labrador.jpg",
-      "resumen": "Empresario cubanoamericano residente en Miami, fundador y líder del movimiento Cuba Primero. Presenta su candidatura desde una narrativa de cambio radical, no violencia y presión internacional como palanca principal de la transición.",
-      "datos": [["Movimiento", "Cuba Primero, no afiliado a un partido político."], ["Base", "Miami, Florida, con una red de apoyo dentro de Cuba cuyo alcance es difícil de verificar."], ["Posición declarada", "Cambio radical, no violencia, alineación con la presión internacional y experiencia empresarial privada."]],
-      "ejes": [
-        ["Modelo de transición", "Cambio radical sin negociación con el gobierno actual", "Declara que no cabe diálogo ni negociación con el gobierno vigente."],
-        ["Relaciones internacionales", "Presión internacional como palanca", "Apoya la presión de Estados Unidos sobre el gobierno cubano como vía de cambio."],
-        ["Economía", "Empresa privada como motor", "Propone la empresa privada como alternativa al sistema estatal. Detalles pendientes."],
-        ["Activismo", "Resistencia no violenta dentro de Cuba", "Cuba Primero organiza protestas y canaliza el descontento hacia una expresión política organizada."]
-      ],
-      "pendiente": ["Marco constitucional", "Derechos humanos y justicia transicional", "Programa de gobierno detallado"],
-      "enlaces": [["Sitio oficial", "https://armandolabrador.com/"]]
-    },
-    {
-      "slug": "amelia-calzadilla",
-      "nombre": "Amelia Calzadilla",
-      "espacio": "Partido Liberal Ortodoxo Cubano",
-      "estado": "Candidatura declarada",
-      "fecha": "Abril de 2026",
-      "imagen": "/img/diversidad/amelia-calzadilla.jpg",
-      "resumen": "Voz pública cubana conocida por sus intervenciones directas sobre la vida cotidiana de las familias y la necesidad de una transformación profunda del país. En abril de 2026 anunció su candidatura presidencial desde el Partido Liberal Ortodoxo Cubano, con el lema «Justicia, dignidad y prosperidad».",
-      "datos": [["Partido", "Partido Liberal Ortodoxo Cubano."], ["Lema", "«Un nuevo camino para Cuba. Con principios. Con libertad. Contigo.»"], ["Fuente", "Pieza pública de anuncio de candidatura, 27 de abril de 2026."]],
-      "ejes": [
-        ["Justicia", "Instituciones que protegen", "Asocia la justicia con instituciones que protegen y garantías públicas confiables."],
-        ["Dignidad", "Respeto a cada persona", "Centra la vida pública en el reconocimiento y el trato digno a cada persona."],
-        ["Prosperidad", "Oportunidades para todos", "Plantea crecimiento económico con más acceso y movilidad social."]
-      ],
-      "pendiente": ["Programa de gobierno con medidas concretas", "Equipo, alianzas y estrategia de implementación"],
-      "enlaces": []
-    },
-    {
-      "slug": "luis-michel-cespedes",
-      "nombre": "Luis Michel Céspedes Rodríguez",
-      "espacio": "Movimiento Cristiano Liberación",
-      "estado": "Respaldo ciudadano simbólico",
-      "fecha": "2026",
-      "imagen": "/img/diversidad/luis-michel-cespedes.jpg",
-      "resumen": "Activista cívico vinculado al Movimiento Cristiano Liberación, organización inspirada en el legado de Oswaldo Payá. Su discurso combina libertad, derechos ciudadanos, reconciliación nacional y valores cristianos. En redes ha recibido respaldo en torno a la iniciativa simbólica «Céspedes Presidente».",
-      "datos": [["Espacio cívico", "Movimiento Cristiano Liberación."], ["Estado", "Perfil cívico con respaldo simbólico. No consta una candidatura formal declarada."], ["Frase representativa", "«La libertad de Cuba pasa por la fe y los valores.»"]],
-      "ejes": [
-        ["Libertad", "Derechos ciudadanos", "Defiende la libertad y los derechos ciudadanos como base de una Cuba democrática."],
-        ["Participación", "Compromiso cívico", "Apuesta por una ciudadanía activa y la construcción democrática desde la sociedad civil."],
-        ["Reconciliación", "Unidad nacional pacífica", "Llama a la dignidad humana, la unidad nacional y una transición no violenta."],
-        ["Valores", "Ética cristiana", "El componente ético y cristiano ocupa un lugar visible en su mensaje."]
-      ],
-      "pendiente": ["Declaración formal de candidatura", "Programa de gobierno detallado"],
-      "enlaces": []
-    },
-    {
-      "slug": "eduardo-arias-leon",
-      "nombre": "Eduardo Arias León",
-      "espacio": "Partido Nacionalista Cubano",
-      "estado": "Perfil provisional",
-      "fecha": "2026",
-      "imagen": "/img/diversidad/eduardo-arias-leon.jpg",
-      "resumen": "Se presenta públicamente como candidato vinculado al Partido Nacionalista Cubano. Lo confirmado por ahora es esa autopresentación y la asociación con el partido; su plataforma personal sigue pendiente de confirmación oficial.",
-      "datos": [["Partido asociado", "Partido Nacionalista Cubano."], ["Estado", "Perfil provisional, abierto a corrección y ampliación oficial."]],
-      "ejes": [
-        ["Nacionalismo", "Nacionalismo martiano y soberanía", "El partido asociado se define como martiano, soberanista, antianexionista e independentista."],
-        ["Democracia", "Democracia participativa", "Se identifica con la democracia participativa, el Estado de derecho y las libertades plenas."],
-        ["Economía", "Propiedad privada y mercado", "Menciona economía mixta, libre mercado, libre comercio y respeto a la propiedad privada."]
-      ],
-      "pendiente": ["Biografía ampliada", "Programa personal de gobierno", "Declaración formal de candidatura"],
-      "enlaces": []
-    }
-  ],
-  "organizaciones": [
-    {
-      "slug": "partido-libertario-de-cuba",
-      "nombre": "Partido Libertario de Cuba",
-      "tipo": "Partido político",
-      "fecha": "2026",
-      "imagen": "/img/diversidad/plc.jpg",
-      "resumen": "Se presenta como una organización política libertaria, descentralizada y transnacional, con base declarada en Cuba y en el exilio. Su doctrina gira en torno a la vida, la libertad, la propiedad privada, el libre mercado, la no agresión y límites estrictos al poder del Estado. Cuenta con sitio propio, estatutos, acta constitutiva y un proyecto de reconstrucción nacional.",
-      "datos": [["Ámbito", "Cuba y exilio; domicilio legal provisional en Florida, EE. UU."], ["Eje ideológico", "Libertarismo político y económico."], ["Organización", "Democracia líquida digital y estructura por células funcionales."]],
-      "ejes": [
-        ["Estado", "Reducción radical del aparato estatal", "Un Estado limitado a cuatro ministerios: Interior, Capital Humano, Justicia y Relaciones Internacionales."],
-        ["Moneda", "Fin del monopolio monetario estatal", "Eliminar el Banco Central y permitir la competencia entre monedas."],
-        ["Patrimonio", "Restitución de propiedades confiscadas", "Mecanismos de restitución o resolución patrimonial y subasta de activos ociosos."],
-        ["Empresa pública", "Privatización con participación laboral", "Una parte para los trabajadores y otra a subasta privada."],
-        ["Educación", "Bonos educativos", "Bonos, autonomía de centros y libertad para crear instituciones educativas."],
-        ["Territorio", "Confederación de provincias", "Amplia autonomía provincial frente al centralismo."]
-      ],
-      "pendiente": ["Liderazgo público y estructura operativa verificables"],
-      "enlaces": [["Sitio oficial", "https://partidolibertariodecuba.org/"], ["Acta de constitución", "https://assets.zyrosite.com/591fNDvNzCvtCMzY/acta-de-constitucian-del-partido-libertario-de-cuba-plc-GMbeSOWwTAvEYPHV.pdf"], ["Carta de principios y estatutos", "https://assets.zyrosite.com/591fNDvNzCvtCMzY/carta-de-principios-y-estatutos-organicos-del-partido-libertario-de-cuba-plc--1-13Z0U6z4OsZDmsW0.pdf"], ["Proyecto de reconstrucción nacional", "https://assets.zyrosite.com/591fNDvNzCvtCMzY/plan-de-la-libertad_-proyecto-de-reconstruccian-nacional-1-232-9cTETzAbsPn07FEQ.pdf"]]
-    },
-    {
-      "slug": "partido-pro-derechos-humanos-de-cuba",
-      "nombre": "Partido Pro Derechos Humanos de Cuba",
-      "tipo": "Partido / asociación política independiente",
-      "fecha": "1988",
-      "imagen": "/img/diversidad/ppdhc.jpg",
-      "resumen": "Organización política independiente fundada el 20 de julio de 1988, vinculada en referencias públicas a Ricardo Bofill, Tania Díaz Castro y Samuel Martínez Lara. Se centra en derechos humanos, democracia participativa y lucha no violenta. En su carta abierta del 24 de mayo de 2026 aclara que no presenta un candidato presidencial, sino principios de reconstrucción institucional.",
-      "datos": [["Fundación", "20 de julio de 1988."], ["Eje principal", "Derechos humanos, democracia participativa, legalidad y transición no violenta."], ["Candidatura", "No presenta candidatura presidencial propia en esta fase."]],
-      "ejes": [
-        ["Forma de Estado", "Democracia participativa", "Propone el modelo suizo como referencia adaptable a Cuba."],
-        ["Constitución", "Asamblea constituyente", "Constituyente con representación social amplia, nueva Constitución y referéndum."],
-        ["Justicia", "Juicio a crímenes graves con garantías", "Procesamiento imparcial de crímenes de lesa humanidad, sin impunidad."],
-        ["Reparación", "Prioridad a las víctimas", "Reparar a las víctimas de la represión antes que restituciones patrimoniales."],
-        ["Tierra", "Tierras cultivables estatales", "Tierras bajo propiedad estatal, arrendadas según capacidad productiva."],
-        ["Campañas", "Financiación pública equitativa", "Prohibir la financiación privada y corporativa de campañas."]
-      ],
-      "pendiente": [],
-      "enlaces": [["Sitio del PPDHC", "http://partidoproderechoshumanosdecuba.weebly.com/"], ["Ficha en Espacio Común", "https://espacio-comun.org/organizacion/partido-pro-derechos-humanos-de-cuba-ppdhc/"]]
-    },
-    {
-      "slug": "alternativa-no-partidista-de-cuba",
-      "nombre": "Alternativa No Partidista de Cuba",
-      "tipo": "Corriente cívica no partidista",
-      "fecha": "2026",
-      "imagen": "/img/diversidad/npc.jpg",
-      "resumen": "Se presenta como una vía cívica y política que desplaza el centro de gravedad desde las siglas hacia la ciudadanía y las soluciones. No se define como antipartido sino como camino complementario: reconoce a los partidos como actores legítimos y abre una opción organizada para quienes no desean afiliarse a ninguno.",
-      "datos": [["Sujeto central", "La ciudadanía, no una ideología única ni una sigla obligatoria."], ["Relación con los partidos", "Coexistir con ellos y abrir una vía paralela para no afiliados."]],
-      "ejes": [
-        ["Cultura política", "Ciudadano antes que partido", "Participar sin someterse a una sigla o una lealtad cerrada."],
-        ["Pluralismo", "Lo mejor de cada color", "Abierta a ideas útiles de distintos espacios políticos."],
-        ["Método", "Soluciones antes que bandos", "Ordenar la política alrededor de problemas concretos y respuestas evaluables."]
-      ],
-      "pendiente": [],
-      "enlaces": [["Sitio oficial", "https://nopartidistacuba.org/"]]
-    },
-    {
-      "slug": "partido-nacionalista-cubano",
-      "nombre": "Partido Nacionalista Cubano",
-      "tipo": "Partido político",
-      "fecha": "2026",
-      "imagen": "/img/diversidad/pnc.jpg",
-      "resumen": "Espacio político que se define como nacionalista, martiano, soberanista, antianexionista e independentista, con democracia participativa, Estado de derecho, economía mixta y respeto a la propiedad privada.",
-      "datos": [["Candidatura asociada", "Eduardo Arias León (perfil provisional)."]],
-      "ejes": [],
-      "pendiente": ["Documentación programática completa"],
-      "enlaces": []
-    }
-  ]
+ "candidaturas": [
+  {
+   "slug": "armando-labrador",
+   "nombre": "Armando Labrador",
+   "espacio": "Cuba Primero",
+   "estado": "Candidatura declarada",
+   "fecha": "Marzo de 2026",
+   "imagen": "/img/diversidad/armando-labrador.jpg",
+   "resumen": "Empresario cubanoamericano residente en Miami, fundador y líder del movimiento Cuba Primero. Presenta su candidatura desde una narrativa de cambio radical, no violencia y presión internacional como palanca principal de la transición.",
+   "datos": [
+    [
+     "Movimiento",
+     "Cuba Primero, no afiliado a un partido político."
+    ],
+    [
+     "Base",
+     "Miami, Florida, con una red de apoyo dentro de Cuba cuyo alcance es difícil de verificar."
+    ],
+    [
+     "Posición declarada",
+     "Cambio radical, no violencia, alineación con la presión internacional y experiencia empresarial privada."
+    ]
+   ],
+   "ejes": [
+    [
+     "Modelo de transición",
+     "Cambio radical sin negociación con el gobierno actual",
+     "Declara que no cabe diálogo ni negociación con el gobierno vigente."
+    ],
+    [
+     "Relaciones internacionales",
+     "Presión internacional como palanca",
+     "Apoya la presión de Estados Unidos sobre el gobierno cubano como vía de cambio."
+    ],
+    [
+     "Economía",
+     "Empresa privada como motor",
+     "Propone la empresa privada como alternativa al sistema estatal. Detalles pendientes."
+    ],
+    [
+     "Activismo",
+     "Resistencia no violenta dentro de Cuba",
+     "Cuba Primero organiza protestas y canaliza el descontento hacia una expresión política organizada."
+    ]
+   ],
+   "pendiente": [
+    "Marco constitucional",
+    "Derechos humanos y justicia transicional",
+    "Programa de gobierno detallado"
+   ],
+   "enlaces": [
+    [
+     "Sitio oficial",
+     "https://armandolabrador.com/"
+    ]
+   ]
+  },
+  {
+   "slug": "amelia-calzadilla",
+   "nombre": "Amelia Calzadilla",
+   "espacio": "Partido Liberal Ortodoxo Cubano",
+   "estado": "Candidatura declarada",
+   "fecha": "Abril de 2026",
+   "imagen": "/img/diversidad/amelia-calzadilla.jpg",
+   "resumen": "Voz pública cubana conocida por sus intervenciones directas sobre la vida cotidiana de las familias y la necesidad de una transformación profunda del país. En abril de 2026 anunció su candidatura presidencial desde el Partido Liberal Ortodoxo Cubano, con el lema «Justicia, dignidad y prosperidad».",
+   "datos": [
+    [
+     "Partido",
+     "Partido Liberal Ortodoxo Cubano."
+    ],
+    [
+     "Lema",
+     "«Un nuevo camino para Cuba. Con principios. Con libertad. Contigo.»"
+    ],
+    [
+     "Fuente",
+     "Pieza pública de anuncio de candidatura, 27 de abril de 2026."
+    ]
+   ],
+   "ejes": [
+    [
+     "Justicia",
+     "Instituciones que protegen",
+     "Asocia la justicia con instituciones que protegen y garantías públicas confiables."
+    ],
+    [
+     "Dignidad",
+     "Respeto a cada persona",
+     "Centra la vida pública en el reconocimiento y el trato digno a cada persona."
+    ],
+    [
+     "Prosperidad",
+     "Oportunidades para todos",
+     "Plantea crecimiento económico con más acceso y movilidad social."
+    ]
+   ],
+   "pendiente": [
+    "Programa de gobierno con medidas concretas",
+    "Equipo, alianzas y estrategia de implementación"
+   ],
+   "enlaces": []
+  },
+  {
+   "slug": "luis-michel-cespedes",
+   "nombre": "Luis Michel Céspedes Rodríguez",
+   "espacio": "Movimiento Cristiano Liberación",
+   "estado": "Respaldo ciudadano simbólico",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/luis-michel-cespedes.jpg",
+   "resumen": "Activista cívico vinculado al Movimiento Cristiano Liberación, organización inspirada en el legado de Oswaldo Payá. Su discurso combina libertad, derechos ciudadanos, reconciliación nacional y valores cristianos. En redes ha recibido respaldo en torno a la iniciativa simbólica «Céspedes Presidente».",
+   "datos": [
+    [
+     "Espacio cívico",
+     "Movimiento Cristiano Liberación."
+    ],
+    [
+     "Estado",
+     "Perfil cívico con respaldo simbólico. No consta una candidatura formal declarada."
+    ],
+    [
+     "Frase representativa",
+     "«La libertad de Cuba pasa por la fe y los valores.»"
+    ]
+   ],
+   "ejes": [
+    [
+     "Libertad",
+     "Derechos ciudadanos",
+     "Defiende la libertad y los derechos ciudadanos como base de una Cuba democrática."
+    ],
+    [
+     "Participación",
+     "Compromiso cívico",
+     "Apuesta por una ciudadanía activa y la construcción democrática desde la sociedad civil."
+    ],
+    [
+     "Reconciliación",
+     "Unidad nacional pacífica",
+     "Llama a la dignidad humana, la unidad nacional y una transición no violenta."
+    ],
+    [
+     "Valores",
+     "Ética cristiana",
+     "El componente ético y cristiano ocupa un lugar visible en su mensaje."
+    ]
+   ],
+   "pendiente": [
+    "Declaración formal de candidatura",
+    "Programa de gobierno detallado"
+   ],
+   "enlaces": []
+  },
+  {
+   "slug": "eduardo-arias-leon",
+   "nombre": "Eduardo Arias León",
+   "espacio": "Partido Nacionalista Cubano",
+   "estado": "Perfil provisional",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/eduardo-arias-leon.jpg",
+   "resumen": "Se presenta públicamente como candidato vinculado al Partido Nacionalista Cubano. Lo confirmado por ahora es esa autopresentación y la asociación con el partido; su plataforma personal sigue pendiente de confirmación oficial.",
+   "datos": [
+    [
+     "Partido asociado",
+     "Partido Nacionalista Cubano."
+    ],
+    [
+     "Estado",
+     "Perfil provisional, abierto a corrección y ampliación oficial."
+    ]
+   ],
+   "ejes": [
+    [
+     "Nacionalismo",
+     "Nacionalismo martiano y soberanía",
+     "El partido asociado se define como martiano, soberanista, antianexionista e independentista."
+    ],
+    [
+     "Democracia",
+     "Democracia participativa",
+     "Se identifica con la democracia participativa, el Estado de derecho y las libertades plenas."
+    ],
+    [
+     "Economía",
+     "Propiedad privada y mercado",
+     "Menciona economía mixta, libre mercado, libre comercio y respeto a la propiedad privada."
+    ]
+   ],
+   "pendiente": [
+    "Biografía ampliada",
+    "Programa personal de gobierno",
+    "Declaración formal de candidatura"
+   ],
+   "enlaces": []
+  }
+ ],
+ "organizaciones": [
+  {
+   "slug": "partido-libertario-de-cuba",
+   "nombre": "Partido Libertario de Cuba",
+   "tipo": "Partido político",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/plc.jpg",
+   "resumen": "Se presenta como una organización política libertaria, descentralizada y transnacional, con base declarada en Cuba y en el exilio. Su doctrina gira en torno a la vida, la libertad, la propiedad privada, el libre mercado, la no agresión y límites estrictos al poder del Estado. Cuenta con sitio propio, estatutos, acta constitutiva y un proyecto de reconstrucción nacional.",
+   "datos": [
+    [
+     "Ámbito",
+     "Cuba y exilio; domicilio legal provisional en Florida, EE. UU."
+    ],
+    [
+     "Eje ideológico",
+     "Libertarismo político y económico."
+    ],
+    [
+     "Organización",
+     "Democracia líquida digital y estructura por células funcionales."
+    ]
+   ],
+   "ejes": [
+    [
+     "Estado",
+     "Reducción radical del aparato estatal",
+     "Un Estado limitado a cuatro ministerios: Interior, Capital Humano, Justicia y Relaciones Internacionales."
+    ],
+    [
+     "Moneda",
+     "Fin del monopolio monetario estatal",
+     "Eliminar el Banco Central y permitir la competencia entre monedas."
+    ],
+    [
+     "Patrimonio",
+     "Restitución de propiedades confiscadas",
+     "Mecanismos de restitución o resolución patrimonial y subasta de activos ociosos."
+    ],
+    [
+     "Empresa pública",
+     "Privatización con participación laboral",
+     "Una parte para los trabajadores y otra a subasta privada."
+    ],
+    [
+     "Educación",
+     "Bonos educativos",
+     "Bonos, autonomía de centros y libertad para crear instituciones educativas."
+    ],
+    [
+     "Territorio",
+     "Confederación de provincias",
+     "Amplia autonomía provincial frente al centralismo."
+    ]
+   ],
+   "pendiente": [
+    "Liderazgo público y estructura operativa verificables"
+   ],
+   "enlaces": [
+    [
+     "Sitio oficial",
+     "https://partidolibertariodecuba.org/"
+    ],
+    [
+     "Acta de constitución",
+     "https://assets.zyrosite.com/591fNDvNzCvtCMzY/acta-de-constitucian-del-partido-libertario-de-cuba-plc-GMbeSOWwTAvEYPHV.pdf"
+    ],
+    [
+     "Carta de principios y estatutos",
+     "https://assets.zyrosite.com/591fNDvNzCvtCMzY/carta-de-principios-y-estatutos-organicos-del-partido-libertario-de-cuba-plc--1-13Z0U6z4OsZDmsW0.pdf"
+    ],
+    [
+     "Proyecto de reconstrucción nacional",
+     "https://assets.zyrosite.com/591fNDvNzCvtCMzY/plan-de-la-libertad_-proyecto-de-reconstruccian-nacional-1-232-9cTETzAbsPn07FEQ.pdf"
+    ]
+   ]
+  },
+  {
+   "slug": "partido-pro-derechos-humanos-de-cuba",
+   "nombre": "Partido Pro Derechos Humanos de Cuba",
+   "tipo": "Partido / asociación política independiente",
+   "fecha": "1988",
+   "imagen": "/img/diversidad/ppdhc.jpg",
+   "resumen": "Organización política independiente fundada el 20 de julio de 1988, vinculada en referencias públicas a Ricardo Bofill, Tania Díaz Castro y Samuel Martínez Lara. Se centra en derechos humanos, democracia participativa y lucha no violenta. En su carta abierta del 24 de mayo de 2026 aclara que no presenta un candidato presidencial, sino principios de reconstrucción institucional.",
+   "datos": [
+    [
+     "Fundación",
+     "20 de julio de 1988."
+    ],
+    [
+     "Eje principal",
+     "Derechos humanos, democracia participativa, legalidad y transición no violenta."
+    ],
+    [
+     "Candidatura",
+     "No presenta candidatura presidencial propia en esta fase."
+    ]
+   ],
+   "ejes": [
+    [
+     "Forma de Estado",
+     "Democracia participativa",
+     "Propone el modelo suizo como referencia adaptable a Cuba."
+    ],
+    [
+     "Constitución",
+     "Asamblea constituyente",
+     "Constituyente con representación social amplia, nueva Constitución y referéndum."
+    ],
+    [
+     "Justicia",
+     "Juicio a crímenes graves con garantías",
+     "Procesamiento imparcial de crímenes de lesa humanidad, sin impunidad."
+    ],
+    [
+     "Reparación",
+     "Prioridad a las víctimas",
+     "Reparar a las víctimas de la represión antes que restituciones patrimoniales."
+    ],
+    [
+     "Tierra",
+     "Tierras cultivables estatales",
+     "Tierras bajo propiedad estatal, arrendadas según capacidad productiva."
+    ],
+    [
+     "Campañas",
+     "Financiación pública equitativa",
+     "Prohibir la financiación privada y corporativa de campañas."
+    ]
+   ],
+   "pendiente": [],
+   "enlaces": [
+    [
+     "Sitio del PPDHC",
+     "http://partidoproderechoshumanosdecuba.weebly.com/"
+    ],
+    [
+     "Ficha en Espacio Común",
+     "https://espacio-comun.org/organizacion/partido-pro-derechos-humanos-de-cuba-ppdhc/"
+    ]
+   ]
+  },
+  {
+   "slug": "alternativa-no-partidista-de-cuba",
+   "nombre": "Alternativa No Partidista de Cuba",
+   "tipo": "Corriente cívica no partidista",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/npc.jpg",
+   "resumen": "Se presenta como una vía cívica y política que desplaza el centro de gravedad desde las siglas hacia la ciudadanía y las soluciones. No se define como antipartido sino como camino complementario: reconoce a los partidos como actores legítimos y abre una opción organizada para quienes no desean afiliarse a ninguno.",
+   "datos": [
+    [
+     "Sujeto central",
+     "La ciudadanía, no una ideología única ni una sigla obligatoria."
+    ],
+    [
+     "Relación con los partidos",
+     "Coexistir con ellos y abrir una vía paralela para no afiliados."
+    ]
+   ],
+   "ejes": [
+    [
+     "Cultura política",
+     "Ciudadano antes que partido",
+     "Participar sin someterse a una sigla o una lealtad cerrada."
+    ],
+    [
+     "Pluralismo",
+     "Lo mejor de cada color",
+     "Abierta a ideas útiles de distintos espacios políticos."
+    ],
+    [
+     "Método",
+     "Soluciones antes que bandos",
+     "Ordenar la política alrededor de problemas concretos y respuestas evaluables."
+    ]
+   ],
+   "pendiente": [],
+   "enlaces": [
+    [
+     "Sitio oficial",
+     "https://nopartidistacuba.org/"
+    ],
+    [
+     "Candidatura solucionaria: el candidato no partidista",
+     "/candidatura-solucionaria/"
+    ]
+   ]
+  },
+  {
+   "slug": "partido-nacionalista-cubano",
+   "nombre": "Partido Nacionalista Cubano",
+   "tipo": "Partido político",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/pnc.jpg",
+   "resumen": "Espacio político que se define como nacionalista, martiano, soberanista, antianexionista e independentista, con democracia participativa, Estado de derecho, economía mixta y respeto a la propiedad privada.",
+   "datos": [
+    [
+     "Candidatura asociada",
+     "Eduardo Arias León (perfil provisional)."
+    ]
+   ],
+   "ejes": [],
+   "pendiente": [
+    "Documentación programática completa"
+   ],
+   "enlaces": []
+  }
+ ]
 }
