@@ -1317,3 +1317,4 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .cpt-item dd { margin: 0; }
 .cpt-item:target { box-shadow: 0 0 0 3px var(--amarillo); }
 @media (max-width: 640px) { .cpt-item dl { grid-template-columns: 1fr; } .cpt-item dd { margin-bottom: 6px; } }
+.bl-propuestas a.enlace-texto { display: inline; padding: 0; background: none; border: 0; color: var(--marino-2); text-decoration: underline; }

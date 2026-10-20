@@ -108,7 +108,7 @@ const solucion = (a) =>
           <div class="bl-sec-cuerpo">
             {s.bloques.map((b) =>
               b.cita ? <figure class="cita-fuente"><blockquote class="cita ar-p" data-k={b.k}>{b.cita}</blockquote><figcaption>{b.fuente}</figcaption></figure>
-              : b.lista ? <ol class="lista-preguntas">{b.lista.map((x) => <li>{x}</li>)}</ol>
+              : b.lista ? <ol class="lista-preguntas">{b.lista.map((x) => <li set:html={x} />)}</ol>
               : <p class="ar-p" data-k={b.k} set:html={b.p} />
             )}
             {(l.tabla?.tras ? s.titulo === l.tabla.tras : i === conClave.length - 1) && l.tabla && (
@@ -239,13 +239,13 @@ const solucion = (a) =>
 
     {propuestas.length > 0 && (
       <section class="bl-propuestas">
-        <h2>Qué proponen las propuestas del banco</h2>
+        <h2>{c.modulo ? 'Propuestas del banco relacionadas' : 'Qué proponen las propuestas del banco'}</h2>
         <p class="discreto">En orden aleatorio. Cada una enlaza a su ficha, con sus fuentes.</p>
         <ul data-aleatorio>
           {propuestas.map((p) => <li><a href={`/propuesta/${p.id}/`}><strong>{p.titulo}</strong><span>{p.texto}</span></a></li>)}
         </ul>
-        <p class="bl-neutral">Esta lección presenta opciones y experiencias; no recomienda ninguna.</p>
-        <p class="discreto">Puedes elegir entre ellas, tema por tema, en <a href="/plataforma/">Arma tu plataforma</a>.</p>
+        {!c.modulo && <><p class="bl-neutral">Esta lección presenta opciones y experiencias; no recomienda ninguna.</p>
+        <p class="discreto">Puedes elegir entre ellas, tema por tema, en <a class="enlace-texto" href="/plataforma/">Arma tu plataforma</a>.</p></>}
       </section>
     )}
 

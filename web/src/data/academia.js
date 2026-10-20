@@ -9,6 +9,7 @@ import * as c3 from './academia/c3.js';
 import * as c4 from './academia/c4.js';
 import * as c5 from './academia/c5.js';
 import * as c6 from './academia/c6.js';
+import * as c7 from './academia/c7.js';
 
 export const PAISES_COMPARADOS = ['Cuba', 'Estados Unidos', 'Alemania', 'España', 'Costa Rica'];
 
@@ -75,6 +76,12 @@ export const cursos = [
     resumen: 'Asociarse sin permiso del poder: qué son las organizaciones independientes, cómo se registran y financian en democracia y por qué importan.',
     plan: ['Asociarse libremente', 'Registro y financiación de organizaciones en cinco países', 'Organizaciones independientes en la historia de Cuba', 'Cómo participar con seguridad'],
     insignia: 'Sociedad civil independiente', lecciones: c6.lecciones, fuentes: c6.fuentes,
+  },
+  {
+    id: 'pensamiento-critico', num: 7, modulo: 'Pensar y debatir', titulo: 'Pensamiento crítico', foto: 'educacion', estado: 'disponible',
+    insignia: 'Pensamiento crítico',
+    resumen: 'Cómo construir y defender un argumento, juzgar la evidencia y las fuentes, citar, reconocer falacias y sesgos, y usar la inteligencia artificial con criterio. Basado en los contenidos de los cursos preparatorios de acceso a universidades europeas.',
+    lecciones: c7.lecciones, preguntas: c7.preguntas, fuentes: c7.fuentes,
   },
 ];
 
