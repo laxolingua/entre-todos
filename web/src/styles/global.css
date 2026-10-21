@@ -1341,3 +1341,9 @@ label.chip input:focus-visible + span { outline: 3px solid var(--foco); }
 .identificacion .ayuda { margin: -4px 0 0; font-size: .85rem; color: var(--texto-2, #555); }
 button.enlace { background: none; border: 0; padding: 0; font: inherit; color: var(--marino); text-decoration: underline; cursor: pointer; }
 .identificacion [hidden], .reclamo[hidden] { display: none !important; }
+
+/* Sondeos en redes (Facebook e Instagram) */
+.sondeos-redes .reparto { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 6px; max-width: 560px; }
+.sondeos-redes .reparto li { display: grid; grid-template-columns: 9em 1fr 3.5em; gap: 10px; align-items: center; font-size: .9rem; }
+.sondeos-redes .barra-sondeo { height: 10px; background: var(--superficie-2); display: block; }
+.sondeos-redes .barra-sondeo span { display: block; height: 100%; background: var(--marino); }
