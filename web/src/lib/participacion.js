@@ -20,11 +20,29 @@ async function sb() {
   }
   return cliente;
 }
+// Filtro contra robots (Cloudflare Turnstile): solo se carga cuando alguien participa por primera vez.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
+function tokenTurnstile() {
+  if (!SITEKEY) return Promise.resolve(undefined);
+  return new Promise((ok, mal) => {
+    const pintar = () => {
+      let caja = document.getElementById('et-turnstile');
+      if (!caja) { caja = document.createElement('div'); caja.id = 'et-turnstile'; caja.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:50'; document.body.appendChild(caja); }
+      window.turnstile.render(caja, { sitekey: SITEKEY, callback: (t) => { ok(t); setTimeout(() => caja.remove(), 800); }, 'error-callback': () => mal(new Error('turnstile')) });
+    };
+    if (window.turnstile) return pintar();
+    const sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    sc.async = true; sc.onload = pintar; sc.onerror = () => mal(new Error('turnstile'));
+    document.head.appendChild(sc);
+  });
+}
 async function sesion() {
   const s = await sb();
   const { data } = await s.auth.getSession();
   if (!data.session) {
-    const { error } = await s.auth.signInAnonymously();
+    const captchaToken = await tokenTurnstile();
+    const { error } = await s.auth.signInAnonymously(captchaToken ? { options: { captchaToken } } : undefined);
     if (error) throw error;
   }
   return s;
