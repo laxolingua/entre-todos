@@ -1,0 +1,324 @@
+{
+ "q7_modelo": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Cuba necesita transitar hacia un modelo capitalista de democracia liberal y economía de mercado.": 76.8,
+    "Cuba necesita un sistema mixto que combine elementos socialistas y capitalistas.": 12.4,
+    "Cuba necesita un modelo de desarrollo capitalista con un gobierno fuerte y sin pluripartidismo.": 7.3,
+    "No tengo una posición definida al respecto.": 1.7,
+    "El socialismo es el modelo correcto pero necesita reformas profundas.": 1.6,
+    "El socialismo es el modelo adecuado para Cuba y debe mantenerse tal como está.": 0.3
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Cuba necesita transitar hacia un modelo capitalista de democracia liberal y economía de mercado.": 84.6,
+    "Cuba necesita un sistema mixto que combine elementos socialistas y capitalistas.": 8.3,
+    "Cuba necesita un modelo de desarrollo capitalista con un gobierno fuerte y sin pluripartidismo.": 5.8,
+    "No tengo una posición definida al respecto.": 0.7,
+    "El socialismo es el modelo correcto pero necesita reformas profundas.": 0.5,
+    "El socialismo es el modelo adecuado para Cuba y debe mantenerse tal como está.": 0.0
+   }
+  }
+ },
+ "q20_rol_exilio": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Pueden participar en igualdad de condiciones.": 54.0,
+    "Deben tener un rol protagónico dada su experiencia en sistemas democráticos.": 25.0,
+    "Un papel menor o consultivo, sin ocupar cargos de dirección.": 8.2,
+    "No tengo una posición definida.": 6.8,
+    "Ninguno: el gobierno debe ser conducido exclusivamente por cubanos de la isla.": 6.0
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Pueden participar en igualdad de condiciones.": 58.2,
+    "Deben tener un rol protagónico dada su experiencia en sistemas democráticos.": 30.3,
+    "Un papel menor o consultivo, sin ocupar cargos de dirección.": 5.7,
+    "No tengo una posición definida.": 3.3,
+    "Ninguno: el gobierno debe ser conducido exclusivamente por cubanos de la isla.": 2.6
+   }
+  }
+ },
+ "q21_apertura_economica": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Sí, pero solo si va acompañada de reformas políticas paralelas.": 48.3,
+    "No, porque perpetúa el poder económico del Partido Comunista.": 24.9,
+    "Sí, plenamente. Sería beneficioso para la economía cubana sin importar los cambios políticos.": 22.8,
+    "No tengo una posición definida.": 2.9,
+    "Solo en sectores específicos, con regulaciones claras del Estado.": 1.1
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Sí, pero solo si va acompañada de reformas políticas paralelas.": 48.5,
+    "No, porque perpetúa el poder económico del Partido Comunista.": 39.0,
+    "Sí, plenamente. Sería beneficioso para la economía cubana sin importar los cambios políticos.": 10.6,
+    "No tengo una posición definida.": 1.4,
+    "Solo en sectores específicos, con regulaciones claras del Estado.": 0.6
+   }
+  }
+ },
+ "q23_embargo": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Debe mantenerse como herramienta de presión para forzar cambios democráticos.": 43.8,
+    "Debe eliminarse de forma gradual a medida que Cuba avance en reformas.": 26.1,
+    "Debe eliminarse por completo e incondicionalmente.": 14.8,
+    "Debe intensificarse en áreas estratégicas como el sector energético.": 8.5,
+    "No tengo una posición definida.": 6.8
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Debe mantenerse como herramienta de presión para forzar cambios democráticos.": 51.5,
+    "Debe eliminarse de forma gradual a medida que Cuba avance en reformas.": 21.3,
+    "Debe intensificarse en áreas estratégicas como el sector energético.": 13.2,
+    "Debe eliminarse por completo e incondicionalmente.": 9.0,
+    "No tengo una posición definida.": 5.0
+   }
+  }
+ },
+ "q27_via_solucion": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Derrocamiento del Gobierno actual por cualquier medio necesario, incluyendo la vía armada.": 60.5,
+    "Diálogo y transición negociada entre el Gobierno, la oposición interna, el exilio y la comunidad internacional.": 23.2,
+    "Movilización social y presión popular pacífica sostenida.": 10.1,
+    "No tengo una posición definida.": 2.9,
+    "Reforma gradual liderada desde dentro del propio Gobierno.": 2.8,
+    "Mantener el sistema actual y rechazar cualquier cambio estructural.": 0.5
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Derrocamiento del Gobierno actual por cualquier medio necesario, incluyendo la vía armada.": 70.9,
+    "Diálogo y transición negociada entre el Gobierno, la oposición interna, el exilio y la comunidad internacional.": 17.2,
+    "Movilización social y presión popular pacífica sostenida.": 10.1,
+    "No tengo una posición definida.": 1.0,
+    "Reforma gradual liderada desde dentro del propio Gobierno.": 0.7,
+    "Mantener el sistema actual y rechazar cualquier cambio estructural.": 0.1
+   }
+  }
+ },
+ "q30_no_persecucion": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Es inaceptable. Debe haber justicia y rendición de cuentas plena.": 58.8,
+    "Podría aceptarlo solo para delitos menores, pero no para violaciones graves de derechos humanos.": 20.9,
+    "Sería aceptable si eso garantiza una transición pacífica.": 15.7,
+    "No tengo una posición definida.": 4.5
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Es inaceptable. Debe haber justicia y rendición de cuentas plena.": 61.2,
+    "Podría aceptarlo solo para delitos menores, pero no para violaciones graves de derechos humanos.": 25.8,
+    "Sería aceptable si eso garantiza una transición pacífica.": 11.5,
+    "No tengo una posición definida.": 1.5
+   }
+  }
+ },
+ "q29_salud_educacion": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Mantener": 74.6,
+    "Eliminar": 25.4
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Mantener": 69.8,
+    "Eliminar": 30.2
+   }
+  }
+ },
+ "q29_soberania": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Mantener": 67.9,
+    "Eliminar": 32.1
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Mantener": 67.6,
+    "Eliminar": 32.4
+   }
+  }
+ },
+ "q29_rol_estado": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 91.4,
+    "Mantener": 8.6
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 94.3,
+    "Mantener": 5.7
+   }
+  }
+ },
+ "q29_partido_comunista": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 98.2,
+    "Mantener": 1.8
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 99.3,
+    "Mantener": 0.7
+   }
+  }
+ },
+ "q29_subvenciones": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Mantener": 57.6,
+    "Eliminar": 42.4
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Mantener": 57.2,
+    "Eliminar": 42.8
+   }
+  }
+ },
+ "q29_seguridad_estado": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 94.5,
+    "Mantener": 5.5
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 97.6,
+    "Mantener": 2.4
+   }
+  }
+ },
+ "q29_organizaciones": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 93.9,
+    "Mantener": 6.1
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 95.4,
+    "Mantener": 4.6
+   }
+  }
+ },
+ "q29_libreta": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 89.7,
+    "Mantener": 10.3
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 95.4,
+    "Mantener": 4.6
+   }
+  }
+ },
+ "q29_empresas_far": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 97.6,
+    "Mantener": 2.4
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 99.1,
+    "Mantener": 0.9
+   }
+  }
+ },
+ "q29_medios": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Eliminar": 97.8,
+    "Mantener": 2.2
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Eliminar": 99.2,
+    "Mantener": 0.8
+   }
+  }
+ },
+ "q24_presiones_externas": {
+  "cuba": {
+   "n": 24503,
+   "pct": {
+    "Intervención militar directa de Estados Unidos.": 56.2,
+    "Sanciones dirigidas específicamente a funcionarios del Gobierno.": 53.3,
+    "Mayor presión diplomática multilateral (ONU, OEA, UE).": 45.8,
+    "Financiamiento internacional a grupos de la sociedad civil.": 16.5,
+    "Acuerdos negociados que garanticen una transición con continuidad parcial del régimen.": 12.8,
+    "Incremento del bloqueo energético.": 12.7,
+    "Ninguna: Cuba debe resolver sus conflictos internamente.": 6.3,
+    "Prefiero no responder.": 5.8
+   }
+  },
+  "exterior": {
+   "n": 17760,
+   "pct": {
+    "Intervención militar directa de Estados Unidos.": 67.4,
+    "Sanciones dirigidas específicamente a funcionarios del Gobierno.": 55.6,
+    "Mayor presión diplomática multilateral (ONU, OEA, UE).": 53.5,
+    "Financiamiento internacional a grupos de la sociedad civil.": 22.6,
+    "Incremento del bloqueo energético.": 17.8,
+    "Acuerdos negociados que garanticen una transición con continuidad parcial del régimen.": 11.0,
+    "Ninguna: Cuba debe resolver sus conflictos internamente.": 3.7,
+    "Prefiero no responder.": 2.3
+   }
+  }
+ }
+}
