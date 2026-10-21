@@ -73,7 +73,7 @@ const correo = sitio.contacto;
           <li>Solo el código resultante viaja al servidor; el número original se descarta.</li>
           <li>El servidor vuelve a cifrar ese código con una clave secreta que no se publica y guarda solo el resultado.</li>
         </ol>
-        <p>Así, aunque alguien obtuviera una copia de la base de datos, no podría reconstruir los números de documento. El código sirve únicamente para impedir que la misma credencial vote dos veces en la misma consulta o en la misma propuesta.</p>
+        <p>El primer código no basta por sí solo: un número de carné tiene pocas combinaciones posibles y podría adivinarse probando. Lo que lo protege es el segundo cifrado con la clave secreta del servidor, que no está en la base de datos. Así, aunque alguien obtuviera una copia de la base de datos, no podría reconstruir los números de documento. El código sirve únicamente para impedir que la misma credencial vote dos veces en la misma consulta o en la misma propuesta.</p>
         <p><strong>Si alguien usa tu documento.</strong> Un documento solo puede votar una vez por propuesta. Si alguien votó con tu documento sin tu permiso, o si olvidaste tu PIN, puedes reclamarlo desde cualquier propuesta: los votos de ese documento quedan congelados y no cuentan hasta comprobar quién es el titular. Si se confirma que eres tú, los votos anteriores se anulan y eliges un PIN nuevo.</p>
       </section>
 
