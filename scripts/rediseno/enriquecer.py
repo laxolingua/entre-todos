@@ -136,6 +136,7 @@ print('derechos sin votación', _n)
 # 4. Participación (escala de acuerdo y aportes): las páginas de main traen la sección vacía; se monta con el script de la compilación.
 # Sin PUBLIC_PARTICIPACION=true la escala sale desactivada y explica que se activará con la base de datos.
 nuevo = [a for a in glob.glob(f'{P}/_astro/participacion.*.js') if 'Muy en contra' in open(a, encoding='utf-8').read()]
+nuevo.sort(key=lambda a: 'votante_entrar' not in open(a, encoding='utf-8').read())  # primero la versión con voto por documento
 if nuevo:
     ruta = '/_astro/' + os.path.basename(nuevo[0])
     montaje = f'<script type="module">import("{ruta}").then(function(m){{m.iniciarParticipacion()}})</script>'
