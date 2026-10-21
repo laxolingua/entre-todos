@@ -1,33 +1,83 @@
 ---
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
-const textos = [
-  ['1869', 'Guáimaro'], ['1895', 'Jimaguayú'], ['1897', 'La Yaya'], ['1901', 'República'], ['1940', 'Constitución de 1940'], ['1976', 'Constitución socialista'], ['2019', 'Constitución vigente'],
-];
+import { BLOQUES, CONSTITUCIONES, PROPUESTAS_BLOQUE, FUENTES } from '../data/constituciones.js';
+import { propPorId } from '../lib/banco.js';
+import extra from '../data/propuestas-extra.json';
+import { DERECHOS } from '../data/derechos.js';
+const titulo = (id) => propPorId.get(id)?.titulo ?? extra[id]?.titulo ?? id;
+const vigente = CONSTITUCIONES[CONSTITUCIONES.length - 1].id;
 ---
 <Base titulo="Proceso constituyente" seccion="otras" ancho
-  descripcion="Leer, comparar y valorar las constituciones cubanas y las propuestas constitucionales, para llegar con una base común a una futura constituyente.">
+  descripcion="Las nueve constituciones que ha tenido Cuba, comparadas por bloques, junto a lo que proponen hoy organizaciones y especialistas para una futura constituyente.">
   <Banda imagen="/img/fotos/cat-constitucion.jpg" lateral={['Leer', 'Comparar', 'Valorar']}>
     <span class="barra"></span>
-    <p class="antetitulo">Próximamente</p>
+    <p class="antetitulo">Leer y comparar</p>
     <h1>Proceso<br />constituyente</h1>
-    <p class="lema">Para que el día después no empiece desde cero</p>
-    <p class="entradilla">Un espacio para leer y comparar las constituciones que ha tenido Cuba y las propuestas constitucionales de la sociedad civil, y para valorar sus artículos. El resultado será un documento preconstitucional de referencia para una futura reforma o asamblea constituyente.</p>
+    <p class="entradilla">Las constituciones que ha tenido Cuba, desde Guáimaro hasta la de 2019, comparadas por bloques y junto a lo que proponen hoy organizaciones y especialistas. El objetivo es llegar a una futura reforma o asamblea constituyente con una base común.</p>
   </Banda>
   <div class="contenedor">
-    <div class="aviso-proximo"><h2>Próximamente</h2><p>Esta sección está en preparación. Mientras tanto, puedes consultar las propuestas sobre el proceso constituyente que ya están en el banco.</p></div>
-    <section class="seccion">
-      <h2 class="vista-titulo">Los textos</h2>
-      <ol class="linea-constituciones">{textos.map(([a, n]) => <li><strong>{a}</strong>{n}</li>)}</ol>
+    <section class="seccion" id="textos">
+      <h2 class="vista-titulo">Las constituciones de Cuba</h2>
+      <p class="discreto">Elige una para ver de dónde salió, cuánto duró y qué decía sobre cada asunto.</p>
+      <div class="selector-const" role="tablist" aria-label="Constituciones">
+        {CONSTITUCIONES.map((c) => (
+          <button type="button" role="tab" id={`tab-${c.id}`} aria-controls={`const-${c.id}`} aria-selected={c.id === vigente ? 'true' : 'false'} data-const={c.id}>
+            <strong>{c.id}</strong><span>{c.corto}</span>
+          </button>
+        ))}
+      </div>
+      {CONSTITUCIONES.map((c) => (
+        <article class="ficha-const" id={`const-${c.id}`} role="tabpanel" aria-labelledby={`tab-${c.id}`} hidden={c.id !== vigente}>
+          <p class="antetitulo">{c.fecha} · {c.vigencia}</p>
+          <h3>{c.nombre}</h3>
+          <p class="entradilla">{c.resumen}</p>
+          <p><strong>Cómo se hizo.</strong> {c.origen}</p>
+          <dl class="bloques-const">
+            {BLOQUES.map((b) => (<><dt>{b.t}</dt><dd>{c.b[b.id]}</dd></>))}
+          </dl>
+          {c.texto
+            ? <p><a class="boton" href={c.texto} rel="noopener" target="_blank"><i class="fi fi-br-document" aria-hidden="true"></i>Leer el texto completo{c.idioma === 'fr' ? ' (traducción al francés)' : ''}</a></p>
+            : <p class="discreto">Texto completo en español pendiente de localizar en una fuente fiable.</p>}
+          {c.idioma === 'fr' && <p class="discreto">Todavía no hemos localizado una edición digital fiable del original en español. La traducción es de la Universidad de Perpiñán.</p>}
+        </article>
+      ))}
     </section>
+
+    <section class="seccion" id="comparar">
+      <h2 class="vista-titulo">Comparar por bloques</h2>
+      <p class="discreto">Cómo trató cada texto el mismo asunto. Desliza la tabla en el teléfono.</p>
+      <div class="desplazable"><table class="tabla tabla-const">
+        <thead><tr><th>Bloque</th>{CONSTITUCIONES.map((c) => <th>{c.id}</th>)}</tr></thead>
+        <tbody>{BLOQUES.map((b) => <tr><th scope="row">{b.t}</th>{CONSTITUCIONES.map((c) => <td>{c.b[b.id]}</td>)}</tr>)}</tbody>
+      </table></div>
+    </section>
+
+    <section class="seccion" id="propuestas">
+      <h2 class="vista-titulo">Qué proponen hoy para la nueva Constitución</h2>
+      <p class="discreto">Propuestas del banco relacionadas con cada bloque. No están ordenadas por preferencia. Los derechos fundamentales se documentan, pero no se someten a votación.</p>
+      <div class="propuestas-bloque">
+        {BLOQUES.map((b) => (
+          <div>
+            <h3>{b.t}</h3>
+            <ul>{PROPUESTAS_BLOQUE[b.id].map((id) => <li><a href={`/propuesta/${id}/`}>{titulo(id)}</a>{DERECHOS.has(id) && <span class="etiqueta">Derecho fundamental</span>}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <div class="aviso-proximo"><h2>Próximo paso</h2><p>Valorar artículo por artículo y reunir el resultado en un documento preconstitucional de referencia. Esta parte está en preparación.</p></div>
+    </section>
+
     <section class="seccion">
-      <h2 class="vista-titulo">Cómo funcionará</h2>
-      <ol class="pilares">
-        <li><span class="num">01</span><span class="barra"></span><h3>Leer</h3><p>Cada constitución, organizada por bloques: fundamentos, derechos, participación, organización del Estado, economía y reforma.</p></li>
-        <li><span class="num">02</span><span class="barra"></span><h3>Comparar</h3><p>Cómo trató cada texto un mismo asunto, junto a lo que proponen hoy organizaciones y especialistas.</p></li>
-        <li><span class="num">03</span><span class="barra"></span><h3>Valorar</h3><p>Las valoraciones ciudadanas forman un documento preconstitucional vivo. Los derechos fundamentales se documentan, pero no se someten a votación.</p></li>
-      </ol>
-      <div class="acciones"><a class="boton rojo" href="/propuestas/categoria/constitucion/">Propuestas sobre el proceso constituyente <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+      <h2 class="vista-titulo">Fuentes</h2>
+      <ul class="lista-fuentes">{FUENTES.map((f) => <li><a href={f.url} rel="noopener" target="_blank">{f.t}</a></li>)}</ul>
+      <p class="discreto">Resúmenes de ENTRE TODOS, pendientes de revisión por especialistas en derecho constitucional. Si encuentras un error, escríbenos.</p>
     </section>
   </div>
+  <script>
+    const botones = [...document.querySelectorAll('.selector-const [data-const]')];
+    botones.forEach((b) => b.addEventListener('click', () => {
+      botones.forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      document.querySelectorAll('.ficha-const').forEach((f) => { f.hidden = f.id !== `const-${b.dataset.const}`; });
+    }));
+  </script>
 </Base>

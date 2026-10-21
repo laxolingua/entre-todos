@@ -1347,3 +1347,23 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .sondeos-redes .reparto li { display: grid; grid-template-columns: 9em 1fr 3.5em; gap: 10px; align-items: center; font-size: .9rem; }
 .sondeos-redes .barra-sondeo { height: 10px; background: var(--superficie-2); display: block; }
 .sondeos-redes .barra-sondeo span { display: block; height: 100%; background: var(--marino); }
+
+/* Proceso constituyente: selector y comparación */
+.selector-const { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 0; margin: 14px 0 18px; border: 1px solid var(--borde); }
+.selector-const button { font: inherit; border: 0; border-right: 1px solid var(--borde); background: var(--superficie); padding: 12px 10px; cursor: pointer; text-align: left; display: grid; gap: 2px; color: var(--texto-2); }
+.selector-const button strong { font-size: 1.15rem; color: var(--marino); }
+.selector-const button span { font-size: .8rem; line-height: 1.2; }
+.selector-const button[aria-selected="true"] { background: var(--marino); color: #dfe6f5; }
+.selector-const button[aria-selected="true"] strong { color: #fff; }
+.ficha-const { background: var(--superficie); border: 1px solid var(--borde); padding: 22px 24px; }
+.ficha-const h3 { margin: 4px 0 10px; }
+.bloques-const { display: grid; grid-template-columns: 12em 1fr; gap: 10px 18px; margin: 16px 0; }
+.bloques-const dt { font-weight: 700; color: var(--marino); }
+.bloques-const dd { margin: 0; }
+@media (max-width: 640px) { .bloques-const { grid-template-columns: 1fr; gap: 4px; } .bloques-const dd { margin-bottom: 10px; } }
+.tabla-const { min-width: 1400px; font-size: .86rem; }
+.tabla-const td, .tabla-const th { vertical-align: top; }
+.propuestas-bloque { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px 28px; }
+.propuestas-bloque ul { padding-left: 18px; }
+.propuestas-bloque li { margin: 4px 0; }
+.propuestas-bloque .etiqueta { margin-left: 6px; }
