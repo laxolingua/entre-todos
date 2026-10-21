@@ -20,3 +20,6 @@ Fotos: web/public/img/fotos/. Las actuales son provisionales; se sustituyen por 
 con el mismo nombre (portada, propuestas, academia, consulta, morro, sobre, cat-<categoría>.jpg).
 
 - web/src/data/propuestas-extra.json: propuestas que están en el banco publicado pero no en publico.json (GS, NP, añadidas). Las usan las lecciones del Blog A+ para enlazar propuestas relacionadas. Regenerar tras cambiar gs.json, desde datos/indice-propuestas.json de la vista previa.
+
+## Sondeos en redes
+Después de encuestas.py: `python3 sondeos.py /tmp/pub`. Datos en web/src/data/sondeos-redes.json, copiados de la hoja 048 CL del Drive. Mientras no haya sondeos reales, no añade nada.
