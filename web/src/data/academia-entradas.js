@@ -23,7 +23,7 @@ import { entradas as e5 } from './academia/c5.js';
 import { entradas as e6 } from './academia/c6.js';
 
 export const PUBLICADO = '17 de octubre de 2026';
-export const ACTUALIZADO = '20 de octubre de 2026';
+export const ACTUALIZADO = '21 de octubre de 2026';
 
 export const entradas = {
   universales: {
