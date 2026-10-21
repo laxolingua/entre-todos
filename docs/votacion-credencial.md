@@ -10,3 +10,10 @@ Acordado con Mitch el 21 oct 2026. No volver a la sesión anónima del navegador
 - Sin conflicto, se mantiene un voto por documento.
 - Derechos fundamentales (web/src/data/derechos.js, banco.consolidada.votable = false): no se votan.
 - Se mantiene Cloudflare Turnstile contra bots.
+
+## Referencia: Encuesta Cuba 2026 (elTOQUE y coalición de medios)
+Metodología en docs/referencias. Sin verificación de identidad. Siete capas antibots: restricción de origen,
+token de un solo uso, campo trampa, tiempo mínimo de 20 s, Cloudflare Turnstile, marca de sesión en el navegador
+(admiten que la navegación privada o varios navegadores la sortean) y 5 respuestas/día por IP fuera de Cuba.
+42.263 respuestas, 40.375 válidas tras depurar. Adoptar de ahí: token de un solo uso, campo trampa y tiempo mínimo,
+además de la credencial de documento, que es lo que ellos no tenían.
