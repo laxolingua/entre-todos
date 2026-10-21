@@ -119,6 +119,20 @@ for f in glob.glob(f'{P}/propuesta/*/index.html'):
     guardar(f, s); n += 1
 print('categorías', len(cats), '· fichas', n, '· total', total)
 
+# 3b. Derechos fundamentales: se documentan, no se votan. La lista vive en web/src/data/derechos.js.
+_der = set(re.findall(r"'([a-z0-9-]+)'", open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../web/src/data/derechos.js'), encoding='utf-8').read()))
+_marca = ('<p class="marca-derecho"><strong>Derecho fundamental: no se somete a votación.</strong> Los derechos humanos y las garantías '
+          'democráticas fundamentales se documentan, pero su existencia no se vota. Lo que sí puede debatirse es cómo garantizarlos. '
+          '<a href="/metodo/">Ver el Método</a></p>')
+_n = 0
+for pid in _der:
+    f = f'{P}/propuesta/{pid}/index.html'
+    if not os.path.exists(f): continue
+    t = open(f, encoding='utf-8').read()
+    t2 = re.sub(r'<section[^>]*id="valoracion"[^>]*></section>', _marca, t, count=1)
+    if t2 != t: open(f, 'w', encoding='utf-8').write(t2); _n += 1
+print('derechos sin votación', _n)
+
 # 4. Participación (escala de acuerdo y aportes): las páginas de main traen la sección vacía; se monta con el script de la compilación.
 # Sin PUBLIC_PARTICIPACION=true la escala sale desactivada y explica que se activará con la base de datos.
 nuevo = [a for a in glob.glob(f'{P}/_astro/participacion.*.js') if 'Muy en contra' in open(a, encoding='utf-8').read()]
