@@ -7,16 +7,19 @@
 -- Importante: el esquema "banco" no debe añadirse nunca a los esquemas expuestos de la API.
 
 -- ---------------------------------------------------------------- fuera de la API: vistas del archivo
-drop function if exists public.banco_buscar_consolidadas(text, text, int);
-drop function if exists public.banco_buscar(text, text, int);
-drop view if exists public.cep_preocupacion_propuestas;
-drop view if exists public.banco_consolidada_fuentes;
-drop view if exists public.banco_consolidadas;
-drop view if exists public.banco_propuestas;
-drop view if exists public.banco_fuentes;
-drop view if exists public.banco_temas;
-drop view if exists public.banco_no_propuestas;
-drop view if exists public.banco_historial;
+-- Aplicado en producción (21 oct 2026) moviendo los objetos a un esquema no expuesto, sin borrar nada.
+create schema if not exists banco_retirado;
+revoke all on schema banco_retirado from public, anon, authenticated;
+alter function public.banco_buscar_consolidadas(text, text, int) set schema banco_retirado;
+alter function public.banco_buscar(text, text, int) set schema banco_retirado;
+alter view public.cep_preocupacion_propuestas set schema banco_retirado;
+alter view public.banco_consolidada_fuentes set schema banco_retirado;
+alter view public.banco_consolidadas set schema banco_retirado;
+alter view public.banco_propuestas set schema banco_retirado;
+alter view public.banco_fuentes set schema banco_retirado;
+alter view public.banco_temas set schema banco_retirado;
+alter view public.banco_no_propuestas set schema banco_retirado;
+alter view public.banco_historial set schema banco_retirado;
 
 -- ---------------------------------------------------------------- permisos sobre las tablas del banco
 -- Sin lectura del archivo para anon ni authenticated.
