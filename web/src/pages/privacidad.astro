@@ -57,6 +57,10 @@ const correo = sitio.contacto;
             <tr><td>País o provincia (opcional)</td><td>Solo si la persona lo indica voluntariamente, para los totales por lugar.</td><td>No directamente.</td></tr>
             <tr><td>Fecha y hora</td><td>Momento del registro.</td><td>No.</td></tr>
             <tr><td>Identificador de consulta</td><td>A qué consulta pertenece el registro.</td><td>No.</td></tr>
+            <tr><td>PIN de voto (cifrado)</td><td>Para votar propuestas eliges un PIN de 6 cifras. Se guarda solo una huella cifrada (bcrypt) que no permite recuperarlo.</td><td>No.</td></tr>
+            <tr><td>Votos sobre propuestas</td><td>El nivel de acuerdo (de «Muy en contra» a «Muy a favor») que marca cada credencial en cada propuesta. Solo se publican totales.</td><td>No.</td></tr>
+            <tr><td>Sesión de voto</td><td>Un código aleatorio guardado en tu navegador para no pedirte el documento cada vez. En el servidor solo se guarda su huella. Caduca a los 180 días o al pulsar «Salir».</td><td>No.</td></tr>
+            <tr><td>Reclamaciones</td><td>Si alguien reclama un documento, se guarda una referencia y el estado de la reclamación. La verificación de identidad se hace por correo y los documentos que se envíen se borran al resolverla.</td><td>No en la base de datos.</td></tr>
           </tbody>
         </table></div>
         <p>El conjunto de datos es, por diseño, seudónimo en el sentido del considerando 26 del RGPD: no permite identificar a una persona sin información adicional que ENTRE TODOS no posee.</p>
@@ -69,7 +73,8 @@ const correo = sitio.contacto;
           <li>Solo el código resultante viaja al servidor; el número original se descarta.</li>
           <li>El servidor vuelve a cifrar ese código con una clave secreta que no se publica y guarda solo el resultado.</li>
         </ol>
-        <p>Así, aunque alguien obtuviera una copia de la base de datos, no podría reconstruir los números de documento. El código sirve únicamente para impedir que la misma credencial vote dos veces en la misma consulta.</p>
+        <p>Así, aunque alguien obtuviera una copia de la base de datos, no podría reconstruir los números de documento. El código sirve únicamente para impedir que la misma credencial vote dos veces en la misma consulta o en la misma propuesta.</p>
+        <p><strong>Si alguien usa tu documento.</strong> Un documento solo puede votar una vez por propuesta. Si alguien votó con tu documento sin tu permiso, o si olvidaste tu PIN, puedes reclamarlo desde cualquier propuesta: los votos de ese documento quedan congelados y no cuentan hasta comprobar quién es el titular. Si se confirma que eres tú, los votos anteriores se anulan y eliges un PIN nuevo.</p>
       </section>
 
       <section id="base"><h2><span>04</span>Base legal del tratamiento</h2>
