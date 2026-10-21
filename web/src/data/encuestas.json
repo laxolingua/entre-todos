@@ -1,11 +1,195 @@
 {
-  "nota": "Generado desde 021 IN. Una entrada por pregunta; nunca se suman. tipo: representativa | abierta | firmas.",
-  "encuestas": {
-    "bendixen-2015": { "nombre": "National Survey of Cubans Living in Cuba", "autor": "Bendixen & Amandi para Univision, Fusion y The Washington Post", "fecha": "marzo de 2015", "poblacion": "Isla", "muestra": "1.200 adultos", "metodo": "Entrevistas presenciales; margen ±2,8 puntos", "tipo": "representativa", "fuente": "http://bendixenandamandi.com/wp-content/uploads/2017/01/Cuba-Final-4.7.15-Web.pdf" },
-    "ocdh-2026": { "nombre": "IX Estudio sobre Derechos Sociales en Cuba", "autor": "Observatorio Cubano de Derechos Humanos", "fecha": "junio y julio de 2026", "poblacion": "Isla", "muestra": "1.318 personas", "metodo": "Entrevistas personales; muestreo aleatorio estratificado; margen ±2,8 puntos según el OCDH", "tipo": "representativa", "fuente": "https://observacuba.org/derechos-sociales-cuba-2026-extrema-pobreza-y-rechazo-gestion-gobierno-ascienden/" }
+ "nota": "Generado desde 021 IN. Una entrada por pregunta; nunca se suman. tipo: representativa | abierta | firmas.",
+ "encuestas": {
+  "bendixen-2015": {
+   "nombre": "National Survey of Cubans Living in Cuba",
+   "autor": "Bendixen & Amandi para Univision, Fusion y The Washington Post",
+   "fecha": "marzo de 2015",
+   "poblacion": "Isla",
+   "muestra": "1.200 adultos",
+   "metodo": "Entrevistas presenciales; margen ±2,8 puntos",
+   "tipo": "representativa",
+   "fuente": "http://bendixenandamandi.com/wp-content/uploads/2017/01/Cuba-Final-4.7.15-Web.pdf"
   },
-  "preguntas": [
-    { "encuesta": "bendixen-2015", "pregunta": "Do you think Cuba should have more political parties or is one political party enough?", "resultado": "Más partidos 52 %; un partido basta 28 %; no sabe 20 %", "propuestas": ["pluripartidismo", "legalizacion-organizaciones"], "nota": "" },
-    { "encuesta": "ocdh-2026", "pregunta": "¿Debería permitirse la educación y la salud privadas? (formulación según el OCDH)", "resultado": "Pública y privada 66 %; solo pública 21 %; solo privada 6 %", "propuestas": ["salud-mixta", "libertad-educativa"], "nota": "" }
-  ]
+  "ocdh-2026": {
+   "nombre": "IX Estudio sobre Derechos Sociales en Cuba",
+   "autor": "Observatorio Cubano de Derechos Humanos",
+   "fecha": "junio y julio de 2026",
+   "poblacion": "Isla",
+   "muestra": "1.318 personas",
+   "metodo": "Entrevistas personales; muestreo aleatorio estratificado; margen ±2,8 puntos según el OCDH",
+   "tipo": "representativa",
+   "fuente": "https://observacuba.org/derechos-sociales-cuba-2026-extrema-pobreza-y-rechazo-gestion-gobierno-ascienden/"
+  },
+  "eltoque-2026": {
+   "nombre": "Encuesta de perspectivas políticas y sociales en Cuba",
+   "autor": "elTOQUE y una coalición de más de 30 medios y voces independientes",
+   "fecha": "26 de abril a 1 de mayo de 2026",
+   "poblacion": "Isla y exterior",
+   "muestra": "42.263 respuestas (24.503 desde Cuba y 17.760 desde fuera)",
+   "metodo": "Cuestionario digital anónimo por autoselección, no probabilístico; cálculo de ENTRE TODOS sobre los microdatos publicados, sin ajuste por cuotas",
+   "tipo": "abierta",
+   "fuente": "https://eltoque.com/resultados-de-la-primera-encuesta-de-opinion-a-gran-escala-sobre-cuba"
+  }
+ },
+ "preguntas": [
+  {
+   "encuesta": "bendixen-2015",
+   "pregunta": "Do you think Cuba should have more political parties or is one political party enough?",
+   "resultado": "Más partidos 52 %; un partido basta 28 %; no sabe 20 %",
+   "propuestas": [
+    "pluripartidismo",
+    "legalizacion-organizaciones"
+   ],
+   "nota": ""
+  },
+  {
+   "encuesta": "ocdh-2026",
+   "pregunta": "¿Debería permitirse la educación y la salud privadas? (formulación según el OCDH)",
+   "resultado": "Pública y privada 66 %; solo pública 21 %; solo privada 6 %",
+   "propuestas": [
+    "salud-mixta",
+    "libertad-educativa"
+   ],
+   "nota": ""
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "¿Cuál de los siguientes enunciados se acerca más a tu visión sobre el modelo político de Cuba?",
+   "resultado": "En Cuba: Cuba necesita transitar hacia un modelo capitalista de democracia liberal y economía de mercado 76,8 %; Cuba necesita un sistema mixto que combine elementos socialistas y capitalistas 12,4 %; Cuba necesita un modelo de desarrollo capitalista con un gobierno fuerte y sin pluripartidismo 7,3 %; No tengo una posición definida al respecto 1,7 %; El socialismo es el modelo correcto pero necesita reformas profundas 1,6 %; El socialismo es el modelo adecuado para Cuba y debe mantenerse tal como está 0,3 %. Fuera de Cuba: Cuba necesita transitar hacia un modelo capitalista de democracia liberal y economía de mercado 84,6 %; Cuba necesita un sistema mixto que combine elementos socialistas y capitalistas 8,3 %; Cuba necesita un modelo de desarrollo capitalista con un gobierno fuerte y sin pluripartidismo 5,8 %; No tengo una posición definida al respecto 0,7 %; El socialismo es el modelo correcto pero necesita reformas profundas 0,5 %; El socialismo es el modelo adecuado para Cuba y debe mantenerse tal como está 0 %.",
+   "propuestas": [
+    "cambio-de-modelo",
+    "economia-social-mercado",
+    "socialismo-democratico",
+    "pluralidad-propiedad"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si Cuba tuviera un gobierno de transición, ¿cuál debería ser el papel de cubanos del exilio o cubanoamericanos en ese gobierno?",
+   "resultado": "En Cuba: Pueden participar en igualdad de condiciones 54 %; Deben tener un rol protagónico dada su experiencia en sistemas democráticos 25 %; Un papel menor o consultivo, sin ocupar cargos de dirección 8,2 %; No tengo una posición definida 6,8 %; Ninguno: el gobierno debe ser conducido exclusivamente por cubanos de la isla 6 %. Fuera de Cuba: Pueden participar en igualdad de condiciones 58,2 %; Deben tener un rol protagónico dada su experiencia en sistemas democráticos 30,3 %; Un papel menor o consultivo, sin ocupar cargos de dirección 5,7 %; No tengo una posición definida 3,3 %; Ninguno: el gobierno debe ser conducido exclusivamente por cubanos de la isla 2,6 %.",
+   "propuestas": [
+    "diaspora-derechos-plenos"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "¿Apoyas una política de apertura económica que permita a cubanos residentes en el exterior invertir y hacer negocios dentro de Cuba?",
+   "resultado": "En Cuba: Sí, pero solo si va acompañada de reformas políticas paralelas 48,3 %; No, porque perpetúa el poder económico del Partido Comunista 24,9 %; Sí, plenamente. Sería beneficioso para la economía cubana sin importar los cambios políticos 22,8 %; No tengo una posición definida 2,9 %; Solo en sectores específicos, con regulaciones claras del Estado 1,1 %. Fuera de Cuba: Sí, pero solo si va acompañada de reformas políticas paralelas 48,5 %; No, porque perpetúa el poder económico del Partido Comunista 39 %; Sí, plenamente. Sería beneficioso para la economía cubana sin importar los cambios políticos 10,6 %; No tengo una posición definida 1,4 %; Solo en sectores específicos, con regulaciones claras del Estado 0,6 %.",
+   "propuestas": [
+    "diaspora-en-la-economia",
+    "igualdad-economica-cubanos"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "¿Cuál es tu posición sobre el embargo/bloqueo de Estados Unidos a Cuba?",
+   "resultado": "En Cuba: Debe mantenerse como herramienta de presión para forzar cambios democráticos 43,8 %; Debe eliminarse de forma gradual a medida que Cuba avance en reformas 26,1 %; Debe eliminarse por completo e incondicionalmente 14,8 %; Debe intensificarse en áreas estratégicas como el sector energético 8,5 %; No tengo una posición definida 6,8 %. Fuera de Cuba: Debe mantenerse como herramienta de presión para forzar cambios democráticos 51,5 %; Debe eliminarse de forma gradual a medida que Cuba avance en reformas 21,3 %; Debe intensificarse en áreas estratégicas como el sector energético 13,2 %; Debe eliminarse por completo e incondicionalmente 9 %; No tengo una posición definida 5 %.",
+   "propuestas": [
+    "normalizacion-cuba-eeuu",
+    "presion-externa-sanciones"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "¿Cómo evaluarías un acuerdo de transición que evite el procesamiento judicial de figuras del Gobierno actual?",
+   "resultado": "En Cuba: Es inaceptable. Debe haber justicia y rendición de cuentas plena 58,8 %; Podría aceptarlo solo para delitos menores, pero no para violaciones graves de derechos humanos 20,9 %; Sería aceptable si eso garantiza una transición pacífica 15,7 %; No tengo una posición definida 4,5 %. Fuera de Cuba: Es inaceptable. Debe haber justicia y rendición de cuentas plena 61,2 %; Podría aceptarlo solo para delitos menores, pero no para violaciones graves de derechos humanos 25,8 %; Sería aceptable si eso garantiza una transición pacífica 11,5 %; No tengo una posición definida 1,5 %.",
+   "propuestas": [
+    "amnistia-reciproca",
+    "justicia-transicional",
+    "comision-verdad"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «El Partido Comunista único.»",
+   "resultado": "En Cuba: Eliminar 98,2 %; Mantener 1,8 %. Fuera de Cuba: Eliminar 99,3 %; Mantener 0,7 %.",
+   "propuestas": [
+    "fin-partido-unico-dirigente",
+    "pluripartidismo"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «El sistema empresarial de las Fuerzas Armadas.»",
+   "resultado": "En Cuba: Eliminar 97,6 %; Mantener 2,4 %. Fuera de Cuba: Eliminar 99,1 %; Mantener 0,9 %.",
+   "propuestas": [
+    "gaesa"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «Los medios de comunicación bajo control estatal.»",
+   "resultado": "En Cuba: Eliminar 97,8 %; Mantener 2,2 %. Fuera de Cuba: Eliminar 99,2 %; Mantener 0,8 %.",
+   "propuestas": [
+    "libertad-expresion"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «El aparato de Seguridad del Estado.»",
+   "resultado": "En Cuba: Eliminar 94,5 %; Mantener 5,5 %. Fuera de Cuba: Eliminar 97,6 %; Mantener 2,4 %.",
+   "propuestas": [
+    "fuerzas-seguridad-civiles"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «El sistema de salud y educación universales.»",
+   "resultado": "En Cuba: Mantener 74,6 %; Eliminar 25,4 %. Fuera de Cuba: Mantener 69,8 %; Eliminar 30,2 %.",
+   "propuestas": [
+    "salud-universal",
+    "educacion-de-calidad",
+    "bienestar-universal"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «El rol central del Estado en la economía y los servicios básicos.»",
+   "resultado": "En Cuba: Eliminar 91,4 %; Mantener 8,6 %. Fuera de Cuba: Eliminar 94,3 %; Mantener 5,7 %.",
+   "propuestas": [
+    "reducir-propiedad-estatal",
+    "fin-planificacion-central"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «La soberanía e independencia frente a potencias extranjeras.»",
+   "resultado": "En Cuba: Mantener 67,9 %; Eliminar 32,1 %. Fuera de Cuba: Mantener 67,6 %; Eliminar 32,4 %.",
+   "propuestas": [
+    "soberania-nacional"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «Subvenciones a programas sociales, culturales y deportivos.»",
+   "resultado": "En Cuba: Mantener 57,6 %; Eliminar 42,4 %. Fuera de Cuba: Mantener 57,2 %; Eliminar 42,8 %.",
+   "propuestas": [
+    "bienestar-universal",
+    "atencion-vulnerables"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  },
+  {
+   "encuesta": "eltoque-2026",
+   "pregunta": "Si hubiera una transición política en Cuba, ¿qué debería preservarse o eliminarse del sistema actual? Marca 'Mantener' o 'Eliminar' por elemento. «Las organizaciones políticas y de masas.»",
+   "resultado": "En Cuba: Eliminar 93,9 %; Mantener 6,1 %. Fuera de Cuba: Eliminar 95,4 %; Mantener 4,6 %.",
+   "propuestas": [
+    "sociedad-civil-fuerte"
+   ],
+   "nota": "Muestra por autoselección: refleja a quienes respondieron, no a toda la población."
+  }
+ ]
 }
