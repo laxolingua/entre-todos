@@ -4,6 +4,7 @@ import {
   propuestas, propPorId, cuestionesDe, catPorClave, docPorId, documentosDe, desdeAnio,
   autoriasCentrales, recortar, tonoCategoria, iconoCategoria, TIPOS_FUENTE,
 } from '../../lib/banco.js';
+import { DERECHOS } from '../../data/derechos.js';
 
 export function getStaticPaths() {
   return propuestas.map((c) => ({ params: { id: c.id }, props: { c } }));
@@ -43,7 +44,9 @@ const textoCompartir = `${c.titulo}. ${recortar(c.texto, 200)}`;
     <h1>{c.titulo}</h1>
     <p class="texto-consolidado">{c.texto}</p>
     <p class="discreto nota-redaccion">{desdeAnio(c) && <><strong>Propuesta documentada desde {desdeAnio(c)}.</strong> </>}Redacción de ENTRE TODOS a partir de {total} {total === 1 ? 'documento' : 'documentos'}, respetando su lenguaje. Cada documento enlaza a su original.</p>
-    <section id="valoracion" class="valoracion" data-propuesta={c.id} aria-label="Valorar esta propuesta"></section>
+    {DERECHOS.has(c.id)
+      ? <p class="marca-derecho"><strong>Derecho fundamental: no se somete a votación.</strong> Los derechos humanos y las garantías democráticas fundamentales se documentan, pero su existencia no se vota. Lo que sí puede debatirse es cómo garantizarlos. <a href="/metodo/">Ver el Método</a></p>
+      : <section id="valoracion" class="valoracion" data-propuesta={c.id} aria-label="Valorar esta propuesta"></section>}
     <div class="acciones">
       <a class="boton" href="#t-fuentes" data-abrir-fuentes><i class="fi fi-br-document" aria-hidden="true"></i>Ver fuentes y autores</a>
       <a class="boton" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} rel="noopener" target="_blank"><i class="fi fi-br-share" aria-hidden="true"></i>Facebook</a>

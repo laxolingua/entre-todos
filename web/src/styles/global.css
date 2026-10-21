@@ -340,6 +340,8 @@ a.etiqueta:hover { background: var(--marino); color: #fff; }
 .valoracion { margin-top: 18px; padding: 16px 18px; background: var(--superficie-2); border: 1px dashed var(--borde); }
 .valoracion:empty { display: none; }
 .valoracion p { margin: 6px 0 0; }
+.marca-derecho { margin-top: 18px; padding: 14px 18px; border-left: 4px solid var(--rojo, #b3261e); background: var(--superficie-2); }
+.marca-derecho strong { display: block; text-transform: uppercase; letter-spacing: .06em; font-size: .85em; margin-bottom: 4px; }
 /* Escala de acuerdo (sustituye a las estrellas): ver marca/identidad/componentes/EscalaAcuerdo */
 :root { --voto-1: #d7192d; --voto-2: #ec7c88; --voto-3: #9aa3b2; --voto-4: #5b6e95; --voto-5: #0b1d3f; --voto-1-suave: #f2b3ba; --voto-2-suave: #f9dde0; --voto-3-suave: #e6e9ef; --voto-4-suave: #cdd6e8; --voto-5-suave: #a9b8d6; }
 .escala { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 10px 14px 6px; max-width: 560px; }
