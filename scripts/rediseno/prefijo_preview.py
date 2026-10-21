@@ -10,6 +10,7 @@ def prefijar(s):
     s = re.sub(r'(url=)/(?!/|entre-todos-preview/)', r'\1' + P + '/', s)
     s = re.sub(r"(location\.(?:replace|assign)\(\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
     s = re.sub(r"(location\.href\s*=\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
+    s = re.sub(r"(import\(\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
     return s
 if not archivos:
     archivos = [os.path.relpath(os.path.join(d, f), pub) for d, dn, fs in os.walk(pub) if '.git' not in d.split(os.sep) for f in fs if f not in ('CNAME',)]
