@@ -1,0 +1,31 @@
+{
+ "nota": "Tipo de cada medio para la barra «Quién lo cuenta». independiente: medios cubanos no estatales con redacción en la isla; exilio: medios cubanos con sede fuera de Cuba; oficial: medios y publicaciones del Estado cubano; internacional: medios y agencias extranjeros.",
+ "medios": {
+  "Periódico Cubano": "exilio",
+  "Directorio Cubano": "exilio",
+  "Diario de Cuba": "exilio",
+  "14ymedio": "independiente",
+  "CiberCuba": "exilio",
+  "Cubanet": "exilio",
+  "elTOQUE": "independiente",
+  "El Estornudo": "independiente",
+  "Periodismo de Barrio": "independiente",
+  "OnCuba": "exilio",
+  "ICLEP": "independiente",
+  "La Hora de Cuba": "independiente",
+  "Martí Noticias": "internacional",
+  "Gaceta Oficial de la República de Cuba": "oficial",
+  "Granma": "oficial",
+  "Cubadebate": "oficial",
+  "Juventud Rebelde": "oficial",
+  "Prensa Latina": "oficial",
+  "Canal Caribe": "oficial",
+  "Infobae": "internacional",
+  "EFE": "internacional",
+  "Reuters": "internacional",
+  "AP": "internacional",
+  "El País": "internacional",
+  "BBC Mundo": "internacional",
+  "CNN en Español": "internacional"
+ }
+}

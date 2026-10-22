@@ -1,0 +1,90 @@
+---
+// Ficha de un hecho de Actualidad. Estructura: Lo esencial · Por qué importa · En el banco · Sondeo · Quién lo cuenta.
+import Base from '../../layouts/Base.astro';
+import Foto from '../../components/act/Foto.astro';
+import Barra from '../../components/act/Barra.astro';
+import { piezas, propPorId, catPorClave, TIPOS, tipoDe, iniciales, minutos, fechaLarga } from '../../lib/actualidad.js';
+
+export function getStaticPaths() {
+  return piezas.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const props = p.propuestas.filter((id) => propPorId[id]);
+const recorta = (t, n = 170) => (t.length > n ? t.slice(0, t.lastIndexOf(' ', n)) + '…' : t);
+const otras = piezas.filter((x) => x.id !== p.id).slice(0, 3);
+---
+<Base titulo={p.titular} seccion="otras" descripcion={p.resumen}>
+  <article class="act-ficha">
+    <Foto categoria={p.categoria} grande />
+    <div class="contenedor act-ficha-cuerpo">
+      <p class="act-volver"><a href="/actualidad/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i>Actualidad</a></p>
+      {p.puntoCiego && <span class="act-punto">Punto ciego · sin cobertura oficial</span>}
+      <h1>{p.titular}</h1>
+      <p class="act-meta"><span>{fechaLarga(p.fecha)} · {catPorClave[p.categoria]?.nombre}</span><span>{p.cobertura.length} fuentes · {minutos(p)} min</span></p>
+      <p class="act-entrada">{p.resumen}</p>
+
+      <section class="act-sec">
+        <h2>Lo esencial</h2>
+        <ul>
+          {p.esencial.map((e) => <li>{e.t}{e.f.map((m) => <span class="act-fuente">{m}</span>)}</li>)}
+        </ul>
+      </section>
+
+      <section class="act-sec">
+        <h2>Por qué importa</h2>
+        <p>{p.importa}</p>
+      </section>
+
+      {props.length > 0 && (
+        <section class="act-sec">
+          <h2>En el banco</h2>
+          <div class="act-props">
+            {props.map((id) => (
+              <a class="act-prop-ficha" href={`/propuesta/${id}/`}>
+                <b>{propPorId[id].titulo}</b>
+                <span>{recorta(propPorId[id].texto || '')}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {p.sondeo && (
+        <section class="act-sondeo">
+          <small>Sondeo en redes · {p.sondeo.codigo}</small>
+          <b>{p.sondeo.pregunta}</b>
+          {p.sondeo.enlace && <a href={p.sondeo.enlace} rel="noopener" target="_blank">Responder en {p.sondeo.red || 'Facebook'} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
+        </section>
+      )}
+
+      <section class="act-sec">
+        <h2>Quién lo cuenta</h2>
+        <Barra cobertura={p.cobertura} />
+        <div class="act-medios">
+          {p.cobertura.map((c) => {
+            const t = tipoDe(c.medio);
+            return (
+              <a class="act-medio" href={c.url} rel="noopener" target="_blank">
+                <span class="act-ini" style={`background:${TIPOS[t].color}`}>{iniciales(c.medio)}</span>
+                <span>{c.medio}<small>{TIPOS[t].nombre} · «{c.titulo}»</small></span>
+                <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            );
+          })}
+        </div>
+        {p.notaPuntoCiego && <p class="act-nota">{p.notaPuntoCiego}</p>}
+      </section>
+
+      <p class="act-nota">Resumen de ENTRE TODOS a partir de las fuentes enlazadas. Lo que no está en ellas no se afirma. Foto de ENTRE TODOS. ¿Algo está mal? Escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+
+      {otras.length > 0 && (
+        <section class="act-sec">
+          <h2>Más de esta semana</h2>
+          <ul class="act-otras">
+            {otras.map((x) => <li><a href={`/actualidad/${x.id}/`}>{x.titular}</a></li>)}
+          </ul>
+        </section>
+      )}
+    </div>
+  </article>
+</Base>

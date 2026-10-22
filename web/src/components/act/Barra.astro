@@ -1,0 +1,9 @@
+---
+import { reparto } from '../../lib/actualidad.js';
+const { cobertura } = Astro.props;
+const r = reparto(cobertura);
+const titulo = r.map((x) => `${x.nombre}: ${x.n}`).join(' · ');
+---
+<div class="act-barra" role="img" aria-label={`Cobertura por tipo de medio. ${titulo}`} title={titulo}>
+  {r.map((x) => <i style={`flex:${x.n};background:${x.color}`}></i>)}
+</div>

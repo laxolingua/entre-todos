@@ -1,0 +1,140 @@
+---
+// Actualidad: hechos de la semana sobre Cuba, resumidos con fuentes y enlazados al banco.
+// Datos: data/actualidad.json (piezas = fichas nuevas; noticias = archivo anterior). Tipos de medio: data/medios.json.
+// Pautas editoriales: docs/pautas-actualidad.md.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import Foto from '../../components/act/Foto.astro';
+import Barra from '../../components/act/Barra.astro';
+import { piezas, archivo, actualizado, propPorId, catPorClave, TIPOS, ORDEN_TIPOS, minutos, fechaLarga } from '../../lib/actualidad.js';
+
+const ciegas = piezas.filter((p) => p.puntoCiego);
+const temas = {};
+for (const x of [...piezas.map((p) => ({ ...p, ficha: true })), ...archivo]) (temas[x.categoria] ||= []).push(x);
+const ordenTemas = Object.keys(temas).sort((a, b) => (catPorClave[a]?.orden ?? 99) - (catPorClave[b]?.orden ?? 99));
+const dominio = (u) => new URL(u).hostname.replace(/^www\./, '');
+---
+<Base titulo="Actualidad" seccion="otras"
+  descripcion="Lo que pasa en Cuba y alrededor de Cuba que puede cambiarla, resumido con sus fuentes y enlazado a las propuestas del banco.">
+  <Banda imagen="/img/fotos/cat-economia.jpg" lateral={['Con fuentes', 'Quién lo cuenta', 'Enlazada al banco']}>
+    <span class="barra"></span>
+    <h1>Actualidad</h1>
+    <p class="lema">La semana de Cuba, hecho a hecho</p>
+    <p class="entradilla">Lo que pasa en Cuba y alrededor de Cuba que puede cambiarla. Cada hecho se resume con sus fuentes, se indica qué tipo de medios lo cuentan y se enlaza a las propuestas del banco que tratan el mismo tema.</p>
+  </Banda>
+
+  <div class="contenedor act">
+    <div class="act-pestanas" role="tablist" aria-label="Secciones de Actualidad">
+      <button role="tab" id="t-semana" aria-controls="p-semana" aria-selected="true">Esta semana</button>
+      <button role="tab" id="t-ciego" aria-controls="p-ciego" aria-selected="false">Punto ciego</button>
+      <button role="tab" id="t-tema" aria-controls="p-tema" aria-selected="false">Por tema</button>
+      <button role="tab" id="t-archivo" aria-controls="p-archivo" aria-selected="false">Archivo</button>
+    </div>
+
+    <div class="act-leyenda" aria-label="Leyenda de la barra de cobertura">
+      {ORDEN_TIPOS.map((t) => <span style={`--c:${TIPOS[t].color}`}>{TIPOS[t].nombre}</span>)}
+    </div>
+
+    <section id="p-semana" role="tabpanel" aria-labelledby="t-semana" class="act-panel">
+      {actualizado && <p class="discreto">Actualizado el {actualizado}.</p>}
+      <div class="act-rejilla">
+        {piezas.map((p) => (
+          <article class="act-tarjeta">
+            <Foto categoria={p.categoria} />
+            <div class="act-cuerpo">
+              {p.puntoCiego && <span class="act-punto">Punto ciego · sin cobertura oficial</span>}
+              <h2><a href={`/actualidad/${p.id}/`}>{p.titular}</a></h2>
+              <p class="act-res">{p.resumen}</p>
+              <Barra cobertura={p.cobertura} />
+              <p class="act-meta"><span>{p.cobertura.length} fuentes · {fechaLarga(p.fecha)}</span><span>{minutos(p)} min</span></p>
+              {p.propuestas.filter((id) => propPorId[id]).slice(0, 1).map((id) => (
+                <span class="act-chip"><i class="fi fi-br-bulb" aria-hidden="true"></i>En el banco: {propPorId[id].titulo}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="p-ciego" role="tabpanel" aria-labelledby="t-ciego" class="act-panel" hidden>
+      <p class="act-explica">Hechos que cuentan los medios independientes, del exilio o internacionales y que no hemos encontrado en la prensa oficial cubana. La ausencia se comprueba en la fecha indicada en cada ficha.</p>
+      {ciegas.length === 0 ? <p class="org-vacio">Esta semana no hay hechos en punto ciego.</p> : (
+        <div class="act-rejilla">
+          {ciegas.map((p) => (
+            <article class="act-tarjeta">
+              <Foto categoria={p.categoria} />
+              <div class="act-cuerpo">
+                <h2><a href={`/actualidad/${p.id}/`}>{p.titular}</a></h2>
+                <p class="act-res">{p.resumen}</p>
+                <Barra cobertura={p.cobertura} />
+                <p class="act-meta"><span>{p.cobertura.length} fuentes · {fechaLarga(p.fecha)}</span><span>{minutos(p)} min</span></p>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <section id="p-tema" role="tabpanel" aria-labelledby="t-tema" class="act-panel" hidden>
+      {ordenTemas.map((c) => (
+        <div class="act-tema">
+          <h2>{catPorClave[c]?.nombre || c}</h2>
+          <ul>
+            {temas[c].map((x) => (
+              <li>
+                {x.ficha
+                  ? <a href={`/actualidad/${x.id}/`}>{x.titular}</a>
+                  : <a href={x.enlace} rel="noopener" target="_blank">{x.titular} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
+                <small>{fechaLarga(x.fecha)}{x.medio ? ` · ${x.medio}` : ` · ${x.cobertura.length} fuentes`}</small>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section id="p-archivo" role="tabpanel" aria-labelledby="t-archivo" class="act-panel" hidden>
+      <p class="act-explica">Noticias recogidas antes del formato actual: titular propio, enlace a la fuente original y propuestas relacionadas.</p>
+      <ul class="lista">
+        {archivo.map((x) => (
+          <li class="tarjeta consolidada">
+            <p class="autoria"><i class="fi fi-br-clock" aria-hidden="true"></i>{x.fecha} · {x.medio}</p>
+            <h3><a href={x.enlace} rel="noopener" target="_blank">{x.titular}</a></h3>
+            <div class="etiquetas">
+              <a class="etiqueta" href={x.enlace} rel="noopener" target="_blank">Fuente: {dominio(x.enlace)} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              {(x.propuestas || []).filter((id) => propPorId[id]).map((id) => <a class="etiqueta alterna act-prop" href={`/propuesta/${id}/`}><i class="fi fi-br-bulb" aria-hidden="true"></i>En el banco: {propPorId[id].titulo}</a>)}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion org-nota">
+      <h2>Cómo se elabora</h2>
+      <p>Se eligen cada semana entre tres y cinco hechos verificables sobre lo que puede cambiar en Cuba: leyes, medidas, derechos, economía, sociedad civil y la relación de Cuba con el mundo. Cada resumen se escribe a partir de las fuentes enlazadas y no afirma nada que no esté en ellas. La barra muestra qué tipo de medios cuentan el hecho, y «Punto ciego» marca los que la prensa oficial no recoge. Las fotos son de ENTRE TODOS, no de los medios citados. Las correcciones se pueden enviar a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+    </section>
+    <div class="acciones"><a class="boton rojo" href="/propuestas/">Ver el banco de propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</Base>
+
+<script>
+  const tabs = [...document.querySelectorAll('.act-pestanas [role="tab"]')];
+  const abrir = (t) => {
+    tabs.forEach((x) => {
+      const on = x === t;
+      x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => { abrir(t); history.replaceState(null, '', '#' + t.id.slice(2)); });
+    t.addEventListener('keydown', (e) => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); abrir(n); }
+    });
+  });
+  const h = location.hash.slice(1);
+  const ini = tabs.find((t) => t.id === 't-' + h);
+  if (ini) abrir(ini);
+</script>

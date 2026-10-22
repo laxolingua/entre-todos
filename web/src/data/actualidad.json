@@ -1,5 +1,5 @@
 {
- "actualizado": "17 de octubre de 2026",
+ "actualizado": "22 de octubre de 2026",
  "nota": "Muestra de Instinct (semana del 11 al 17 de octubre), revisada por Claude.",
  "noticias": [
   {
@@ -113,6 +113,142 @@
     "energia",
     "economia-abierta"
    ]
+  }
+ ],
+ "piezas": [
+  {
+   "id": "ley-vivienda-187",
+   "fecha": "21/10/2026",
+   "categoria": "vivienda",
+   "titular": "Entra en vigor la nueva Ley de Vivienda: hasta dos casas por persona y fin de la confiscación por emigrar",
+   "resumen": "La Ley 187 sustituye a la de 1988. Emigrar ya no basta para perder la vivienda, pero el propietario que vive fuera debe nombrar un representante.",
+   "esencial": [
+    {
+     "t": "La Ley 187 de 2026 se publicó en la Gaceta Oficial número 86 el 14 de octubre, rige desde el 21 y sustituye a la ley general de la vivienda de 1988.",
+     "f": [
+      "Periódico Cubano",
+      "Directorio Cubano"
+     ]
+    },
+    {
+     "t": "Una persona puede tener hasta dos viviendas, además de una de descanso que figure así en el título. Si tiene más, el municipio puede quitarle la última adquirida.",
+     "f": [
+      "Periódico Cubano"
+     ]
+    },
+    {
+     "t": "Emigrar ya no es causa para perder la casa. El propietario que vive fuera debe nombrar un representante y seguir pagando sus tributos; si la vivienda llega a estar en ruina por abandono, el municipio puede pedir a un tribunal que la retire.",
+     "f": [
+      "Directorio Cubano"
+     ]
+    },
+    {
+     "t": "Las compraventas se hacen ante notario, sin dinero en efectivo y con el vendedor al día en impuestos. Pueden participar cooperativas, mipymes y empresas privadas en la construcción.",
+     "f": [
+      "Periódico Cubano"
+     ]
+    },
+    {
+     "t": "La ley no devuelve las viviendas confiscadas antes a quienes emigraron.",
+     "f": [
+      "Directorio Cubano"
+     ]
+    },
+    {
+     "t": "Diario de Cuba critica que la Dirección Municipal de la Vivienda conserva amplios poderes y que la ley no resuelve un déficit de más de 900.000 viviendas.",
+     "f": [
+      "Diario de Cuba"
+     ]
+    }
+   ],
+   "importa": "Decide quién puede tener una casa, cuántas y qué pasa con las de quienes viven fuera, en un país con un gran déficit de viviendas.",
+   "propuestas": [
+    "vivienda",
+    "reclamaciones-propiedad",
+    "diaspora-derechos-plenos"
+   ],
+   "cobertura": [
+    {
+     "medio": "Periódico Cubano",
+     "titulo": "Publican la nueva Ley de la Vivienda de Cuba: un resumen de sus principales puntos",
+     "url": "https://www.periodicocubano.com/publican-la-nueva-ley-de-la-vivienda-de-cuba-un-resumen-de-sus-principales-puntos/"
+    },
+    {
+     "medio": "Directorio Cubano",
+     "titulo": "Entra en vigor la Ley de Vivienda en Cuba: cambios para propietarios y emigrados",
+     "url": "https://www.directoriocubano.info/vivienda/ley-vivienda-cuba-entra-vigor-2026-actualizacion-20261021/"
+    },
+    {
+     "medio": "Diario de Cuba",
+     "titulo": "Entra en vigor la nueva Ley de Vivienda de Cuba, que no resuelve los problemas habitacionales",
+     "url": "https://diariodecuba.com/cuba/1792015289_69396.html"
+    },
+    {
+     "medio": "Gaceta Oficial de la República de Cuba",
+     "titulo": "Gaceta Oficial número 86 de 2026",
+     "url": "https://www.gacetaoficial.gob.cu/"
+    }
+   ],
+   "puntoCiego": false
+  },
+  {
+   "id": "ocle-septiembre-2026",
+   "fecha": "20/10/2026",
+   "categoria": "derechos",
+   "titular": "134 violaciones a la libertad de expresión y de prensa en septiembre, un 57,6 % más que hace un año",
+   "resumen": "Informe mensual del Observatorio Cubano de Libertad de Expresión. Los periodistas independientes y los presos políticos son los grupos más afectados.",
+   "esencial": [
+    {
+     "t": "El Observatorio Cubano de Libertad de Expresión, del Instituto Cubano por la Libertad de Expresión y Prensa (ICLEP), registró 134 violaciones en septiembre de 2026: un 8,9 % más que en agosto y un 57,6 % más que en septiembre de 2025.",
+     "f": [
+      "Infobae"
+     ]
+    },
+    {
+     "t": "Los abusos de poder (vías administrativas, migratorias, judiciales o penitenciarias usadas para censurar o impedir viajar) sumaron 49 casos, y las agresiones, amenazas y presiones psicológicas, 48. Hubo además 26 detenciones arbitrarias y 7 agresiones físicas, cuatro de ellas en prisiones.",
+     "f": [
+      "Infobae"
+     ]
+    },
+    {
+     "t": "Los periodistas independientes fueron las víctimas más frecuentes (30 incidentes), seguidos de los presos políticos (29). La Habana concentró el 59,4 % de los incidentes.",
+     "f": [
+      "Infobae"
+     ]
+    },
+    {
+     "t": "El informe atribuye 91 incidentes al Ministerio del Interior, entre ellos 51 a la Seguridad del Estado, y 21 al sistema judicial.",
+     "f": [
+      "Infobae"
+     ]
+    },
+    {
+     "t": "Entre los casos citados está el de Henry Constantín, director de La Hora de Cuba, detenido el 16 de septiembre en Camagüey y enviado a prisión provisional por un presunto delito de desobediencia.",
+     "f": [
+      "Infobae"
+     ]
+    }
+   ],
+   "importa": "Mide cada mes cuánto espacio queda para informar y opinar en Cuba, y quién lo restringe.",
+   "propuestas": [
+    "libertad-expresion",
+    "despenalizacion-disenso",
+    "presos-politicos"
+   ],
+   "cobertura": [
+    {
+     "medio": "Infobae",
+     "titulo": "Cuba registra 134 violaciones a la libertad de expresión y prensa en septiembre, un 57,6 % más que en 2025",
+     "url": "https://www.infobae.com/cuba/2026/10/22/cuba-registra-134-violaciones-a-la-libertad-de-expresion-y-prensa-en-septiembre-un-576-mas-que-en-2025/"
+    },
+    {
+     "medio": "ICLEP",
+     "titulo": "Informes mensuales del Observatorio Cubano de Libertad de Expresión",
+     "url": "https://iclep.org/"
+    }
+   ],
+   "puntoCiego": true,
+   "notaPuntoCiego": "No encontramos esta noticia en la prensa oficial cubana (búsqueda del 22 de octubre de 2026)."
   }
  ]
 }

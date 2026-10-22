@@ -1,0 +1,9 @@
+---
+import { foto, catPorClave } from '../../lib/actualidad.js';
+const { categoria, grande = false } = Astro.props;
+---
+<div class:list={['act-foto', { grande }]} style={`background-image:url(${foto(categoria)})`} aria-hidden="true">
+  <span class="act-cat">{catPorClave[categoria]?.nombre || 'Actualidad'}</span>
+  <span class="act-diag"></span>
+  <span class="act-marca">ENTRE<br />TODOS</span>
+</div>
