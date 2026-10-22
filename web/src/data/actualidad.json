@@ -249,6 +249,153 @@
    ],
    "puntoCiego": true,
    "notaPuntoCiego": "No encontramos esta noticia en la prensa oficial cubana (búsqueda del 22 de octubre de 2026)."
+  },
+  {
+   "id": "apagon-record-octubre-2026",
+   "fecha": "16/10/2026",
+   "categoria": "reconstruccion",
+   "titular": "Un incendio en la termoeléctrica de Santa Cruz deja al 75,5 % de Cuba sin luz en el horario pico, el peor registro oficial",
+   "resumen": "El fuego sacó de servicio una unidad de la central Ernesto Guevara. Días después, el déficit de generación sigue cerca de 2.000 megavatios cada noche.",
+   "esencial": [
+    {
+     "t": "El 16 de octubre, a las 6:55, se declaró un incendio en la unidad 1 de la termoeléctrica Ernesto Guevara, en Santa Cruz del Norte (Mayabeque). Se controló sin heridos y la unidad salió del sistema.",
+     "f": [
+      "Infobae",
+      "EFE"
+     ]
+    },
+    {
+     "t": "Ese día había unos 740 MW disponibles para una demanda máxima prevista de 2.900 MW. La Unión Eléctrica anunció cortes de 2.190 MW, el 75,5 % del país en el horario pico. El récord anterior era del 74 %, el 29 de julio.",
+     "f": [
+      "EFE",
+      "Infobae"
+     ]
+    },
+    {
+     "t": "Las termoeléctricas producen cerca del 40 % de la electricidad de Cuba y la mayoría se construyó en los años 60 y 70. Ese día estaban fuera de servicio 8 de las 16 unidades según EFE, y 9 según Infobae.",
+     "f": [
+      "EFE",
+      "Infobae"
+     ]
+    },
+    {
+     "t": "Para el miércoles 21 de octubre la Unión Eléctrica previó una demanda de 2.950 MW, una disponibilidad de 1.017 MW y una afectación de 1.963 MW en el horario pico. Seguían averiadas unidades en Mariel, Santa Cruz, Felton y Renté.",
+     "f": [
+      "Directorio Cubano",
+      "Cubadebate"
+     ]
+    },
+    {
+     "t": "Los parques solares produjeron el 20 de octubre 3.752 MWh, con un máximo de 591 MW al mediodía.",
+     "f": [
+      "Directorio Cubano"
+     ]
+    },
+    {
+     "t": "En lo que va de año hubo ocho apagones generales y ocho parciales. Hay cortes de más de 20 horas seguidas. EFE atribuye el empeoramiento desde enero al bloqueo petrolero de Estados Unidos, además de una red obsoleta y falta de inversión.",
+     "f": [
+      "EFE",
+      "Infobae"
+     ]
+    }
+   ],
+   "importa": "Sin electricidad fallan el agua, la cocina, la conservación de alimentos, los hospitales y las comunicaciones de todo el país.",
+   "propuestas": [
+    "energia",
+    "matriz-energetica-renovable",
+    "plan-de-emergencia",
+    "subsidios"
+   ],
+   "cobertura": [
+    {
+     "medio": "Infobae",
+     "titulo": "Crisis en Cuba: el dólar tocó un nuevo máximo y un incendio en una central eléctrica dejó al 75 % de la isla sin luz",
+     "url": "https://www.infobae.com/cuba/2026/10/17/crisis-en-cuba-el-dolar-toco-un-nuevo-maximo-y-un-incendio-en-una-central-electrica-dejo-al-75-de-la-isla-sin-luz/"
+    },
+    {
+     "medio": "EFE",
+     "titulo": "Cuba reporta un incendio en una termoeléctrica y marca un nuevo récord de apagones",
+     "url": "https://noticiassin.com/mundo/cuba/2026/10/16/cuba-reporta-un-incendio-en-una-termoelectrica-y-marca-un-nuevo-record-de-apagones-2145427"
+    },
+    {
+     "medio": "Directorio Cubano",
+     "titulo": "Apagones en Cuba: prevén 1963 MW de afectación en el horario pico",
+     "url": "https://www.directoriocubano.info/noticias/apagones-cuba-21-octubre-2026-actualizacion-20261021/"
+    },
+    {
+     "medio": "Cubadebate",
+     "titulo": "Unión Eléctrica prevé afectaciones de 1 963 MW en el horario pico de este miércoles",
+     "url": "http://www.cubadebate.cu/noticias/2026/10/21/deficit-de-generacion-electrica-alcanzara-los-1-933-mw-en-el-horario-pico-de-este-miercoles/"
+    }
+   ],
+   "puntoCiego": false
+  },
+  {
+   "id": "onu-embargo-acto-eeuu-2026",
+   "fecha": "19/10/2026",
+   "categoria": "transicion",
+   "titular": "Estados Unidos reúne a expresos políticos cubanos en la ONU antes de la votación sobre el embargo del 27 y 28 de octubre",
+   "resumen": "José Daniel Ferrer y Luis Manuel Otero Alcántara hablaron en un acto de la misión estadounidense. Diplomáticos cubanos protestaron en la sala.",
+   "esencial": [
+    {
+     "t": "El 19 de octubre la misión de Estados Unidos ante la ONU, encabezada por el embajador Mike Waltz, organizó en Nueva York el acto «Cuba Libre: la opresión que La Habana oculta», sobre presos políticos, misiones médicas y corrupción.",
+     "f": [
+      "Periódico Cubano",
+      "AP"
+     ]
+    },
+    {
+     "t": "Hablaron los expresos políticos José Daniel Ferrer y Luis Manuel Otero Alcántara, ambos en el exilio, la investigadora María Werlau y el economista Emilio Morales, entre otros.",
+     "f": [
+      "CiberCuba"
+     ]
+    },
+    {
+     "t": "Waltz pidió a los países votar en contra de la resolución cubana o abstenerse. El embajador cubano, Ernesto Soberón Guzmán, calificó el acto de maniobra política y dijo que Estados Unidos actúa «como un delincuente internacional».",
+     "f": [
+      "AP",
+      "Periódico Cubano"
+     ]
+    },
+    {
+     "t": "Diplomáticos cubanos gritaron «terroristas» y «mentirosos» a los panelistas, según un video que difundió Waltz. Ferrer lo llamó un acto de repudio.",
+     "f": [
+      "CiberCuba"
+     ]
+    },
+    {
+     "t": "La Asamblea General vota la resolución contra el embargo el 27 y 28 de octubre. En 2025 obtuvo 165 votos a favor, 7 en contra y 12 abstenciones; en 2024, 187 a favor. Las resoluciones no son vinculantes.",
+     "f": [
+      "AP",
+      "Periódico Cubano"
+     ]
+    }
+   ],
+   "importa": "El resultado mide el apoyo internacional al embargo y a la presión sobre el Gobierno cubano, dos temas en los que las propuestas del banco no coinciden.",
+   "propuestas": [
+    "normalizacion-cuba-eeuu",
+    "presion-externa-sanciones",
+    "apertura-acordada",
+    "presos-politicos"
+   ],
+   "cobertura": [
+    {
+     "medio": "AP",
+     "titulo": "EE.UU. y Cuba chocan en la ONU mientras Washington intenta influir en voto sobre embargo económico",
+     "url": "https://www.elnuevodia.com/noticias/mundo/notas/eeuu-y-cuba-chocan-en-la-onu-mientras-washington-intenta-influir-en-voto-sobre-embargo-economico/"
+    },
+    {
+     "medio": "Periódico Cubano",
+     "titulo": "EEUU organiza acto contra el régimen cubano en la ONU antes de la votación sobre el embargo",
+     "url": "https://www.periodicocubano.com/eeuu-organiza-acto-contra-el-regimen-cubano-en-la-onu-antes-de-la-votacion-sobre-el-embargo/"
+    },
+    {
+     "medio": "CiberCuba",
+     "titulo": "EE.UU. denuncia el acto de repudio del régimen cubano en la ONU contra opositores",
+     "url": "https://www.cibercuba.com/noticias/2026-10-21-u1-e209399-s27061-nid343420-eeuu-denuncia-acto-repudio-regimen-cubano-onu-contra"
+    }
+   ],
+   "puntoCiego": false
   }
  ]
 }

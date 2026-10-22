@@ -6,6 +6,7 @@ import { cursos } from '../data/academia.js';
 import { entradas } from '../data/academia-entradas.js';
 import publico from '../data/publico.json';
 import actualidad from '../data/actualidad.json';
+import { piezas } from '../lib/actualidad.js';
 const pub = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
   c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({
     q: entradas[l.id].gancho.q, o: entradas[l.id].gancho.o, e: entradas[l.id].entradilla,
@@ -14,8 +15,8 @@ const pub = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
 const ultima = pub[pub.length - 1];
 const preguntas = pub.length > 1 ? pub.slice(0, -1) : pub;
 const props = publico.propuestas.map((p) => ({ id: p.id, t: p.titulo, x: (p.texto || '').slice(0, 220), c: p.categoria }));
-const noticias = actualidad.noticias.slice(0, 3);
-const fechaAct = actualidad.noticias[0]?.fecha || '';
+const noticias = piezas.slice(0, 3);
+const fechaAct = piezas[0]?.fecha || '';
 const datos = JSON.stringify({ preguntas, props });
 const P = [
   { k: 'pregunta', n: '01', nombre: 'Pregunta del día', foto: preguntas[0]?.foto },
@@ -73,8 +74,8 @@ const P = [
         <div class="hoy-cuerpo">
           <span class="hoy-n">04</span>
           <p class="hoy-cat">Actualidad · {actualidad.actualizado}</p>
-          {noticias.length ? <ul class="hoy-noticias">{noticias.map((x) => <li><a href={x.enlace} rel="noopener" target="_blank">{x.titular}</a> <span class="discreto">{x.medio}</span></li>)}</ul> : <p class="hoy-txt">En preparación.</p>}
-          <a class="enlace-flecha" href="/actualidad/">Todas las noticias de la semana <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          {noticias.length ? <ul class="hoy-noticias">{noticias.map((x) => <li><a href={`/actualidad/${x.id}/`}>{x.titular}</a> <span class="discreto">{x.cobertura.length} fuentes</span></li>)}</ul> : <p class="hoy-txt">En preparación.</p>}
+          <a class="enlace-flecha" href="/actualidad/">Toda la actualidad de la semana <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
