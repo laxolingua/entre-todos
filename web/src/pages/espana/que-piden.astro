@@ -1,0 +1,45 @@
+---
+// Qué piden los españoles, según las encuestas del CIS. Cifras verificadas el 24/10/2026; cada estudio por separado.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import datos from '../../data/espana.json';
+const { problemas, vivienda, democracia } = datos.piden;
+---
+<Base titulo="Qué piden los españoles" seccion="piden-es" pais="es" ancho
+  descripcion="Qué problemas preocupan más en España, qué medidas de vivienda tienen más apoyo y qué opina la ciudadanía sobre la participación, según las encuestas del CIS.">
+  <Banda imagen="/img/fotos/espana-sobre.jpg" lateral={['Problemas', 'Medidas', 'Participación', 'Fuente']}>
+    <span class="barra"></span>
+    <h1>Qué piden<br />los españoles</h1>
+    <p class="entradilla">Lo que dicen las encuestas del Centro de Investigaciones Sociológicas (CIS) sobre los problemas, las soluciones y la participación. Cada estudio se presenta por separado y con su ficha.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion" aria-labelledby="t-problemas">
+      <h2 class="vista-titulo" id="t-problemas">Qué problemas preocupan</h2>
+      <div class="piden-dos">
+        <div>
+          <h3 class="sub-es">Principales problemas de España</h3>
+          <ul class="barras-es">{problemas.pais.map((p) => <li><span>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
+        </div>
+        <div>
+          <h3 class="sub-es">Los que más afectan personalmente</h3>
+          <ul class="barras-es">{problemas.personal.map((p) => <li><span>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
+        </div>
+      </div>
+      <p class="ficha-es">Cada persona podía citar hasta tres problemas, por eso los porcentajes no suman 100. Son preocupaciones mencionadas espontáneamente, no apoyo a medidas. {problemas.estudio}; campo: {problemas.campo}; {problemas.muestra}. <a href={problemas.fuente} rel="noopener" target="_blank">Fuente</a></p>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-vivienda">
+      <h2 class="vista-titulo" id="t-vivienda">Vivienda: qué medidas se apoyan</h2>
+      <p>Porcentaje de personas a favor de cada medida.</p>
+      <ul class="barras-es anchas">{vivienda.medidas.map((m) => <li><span>{m[0]}</span><span class="barra-es"><span style={`width:${parseFloat(m[1].replace(',', '.'))}%`}></span></span><strong>{m[1]} %</strong></li>)}</ul>
+      <p class="ficha-es">El resultado depende de cómo se formula cada pregunta. {vivienda.estudio}; campo: {vivienda.campo}; {vivienda.muestra}; publicado el {vivienda.publicado}. <a href={vivienda.fuente} rel="noopener" target="_blank">Fuente</a></p>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-democracia">
+      <h2 class="vista-titulo" id="t-democracia">Participación y calidad de la democracia</h2>
+      <ul class="cifras-es">{democracia.datos.map((x) => <li><strong>{x[0]} %</strong><span>{x[1]}</span></li>)}</ul>
+      <p>Las cifras muestran a la vez una demanda amplia de más participación y un apoyo mayoritario a la democracia y a los partidos. No indican cuántas personas apoyarían un mecanismo concreto de participación.</p>
+      <p class="ficha-es">{democracia.estudio}; campo: {democracia.campo}; {democracia.muestra}; publicado el {democracia.publicado}. <a href={democracia.fuente} rel="noopener" target="_blank">Nota del CIS</a> · <a href={democracia.fuente2} rel="noopener" target="_blank">Dato de participación</a></p>
+    </section>
+  </div>
+</Base>

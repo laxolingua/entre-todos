@@ -1,0 +1,48 @@
+---
+// Propuestas de los partidos (España). Estado de los programas y, cuando se publiquen, propuestas por tema con cita y enlace.
+// Orden alfabético de partidos: criterio neutro. Relación provisional hasta la proclamación del 2/11 (BOE del 3/11).
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import datos from '../../data/espana.json';
+---
+<Base titulo="Propuestas de los partidos" seccion="propuestas-es" pais="es" ancho
+  descripcion="Elecciones generales del 29 de noviembre: estado de los programas electorales de cada partido y sus propuestas por tema, con enlace a la fuente oficial.">
+  <Banda imagen="/img/fotos/espana.jpg" lateral={['Programa', 'Tema', 'Cita', 'Fuente']}>
+    <span class="barra"></span>
+    <h1>Propuestas de<br />los partidos</h1>
+    <p class="entradilla">Lo que cada partido propone, en sus propios documentos oficiales, ordenado por tema y con el enlace a la página donde aparece.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <p class="cmp-aviso">A 24 de octubre ningún partido ha publicado su programa electoral completo. Esta página se actualiza a medida que cada uno lo publique. La lista de partidos es provisional hasta la proclamación de candidaturas del 2 de noviembre. Los partidos aparecen en orden alfabético.</p>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-estado">
+      <h2 class="vista-titulo" id="t-estado">Estado de los programas</h2>
+      <ul class="partidos-es">
+        {datos.partidos.map((p) => (
+          <li class={p.documento ? 'con-doc' : ''}>
+            <h3>{p.nombre}</h3>
+            {p.nota && <p class="discreto">{p.nota}</p>}
+            <p class="estado"><i class="fi fi-br-hourglass-end" aria-hidden="true"></i> Programa electoral: aún no publicado</p>
+            {p.documento && (
+              <details class="doc-es">
+                <summary>Documento publicado: «{p.documento.titulo}» ({p.documento.fecha})</summary>
+                <p class="discreto">{p.documento.aviso} Resumen de cada compromiso:</p>
+                <ol>{p.documento.compromisos.map((c) => <li><strong>{c[0]}.</strong> {c[1]}</li>)}</ol>
+                <a class="enlace-flecha" href={p.documento.url} rel="noopener" target="_blank">Documento original <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              </details>
+            )}
+            <a class="enlace-flecha" href={p.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-temas">
+      <h2 class="vista-titulo" id="t-temas">Temas que se compararán</h2>
+      <p>Cuando haya programas publicados, cada tema mostrará lo que propone cada partido, lado a lado y con la cita del programa. Si un partido no dice nada sobre un tema, se indicará así.</p>
+      <ul class="temas-es">{datos.temas.map((t) => <li>{t}</li>)}</ul>
+    </section>
+  </div>
+</Base>

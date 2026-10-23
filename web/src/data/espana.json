@@ -1,30 +1,436 @@
 {
-  "_nota": "Datos del 061 IN (Nico), revisados por Claude el 24/10/2026. Cada encuesta por separado; nunca se suman ni se promedian.",
-  "encuestas": [
-    {
-      "empresa": "IMOP Insights", "medio": "El Confidencial", "publicada": "23 de octubre",
-      "campo": "13 al 16 de octubre", "muestra": "1.000 entrevistas",
-      "fuente": "https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/",
-      "resultados": [["PP", "28,5", "123"], ["PSOE", "27,1", "113"], ["Vox", "20,0", "72"], ["Frente Amplio", "8,9", "14"], ["ERC", "2,2", "8"], ["Podemos", "1,9", "1"], ["SALF", "1,2", ""]]
-    },
-    {
-      "empresa": "Sigma Dos", "medio": "El Mundo", "publicada": "19 de octubre",
-      "campo": "1 al 14 de octubre", "muestra": "3.007 entrevistas (teléfono e internet)",
-      "fuente": "https://www.sigmados.com/noticia?id=EIJOKGN2GFZmhHt",
-      "resultados": [["PP", "31,5", "132-137"], ["PSOE", "25,3", "101-106"], ["Vox", "19,5", "65-68"], ["Frente Amplio", "7,2", "9-10"], ["Podemos", "2,8", "1"]]
-    },
-    {
-      "empresa": "CIS", "medio": "Barómetro de octubre (estudio 3582)", "publicada": "14 de octubre",
-      "campo": "1 al 6 de octubre", "muestra": "5.024 entrevistas, error ±1,4",
-      "fuente": "https://www.cis.es/es/estudios/barometro-de-octubre-2026",
-      "metodo": "Modelo de estimación propio del CIS, sin ponderar por recuerdo de voto. No estima escaños.",
-      "resultados": [["PSOE", "34,0", ""], ["PP", "22,2", ""], ["Vox", "17,1", ""], ["Sumar / Frente Amplio", "6,1", ""], ["Podemos", "3,1", ""], ["ERC", "3,0", ""], ["SALF", "1,8", ""], ["EH Bildu", "1,6", ""], ["Junts", "1,1", ""], ["BNG", "0,9", ""], ["PNV", "0,6", ""], ["CC", "0,2", ""], ["UPN", "0,1", ""]]
-    },
-    {
-      "empresa": "GAD3", "medio": "ABC", "publicada": "12 de octubre",
-      "campo": "6 al 8 de octubre", "muestra": "1.077 entrevistas telefónicas, error ±3,1",
-      "fuente": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-octubre-2026/",
-      "resultados": [["PP", "31,4", "133"], ["PSOE", "26,4", "107"], ["Vox", "18,2", "65"], ["Sumar", "7,4", "10"]]
-    }
-  ]
+ "_nota": "Datos del 061 IN (Nico), revisados por Claude el 24/10/2026. Cada encuesta por separado; nunca se suman ni se promedian.",
+ "encuestas": [
+  {
+   "empresa": "IMOP Insights",
+   "medio": "El Confidencial",
+   "publicada": "23 de octubre",
+   "campo": "13 al 16 de octubre",
+   "muestra": "1.000 entrevistas",
+   "fuente": "https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/",
+   "resultados": [
+    [
+     "PP",
+     "28,5",
+     "123"
+    ],
+    [
+     "PSOE",
+     "27,1",
+     "113"
+    ],
+    [
+     "Vox",
+     "20,0",
+     "72"
+    ],
+    [
+     "Frente Amplio",
+     "8,9",
+     "14"
+    ],
+    [
+     "ERC",
+     "2,2",
+     "8"
+    ],
+    [
+     "Podemos",
+     "1,9",
+     "1"
+    ],
+    [
+     "SALF",
+     "1,2",
+     ""
+    ]
+   ]
+  },
+  {
+   "empresa": "Sigma Dos",
+   "medio": "El Mundo",
+   "publicada": "19 de octubre",
+   "campo": "1 al 14 de octubre",
+   "muestra": "3.007 entrevistas (teléfono e internet)",
+   "fuente": "https://www.sigmados.com/noticia?id=EIJOKGN2GFZmhHt",
+   "resultados": [
+    [
+     "PP",
+     "31,5",
+     "132-137"
+    ],
+    [
+     "PSOE",
+     "25,3",
+     "101-106"
+    ],
+    [
+     "Vox",
+     "19,5",
+     "65-68"
+    ],
+    [
+     "Frente Amplio",
+     "7,2",
+     "9-10"
+    ],
+    [
+     "Podemos",
+     "2,8",
+     "1"
+    ]
+   ]
+  },
+  {
+   "empresa": "CIS",
+   "medio": "Barómetro de octubre (estudio 3582)",
+   "publicada": "14 de octubre",
+   "campo": "1 al 6 de octubre",
+   "muestra": "5.024 entrevistas, error ±1,4",
+   "fuente": "https://www.cis.es/es/estudios/barometro-de-octubre-2026",
+   "metodo": "Modelo de estimación propio del CIS, sin ponderar por recuerdo de voto. No estima escaños.",
+   "resultados": [
+    [
+     "PSOE",
+     "34,0",
+     ""
+    ],
+    [
+     "PP",
+     "22,2",
+     ""
+    ],
+    [
+     "Vox",
+     "17,1",
+     ""
+    ],
+    [
+     "Sumar / Frente Amplio",
+     "6,1",
+     ""
+    ],
+    [
+     "Podemos",
+     "3,1",
+     ""
+    ],
+    [
+     "ERC",
+     "3,0",
+     ""
+    ],
+    [
+     "SALF",
+     "1,8",
+     ""
+    ],
+    [
+     "EH Bildu",
+     "1,6",
+     ""
+    ],
+    [
+     "Junts",
+     "1,1",
+     ""
+    ],
+    [
+     "BNG",
+     "0,9",
+     ""
+    ],
+    [
+     "PNV",
+     "0,6",
+     ""
+    ],
+    [
+     "CC",
+     "0,2",
+     ""
+    ],
+    [
+     "UPN",
+     "0,1",
+     ""
+    ]
+   ]
+  },
+  {
+   "empresa": "GAD3",
+   "medio": "ABC",
+   "publicada": "12 de octubre",
+   "campo": "6 al 8 de octubre",
+   "muestra": "1.077 entrevistas telefónicas, error ±3,1",
+   "fuente": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-octubre-2026/",
+   "resultados": [
+    [
+     "PP",
+     "31,4",
+     "133"
+    ],
+    [
+     "PSOE",
+     "26,4",
+     "107"
+    ],
+    [
+     "Vox",
+     "18,2",
+     "65"
+    ],
+    [
+     "Sumar",
+     "7,4",
+     "10"
+    ]
+   ]
+  }
+ ],
+ "partidos": [
+  {
+   "nombre": "BNG",
+   "web": "https://www.bng.gal"
+  },
+  {
+   "nombre": "Coalición Canaria",
+   "web": "https://coalicioncanaria.org"
+  },
+  {
+   "nombre": "EAJ-PNV",
+   "web": "https://www.eajpnv.eus"
+  },
+  {
+   "nombre": "EH Bildu",
+   "web": "https://www.ehbildu.eus"
+  },
+  {
+   "nombre": "ERC",
+   "web": "https://www.esquerra.cat"
+  },
+  {
+   "nombre": "Frente Amplio",
+   "web": "https://frenteamplio.info",
+   "nota": "Coalición de Movimiento Sumar, Izquierda Unida, Más Madrid y los Comuns."
+  },
+  {
+   "nombre": "Junts",
+   "web": "https://junts.cat"
+  },
+  {
+   "nombre": "Partido Popular",
+   "web": "https://www.pp.es",
+   "documento": {
+    "titulo": "Contrato con España",
+    "fecha": "19 de octubre",
+    "url": "https://www.pp.es/wp-content/uploads/2026/10/CONTRATO-CON-ESPANA-.pdf",
+    "aviso": "Documento de 12 compromisos. El propio partido lo presenta como hoja de ruta; no es su programa electoral.",
+    "compromisos": [
+     [
+      "Soberanía y fronteras",
+      "Reforzar el control de fronteras con más personal, medios, tecnología e instrumentos de la UE."
+     ],
+     [
+      "Calidad democrática",
+      "Independencia judicial, despolitizar instituciones, presupuestos cada año y protección de la libertad de prensa."
+     ],
+     [
+      "Administración",
+      "Auditar el gasto público y reducir ministerios, altos cargos y asesores."
+     ],
+     [
+      "Vivienda",
+      "Construir al menos un millón de viviendas, con prioridad para los jóvenes, y agilizar los desalojos de viviendas ocupadas."
+     ],
+     [
+      "Inmigración",
+      "Reducir la inmigración irregular, abrir vías legales vinculadas al trabajo y endurecer los requisitos de nacionalidad."
+     ],
+     [
+      "Pensiones",
+      "Actualizar las pensiones con el IPC y protegerlas en el marco del Pacto de Toledo."
+     ],
+     [
+      "Sanidad",
+      "Más médicos en la sanidad pública, con mejor retribución y condiciones de trabajo."
+     ],
+     [
+      "Educación",
+      "Elevar el nivel académico, reforzar la autoridad del profesorado y proteger a los menores en internet."
+     ],
+     [
+      "Seguridad",
+      "Más medios para las fuerzas de seguridad frente a la inseguridad urbana y la violencia de género."
+     ],
+     [
+      "Impuestos",
+      "Revisar más de cien subidas de impuestos y bajar la carga fiscal."
+     ],
+     [
+      "Salarios",
+      "Subir el salario medio mediante la productividad y que trabajar compense más que las prestaciones."
+     ],
+     [
+      "Política exterior",
+      "Recuperar alianzas con la UE, Iberoamérica y los socios tradicionales."
+     ]
+    ]
+   }
+  },
+  {
+   "nombre": "Podemos",
+   "web": "https://podemos.info"
+  },
+  {
+   "nombre": "PSOE",
+   "web": "https://www.psoe.es"
+  },
+  {
+   "nombre": "UPN",
+   "web": "https://www.upn.org",
+   "nota": "En coalición con el PP en Navarra."
+  },
+  {
+   "nombre": "Vox",
+   "web": "https://www.voxespana.es"
+  }
+ ],
+ "temas": [
+  "Vivienda",
+  "Empleo y salarios",
+  "Sanidad",
+  "Educación",
+  "Pensiones",
+  "Impuestos",
+  "Inmigración",
+  "Seguridad",
+  "Calidad democrática",
+  "Medio ambiente",
+  "Animales",
+  "Política exterior"
+ ],
+ "piden": {
+  "problemas": {
+   "estudio": "CIS, barómetro de octubre de 2026",
+   "campo": "1 al 6 de octubre",
+   "muestra": "5.025 entrevistas",
+   "fuente": "https://www.cis.es/es/estudios/barometro-de-octubre-2026",
+   "pais": [
+    [
+     "Vivienda",
+     "55,7"
+    ],
+    [
+     "Inmigración",
+     "20,9"
+    ],
+    [
+     "Crisis económica",
+     "20,3"
+    ]
+   ],
+   "personal": [
+    [
+     "Vivienda",
+     "33,8"
+    ],
+    [
+     "Economía",
+     "30,3"
+    ],
+    [
+     "Sanidad",
+     "24,0"
+    ]
+   ]
+  },
+  "vivienda": {
+   "estudio": "CIS, barómetro de vivienda 2026",
+   "campo": "22 al 30 de junio",
+   "muestra": "6.019 entrevistas, error ±1,3",
+   "publicado": "8 de octubre",
+   "fuente": "https://www.eldiariodemadrid.es/articulo/vivienda/cis-barometro-vivienda-2026-intervencion-mercado-vivienda-publica/20261009093055143785.html",
+   "medidas": [
+    [
+     "Bajar impuestos en la compra de la primera vivienda",
+     "95,4"
+    ],
+    [
+     "Que las administraciones construyan más vivienda pública",
+     "91,4"
+    ],
+    [
+     "Más garantías para los propietarios ante impagos",
+     "85,7"
+    ],
+    [
+     "Poner suelo urbanizable en el mercado",
+     "84,3"
+    ],
+    [
+     "Recuperar viviendas públicas vendidas a empresas",
+     "83,1"
+    ],
+    [
+     "Limitar los pisos turísticos",
+     "75,6"
+    ],
+    [
+     "Subir impuestos a los grandes propietarios",
+     "72,0"
+    ],
+    [
+     "Congelar los alquileres durante dos años",
+     "70,6"
+    ],
+    [
+     "Expropiar suelo para vivienda pública",
+     "49,9"
+    ],
+    [
+     "Expropiar viviendas vacías",
+     "40,0"
+    ]
+   ]
+  },
+  "democracia": {
+   "estudio": "CIS, IV Encuesta sobre la calidad de la democracia (estudio 3570)",
+   "campo": "9 al 12 de junio",
+   "muestra": "4.027 entrevistas",
+   "publicado": "6 de julio",
+   "fuente": "https://www.cis.es/es/w/la-democracia-es-la-opci%C3%B3n-favorita-de-gobierno-para-el-80-8-de-la-poblaci%C3%B3n",
+   "datos": [
+    [
+     "89,8",
+     "pide crear o ampliar formas de participación ciudadana en los asuntos y decisiones políticas."
+    ],
+    [
+     "87,5",
+     "cree insuficientes los mecanismos actuales contra la corrupción."
+    ],
+    [
+     "88,8",
+     "no cree que la justicia trate igual a los políticos que al resto de la ciudadanía."
+    ],
+    [
+     "75,3",
+     "cree que a los políticos les preocupa poco lo que piensa la gente."
+    ],
+    [
+     "56,9",
+     "está poco o nada satisfecho con el funcionamiento de la democracia."
+    ],
+    [
+     "80,8",
+     "prefiere la democracia a cualquier otra forma de gobierno."
+    ],
+    [
+     "75,9",
+     "está de acuerdo en que sin partidos no puede haber democracia."
+    ]
+   ],
+   "fuente2": "https://noticiasobreras.es/2026/07/la-ciudadania-reclama-una-democracia-mas-participativa-y-capaz-de-alcanzar-acuerdos/"
+  }
+ }
 }

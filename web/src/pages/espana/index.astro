@@ -15,7 +15,7 @@ import datos from '../../data/espana.json';
         <p class="cuenta-atras" id="cuenta-atras" hidden><strong data-dias></strong><span data-texto></span></p>
         <p>Qué propone cada partido, tema por tema, con la cita y el enlace a su programa oficial. Puedes comparar tus posturas con las de los partidos. ENTRE TODOS no recomienda el voto.</p>
         <div class="acciones">
-          <a class="boton rojo" href="#propuestas">Ver las propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          <a class="boton rojo" href="/espana/propuestas/">Ver las propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
           <a class="boton" href="#como-votar">Cómo y cuándo votar</a>
         </div>
       </div>
@@ -30,7 +30,7 @@ import datos from '../../data/espana.json';
     <span class="orn bar-a escritorio" style="width:130px;right:6%;top:9%"></span>
     <span class="orn bar-r escritorio" style="width:84px;left:50%;top:24%"></span>
     <nav class="preguntas" aria-label="Participa">
-      <a class="pregunta voz" href="#propuestas"><span class="etq">Su voz</span><strong>¿Qué proponen?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      <a class="pregunta voz" href="/espana/propuestas/"><span class="etq">Su voz</span><strong>¿Qué proponen?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
       <a class="pregunta voto" href="#como-votar"><span class="etq">Tu voto</span><strong>¿Por qué votas?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
     </nav>
     <span class="orn bar-r escritorio" style="width:40px;left:4%;bottom:7%;height:7px"></span>
@@ -43,13 +43,13 @@ import datos from '../../data/espana.json';
           <span class="num">01</span><span class="barra"></span>
           <h3>Propuestas</h3>
           <p>Los programas de los partidos, ordenados por tema. Cada propuesta con su cita y el enlace al programa oficial.</p>
-          <a class="enlace-flecha" href="#propuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          <a class="enlace-flecha" href="/espana/propuestas/">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
         <li>
           <span class="num">02</span><span class="barra"></span>
           <h3>Compara tus posturas</h3>
           <p>Elige tu opción en las cuestiones en que los partidos proponen caminos distintos. Los nombres aparecen al final.</p>
-          <a class="enlace-flecha" href="#propuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          <a class="enlace-flecha" href="/espana/propuestas/">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
         <li>
           <span class="num">03</span><span class="barra"></span>
@@ -71,8 +71,21 @@ import datos from '../../data/espana.json';
     <div class="contenedor">
       <p class="kicker">Propuestas de los partidos</p>
       <h2 id="t-propuestas">Programa a programa, tema a tema</h2>
-      <p>Los partidos publican sus programas en las semanas previas a la campaña. Cada programa se incorporará en cuanto esté disponible en su web oficial, con las propuestas ordenadas por tema y la cita de la página donde aparecen.</p>
-      <p class="cmp-aviso">Es una comparación de propuestas, no una recomendación de voto. Se aplican las mismas reglas a todos los partidos.</p>
+      <p>A 24 de octubre ningún partido ha publicado su programa electoral completo. Cada programa se incorporará en cuanto esté en su web oficial, con las propuestas ordenadas por tema y la cita de la página donde aparecen.</p>
+      <p><a class="boton rojo" href="/espana/propuestas/">Estado de los programas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+  </section>
+
+  <section class="seccion" id="que-piden" aria-labelledby="t-piden">
+    <div class="contenedor">
+      <p class="kicker">Qué piden los españoles</p>
+      <h2 id="t-piden">Lo que dicen las encuestas del CIS</h2>
+      <ul class="cifras-es tres">
+        <li><strong>55,7 %</strong><span>cita la vivienda entre los principales problemas de España.</span></li>
+        <li><strong>91,4 %</strong><span>pide que las administraciones construyan más vivienda pública.</span></li>
+        <li><strong>89,8 %</strong><span>pide crear o ampliar formas de participación ciudadana en las decisiones políticas.</span></li>
+      </ul>
+      <p style="margin-top:16px"><a class="boton" href="/espana/que-piden/">Ver los datos y sus fuentes <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></p>
     </div>
   </section>
 
