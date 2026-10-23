@@ -29,7 +29,7 @@ import datos from '../../data/espana.json';
               <details class="doc-es">
                 <summary>Documento publicado: «{p.documento.titulo}» ({p.documento.fecha})</summary>
                 <p class="discreto">{p.documento.aviso} Resumen de cada compromiso:</p>
-                <ol>{p.documento.compromisos.map((c) => <li><strong>{c[0]}.</strong> {c[1]}</li>)}</ol>
+                <ol class="compromisos-es">{p.documento.compromisos.map((c) => <li><i class={`fi ${datos.iconos[c[0]]}`} aria-hidden="true"></i><span><strong>{c[0]}.</strong> {c[1]}</span></li>)}</ol>
                 <a class="enlace-flecha" href={p.documento.url} rel="noopener" target="_blank">Documento original <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
               </details>
             )}
@@ -42,7 +42,7 @@ import datos from '../../data/espana.json';
     <section class="seccion" aria-labelledby="t-temas">
       <h2 class="vista-titulo" id="t-temas">Temas que se compararán</h2>
       <p>Cuando haya programas publicados, cada tema mostrará lo que propone cada partido, lado a lado y con la cita del programa. Si un partido no dice nada sobre un tema, se indicará así.</p>
-      <ul class="temas-es">{datos.temas.map((t) => <li>{t}</li>)}</ul>
+      <ul class="temas-es">{datos.temas.map((t) => <li><i class={`fi ${datos.iconos[t]}`} aria-hidden="true"></i><span>{t}</span></li>)}</ul>
     </section>
   </div>
 </Base>

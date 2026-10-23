@@ -432,5 +432,24 @@
    ],
    "fuente2": "https://noticiasobreras.es/2026/07/la-ciudadania-reclama-una-democracia-mas-participativa-y-capaz-de-alcanzar-acuerdos/"
   }
+ },
+ "iconos": {
+  "Vivienda": "fi-br-house-chimney",
+  "Empleo y salarios": "fi-br-briefcase",
+  "Salarios": "fi-br-briefcase",
+  "Sanidad": "fi-br-stethoscope",
+  "Educación": "fi-br-graduation-cap",
+  "Pensiones": "fi-br-piggy-bank",
+  "Impuestos": "fi-br-receipt",
+  "Inmigración": "fi-br-passport",
+  "Seguridad": "fi-br-shield-check",
+  "Calidad democrática": "fi-br-vote-yea",
+  "Medio ambiente": "fi-br-leaf",
+  "Animales": "fi-br-paw",
+  "Política exterior": "fi-br-earth-americas",
+  "Soberanía y fronteras": "fi-br-flag",
+  "Administración": "fi-br-bank",
+  "Crisis económica": "fi-br-arrow-trend-down",
+  "Economía": "fi-br-wallet"
  }
 }

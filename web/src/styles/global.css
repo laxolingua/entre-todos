@@ -1724,3 +1724,12 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .cifras-es li { background: var(--superficie); border: 1px solid var(--borde); border-top: 5px solid var(--rojo); padding: 14px 16px; }
 .cifras-es strong { display: block; font-family: var(--display); font-weight: 800; font-size: 2.2rem; color: var(--marino); line-height: 1; margin-bottom: 6px; }
 .cifras-es span { color: var(--texto-2); }
+
+.temas-es { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 10px; }
+.temas-es li { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; background: var(--superficie); border: 1px solid var(--borde); border-bottom: 4px solid var(--amarillo); padding: 14px; color: var(--marino); font-weight: 700; }
+.temas-es i { font-size: 1.6rem; color: var(--rojo); line-height: 1; }
+.compromisos-es { list-style: none; padding-left: 0 !important; counter-reset: c; }
+.compromisos-es li { display: grid; grid-template-columns: 1.6rem 1fr; gap: 10px; align-items: start; margin: 8px 0; }
+.compromisos-es i { color: var(--rojo); font-size: 1.1rem; margin-top: 3px; }
+.con-icono { display: inline-flex; align-items: center; gap: 8px; }
+.con-icono i { color: var(--rojo); font-size: 1rem; }

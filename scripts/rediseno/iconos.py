@@ -8,7 +8,7 @@ css = open(os.path.join(pkg, 'css/bold/rounded.css'), encoding='utf-8').read()
 mapa = dict(re.findall(r'\.fi-br-([a-z0-9-]+):before\{content:"\\([0-9a-f]+)"\}', css))
 usados = set()
 for d in dirs:
-    for f in glob.glob(os.path.join(d, '**/*.html'), recursive=True) + glob.glob(os.path.join(d, '**/*.astro'), recursive=True) + glob.glob(os.path.join(d, '**/*.js'), recursive=True):
+    for f in glob.glob(os.path.join(d, '**/*.html'), recursive=True) + glob.glob(os.path.join(d, '**/*.astro'), recursive=True) + glob.glob(os.path.join(d, '**/*.js'), recursive=True) + glob.glob(os.path.join(d, '**/*.json'), recursive=True):
         usados |= set(re.findall(r'fi-br-([a-z0-9-]+)', open(f, encoding='utf-8', errors='ignore').read()))
 usados = sorted(n for n in usados if n in mapa)
 fuente = glob.glob(os.path.join(pkg, 'css/uicons-bold-rounded-*.woff2'))[0]

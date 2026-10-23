@@ -18,11 +18,11 @@ const { problemas, vivienda, democracia } = datos.piden;
       <div class="piden-dos">
         <div>
           <h3 class="sub-es">Principales problemas de España</h3>
-          <ul class="barras-es">{problemas.pais.map((p) => <li><span>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
+          <ul class="barras-es">{problemas.pais.map((p) => <li><span class="con-icono"><i class={`fi ${datos.iconos[p[0]]}`} aria-hidden="true"></i>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
         </div>
         <div>
           <h3 class="sub-es">Los que más afectan personalmente</h3>
-          <ul class="barras-es">{problemas.personal.map((p) => <li><span>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
+          <ul class="barras-es">{problemas.personal.map((p) => <li><span class="con-icono"><i class={`fi ${datos.iconos[p[0]]}`} aria-hidden="true"></i>{p[0]}</span><span class="barra-es"><span style={`width:${parseFloat(p[1].replace(',', '.'))}%`}></span></span><strong>{p[1]} %</strong></li>)}</ul>
         </div>
       </div>
       <p class="ficha-es">Cada persona podía citar hasta tres problemas, por eso los porcentajes no suman 100. Son preocupaciones mencionadas espontáneamente, no apoyo a medidas. {problemas.estudio}; campo: {problemas.campo}; {problemas.muestra}. <a href={problemas.fuente} rel="noopener" target="_blank">Fuente</a></p>
