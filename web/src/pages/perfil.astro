@@ -1,58 +1,88 @@
 ---
+// Perfil de ejemplo: un usuario ficticio con contenido real del sitio. Los votos nunca aparecen.
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
-const insignias = [['Derechos humanos en la práctica', true], ['Libertad de expresión y de prensa', true], ['Justicia y Estado de derecho', false], ['Rendición de cuentas', false], ['Libertad religiosa', false], ['Sociedad civil independiente', false]];
+import publico from '../data/publico.json';
+import { cursos } from '../data/academia.js';
+
+const prop = Object.fromEntries(publico.propuestas.map((p) => [p.id, p]));
+const plataforma = [
+  ['Sistema electoral', 'elecciones-libres'],
+  ['Transición', 'transicion-pacifica'],
+  ['Economía', 'libertad-empresa'],
+  ['Gobierno', 'descentralizacion'],
+  ['Medio ambiente', 'derecho-al-agua'],
+  ['Protección animal', 'biodiversidad'],
+].filter(([, id]) => prop[id]);
+const ganadas = new Set(['derechos-humanos', 'libertad-de-expresion', 'pensamiento-critico', 'pensamiento-solucionario']);
+const insignias = cursos.filter((c) => ganadas.has(c.id)).concat(cursos.filter((c) => ['justicia', 'sociedad-civil'].includes(c.id)));
+const total = publico.categorias.length;
 ---
 <Base titulo="Tu perfil" seccion="perfil" ancho
-  descripcion="Próximamente: un perfil propio en ENTRE TODOS para seguir tus propuestas, tus valoraciones y tu avance en la Blog A+, con privacidad por defecto.">
+  descripcion="Así se ve un perfil en ENTRE TODOS: con seudónimo, tu plataforma, tu avance en el Blog A+ y tu participación. Tus votos nunca aparecen.">
   <Banda imagen="/img/fotos/cat-educacion.jpg" lateral={['Seudónimo', 'Privado', 'Tuyo']}>
     <span class="barra"></span>
     <p class="antetitulo">Próximamente</p>
     <h1>Tu perfil</h1>
-    <p class="lema">Tu voz, tus votos y tu aprendizaje, en un solo lugar</p>
+    <p class="lema">Tu plataforma, tu aprendizaje y tu participación</p>
     <p class="entradilla">Un espacio propio para seguir lo que aportas y lo que aprendes. Con seudónimo y privado por defecto: tú decides qué se ve.</p>
   </Banda>
+
   <div class="contenedor">
     <section class="seccion">
-      <p class="aviso-demo">Vista de ejemplo · los datos son ficticios</p>
-      <div class="perfil-demo">
-        <aside class="panel perfil-tarjeta">
-          <span class="avatar" aria-hidden="true">LC</span>
-          <h2>Lucero del Caribe</h2>
-          <p class="discreto">Seudónimo · perfil privado</p>
-          <ul class="perfil-cifras">
-            <li><strong>12</strong>valoraciones</li>
-            <li><strong>3</strong>aportes</li>
-            <li><strong>2</strong>insignias</li>
+      <p class="aviso-demo">Perfil de ejemplo · así se ve un perfil con actividad</p>
+      <div class="pf">
+        <aside class="pf-tarjeta">
+          <div class="pf-portada"></div>
+          <img class="pf-foto" src="/img/perfil-ejemplo.jpg" alt="Foto del perfil de ejemplo" width="116" height="116" />
+          <p class="pf-ia">Foto de ejemplo generada con IA</p>
+          <h2>Duni de Cuba</h2>
+          <p class="pf-rol">Seudónimo · se unió en octubre de 2026</p>
+          <span class="pf-chip">Perfil visible</span>
+          <p class="pf-bio">Quiero que Cuba salga adelante sin violencia y con trabajo para todos. Leo las propuestas y voto cuando hay consulta.</p>
+          <ul class="pf-cifras">
+            <li><b>14</b><span>valoraciones</span></li>
+            <li><b>3</b><span>aportes</span></li>
+            <li><b>{ganadas.size}</b><span>insignias</span></li>
           </ul>
-          <div class="ajuste"><span>Mostrar mis aportes con mi seudónimo</span><span class="interruptor" aria-hidden="true"></span></div>
-          <div class="ajuste"><span>Perfil visible para otros</span><span class="interruptor apagado" aria-hidden="true"></span></div>
+          <div class="pf-aj"><span>Perfil visible para otros</span><span class="pf-sw" aria-hidden="true"></span></div>
+          <div class="pf-aj"><span>Mostrar mi nombre real</span><span class="pf-sw off" aria-hidden="true"></span></div>
+          <div class="pf-aj"><span>Mostrar mi avance en el Blog A+</span><span class="pf-sw" aria-hidden="true"></span></div>
+          <a class="pf-crea" href="/plataforma/">Crea el tuyo</a>
         </aside>
-        <div class="perfil-cuerpo">
-          <div class="panel">
-            <h3>Mi plan</h3>
-            <p class="discreto">Mis preocupaciones y las soluciones que prefiero, desde ¿Cuál es el plan?</p>
-            <ul class="mi-plan">
-              <li><span class="etiqueta">Preocupación</span>Apagones y energía <i class="fi fi-br-arrow-right" aria-hidden="true"></i> <strong>Matriz energética renovable</strong></li>
-              <li><span class="etiqueta">Preocupación</span>Salarios y precios <i class="fi fi-br-arrow-right" aria-hidden="true"></i> <strong>Libertad de empresa para todos los cubanos</strong></li>
+
+        <div class="pf-cuerpo">
+          <div class="pf-caja">
+            <h3>Mi plataforma</h3>
+            <ul class="pf-plan">
+              {plataforma.map(([t, id]) => <li><em>{t}</em><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a></li>)}
             </ul>
+            <p class="pf-nota">{plataforma.length} de {total} temas elegidos en <a href="/plataforma/">Arma tu plataforma</a>.</p>
           </div>
-          <div class="panel">
-            <h3>Blog A+</h3>
-            <ul class="insignias">{insignias.map(([t, ok]) => <li class={ok ? 'ganada' : ''}><span class="medalla" aria-hidden="true"></span>{t}</li>)}</ul>
-            <p class="discreto">Con seis insignias se obtiene el certificado de formación cívica.</p>
+          <div class="pf-dos">
+            <div class="pf-caja">
+              <h3>Blog A+</h3>
+              <ul class="pf-ins">
+                {insignias.map((c) => <li class:list={{ ok: ganadas.has(c.id) }}><a href={`/academia/${c.id}/`}>{c.titulo}</a></li>)}
+              </ul>
+              <div class="pf-av"><i style={`width:${Math.round((ganadas.size / cursos.length) * 100)}%`}></i></div>
+              <p class="pf-nota">{ganadas.size} de {cursos.length} cursos · con 6 insignias, certificado de formación cívica.</p>
+            </div>
+            <div class="pf-caja">
+              <h3>Mi participación</h3>
+              <ul class="pf-part">
+                <li><span><a href="/consulta/continuidad-o-cambio/">Continuidad o cambio</a><small>Consulta ciudadana</small></span><em>Participó</em></li>
+                <li><span><a href="/consulta/solicitud-consulta-civica/">Que Cuba pueda decidir sin miedo</a><small>Solicitud de consulta libre</small></span><em>Firmó</em></li>
+                <li><span><b>Apagones y energía</b><small>Inciso a una propuesta</small></span><em class="gris">En revisión</em></li>
+                <li><span><b>Transporte interprovincial</b><small>Preocupación nueva</small></span><em class="gris">Registrada</em></li>
+              </ul>
+            </div>
           </div>
-          <div class="panel">
-            <h3>Mis aportes</h3>
-            <ul class="aportes-demo">
-              <li><span class="etiqueta">Inciso</span>Propuesta: Autonomía municipal · <em>en revisión</em></li>
-              <li><span class="etiqueta">Objeción</span>Propuesta: Sistema impositivo · <em>publicada</em></li>
-              <li><span class="etiqueta">Preocupación nueva</span>Transporte interprovincial · <em>registrada</em></li>
-            </ul>
-          </div>
+          <p class="pf-secreto"><b>Votos secretos.</b> El perfil dice que participó, nunca qué votó.</p>
         </div>
       </div>
     </section>
+
     <section class="seccion">
       <h2 class="vista-titulo">Principios del perfil</h2>
       <ul class="principios">
@@ -64,3 +94,57 @@ const insignias = [['Derechos humanos en la práctica', true], ['Libertad de exp
     </section>
   </div>
 </Base>
+
+<style>
+  .pf { display: grid; grid-template-columns: minmax(0, 310px) minmax(0, 1fr); gap: 18px; align-items: start; }
+  .pf-tarjeta, .pf-caja { background: #fff; border: 1px solid var(--borde); padding: 18px 20px; }
+  .pf-tarjeta { text-align: center; overflow: hidden; padding-top: 0; }
+  .pf-portada { height: 92px; margin: 0 -20px; background: var(--marino); background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1.2px); background-size: 9px 9px; position: relative; }
+  .pf-portada::after { content: ""; position: absolute; right: -10px; top: 0; bottom: 0; width: 90px; background: var(--rojo); clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%); }
+  .pf-foto { display: block; width: 116px; height: 116px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 0 0 2px var(--marino); margin: -58px auto 6px; position: relative; }
+  .pf-ia { font-size: .7rem; color: #5f6b80; margin: 0 0 8px; }
+  .pf-tarjeta h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; color: var(--marino); font-size: 1.5rem; line-height: 1; margin: 0; }
+  .pf-rol { color: #5f6b80; font-size: .88rem; margin: 4px 0 10px; }
+  .pf-chip { display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 3px 8px; background: #1f8a5b; color: #fff; margin-bottom: 12px; }
+  .pf-bio { font-size: .92rem; line-height: 1.45; text-align: left; margin: 0 0 12px; }
+  .pf-cifras { list-style: none; padding: 10px 0; margin: 0 0 12px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+  .pf-cifras b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--marino); }
+  .pf-cifras span { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: #5f6b80; }
+  .pf-aj { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .84rem; padding: 6px 0; text-align: left; }
+  .pf-sw { width: 34px; height: 18px; border-radius: 9px; background: #1f8a5b; position: relative; flex: none; }
+  .pf-sw::after { content: ""; position: absolute; right: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; }
+  .pf-sw.off { background: #c6ccd6; }
+  .pf-sw.off::after { right: auto; left: 2px; }
+  .pf-crea { display: block; margin-top: 14px; padding: 11px; background: var(--rojo); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; font-size: .86rem; text-decoration: none; }
+  .pf-crea:hover { background: #b31224; }
+  .pf-cuerpo { display: grid; gap: 14px; }
+  .pf-caja h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; color: var(--marino); font-size: 1.12rem; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+  .pf-caja h3::before { content: ""; width: 18px; height: 4px; background: var(--rojo); }
+  .pf-plan { list-style: none; padding: 0; margin: 0; }
+  .pf-plan li { display: flex; gap: 8px; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--borde); font-size: .92rem; }
+  .pf-plan li:first-child { border-top: 0; }
+  .pf-plan em { font-style: normal; font-size: .68rem; font-weight: 700; text-transform: uppercase; background: #e8edf7; color: #13295a; padding: 2px 7px; white-space: nowrap; }
+  .pf-plan a, .pf-part a { color: var(--marino); font-weight: 600; }
+  .pf-nota { font-size: .8rem; color: #5f6b80; margin: 8px 0 0; }
+  .pf-dos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pf-ins { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pf-ins li { border: 1px solid var(--borde); padding: 8px; display: flex; gap: 8px; align-items: center; font-size: .82rem; }
+  .pf-ins li::before { content: ""; width: 16px; height: 16px; border-radius: 50%; background: #dfe3ea; flex: none; }
+  .pf-ins li.ok::before { background: var(--amarillo); }
+  .pf-ins a { color: #3a4458; text-decoration: none; }
+  .pf-ins li.ok a { color: var(--marino); font-weight: 600; }
+  .pf-av { height: 8px; background: #e6e9ef; margin: 10px 0 0; }
+  .pf-av i { display: block; height: 100%; background: var(--amarillo); }
+  .pf-part { list-style: none; padding: 0; margin: 0; }
+  .pf-part li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-top: 1px solid var(--borde); font-size: .9rem; }
+  .pf-part li:first-child { border-top: 0; }
+  .pf-part b { color: var(--marino); }
+  .pf-part small { display: block; color: #5f6b80; font-size: .82rem; }
+  .pf-part em { font-style: normal; font-size: .68rem; font-weight: 700; text-transform: uppercase; padding: 2px 7px; background: #e3f2ea; color: #1f8a5b; white-space: nowrap; align-self: start; }
+  .pf-part em.gris { background: #eef0f4; color: #5f6b80; }
+  .pf-secreto { background: var(--marino); color: #fff; padding: 12px 16px; font-size: .9rem; margin: 0; }
+  .pf-secreto b { color: var(--amarillo); }
+  .pf-tarjeta h2::after { display: none; }
+  @media (max-width: 860px) { .pf, .pf-dos { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .pf-plan li { flex-direction: column; gap: 4px; } }
+</style>
