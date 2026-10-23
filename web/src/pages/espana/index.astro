@@ -1,0 +1,126 @@
+---
+// Portada de E/T España. Mismo diseño que la portada de Cuba; aquí los actores son partidos con programas ya escritos.
+// Fechas del calendario verificadas el 24/10/2026 (convocatoria en el BOE del 6 de octubre).
+import Base from '../../layouts/Base.astro';
+---
+<Base titulo="España" seccion="inicio" pais="es" ancho imagen="/img/og-portada.jpg"
+  descripcion="Elecciones generales del 29 de noviembre de 2026: qué propone cada partido, tema por tema, con el enlace a su programa oficial.">
+  <section class="hero">
+    <div class="contenedor">
+      <div class="hero-texto">
+        <span class="barra amarilla"></span>
+        <h1>Voz <span class="mas">+</span><br />Voto</h1>
+        <p class="sub"><span>España</span><span class="punto"></span><span>Elecciones generales</span><span class="punto"></span><span>29 de noviembre</span></p>
+        <p class="cuenta-atras" id="cuenta-atras" hidden><strong data-dias></strong><span data-texto></span></p>
+        <p>Qué propone cada partido, tema por tema, con la cita y el enlace a su programa oficial. Puedes comparar tus posturas con las de los partidos. ENTRE TODOS no recomienda el voto.</p>
+        <div class="acciones">
+          <a class="boton rojo" href="#propuestas">Ver las propuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+          <a class="boton" href="#como-votar">Cómo y cuándo votar</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-arte" aria-hidden="true">
+      <div class="foto duo"><div class="foto-pendiente">Foto de España pendiente</div></div>
+      <div class="franja-gris"></div>
+      <div class="panel-marino puntos"></div>
+      <div class="paralelo-rojo"></div>
+      <ul class="lista-vertical"><li>Conocer</li><li>Comparar</li><li>Decidir</li><li>Votar</li></ul>
+    </div>
+    <span class="orn bar-a escritorio" style="width:130px;right:6%;top:9%"></span>
+    <span class="orn bar-r escritorio" style="width:84px;left:50%;top:24%"></span>
+    <nav class="preguntas" aria-label="Participa">
+      <a class="pregunta voz" href="#propuestas"><span class="etq">Su voz</span><strong>¿Qué proponen?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+      <a class="pregunta voto" href="#como-votar"><span class="etq">Tu voto</span><strong>¿Por qué votas?</strong><i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+    </nav>
+    <span class="orn bar-r escritorio" style="width:40px;left:4%;bottom:7%;height:7px"></span>
+  </section>
+
+  <section class="seccion" aria-label="Qué puedes hacer">
+    <div class="contenedor">
+      <ol class="pilares cuatro">
+        <li>
+          <span class="num">01</span><span class="barra"></span>
+          <h3>Propuestas</h3>
+          <p>Los programas de los partidos, ordenados por tema. Cada propuesta con su cita y el enlace al programa oficial.</p>
+          <a class="enlace-flecha" href="#propuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <span class="num">02</span><span class="barra"></span>
+          <h3>Compara tus posturas</h3>
+          <p>Elige tu opción en las cuestiones en que los partidos proponen caminos distintos. Los nombres aparecen al final.</p>
+          <a class="enlace-flecha" href="#propuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <span class="num">03</span><span class="barra"></span>
+          <h3>Encuestas</h3>
+          <p>La del CIS y las de otras empresas, cada una por separado y con su ficha técnica.</p>
+          <a class="enlace-flecha" href="#encuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <span class="num">04</span><span class="barra"></span>
+          <h3>Cómo votar</h3>
+          <p>Fechas clave, voto por correo y voto desde el extranjero.</p>
+          <a class="enlace-flecha" href="#como-votar">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="seccion" id="propuestas" aria-labelledby="t-propuestas">
+    <div class="contenedor">
+      <p class="kicker">Propuestas de los partidos</p>
+      <h2 id="t-propuestas">Programa a programa, tema a tema</h2>
+      <p>Los partidos publican sus programas en las semanas previas a la campaña. Cada programa se incorporará en cuanto esté disponible en su web oficial, con las propuestas ordenadas por tema y la cita de la página donde aparecen.</p>
+      <p class="cmp-aviso">Es una comparación de propuestas, no una recomendación de voto. Se aplican las mismas reglas a todos los partidos.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="encuestas" aria-labelledby="t-encuestas">
+    <div class="contenedor">
+      <p class="kicker">Encuestas</p>
+      <h2 id="t-encuestas">Cada encuesta, por separado</h2>
+      <p>Se mostrarán la última encuesta del CIS y las de otras empresas, cada una con su fecha, su muestra y su ficha técnica. No se suman ni se promedian encuestas distintas.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="como-votar" aria-labelledby="t-votar">
+    <div class="contenedor">
+      <p class="kicker">Cómo votar</p>
+      <h2 id="t-votar">Fechas clave</h2>
+      <ol class="calendario-es">
+        <li><span class="fecha">6 de octubre</span><p>Convocatoria publicada en el BOE.</p></li>
+        <li><span class="fecha">21 al 26 de octubre</span><p>Presentación de candidaturas.</p></li>
+        <li><span class="fecha">13 al 27 de noviembre</span><p>Campaña electoral.</p></li>
+        <li><span class="fecha">28 de noviembre</span><p>Jornada de reflexión.</p></li>
+        <li class="clave"><span class="fecha">29 de noviembre</span><p>Votación.</p></li>
+      </ol>
+      <p style="margin-top:18px">Plazos del voto por correo y del voto desde el extranjero (CERA): se añadirán con la referencia oficial.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="t-garantias">
+    <div class="contenedor">
+      <p class="kicker">Independencia y confianza</p>
+      <h2 id="t-garantias">Garantías</h2>
+      <ul class="garantias">
+        <li><i class="fi fi-br-document-signed" aria-hidden="true"></i><h3>Fuente de cada dato</h3><p>Cada propuesta enlaza al programa oficial del partido y cada encuesta a su ficha técnica.</p></li>
+        <li><i class="fi fi-br-scale" aria-hidden="true"></i><h3>Mismas reglas para todos</h3><p>Todos los partidos se presentan con el mismo formato, el mismo espacio y el mismo orden de criterios.</p></li>
+        <li><i class="fi fi-br-shield-check" aria-hidden="true"></i><h3>Privacidad</h3><p>No hay cuentas ni perfiles. Tus respuestas en el comparador se quedan en tu navegador.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const el = document.getElementById('cuenta-atras');
+      if (!el) return;
+      const hoy = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' }));
+      hoy.setHours(0, 0, 0, 0);
+      const dias = Math.round((new Date(2026, 10, 29) - hoy) / 86400000);
+      if (dias < 0) return;
+      el.querySelector('[data-dias]').textContent = dias === 0 ? 'Hoy' : String(dias);
+      el.querySelector('[data-texto]').textContent = dias === 0 ? 'se vota' : dias === 1 ? 'día para votar' : 'días para votar';
+      el.hidden = false;
+    })();
+  </script>
+</Base>

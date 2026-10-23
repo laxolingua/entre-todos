@@ -1664,3 +1664,19 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .miga-volver { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: .92rem; color: var(--marino-2); text-decoration: none; margin-bottom: 14px; position: relative; z-index: 2; }
 .miga-volver:hover { color: var(--rojo); }
 .miga-volver .fi { font-size: .8rem; }
+
+/* selector de país (sitio universal) */
+.barra-pais { background: var(--marino); font-size: .85rem; }
+.barra-pais .contenedor { display: flex; align-items: center; gap: 4px; min-height: 34px; }
+.barra-pais .etq-pais { color: #9fb0d1; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; margin-right: 8px; }
+.barra-pais a { color: #e5ebf7; text-decoration: none; padding: 4px 10px; border-radius: 3px; }
+.barra-pais a:hover { background: rgba(255,255,255,.1); color: #fff; }
+.barra-pais a[aria-current="page"] { background: var(--amarillo); color: var(--marino); font-weight: 600; }
+.cuenta-atras { display: inline-flex; align-items: baseline; gap: 8px; margin: 0 0 18px; padding: 8px 14px; border-left: 4px solid var(--rojo); background: var(--acento-suave); color: var(--marino); }
+.cuenta-atras strong { font-family: var(--display); font-size: 2rem; font-weight: 800; line-height: 1; }
+.calendario-es { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.calendario-es li { background: var(--superficie); border: 1px solid var(--borde); border-top: 5px solid var(--marino); padding: 14px 16px; }
+.calendario-es li.clave { border-top-color: var(--rojo); }
+.calendario-es .fecha { font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--marino); text-transform: uppercase; display: block; }
+.calendario-es p { margin: 4px 0 0; color: var(--texto-2); }
+.foto-pendiente { display: grid; place-items: center; background: #c9ced8; color: #4a5468; font-size: .9rem; text-align: center; padding: 16px; height: 100%; }

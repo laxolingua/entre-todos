@@ -10,7 +10,7 @@ cp /tmp/et/web/public/asistente/corpus.json /tmp/pub/asistente/corpus.json
 T="
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01NeHkYtKpNTVMo5tPgtXgnp"
+Claude-Session: https://claude.ai/code/session_01N9aobFCYm1Z5XzM3oAhg63"
 cd /tmp/pub && git add -A && git commit -qm "$MSG$T" && git push -qf origin HEAD:publicacion-rediseno-2026-10-14 2>&1 | grep -v "^warning\|gc\|prune\|Automatic" || true
 cd /home/claude/entre-todos-preview && git pull -q --rebase && python3 /tmp/et/scripts/rediseno/prefijo_preview.py /tmp/pub /home/claude/entre-todos-preview >/dev/null && git add -A && (git commit -qm "$MSG$T" && git push -q) 2>&1 | grep -v "^warning\|gc\|prune\|Automatic" || true
 cd /tmp/et && git add -A && (git commit -qm "$MSG$T" && git push -q origin HEAD:rediseno-2026-10-14) 2>&1 | grep -v "^warning\|gc\|prune\|Automatic" || true

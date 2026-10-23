@@ -15,19 +15,33 @@ interface Props {
   imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
   seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'compara' | 'plataforma' | 'otras';
   ancho?: boolean;     // true: la página controla su propio ancho (portada y secciones con banda)
+  pais?: 'cu' | 'es';  // país activo en el selector; Cuba es el predeterminado
 }
-const { titulo, descripcion, imagen = '/og/banco.png', seccion, ancho = false } = Astro.props;
+const { titulo, descripcion, imagen = '/og/banco.png', seccion, ancho = false, pais = 'cu' } = Astro.props;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const imagenAbs = new URL(imagen, Astro.site);
 const tituloCompleto = seccion === 'inicio' ? 'ENTRE TODOS · Voz + Voto' : `${titulo} · ENTRE TODOS`;
 const BANCO = ['propuestas', 'cuestiones', 'compara', 'plataforma', 'fuentes', 'actores', 'metodo', 'datos', 'archivo'];
 const enBanco = BANCO.includes(seccion ?? '');
-const enlaces = [
+const enlacesCu = [
   { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
   { href: '/cual-es-el-plan/', texto: '¿Cuál es el plan?', activo: seccion === 'plan' },
   { href: '/academia/', texto: 'Blog A+', activo: seccion === 'academia' },
   { href: '/consulta/', texto: 'Consultas', activo: seccion === 'consulta' },
   { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
+];
+const enlacesEs = [
+  { href: '/espana/#propuestas', texto: 'Propuestas', activo: false },
+  { href: '/espana/#encuestas', texto: 'Encuestas', activo: false },
+  { href: '/espana/#como-votar', texto: 'Cómo votar', activo: false },
+  { href: '/academia/', texto: 'Blog A+', activo: seccion === 'academia' },
+  { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
+];
+const enlaces = pais === 'es' ? enlacesEs : enlacesCu;
+const inicio = pais === 'es' ? '/espana/' : '/';
+const paises = [
+  { id: 'cu', nombre: 'Cuba', href: '/' },
+  { id: 'es', nombre: 'España', href: '/espana/' },
 ];
 import sitio from '../data/sitio.json';
 const subenlaces = [
@@ -70,9 +84,15 @@ const subenlaces = [
   </head>
   <body>
     <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <nav class="barra-pais" aria-label="País">
+      <div class="contenedor">
+        <span class="etq-pais">País</span>
+        {paises.map((p) => <a href={p.href} aria-current={pais === p.id ? 'page' : undefined}>{p.nombre}</a>)}
+      </div>
+    </nav>
     <header class="cabecera" id="cabecera">
       <div class="contenedor">
-        <a class="marca notranslate" translate="no" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
+        <a class="marca notranslate" translate="no" href={inicio} aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
         <a class="icono-cab" href="/buscador/" aria-label="Buscador E/T"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20 20-4.5-4.5"/></svg></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
