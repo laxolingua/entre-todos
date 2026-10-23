@@ -70,7 +70,7 @@ const sugerencias = [
       const fuentes = d.fuentes || [];
       const porN = Object.fromEntries(fuentes.map((f) => [f.n, f]));
       const txt = d.respuesta
-        ? esc(d.respuesta).replace(/\[(\d+)\]/g, (m, n) => porN[n] ? `<a class="pr-cita" href="${esc(enlace(porN[n].url))}" title="${esc(porN[n].titulo)}">${n}</a>` : '')
+        ? esc(d.respuesta).replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (m, lista) => lista.split(/\s*,\s*/).map((n) => porN[n] ? `<a class="pr-cita" href="${esc(enlace(porN[n].url))}" title="${esc(porN[n].titulo)}">${n}</a>` : '').join(''))
             .split(/\n{2,}/).map((p) => `<p>${p}</p>`).join('')
         : `<p>${esc(d.aviso || '')}</p>`;
       $('pr-texto').innerHTML = txt;
