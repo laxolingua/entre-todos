@@ -1,0 +1,61 @@
+---
+// Certificado de la Academia A+ (módulo) o de un bloque. Diseño aprobado el 23/10/2026 (boceto «certificados»).
+// Se escala con el ancho de su contenedor (unidades cqw) y se imprime solo, en A4 apaisado.
+// Ganchos para el script: data-cert-nombre, data-cert-fecha, data-cert-codigo, data-cert-qr, data-cert-url.
+interface Props { tipo: 'modulo' | 'bloque'; etiqueta: string; titulo: string; detalle: string; nombre?: string; fecha?: string; codigo?: string }
+const { tipo, etiqueta, titulo, detalle, nombre = 'Tu nombre', fecha = '', codigo = '' } = Astro.props;
+---
+<div class:list={['cert', `cert-${tipo}`]} data-certificado>
+  <div class="cert-hoja">
+    <span class="cert-lado" aria-hidden="true"></span>
+    {tipo === 'modulo' && <span class="cert-esq" aria-hidden="true"></span>}
+    <img class="cert-logo" src="/img/logo-entre-todos.png" alt="ENTRE TODOS" />
+    <p class="cert-tipo">{etiqueta}</p>
+    {tipo === 'modulo'
+      ? <p class="cert-tit">Academia A<sup>+</sup></p>
+      : <p class="cert-tit cert-tit-b">{titulo}</p>}
+    <p class="cert-otorga">ENTRE TODOS certifica que</p>
+    <p class="cert-nombre" data-cert-nombre>{nombre}</p>
+    <p class="cert-por" set:html={detalle} />
+    {tipo === 'modulo' && <span class="cert-barras" aria-hidden="true"><i class="r"></i><i></i><i></i><i></i><i></i><i></i></span>}
+    <div class="cert-pie">
+      <div><b data-cert-fecha>{fecha}</b>Fecha</div>
+      <div><b data-cert-codigo>{codigo || 'Sin verificar'}</b>Código de verificación<br /><span data-cert-url>entre-todos.org/verificar</span></div>
+      <div class="cert-qr" data-cert-qr aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .cert { container-type: inline-size; width: 100%; max-width: 900px; }
+  .cert-hoja { position: relative; aspect-ratio: 297 / 210; background: #fff; border: 1px solid var(--borde, #dfe3ea); overflow: hidden; padding: 6cqw 7cqw 4cqw 8.5cqw; color: #3a4458; font-size: 1.9cqw; line-height: 1.45; }
+  .cert-hoja p { margin: 0; }
+  .cert-lado { position: absolute; left: 0; top: 0; bottom: 0; width: 3.2cqw; background: var(--marino, #0b1d3f); }
+  .cert-lado::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 22%; background: var(--rojo, #d7192d); }
+  .cert-esq { position: absolute; right: -5cqw; top: 0; width: 28cqw; height: 18%; background-color: var(--marino, #0b1d3f); background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.3px); background-size: 1.2cqw 1.2cqw; clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%); }
+  .cert-logo { height: 5.4cqw; width: auto; display: block; }
+  .cert-tipo { font-family: var(--display, 'Barlow Condensed'); font-weight: 300; letter-spacing: .3em; text-transform: uppercase; color: #5f6b80; font-size: 1.7cqw; margin-top: 3cqw !important; }
+  .cert-tit { font-family: Montserrat, var(--fuente); font-weight: 900; color: var(--marino, #0b1d3f); font-size: 5.6cqw; line-height: 1; margin-top: .8cqw !important; }
+  .cert-tit sup { color: var(--rojo, #d7192d); font-size: .55em; vertical-align: .9em; }
+  .cert-tit-b { font-family: var(--display, 'Barlow Condensed'); font-weight: 800; text-transform: uppercase; font-size: 4.4cqw; line-height: 1.02; max-width: 80%; }
+  .cert-otorga { margin-top: 2.6cqw !important; font-size: 2cqw; }
+  .cert-nombre { font-family: var(--display, 'Barlow Condensed'); font-weight: 800; text-transform: uppercase; color: var(--marino, #0b1d3f); font-size: 5.2cqw; line-height: 1.1; display: inline-block; border-bottom: .45cqw solid var(--amarillo, #f4c20d); padding-bottom: .2cqw; margin-top: .4cqw !important; overflow-wrap: anywhere; max-width: 80%; }
+  .cert-por { margin-top: 1.8cqw !important; font-size: 2cqw; max-width: 74%; }
+  .cert-por b { color: var(--marino, #0b1d3f); }
+  .cert-barras { display: flex; gap: .8cqw; margin-top: 2.2cqw; }
+  .cert-barras i { width: 4.4cqw; height: 1.05cqw; background: var(--marino, #0b1d3f); transform: skewX(var(--sesgo, -30deg)); }
+  .cert-barras i.r { background: var(--rojo, #d7192d); }
+  .cert-pie { position: absolute; left: 8.5cqw; right: 7cqw; bottom: 4cqw; display: flex; justify-content: space-between; align-items: flex-end; gap: 2cqw; font-size: 1.55cqw; color: #5f6b80; line-height: 1.35; }
+  .cert-pie b { display: block; color: var(--marino, #0b1d3f); font-size: 1.95cqw; }
+  .cert-qr { width: 10cqw; height: 10cqw; flex: none; }
+  .cert-qr svg { width: 100%; height: 100%; display: block; }
+  .cert-qr:empty { border: .3cqw dashed #c6ccd6; }
+  .cert-bloque .cert-hoja { padding-top: 5cqw; }
+  #cert-imprimir { display: none; }
+  @media print {
+    #cert-imprimir .cert { max-width: none; width: 297mm; }
+    #cert-imprimir .cert-qr:empty { visibility: hidden; }
+    #cert-imprimir .cert-hoja { border: 0; width: 297mm; height: 209mm; aspect-ratio: auto; }
+    .cert-hoja, .cert-lado, .cert-lado::after, .cert-esq, .cert-barras i { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>

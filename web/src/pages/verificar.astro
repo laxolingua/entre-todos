@@ -1,0 +1,66 @@
+---
+// Verificación pública de certificados de la Academia A+. Lee el código de ?c= o del formulario.
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+import { cursos } from '../data/academia.js';
+const titulos = { nc: 'Academia A+ · La nueva Cuba', pd: 'Academia A+ · Pensar y debatir', ...Object.fromEntries(cursos.map((c) => [c.id, `Bloque ${c.num} · ${c.titulo}`])) };
+---
+<Base titulo="Verificar un certificado" seccion="academia"
+  descripcion="Comprueba si un certificado de la Academia A+ de ENTRE TODOS es válido con su código de verificación.">
+  <Banda imagen="/img/fotos/academia.jpg" lateral={['Academia A+', 'Certificados', 'Verificación']}>
+    <a class="miga-volver" href="/academia/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i>Blog A+</a>
+    <span class="barra"></span>
+    <h1>Verificar un<br />certificado</h1>
+    <p class="entradilla">Escribe el código que aparece en el certificado para comprobar que lo emitió ENTRE TODOS.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion vf">
+      <form class="vf-form" data-vf-form>
+        <label>Código de verificación<input name="c" type="text" maxlength="24" placeholder="A-NC-7K4Q-92XD" autocomplete="off" required /></label>
+        <button class="boton rojo" type="submit">Verificar</button>
+      </form>
+      <div class="vf-res" data-vf-res hidden></div>
+      <p class="discreto">La página solo muestra el nombre que la persona eligió para su certificado, qué completó y cuándo. ENTRE TODOS no guarda correo, cuenta ni otros datos.</p>
+    </section>
+  </div>
+  <script type="application/json" id="vf-titulos" set:html={JSON.stringify(titulos)}></script>
+</Base>
+
+<style>
+  .vf-form { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; max-width: 560px; }
+  .vf-form label { flex: 1 1 260px; font-weight: 600; color: var(--marino); font-size: .9rem; }
+  .vf-form input { display: block; width: 100%; font: inherit; font-size: 1.1rem; padding: 9px 12px; border: 1px solid var(--texto-3); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+  .vf-res { max-width: 560px; margin: 20px 0; background: #fff; border: 1px solid var(--borde); padding: 18px 20px; }
+  .vf-ok, .vf-no { font-weight: 700; padding: 8px 12px; margin: 0 0 12px; }
+  .vf-ok { background: #e3f2ea; color: #1f8a5b; }
+  .vf-no { background: #fbe8ea; color: var(--rojo-osc); }
+  .vf-res dl { display: grid; grid-template-columns: 120px 1fr; gap: 6px 12px; margin: 0; }
+  .vf-res dt { color: var(--texto-3); }
+  .vf-res dd { margin: 0; color: var(--marino); font-weight: 600; }
+</style>
+
+<script>
+  import { verificar, fechaLarga } from '../lib/certificados.js';
+  const T = JSON.parse(document.getElementById('vf-titulos')?.textContent || '{}');
+  const form = document.querySelector('[data-vf-form]');
+  const res = document.querySelector('[data-vf-res]');
+  const esc = (s: string) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as Record<string, string>)[c]);
+  async function comprobar(codigo: string) {
+    if (!res) return;
+    res.hidden = false; res.innerHTML = '<p>Comprobando…</p>';
+    const r = await verificar(codigo.trim().toUpperCase());
+    if (r?.ok && !r.revocado) {
+      res.innerHTML = `<p class="vf-ok">Certificado válido</p><dl><dt>Nombre</dt><dd>${esc(r.nombre)}</dd><dt>Certificado</dt><dd>${esc(T[r.ref] || r.ref)}</dd><dt>Fecha</dt><dd>${fechaLarga(r.emitido)}</dd><dt>Código</dt><dd>${esc(codigo.trim().toUpperCase())}</dd></dl>`;
+    } else if (r?.ok && r.revocado) {
+      res.innerHTML = '<p class="vf-no">Este certificado fue anulado.</p>';
+    } else if (r?.error) {
+      res.innerHTML = '<p class="vf-no">No se pudo comprobar ahora. Inténtalo de nuevo más tarde.</p>';
+    } else {
+      res.innerHTML = '<p class="vf-no">No existe ningún certificado con ese código. Revisa que esté bien escrito.</p>';
+    }
+  }
+  const c = new URLSearchParams(location.search).get('c');
+  const inp = form?.querySelector('input');
+  if (c && inp) { inp.value = c; comprobar(c); }
+  form?.addEventListener('submit', (e) => { e.preventDefault(); if (inp?.value) { history.replaceState(null, '', `?c=${encodeURIComponent(inp.value.trim().toUpperCase())}`); comprobar(inp.value); } });
+</script>

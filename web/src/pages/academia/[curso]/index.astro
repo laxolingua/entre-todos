@@ -3,6 +3,7 @@
 import Base from '../../../layouts/Base.astro';
 import Banda from '../../../components/Banda.astro';
 import ApoyoEEUU from '../../../components/ApoyoEEUU.astro';
+import CertificadoPanel from '../../../components/CertificadoPanel.astro';
 import { cursos } from '../../../data/academia.js';
 import { entradas } from '../../../data/academia-entradas.js';
 
@@ -56,7 +57,7 @@ const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecc
               </li>
             ))}
           </ol>
-          <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tu progreso se guarda solo en este dispositivo. ENTRE TODOS no pide cuenta, correo ni nombre.</p>
+          <p class="nota-privacidad"><i class="fi fi-br-lock" aria-hidden="true"></i> Tu progreso se guarda en este dispositivo. ENTRE TODOS no pide cuenta, correo ni nombre. Al ganar una insignia se registra, sin datos personales, que esa lección se completó, para poder verificar el certificado.</p>
         </section>
 
         {pendientes.length > 0 && (
@@ -69,23 +70,12 @@ const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecc
         {completo && <section class="seccion" id="certificado">
           <h2>Certificado</h2>
           <div data-cert-pendiente>
-            <p>Cuando consigas las {lecciones.length} insignias del bloque podrás descargar tu certificado en PDF, con tu nombre y un código propio.</p>
+            <p>Cuando consigas las {lecciones.length} insignias del bloque podrás obtener tu certificado, con un código que cualquiera puede verificar.</p>
           </div>
-          <div class="bl-cert-zona" data-cert-listo hidden>
-            <div class="bl-certificado" data-certificado>
-              <p class="bl-cert-marca">ENTRE TODOS · Blog A+</p>
-              <p class="bl-cert-tipo">Certificado de participación</p>
-              <p class="bl-cert-nombre" data-cert-nombre>Tu nombre</p>
-              <p>ha completado el bloque</p>
-              <p class="bl-cert-curso">{c.titulo}</p>
-              <p>{lecciones.length} entradas con sus actividades · unos {c.minutos} minutos</p>
-              <p class="bl-cert-pie"><span data-cert-fecha></span><span>Código <strong data-cert-codigo></strong></span><span>entre-todos.org</span></p>
-            </div>
-            <div>
-              <label class="bl-campo">Nombre que aparecerá en el certificado<input type="text" maxlength="60" data-cert-input autocomplete="name" /></label>
-              <div class="acciones"><button type="button" class="boton rojo" data-cert-pdf>Descargar certificado en PDF <i class="fi fi-br-download" aria-hidden="true"></i></button></div>
-              <p class="discreto">Se genera en tu dispositivo. Para guardarlo como PDF, elige «Guardar como PDF» en la ventana de impresión.</p>
-            </div>
+          <div data-cert-listo hidden>
+            <CertificadoPanel tipo="bloque" refId={c.id} etiqueta={`Academia A+ · Bloque ${c.num}`} titulo={c.titulo}
+              detalle={`completó las ${lecciones.length} lecciones del bloque <b>«${c.titulo}»</b> y sus actividades.`}
+              nombreCert={`Academia A+ de ENTRE TODOS: ${c.titulo}`} lecciones={lecciones.map((l) => [c.id, l.id])} />
           </div>
         </section>}
 
@@ -112,33 +102,8 @@ const datosBloque = JSON.stringify({ id: c.id, titulo: c.titulo, lecciones: lecc
       const t = document.querySelector('[data-bloque-texto]'); if (t) t.textContent = `${hechas} de ${B.lecciones.length} insignias`;
       const br = document.querySelector('[data-bloque-barra]'); if (br instanceof HTMLElement) br.style.width = `${Math.round((hechas / B.lecciones.length) * 100)}%`;
       if (hechas === B.lecciones.length && B.lecciones.length) {
-        const claveCert = `et-cert-${B.id}`;
-        const cert = leer(claveCert);
-        if (!cert.codigo) {
-          const az = new Uint8Array(5); crypto.getRandomValues(az);
-          cert.codigo = 'ET-' + B.id.slice(0, 2).toUpperCase() + '-' + [...az].map((v) => v.toString(36).padStart(2, '0')).join('').toUpperCase().slice(0, 8);
-          cert.fecha = ultima;
-          try { localStorage.setItem(claveCert, JSON.stringify(cert)); } catch (e) { /* sin almacenamiento */ }
-        }
         document.querySelector('[data-cert-pendiente]')?.setAttribute('hidden', '');
         document.querySelector('[data-cert-listo]')?.removeAttribute('hidden');
-        const cod = document.querySelector('[data-cert-codigo]'); if (cod) cod.textContent = cert.codigo;
-        const fe = document.querySelector('[data-cert-fecha]'); if (fe) fe.textContent = fecha(cert.fecha || new Date().toISOString());
-        const inp = document.querySelector('[data-cert-input]');
-        const nom = document.querySelector('[data-cert-nombre]');
-        if (inp instanceof HTMLInputElement) {
-          inp.value = cert.nombre || '';
-          if (nom && cert.nombre) nom.textContent = cert.nombre;
-          inp.addEventListener('input', () => {
-            cert.nombre = inp.value.trim(); if (nom) nom.textContent = cert.nombre || 'Tu nombre';
-            try { localStorage.setItem(claveCert, JSON.stringify(cert)); } catch (e) { /* nada */ }
-          });
-        }
-        document.querySelector('[data-cert-pdf]')?.addEventListener('click', () => {
-          document.body.classList.add('imprimir-certificado');
-          window.print();
-          setTimeout(() => document.body.classList.remove('imprimir-certificado'), 500);
-        });
       }
     }
   </script>

@@ -330,3 +330,6 @@ export function iniciarParticipacion() {
   const a = document.getElementById('aportes');
   if (a) aportes(a);
 }
+
+// Para la Academia A+ (certificados verificables).
+export { sb, sesion, ACTIVA as participacionActiva };

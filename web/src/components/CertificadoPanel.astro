@@ -1,0 +1,45 @@
+---
+// Certificado con sus controles: nombre, «Obtener certificado verificable», PDF, LinkedIn y enlace de verificación.
+import Certificado from './Certificado.astro';
+interface Props { tipo: 'modulo' | 'bloque'; refId: string; etiqueta: string; titulo: string; detalle: string; nombreCert: string; lecciones: [string, string][] }
+const { tipo, refId, etiqueta, titulo, detalle, nombreCert, lecciones } = Astro.props;
+const datos = JSON.stringify({ tipo, ref: refId, nombreCert, lecciones });
+---
+<div class="cert-zona" data-cert-zona={datos}>
+  <Certificado tipo={tipo} etiqueta={etiqueta} titulo={titulo} detalle={detalle} />
+  <div class="cert-controles">
+    <label class="bl-campo">Nombre que aparecerá en el certificado
+      <input type="text" maxlength="60" data-cert-input autocomplete="name" placeholder="Tu nombre o un seudónimo" />
+    </label>
+    <div class="acciones">
+      <button type="button" class="boton rojo" data-cert-emitir>Obtener certificado verificable</button>
+      <button type="button" class="boton" data-cert-pdf>Descargar PDF <i class="fi fi-br-download" aria-hidden="true"></i></button>
+    </div>
+    <p class="cert-msg" data-cert-msg role="status"></p>
+    <div class="acciones">
+      <a class="boton marino" data-cert-linkedin hidden rel="noopener" target="_blank">Añadir a LinkedIn</a>
+      <a class="enlace-flecha" data-cert-ver hidden>Ver la página de verificación</a>
+    </div>
+    <p class="discreto">El certificado verificable guarda solo el nombre que escribas y las lecciones completadas en este navegador. No pide cuenta ni correo. El PDF se genera en tu dispositivo: elige «Guardar como PDF» en la ventana de impresión.</p>
+  </div>
+</div>
+
+<style>
+  .cert-zona { display: grid; gap: 22px; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+  .cert-controles input { font: inherit; width: 100%; padding: 8px 10px; border: 1px solid var(--texto-3); background: #fff; margin-top: 6px; }
+  .cert-controles [hidden] { display: none !important; }
+  .cert-msg { min-height: 1.4em; font-size: .9rem; color: var(--marino); margin: 8px 0; }
+  .boton.marino { background: var(--marino); color: #fff; border-color: var(--marino); }
+  @media (max-width: 860px) { .cert-zona { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  import { montarCertificado } from '../lib/certificados.js';
+  document.querySelectorAll('[data-cert-zona]').forEach((z) => {
+    if (!(z instanceof HTMLElement) || z.dataset.montado) return;
+    z.dataset.montado = '1';
+    const d = JSON.parse(z.dataset.certZona || '{}');
+    const ultima = d.lecciones.map(([b, l]) => { try { return JSON.parse(localStorage.getItem(`et-blog-${b}-${l}`) || '{}').insignia || ''; } catch { return ''; } }).sort().pop();
+    montarCertificado(z, { ...d, fecha: ultima || undefined });
+  });
+</script>

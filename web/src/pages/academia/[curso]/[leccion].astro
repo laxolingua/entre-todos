@@ -510,6 +510,7 @@ const solucion = (a) =>
     function revisarInsignia() {
       const hechas = Object.values(S.act).filter((a) => a && a.hecha).length;
       if (!S.insignia && hechas >= totalAct && typeof S.despues === 'number') { S.insignia = new Date().toISOString(); guardar(); }
+      if (S.insignia) import('../../../lib/certificados.js').then((m) => m.sincronizar([[D.curso, D.leccion]])).catch(() => {});
       if (informe) informe.hidden = !S.insignia;
       const f = $('[data-fecha-insignia]'); if (f && S.insignia) f.textContent = 'Insignia · ' + fecha(S.insignia);
     }

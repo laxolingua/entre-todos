@@ -4,6 +4,8 @@ import { fotoLeccion } from '../../data/academia-fotos.js';
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
 import ApoyoEEUU from '../../components/ApoyoEEUU.astro';
+import CertificadoPanel from '../../components/CertificadoPanel.astro';
+import { MODULOS as MOD_CERT } from '../../lib/certificados.js';
 import { cursos } from '../../data/academia.js';
 import { entradas } from '../../data/academia-entradas.js';
 
@@ -12,6 +14,9 @@ const MODULOS = [
   { id: 'la-nueva-cuba', titulo: 'La nueva Cuba', texto: 'Cómo podría funcionar la nueva Cuba: derechos, libertades, justicia y democracia, comparados con el derecho internacional y otras democracias.' },
   { id: 'pensar-y-debatir', titulo: 'Pensar y debatir', texto: 'Pensamiento crítico, creativo, ético, sistémico, humano y solucionario: argumentar, comprobar fuentes y debatir sin ofender.' },
 ];
+const modRef = { 'la-nueva-cuba': 'nc', 'pensar-y-debatir': 'pd' };
+const leccionesDe = (mid) => cursos.filter((c) => (c.modulo === 'Pensar y debatir' ? 'pensar-y-debatir' : 'la-nueva-cuba') === mid && c.estado === 'disponible')
+  .flatMap((c) => c.lecciones.filter((l) => entradas[l.id]).map((l) => [c.id, l.id]));
 const modDe = (c) => (c.modulo === 'Pensar y debatir' ? 'pensar-y-debatir' : 'la-nueva-cuba');
 const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =>
   c.lecciones.filter((l) => entradas[l.id]).map((l, n) => ({ c, l, n, e: entradas[l.id], foto: fotoLeccion(c, l, n).src })));
@@ -70,9 +75,35 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
       </ul>
       </section>
     ))}
+    <section class="seccion" id="certificado-a">
+      <h2>Certificado Academia A<sup>+</sup></h2>
+      <p>Hay tres niveles: una insignia por lección, un certificado por bloque y el Certificado Academia A<sup>+</sup> de ENTRE TODOS al completar un módulo entero. Cada certificado tiene un código que cualquiera puede comprobar en <a href="/verificar/">entre-todos.org/verificar</a>.</p>
+      <ul class="cm-mods">
+        {MODULOS.map((m) => (
+          <li data-cm={m.id} data-cm-lecciones={JSON.stringify(leccionesDe(m.id))}>
+            <strong>{m.titulo}</strong>
+            <span class="bl-progreso"><span data-cm-texto>0 de {leccionesDe(m.id).length} lecciones</span><span class="bl-barra"><i data-cm-barra></i></span></span>
+          </li>
+        ))}
+      </ul>
+      {MODULOS.map((m) => (
+        <div class="cm-panel" data-cm-panel={m.id} hidden>
+          <h3>Tu certificado: {m.titulo}</h3>
+          <CertificadoPanel tipo="modulo" refId={modRef[m.id]} etiqueta="Academia cívica · Certificado" titulo="Academia A+"
+            detalle={MOD_CERT[modRef[m.id]].detalle} nombreCert={`Certificado Academia A+ de ENTRE TODOS: ${m.titulo}`} lecciones={leccionesDe(m.id)} />
+        </div>
+      ))}
+    </section>
     <ApoyoEEUU pieza="material" />
   </div>
   <script>
+    document.querySelectorAll('[data-cm]').forEach((li) => {
+      const ls = JSON.parse(li.getAttribute('data-cm-lecciones') || '[]');
+      const n = ls.filter(([b, l]) => { try { return !!JSON.parse(localStorage.getItem(`et-blog-${b}-${l}`) || '{}').insignia; } catch (e) { return false; } }).length;
+      const t = li.querySelector('[data-cm-texto]'); if (t) t.textContent = `${n} de ${ls.length} lecciones`;
+      const b = li.querySelector('[data-cm-barra]'); if (b instanceof HTMLElement) b.style.width = `${Math.round((n / Math.max(1, ls.length)) * 100)}%`;
+      if (ls.length && n === ls.length) document.querySelector(`[data-cm-panel="${li.getAttribute('data-cm')}"]`)?.removeAttribute('hidden');
+    });
     document.querySelectorAll('[data-clave]').forEach((li) => {
       try {
         const s = JSON.parse(localStorage.getItem(li.getAttribute('data-clave') || '') || '{}');
@@ -83,3 +114,11 @@ const publicadas = cursos.filter((c) => c.estado === 'disponible').flatMap((c) =
     });
   </script>
 </Base>
+
+<style>
+  .cm-mods { list-style: none; padding: 0; margin: 14px 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .cm-mods li { background: #fff; border: 1px solid var(--borde); border-top: 4px solid var(--marino); padding: 14px 16px; display: grid; gap: 8px; }
+  .cm-mods strong { font-family: var(--display); text-transform: uppercase; color: var(--marino); font-size: 1.1rem; }
+  .cm-panel { margin-top: 18px; }
+  .cm-panel[hidden] { display: none; }
+</style>

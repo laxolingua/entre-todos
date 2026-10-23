@@ -33,7 +33,7 @@ i=s.index('<main'); j=s.index('<form class="buscador"'); k=s.index('</main>')
 s=s[:i]+pre+s[j:k]+'</div></main>'+s[k+7:]
 open(f,'w',encoding='utf-8').write(s)
 shutil.copy(D+'/index.html',P+'/index.html')
-for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','perfil','cuba-eeuu','actualidad','compara','plataforma','candidatura-solucionaria','generador-de-soluciones','analisis','asistente','buscador']:
+for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','cuba-eeuu','actualidad','compara','plataforma','candidatura-solucionaria','generador-de-soluciones','analisis','asistente','buscador','verificar']:
     shutil.copytree(f'{D}/{d}',f'{P}/{d}',dirs_exist_ok=True)
 # El directorio de actores cívicos sale del diseño nuevo (dossier de organizaciones); las fichas de cada actor siguen siendo las del banco.
 shutil.copy(D+'/actores/index.html',P+'/actores/index.html')
@@ -67,8 +67,8 @@ REDIR={
  'implementacion-cuba.html':'/propuestas/','implementacion-rendicion-cuentas.html':'/propuestas/',
  'app.html':'/','index-fixed.html':'/','inicio-anterior.html':'/','info.html':'/sobre/','et-guia-visual.html':'/',
  'gobernanza-solucionaria-v4.html':'/sobre/','gobernanza-solucionaria-v5.html':'/sobre/',
- 'miembro.html':'/perfil/','miembros.html':'/perfil/','perfil-usuario-demo.html':'/perfil/','perfil-mitch-real.html':'/sobre/',
- 'perfil-demo-clara-marin.html':'/perfil/','perfil-demo-daniel-soto.html':'/perfil/','perfil-demo-lia-ortega.html':'/perfil/',
+ 'miembro.html':'/','miembros.html':'/','perfil-usuario-demo.html':'/','perfil-mitch-real.html':'/sobre/',
+ 'perfil-demo-clara-marin.html':'/','perfil-demo-daniel-soto.html':'/','perfil-demo-lia-ortega.html':'/',
  'eval-portada/index.html':'/','eval-portada/academia_entre_todos_leccion_01.html':'/academia/','eval-portada/academia_hub_muestra.html':'/academia/',
 }
 plantilla='<!doctype html><html lang="es"><head><meta charset="utf-8"><title>ENTRE TODOS</title><meta name="robots" content="noindex"><link rel="canonical" href="https://entre-todos.org{u}"><meta http-equiv="refresh" content="0; url={u}"><script>location.replace("{u}"+location.hash)</script></head><body><p><a href="{u}">ENTRE TODOS</a></p></body></html>'
