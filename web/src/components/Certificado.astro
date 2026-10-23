@@ -9,7 +9,7 @@ const { tipo, etiqueta, titulo, detalle, nombre = 'Tu nombre', fecha = '', codig
   <div class="cert-hoja">
     <span class="cert-lado" aria-hidden="true"></span>
     {tipo === 'modulo' && <span class="cert-esq" aria-hidden="true"></span>}
-    <img class="cert-logo" src="/img/logo-entre-todos.png" alt="ENTRE TODOS" />
+    <img class="cert-logo" src="/img/logo-entre-todos.png" alt="ENTRE TODOS" loading="lazy" />
     <p class="cert-tipo">{etiqueta}</p>
     {tipo === 'modulo'
       ? <p class="cert-tit">Academia A<sup>+</sup></p>

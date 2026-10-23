@@ -57,51 +57,6 @@
    ]
   },
   {
-   "slug": "amelia-calzadilla",
-   "nombre": "Amelia Calzadilla",
-   "espacio": "Partido Liberal Ortodoxo Cubano",
-   "estado": "Candidatura declarada",
-   "fecha": "Abril de 2026",
-   "imagen": "/img/diversidad/amelia-calzadilla.jpg",
-   "resumen": "Voz pública cubana conocida por sus intervenciones directas sobre la vida cotidiana de las familias y la necesidad de una transformación profunda del país. En abril de 2026 anunció su candidatura presidencial desde el Partido Liberal Ortodoxo Cubano, con el lema «Justicia, dignidad y prosperidad».",
-   "datos": [
-    [
-     "Partido",
-     "Partido Liberal Ortodoxo Cubano."
-    ],
-    [
-     "Lema",
-     "«Un nuevo camino para Cuba. Con principios. Con libertad. Contigo.»"
-    ],
-    [
-     "Fuente",
-     "Pieza pública de anuncio de candidatura, 27 de abril de 2026."
-    ]
-   ],
-   "ejes": [
-    [
-     "Justicia",
-     "Instituciones que protegen",
-     "Asocia la justicia con instituciones que protegen y garantías públicas confiables."
-    ],
-    [
-     "Dignidad",
-     "Respeto a cada persona",
-     "Centra la vida pública en el reconocimiento y el trato digno a cada persona."
-    ],
-    [
-     "Prosperidad",
-     "Oportunidades para todos",
-     "Plantea crecimiento económico con más acceso y movilidad social."
-    ]
-   ],
-   "pendiente": [
-    "Programa de gobierno con medidas concretas",
-    "Equipo, alianzas y estrategia de implementación"
-   ],
-   "enlaces": []
-  },
-  {
    "slug": "luis-michel-cespedes",
    "nombre": "Luis Michel Céspedes Rodríguez",
    "espacio": "Movimiento Cristiano Liberación",
@@ -399,6 +354,67 @@
     "Documentación programática completa"
    ],
    "enlaces": []
+  },
+  {
+   "slug": "partido-liberal-clasico-cubano",
+   "nombre": "Partido Liberal Clásico Cubano",
+   "tipo": "Partido político",
+   "fecha": "2026",
+   "imagen": "/img/diversidad/amelia-calzadilla.jpg",
+   "resumen": "Partido de tendencia liberal presidido por Amelia Calzadilla. Lo anunció el 27 de abril de 2026 con el nombre de Partido Liberal Ortodoxo Cubano y lo presentó en Madrid en mayo de 2026 con su nombre actual. Defiende la propiedad privada, las libertades individuales, la economía de mercado, la separación de poderes y la rendición de cuentas del Estado. Calzadilla ha dicho que no aspira a la presidencia.",
+   "datos": [
+    [
+     "Ámbito",
+     "Cubanos dentro y fuera de la isla; colaboradores en España, Suiza y Estados Unidos."
+    ],
+    [
+     "Presidencia",
+     "Amelia Calzadilla."
+    ],
+    [
+     "Eje ideológico",
+     "Liberalismo."
+    ],
+    [
+     "Nombre anterior",
+     "Partido Liberal Ortodoxo Cubano (abril de 2026)."
+    ]
+   ],
+   "ejes": [
+    [
+     "Economía",
+     "Mercado y propiedad privada",
+     "Economía de mercado con menos control del Estado y respeto a la propiedad privada."
+    ],
+    [
+     "Estado",
+     "Separación de poderes",
+     "Poderes separados de verdad y mecanismos para que el Estado rinda cuentas."
+    ],
+    [
+     "Libertades",
+     "Libertades individuales",
+     "Garantía de las libertades individuales."
+    ],
+    [
+     "Transición",
+     "Preparación de gobierno",
+     "Prepara estructuras y programas para después de un cambio político en Cuba."
+    ]
+   ],
+   "pendiente": [
+    "Programa de gobierno publicado con medidas concretas"
+   ],
+   "enlaces": [
+    [
+     "Presentación del partido (Diario de Cuba, mayo de 2026)",
+     "https://diariodecuba.com/derechos-humanos/1779276007_67022.html"
+    ],
+    [
+     "Anuncio y aclaración de que no busca la presidencia (Havana Times)",
+     "https://havanatimes.org/?p=242862"
+    ]
+   ]
   }
  ]
 }

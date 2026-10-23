@@ -16,7 +16,7 @@ const correo = sitio.contacto;
     <div class="seccion doc-legal">
       <aside class="panel marino resumen-claro">
         <h2>Resumen sin tecnicismos</h2>
-        <p>ENTRE TODOS <strong>no almacena</strong> tu número de carné ni tu número de pasaporte. Ese número se convierte en tu dispositivo en un código irreversible, y solo ese código llega a nuestro sistema. Para la explicación práctica, con consejos para quienes participan desde Cuba, consulta <a href="/seguridad/">Seguridad</a>.</p>
+        <p>ENTRE TODOS <strong>no almacena</strong> tu número de carné ni tu número de pasaporte. Ese número se convierte en tu dispositivo en un código, y solo ese código llega a nuestro sistema, que lo vuelve a cifrar con una clave secreta antes de guardarlo. Para la explicación práctica, con consejos para quienes participan desde Cuba, consulta <a href="/seguridad/">Seguridad</a>.</p>
       </aside>
 
       <nav class="indice-doc" aria-label="Contenido">
@@ -47,11 +47,11 @@ const correo = sitio.contacto;
       </section>
 
       <section id="datos"><h2><span>02</span>Qué datos procesamos y cuáles no</h2>
-        <p><strong>Nunca se almacenan</strong> tu número de carné de identidad, tu número de pasaporte u otro documento, tu nombre, tu dirección, tu correo electrónico ni otro dato que permita identificarte directamente.</p>
+        <p><strong>Nunca se almacenan</strong> tu número de carné de identidad, tu número de pasaporte u otro documento, tu dirección, tu correo electrónico ni otro dato que permita identificarte directamente. La única excepción es el nombre que tú elijas escribir en un certificado del Blog A+.</p>
         <div class="desplazable"><table class="tabla">
           <thead><tr><th>Dato almacenado</th><th>Descripción</th><th>¿Identifica a la persona?</th></tr></thead>
           <tbody>
-            <tr><td>Código de la credencial</td><td>Código de 64 caracteres generado de forma irreversible a partir del número de documento y cifrado de nuevo en el servidor con una clave secreta.</td><td>No. Es un seudónimo criptográfico.</td></tr>
+            <tr><td>Código de la credencial</td><td>Código de 64 caracteres generado a partir del número de documento y cifrado de nuevo en el servidor con una clave secreta. Sin esa clave no se puede saber de qué número salió.</td><td>No. Es un seudónimo criptográfico.</td></tr>
             <tr><td>Tipo de credencial</td><td>Carné de identidad cubano o pasaporte u otro documento. No incluye el número.</td><td>No.</td></tr>
             <tr><td>Opción elegida</td><td>La respuesta marcada en la consulta.</td><td>No.</td></tr>
             <tr><td>País o provincia (opcional)</td><td>Solo si la persona lo indica voluntariamente, para los totales por lugar.</td><td>No directamente.</td></tr>
@@ -59,6 +59,8 @@ const correo = sitio.contacto;
             <tr><td>Identificador de consulta</td><td>A qué consulta pertenece el registro.</td><td>No.</td></tr>
             <tr><td>PIN de voto (cifrado)</td><td>Para votar propuestas eliges un PIN de 6 cifras. Se guarda solo una huella cifrada (bcrypt) que no permite recuperarlo.</td><td>No.</td></tr>
             <tr><td>Votos sobre propuestas</td><td>El nivel de acuerdo (de «Muy en contra» a «Muy a favor») que marca cada credencial en cada propuesta. Solo se publican totales.</td><td>No.</td></tr>
+            <tr><td>Lecciones del Blog A+ y certificados</td><td>Qué lecciones completó una sesión anónima del navegador y, si se pide un certificado verificable, el nombre o seudónimo que la persona escribe en él. Ese nombre se muestra a quien compruebe el código del certificado.</td><td>Solo si la persona escribe su nombre real.</td></tr>
+            <tr><td>Búsquedas sin resultado en el banco</td><td>Las palabras buscadas en el banco de propuestas que no dieron ningún resultado, para saber qué temas faltan. No se guarda quién las buscó.</td><td>No.</td></tr>
             <tr><td>Sesión de voto</td><td>Un código aleatorio guardado en tu navegador para no pedirte el documento cada vez. En el servidor solo se guarda su huella. Caduca a los 180 días o al pulsar «Salir».</td><td>No.</td></tr>
             <tr><td>Reclamaciones</td><td>Si alguien reclama un documento, se guarda una referencia y el estado de la reclamación. La verificación de identidad se hace por correo y los documentos que se envíen se borran al resolverla.</td><td>No en la base de datos.</td></tr>
           </tbody>
@@ -115,10 +117,12 @@ const correo = sitio.contacto;
           <thead><tr><th>Proveedor</th><th>Función</th><th>Datos</th></tr></thead>
           <tbody>
             <tr><td>Supabase, Inc.</td><td>Base de datos de las consultas</td><td>Los datos de la tabla anterior. Actúa como encargado del tratamiento.</td></tr>
+            <tr><td>Cloudflare, Inc. (Turnstile)</td><td>Filtro contra robots al votar, aportar o pedir un certificado</td><td>Ve la dirección IP y datos técnicos del navegador durante la comprobación. Solo se carga al participar.</td></tr>
+            <tr><td>Cloudflare, Inc. (Workers AI)</td><td>Respuestas del Buscador E/T</td><td>Recibe el texto de la pregunta a través de nuestro servidor, sin la IP de quien pregunta.</td></tr>
             <tr><td>GitHub Pages (GitHub, Inc.)</td><td>Alojamiento de la web</td><td>Registros técnicos de acceso (IP, navegador) que el proveedor puede conservar; no se vinculan a los votos.</td></tr>
           </tbody>
         </table></div>
-        <p>Las tipografías y los iconos se sirven desde el propio sitio, sin solicitudes a terceros. ENTRE TODOS no usa cookies de seguimiento ni herramientas de analítica. No cedemos datos a ningún gobierno, partido, servicio de inteligencia ni entidad comercial.</p>
+        <p>Para leer el sitio, las tipografías y los iconos se sirven desde el propio sitio. Los servicios de Cloudflare solo se usan al participar o al preguntar al Buscador E/T. Supabase registra la dirección IP de las sesiones anónimas en sus registros técnicos, sin vincularla a los votos. ENTRE TODOS no usa cookies de seguimiento ni herramientas de analítica. No cedemos datos a ningún gobierno, partido, servicio de inteligencia ni entidad comercial.</p>
       </section>
 
       <section id="menores"><h2><span>09</span>Menores de edad</h2>

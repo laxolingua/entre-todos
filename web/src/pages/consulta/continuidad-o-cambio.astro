@@ -60,8 +60,8 @@ const paises = ['Estados Unidos', 'España', 'México', 'Argentina', 'Italia', '
           <aside class="panel marino como-funciona">
             <h2>Cómo se protege tu voto</h2>
             <ol>
-              <li>Tu número se convierte en tu propio navegador en un código irreversible (SHA-256).</li>
-              <li>Solo ese código viaja al servidor, que lo vuelve a cifrar con una clave secreta antes de guardarlo.</li>
+              <li>Tu número se convierte en tu propio navegador en un código (SHA-256). Solo ese código viaja al servidor.</li>
+              <li>El servidor lo vuelve a cifrar con una clave secreta y solo guarda ese resultado. Sin esa clave no se puede saber de qué número salió.</li>
               <li>El código sirve únicamente para impedir que la misma credencial vote dos veces.</li>
               <li>No pedimos nombre, correo ni teléfono, y no creamos cuentas.</li>
             </ol>
@@ -144,6 +144,7 @@ const paises = ['Estados Unidos', 'España', 'México', 'Argentina', 'Italia', '
           .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
       }
       var datos = null;
+      setTimeout(function () { if (!datos) cargar(); }, 0);
       function cargar() {
         return rpc('consulta_resultados', { p_consulta: CONSULTA }).then(function (d) {
           datos = d; var t = d.total || ((d.continuidad || 0) + (d.cambio || 0));

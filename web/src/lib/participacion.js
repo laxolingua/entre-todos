@@ -100,7 +100,7 @@ function pintarEscala(caja) {
     <div data-identificacion hidden></div>
     <p class="discreto" data-sesion></p>
     <p class="discreto">${ACTIVA
-      ? 'Un documento, un voto. Tu número de carné o pasaporte no sale de tu dispositivo: se convierte en un código irreversible. Solo se publican totales, que reflejan a quienes participan y no a toda la población. <a href="/privacidad/">Privacidad</a>'
+      ? 'Un documento, un voto. Tu número de carné o pasaporte no sale de tu dispositivo: se convierte en un código que el servidor vuelve a cifrar con una clave secreta. Solo se publican totales, que reflejan a quienes participan y no a toda la población. <a href="/privacidad/">Privacidad</a>'
       : 'La valoración se activa cuando el banco se publique con su base de datos.'}</p>`;
   const botones = [...caja.querySelectorAll('button[data-v]')];
   const escala = caja.querySelector('.escala');
@@ -284,7 +284,7 @@ async function aportes(seccion) {
         <span class="etiqueta">${TIPOS[a.tipo] ?? escapar(a.tipo)}</span>
         <p>${escapar(a.texto)}</p>
         <button type="button" class="boton" data-apoyar="${a.id}" aria-pressed="${leer(`et-apoyo-${a.id}`) === '1'}">
-          <i class="fi fi-br-thumbs-up" aria-hidden="true"></i><span>${a.apoyos}</span>
+          <i class="fi fi-br-social-network" aria-hidden="true"></i><span>${a.apoyos}</span>
         </button>
       </li>`).join('')}</ul>`;
   }

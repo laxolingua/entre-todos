@@ -52,7 +52,7 @@ REDIR={
  'politica-privacidad.html':'/privacidad/','transparencia-cuba.html':'/seguridad/','metodologia.html':'/metodo/',
  'abrazos.html':'/abrazos/','abrazo-anna-bensi.html':'/abrazos/anna-bensi/',
  'candidaturas-cuba.html':'/diversidad-politica/','candidatos/index.html':'/diversidad-politica/',
- 'candidata-amelia-calzadilla-2026.html':'/diversidad-politica/amelia-calzadilla/',
+ 'candidata-amelia-calzadilla-2026.html':'/diversidad-politica/partido-liberal-clasico-cubano/',
  'candidato-armando-labrador-2026.html':'/diversidad-politica/armando-labrador/',
  'candidato-eduardo-arias-leon-2026.html':'/diversidad-politica/eduardo-arias-leon/',
  'candidato-luis-michel-cespedes-rodriguez-2026.html':'/diversidad-politica/luis-michel-cespedes/',

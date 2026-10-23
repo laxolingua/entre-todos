@@ -5,8 +5,9 @@ import Banda from '../../components/Banda.astro';
 import { autorias, propuestas, totales } from '../../lib/autorias.js';
 
 const filas = propuestas.map((p) => ({ p, a: autorias(p) })).sort((x, y) => y.a.length - x.a.length || x.p.titulo.localeCompare(y.p.titulo, 'es'));
-const nucleo = filas.filter((f) => f.a.length >= 6);
-const amplias = filas.filter((f) => f.a.length >= 4 && f.a.length < 6);
+const nucleo = filas.filter((f) => f.a.length >= 10);
+const amplias = filas.filter((f) => f.a.length >= 6 && f.a.length < 10);
+const desde = Math.min(...nucleo.flatMap((f) => f.a.map((x) => x.anio).filter(Boolean)));
 const unaSola = filas.filter((f) => f.a.length === 1).length;
 const pct = (n) => Math.round((n / propuestas.length) * 100);
 const anios = (a) => { const v = a.map((x) => x.anio).filter(Boolean); return v.length ? `${Math.min(...v)}–${Math.max(...v)}` : ''; };
@@ -31,7 +32,7 @@ const anios = (a) => { const v = a.map((x) => x.anio).filter(Boolean); return v.
       </section>
 
       <section class="an-sec">
-        <h2>El núcleo: {nucleo.length} propuestas con seis autorías o más</h2>
+        <h2>El núcleo: {nucleo.length} propuestas con diez autorías o más</h2>
       </section>
     </div>
 
@@ -51,12 +52,12 @@ const anios = (a) => { const v = a.map((x) => x.anio).filter(Boolean); return v.
     <div class="texto-largo">
       <section class="an-sec">
         <h2>Qué tienen en común</h2>
-        <p>Casi todo el núcleo son libertades básicas y reglas democráticas: elecciones libres con varios partidos, liberar a los presos políticos, libertad de reunión, de movimiento, sindical y de empresa, y que la soberanía resida en el pueblo. A eso se suman dos acuerdos sobre el camino: una transición pacífica y una Asamblea Constituyente libremente elegida.</p>
-        <p>Los autores son muy distintos entre sí. En el núcleo aparecen grupos de la disidencia interna, el exilio histórico, movimientos de inspiración cristiana, centros de estudio de la isla, los intelectuales que firmaron la «Carta de los Diez» en 1991 y coaliciones con documentos de 2025 y 2026. Algunas de estas propuestas se repiten desde hace más de cuarenta años.</p>
+        <p>El núcleo son libertades básicas y reglas democráticas: elecciones libres con varios partidos, liberar a los presos políticos, libertad de expresión y de prensa, sindicatos libres, libertad de empresa y un Estado de derecho con separación de poderes. A eso se suma un acuerdo sobre el camino: una Asamblea Constituyente libremente elegida.</p>
+        <p>Los autores son muy distintos entre sí. En el núcleo aparecen grupos de la disidencia interna, el exilio histórico, movimientos de inspiración cristiana, centros de estudio de la isla, los intelectuales que firmaron la «Carta de los Diez» en 1991 y coaliciones con documentos de 2025 y 2026. Varias de estas propuestas aparecen ya en documentos de {desde}.</p>
       </section>
 
       <section class="an-sec">
-        <h2>Un segundo círculo: {amplias.length} propuestas con cuatro o cinco autorías</h2>
+        <h2>Un segundo círculo: {amplias.length} propuestas con seis a nueve autorías</h2>
         <ul class="an-lista">
           {amplias.map(({ p, a }) => <li><a href={`/propuesta/${p.id}/`}>{p.titulo}</a> <span class="discreto">· {a.length} autorías · {anios(a)}</span></li>)}
         </ul>
@@ -83,9 +84,9 @@ const anios = (a) => { const v = a.map((x) => x.anio).filter(Boolean); return v.
 
       <section class="seccion org-nota">
         <h2>Límites y método</h2>
-        <p>El banco recoge los documentos que ENTRE TODOS ha podido reunir y verificar; no es una encuesta ni representa a todos los cubanos. Algunas organizaciones, como Cuba Próxima y el Centro de Estudios Convivencia, tienen muchos documentos, pero aquí cada autoría cuenta una sola vez. El año es el del primer documento de cada autoría que recoge la propuesta. Datos: <a href="/datos/">Datos abiertos</a>. Correcciones: <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+        <p>El banco recoge los documentos que ENTRE TODOS ha podido reunir y verificar; no es una encuesta ni representa a todos los cubanos. Los datos son los del banco publicado ({totales.propuestas} propuestas y {totales.documentos} documentos). Algunas organizaciones, como Cuba Próxima y el Centro de Estudios Convivencia, tienen muchos documentos, pero aquí cada autoría cuenta una sola vez. El año es el del primer documento de cada autoría que recoge la propuesta. Datos: <a href="/datos/">Datos abiertos</a>. Correcciones: <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
       </section>
-      <div class="acciones"><a class="boton rojo" href="/analisis/los-diez-desacuerdos/">Leer: Los diez desacuerdos de fondo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+      <div class="acciones"><a class="boton rojo" href="/analisis/los-desacuerdos-de-fondo/">Leer: Los desacuerdos de fondo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
     </div>
   </article>
 </Base>

@@ -56,8 +56,8 @@ grid.append(barra(None)); grid.append(princ)
 for ul in princ.select('#categorias ul.lista'):
     if ul.select_one('li.tarjeta.consolidada'):
         ul['class'] = ul.get('class', []) + ['con-fotos']
-        # Portada: categorías mezcladas, cada tarjeta con la foto de su categoría.
-        for li in ul.select('li.tarjeta.consolidada'): tarjeta(li, idx, foto=True)
+        # Portada: tarjetas sin foto (decisión de Mitch, 18/10/2026, entrega 034 IN).
+        for li in ul.select('li.tarjeta.consolidada'): tarjeta(li, idx)
 guardar(f'{P}/propuestas/index.html', idx)
 
 # 2. Páginas de categoría
@@ -146,3 +146,8 @@ if nuevo:
         if 'id="valoracion"' in t and 'iniciarParticipacion' not in t:
             open(f, 'w', encoding='utf-8').write(t.replace('</body>', montaje + '</body>', 1)); montadas += 1
     print('participación montada en', montadas, 'propuestas')
+    # Las páginas de main traen además su propio script, que carga la versión antigua (estrellas, desactivada)
+    # y pisaba la nueva. Se neutraliza esa versión antigua para que solo actúe la nueva.
+    for a in glob.glob(f'{P}/_astro/participacion.*.js'):
+        if 'Muy en contra' not in open(a, encoding='utf-8').read():
+            open(a, 'w', encoding='utf-8').write('export function iniciarParticipacion(){}\n')

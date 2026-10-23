@@ -1,5 +1,6 @@
 // Autorías distintas detrás de cada propuesta del banco (organización o, si no hay, autor del documento).
-import publico from '../data/publico.json';
+// Datos del banco tal como está publicado (scripts/rediseno/banco_publicado.py), no el JSON fuente antiguo.
+import publico from '../data/banco-publicado.json';
 const docs = Object.fromEntries(publico.documentos.map((d) => [d.id, d]));
 const act = Object.fromEntries(publico.actores.map((a) => [a.id, a.nombre]));
 export const propPorId = Object.fromEntries(publico.propuestas.map((p) => [p.id, p]));

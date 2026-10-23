@@ -5,6 +5,7 @@ import Banda from '../../components/Banda.astro';
 import { autorias, propPorId, cuestiones } from '../../lib/autorias.js';
 
 // Por qué importa cada desacuerdo y, cuando existe, qué respondieron los encuestados (elTOQUE 2026, respuestas desde Cuba).
+const excl = cuestiones.filter((c) => c.excluyentes);
 const extra = {
   'como-empieza-el-cambio': {
     importa: 'Define si el cambio se negocia con el Gobierno actual, se le impone o se busca por las urnas.',
@@ -30,15 +31,15 @@ const extra = {
   },
 };
 ---
-<Base titulo="Los diez desacuerdos de fondo" seccion="otras"
-  descripcion="Análisis de ENTRE TODOS: las diez cuestiones en las que las propuestas cubanas proponen caminos distintos, quién defiende cada uno y qué responden los encuestados.">
+<Base titulo="Los desacuerdos de fondo" seccion="otras"
+  descripcion="Análisis de ENTRE TODOS: las cuestiones en las que las propuestas cubanas proponen caminos distintos, quién defiende cada uno y qué responden los encuestados.">
   <Banda imagen="/img/fotos/cat-transicion.jpg" lateral={['Análisis E/T', 'Banco de propuestas', 'Sin tomar partido']}>
     <a class="miga-volver" href="/analisis/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i>Análisis</a>
     <span class="barra"></span>
     <p class="antetitulo">Análisis E/T · 23 de octubre de 2026</p>
-    <h1>Los diez<br />desacuerdos</h1>
+    <h1>Los desacuerdos<br />de fondo</h1>
     <p class="lema">Donde los caminos se separan</p>
-    <p class="entradilla">Los cubanos coinciden en lo básico: libertades, elecciones, una transición pacífica. Los desacuerdos están en el cómo y en el después. Estos son los diez más importantes del banco, con quién defiende cada opción.</p>
+    <p class="entradilla">Los cubanos coinciden en lo básico: libertades, elecciones, una transición pacífica. Los desacuerdos están en el cómo y en el después. Estos son los {cuestiones.length} que recoge el banco, con quién defiende cada opción.</p>
   </Banda>
 
   <article class="contenedor an">
@@ -76,8 +77,8 @@ const extra = {
       <section class="an-sec an-conclusion">
         <h2>Qué se puede afirmar</h2>
         <ol>
-          <li>Cuatro de los diez desacuerdos tienen opciones incompatibles: quién gobierna la transición, sanciones o normalización, el lugar de los comunistas y el aborto. Esos tendrán que decidirse por votación.</li>
-          <li>Los otros seis admiten combinaciones. En ellos cabe una solución que recoja partes de varias propuestas.</li>
+          <li>{excl.length} de los {cuestiones.length} desacuerdos tienen opciones incompatibles: {excl.map((c) => c.pregunta.replace(/^¿|\?$/g, '').toLowerCase()).join('; ')}. Esos tendrán que decidirse por votación.</li>
+          <li>Los otros {cuestiones.length - excl.length} admiten combinaciones. En ellos cabe una solución que recoja partes de varias propuestas.</li>
           <li>La opinión de la gente y la de las organizaciones no siempre van juntas. La vía que más eligen los encuestados para empezar el cambio, el derrocamiento «por cualquier medio», no la propone ningún documento del banco: todos proponen caminos pacíficos.</li>
         </ol>
       </section>
