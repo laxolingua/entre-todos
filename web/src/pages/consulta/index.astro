@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
+import banco from '../../data/banco-encuestas.json';
+const MET = { aleatoria: 'Muestra aleatoria', panel: 'Panel en línea', abierta: 'Abierta en línea', redes: 'Redes sociales' };
+const ORDEN = ['aleatoria', 'panel', 'abierta', 'redes'];
+const destacadas = [...banco.encuestas].filter((e) => e.estado !== 'pendiente').sort((a, b) => b.anio - a.anio || ORDEN.indexOf(a.metodo) - ORDEN.indexOf(b.metodo)).slice(0, 6);
 ---
 <Base titulo="Consultas" seccion="consulta" ancho
   descripcion="Consultas ciudadanas no vinculantes sobre propuestas, temas de actualidad y la gestión del gobierno. Voto anónimo; se publican solo los totales.">
@@ -38,12 +42,26 @@ import Banda from '../../components/Banda.astro';
       <div class="panel-tab" id="tab-anteriores" role="tabpanel" aria-labelledby="b-anteriores" hidden>
         <div class="panel"><p class="entradilla" style="margin:0">Todavía no hay consultas cerradas. Cuando una consulta termine, sus resultados quedarán aquí.</p></div>
       </div>
-      <article class="panel solicitud-civica">
-        <p class="antetitulo">Banco de encuestas</p>
-        <h2>Lo que dice la gente</h2>
-        <p>Todas las encuestas y sondeos sobre Cuba hechos fuera del Estado, con su método y enlazados a las propuestas del banco.</p>
-        <a class="enlace-flecha" href="/consulta/encuestas/">Ver el banco de encuestas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
-      </article>
+      <section class="cons-banco">
+        <div class="cons-banco-cab">
+          <div>
+            <p class="antetitulo">Banco de encuestas · {banco.encuestas.length} registradas</p>
+            <h2 class="vista-titulo">Lo que dice la gente</h2>
+            <p>Encuestas y sondeos sobre Cuba hechos fuera del Estado, cada uno con su método. Las cifras de encuestas distintas no se suman.</p>
+          </div>
+          <a class="boton rojo" href="/consulta/encuestas/">Ver todas <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="be-rejilla">
+          {destacadas.map((e) => (
+            <article class:list={['be-t', `m-${e.metodo}`]}>
+              <div class="be-t-cab"><span class="be-met">{MET[e.metodo]}</span></div>
+              <div class="be-cifra"><strong>{e.dato}</strong><span>{e.datoTexto}</span></div>
+              <h3 class="be-h3">{e.url ? <a href={e.url} rel="noopener" target={e.url.startsWith('/') ? undefined : '_blank'}>{e.titulo}</a> : e.titulo}</h3>
+              <p class="be-meta">{e.autor} · {e.fecha} · {e.n}</p>
+            </article>
+          ))}
+        </div>
+      </section>
       <h2 class="vista-titulo">Próximas consultas</h2>
       <ul class="tipos-consulta">
         <li><span class="num">02</span><span class="etiqueta">En preparación</span><h3>Termómetro de gestión</h3><p>Valoración periódica del desempeño del gobierno y de sus dirigentes, como se mide la aprobación en otros países. Una herramienta de transparencia que hoy no existe en Cuba.</p></li>
