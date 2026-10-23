@@ -2,6 +2,7 @@
 // Portada de E/T España. Mismo diseño que la portada de Cuba; aquí los actores son partidos con programas ya escritos.
 // Fechas del calendario verificadas el 24/10/2026 (convocatoria en el BOE del 6 de octubre).
 import Base from '../../layouts/Base.astro';
+import datos from '../../data/espana.json';
 ---
 <Base titulo="España" seccion="inicio" pais="es" ancho imagen="/img/og-portada.jpg"
   descripcion="Elecciones generales del 29 de noviembre de 2026: qué propone cada partido, tema por tema, con el enlace a su programa oficial.">
@@ -53,7 +54,7 @@ import Base from '../../layouts/Base.astro';
         <li>
           <span class="num">03</span><span class="barra"></span>
           <h3>Encuestas</h3>
-          <p>La del CIS y las de otras empresas, cada una por separado y con su ficha técnica.</p>
+          <p>La del CIS y las de otras empresas, cada una por separado, con su ficha técnica y su fuente.</p>
           <a class="enlace-flecha" href="#encuestas">Ver <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a>
         </li>
         <li>
@@ -79,7 +80,22 @@ import Base from '../../layouts/Base.astro';
     <div class="contenedor">
       <p class="kicker">Encuestas</p>
       <h2 id="t-encuestas">Cada encuesta, por separado</h2>
-      <p>Se mostrarán la última encuesta del CIS y las de otras empresas, cada una con su fecha, su muestra y su ficha técnica. No se suman ni se promedian encuestas distintas.</p>
+      <p>Las cuatro estimaciones de voto más recientes, de la más nueva a la más antigua. No se suman ni se promedian encuestas distintas: cada empresa usa su propio método, y por eso los resultados difieren. Porcentajes sobre voto válido.</p>
+      <div class="encuestas-es" id="encuestas-lista">
+        {datos.encuestas.map((e) => (
+          <article class="encuesta-es">
+            <h3>{e.empresa}</h3>
+            <p class="discreto">{e.medio} · publicada el {e.publicada}</p>
+            <table>
+              <thead><tr><th scope="col">Partido</th><th scope="col">%</th>{e.resultados.some((r) => r[2]) && <th scope="col">Escaños</th>}</tr></thead>
+              <tbody>{e.resultados.map((r) => <tr><td>{r[0]}</td><td>{r[1]}</td>{e.resultados.some((x) => x[2]) && <td>{r[2] || '—'}</td>}</tr>)}</tbody>
+            </table>
+            <p class="ficha">Campo: {e.campo}. Muestra: {e.muestra}.{e.metodo && <> {e.metodo}</>}</p>
+            <a class="enlace-flecha" href={e.fuente} rel="noopener" target="_blank">Fuente <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+        ))}
+      </div>
+      <p class="cmp-aviso" id="aviso-veda" hidden>La ley electoral prohíbe publicar o difundir encuestas del 24 al 28 de noviembre. Las encuestas vuelven a mostrarse después de la votación.</p>
     </div>
   </section>
 
@@ -90,11 +106,19 @@ import Base from '../../layouts/Base.astro';
       <ol class="calendario-es">
         <li><span class="fecha">6 de octubre</span><p>Convocatoria publicada en el BOE.</p></li>
         <li><span class="fecha">21 al 26 de octubre</span><p>Presentación de candidaturas.</p></li>
+        <li><span class="fecha">2 de noviembre</span><p>Proclamación de candidaturas.</p></li>
         <li><span class="fecha">13 al 27 de noviembre</span><p>Campaña electoral.</p></li>
         <li><span class="fecha">28 de noviembre</span><p>Jornada de reflexión.</p></li>
         <li class="clave"><span class="fecha">29 de noviembre</span><p>Votación.</p></li>
       </ol>
-      <p style="margin-top:18px">Plazos del voto por correo y del voto desde el extranjero (CERA): se añadirán con la referencia oficial.</p>
+      <h3 class="sub-es">Voto por correo, si vives en España</h3>
+      <ul>
+        <li>Solicitud: del 6 de octubre al 19 de noviembre, en cualquier oficina de Correos o en su sede electrónica.</li>
+        <li>Entrega del voto en Correos: hasta el 25 de noviembre.</li>
+      </ul>
+      <h3 class="sub-es">Si vives en el extranjero (CERA)</h3>
+      <p>Los plazos para votar por correo o en el consulado están en la <a href="https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/interior/paginas/guia-dudas-elecciones-generales-29n.aspx" rel="noopener" target="_blank">guía oficial del Ministerio del Interior</a> y en el <a href="https://www.juntaelectoralcentral.es/cs/jec/documentos/eg2026_calendario.pdf" rel="noopener" target="_blank">calendario de la Junta Electoral Central</a>.</p>
+      <p class="discreto">Convocatoria: Real Decreto 806/2026, de 5 de octubre (<a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20742" rel="noopener" target="_blank">BOE del 6 de octubre</a>). Se vota de 9:00 a 20:00.</p>
     </div>
   </section>
 
@@ -121,6 +145,13 @@ import Base from '../../layouts/Base.astro';
       el.querySelector('[data-dias]').textContent = dias === 0 ? 'Hoy' : String(dias);
       el.querySelector('[data-texto]').textContent = dias === 0 ? 'se vota' : dias === 1 ? 'día para votar' : 'días para votar';
       el.hidden = false;
+    })();
+    (() => {
+      const hoy = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' }));
+      const veda = hoy >= new Date(2026, 10, 24) && hoy < new Date(2026, 10, 29, 20);
+      if (!veda) return;
+      document.getElementById('encuestas-lista')?.setAttribute('hidden', '');
+      document.getElementById('aviso-veda')?.removeAttribute('hidden');
     })();
   </script>
 </Base>

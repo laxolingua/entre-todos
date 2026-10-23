@@ -1,0 +1,30 @@
+{
+  "_nota": "Datos del 061 IN (Nico), revisados por Claude el 24/10/2026. Cada encuesta por separado; nunca se suman ni se promedian.",
+  "encuestas": [
+    {
+      "empresa": "IMOP Insights", "medio": "El Confidencial", "publicada": "23 de octubre",
+      "campo": "13 al 16 de octubre", "muestra": "1.000 entrevistas",
+      "fuente": "https://www.elconfidencial.com/espana/2026-10-23/encuesta-imop-elecciones-29n-bloque-psoe-frente-amplio_4450302/",
+      "resultados": [["PP", "28,5", "123"], ["PSOE", "27,1", "113"], ["Vox", "20,0", "72"], ["Frente Amplio", "8,9", "14"], ["ERC", "2,2", "8"], ["Podemos", "1,9", "1"], ["SALF", "1,2", ""]]
+    },
+    {
+      "empresa": "Sigma Dos", "medio": "El Mundo", "publicada": "19 de octubre",
+      "campo": "1 al 14 de octubre", "muestra": "3.007 entrevistas (teléfono e internet)",
+      "fuente": "https://www.sigmados.com/noticia?id=EIJOKGN2GFZmhHt",
+      "resultados": [["PP", "31,5", "132-137"], ["PSOE", "25,3", "101-106"], ["Vox", "19,5", "65-68"], ["Frente Amplio", "7,2", "9-10"], ["Podemos", "2,8", "1"]]
+    },
+    {
+      "empresa": "CIS", "medio": "Barómetro de octubre (estudio 3582)", "publicada": "14 de octubre",
+      "campo": "1 al 6 de octubre", "muestra": "5.024 entrevistas, error ±1,4",
+      "fuente": "https://www.cis.es/es/estudios/barometro-de-octubre-2026",
+      "metodo": "Modelo de estimación propio del CIS, sin ponderar por recuerdo de voto. No estima escaños.",
+      "resultados": [["PSOE", "34,0", ""], ["PP", "22,2", ""], ["Vox", "17,1", ""], ["Sumar / Frente Amplio", "6,1", ""], ["Podemos", "3,1", ""], ["ERC", "3,0", ""], ["SALF", "1,8", ""], ["EH Bildu", "1,6", ""], ["Junts", "1,1", ""], ["BNG", "0,9", ""], ["PNV", "0,6", ""], ["CC", "0,2", ""], ["UPN", "0,1", ""]]
+    },
+    {
+      "empresa": "GAD3", "medio": "ABC", "publicada": "12 de octubre",
+      "campo": "6 al 8 de octubre", "muestra": "1.077 entrevistas telefónicas, error ±3,1",
+      "fuente": "https://www.gad3.com/barometro-abc-estimacion-de-voto-nacional-octubre-2026/",
+      "resultados": [["PP", "31,4", "133"], ["PSOE", "26,4", "107"], ["Vox", "18,2", "65"], ["Sumar", "7,4", "10"]]
+    }
+  ]
+}

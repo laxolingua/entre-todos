@@ -1687,3 +1687,15 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .pais-activo:hover { color: var(--rojo); }
 .pie-pais { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 8px auto 0; padding: 22px 0 6px; border-top: 1px solid rgba(255,255,255,.12); text-decoration: none; color: #c9d3e6; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; width: min(100% - 32px, 1200px); }
 .pie-pais:hover { color: #fff; }
+
+.encuestas-es { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 14px; margin-top: 18px; }
+.encuestas-es[hidden] { display: none; }
+.encuesta-es { background: var(--superficie); border: 1px solid var(--borde); border-top: 5px solid var(--marino); padding: 16px 18px; display: flex; flex-direction: column; }
+.encuesta-es h3 { font-family: var(--display); text-transform: uppercase; font-weight: 800; color: var(--marino); margin: 0; font-size: 1.35rem; }
+.encuesta-es .discreto { margin: 2px 0 10px; font-size: .88rem; }
+.encuesta-es table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.encuesta-es th { text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--texto-2); border-bottom: 2px solid var(--borde); padding: 4px 0; }
+.encuesta-es td { padding: 4px 0; border-bottom: 1px solid var(--borde); }
+.encuesta-es th:not(:first-child), .encuesta-es td:not(:first-child) { text-align: right; }
+.encuesta-es .ficha { font-size: .82rem; color: var(--texto-2); margin: 10px 0 8px; flex: 1; }
+.sub-es { font-family: var(--display); text-transform: uppercase; font-weight: 800; color: var(--marino); font-size: 1.2rem; margin: 26px 0 6px; }
