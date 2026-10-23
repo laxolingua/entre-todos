@@ -128,7 +128,7 @@ const subenlaces = [
         <div>
           <a class="marca notranslate" translate="no" href="/" aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
           <p>Plataforma cívica, independiente, plural y no partidista que abre a la ciudadanía la elaboración y valoración de propuestas para los asuntos públicos.</p>
-          <p class="pie-seguro"><a href="/seguridad/"><i class="fi fi-br-shield-check" aria-hidden="true"></i> Cómo participar con seguridad</a></p>
+          {pais !== 'es' && <p class="pie-seguro"><a href="/seguridad/"><i class="fi fi-br-shield-check" aria-hidden="true"></i> Cómo participar con seguridad</a></p>}
           <ul class="pie-redes" aria-label="Redes sociales de ENTRE TODOS">
             <li><a href={sitio.instagram} rel="noopener" target="_blank" aria-label="Instagram: @EntreTodosOrg" title="Instagram @EntreTodosOrg"><i class="fi fi-brands-instagram" aria-hidden="true"></i></a></li>
             {sitio.facebookPagina && <li><a href={sitio.facebookPagina} rel="noopener" target="_blank" aria-label="Página de Facebook de ENTRE TODOS" title="Página de Facebook"><i class="fi fi-brands-facebook" aria-hidden="true"></i><i class="fi fi-br-flag insignia-grupo" aria-hidden="true"></i></a></li>}
