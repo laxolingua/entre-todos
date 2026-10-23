@@ -1,0 +1,91 @@
+---
+// «Pregúntale al banco»: buscador inteligente sobre el banco de propuestas, el banco de encuestas y los análisis.
+// La pregunta va a la función de Supabase «preguntar» (búsqueda por significado + Cloudflare Workers AI).
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+const FN = `${import.meta.env.PUBLIC_SUPABASE_URL}/functions/v1/preguntar`;
+const sugerencias = [
+  '¿Qué piensan los cubanos del embargo?',
+  '¿Quién propone una Asamblea Constituyente?',
+  '¿Qué dicen las encuestas del partido único?',
+  '¿En qué no se ponen de acuerdo las propuestas?',
+  '¿Qué se propone para los animales?',
+];
+---
+<Base titulo="Pregúntale al banco" seccion="propuestas"
+  descripcion="Haz una pregunta y recibe una respuesta con fuentes, sacada solo del banco de propuestas, el banco de encuestas y los análisis de ENTRE TODOS.">
+  <Banda imagen="/img/fotos/propuestas.jpg" lateral={['Con fuentes', 'Sin opinión', 'Sin inventar']}>
+    <span class="barra"></span>
+    <p class="antetitulo">ENTRE TODOS · Buscador</p>
+    <h1>Pregúntale<br />al banco</h1>
+    <p class="lema">Responde con nuestros datos</p>
+    <p class="entradilla">Escribe una pregunta como se la harías a una persona. La respuesta sale solo del banco de propuestas, el banco de encuestas y los análisis de ENTRE TODOS, y cada dato lleva su fuente.</p>
+  </Banda>
+
+  <div class="contenedor pr" data-fn={FN}>
+    <form class="pr-form" id="pr-form">
+      <label class="sr" for="pr-q">Tu pregunta</label>
+      <input id="pr-q" name="q" type="text" maxlength="400" autocomplete="off" placeholder="Por ejemplo: ¿qué piensan los cubanos del embargo?" required />
+      <button type="submit" id="pr-btn">Preguntar</button>
+    </form>
+    <div class="pr-sug" aria-label="Ejemplos de preguntas">
+      {sugerencias.map((s) => <button type="button" data-s={s}>{s}</button>)}
+    </div>
+
+    <section class="pr-resp" id="pr-resp" hidden aria-live="polite">
+      <h2>Respuesta</h2>
+      <p class="pr-q-eco" id="pr-eco"></p>
+      <div id="pr-texto"></div>
+      <div class="pr-fuentes" id="pr-fuentes"></div>
+    </section>
+
+    <section class="seccion org-nota">
+      <h2>Cómo funciona</h2>
+      <p>Tu pregunta se compara por su significado con las propuestas, encuestas y análisis del sitio. Con lo que encuentra, un modelo de inteligencia artificial redacta una respuesta breve y cita cada fuente. Si algo no está en nuestros datos, lo dice. No da opiniones ni recomienda posturas. Tus preguntas no se guardan; solo se cuenta cuántas se hacen cada día. La inteligencia artificial puede equivocarse: comprueba siempre las fuentes enlazadas.</p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const raiz = document.querySelector('.pr');
+  const FN = raiz.dataset.fn;
+  const base = location.pathname.startsWith('/entre-todos-preview') ? '/entre-todos-preview' : '';
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const enlace = (u) => (u && u.startsWith('/') ? base + u : u);
+  const TIPOS = { propuesta: 'Propuesta', encuesta: 'Encuesta', analisis: 'Análisis', cuestion: 'Desacuerdo', actualidad: 'Actualidad' };
+
+  async function preguntar(q) {
+    $('pr-q').value = q;
+    $('pr-btn').disabled = true;
+    $('pr-resp').hidden = false;
+    $('pr-eco').textContent = q;
+    $('pr-texto').innerHTML = '<p class="pr-cargando">Buscando en el banco…</p>';
+    $('pr-fuentes').innerHTML = '';
+    try {
+      const r = await fetch(FN, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pregunta: q }) });
+      const d = await r.json();
+      if (d.error) { $('pr-texto').innerHTML = `<p>${esc(d.error)}</p>`; return; }
+      const fuentes = d.fuentes || [];
+      const porN = Object.fromEntries(fuentes.map((f) => [f.n, f]));
+      const txt = d.respuesta
+        ? esc(d.respuesta).replace(/\[(\d+)\]/g, (m, n) => porN[n] ? `<a class="pr-cita" href="${esc(enlace(porN[n].url))}" title="${esc(porN[n].titulo)}">${n}</a>` : '')
+            .split(/\n{2,}/).map((p) => `<p>${p}</p>`).join('')
+        : `<p>${esc(d.aviso || '')}</p>`;
+      $('pr-texto').innerHTML = txt;
+      $('pr-fuentes').innerHTML = fuentes.map((f) => `
+        <a class="pr-f t-${esc(f.tipo)}" href="${esc(enlace(f.url))}"${f.url.startsWith('/') ? '' : ' rel="noopener" target="_blank"'}>
+          <span class="pr-f-n">${f.n}</span><span class="pr-f-tipo">${TIPOS[f.tipo] || ''}</span>
+          <b>${esc(f.titulo)}</b>${f.meta && f.meta.autor ? `<small>${esc(f.meta.autor)}${f.meta.fecha ? ' · ' + esc(f.meta.fecha) : ''}</small>` : ''}
+        </a>`).join('');
+    } catch (e) {
+      $('pr-texto').innerHTML = '<p>No pude conectar con el buscador. Prueba de nuevo en un momento.</p>';
+    } finally {
+      $('pr-btn').disabled = false;
+    }
+  }
+  $('pr-form').addEventListener('submit', (e) => { e.preventDefault(); const q = $('pr-q').value.trim(); if (q.length > 3) preguntar(q); });
+  document.querySelectorAll('.pr-sug button').forEach((b) => b.addEventListener('click', () => preguntar(b.dataset.s)));
+  const inicial = new URLSearchParams(location.search).get('q');
+  if (inicial) preguntar(inicial);
+</script>
