@@ -121,7 +121,7 @@ export function montarCertificado(zona, { tipo, ref, nombreCert, lecciones, fech
   $('[data-cert-emitir]')?.addEventListener('click', async (ev) => {
     const b = ev.currentTarget; const nombre = (inp?.value || '').trim();
     if (nombre.length < 2) { msg.textContent = MENSAJES.nombre; return; }
-    b.disabled = true; msg.textContent = 'Generando tu certificado…';
+    b.disabled = true; msg.textContent = 'Generando tu certificado… Si aparece la casilla «Verify you are human» abajo a la derecha, márcala.';
     const r = await emitir(tipo, ref, nombre, lecciones);
     b.disabled = false;
     if (r?.ok) {

@@ -1,0 +1,125 @@
+---
+// Texto íntegro de cada constitución cubana, con índice, búsqueda y enlace a cada artículo (#art-N).
+import Base from '../../../layouts/Base.astro';
+import Banda from '../../../components/Banda.astro';
+import { CONSTITUCIONES } from '../../../data/constituciones.js';
+
+const textos = import.meta.glob('../../../data/constituciones/*.json', { eager: true });
+export function getStaticPaths() {
+  const disponibles = Object.keys(import.meta.glob('../../../data/constituciones/*.json')).map((p) => p.match(/(\d{4})\.json$/)[1]);
+  return CONSTITUCIONES.filter((c) => disponibles.includes(c.id)).map((c) => ({ params: { id: c.id }, props: { c } }));
+}
+const { c } = Astro.props;
+const d = (textos[`../../../data/constituciones/${c.id}.json`] as any).default;
+const els = d.elementos as { k: string; t: any; n?: number }[];
+const indice = els.map((x, i) => ({ x, i })).filter(({ x }) => x.k === 'h');
+const nArt = els.filter((x) => x.k === 'a').length;
+const pos = CONSTITUCIONES.findIndex((x) => x.id === c.id);
+const ant = CONSTITUCIONES.slice(0, pos).reverse().find((x) => textos[`../../../data/constituciones/${x.id}.json`]);
+const sig = CONSTITUCIONES.slice(pos + 1).find((x) => textos[`../../../data/constituciones/${x.id}.json`]);
+---
+<Base titulo={`${c.nombre}: texto íntegro`} seccion="otras" ancho
+  descripcion={`Texto completo de la ${c.nombre} (${c.fecha}), con índice y búsqueda por artículos.`}>
+  <Banda imagen="/img/fotos/cat-constitucion.jpg" lateral={['Texto íntegro', `${nArt} artículos`, c.vigencia]}>
+    <a class="miga-volver" href="/constituyente/"><i class="fi fi-br-arrow-left" aria-hidden="true"></i>Proceso constituyente</a>
+    <span class="barra"></span>
+    <p class="antetitulo">Texto íntegro · {c.fecha}</p>
+    <h1>{c.nombre}</h1>
+    <p class="entradilla">{c.resumen}</p>
+  </Banda>
+
+  <div class="contenedor ct">
+    <aside class="ct-lado">
+      <label class="ct-buscar">Buscar en el texto<input type="search" placeholder="Palabra o número de artículo" data-ct-buscar /></label>
+      <p class="ct-res" data-ct-res aria-live="polite"></p>
+      {indice.length > 0 && (
+        <nav class="ct-indice" aria-label="Índice">
+          <h2>Índice</h2>
+          <ol>{indice.map(({ x, i }) => <li><a href={`#h-${i}`}>{x.t}</a></li>)}</ol>
+        </nav>
+      )}
+      <div class="ct-acc">
+        <button type="button" class="boton" data-ct-imprimir>Imprimir o guardar en PDF</button>
+      </div>
+    </aside>
+
+    <article class="ct-texto" data-ct-texto>
+      {els.map((x, i) => x.k === 'h'
+        ? <h2 id={`h-${i}`} class="ct-h">{x.t}</h2>
+        : x.k === 'a'
+          ? <section class="ct-art" id={`art-${x.n}`} data-n={x.n}>
+              <h3><a href={`#art-${x.n}`}>Artículo {x.n}</a></h3>
+              {x.t.map((p: string) => <p>{p}</p>)}
+            </section>
+          : <p class="ct-p">{x.t}</p>)}
+
+      <section class="seccion org-nota">
+        <h2>Fuente</h2>
+        <p>{d.fuente}. <a href={d.url} rel="noopener" target="_blank">Ver la fuente</a>.</p>
+        {d.nota && <p>{d.nota}</p>}
+        <p>Se reproduce el texto tal como aparece en la fuente, con la ortografía de la época. Si encuentras un error de transcripción, escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+      </section>
+      <nav class="ct-nav">
+        {ant ? <a href={`/constituyente/texto/${ant.id}/`}><i class="fi fi-br-arrow-left" aria-hidden="true"></i>{ant.nombre}</a> : <span></span>}
+        {sig ? <a href={`/constituyente/texto/${sig.id}/`}>{sig.nombre}<i class="fi fi-br-arrow-right" aria-hidden="true"></i></a> : <span></span>}
+      </nav>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .ct { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 32px; align-items: start; padding-top: 28px; padding-bottom: 40px; }
+  .ct-lado { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; display: grid; gap: 14px; }
+  .ct-buscar { font-weight: 600; color: var(--marino); font-size: .9rem; }
+  .ct-buscar input { display: block; width: 100%; font: inherit; padding: 8px 10px; border: 1px solid var(--texto-3); margin-top: 6px; background: #fff; }
+  .ct-res { font-size: .85rem; color: var(--texto-3); margin: 0; min-height: 1.2em; }
+  .ct-indice h2 { font-size: 1rem; margin: 0 0 6px; }
+  .ct-indice h2::after { display: none; }
+  .ct-indice ol { list-style: none; padding: 0; margin: 0; font-size: .86rem; display: grid; gap: 4px; }
+  .ct-indice a { color: var(--marino); text-decoration: none; }
+  .ct-indice a:hover { color: var(--rojo); text-decoration: underline; }
+  .ct-texto { max-width: 760px; background: #fff; border: 1px solid var(--borde); padding: 28px 34px; }
+  .ct-h { font-size: 1.25rem; margin: 30px 0 10px; scroll-margin-top: 90px; }
+  .ct-h::after { width: 28px; margin-top: 6px; }
+  .ct-art { scroll-margin-top: 90px; padding: 8px 0 4px; border-top: 1px solid #eef0f4; }
+  .ct-art h3 { font-family: var(--display); font-size: 1rem; text-transform: uppercase; letter-spacing: .03em; margin: 6px 0 4px; }
+  .ct-art h3 a { color: var(--rojo); text-decoration: none; }
+  .ct-art p, .ct-p { margin: 0 0 8px; line-height: 1.6; }
+  .ct-art:target { background: #fff8db; }
+  .ct-art[hidden], .ct-h[hidden], .ct-p[hidden] { display: none; }
+  mark { background: var(--amarillo); color: inherit; }
+  .ct-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; font-weight: 600; }
+  .ct-nav a { color: var(--marino); display: inline-flex; gap: 8px; align-items: center; }
+  @media (max-width: 860px) {
+    .ct { grid-template-columns: 1fr; }
+    .ct-lado { position: static; max-height: none; }
+    .ct-indice { max-height: 260px; overflow: auto; border: 1px solid var(--borde); padding: 10px; background: #fff; }
+    .ct-texto { padding: 20px 16px; }
+  }
+  @media print { .ct-lado, .ct-nav, .cabecera, .pie, .banda { display: none !important; } .ct { display: block; } .ct-texto { border: 0; max-width: none; } }
+</style>
+
+<script>
+  const caja = document.querySelector('[data-ct-buscar]') as HTMLInputElement | null;
+  const res = document.querySelector('[data-ct-res]');
+  const arts = [...document.querySelectorAll<HTMLElement>('.ct-art')];
+  const otros = [...document.querySelectorAll<HTMLElement>('.ct-h, .ct-p')];
+  const original = new Map(arts.map((a) => [a, a.innerHTML]));
+  const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  let t: number | undefined;
+  caja?.addEventListener('input', () => {
+    clearTimeout(t);
+    t = window.setTimeout(() => {
+      const q = caja.value.trim();
+      arts.forEach((a) => { a.innerHTML = original.get(a) || ''; a.hidden = false; });
+      otros.forEach((o) => { o.hidden = false; });
+      if (!q) { if (res) res.textContent = ''; return; }
+      if (/^\d+$/.test(q)) { const a = document.getElementById(`art-${q}`); if (a) { a.scrollIntoView({ block: 'start' }); if (res) res.textContent = `Artículo ${q}`; } else if (res) res.textContent = 'No hay un artículo con ese número.'; return; }
+      const nq = norm(q); let n = 0;
+      arts.forEach((a) => { const ok = norm(a.textContent || '').includes(nq); a.hidden = !ok; if (ok) n++; });
+      otros.forEach((o) => { o.hidden = true; });
+      if (res) res.textContent = n ? `${n} ${n === 1 ? 'artículo contiene' : 'artículos contienen'} «${q}»` : `Ningún artículo contiene «${q}»`;
+    }, 200);
+  });
+  document.querySelector('[data-ct-imprimir]')?.addEventListener('click', () => window.print());
+</script>

@@ -7,6 +7,7 @@ import extra from '../data/propuestas-extra.json';
 import { DERECHOS } from '../data/derechos.js';
 const titulo = (id) => propPorId.get(id)?.titulo ?? extra[id]?.titulo ?? id;
 const vigente = CONSTITUCIONES[CONSTITUCIONES.length - 1].id;
+const INTEGROS = new Set(Object.keys(import.meta.glob('../data/constituciones/*.json')).map((p) => p.match(/(\d{4})\.json$/)[1]));
 ---
 <Base titulo="Proceso constituyente" seccion="otras" ancho
   descripcion="Las nueve constituciones que ha tenido Cuba, comparadas por bloques, junto a lo que proponen hoy organizaciones y especialistas para una futura constituyente.">
@@ -36,10 +37,12 @@ const vigente = CONSTITUCIONES[CONSTITUCIONES.length - 1].id;
           <dl class="bloques-const">
             {BLOQUES.map((b) => (<><dt>{b.t}</dt><dd>{c.b[b.id]}</dd></>))}
           </dl>
-          {c.texto
-            ? <p><a class="boton" href={c.texto} rel="noopener" target="_blank"><i class="fi fi-br-document" aria-hidden="true"></i>Leer el texto completo{c.idioma === 'fr' ? ' (traducción al francés)' : ''}</a></p>
-            : <p class="discreto">Texto completo en español pendiente de localizar en una fuente fiable.</p>}
-          {c.idioma === 'fr' && <p class="discreto">Todavía no hemos localizado una edición digital fiable del original en español. La traducción es de la Universidad de Perpiñán.</p>}
+          {INTEGROS.has(c.id)
+            ? <p><a class="boton rojo" href={`/constituyente/texto/${c.id}/`}><i class="fi fi-br-document" aria-hidden="true"></i>Leer el texto íntegro</a></p>
+            : c.texto
+              ? <><p><a class="boton" href={c.texto} rel="noopener" target="_blank"><i class="fi fi-br-document" aria-hidden="true"></i>Leer el texto completo{c.idioma === 'fr' ? ' (traducción al francés)' : ''}</a></p>
+                <p class="discreto">Todavía no hemos localizado una edición digital fiable del original en español. La traducción es de la Universidad de Perpiñán.</p></>
+              : <p class="discreto">Texto completo en español pendiente de localizar en una fuente fiable.</p>}
         </article>
       ))}
     </section>
