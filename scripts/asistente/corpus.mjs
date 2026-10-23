@@ -68,7 +68,7 @@ const SECCIONES = [
   ['Blog A+ (Academia)', '/academia/', 'Blog académico con 48 lecciones en 12 bloques y dos módulos (La nueva Cuba y Pensar y debatir): derechos, democracia, ética y pensamiento crítico, creativo, sistémico y solucionario. Cada lección da una insignia; cada bloque, un certificado; y cada módulo, el Certificado Academia A+, verificable en /verificar/. Sin cuenta ni datos personales.'],
   ['Abrazos', '/abrazos/', 'Campaña de ENTRE TODOS: fotos de abrazos, reales o hechas con IA, para cubanos que sufren por defender una Cuba democrática y plural.'],
   ['Diversidad política', '/diversidad-politica/', 'Partidos, corrientes, organizaciones y candidaturas de la Cuba plural que el sistema de partido único no reconoce. Registro documental, sin respaldo a ninguna opción.'],
-  ['Proceso constituyente', '/constituyente/', 'Las nueve constituciones de Cuba comparadas por bloques, con el texto íntegro de ocho de ellas (todas menos La Yaya, 1897), y las propuestas constitucionales del banco.'],
+  ['Proceso constituyente', '/constituyente/', 'Las nueve constituciones de Cuba comparadas por bloques, con el texto íntegro de las nueve, y las propuestas constitucionales del banco.'],
   ['Cuba y Estados Unidos', '/cuba-eeuu/', 'Lo que pide Washington, lo que responde La Habana y lo que ya proponen los cubanos, con las condiciones de la ley Helms-Burton una a una.'],
   ['Actualidad', '/actualidad/', 'Hechos de la semana sobre Cuba, resumidos con sus fuentes, quién los cuenta y su relación con las propuestas.'],
   ['Análisis', '/analisis/', 'Artículos de ENTRE TODOS hechos con el banco, las consultas y las encuestas.'],
