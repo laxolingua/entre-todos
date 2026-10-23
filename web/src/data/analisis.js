@@ -9,4 +9,20 @@ export const ARTICULOS = [
     foto: '/img/fotos/consulta.jpg',
     categoria: 'Consultas y encuestas',
   },
+  {
+    id: 'donde-coinciden-los-cubanos',
+    titulo: 'Dónde coinciden los cubanos',
+    entradilla: 'Las propuestas que defienden más autores distintos, desde 1980 hasta hoy. El núcleo de acuerdo que ya existe.',
+    fecha: '23 de octubre de 2026',
+    foto: '/img/fotos/propuestas.jpg',
+    categoria: 'Banco de propuestas',
+  },
+  {
+    id: 'los-diez-desacuerdos',
+    titulo: 'Los diez desacuerdos de fondo',
+    entradilla: 'Dónde las propuestas cubanas proponen caminos distintos, quién defiende cada uno y qué responden los encuestados.',
+    fecha: '23 de octubre de 2026',
+    foto: '/img/fotos/cat-transicion.jpg',
+    categoria: 'Banco de propuestas',
+  },
 ];

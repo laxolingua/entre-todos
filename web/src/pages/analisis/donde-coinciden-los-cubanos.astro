@@ -1,0 +1,90 @@
+---
+// Análisis E/T: propuestas con más autorías distintas. Cálculo automático sobre publico.json.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import { autorias, propuestas, totales } from '../../lib/autorias.js';
+
+const filas = propuestas.map((p) => ({ p, a: autorias(p) })).sort((x, y) => y.a.length - x.a.length || x.p.titulo.localeCompare(y.p.titulo, 'es'));
+const nucleo = filas.filter((f) => f.a.length >= 6);
+const amplias = filas.filter((f) => f.a.length >= 4 && f.a.length < 6);
+const unaSola = filas.filter((f) => f.a.length === 1).length;
+const pct = (n) => Math.round((n / propuestas.length) * 100);
+const anios = (a) => { const v = a.map((x) => x.anio).filter(Boolean); return v.length ? `${Math.min(...v)}–${Math.max(...v)}` : ''; };
+---
+<Base titulo="Dónde coinciden los cubanos" seccion="otras"
+  descripcion="Análisis de ENTRE TODOS: las propuestas que defienden más autores distintos en el banco, desde 1980 hasta hoy.">
+  <Banda imagen="/img/fotos/propuestas.jpg" lateral={['Análisis E/T', 'Banco de propuestas', 'Con método']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Análisis E/T · 23 de octubre de 2026</p>
+    <h1>Dónde coinciden<br />los cubanos</h1>
+    <p class="lema">El acuerdo que ya existe</p>
+    <p class="entradilla">Se suele decir que los cubanos no se ponen de acuerdo. El banco de propuestas permite comprobarlo: qué piden a la vez organizaciones y autores que nunca han trabajado juntos.</p>
+  </Banda>
+
+  <article class="contenedor an">
+    <div class="texto-largo">
+      <section class="an-sec">
+        <h2>Cómo se mide</h2>
+        <p>El banco reúne {totales.propuestas} propuestas extraídas de {totales.documentos} documentos de {totales.autorias} autorías: organizaciones de la isla y del exilio, coaliciones, centros de estudio y autores individuales. Para cada propuesta contamos cuántas autorías distintas la defienden. Si una misma organización la repite en varios documentos, cuenta una sola vez.</p>
+        <p>Una propuesta defendida por muchas autorías distintas, a lo largo de muchos años, indica un acuerdo que no depende de un grupo concreto.</p>
+      </section>
+
+      <section class="an-sec">
+        <h2>El núcleo: {nucleo.length} propuestas con seis autorías o más</h2>
+      </section>
+    </div>
+
+    <ol class="an-nucleo">
+      {nucleo.map(({ p, a }) => (
+        <li>
+          <div class="an-n">{a.length}<small>autorías</small></div>
+          <div>
+            <h3><a href={`/propuesta/${p.id}/`}>{p.titulo}</a></h3>
+            <p class="an-anios">Propuesta entre {anios(a)}</p>
+            <p class="an-autores">{a.map((x) => x.anio ? `${x.nombre} (${x.anio})` : x.nombre).join(' · ')}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="texto-largo">
+      <section class="an-sec">
+        <h2>Qué tienen en común</h2>
+        <p>Casi todo el núcleo son libertades básicas y reglas democráticas: elecciones libres con varios partidos, liberar a los presos políticos, libertad de reunión, de movimiento, sindical y de empresa, y que la soberanía resida en el pueblo. A eso se suman dos acuerdos sobre el camino: una transición pacífica y una Asamblea Constituyente libremente elegida.</p>
+        <p>Los autores son muy distintos entre sí. En el núcleo aparecen grupos de la disidencia interna, el exilio histórico, movimientos de inspiración cristiana, centros de estudio de la isla, los intelectuales que firmaron la «Carta de los Diez» en 1991 y coaliciones con documentos de 2025 y 2026. Algunas de estas propuestas se repiten desde hace más de cuarenta años.</p>
+      </section>
+
+      <section class="an-sec">
+        <h2>Un segundo círculo: {amplias.length} propuestas con cuatro o cinco autorías</h2>
+        <ul class="an-lista">
+          {amplias.map(({ p, a }) => <li><a href={`/propuesta/${p.id}/`}>{p.titulo}</a> <span class="discreto">· {a.length} autorías · {anios(a)}</span></li>)}
+        </ul>
+      </section>
+
+      <section class="an-sec">
+        <h2>Lo que muestra el resto</h2>
+        <p>{unaSola} de las {propuestas.length} propuestas ({pct(unaSola)} %) las defiende una sola autoría. No significa que las demás estén en contra: en la mayoría de los casos, simplemente no han escrito sobre ese tema. El acuerdo es amplio en lo básico y escaso en los detalles, que es donde aparecen los desacuerdos.</p>
+      </section>
+
+      <section class="an-sec">
+        <h2>Lo que piensan los encuestados</h2>
+        <p>El núcleo del banco coincide con lo que responden los cubanos en las encuestas independientes. En la encuesta de elTOQUE de 2026, el 98,2 % de quienes respondieron desde Cuba quiere eliminar el Partido Comunista, y el 76,8 % pide una democracia liberal con economía de mercado. Esa encuesta no es una muestra aleatoria: describe a quienes respondieron.</p>
+      </section>
+
+      <section class="an-sec an-conclusion">
+        <h2>Qué se puede afirmar</h2>
+        <ol>
+          <li>Hay un núcleo de acuerdo de al menos {nucleo.length} propuestas, defendidas por autores de corrientes, lugares y épocas muy distintos.</li>
+          <li>Ese núcleo son derechos y reglas democráticas, no un programa de gobierno.</li>
+          <li>Las diferencias están en el cómo y en el después: quién gobierna la transición, qué economía, qué justicia.</li>
+        </ol>
+      </section>
+
+      <section class="seccion org-nota">
+        <h2>Límites y método</h2>
+        <p>El banco recoge los documentos que ENTRE TODOS ha podido reunir y verificar; no es una encuesta ni representa a todos los cubanos. Algunas organizaciones, como Cuba Próxima y el Centro de Estudios Convivencia, tienen muchos documentos, pero aquí cada autoría cuenta una sola vez. El año es el del primer documento de cada autoría que recoge la propuesta. Datos: <a href="/datos/">Datos abiertos</a>. Correcciones: <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+      </section>
+      <div class="acciones"><a class="boton rojo" href="/analisis/los-diez-desacuerdos/">Leer: Los diez desacuerdos de fondo <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </article>
+</Base>

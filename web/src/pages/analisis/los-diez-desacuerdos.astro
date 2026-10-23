@@ -1,0 +1,90 @@
+---
+// Análisis E/T: las diez cuestiones con alternativas del banco, con autorías y datos de encuestas verificados.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import { autorias, propPorId, cuestiones } from '../../lib/autorias.js';
+
+// Por qué importa cada desacuerdo y, cuando existe, qué respondieron los encuestados (elTOQUE 2026, respuestas desde Cuba).
+const extra = {
+  'como-empieza-el-cambio': {
+    importa: 'Define si el cambio se negocia con el Gobierno actual, se le impone o se busca por las urnas.',
+    encuesta: 'Vía preferida para resolver la situación: 60,5 % el derrocamiento del Gobierno «por cualquier medio necesario, incluyendo la vía armada»; 23,2 % diálogo y transición negociada; 10,1 % movilización pacífica sostenida; 2,8 % reforma gradual desde el propio Gobierno.',
+  },
+  'quien-gobierna-la-transicion': { importa: 'De esto depende si los dirigentes actuales tienen algún papel en el periodo de cambio.' },
+  'responsables-de-la-represion': {
+    importa: 'Sin un acuerdo sobre la justicia, la reconciliación y la paz social son frágiles.',
+    encuesta: 'Ante una transición sin juzgar a figuras del Gobierno: 58,8 % lo considera inaceptable; 20,9 % lo aceptaría solo para delitos menores; 15,7 % lo aceptaría si garantiza una transición pacífica.',
+  },
+  'sanciones-o-normalizacion': {
+    importa: 'Afecta a la economía de todos los cubanos y a la relación con el país donde vive la mayor parte de la diáspora.',
+    encuesta: 'Sobre el embargo: 43,8 % mantenerlo como presión; 26,1 % eliminarlo gradualmente con reformas; 14,8 % eliminarlo sin condiciones; 8,5 % intensificarlo; 6,8 % sin posición.',
+  },
+  'lugar-de-los-comunistas': { importa: 'Decide si la nueva democracia admite a todos los partidos o excluye a una corriente política.' },
+  'que-constitucion-en-la-transicion': { importa: 'Fija las reglas del periodo intermedio, que es cuando el poder es más frágil.' },
+  'sistema-de-gobierno': { importa: 'Cambia quién dirige el gobierno y ante quién responde.' },
+  aborto: { importa: 'Es el único desacuerdo del banco sobre derechos personales, y las dos posturas son incompatibles.' },
+  'reforma-o-ley-electoral-nueva': { importa: 'Decide quién puede ser candidato en las primeras elecciones libres.' },
+  'modelo-economico': {
+    importa: 'De esto depende cómo se reparten los costes y los beneficios de la recuperación.',
+    encuesta: 'Modelo para Cuba: 76,8 % democracia liberal con economía de mercado; 12,4 % sistema mixto; 7,3 % capitalismo con gobierno fuerte y sin varios partidos; 1,6 % socialismo con reformas profundas; 0,3 % socialismo tal como está.',
+  },
+};
+---
+<Base titulo="Los diez desacuerdos de fondo" seccion="otras"
+  descripcion="Análisis de ENTRE TODOS: las diez cuestiones en las que las propuestas cubanas proponen caminos distintos, quién defiende cada uno y qué responden los encuestados.">
+  <Banda imagen="/img/fotos/cat-transicion.jpg" lateral={['Análisis E/T', 'Banco de propuestas', 'Sin tomar partido']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Análisis E/T · 23 de octubre de 2026</p>
+    <h1>Los diez<br />desacuerdos</h1>
+    <p class="lema">Donde los caminos se separan</p>
+    <p class="entradilla">Los cubanos coinciden en lo básico: libertades, elecciones, una transición pacífica. Los desacuerdos están en el cómo y en el después. Estos son los diez más importantes del banco, con quién defiende cada opción.</p>
+  </Banda>
+
+  <article class="contenedor an">
+    <div class="texto-largo">
+      <p class="an-intro">Para cada desacuerdo se indica si las opciones se pueden combinar o se excluyen entre sí, cuántas autorías defienden cada una y, cuando hay datos, qué respondieron los encuestados desde Cuba en la encuesta de elTOQUE de 2026, que no es una muestra aleatoria. Que una opción tenga más autorías no la hace mejor: solo indica cuántos la han propuesto por escrito.</p>
+    </div>
+
+    <ol class="an-desac">
+      {cuestiones.map((c, i) => (
+        <li class="an-d">
+          <div class="an-d-cab">
+            <span class="an-d-num">{i + 1}</span>
+            <h2>{c.pregunta}</h2>
+            <span class:list={['an-d-tipo', { excl: c.excluyentes }]}>{c.excluyentes ? 'Opciones incompatibles' : 'Opciones combinables'}</span>
+          </div>
+          <p class="an-d-texto">{c.texto} {extra[c.id]?.importa}</p>
+          <ul class="an-d-ops">
+            {c.opciones.filter((o) => propPorId[o]).map((o) => {
+              const a = autorias(propPorId[o]);
+              return (
+                <li>
+                  <a href={`/propuesta/${o}/`}>{propPorId[o].titulo}</a>
+                  <span class="an-d-n">{a.length} {a.length === 1 ? 'autoría' : 'autorías'}</span>
+                  <small>{a.map((x) => x.nombre).join(' · ')}</small>
+                </li>
+              );
+            })}
+          </ul>
+          {extra[c.id]?.encuesta && <p class="an-d-enc"><b>Encuestados desde Cuba (elTOQUE 2026):</b> {extra[c.id].encuesta}</p>}
+        </li>
+      ))}
+    </ol>
+
+    <div class="texto-largo">
+      <section class="an-sec an-conclusion">
+        <h2>Qué se puede afirmar</h2>
+        <ol>
+          <li>Cuatro de los diez desacuerdos tienen opciones incompatibles: quién gobierna la transición, sanciones o normalización, el lugar de los comunistas y el aborto. Esos tendrán que decidirse por votación.</li>
+          <li>Los otros seis admiten combinaciones. En ellos cabe una solución que recoja partes de varias propuestas.</li>
+          <li>La opinión de la gente y la de las organizaciones no siempre van juntas. La vía que más eligen los encuestados para empezar el cambio, el derrocamiento «por cualquier medio», no la propone ningún documento del banco: todos proponen caminos pacíficos.</li>
+        </ol>
+      </section>
+      <section class="seccion org-nota">
+        <h2>Límites y método</h2>
+        <p>Las cuestiones y sus opciones salen del banco de ENTRE TODOS. Cada autoría cuenta una vez por opción. Las respuestas de elTOQUE son un cálculo de ENTRE TODOS sobre los microdatos publicados, sin ajuste por cuotas. Ver todas las <a href="/cuestiones/">cuestiones con alternativas</a>. Correcciones: <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+      </section>
+      <div class="acciones"><a class="boton rojo" href="/analisis/donde-coinciden-los-cubanos/">Leer: Dónde coinciden los cubanos <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </article>
+</Base>
