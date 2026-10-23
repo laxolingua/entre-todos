@@ -1656,3 +1656,6 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .be-h3 a { color: var(--marino); text-decoration: none; }
 .be-h3 a::after { content: ""; position: absolute; inset: 0; }
 .cons-banco { margin-bottom: 34px; }
+.miga-volver { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: .92rem; color: var(--marino-2); text-decoration: none; margin-bottom: 14px; position: relative; z-index: 2; }
+.miga-volver:hover { color: var(--rojo); }
+.miga-volver .fi { font-size: .8rem; }
