@@ -331,5 +331,3 @@ export function iniciarParticipacion() {
   if (a) aportes(a);
 }
 
-// Para la Academia A+ (certificados verificables).
-export { sb, sesion, ACTIVA as participacionActiva };

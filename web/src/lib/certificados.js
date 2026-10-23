@@ -2,7 +2,42 @@
 // Las lecciones se registran con la sesión anónima del sitio (sin cuenta ni datos personales).
 // En el servidor solo queda: qué lecciones completó la sesión y el nombre elegido para el certificado.
 import qrcode from 'qrcode-generator';
-import { sb, sesion, participacionActiva } from './participacion.js';
+// Sesión anónima propia (misma lógica que participacion.js). No se importa de allí para no romper
+// el nombre de su exportación, que el pipeline usa en las fichas del banco.
+const URL_SB = import.meta.env.PUBLIC_SUPABASE_URL;
+const CLAVE = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
+const participacionActiva = import.meta.env.PUBLIC_PARTICIPACION === 'true' && !!URL_SB && !!CLAVE;
+let cliente = null;
+async function sb() {
+  if (!cliente) { const { createClient } = await import('@supabase/supabase-js'); cliente = createClient(URL_SB, CLAVE, { auth: { persistSession: true } }); }
+  return cliente;
+}
+function tokenTurnstile() {
+  if (!SITEKEY) return Promise.resolve(undefined);
+  return new Promise((ok, mal) => {
+    const pintar = () => {
+      let caja = document.getElementById('et-turnstile');
+      if (!caja) { caja = document.createElement('div'); caja.id = 'et-turnstile'; caja.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:50'; document.body.appendChild(caja); }
+      window.turnstile.render(caja, { sitekey: SITEKEY, callback: (t) => { ok(t); setTimeout(() => caja.remove(), 800); }, 'error-callback': () => mal(new Error('turnstile')) });
+    };
+    if (window.turnstile) return pintar();
+    const sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    sc.async = true; sc.onload = pintar; sc.onerror = () => mal(new Error('turnstile'));
+    document.head.appendChild(sc);
+  });
+}
+async function sesion() {
+  const s = await sb();
+  const { data } = await s.auth.getSession();
+  if (!data.session) {
+    const captchaToken = await tokenTurnstile();
+    const { error } = await s.auth.signInAnonymously(captchaToken ? { options: { captchaToken } } : undefined);
+    if (error) throw error;
+  }
+  return s;
+}
 
 export const SITIO = 'https://entre-todos.org';
 export const MODULOS = {
