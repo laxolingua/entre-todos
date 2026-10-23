@@ -1,0 +1,33 @@
+---
+// Análisis E/T: índice de artículos propios.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import { ARTICULOS } from '../../data/analisis.js';
+---
+<Base titulo="Análisis" seccion="otras"
+  descripcion="Artículos de ENTRE TODOS elaborados con el banco de propuestas, las consultas y las encuestas, con sus datos y su método.">
+  <Banda imagen="/img/fotos/propuestas.jpg" lateral={['Con datos', 'Con método', 'Con fuentes']}>
+    <span class="barra"></span>
+    <h1>Análisis</h1>
+    <p class="lema">Lo que muestran nuestros datos</p>
+    <p class="entradilla">Artículos elaborados con el banco de propuestas, las consultas y las encuestas sobre Cuba. Cada uno explica de dónde salen sus cifras y qué no se puede afirmar con ellas.</p>
+  </Banda>
+  <div class="contenedor">
+    <div class="an-rejilla">
+      {ARTICULOS.map((a) => (
+        <article class="an-tarjeta">
+          <div class="an-foto" style={`background-image:url(${a.foto})`}><span>{a.categoria}</span></div>
+          <div class="an-cuerpo">
+            <p class="discreto">{a.fecha}</p>
+            <h2><a href={`/analisis/${a.id}/`}>{a.titulo}</a></h2>
+            <p>{a.entradilla}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <section class="seccion org-nota">
+      <h2>Para investigadores</h2>
+      <p>Los datos públicos del banco están en <a href="/datos/">Datos abiertos</a>. Si quieres usar el banco para un estudio o un artículo, escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>.</p>
+    </section>
+  </div>
+</Base>
