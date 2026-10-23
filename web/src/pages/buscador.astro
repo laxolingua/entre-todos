@@ -2,7 +2,6 @@
 // Buscador E/T: buscador inteligente sobre todo el contenido de ENTRE TODOS (banco de propuestas, encuestas, análisis y páginas).
 // La pregunta va a la función de Supabase «preguntar» (búsqueda por significado + Cloudflare Workers AI).
 import Base from '../layouts/Base.astro';
-import Banda from '../components/Banda.astro';
 const FN = `${import.meta.env.PUBLIC_SUPABASE_URL}/functions/v1/preguntar`;
 const sugerencias = [
   '¿Qué es ENTRE TODOS y cómo funciona?',
@@ -15,20 +14,32 @@ const sugerencias = [
 ---
 <Base titulo="Buscador E/T" seccion="otras"
   descripcion="Pregunta lo que quieras sobre ENTRE TODOS y recibe una respuesta con fuentes: el sitio, su método, las propuestas, las encuestas y los análisis.">
-  <Banda imagen="/img/fotos/propuestas.jpg" lateral={['Con fuentes', 'Sin opinión', 'Sin inventar']}>
-    <span class="barra"></span>
-    <p class="antetitulo">ENTRE TODOS · Buscador inteligente</p>
-    <h1>Buscador<br />E/T</h1>
-    <p class="lema">Pregunta lo que quieras sobre ENTRE TODOS</p>
-    <p class="entradilla">Escribe una pregunta como se la harías a una persona: qué es ENTRE TODOS, cómo funciona, qué secciones tiene, qué proponen los cubanos o qué dicen las encuestas. La respuesta sale solo del contenido del sitio y cada dato lleva su fuente.</p>
-  </Banda>
+  <section class="bus-hero">
+    <div class="contenedor bus-hero-rej">
+      <div class="bus-hero-txt">
+        <span class="barra"></span>
+        <p class="antetitulo">ENTRE TODOS · Búsqueda con IA</p>
+        <h1>Buscador E/T</h1>
+        <p class="lema">Pregunta lo que quieras sobre ENTRE TODOS</p>
+        <p class="entradilla">Qué es ENTRE TODOS, cómo funciona, qué secciones tiene, qué proponen los cubanos o qué dicen las encuestas. La respuesta sale solo del contenido del sitio y cada dato lleva su fuente.</p>
+        <div class="pr" data-fn={FN}>
+          <form class="pr-form" id="pr-form">
+            <label class="sr" for="pr-q">Tu pregunta</label>
+            <input id="pr-q" name="q" type="text" maxlength="400" autocomplete="off" placeholder="¿Qué quieres saber?" required />
+            <button type="submit" id="pr-btn">Preguntar</button>
+          </form>
+        </div>
+      </div>
+      <figure class="bus-hero-foto" aria-hidden="true">
+        <span class="bus-puntos"></span>
+        <img src="/img/fotos/buscador.jpg" alt="" width="1536" height="1024" />
+        <span class="bus-rojo"></span>
+        <span class="bus-amarillo"></span>
+      </figure>
+    </div>
+  </section>
 
-  <div class="contenedor pr" data-fn={FN}>
-    <form class="pr-form" id="pr-form">
-      <label class="sr" for="pr-q">Tu pregunta</label>
-      <input id="pr-q" name="q" type="text" maxlength="400" autocomplete="off" placeholder="Por ejemplo: ¿qué piensan los cubanos del embargo?" required />
-      <button type="submit" id="pr-btn">Preguntar</button>
-    </form>
+  <div class="contenedor pr-cuerpo">
     <div class="pr-sug" aria-label="Ejemplos de preguntas">
       {sugerencias.map((s) => <button type="button" data-s={s}>{s}</button>)}
     </div>
@@ -48,7 +59,7 @@ const sugerencias = [
 </Base>
 
 <script>
-  const raiz = document.querySelector('.pr');
+  const raiz = document.querySelector('.pr[data-fn]');
   const FN = raiz.dataset.fn;
   const base = location.pathname.startsWith('/entre-todos-preview') ? '/entre-todos-preview' : '';
   const $ = (id) => document.getElementById(id);

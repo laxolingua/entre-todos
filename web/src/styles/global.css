@@ -1598,7 +1598,8 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 
 /* ===== Pregúntale al banco (23/10/2026) ===== */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.pr { padding-top: 28px; padding-bottom: 20px; max-width: 980px; }
+.pr-cuerpo { padding-top: 22px; padding-bottom: 20px; }
+.pr-cuerpo > .pr-resp, .pr-cuerpo > .org-nota { max-width: 980px; }
 .pr-form { display: flex; gap: 0; box-shadow: 0 4px 14px rgba(11,29,63,.08); }
 .pr-form input { flex: 1; min-width: 0; font: 400 1.08rem Barlow, sans-serif; padding: 15px 18px; border: 1px solid #cdd3de; border-right: 0; background: #fff; color: var(--marino); }
 .pr-form input:focus { outline: none; border-color: var(--marino-2); box-shadow: inset 0 -3px 0 var(--amarillo); }
@@ -1629,3 +1630,21 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .pr-mini input { flex: 1; min-width: 0; font: 400 .98rem Barlow, sans-serif; padding: 11px 14px; border: 1px solid #cdd3de; border-right: 0; background: #fff; }
 .pr-mini input:focus { outline: none; border-color: var(--marino-2); box-shadow: inset 0 -3px 0 var(--amarillo); }
 .pr-mini button { font: 700 .92rem Barlow, sans-serif; background: var(--rojo); color: #fff; border: 0; padding: 0 18px; cursor: pointer; }
+
+.bus-hero { background: var(--superficie, #fff); border-bottom: 1px solid var(--borde); overflow: hidden; }
+.bus-hero-rej { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 44px; align-items: center; padding-top: 44px; padding-bottom: 48px; }
+.bus-hero-txt .barra { display: block; width: 64px; height: 6px; background: var(--rojo); margin-bottom: 18px; }
+.bus-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: .9; margin: 6px 0 10px; }
+.bus-hero h1::after { display: none; }
+.bus-hero .lema { font-family: var(--display); font-weight: 700; text-transform: uppercase; color: var(--marino); font-size: 1.2rem; margin: 0 0 12px; }
+.bus-hero .entradilla { margin-bottom: 20px; }
+.bus-hero-foto { position: relative; margin: 0; }
+.bus-hero-foto img { position: relative; z-index: 1; display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.bus-puntos { position: absolute; z-index: 0; right: -18px; bottom: -18px; width: 62%; height: 70%; background: var(--marino); background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.3px); background-size: 9px 9px; }
+.bus-rojo { position: absolute; z-index: 2; left: -14px; bottom: 26px; width: 120px; height: 10px; background: var(--rojo); transform: skewX(-30deg); }
+.bus-amarillo { position: absolute; z-index: 2; right: 30px; top: -12px; width: 110px; height: 9px; background: var(--amarillo); transform: skewX(-30deg); }
+@media (max-width: 860px) {
+  .bus-hero-rej { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
+  .bus-hero-foto { order: -1; }
+  .bus-puntos { right: -10px; bottom: -10px; }
+}
