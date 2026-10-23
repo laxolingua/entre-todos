@@ -5,11 +5,14 @@ import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
 import { ACTUALIZADO, exigencias, seguridad, hammer, hammerFuentes, posiciones, leyes, condiciones } from '../data/cuba-eeuu.js';
 import cronologia from '../data/cuba-eeuu-cronologia.json';
+import { CONDICIONES, ENCUESTAS, EMBARGO, NIVELES, LEY_URL, CONST_URL } from '../data/helms-burton.js';
+import { DERECHOS } from '../data/derechos.js';
 import datos from '../data/publico.json';
 import { desdeAnio, propPorId } from '../lib/banco.js';
 const desde = (ids) => Math.min(...ids.map((id) => propPorId.get(id) ? desdeAnio(propPorId.get(id)) || 9999 : 9999));
 const prop = Object.fromEntries(datos.propuestas.map((p) => [p.id, p]));
 const dominio = (u) => new URL(u).hostname.replace(/^www\./, '');
+const cuestionPorId = Object.fromEntries((datos.cuestiones || []).map((c) => [c.id, c]));
 const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).size;
 ---
 <Base titulo="Cuba y Estados Unidos en 2026" seccion="otras" ancho
@@ -87,6 +90,78 @@ const docs = (ids) => new Set(ids.flatMap((id) => prop[id]?.documentos || [])).s
           </li>
         ))}
       </ul>
+    </section>
+
+
+    <section class="seccion" id="helms-burton">
+      <h2 class="vista-titulo">Las condiciones de la ley Helms-Burton, una a una</h2>
+      <p class="entradilla">La ley estadounidense de 1996 fija ocho condiciones para reconocer un «gobierno de transición» en Cuba y empezar a suspender el embargo. Para cada una se muestra qué dice la Constitución cubana vigente, qué proponen los documentos del banco y qué respondieron los cubanos encuestados en 2026.</p>
+
+      <div class="hb-embargo">
+        <h3>Antes: qué responden los encuestados sobre el embargo</h3>
+        <p class="hb-q">{EMBARGO.eltoque.pregunta} <span class="discreto">· {ENCUESTAS.eltoque.nombre}, {ENCUESTAS.eltoque.ficha}</span></p>
+        <div class="hb-dos">
+          {[['Respuestas desde Cuba', EMBARGO.eltoque.cuba], ['Respuestas desde el exterior', EMBARGO.eltoque.exterior]].map(([t, filas]) => (
+            <div>
+              <p class="hb-sub">{t}</p>
+              <ul class="hb-barras">{filas.map(([o, v]) => <li><span class="hb-o">{o}</span><span class="hb-bar"><i style={`width:${v}%`}></i></span><b>{String(v).replace('.', ',')} %</b></li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <p><b>{ENCUESTAS.ddc.nombre}:</b> {EMBARGO.ddc} <a href={EMBARGO.ddcUrl} rel="noopener" target="_blank">{dominio(EMBARGO.ddcUrl)}</a></p>
+        <p><b>{ENCUESTAS.lapop.nombre}:</b> {EMBARGO.lapop} <a href={ENCUESTAS.lapop.url} rel="noopener" target="_blank">{dominio(ENCUESTAS.lapop.url)}</a></p>
+        <p class="hb-aviso">El resultado cambia según cómo se pregunta y quién responde. Ninguna de estas encuestas es una muestra aleatoria de toda la población: describen a quienes respondieron. Por eso sus cifras no se suman ni se comparan como una sola medida.</p>
+      </div>
+
+      <div class="hb-lista">
+        {CONDICIONES.map((c, i) => (
+          <details class="hb-ficha" id={`hb-${c.id}`} open={i === 0}>
+            <summary>
+              <span class="hb-num">{i + 1}</span>
+              <span class="hb-tit">{c.titulo}</span>
+              <span class:list={['hb-nivel', c.correspondencia]}>{NIVELES[c.correspondencia]}</span>
+            </summary>
+            <div class="hb-rej">
+              <div class="hb-caja" style="--c:var(--marino-2)">
+                <h4>Qué exige la ley de EE. UU.</h4>
+                <p>{c.ley}</p>
+                <p class="hb-src">Ley Libertad (Helms-Burton), sección {c.seccion}. <a href={LEY_URL} rel="noopener" target="_blank">22 U.S.C. 6065</a>. Traducción de E/T.</p>
+              </div>
+              <div class="hb-caja" style="--c:var(--rojo)">
+                <h4>Qué dice hoy Cuba</h4>
+                <p>{c.cuba}</p>
+                <p class="hb-src">{c.cubaUrl ? <a href={c.cubaUrl} rel="noopener" target="_blank">{c.cubaFuente}</a> : c.cubaFuente.startsWith('Constitución') ? <a href={CONST_URL} rel="noopener" target="_blank">{c.cubaFuente}</a> : c.cubaFuente}.</p>
+              </div>
+              <div class="hb-caja" style="--c:var(--amarillo)">
+                <h4>Qué proponen los documentos del banco</h4>
+                <ul>
+                  {c.propuestas.filter((id) => prop[id]).map((id) => <li><a href={`/propuesta/${id}/`}>{prop[id].titulo}</a> <span class="discreto">· {prop[id].documentos?.length || 0} documentos{DERECHOS.has(id) ? ' · derecho esencial' : ''}</span></li>)}
+                </ul>
+                {c.bancoNota && <p>{c.bancoNota}{c.cuestion && cuestionPorId[c.cuestion] && <> Ver la cuestión «<a href={`/cuestiones/#${c.cuestion}`}>{cuestionPorId[c.cuestion].pregunta}</a>».</>}</p>}
+              </div>
+              <div class="hb-caja" style="--c:var(--verde-hb)">
+                <h4>Qué no está medido</h4>
+                <ul>{c.sinMedir.map((t) => <li>{t}</li>)}</ul>
+              </div>
+              {c.encuestas.length > 0 && (
+                <div class="hb-caja hb-ancha" style="--c:var(--marino)">
+                  <h4>Qué respondieron los encuestados</h4>
+                  <div class="hb-tabla">
+                    {c.encuestas.map((x) => (
+                      <div class="hb-fila">
+                        <p class="hb-enc"><a href={ENCUESTAS[x.e].url} rel="noopener" target="_blank">{ENCUESTAS[x.e].nombre}</a><small>{ENCUESTAS[x.e].ficha} · {ENCUESTAS[x.e].metodo}</small></p>
+                        <p class="hb-preg">{x.q}</p>
+                        <p class="hb-res"><span class="hb-bar"><i style={`width:${x.v}%`}></i></span>{x.r}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </details>
+        ))}
+      </div>
+      <p class="discreto">Después de la transición, la sección 206 de la ley añade condiciones para un «gobierno elegido democráticamente», entre ellas avanzar hacia una economía de mercado y resolver las reclamaciones de propiedades de ciudadanos estadounidenses. Cifras comprobadas el 23 de octubre de 2026 en las fuentes enlazadas. E/T no toma posición sobre el embargo.</p>
     </section>
 
     <section class="seccion" id="contexto">
