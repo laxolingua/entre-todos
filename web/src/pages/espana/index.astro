@@ -90,7 +90,7 @@ import datos from '../../data/espana.json';
               <thead><tr><th scope="col">Partido</th><th scope="col">%</th>{e.resultados.some((r) => r[2]) && <th scope="col">Escaños</th>}</tr></thead>
               <tbody>{e.resultados.map((r) => <tr><td>{r[0]}</td><td>{r[1]}</td>{e.resultados.some((x) => x[2]) && <td>{r[2] || '—'}</td>}</tr>)}</tbody>
             </table>
-            <p class="ficha">Campo: {e.campo}. Muestra: {e.muestra}.{e.metodo && <> {e.metodo}</>}</p>
+            <p class="ficha-enc">Campo: {e.campo}. Muestra: {e.muestra}.{e.metodo && <> {e.metodo}</>}</p>
             <a class="enlace-flecha" href={e.fuente} rel="noopener" target="_blank">Fuente <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </article>
         ))}
