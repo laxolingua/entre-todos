@@ -1705,7 +1705,7 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .partidos-es h3 { font-family: var(--display); text-transform: uppercase; font-weight: 800; color: var(--marino); margin: 0; font-size: 1.3rem; }
 .partidos-es .discreto { margin: 0; font-size: .86rem; }
 .partidos-es .estado { margin: 0; font-size: .9rem; color: var(--texto-2); display: flex; gap: 6px; align-items: center; }
-.partidos-es .con-doc { grid-column: 1 / -1; border-left-color: var(--rojo); }
+.partidos-es { align-items: start; }
 .doc-es summary { cursor: pointer; font-weight: 600; color: var(--marino); padding: 4px 0; }
 .doc-es ol { margin: 8px 0 12px; padding-left: 22px; }
 .doc-es li { margin: 4px 0; }
