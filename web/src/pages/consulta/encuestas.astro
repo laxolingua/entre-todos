@@ -1,0 +1,87 @@
+---
+// Banco de encuestas: inventario de encuestas y sondeos sobre Cuba hechos fuera del Estado.
+// Datos: data/banco-encuestas.json (sale de la hoja 051 CL Registro de encuestas y sondeos).
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import datos from '../../data/banco-encuestas.json';
+import publico from '../../data/publico.json';
+
+const prop = Object.fromEntries(publico.propuestas.map((p) => [p.id, p]));
+const METODOS = {
+  aleatoria: { nombre: 'Muestra aleatoria', texto: 'Personas elegidas al azar. Es lo más cercano a representar a toda la población.' },
+  panel: { nombre: 'Panel en línea', texto: 'Un grupo fijo de personas con internet que responde varias encuestas.' },
+  abierta: { nombre: 'Abierta en línea', texto: 'Responde quien quiere. Describe a quienes participan, no a todo el país.' },
+  redes: { nombre: 'Redes sociales', texto: 'Votos o comentarios en una publicación. Mide el clima entre los seguidores.' },
+};
+const ORDEN = ['aleatoria', 'panel', 'abierta', 'redes'];
+const POB = { isla: 'Isla', exterior: 'Exterior', ambos: 'Isla y exterior' };
+const ESTADO = { verificada: 'Verificada', autor: 'Cifras del autor', pendiente: 'Por verificar' };
+const lista = [...datos.encuestas].sort((a, b) => ORDEN.indexOf(a.metodo) - ORDEN.indexOf(b.metodo) || b.anio - a.anio);
+const total = lista.length;
+const verificadas = lista.filter((e) => e.estado === 'verificada').length;
+const enlazadas = new Set(lista.flatMap((e) => e.propuestas.filter((id) => prop[id]))).size;
+const anios = lista.map((e) => e.anio);
+---
+<Base titulo="Banco de encuestas" seccion="consulta" ancho
+  descripcion="Todas las encuestas y sondeos sobre Cuba hechos fuera del Estado, con su método y enlazados a las propuestas del banco.">
+  <Banda imagen="/img/fotos/consulta.jpg" lateral={['Con método', 'Con fuente', 'Sin sumar cifras']}>
+    <span class="barra"></span>
+    <p class="antetitulo">Consulta · Banco de encuestas</p>
+    <h1>Lo que dice<br />la gente</h1>
+    <p class="lema">Encuestas y sondeos sobre Cuba</p>
+    <p class="entradilla">Todas las encuestas y sondeos hechos fuera del Estado: medios independientes, sociedad civil, academia, oposición y redes sociales. Cada uno con su método, para saber cuánto pesa cada cifra.</p>
+  </Banda>
+
+  <section class="be-franja" aria-label="El banco en cifras">
+    <ul class="contenedor">
+      <li><strong>{total}</strong><span>encuestas registradas</span></li>
+      <li><strong>{verificadas}</strong><span>verificadas en su fuente</span></li>
+      <li><strong>{Math.min(...anios)}–{Math.max(...anios)}</strong><span>años que cubren</span></li>
+      <li><strong>{enlazadas}</strong><span>propuestas enlazadas</span></li>
+    </ul>
+  </section>
+
+  <div class="contenedor be">
+    <div class="be-filtros" role="group" aria-label="Filtrar por método">
+      <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+      {ORDEN.map((m) => <button type="button" data-f={m} aria-pressed="false"><i class={`be-dot m-${m}`}></i>{METODOS[m].nombre}</button>)}
+    </div>
+
+    <ul class="be-metodos">
+      {ORDEN.map((m) => <li class={`m-${m}`}><b>{METODOS[m].nombre}</b>{METODOS[m].texto}</li>)}
+    </ul>
+
+    <div class="be-rejilla">
+      {lista.map((e) => (
+        <article class:list={['be-t', `m-${e.metodo}`]} data-m={e.metodo}>
+          <div class="be-t-cab">
+            <span class="be-met">{METODOS[e.metodo].nombre}</span>
+            <span class:list={['be-est', e.estado]}>{ESTADO[e.estado]}</span>
+          </div>
+          <div class="be-cifra"><strong>{e.dato}</strong><span>{e.datoTexto}</span></div>
+          <h2>{e.url ? <a href={e.url} rel="noopener" target={e.url.startsWith('/') ? undefined : '_blank'}>{e.titulo}</a> : e.titulo}</h2>
+          <p class="be-meta">{e.autor} · {e.fecha} · {e.n} · {POB[e.poblacion]}</p>
+          {e.resultado && <p class="be-res">{e.resultado}</p>}
+          <div class="be-props">
+            {e.propuestas.filter((id) => prop[id]).map((id) => <a href={`/propuesta/${id}/`}><i class="fi fi-br-bulb" aria-hidden="true"></i>{prop[id].titulo}</a>)}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <section class="seccion org-nota">
+      <h2>Cómo se elabora</h2>
+      <p>Se registran las encuestas y sondeos con resultado publicado sobre la situación y el futuro de Cuba, hechos por medios independientes, sociedad civil, academia, oposición o personas en redes sociales. Una encuesta es «verificada» cuando su resultado se ha comprobado en la fuente original; en las de redes sociales, las cifras son las que da su autor. Nunca se suman cifras de encuestas distintas: cada una tiene su pregunta, su público y su método. ¿Conoces una encuesta que falta? Escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>. Actualizado el {datos.actualizado}.</p>
+    </section>
+    <div class="acciones"><a class="boton rojo" href="/analisis/continuidad-o-cambio/">Leer: Continuidad o cambio <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a><a class="boton" href="/consulta/">Volver a Consulta</a></div>
+  </div>
+</Base>
+
+<script>
+  const bs = [...document.querySelectorAll('.be-filtros button')];
+  const ts = [...document.querySelectorAll('.be-t')];
+  bs.forEach((b) => b.addEventListener('click', () => {
+    bs.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    ts.forEach((t) => { t.hidden = b.dataset.f !== 'todas' && t.dataset.m !== b.dataset.f; });
+  }));
+</script>
