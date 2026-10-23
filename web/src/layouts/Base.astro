@@ -8,12 +8,13 @@ import '@fontsource/barlow-condensed/latin-700.css';
 import '@fontsource/barlow-condensed/latin-800.css';
 import '@fontsource/montserrat/latin-900.css';
 import '../styles/global.css';
+import Bandera from '../components/Bandera.astro';
 
 interface Props {
   titulo: string;
   descripcion: string;
   imagen?: string;     // ruta de la imagen 1200x630 para compartir, relativa al sitio
-  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'compara' | 'plataforma' | 'otras';
+  seccion?: 'inicio' | 'propuestas' | 'academia' | 'consulta' | 'sobre' | 'cuestiones' | 'archivo' | 'fuentes' | 'actores' | 'metodo' | 'datos' | 'plan' | 'preocupa' | 'seguridad' | 'diversidad' | 'abrazos' | 'perfil' | 'compara' | 'plataforma' | 'otras';
   ancho?: boolean;     // true: la página controla su propio ancho (portada y secciones con banda)
   pais?: 'cu' | 'es';  // país activo en el selector; Cuba es el predeterminado
 }
@@ -25,7 +26,7 @@ const BANCO = ['propuestas', 'cuestiones', 'compara', 'plataforma', 'fuentes', '
 const enBanco = BANCO.includes(seccion ?? '');
 const enlacesCu = [
   { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
-  { href: '/cual-es-el-plan/', texto: '¿Cuál es el plan?', activo: seccion === 'plan' },
+  { href: '/que-te-preocupa/', texto: '¿Qué te preocupa?', activo: seccion === 'preocupa' },
   { href: '/academia/', texto: 'Blog A+', activo: seccion === 'academia' },
   { href: '/consulta/', texto: 'Consultas', activo: seccion === 'consulta' },
   { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
@@ -87,12 +88,13 @@ const subenlaces = [
     <nav class="barra-pais" aria-label="País">
       <div class="contenedor">
         <span class="etq-pais">País</span>
-        {paises.map((p) => <a href={p.href} aria-current={pais === p.id ? 'page' : undefined}>{p.nombre}</a>)}
+        {paises.map((p) => <a href={p.href} aria-current={pais === p.id ? 'page' : undefined}><Bandera pais={p.id} tam={16} />{p.nombre}</a>)}
       </div>
     </nav>
     <header class="cabecera" id="cabecera">
       <div class="contenedor">
         <a class="marca notranslate" translate="no" href={inicio} aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
+        <a class="pais-activo" href={inicio}><Bandera pais={pais} tam={26} /><span>{pais === 'es' ? 'España' : 'Cuba'}</span></a>
         <a class="icono-cab" href="/buscador/" aria-label="Buscador E/T"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20 20-4.5-4.5"/></svg></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
@@ -138,7 +140,7 @@ const subenlaces = [
           <h2>Participa</h2>
           <ul>
             <li><a href="/propuestas/">Propuestas</a></li>
-            <li><a href="/cual-es-el-plan/">¿Cuál es el plan?</a></li>
+            <li><a href="/que-te-preocupa/">¿Qué te preocupa?</a></li>
             <li><a href="/consulta/">Consultas</a></li>
             <li><a href="/academia/">Blog A+</a></li>
             <li><a href="/abrazos/">Abrazos</a></li>
@@ -168,6 +170,7 @@ const subenlaces = [
           </ul>
         </div>
       </div>
+      <a class="pie-pais" href={inicio}><Bandera pais={pais} tam={40} /><span>ENTRE TODOS · {pais === 'es' ? 'España' : 'Cuba'}</span></a>
     </footer>
     <script is:inline>
       const c = document.getElementById('cabecera');

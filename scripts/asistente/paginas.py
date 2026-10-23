@@ -3,7 +3,7 @@ Uso: python3 paginas.py /tmp/pub salida.json
 Una fila por sección (h2) de cada página, máximo ~1.800 caracteres."""
 import re, html, json, sys, pathlib
 pub = pathlib.Path(sys.argv[1])
-PAGINAS = ['', 'sobre', 'metodo', 'plataforma', 'compara', 'candidatura-solucionaria', 'cual-es-el-plan', 'generador-de-soluciones',
+PAGINAS = ['', 'sobre', 'metodo', 'plataforma', 'compara', 'candidatura-solucionaria', 'cual-es-el-plan', 'que-te-preocupa', 'espana', 'generador-de-soluciones',
            'privacidad', 'seguridad', 'constituyente', 'diversidad-politica', 'reconstruccion', 'cuba-eeuu', 'consulta',
            'consulta/solicitud-consulta-civica', 'consulta/continuidad-o-cambio', 'consulta/encuestas', 'datos', 'abrazos',
            'cuestiones', 'actualidad', 'analisis', 'academia', 'academia/conceptos']

@@ -1,8 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
-import datos from '../data/publico.json';
-const categorias = [...datos.categorias].sort((a, b) => a.orden - b.orden);
 
 ---
 <Base titulo="¿Cuál es el plan?" seccion="plan" ancho
@@ -20,23 +18,9 @@ const categorias = [...datos.categorias].sort((a, b) => a.orden - b.orden);
       <div id="modulo-plan" data-modulo="cual-es-el-plan">
         <div class="aviso-proximo">
           <h2>Espacio de colaboración con otra organización</h2>
-          <p>Esta sección la está preparando una organización colaboradora. Su contenido se publicará aquí próximamente. Mientras tanto, puedes empezar por los temas del banco de propuestas.</p>
+          <p>Esta sección la está preparando una organización colaboradora. Su contenido se publicará aquí próximamente. Mientras tanto, puedes empezar por <a href="/que-te-preocupa/">¿Qué te preocupa?</a>.</p>
         </div>
       </div>
-    </section>
-
-    <section class="seccion" id="preocupaciones">
-      <h2 class="vista-titulo">¿Qué te preocupa?</h2>
-      <p class="entradilla">Elige un tema para ver las propuestas que se han hecho.</p>
-      <ul class="preocupaciones">
-        {categorias.map((c) => (
-          <li><a href={`/propuestas/categoria/${c.clave}/`}>
-            <span class="duo"><img src={`/img/fotos/cat-${c.clave}.jpg`} alt="" loading="lazy" /></span>
-            <span class="txt"><strong>{c.nombre}</strong><span>{c.descripcion}</span></span>
-            <i class="fi fi-br-arrow-right" aria-hidden="true"></i>
-          </a></li>
-        ))}
-      </ul>
     </section>
 
   </div>

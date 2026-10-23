@@ -3,7 +3,7 @@ Uso: python3 vista_previa.py <pubdir> <salida>. Escribe <salida>/lista.json con 
 import os, re, sys, shutil, json
 P, S = sys.argv[1:]
 shutil.rmtree(S, ignore_errors=True); os.makedirs(S)
-INCL = ['_astro', 'fonts', 'img', 'academia', 'actores', 'abrazos', 'consulta', 'constituyente', 'cual-es-el-plan', 'cuestiones', 'datos', 'diversidad-politica', 'fuentes', 'metodo', 'privacidad', 'propuesta', 'propuestas', 'reconstruccion', 'cuba-eeuu', 'actualidad', 'seguridad', 'sobre']
+INCL = ['_astro', 'fonts', 'img', 'academia', 'actores', 'abrazos', 'consulta', 'constituyente', 'cual-es-el-plan', 'que-te-preocupa', 'espana', 'cuestiones', 'datos', 'diversidad-politica', 'fuentes', 'metodo', 'privacidad', 'propuesta', 'propuestas', 'reconstruccion', 'cuba-eeuu', 'actualidad', 'seguridad', 'sobre']
 for d in INCL: shutil.copytree(f'{P}/{d}', f'{S}/{d.replace("_astro", "astro")}')
 for f in ['index.html', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'og-consulta.jpg']: shutil.copy(f'{P}/{f}', f'{S}/{f}')
 def fix(rel):

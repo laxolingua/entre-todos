@@ -1,0 +1,28 @@
+---
+// ¿Qué te preocupa?: sección propia de ENTRE TODOS. De un tema que preocupa a las propuestas publicadas sobre él.
+import Base from '../layouts/Base.astro';
+import Banda from '../components/Banda.astro';
+import datos from '../data/publico.json';
+const categorias = [...datos.categorias].sort((a, b) => a.orden - b.orden);
+---
+<Base titulo="¿Qué te preocupa?" seccion="preocupa" ancho
+  descripcion="Elige el tema que más te preocupa y mira qué proponen las organizaciones de la sociedad civil cubana.">
+  <Banda imagen="/img/fotos/cat-modelo_pais.jpg" lateral={['Preocupación', 'Tema', 'Propuestas', 'Valoración']}>
+    <span class="barra"></span>
+    <h1>¿Qué te<br />preocupa?</h1>
+    <p class="entradilla">Elige un tema y mira las propuestas que ya existen sobre él, quién las hace y en qué documento.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion" id="preocupaciones">
+      <ul class="preocupaciones">
+        {categorias.map((c) => (
+          <li><a href={`/propuestas/categoria/${c.clave}/`}>
+            <span class="duo"><img src={`/img/fotos/cat-${c.clave}.jpg`} alt="" loading="lazy" /></span>
+            <span class="txt"><strong>{c.nombre}</strong><span>{c.descripcion}</span></span>
+            <i class="fi fi-br-arrow-right" aria-hidden="true"></i>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>
