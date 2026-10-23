@@ -58,7 +58,7 @@ const SECCIONES = [
   ['Propuestas (banco de propuestas)', '/propuestas/', 'Reúne las propuestas publicadas por organizaciones, coaliciones, especialistas y ciudadanos sobre el futuro de Cuba. Cada idea aparece una vez, con todas sus fuentes y autores. Es una de las herramientas de ENTRE TODOS, no todo el sitio.'],
   ['Cuestiones con alternativas', '/cuestiones/', 'Los desacuerdos de fondo entre las propuestas, con las opciones y quién defiende cada una.'],
   ['Actores', '/actores/', '129 organizaciones de la sociedad civil cubana, dentro y fuera de la isla, con información pública y su fuente.'],
-  ['¿Cuál es el plan?', '/cual-es-el-plan/', 'El recorrido para participar: informarse, comparar posturas, armar una plataforma y valorar propuestas.'],
+  ['¿Cuál es el plan?', '/cual-es-el-plan/', 'Espacio de colaboración con otra organización, en preparación: pasará de lo que preocupa a la gente a las propuestas que existen. Por ahora enlaza a los temas del banco.'],
   ['Compara tus posturas', '/compara/', 'Cuestiones en las que las organizaciones proponen caminos opuestos, para ver con cuáles coincides.'],
   ['Plataforma plural de gobierno', '/plataforma/', 'Herramienta para elegir, tema por tema, las propuestas que incluirías en un programa, vengan de quien vengan. Se guarda solo en tu dispositivo. La plataforma común que se formaría con las valoraciones de todos aún no está activa.'],
   ['Candidatura solucionaria', '/candidatura-solucionaria/', 'Un tipo de candidato sin programa cerrado que gobierna con la plataforma plural construida por la ciudadanía.'],
