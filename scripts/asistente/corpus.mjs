@@ -1,5 +1,5 @@
 // Genera el corpus del asistente «Pregúntale al banco» y lo escribe como SQL (upsert sin embeddings).
-// Uso: node scripts/asistente/corpus.mjs > /tmp/corpus.sql   (desde la raíz del repo)
+// Uso: python3 scripts/asistente/paginas.py /tmp/pub /tmp/paginas.json && node --loader <json> scripts/asistente/corpus.mjs <carpeta salida> /tmp/paginas.json
 // Los embeddings los calcula después la función preguntar con {accion:'indexar'}.
 import fs from 'node:fs';
 const D = (f) => JSON.parse(fs.readFileSync(new URL(`../../web/src/data/${f}`, import.meta.url)));
@@ -58,6 +58,7 @@ for (const p of actualidad.piezas) {
     `Noticia de Actualidad (${p.fecha}). ${p.titular}. ${p.resumen} ${p.esencial.map((e) => e.t).join(' ')} Por qué importa: ${p.importa}`,
     `/actualidad/${p.id}/`, { fecha: p.fecha });
 }
+if (process.argv[3] && fs.existsSync(process.argv[3])) filas.push(...JSON.parse(fs.readFileSync(process.argv[3])));
 fs.mkdirSync(process.argv[2], { recursive: true });
 fs.writeFileSync(`${process.argv[2]}/corpus.json`, JSON.stringify({ generado: new Date().toISOString(), filas }));
 const q = (s) => `'${String(s).replace(/'/g, "''")}'`;

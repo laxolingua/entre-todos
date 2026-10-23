@@ -9,7 +9,8 @@ const sugerencias = [
   '¿Quién propone una Asamblea Constituyente?',
   '¿Qué dicen las encuestas del partido único?',
   '¿En qué no se ponen de acuerdo las propuestas?',
-  '¿Qué se propone para los animales?',
+  '¿Qué es la Gobernanza Solucionaria?',
+  '¿Qué es una candidatura solucionaria?',
 ];
 ---
 <Base titulo="Pregúntale al banco" seccion="propuestas"
@@ -19,7 +20,7 @@ const sugerencias = [
     <p class="antetitulo">ENTRE TODOS · Buscador</p>
     <h1>Pregúntale<br />al banco</h1>
     <p class="lema">Responde con nuestros datos</p>
-    <p class="entradilla">Escribe una pregunta como se la harías a una persona. La respuesta sale solo del banco de propuestas, el banco de encuestas y los análisis de ENTRE TODOS, y cada dato lleva su fuente.</p>
+    <p class="entradilla">Escribe una pregunta como se la harías a una persona. La respuesta sale solo del contenido de ENTRE TODOS: el banco de propuestas, el banco de encuestas, los análisis y las páginas del sitio. Cada dato lleva su fuente.</p>
   </Banda>
 
   <div class="contenedor pr" data-fn={FN}>
@@ -53,7 +54,7 @@ const sugerencias = [
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const enlace = (u) => (u && u.startsWith('/') ? base + u : u);
-  const TIPOS = { propuesta: 'Propuesta', encuesta: 'Encuesta', analisis: 'Análisis', cuestion: 'Desacuerdo', actualidad: 'Actualidad' };
+  const TIPOS = { propuesta: 'Propuesta', encuesta: 'Encuesta', analisis: 'Análisis', cuestion: 'Desacuerdo', actualidad: 'Actualidad', pagina: 'ENTRE TODOS' };
 
   async function preguntar(q) {
     $('pr-q').value = q;

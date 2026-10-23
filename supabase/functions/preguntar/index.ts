@@ -57,17 +57,18 @@ async function indexar() {
   }
   let hechas = 0;
   for (;;) {
-    const pend = await sql`select id, titulo, texto from asistente.conocimiento where embedding is null limit 20`;
+    const pend = await sql`select id, titulo, texto from asistente.conocimiento where embedding is null limit 40`;
     if (!pend.length) break;
     const v = await embed(pend.map((p) => `${p.titulo}. ${p.texto}`));
     for (let i = 0; i < pend.length; i++) await sql`update asistente.conocimiento set embedding = ${vec(v[i])}::extensions.vector where id = ${pend[i].id}`;
     hechas += pend.length;
-    if (hechas > 400) break;
+    if (hechas > 1200) break;
   }
   return { filas: corpus.filas.length, cambiadas, embeddings: hechas };
 }
 
-const SISTEMA = `Eres el asistente de búsqueda de ENTRE TODOS, una plataforma cívica, plural y no partidista sobre el futuro de Cuba.
+const SISTEMA = `Eres el asistente de búsqueda de ENTRE TODOS (E/T), una plataforma cívica, plural y no partidista sobre el futuro de Cuba.
+ENTRE TODOS aplica la metodología de la Gobernanza Solucionaria. Las fuentes de tipo «pagina» explican el sitio, su método, la candidatura solucionaria, la plataforma plural de gobierno y las demás secciones; úsalas para preguntas sobre ENTRE TODOS.
 Responde en español claro y breve (entre 60 y 160 palabras), sin títulos ni listas largas.
 Usa SOLO la información de las FUENTES numeradas. Después de cada dato pon el número de su fuente entre corchetes, por ejemplo [2].
 Si las fuentes no responden la pregunta, dilo con sinceridad y sugiere qué buscar en el banco. No inventes cifras, nombres ni fechas.
@@ -81,7 +82,7 @@ async function preguntar(pregunta: string, ip: string) {
   if (!lim.permitido) return json({ error: 'Has hecho muchas preguntas en poco tiempo. Prueba de nuevo dentro de una hora.' }, 429);
 
   const [e] = await embed([pregunta]);
-  const fuentes = await sql`select id, tipo, titulo, texto, url, meta, similitud from asistente.buscar(${vec(e)}::extensions.vector, 8)`;
+  const fuentes = await sql`select id, tipo, titulo, texto, url, meta, similitud from asistente.buscar(${vec(e)}::extensions.vector, 10)`;
   const utiles = fuentes.filter((f) => f.similitud > 0.35);
   const salida = utiles.map((f, i) => ({ n: i + 1, tipo: f.tipo, titulo: f.titulo, url: f.url, meta: f.meta }));
   if (!utiles.length) return json({ respuesta: 'No encontré nada en el banco de ENTRE TODOS sobre esa pregunta. Prueba con otras palabras o explora las propuestas por categoría.', fuentes: [], modelo: null });
@@ -90,7 +91,7 @@ async function preguntar(pregunta: string, ip: string) {
   const modelo = hoy < CUPO - RESERVA - 300 ? GRANDE : hoy < CUPO - 200 ? PEQUENO : null;
   if (!modelo) return json({ respuesta: null, aviso: 'Hoy se agotó el cupo gratuito de respuestas redactadas. Estas son las fuentes que encontré:', fuentes: salida, modelo: null });
 
-  const contexto = utiles.map((f, i) => `[${i + 1}] (${f.tipo}) ${f.titulo}\n${f.texto}`).join('\n\n');
+  const contexto = utiles.map((f, i) => `[${i + 1}] (${f.tipo}) ${f.titulo}\n${String(f.texto).slice(0, 1200)}`).join('\n\n');
   const mensajes = [
     { role: 'system', content: SISTEMA },
     { role: 'user', content: `FUENTES:\n${contexto}\n\nPREGUNTA: ${pregunta}` },

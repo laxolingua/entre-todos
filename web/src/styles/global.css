@@ -1599,10 +1599,11 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 /* ===== Pregúntale al banco (23/10/2026) ===== */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .pr { padding-top: 28px; padding-bottom: 20px; max-width: 980px; }
-.pr-form { display: flex; gap: 10px; }
-.pr-form input { flex: 1; min-width: 0; font: 400 1.08rem Barlow, sans-serif; padding: 15px 16px; border: 2px solid var(--marino); background: #fff; color: var(--marino); }
-.pr-form input:focus { outline: 3px solid var(--amarillo); outline-offset: 1px; }
-.pr-form button { font: 700 1rem Barlow, sans-serif; background: var(--rojo); color: #fff; border: 0; padding: 0 26px; cursor: pointer; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+.pr-form { display: flex; gap: 0; box-shadow: 0 4px 14px rgba(11,29,63,.08); }
+.pr-form input { flex: 1; min-width: 0; font: 400 1.08rem Barlow, sans-serif; padding: 15px 18px; border: 1px solid #cdd3de; border-right: 0; background: #fff; color: var(--marino); }
+.pr-form input:focus { outline: none; border-color: var(--marino-2); box-shadow: inset 0 -3px 0 var(--amarillo); }
+.pr-form button { font: 700 1rem Barlow, sans-serif; background: var(--rojo); color: #fff; border: 0; padding: 0 28px; cursor: pointer; }
+.pr-form button:hover { background: var(--rojo-osc); }
 .pr-form button:disabled { opacity: .6; cursor: wait; }
 .pr-sug { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 22px; }
 .pr-sug button { font: 600 .82rem Barlow, sans-serif; background: #e8edf7; color: var(--marino-2); border: 0; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
@@ -1618,12 +1619,13 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .pr-fuentes { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 16px; }
 .pr-f { position: relative; display: block; background: #fff; border: 1px solid var(--borde); border-top: 4px solid var(--c, var(--marino)); padding: 10px 12px 10px; text-decoration: none; font-size: .85rem; }
 .pr-f:hover { border-color: var(--marino); }
-.pr-f.t-propuesta { --c: var(--rojo); } .pr-f.t-encuesta { --c: var(--be-abierta, #c98a00); } .pr-f.t-analisis { --c: var(--marino-2); } .pr-f.t-cuestion { --c: var(--marino); } .pr-f.t-actualidad { --c: #1f8a5b; }
+.pr-f.t-propuesta { --c: var(--rojo); } .pr-f.t-encuesta { --c: var(--be-abierta, #c98a00); } .pr-f.t-analisis { --c: var(--marino-2); } .pr-f.t-cuestion { --c: var(--marino); } .pr-f.t-actualidad { --c: #1f8a5b; } .pr-f.t-pagina { --c: #7d8799; }
 .pr-f-n { position: absolute; right: 10px; top: 8px; font-family: var(--display); font-weight: 800; color: var(--texto-3); }
 .pr-f-tipo { display: inline-block; background: var(--c); color: #fff; font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 2px 6px; }
 .pr-f b { display: block; color: var(--marino); margin: 6px 0 2px; line-height: 1.25; }
 .pr-f small { color: var(--texto-3); }
-@media (max-width: 600px) { .pr-form { flex-direction: column; } .pr-form button { padding: 13px; clip-path: none; } }
+@media (max-width: 600px) { .pr-form { flex-direction: column; } .pr-form input { border-right: 1px solid #cdd3de; } .pr-form button { padding: 13px; } }
 .pr-mini { display: flex; max-width: 560px; margin-top: 14px; position: relative; z-index: 2; }
-.pr-mini input { flex: 1; min-width: 0; font: 400 .98rem Barlow, sans-serif; padding: 11px 13px; border: 2px solid var(--marino); border-right: 0; background: #fff; }
+.pr-mini input { flex: 1; min-width: 0; font: 400 .98rem Barlow, sans-serif; padding: 11px 14px; border: 1px solid #cdd3de; border-right: 0; background: #fff; }
+.pr-mini input:focus { outline: none; border-color: var(--marino-2); box-shadow: inset 0 -3px 0 var(--amarillo); }
 .pr-mini button { font: 700 .92rem Barlow, sans-serif; background: var(--rojo); color: #fff; border: 0; padding: 0 18px; cursor: pointer; }
