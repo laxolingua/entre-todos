@@ -36,7 +36,7 @@ const enlacesEs = [
   { href: '/espana/#encuestas', texto: 'Encuestas', activo: false },
   { href: '/espana/#como-votar', texto: 'Cómo votar', activo: false },
   { href: '/academia/', texto: 'Blog A+', activo: seccion === 'academia' },
-  { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
+  { href: '/espana/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
 ];
 const enlaces = pais === 'es' ? enlacesEs : enlacesCu;
 const inicio = pais === 'es' ? '/espana/' : '/';
@@ -136,6 +136,31 @@ const subenlaces = [
             {sitio.youtube && <li><a href={sitio.youtube} rel="noopener" target="_blank" aria-label="Canal de YouTube de ENTRE TODOS" title="YouTube"><i class="fi fi-brands-youtube" aria-hidden="true"></i></a></li>}
           </ul>
         </div>
+{pais === 'es' ? (<Fragment>
+        <div>
+          <h2>España</h2>
+          <ul>
+            <li><a href="/espana/#propuestas">Propuestas</a></li>
+            <li><a href="/espana/#encuestas">Encuestas</a></li>
+            <li><a href="/espana/#como-votar">Cómo votar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="/academia/">Blog A+</a></li>
+            <li><a href="/buscador/">Buscador E/T</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>ENTRE TODOS</h2>
+          <ul>
+            <li><a href="/espana/sobre/">Sobre nosotros</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+            <li><a href={`mailto:${sitio.contacto}`}>Contacto</a></li>
+          </ul>
+        </div>
+</Fragment>) : (<Fragment>
         <div>
           <h2>Participa</h2>
           <ul>
@@ -169,6 +194,7 @@ const subenlaces = [
             <li><a href={`mailto:${sitio.contacto}`}>Contacto</a></li>
           </ul>
         </div>
+</Fragment>)}
       </div>
       <a class="pie-pais" href={inicio}><Bandera pais={pais} tam={40} /><span>ENTRE TODOS · {pais === 'es' ? 'España' : 'Cuba'}</span></a>
     </footer>

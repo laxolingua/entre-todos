@@ -1,0 +1,41 @@
+---
+// Sobre E/T España. Versión propia de España: sin la financiación ni el contexto de Cuba.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import sitio from '../../data/sitio.json';
+---
+<Base titulo="Sobre nosotros" seccion="sobre" pais="es" ancho
+  descripcion="ENTRE TODOS España: plataforma cívica, independiente, plural y no partidista para conocer y comparar las propuestas de los partidos.">
+  <Banda imagen="/img/fotos/sobre.jpg" lateral={['Conocer', 'Comparar', 'Valorar', 'Decidir']}>
+    <span class="barra"></span>
+    <h1>Sobre<br />nosotros</h1>
+    <p class="entradilla">Una plataforma cívica independiente, plural y no partidista para conocer, comparar y valorar las propuestas de los partidos que se presentan a las elecciones en España.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <div class="texto-largo">
+        <h2 class="vista-titulo">Para qué existe</h2>
+        <p class="entradilla">En España los partidos ya tienen programas escritos. El problema es que casi nadie los lee completos ni puede compararlos con facilidad.</p>
+        <p>ENTRE TODOS España reúne las propuestas de los programas oficiales, las ordena por temas y las presenta lado a lado, cada una con su cita y el enlace a la página del programa donde aparece. Así cada persona puede comparar por el contenido y no solo por la sigla.</p>
+      </div>
+    </section>
+    <section class="seccion">
+      <div class="texto-largo">
+        <h2 class="vista-titulo">Cómo trabajamos</h2>
+        <ul>
+          <li>Solo fuentes oficiales: los programas publicados por cada partido y las fichas técnicas de cada encuesta.</li>
+          <li>Las mismas reglas, el mismo formato y el mismo espacio para todos los partidos.</li>
+          <li>Las encuestas se muestran por separado. No se suman ni se promedian encuestas distintas.</li>
+          <li>Si un dato no está confirmado, se indica.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="seccion">
+      <div class="texto-largo">
+        <h2 class="vista-titulo">Independencia</h2>
+        <p>ENTRE TODOS no es un partido político, no recomienda el voto y no representa a ningún partido ni candidatura. Ningún partido participa en la elaboración de estos contenidos.</p>
+        <p>Para errores o correcciones, escribe a <a href={`mailto:${sitio.contacto}`}>{sitio.contacto}</a>.</p>
+      </div>
+    </section>
+  </div>
+</Base>

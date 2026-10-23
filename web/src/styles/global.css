@@ -1683,7 +1683,7 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 
 .bandera { display: inline-block; flex: none; vertical-align: middle; }
 .barra-pais a { display: inline-flex; align-items: center; gap: 6px; }
-.pais-activo { display: inline-flex; align-items: center; gap: 8px; margin-right: auto; margin-left: 4px; padding-left: 14px; border-left: 1px solid var(--borde); text-decoration: none; color: var(--marino); font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.05rem; letter-spacing: .02em; }
+.cabecera .pais-activo { order: 1; } .pais-activo { display: inline-flex; align-items: center; gap: 8px; margin-left: 4px; padding-left: 14px; border-left: 1px solid var(--borde); text-decoration: none; color: var(--marino); font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 1.05rem; letter-spacing: .02em; }
 .pais-activo:hover { color: var(--rojo); }
 .pie-pais { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 8px auto 0; padding: 22px 0 6px; border-top: 1px solid rgba(255,255,255,.12); text-decoration: none; color: #c9d3e6; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; width: min(100% - 32px, 1200px); }
 .pie-pais:hover { color: #fff; }
