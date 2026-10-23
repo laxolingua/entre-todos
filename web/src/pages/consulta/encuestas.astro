@@ -15,7 +15,7 @@ const METODOS = {
 };
 const ORDEN = ['aleatoria', 'panel', 'abierta', 'redes'];
 const POB = { isla: 'Isla', exterior: 'Exterior', ambos: 'Isla y exterior' };
-const ESTADO = { verificada: 'Verificada', autor: 'Cifras del autor', pendiente: 'Por verificar' };
+const ESTADO = { verificada: 'Verificada', autor: 'Cifras del autor', pendiente: 'Por verificar', registrada: 'Registrada por E/T' };
 const lista = [...datos.encuestas].sort((a, b) => ORDEN.indexOf(a.metodo) - ORDEN.indexOf(b.metodo) || b.anio - a.anio);
 const total = lista.length;
 const verificadas = lista.filter((e) => e.estado === 'verificada').length;
@@ -72,7 +72,7 @@ const anios = lista.map((e) => e.anio);
 
     <section class="seccion org-nota">
       <h2>Cómo se elabora</h2>
-      <p>Se registran las encuestas y sondeos con resultado publicado sobre la situación y el futuro de Cuba, hechos por medios independientes, sociedad civil, academia, oposición o personas en redes sociales. Una encuesta es «verificada» cuando su resultado se ha comprobado en la fuente original; en las de redes sociales, las cifras son las que da su autor. Nunca se suman cifras de encuestas distintas: cada una tiene su pregunta, su público y su método. ¿Conoces una encuesta que falta? Escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>. Actualizado el {datos.actualizado}.</p>
+      <p>Se registran las encuestas y sondeos con resultado publicado sobre la situación y el futuro de Cuba, hechos por medios independientes, sociedad civil, academia, oposición o personas en redes sociales. Una encuesta es «verificada» cuando su resultado se ha comprobado en la fuente original; en las de redes sociales, las cifras son las que da su autor o las que ENTRE TODOS registró mientras la publicación estaba abierta. Nunca se suman cifras de encuestas distintas: cada una tiene su pregunta, su público y su método. ¿Conoces una encuesta que falta? Escríbenos a <a href="mailto:contacto.entretodos@gmail.com">contacto.entretodos@gmail.com</a>. Actualizado el {datos.actualizado}.</p>
     </section>
     <div class="acciones"><a class="boton rojo" href="/analisis/continuidad-o-cambio/">Leer: Continuidad o cambio <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a><a class="boton" href="/consulta/">Volver a Consultas</a></div>
   </div>
