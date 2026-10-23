@@ -53,6 +53,37 @@ for (const c of CONDICIONES) {
     `Condición de la ley Helms-Burton (sección ${c.seccion}) para un gobierno de transición en Cuba: ${c.ley} Qué dice hoy Cuba: ${c.cuba} ${c.bancoNota || ''} ${(c.encuestas || []).map((x) => `${x.q}: ${x.r}.`).join(' ')} No medido: ${c.sinMedir.join(' ')}`,
     `/cuba-eeuu/#hb-${c.id}`, {});
 }
+// Mapa del sitio: qué es ENTRE TODOS y qué tiene cada sección (para preguntas generales).
+const SECCIONES = [
+  ['Propuestas (banco de propuestas)', '/propuestas/', 'Reúne las propuestas publicadas por organizaciones, coaliciones, especialistas y ciudadanos sobre el futuro de Cuba. Cada idea aparece una vez, con todas sus fuentes y autores. Es una de las herramientas de ENTRE TODOS, no todo el sitio.'],
+  ['Cuestiones con alternativas', '/cuestiones/', 'Los desacuerdos de fondo entre las propuestas, con las opciones y quién defiende cada una.'],
+  ['Actores', '/actores/', '129 organizaciones de la sociedad civil cubana, dentro y fuera de la isla, con información pública y su fuente.'],
+  ['¿Cuál es el plan?', '/cual-es-el-plan/', 'El recorrido para participar: informarse, comparar posturas, armar una plataforma y valorar propuestas.'],
+  ['Compara tus posturas', '/compara/', 'Cuestiones en las que las organizaciones proponen caminos opuestos, para ver con cuáles coincides.'],
+  ['Plataforma plural de gobierno', '/plataforma/', 'Herramienta para elegir, tema por tema, las propuestas que incluirías en un programa, vengan de quien vengan.'],
+  ['Candidatura solucionaria', '/candidatura-solucionaria/', 'Un tipo de candidato sin programa cerrado que gobierna con la plataforma plural construida por la ciudadanía.'],
+  ['Generador de soluciones', '/generador-de-soluciones/', 'De un problema a una propuesta, paso a paso: investigar sus causas, generar ideas, evaluarlas con el criterio del mayor bien y el menor daño, y escribir la propuesta.'],
+  ['Consultas', '/consulta/', 'Consultas ciudadanas no vinculantes, como «Continuidad o cambio», y la solicitud internacional de una consulta libre en Cuba.'],
+  ['Banco de encuestas', '/consulta/encuestas/', 'Todas las encuestas y sondeos sobre Cuba hechos fuera del Estado, con su método y enlazados a las propuestas.'],
+  ['Blog A+ (Academia)', '/academia/', 'Lecciones de ética, derechos, democracia y pensamiento crítico, creativo, sistémico y solucionario.'],
+  ['Abrazos', '/abrazos/', 'Campaña de ENTRE TODOS: fotos de abrazos, reales o hechas con IA, para cubanos que sufren por defender una Cuba democrática y plural.'],
+  ['Diversidad política', '/diversidad-politica/', 'Partidos, corrientes, organizaciones y candidaturas de la Cuba plural que el sistema de partido único no reconoce. Registro documental, sin respaldo a ninguna opción.'],
+  ['Proceso constituyente', '/constituyente/', 'Las nueve constituciones de Cuba comparadas y las propuestas constitucionales del banco.'],
+  ['Cuba y Estados Unidos', '/cuba-eeuu/', 'Lo que pide Washington, lo que responde La Habana y lo que ya proponen los cubanos, con las condiciones de la ley Helms-Burton una a una.'],
+  ['Actualidad', '/actualidad/', 'Hechos de la semana sobre Cuba, resumidos con sus fuentes, quién los cuenta y su relación con las propuestas.'],
+  ['Análisis', '/analisis/', 'Artículos de ENTRE TODOS hechos con el banco, las consultas y las encuestas.'],
+  ['Reconstrucción', '/reconstruccion/', 'Registro de planes, marcos legales y compromisos públicos para reconstruir Cuba: qué se propone, con qué respaldo y con qué grado de evidencia.'],
+  ['Datos abiertos', '/datos/', 'Descarga de las propuestas reunidas por ENTRE TODOS en CSV o JSON.'],
+  ['Buscador E/T', '/buscador/', 'Buscador inteligente que responde preguntas sobre todo el contenido del sitio, con fuentes.'],
+  ['Sobre nosotros', '/sobre/', 'Qué es ENTRE TODOS, su independencia y sus herramientas.'],
+  ['Método', '/metodo/', 'La metodología de la Gobernanza Solucionaria y cómo se reúnen y valoran las propuestas.'],
+  ['Seguridad', '/seguridad/', 'Consejos para participar con seguridad desde Cuba.'],
+  ['Privacidad', '/privacidad/', 'Qué datos se guardan y cómo se protegen.'],
+];
+add('sitio:mapa', 'pagina', 'Mapa del sitio ENTRE TODOS: secciones y herramientas',
+  `ENTRE TODOS (E/T) es una plataforma cívica, independiente, plural y no partidista sobre el futuro de Cuba que aplica la metodología de la Gobernanza Solucionaria. Sus secciones y herramientas son: ${SECCIONES.map(([t, , d]) => `${t}: ${d}`).join(' ')}`,
+  '/sobre/', {});
+for (const [t, u, d] of SECCIONES) add(`sitio:${u}`, 'pagina', `Sección: ${t}`, `Sección del sitio ENTRE TODOS: ${t}. ${d}`, u, {});
 for (const p of actualidad.piezas) {
   add(`actualidad:${p.id}`, 'actualidad', p.titular,
     `Noticia de Actualidad (${p.fecha}). ${p.titular}. ${p.resumen} ${p.esencial.map((e) => e.t).join(' ')} Por qué importa: ${p.importa}`,

@@ -6,7 +6,7 @@ pub = pathlib.Path(sys.argv[1])
 PAGINAS = ['', 'sobre', 'metodo', 'plataforma', 'compara', 'candidatura-solucionaria', 'cual-es-el-plan', 'generador-de-soluciones',
            'privacidad', 'seguridad', 'constituyente', 'diversidad-politica', 'reconstruccion', 'cuba-eeuu', 'consulta',
            'consulta/solicitud-consulta-civica', 'consulta/continuidad-o-cambio', 'consulta/encuestas', 'datos', 'abrazos',
-           'cuestiones', 'actualidad', 'analisis', 'preguntar', 'academia', 'academia/conceptos']
+           'cuestiones', 'actualidad', 'analisis', 'academia', 'academia/conceptos']
 PAGINAS += sorted(str(p.parent.relative_to(pub)) for p in (pub / 'analisis').glob('*/index.html'))
 PAGINAS += sorted(str(p.parent.relative_to(pub)) for p in (pub / 'academia').glob('*/*/index.html'))
 def limpio(h):

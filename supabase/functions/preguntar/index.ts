@@ -1,4 +1,4 @@
-// «Pregúntale al banco»: búsqueda por significado + respuesta redactada con Cloudflare Workers AI.
+// Buscador E/T: búsqueda por significado + respuesta redactada con Cloudflare Workers AI.
 // Acciones (POST JSON):
 //   {pregunta}            → {respuesta, fuentes[], modelo}
 //   {accion: 'indexar'}   → carga el corpus público y calcula los embeddings que falten.
@@ -49,29 +49,31 @@ async function indexar() {
     const r = await sql`
       insert into asistente.conocimiento (id, tipo, titulo, texto, url, meta)
       values (${f.id}, ${f.tipo}, ${f.titulo}, ${f.texto}, ${f.url}, ${sql.json(f.meta)})
-      on conflict (id) do update set tipo = excluded.tipo, titulo = excluded.titulo, url = excluded.url, meta = excluded.meta,
+      on conflict (id) do update set tipo = excluded.tipo, titulo = excluded.titulo, url = excluded.url, meta = excluded.meta, activo = true,
         embedding = case when asistente.conocimiento.texto = excluded.texto then asistente.conocimiento.embedding else null end,
         texto = excluded.texto, actualizado = now()
       returning (embedding is null) as falta`;
     if (r[0]?.falta) cambiadas++;
   }
+  const ids = corpus.filas.map((f: { id: string }) => f.id);
+  const retiradas = await sql`update asistente.conocimiento set activo = false where activo and not (id = any(${ids})) returning id`;
   let hechas = 0;
   for (;;) {
-    const pend = await sql`select id, titulo, texto from asistente.conocimiento where embedding is null limit 40`;
+    const pend = await sql`select id, titulo, texto from asistente.conocimiento where embedding is null and activo limit 40`;
     if (!pend.length) break;
     const v = await embed(pend.map((p) => `${p.titulo}. ${p.texto}`));
     for (let i = 0; i < pend.length; i++) await sql`update asistente.conocimiento set embedding = ${vec(v[i])}::extensions.vector where id = ${pend[i].id}`;
     hechas += pend.length;
     if (hechas > 1200) break;
   }
-  return { filas: corpus.filas.length, cambiadas, embeddings: hechas };
+  return { filas: corpus.filas.length, cambiadas, embeddings: hechas, retiradas: retiradas.length };
 }
 
-const SISTEMA = `Eres el asistente de búsqueda de ENTRE TODOS (E/T), una plataforma cívica, plural y no partidista sobre el futuro de Cuba.
-ENTRE TODOS aplica la metodología de la Gobernanza Solucionaria. Las fuentes de tipo «pagina» explican el sitio, su método, la candidatura solucionaria, la plataforma plural de gobierno y las demás secciones; úsalas para preguntas sobre ENTRE TODOS.
+const SISTEMA = `Eres el Buscador E/T, el buscador del sitio ENTRE TODOS (E/T), una plataforma cívica, independiente, plural y no partidista sobre el futuro de Cuba que aplica la metodología de la Gobernanza Solucionaria.
+ENTRE TODOS tiene varias secciones y herramientas; el banco de propuestas es una de ellas, no todo el sitio. Las fuentes de tipo «pagina» explican qué es ENTRE TODOS, cómo funciona, sus secciones, su método y quién está detrás; úsalas para preguntas sobre el sitio. Si preguntan por las secciones, nómbralas.
 Responde en español claro y breve (entre 60 y 160 palabras), sin títulos ni listas largas.
 Usa SOLO la información de las FUENTES numeradas. Después de cada dato pon el número de su fuente entre corchetes, por ejemplo [2].
-Si las fuentes no responden la pregunta, dilo con sinceridad y sugiere qué buscar en el banco. No inventes cifras, nombres ni fechas.
+Si las fuentes no responden la pregunta, dilo con sinceridad y sugiere qué sección de ENTRE TODOS consultar. No inventes cifras, nombres ni fechas.
 No des tu opinión ni recomiendes una postura política. Si hay posturas distintas en las fuentes, preséntalas todas.
 Recuerda que las encuestas describen a quienes respondieron y que las cifras de encuestas distintas no se suman.`;
 
@@ -85,7 +87,7 @@ async function preguntar(pregunta: string, ip: string) {
   const fuentes = await sql`select id, tipo, titulo, texto, url, meta, similitud from asistente.buscar(${vec(e)}::extensions.vector, 10)`;
   const utiles = fuentes.filter((f) => f.similitud > 0.35);
   const salida = utiles.map((f, i) => ({ n: i + 1, tipo: f.tipo, titulo: f.titulo, url: f.url, meta: f.meta }));
-  if (!utiles.length) return json({ respuesta: 'No encontré nada en el banco de ENTRE TODOS sobre esa pregunta. Prueba con otras palabras o explora las propuestas por categoría.', fuentes: [], modelo: null });
+  if (!utiles.length) return json({ respuesta: 'No encontré nada en ENTRE TODOS sobre esa pregunta. Prueba con otras palabras o explora las secciones del sitio.', fuentes: [], modelo: null });
 
   const hoy = Number((await sql`select asistente.neuronas_hoy() as n`)[0].n);
   const modelo = hoy < CUPO - RESERVA - 300 ? GRANDE : hoy < CUPO - 200 ? PEQUENO : null;

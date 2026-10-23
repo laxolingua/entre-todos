@@ -16,7 +16,7 @@ const masRespaldadas = [...propuestas].sort((a, b) => b.total_documentos - a.tot
     <h1>Propuestas</h1>
     <p class="lema">Banco de propuestas</p>
     <p class="entradilla">Propuestas de organizaciones, coaliciones, especialistas y otros actores. Cada idea aparece una sola vez, con todas las fuentes que la plantean. La procedencia política de una propuesta no sustituye el examen de sus méritos.</p>
-    <form class="pr-mini" action="/preguntar/" method="get" role="search"><label class="sr" for="pr-mini-q">Pregúntale al banco</label><input id="pr-mini-q" name="q" type="text" placeholder="Pregúntale al banco: ¿quién propone…?" autocomplete="off" /><button type="submit">Preguntar</button></form>
+    <form class="pr-mini" action="/buscador/" method="get" role="search"><label class="sr" for="pr-mini-q">Buscador E/T</label><input id="pr-mini-q" name="q" type="text" placeholder="Busca en el banco: ¿quién propone…?" autocomplete="off" /><button type="submit">Preguntar</button></form>
     <p class="cifra-grande">{t.propuestas}<small>propuestas · {t.documentos} documentos · {t.cuestiones} cuestiones con alternativas</small></p>
   </Banda>
   <div class="contenedor" id="banco-cuerpo">

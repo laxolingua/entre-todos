@@ -1,26 +1,26 @@
 ---
-// «Pregúntale al banco»: buscador inteligente sobre el banco de propuestas, el banco de encuestas y los análisis.
+// Buscador E/T: buscador inteligente sobre todo el contenido de ENTRE TODOS (banco de propuestas, encuestas, análisis y páginas).
 // La pregunta va a la función de Supabase «preguntar» (búsqueda por significado + Cloudflare Workers AI).
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
 const FN = `${import.meta.env.PUBLIC_SUPABASE_URL}/functions/v1/preguntar`;
 const sugerencias = [
+  '¿Qué es ENTRE TODOS y cómo funciona?',
+  '¿Qué secciones tiene el sitio?',
+  '¿Qué es la Gobernanza Solucionaria?',
   '¿Qué piensan los cubanos del embargo?',
   '¿Quién propone una Asamblea Constituyente?',
-  '¿Qué dicen las encuestas del partido único?',
-  '¿En qué no se ponen de acuerdo las propuestas?',
-  '¿Qué es la Gobernanza Solucionaria?',
-  '¿Qué es una candidatura solucionaria?',
+  '¿Cómo puedo participar?',
 ];
 ---
-<Base titulo="Pregúntale al banco" seccion="propuestas"
-  descripcion="Haz una pregunta y recibe una respuesta con fuentes, sacada solo del banco de propuestas, el banco de encuestas y los análisis de ENTRE TODOS.">
+<Base titulo="Buscador E/T" seccion="otras"
+  descripcion="Pregunta lo que quieras sobre ENTRE TODOS y recibe una respuesta con fuentes: el sitio, su método, las propuestas, las encuestas y los análisis.">
   <Banda imagen="/img/fotos/propuestas.jpg" lateral={['Con fuentes', 'Sin opinión', 'Sin inventar']}>
     <span class="barra"></span>
-    <p class="antetitulo">ENTRE TODOS · Buscador</p>
-    <h1>Pregúntale<br />al banco</h1>
-    <p class="lema">Responde con nuestros datos</p>
-    <p class="entradilla">Escribe una pregunta como se la harías a una persona. La respuesta sale solo del contenido de ENTRE TODOS: el banco de propuestas, el banco de encuestas, los análisis y las páginas del sitio. Cada dato lleva su fuente.</p>
+    <p class="antetitulo">ENTRE TODOS · Buscador inteligente</p>
+    <h1>Buscador<br />E/T</h1>
+    <p class="lema">Pregunta lo que quieras sobre ENTRE TODOS</p>
+    <p class="entradilla">Escribe una pregunta como se la harías a una persona: qué es ENTRE TODOS, cómo funciona, qué secciones tiene, qué proponen los cubanos o qué dicen las encuestas. La respuesta sale solo del contenido del sitio y cada dato lleva su fuente.</p>
   </Banda>
 
   <div class="contenedor pr" data-fn={FN}>
@@ -42,7 +42,7 @@ const sugerencias = [
 
     <section class="seccion org-nota">
       <h2>Cómo funciona</h2>
-      <p>Tu pregunta se compara por su significado con las propuestas, encuestas y análisis del sitio. Con lo que encuentra, un modelo de inteligencia artificial redacta una respuesta breve y cita cada fuente. Si algo no está en nuestros datos, lo dice. No da opiniones ni recomienda posturas. Tus preguntas no se guardan; solo se cuenta cuántas se hacen cada día. La inteligencia artificial puede equivocarse: comprueba siempre las fuentes enlazadas.</p>
+      <p>Tu pregunta se compara por su significado con todo el contenido del sitio: sus páginas, el banco de propuestas, el banco de encuestas y los análisis. Con lo que encuentra, un modelo de inteligencia artificial redacta una respuesta breve y cita cada fuente. Si algo no está en nuestros datos, lo dice. No da opiniones ni recomienda posturas. Tus preguntas no se guardan; solo se cuenta cuántas se hacen cada día. La inteligencia artificial puede equivocarse: comprueba siempre las fuentes enlazadas.</p>
     </section>
   </div>
 </Base>
@@ -61,7 +61,7 @@ const sugerencias = [
     $('pr-btn').disabled = true;
     $('pr-resp').hidden = false;
     $('pr-eco').textContent = q;
-    $('pr-texto').innerHTML = '<p class="pr-cargando">Buscando en el banco…</p>';
+    $('pr-texto').innerHTML = '<p class="pr-cargando">Buscando en ENTRE TODOS…</p>';
     $('pr-fuentes').innerHTML = '';
     try {
       const r = await fetch(FN, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pregunta: q }) });
