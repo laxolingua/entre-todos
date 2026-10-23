@@ -1674,7 +1674,7 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .barra-pais a[aria-current="page"] { background: var(--amarillo); color: var(--marino); font-weight: 600; }
 .cuenta-atras { display: inline-flex; align-items: baseline; gap: 8px; margin: 0 0 18px; padding: 8px 14px; border-left: 4px solid var(--rojo); background: var(--acento-suave); color: var(--marino); }
 .cuenta-atras strong { font-family: var(--display); font-size: 2rem; font-weight: 800; line-height: 1; }
-.calendario-es { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.calendario-es { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
 .calendario-es li { background: var(--superficie); border: 1px solid var(--borde); border-top: 5px solid var(--marino); padding: 14px 16px; }
 .calendario-es li.clave { border-top-color: var(--rojo); }
 .calendario-es .fecha { font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--marino); text-transform: uppercase; display: block; }
