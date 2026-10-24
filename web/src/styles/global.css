@@ -1776,3 +1776,6 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 
 .lista > li[hidden] { display: none !important; }
 .tarjeta-cat i { color: var(--rojo); margin-right: 4px; }
+
+.filtro-cat a.activa .con-icono i { color: #fff; }
+.filtro-cat .con-icono { gap: 10px; }

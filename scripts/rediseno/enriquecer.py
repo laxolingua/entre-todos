@@ -23,11 +23,19 @@ for clave, _, _ in cats:
     for i, a in enumerate(cp.select('li.tarjeta h3 a'), 1):
         rango[a['href'].rstrip('/').split('/')[-1]] = (clave, i)
 
+# Icono por categoría, el mismo que usa web/src/lib/banco.js: ayuda a quien tiene dificultad de lectura.
+ICONOS = {'transicion': 'rotate-right', 'constitucion': 'document', 'modelo_pais': 'flag', 'sistema_electoral': 'vote-yea',
+  'reconstruccion': 'hammer', 'educacion': 'graduation-cap', 'economia': 'chart-line-up', 'trabajo': 'briefcase',
+  'salud': 'stethoscope', 'medio_ambiente': 'leaf', 'sociedad_civil': 'users', 'derechos': 'shield-check',
+  'familia': 'family', 'tercera_edad': 'person-walking-with-cane', 'vivienda': 'house-chimney', 'genero': 'users-alt',
+  'animales': 'paw', 'alimentacion': 'wheat'}
+ico = lambda c: f'<i class="fi fi-br-{ICONOS[c]}" aria-hidden="true"></i>' if c in ICONOS else ''
+
 def barra(activa):
     h = '<aside class="filtro-cat" aria-label="Categorías">'
     h += f'<a href="/propuestas/"{" class=activa" if activa is None else ""}>Todas <span>{total}</span></a>'
     for c, n, k in cats:
-        h += f'<a href="/propuestas/categoria/{c}/"{" class=activa" if activa == c else ""}>{n} <span>{k}</span></a>'
+        h += f'<a href="/propuestas/categoria/{c}/"{" class=activa" if activa == c else ""}><span class="con-icono">{ico(c)}{n}</span> <span>{k}</span></a>'
     h += '<a class="enlace-flecha" href="/propuestas/">Ver todas →</a></aside>'
     return frag(h)
 
@@ -41,7 +49,7 @@ def tarjeta(li, soup, foto=False):
     li['class'] = li.get('class', []) + ['con-foto']
     cuerpo = soup.new_tag('div', attrs={'class': 'tarjeta-cuerpo'})
     for hijo in list(li.contents): cuerpo.append(hijo.extract())
-    cuerpo.insert(0, frag(f'<p class="tarjeta-cat">{nombre_cat[clave]}</p><span class="tarjeta-num">{num:02d}</span>'))
+    cuerpo.insert(0, frag(f'<p class="tarjeta-cat">{ico(clave)} {nombre_cat[clave]}</p><span class="tarjeta-num">{num:02d}</span>'))
     cuerpo.append(frag(f'<a class="enlace-flecha ver" href="{a["href"]}">Ver propuesta →</a>'))
     if foto: li.append(frag(f'<div class="tarjeta-foto duo"><img src="/img/fotos/cat-{clave}.jpg" alt="" loading="lazy"></div>'))
     li.append(cuerpo)
