@@ -99,7 +99,7 @@ const subenlaces = [
       <div class="contenedor">
         <a class="marca notranslate" translate="no" href={inicio} aria-label="ENTRE TODOS, inicio"><span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span></a>
         <a class="pais-activo" href={inicio}><Bandera pais={pais} tam={26} /><span>{pais === 'es' ? 'España' : 'Cuba'}</span></a>
-        <a class="icono-cab" href="/buscador/" aria-label="Buscador E/T"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20 20-4.5-4.5"/></svg></a>
+        <a class="icono-cab buscar-ia" href="/buscador/" aria-label="Buscador E/T: búsqueda inteligente con IA" title="Búsqueda inteligente con IA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="11" r="6.5"/><path d="m19.5 20.5-4.6-4.6"/><path class="chispa" d="M19 1.5v5M16.5 4h5" stroke-width="2"/></svg><span class="buscar-ia-txt">Buscar<b>con IA</b></span></a>
         <button class="menu-boton" type="button" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú"><span class="hamburguesa" aria-hidden="true"><span></span><span></span><span></span></span></button>
         <nav class="nav" id="nav-principal" aria-label="Principal">
           {enlaces.map((e) => <a href={e.href} aria-current={e.activo ? 'page' : undefined}>{e.texto}</a>)}
