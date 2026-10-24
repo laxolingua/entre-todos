@@ -136,7 +136,7 @@ function formularioIdentificacion() {
         <div class="fila"><button type="button" class="boton" data-reclamar="pin_olvidado">Olvidé mi PIN</button>
           <button type="button" class="boton" data-reclamar="suplantacion">Alguien votó con mi documento</button></div>
       </div>
-      <p class="discreto">Si estás en Cuba y la página no carga: actualiza el navegador, pega el enlace directamente en vez de abrirlo desde Facebook y, si sigue bloqueado, usa una VPN.</p>
+      <p class="discreto">Si la página no carga bien: actualiza el navegador o pega el enlace directamente en vez de abrirlo desde Facebook.</p>
     </form>`;
 }
 
