@@ -106,6 +106,8 @@ function pintarEscala(caja) {
   const escala = caja.querySelector('.escala');
   const marcar = (n) => {
     escala.classList.toggle('elegida', n > 0);
+    // Para el botón de compartir: la opción que eligió esta persona en esta ficha (0 = sin voto).
+    document.documentElement.dataset.miVoto = String(n || 0);
     botones.forEach((b) => { const on = Number(b.dataset.v) === n; b.classList.toggle('on', on); b.setAttribute('aria-checked', String(on)); });
   };
   return { botones, marcar, estado: caja.querySelector('[data-estado]'), panel: caja.querySelector('[data-identificacion]'), sesionTxt: caja.querySelector('[data-sesion]') };

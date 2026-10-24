@@ -26,6 +26,7 @@ const BASE = 'http://localhost:4399';
 const PRUEBAS = [
   ['/propuesta/fuerzas-seguridad-civiles/', () => (document.getElementById('valoracion')?.innerText || '').includes('Muy en contra'), 'La votación no aparece en las fichas de propuestas (Cuba).'],
   ['/propuesta/fuerzas-seguridad-civiles/', () => !!document.getElementById('aportes'), 'Faltan los aportes en las fichas.'],
+  ['/propuesta/fuerzas-seguridad-civiles/', () => /og\/propuesta\/[a-z0-9-]+\.jpg/.test(document.querySelector('meta[property="og:image"]')?.content || ''), 'Las fichas no tienen su tarjeta para compartir.'],
   ['/consulta/continuidad-o-cambio/', () => !!document.getElementById('form-voto') && !!document.getElementById('btn-votar'), 'La consulta «Continuidad o cambio» no muestra el formulario de voto.'],
   ['/academia/', () => !!document.querySelector('[data-cert-zona]'), 'La Academia no muestra el certificado.'],
   ['/espana/', () => !!document.querySelector('h1'), 'La portada de España no carga.'],
@@ -63,6 +64,8 @@ for (const f of recorrer(RAIZ)) {
     if (!(fs.existsSync(p) || fs.existsSync(path.join(p, 'index.html')) || fs.existsSync(p + '.html'))) rotos.add(`${h} (en ${path.relative(RAIZ, f)})`);
   }
 }
+const pv = path.join(RAIZ, 'propuesta/fuerzas-seguridad-civiles/mi-voto/4/index.html');
+if (!fs.existsSync(pv) || !fs.readFileSync(pv, 'utf8').includes('content="Yo voté')) fallos.push('Falta la página para compartir el voto propio.');
 if (rotos.size) fallos.push(`Enlaces rotos: ${[...rotos].slice(0, 10).join(', ')}`);
 
 await nav.close();
