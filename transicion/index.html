@@ -1,65 +1,39 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Transición — ENTRE TODOS</title>
-  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
-  <style>
-    body{font-family:Arial,sans-serif;background:#f7f8fc;margin:0;color:#111}
-    .w{max-width:1040px;margin:26px auto;padding:0 14px}
-    .c{background:#fff;border:1px solid #d7deef;border-radius:12px;padding:20px}
-    h1{color:#1b3a6b;margin:0 0 8px}
-    .k{font-size:.78rem;color:#6b7280;text-transform:uppercase;letter-spacing:.7px;font-weight:700}
-    .sub{color:#4b5563;line-height:1.55}
-    .btn{display:inline-flex;align-items:center;gap:6px;background:#1b3a6b;color:#fff;text-decoration:none;padding:10px 14px;border-radius:8px;font-weight:700}
-    .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
-    .item{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#fff}
-    .item h3{margin:0 0 8px;color:#102a5f;font-size:1.02rem}
-    .act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .b{border:1px solid #d1d5db;background:#fff;border-radius:8px;padding:7px 10px;cursor:pointer;font-weight:700;font-size:.82rem}
-    .b.ok{border-color:#bfdbfe;color:#1d4ed8}.b.no{border-color:#fecaca;color:#b91c1c}.b.mx{border-color:#fde68a;color:#92400e}
-    .counts{margin-top:8px;font-size:.82rem;color:#4b5563}.counts b{font-family:Arial,sans-serif}
-    .warn{margin-top:10px;border:1px solid #fde68a;background:#fffbeb;border-radius:8px;padding:10px;font-size:.82rem;color:#7c2d12}
-    .src{margin-top:10px;font-size:.8rem;color:#374151;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:10px}
-    .src a{color:#1d4ed8}
-    .toplinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-  </style>
-</head>
-<body>
-  <div class="w"><div class="c">
-    <div class="k">Módulo activo</div>
-    <h1>Propuesta de Gobierno de Transición</h1>
-    <p class="sub">Se incorpora este bloque como debate abierto en ENTRE TODOS. Puedes votar cada inciso por separado.</p>
-    <div class="toplinks">
-      <a class="btn" href="/consulta-popular-cuba.html"><i class="fi fi-br-vote-yea"></i> Ir a Consulta Popular</a>
-      <a href="/">Volver al portal principal</a>
-    </div>
-
-    <div class="src">
-      <strong>Contexto y fuente:</strong> Este bloque surge de análisis comparados sobre transiciones democráticas y se incorpora como insumo debatible (no verdad única). Fuente citada: 
-      <a href="https://www.cibercuba.com/noticias/2026-03-28-u1-e192519-s27061-nid324342-experto-transiciones-advierte-tres-errores-deben" target="_blank" rel="noopener">CiberCuba — 28 marzo 2026</a>.
-    </div>
-
-    <div class="grid" id="votables"></div>
-    <div class="warn" id="sql-note">Si los contadores no persisten entre dispositivos, falta crear la tabla SQL de este módulo en Supabase.</div>
-  </div></div>
-<script>
-const SUPABASE_URL='https://pfjcumyygdwslwtrlebr.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmamN1bXl5Z2R3c2x3dHJsZWJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ3NjQ4MDAsImV4cCI6MjA2MDM0MDgwMH0.yRitcCs6h14fVInjig4BwaNh-6I4TXPnP4BC6n2AnDM';
-const TABLA='transicion_alertas_votos';
-const INCISOS=[
- {k:'reciclaje_elites',t:'Evitar el reciclaje de élites del régimen',d:'Aplicar filtros democráticos efectivos para evitar continuidad de prácticas autoritarias.'},
- {k:'espacio_socialdem',t:'No dejar vacío el espacio socialdemócrata democrático',d:'Impulsar una opción clara que evite el camuflaje de la vieja élite.'},
- {k:'parlamentario_vs_pres',t:'Evaluar parlamentarismo vs presidencialismo',d:'Reducir concentración de poder y reforzar controles democráticos.'}
-];
-const LS='et_transicion_alertas_local_v1';
-function lload(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch{return {}}}
-function lsave(v){localStorage.setItem(LS,JSON.stringify(v));}
-async function sbFetch(method,path,body){const r=await fetch(`${SUPABASE_URL}/rest/v1/${path}`,{method,headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json',Prefer:'return=minimal'},body:body?JSON.stringify(body):undefined}); if(!r.ok) throw new Error(await r.text()); return method==='GET'?r.json():null;}
-async function countRemote(){const out={}; INCISOS.forEach(i=>out[i.k]={apoyo:0,rechazo:0,matizar:0}); try{const rows=await sbFetch('GET',`${TABLA}?select=item_key,posicion`); rows.forEach(r=>{ if(out[r.item_key] && out[r.item_key][r.posicion]!==undefined) out[r.item_key][r.posicion]++; }); document.getElementById('sql-note').style.display='none'; return out;}catch(e){const l=lload(); INCISOS.forEach(i=>{ out[i.k].apoyo=l?.[i.k]?.apoyo||0; out[i.k].rechazo=l?.[i.k]?.rechazo||0; out[i.k].matizar=l?.[i.k]?.matizar||0; }); return out;}}
-async function vote(k,p){try{ await sbFetch('POST',TABLA,{item_key:k,posicion:p}); }catch(e){ const l=lload(); l[k]=l[k]||{apoyo:0,rechazo:0,matizar:0}; l[k][p]=(l[k][p]||0)+1; lsave(l);} render();}
-async function render(){const c=await countRemote(); const root=document.getElementById('votables'); root.innerHTML=''; INCISOS.forEach(i=>{ const cc=c[i.k]||{apoyo:0,rechazo:0,matizar:0}; const el=document.createElement('section'); el.className='item'; el.innerHTML=`<h3>${i.t}</h3><div class="sub">${i.d}</div><div class="act"><button class="b ok" onclick="vote('${i.k}','apoyo')"><i class='fi fi-br-check'></i> Apoyo</button><button class="b no" onclick="vote('${i.k}','rechazo')"><i class='fi fi-br-cross'></i> Rechazo</button><button class="b mx" onclick="vote('${i.k}','matizar')"><i class='fi fi-br-edit'></i> Matizar</button></div><div class="counts">Apoyo: <b>${cc.apoyo}</b> · Rechazo: <b>${cc.rechazo}</b> · Matizar: <b>${cc.matizar}</b></div>`; root.appendChild(el);});}
-render();
-</script>
-</body></html>
+<!doctype html><html lang="es"><head><script>(function(){try{var s=localStorage.getItem('et-ligera'),c=navigator.connection||{};
+var on=s==='1'||(s===null&&(c.saveData||/(^|-)2g$|^3g$/.test(c.effectiveType||'')));
+if(on){document.documentElement.className+=' ligera';
+document.write('<meta http-equiv="Content-Security-Policy" content="img-src data: blob:">');}}catch(e){}})();</script><meta charset="utf-8"><title>ENTRE TODOS</title><meta name="robots" content="noindex"><link rel="canonical" href="https://entre-todos.org/propuestas/categoria/transicion/"><meta http-equiv="refresh" content="0; url=/propuestas/categoria/transicion/"><script>location.replace("/propuestas/categoria/transicion/"+location.hash)</script><style>
+html.ligera body, html.ligera body *:not(i) { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important; }
+html.ligera img { display: none !important; }
+html.ligera .duo, html.ligera .foto, html.ligera .cat-banda, html.ligera .tarjeta-foto, html.ligera .banda-fondo .foto {
+  background-color: #0b1d3f !important; background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1.3px) !important; background-size: 9px 9px !important; min-height: 60px; }
+.et-ligera-aviso { display: none; }
+html.ligera .et-ligera-aviso { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; background: #f4c20d; color: #0b1d3f; font: 600 .85rem/1.3 system-ui, sans-serif; padding: 6px 12px; text-align: center; }
+.et-ligera-aviso button, .et-ligera-pie button { font: inherit; background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; }
+.et-ligera-pie { margin-top: 10px; font-size: .85rem; }
+</style><style>
+.et-desliza-mas { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }
+.et-desliza-ambos { -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 82%, transparent); mask-image: linear-gradient(to right, transparent, #000 14%, #000 82%, transparent); }
+.et-desliza-menos { -webkit-mask-image: linear-gradient(to right, transparent, #000 14%); mask-image: linear-gradient(to right, transparent, #000 14%); }
+.et-desliza-aviso { display: flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; color: var(--marino, #0b1d3f); margin: 6px 0; }
+.et-desliza-aviso[hidden] { display: none; }
+@media (max-width: 640px) {
+  .comparativa table { min-width: 0 !important; }
+  .comparativa thead { display: none; }
+  .comparativa tr, .comparativa tbody th, .comparativa td { display: block; width: 100%; }
+  .comparativa tr { border-bottom: 3px solid var(--borde, #dfe3ea); }
+  .comparativa td[data-label]::before { content: attr(data-label); display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--rojo, #d7192d); margin-bottom: 2px; }
+}
+</style></head><body><div class="et-ligera-aviso" role="note">Versión ligera: sin fotos para gastar menos datos. <button type="button" data-et-ligera="0">Ver con fotos</button></div><p><a href="/propuestas/categoria/transicion/"><span translate="no" class="notranslate">ENTRE TODOS</span></a></p><script>(function(){var l=document.documentElement.classList.contains('ligera');
+document.querySelectorAll('[data-et-ligera]').forEach(function(b){
+if(b.closest('.et-ligera-pie')){b.textContent=l?'Ver la versión con fotos':'Activar la versión ligera (sin fotos, menos datos)';b.dataset.etLigera=l?'0':'1';}
+b.addEventListener('click',function(){try{localStorage.setItem('et-ligera',b.dataset.etLigera);}catch(e){}location.reload();});});})();</script><script>(function(){var S='.pestanas,.desplazable,.subnav .contenedor,.filtro-cat,.tabla-scroll';
+function marcar(e){var mas=e.scrollWidth-e.clientWidth-e.scrollLeft>4,menos=e.scrollLeft>4;
+e.classList.toggle('et-desliza-mas',mas&&!menos);e.classList.toggle('et-desliza-ambos',mas&&menos);e.classList.toggle('et-desliza-menos',menos&&!mas);
+var a=e._aviso;if(a)a.hidden=!(e.scrollWidth-e.clientWidth>4);}
+function etiquetas(){document.querySelectorAll('.comparativa table').forEach(function(tb){var h=[].map.call(tb.querySelectorAll('thead th'),function(x){return x.textContent.trim()});
+tb.querySelectorAll('tbody tr').forEach(function(tr){[].forEach.call(tr.children,function(c,i){if(c.tagName==='TD'&&h[i])c.setAttribute('data-label',h[i])})})});}
+function iniciar(){etiquetas();document.querySelectorAll(S).forEach(function(e){
+if(e.matches('.desplazable,.tabla-scroll')&&!e._aviso){var a=document.createElement('p');a.className='et-desliza-aviso';a.innerHTML='Desliza para ver más <span aria-hidden="true">&rarr;</span>';e.parentNode.insertBefore(a,e);e._aviso=a;}
+marcar(e);e.addEventListener('scroll',function(){marcar(e)},{passive:true});});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',iniciar);else iniciar();
+window.addEventListener('resize',function(){document.querySelectorAll(S).forEach(marcar)});})();</script><script>(function(){try{if(navigator.webdriver)return;var h=location.hostname,e=(h==='entre-todos.org'||h==='www.entre-todos.org')?'web':'pre',p=location.pathname.replace(/^\/entre-todos-preview/,'')||'/';if(/^\/panel(\/|$)/.test(p))return;var s=/^\/espana(\/|$)/.test(p)?'es':'cu',r=document.referrer,n=true;try{n=!r||new URL(r).hostname!==h}catch(x){}var z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(x){}fetch('https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/rpc/metricas_contar',{method:'POST',keepalive:true,headers:{'apikey':'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8','Content-Type':'application/json'},body:JSON.stringify({p_sitio:s,p_ruta:p,p_zona:z,p_nuevo:n,p_entorno:e})}).catch(function(){})}catch(x){}})();</script></body></html>

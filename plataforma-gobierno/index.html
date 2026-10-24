@@ -1,1 +1,39 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plataforma de Gobierno — ENTRE TODOS</title><style>body{font-family:Arial,sans-serif;background:#f7f8fc;margin:0}.w{max-width:900px;margin:40px auto;padding:0 14px}.c{background:#fff;border:1px solid #d7deef;border-radius:12px;padding:20px}a{color:#1b3a6b;text-decoration:none;font-weight:700}</style></head><body><div class="w"><div class="c"><h1>Plataforma de Gobierno</h1><p>Este módulo se encuentra en preparación.</p><p><a href="/">← Volver al portal ENTRE TODOS</a></p></div></div></body></html>
+<!doctype html><html lang="es"><head><script>(function(){try{var s=localStorage.getItem('et-ligera'),c=navigator.connection||{};
+var on=s==='1'||(s===null&&(c.saveData||/(^|-)2g$|^3g$/.test(c.effectiveType||'')));
+if(on){document.documentElement.className+=' ligera';
+document.write('<meta http-equiv="Content-Security-Policy" content="img-src data: blob:">');}}catch(e){}})();</script><meta charset="utf-8"><title>ENTRE TODOS</title><meta name="robots" content="noindex"><link rel="canonical" href="https://entre-todos.org/propuestas/"><meta http-equiv="refresh" content="0; url=/propuestas/"><script>location.replace("/propuestas/"+location.hash)</script><style>
+html.ligera body, html.ligera body *:not(i) { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important; }
+html.ligera img { display: none !important; }
+html.ligera .duo, html.ligera .foto, html.ligera .cat-banda, html.ligera .tarjeta-foto, html.ligera .banda-fondo .foto {
+  background-color: #0b1d3f !important; background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1.3px) !important; background-size: 9px 9px !important; min-height: 60px; }
+.et-ligera-aviso { display: none; }
+html.ligera .et-ligera-aviso { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; background: #f4c20d; color: #0b1d3f; font: 600 .85rem/1.3 system-ui, sans-serif; padding: 6px 12px; text-align: center; }
+.et-ligera-aviso button, .et-ligera-pie button { font: inherit; background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; }
+.et-ligera-pie { margin-top: 10px; font-size: .85rem; }
+</style><style>
+.et-desliza-mas { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }
+.et-desliza-ambos { -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 82%, transparent); mask-image: linear-gradient(to right, transparent, #000 14%, #000 82%, transparent); }
+.et-desliza-menos { -webkit-mask-image: linear-gradient(to right, transparent, #000 14%); mask-image: linear-gradient(to right, transparent, #000 14%); }
+.et-desliza-aviso { display: flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; color: var(--marino, #0b1d3f); margin: 6px 0; }
+.et-desliza-aviso[hidden] { display: none; }
+@media (max-width: 640px) {
+  .comparativa table { min-width: 0 !important; }
+  .comparativa thead { display: none; }
+  .comparativa tr, .comparativa tbody th, .comparativa td { display: block; width: 100%; }
+  .comparativa tr { border-bottom: 3px solid var(--borde, #dfe3ea); }
+  .comparativa td[data-label]::before { content: attr(data-label); display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--rojo, #d7192d); margin-bottom: 2px; }
+}
+</style></head><body><div class="et-ligera-aviso" role="note">Versión ligera: sin fotos para gastar menos datos. <button type="button" data-et-ligera="0">Ver con fotos</button></div><p><a href="/propuestas/"><span translate="no" class="notranslate">ENTRE TODOS</span></a></p><script>(function(){var l=document.documentElement.classList.contains('ligera');
+document.querySelectorAll('[data-et-ligera]').forEach(function(b){
+if(b.closest('.et-ligera-pie')){b.textContent=l?'Ver la versión con fotos':'Activar la versión ligera (sin fotos, menos datos)';b.dataset.etLigera=l?'0':'1';}
+b.addEventListener('click',function(){try{localStorage.setItem('et-ligera',b.dataset.etLigera);}catch(e){}location.reload();});});})();</script><script>(function(){var S='.pestanas,.desplazable,.subnav .contenedor,.filtro-cat,.tabla-scroll';
+function marcar(e){var mas=e.scrollWidth-e.clientWidth-e.scrollLeft>4,menos=e.scrollLeft>4;
+e.classList.toggle('et-desliza-mas',mas&&!menos);e.classList.toggle('et-desliza-ambos',mas&&menos);e.classList.toggle('et-desliza-menos',menos&&!mas);
+var a=e._aviso;if(a)a.hidden=!(e.scrollWidth-e.clientWidth>4);}
+function etiquetas(){document.querySelectorAll('.comparativa table').forEach(function(tb){var h=[].map.call(tb.querySelectorAll('thead th'),function(x){return x.textContent.trim()});
+tb.querySelectorAll('tbody tr').forEach(function(tr){[].forEach.call(tr.children,function(c,i){if(c.tagName==='TD'&&h[i])c.setAttribute('data-label',h[i])})})});}
+function iniciar(){etiquetas();document.querySelectorAll(S).forEach(function(e){
+if(e.matches('.desplazable,.tabla-scroll')&&!e._aviso){var a=document.createElement('p');a.className='et-desliza-aviso';a.innerHTML='Desliza para ver más <span aria-hidden="true">&rarr;</span>';e.parentNode.insertBefore(a,e);e._aviso=a;}
+marcar(e);e.addEventListener('scroll',function(){marcar(e)},{passive:true});});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',iniciar);else iniciar();
+window.addEventListener('resize',function(){document.querySelectorAll(S).forEach(marcar)});})();</script><script>(function(){try{if(navigator.webdriver)return;var h=location.hostname,e=(h==='entre-todos.org'||h==='www.entre-todos.org')?'web':'pre',p=location.pathname.replace(/^\/entre-todos-preview/,'')||'/';if(/^\/panel(\/|$)/.test(p))return;var s=/^\/espana(\/|$)/.test(p)?'es':'cu',r=document.referrer,n=true;try{n=!r||new URL(r).hostname!==h}catch(x){}var z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(x){}fetch('https://pfjcumyygdwslwtrlebr.supabase.co/rest/v1/rpc/metricas_contar',{method:'POST',keepalive:true,headers:{'apikey':'sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8','Content-Type':'application/json'},body:JSON.stringify({p_sitio:s,p_ruta:p,p_zona:z,p_nuevo:n,p_entorno:e})}).catch(function(){})}catch(x){}})();</script></body></html>
