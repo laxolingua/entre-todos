@@ -1,0 +1,61 @@
+---
+// Quién propone qué (España): partidos, otras candidaturas y organizaciones, con la misma ficha para todos.
+// Regla: solo se cita lo que sale de un documento programático publicado. Datos: hojas 064 y 065 (Nico), revisadas por Claude.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import es from '../../data/espana.json';
+import ac from '../../data/espana-actores.json';
+const nPropuestas = (n) => ac.propuestas.filter((p) => p[0] === n).length;
+---
+<Base titulo="Quién propone" seccion="quien-es" pais="es" ancho
+  descripcion="Partidos, otras candidaturas y organizaciones de la sociedad civil que hacen propuestas públicas en España, con la misma ficha para todos y el enlace a su documento.">
+  <Banda imagen="/img/fotos/espana.jpg" lateral={['Partidos', 'Candidaturas', 'Sociedad civil', 'Personas']}>
+    <span class="barra"></span>
+    <h1>Quién<br />propone</h1>
+    <p class="entradilla">Las propuestas no salen solo de los partidos con escaños. Aquí están también otras candidaturas y organizaciones de la sociedad civil, cada una con su documento.</p>
+  </Banda>
+  <div class="contenedor">
+    <section class="seccion">
+      <p class="cmp-aviso">Todas las fichas siguen la misma regla: solo se cita lo que sale de un documento programático publicado, nunca de declaraciones de campaña. Los grupos aparecen en orden alfabético. La lista es provisional y se ampliará con más organizaciones y personas de distintas sensibilidades.</p>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-rep">
+      <h2 class="vista-titulo" id="t-rep">Partidos con representación en el Congreso</h2>
+      <p>Ninguno ha publicado todavía su programa electoral completo. Su estado se sigue en <a href="/espana/propuestas/">Propuestas de los partidos</a>.</p>
+      <ul class="temas-es">{es.partidos.map((p) => <li><span>{p.nombre}</span></li>)}</ul>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-otras">
+      <h2 class="vista-titulo" id="t-otras">Otras candidaturas</h2>
+      <ul class="partidos-es">
+        {[...ac.otras].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')).map((a) => (
+          <li>
+            <h3>{a.nombre}</h3>
+            <p class="discreto">{a.tipo}. {a.dirige}.</p>
+            <p class="estado"><i class="fi fi-br-hourglass-end" aria-hidden="true"></i> {a.concurre}</p>
+            {a.diagnostico && <p class="diag-es"><span>Cómo describe el problema</span>{a.diagnostico}</p>}
+            {nPropuestas(a.nombre) > 0 && <p class="discreto">{nPropuestas(a.nombre)} propuestas recogidas en <a href="/espana/propuestas/#por-tema">Propuestas por tema</a>.</p>}
+            {a.documento ? <a class="enlace-flecha" href={a.documento.url} rel="noopener" target="_blank">{a.documento.titulo} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              : <a class="enlace-flecha" href={a.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-org">
+      <h2 class="vista-titulo" id="t-org">Organizaciones de la sociedad civil</h2>
+      <p>Por ahora, organizaciones dedicadas a la participación, la transparencia y el control del poder. Se irán sumando las de otros ámbitos (trabajo, empresa, vivienda, consumo, medio ambiente, protección animal, familia, campo) cuando haya un grupo equilibrado de cada uno.</p>
+      <ul class="partidos-es">
+        {ac.organizaciones.map((a) => (
+          <li>
+            <h3>{a.nombre}</h3>
+            <p class="discreto">{a.tipo}.</p>
+            {a.diagnostico && <p class="diag-es"><span>Cómo describe el problema</span>{a.diagnostico}</p>}
+            {nPropuestas(a.nombre) > 0 && <p class="discreto">{nPropuestas(a.nombre)} {nPropuestas(a.nombre) === 1 ? 'propuesta recogida' : 'propuestas recogidas'} en <a href="/espana/propuestas/#por-tema">Propuestas por tema</a>.</p>}
+            <a class="enlace-flecha" href={a.documento.url} rel="noopener" target="_blank">{a.documento.titulo} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>

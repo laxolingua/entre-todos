@@ -1754,3 +1754,17 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 
 .pasos-es { margin: 14px 0 0; padding-left: 22px; display: grid; gap: 8px; }
 .pasos-es strong { color: var(--marino); }
+
+.diag-es { margin: 4px 0; font-size: .92rem; color: var(--texto-2); border-left: 3px solid var(--amarillo); padding-left: 10px; }
+.diag-es span { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--marino); font-weight: 700; margin-bottom: 2px; }
+.temas-bloques { display: grid; gap: 8px; margin-top: 14px; }
+.tema-es { background: var(--superficie); border: 1px solid var(--borde); }
+.tema-es > summary { cursor: pointer; padding: 12px 16px; font-family: var(--display); font-weight: 800; text-transform: uppercase; color: var(--marino); font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+.tema-es > summary i { color: var(--rojo); }
+.tema-es > summary .discreto { font-family: var(--fuente); font-weight: 400; font-size: .9rem; text-transform: none; }
+.tema-es > p { padding: 0 16px 14px; margin: 0; }
+.props-es { list-style: none; margin: 0; padding: 0 16px 14px; display: grid; gap: 10px; }
+.props-es > li { border-top: 1px solid var(--borde); padding-top: 10px; display: grid; gap: 4px; }
+.props-es p { margin: 0; }
+.autor-es summary { cursor: pointer; font-size: .85rem; font-weight: 700; color: var(--rojo); text-transform: uppercase; letter-spacing: .04em; }
+.autor-es p { margin: 4px 0 0; font-size: .92rem; }
