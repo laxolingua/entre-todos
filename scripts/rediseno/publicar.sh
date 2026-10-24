@@ -5,7 +5,7 @@ MSG="$1"
 cd /tmp/et/web && export PUBLIC_SUPABASE_URL=https://pfjcumyygdwslwtrlebr.supabase.co PUBLIC_SUPABASE_ANON_KEY=sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8 PUBLIC_PARTICIPACION=true PUBLIC_TURNSTILE_SITEKEY=0x4AAAAAAFfbyky0YsME0feo && npm run build:rapido 2>&1 | tail -1
 cd /tmp/pub && git reset -q --hard origin/main && git clean -fdq
 cd /tmp/et/scripts/rediseno && python3 fusionar.py /tmp/et/web/dist /tmp/pub >/dev/null && python3 gs.py /tmp/pub >/dev/null
-for s in enriquecer anios encuestas sondeos no_traducir datos_abiertos buscador og og_propuestas ligera contador; do python3 $s.py /tmp/pub >/dev/null; done
+for s in enriquecer anios encuestas sondeos no_traducir datos_abiertos buscador og og_propuestas ligera desliza contador; do python3 $s.py /tmp/pub >/dev/null; done
 cp /tmp/et/web/public/asistente/corpus.json /tmp/pub/asistente/corpus.json
 node /tmp/et/scripts/rediseno/comprobar.mjs /tmp/pub || { echo 'NO SE PUBLICA: corrige lo anterior'; exit 1; }
 T="
