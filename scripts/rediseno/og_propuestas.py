@@ -9,7 +9,7 @@ P = sys.argv[1]
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = '/tmp/claude-0/og-cache'
 os.makedirs(CACHE, exist_ok=True)
-VERSION = 'v7'
+VERSION = 'v8'
 SITIO = 'https://entre-todos.org'
 F = os.path.join(AQUI, 'fuentes')
 def fnt(n, s): return ImageFont.truetype(os.path.join(F, n), s)
@@ -53,8 +53,21 @@ def tarjeta(foto, cat, tit, dest, voto=0):
     x = 48 * S
     LG = fnt('BarlowCondensed-800.ttf', 40 * S); SB = fnt('Barlow-500.ttf', 20 * S)
     d.text((x, 24 * S), 'ENTRE', font=LG, fill=M); d.text((x, 57 * S), 'TODOS', font=LG, fill=R)
-    d.rectangle([166 * S, 32 * S, 170 * S, 96 * S], fill=A)
-    d.text((186 * S, 38 * S), 'PROPUESTAS PARA', font=SB, fill=M); d.text((186 * S, 66 * S), 'UNA NUEVA CUBA', font=SB, fill=M)
+    # País: bandera redonda de Cuba + «CUBA», como en la cabecera del sitio
+    D = 46 * S; fl = Image.new('RGB', (D * 2, D), B); df = ImageDraw.Draw(fl)
+    for k in range(5): df.rectangle([0, k * D // 5, D * 2, (k + 1) * D // 5], fill=(0, 42, 143) if k % 2 == 0 else B)
+    df.polygon([(0, 0), (int(D * 0.87), D // 2), (0, D)], fill=(203, 21, 21))
+    import math
+    cx, cy, r1, r2 = int(D * 0.29), D // 2, D * 0.17, D * 0.07
+    df.polygon([(cx + (r1 if k % 2 == 0 else r2) * math.sin(k * math.pi / 5), cy - (r1 if k % 2 == 0 else r2) * math.cos(k * math.pi / 5)) for k in range(10)], fill=B)
+    fl = fl.crop((int(D * 0.1), 0, int(D * 0.1) + D, D))
+    mc = Image.new('L', (D, D), 0); ImageDraw.Draw(mc).ellipse([0, 0, D - 1, D - 1], fill=255)
+    card.paste(fl, (166 * S, 40 * S), mc)
+    PA = fnt('BarlowCondensed-800.ttf', 30 * S)
+    d.text((222 * S, 45 * S), 'CUBA', font=PA, fill=M)
+    xb = 222 * S + int(d.textlength('CUBA', font=PA)) + 20 * S
+    d.rectangle([xb, 32 * S, xb + 4 * S, 96 * S], fill=A)
+    d.text((xb + 20 * S, 38 * S), 'PROPUESTAS PARA', font=SB, fill=M); d.text((xb + 20 * S, 66 * S), 'UNA NUEVA CUBA', font=SB, fill=M)
     d.rectangle([x, 136 * S, x + 64 * S, 143 * S], fill=A)
     d.text((x, 156 * S), cat.upper(), font=fnt('Barlow-500.ttf', 21 * S), fill=R)
     y = 188 * S
