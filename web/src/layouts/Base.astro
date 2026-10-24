@@ -118,6 +118,17 @@ const subenlaces = [
         </div>
       </nav>
     )}
+    {(seccion === 'propuestas-es' || seccion === 'quien-es') && (
+      <nav class="subnav" aria-label="Banco de propuestas de España">
+        <div class="contenedor">
+          <a href="/espana/propuestas/" aria-current={seccion === 'propuestas-es' ? 'page' : undefined}>Todas las propuestas</a>
+          <a href="/espana/quien-propone/" aria-current={seccion === 'quien-es' ? 'page' : undefined}>Quién propone</a>
+          <a href="/espana/propuestas/#programas">Estado de los programas</a>
+          <a href="/espana/propon/">¿Qué propones?</a>
+          <a href="/espana/que-piden/">Qué piden los españoles</a>
+        </div>
+      </nav>
+    )}
     {enBanco && (
       <nav class="subnav" aria-label="Banco de propuestas">
         <div class="contenedor">

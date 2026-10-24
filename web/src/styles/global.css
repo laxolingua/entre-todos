@@ -1773,3 +1773,6 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .valorar-es .dato-titulo { margin: 4px 0 0; font-weight: 700; color: var(--marino); font-size: .9rem; }
 .valorar-es .escala { margin: 8px 0 4px; max-width: 520px; }
 .valorar-es .escala button { min-height: 52px; font-size: .78rem; }
+
+.lista > li[hidden] { display: none !important; }
+.tarjeta-cat i { color: var(--rojo); margin-right: 4px; }

@@ -1,6 +1,7 @@
 ---
-// Propuestas de los partidos (España). Estado de los programas y, cuando se publiquen, propuestas por tema con cita y enlace.
-// Orden alfabético de partidos: criterio neutro. Relación provisional hasta la proclamación del 2/11 (BOE del 3/11).
+// Banco de propuestas de España: mismo diseño que el de Cuba (barra lateral de temas, buscador y fichas).
+// Las propuestas salen de documentos oficiales publicados. Cada ficha se lee primero sin su autor.
+// Estado de los programas al final: relación provisional hasta la proclamación del 2/11 (BOE del 3/11).
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
 import datos from '../../data/espana.json';
@@ -10,77 +11,90 @@ const todas = [
   ...pp.documento.compromisos.map((c, i) => ({ id: pp.documento.ids[i], actor: pp.nombre, tema: ac.temaPP[c[0]] || c[0], texto: c[1], cita: '', doc: pp.documento.titulo, pag: '', url: pp.documento.url })),
   ...ac.propuestas.map((p) => ({ id: p[7], actor: p[0], tema: p[1], texto: p[2], cita: p[3], doc: p[4], pag: p[5], url: p[6] })),
 ];
-const porTema = datos.temas.map((t) => [t, todas.filter((x) => x.tema === t)]);
+const temas = datos.temas.map((t) => ({ t, n: todas.filter((x) => x.tema === t).length }));
+const autores = new Set(todas.map((x) => x.actor)).size;
+const lista = datos.temas.flatMap((t) => todas.filter((x) => x.tema === t).map((x, i) => ({ ...x, num: String(i + 1).padStart(2, '0') })));
 ---
-<Base titulo="Propuestas de los partidos" seccion="propuestas-es" pais="es" ancho
-  descripcion="Elecciones generales del 29 de noviembre: estado de los programas electorales de cada partido y sus propuestas por tema, con enlace a la fuente oficial.">
-  <Banda imagen="/img/fotos/espana.jpg" lateral={['Programa', 'Tema', 'Cita', 'Fuente']}>
+<Base titulo="Propuestas" seccion="propuestas-es" pais="es" ancho
+  descripcion={`${todas.length} propuestas publicadas en documentos oficiales de partidos, candidaturas y organizaciones de España, por tema y con su fuente.`}>
+  <Banda imagen="/img/fotos/espana.jpg" lateral={['Proponer', 'Comparar', 'Valorar', 'Votar']}>
     <span class="barra"></span>
-    <h1>Propuestas de<br />los partidos</h1>
-    <p class="entradilla">Lo que cada partido propone, en sus propios documentos oficiales, ordenado por tema y con el enlace a la página donde aparece.</p>
+    <h1>Propuestas</h1>
+    <p class="lema">Banco de propuestas · España</p>
+    <p class="entradilla">Propuestas publicadas en documentos oficiales de partidos, candidaturas y organizaciones de la sociedad civil. Cada ficha se lee primero sin su autor: la procedencia política de una propuesta no sustituye el examen de sus méritos.</p>
+    <p class="cifra-grande">{todas.length}<small>propuestas · {autores} autores · {datos.temas.length} temas</small></p>
   </Banda>
-  <div class="contenedor">
-    <section class="seccion">
-      <p class="cmp-aviso">A 24 de octubre ningún partido ha publicado su programa electoral completo. Esta página se actualiza a medida que cada uno lo publique. La lista de partidos es provisional hasta la proclamación de candidaturas del 2 de noviembre. Los partidos aparecen en orden alfabético.</p>
-    </section>
+  <div class="contenedor" id="banco-cuerpo">
+    <p class="edicion" style="margin-top:22px"><strong>Primera edición</strong> · 24 de octubre de 2026. Los programas de los partidos con escaños se añadirán al publicarse: <a href="#programas">estado de los programas</a>.</p>
+    <div class="banco-grid" id="banco-es">
+      <aside class="filtro-cat" aria-label="Temas">
+        <a href="#banco-es" class="activa" data-tema="">Todas <span>{todas.length}</span></a>
+        {temas.map(({ t, n }) => <a href="#banco-es" data-tema={t}><span class="con-icono"><i class={`fi ${datos.iconos[t]}`} aria-hidden="true"></i>{t}</span> <span>{n}</span></a>)}
+        <a class="enlace-flecha" href="/espana/quien-propone/">Quién propone</a>
+      </aside>
+      <div class="banco-principal">
+        <form class="buscador" role="search" id="buscador-es" onsubmit="return false">
+          <label for="q-es" class="oculto">Buscar propuestas</label>
+          <input id="q-es" type="search" placeholder="Buscar: vivienda, pensiones, corrupción…" autocomplete="off" />
+          <button class="boton primario" type="submit"><i class="fi fi-br-search" aria-hidden="true"></i><span>Buscar</span></button>
+        </form>
+        <p class="discreto">Puedes valorar cada propuesta sin registrarte. Es una valoración de quienes participan, no una votación verificada ni una encuesta representativa. Solo se publican los totales. <a href="/privacidad/">Privacidad</a></p>
+        <p class="discreto" id="vacio-es" hidden>No hay propuestas que coincidan con tu búsqueda.</p>
+        <ul class="lista" id="por-tema">
+          {lista.map((x) => (
+            <li class="tarjeta consolidada" data-tema={x.tema} data-texto={`${x.texto} ${x.cita} ${x.tema}`.toLowerCase()}>
+              <div class="tarjeta-cuerpo">
+                <p class="tarjeta-cat"><i class={`fi ${datos.iconos[x.tema]}`} aria-hidden="true"></i> {x.tema}</p>
+                <span class="tarjeta-num">{x.num}</span>
+                <h3>{x.texto}</h3>
+                {x.cita && <p class="texto">{x.cita}</p>}
+                <div class="valorar-es" data-valorar={x.id}></div>
+                <details class="autor-es"><summary>Quién lo propone</summary>
+                  <p><strong>{x.actor}</strong> · <a href={x.url} rel="noopener" target="_blank">{x.doc}{x.pag ? `, ${x.pag}` : ''}</a></p>
+                </details>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-    <section class="seccion" aria-labelledby="t-estado">
+    <section class="seccion" id="programas" aria-labelledby="t-estado">
       <h2 class="vista-titulo" id="t-estado">Estado de los programas</h2>
+      <p class="cmp-aviso">A 24 de octubre ningún partido con escaños ha publicado su programa electoral completo. La lista es provisional hasta la proclamación de candidaturas del 2 de noviembre. Los partidos aparecen en orden alfabético.</p>
       <ul class="partidos-es">
         {datos.partidos.map((p) => (
-          <li class={p.documento ? 'con-doc' : ''}>
+          <li>
             <h3>{p.nombre}</h3>
             {p.nota && <p class="discreto">{p.nota}</p>}
             <p class="estado"><i class="fi fi-br-hourglass-end" aria-hidden="true"></i> Programa electoral: aún no publicado</p>
-            {p.documento && (
-              <details class="doc-es">
-                <summary>Documento publicado: «{p.documento.titulo}» ({p.documento.fecha})</summary>
-                <p class="discreto">{p.documento.aviso} Resumen de cada compromiso:</p>
-                <ol class="compromisos-es">{p.documento.compromisos.map((c) => <li><i class={`fi ${datos.iconos[c[0]]}`} aria-hidden="true"></i><span><strong>{c[0]}.</strong> {c[1]}</span></li>)}</ol>
-                <a class="enlace-flecha" href={p.documento.url} rel="noopener" target="_blank">Documento original <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
-              </details>
-            )}
+            {p.documento && <p class="discreto">Publicó el «{p.documento.titulo}» ({p.documento.fecha}), {p.documento.compromisos.length} compromisos que no son su programa electoral. Están en el banco.</p>}
             <a class="enlace-flecha" href={p.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </li>
         ))}
       </ul>
-    </section>
-
-    <section class="seccion" id="por-tema" aria-labelledby="t-portema">
-      <h2 class="vista-titulo" id="t-portema">Propuestas ya publicadas, por tema</h2>
-      <p>Mientras los partidos con escaños publican sus programas, aquí están las propuestas que ya figuran en documentos oficiales de partidos, otras candidaturas y organizaciones. Cada propuesta aparece primero sin su autor, para que se lea por lo que dice. Pulsa «Quién lo propone» para verlo.</p>
-      <p class="discreto">Puedes valorar cada propuesta sin registrarte. Es una valoración de quienes participan, no una votación verificada ni una encuesta representativa. Solo se publican los totales. <a href="/privacidad/">Privacidad</a></p>
-      <div class="temas-bloques">
-        {porTema.map(([t, lista]) => (
-          <details class="tema-es" open={lista.length > 0 && t === 'Vivienda'}>
-            <summary><i class={`fi ${datos.iconos[t]}`} aria-hidden="true"></i> {t} <span class="discreto">({lista.length})</span></summary>
-            {lista.length === 0 ? <p class="discreto">Todavía no hay propuestas publicadas sobre este tema.</p> : (
-              <ul class="props-es">{lista.map((x) => (
-                <li>
-                  <p class="pc-propuesta">{x.texto}</p>
-                  {x.cita && <p class="pc-como">{x.cita}</p>}
-                  <div class="valorar-es" data-valorar={x.id}></div>
-                  <details class="autor-es"><summary>Quién lo propone</summary>
-                    <p><strong>{x.actor}</strong> · <a href={x.url} rel="noopener" target="_blank">{x.doc}{x.pag ? `, ${x.pag}` : ''}</a></p>
-                  </details>
-                </li>
-              ))}</ul>
-            )}
-          </details>
-        ))}
-      </div>
-      <p><a class="enlace-flecha" href="/espana/quien-propone/">Quién propone <i class="fi fi-br-arrow-right" aria-hidden="true"></i></a></p>
-    </section>
-
-    <section class="seccion" aria-labelledby="t-temas">
-      <h2 class="vista-titulo" id="t-temas">Temas que se compararán</h2>
-      <p>Cuando haya programas publicados, cada tema mostrará lo que propone cada partido, lado a lado y con la cita del programa. Si un partido no dice nada sobre un tema, se indicará así.</p>
-      <ul class="temas-es">{datos.temas.map((t) => <li><i class={`fi ${datos.iconos[t]}`} aria-hidden="true"></i><span>{t}</span></li>)}</ul>
     </section>
   </div>
   <script>
     import { iniciarValoracionEs } from '../../lib/valoracion-es.js';
     const r = document.getElementById('por-tema');
     if (r) iniciarValoracionEs(r);
+    const fichas = [...document.querySelectorAll('#por-tema > li')];
+    const enlaces = [...document.querySelectorAll('.filtro-cat a[data-tema]')];
+    const q = document.getElementById('q-es');
+    const vacio = document.getElementById('vacio-es');
+    let tema = '';
+    const filtrar = () => {
+      const t = (q?.value || '').trim().toLowerCase();
+      let n = 0;
+      fichas.forEach((f) => { const ok = (!tema || f.dataset.tema === tema) && (!t || f.dataset.texto.includes(t)); f.hidden = !ok; if (ok) n++; });
+      if (vacio) vacio.hidden = n > 0;
+    };
+    enlaces.forEach((a) => a.addEventListener('click', () => {
+      tema = a.dataset.tema || '';
+      enlaces.forEach((x) => x.classList.toggle('activa', x === a));
+      filtrar();
+    }));
+    q?.addEventListener('input', filtrar);
   </script>
 </Base>
