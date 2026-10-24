@@ -7,6 +7,7 @@ cd /tmp/pub && git reset -q --hard origin/main && git clean -fdq
 cd /tmp/et/scripts/rediseno && python3 fusionar.py /tmp/et/web/dist /tmp/pub >/dev/null && python3 gs.py /tmp/pub >/dev/null
 for s in enriquecer anios encuestas sondeos no_traducir datos_abiertos buscador og ligera contador; do python3 $s.py /tmp/pub >/dev/null; done
 cp /tmp/et/web/public/asistente/corpus.json /tmp/pub/asistente/corpus.json
+node /tmp/et/scripts/rediseno/comprobar.mjs /tmp/pub || { echo 'NO SE PUBLICA: corrige lo anterior'; exit 1; }
 T="
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
