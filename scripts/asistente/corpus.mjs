@@ -80,7 +80,7 @@ const SECCIONES = [
   ['Buscador E/T', '/buscador/', 'Buscador inteligente que responde preguntas sobre todo el contenido del sitio, con fuentes.'],
   ['Sobre nosotros', '/sobre/', 'Qué es ENTRE TODOS, su independencia y sus herramientas.'],
   ['Método', '/metodo/', 'La metodología de la Gobernanza Solucionaria y cómo se reúnen y valoran las propuestas.'],
-  ['Seguridad', '/seguridad/', 'Consejos para participar con seguridad desde Cuba.'],
+  ['Tu privacidad', '/seguridad/', 'Cómo protege ENTRE TODOS tus datos personales y qué puedes hacer si prefieres mantener tu participación en privado.'],
   ['Privacidad', '/privacidad/', 'Qué datos se guardan y cómo se protegen.'],
 ];
 add('sitio:mapa', 'pagina', 'Mapa del sitio ENTRE TODOS: secciones y herramientas',

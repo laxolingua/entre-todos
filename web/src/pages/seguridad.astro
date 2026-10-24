@@ -3,67 +3,53 @@ import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
 import sitio from '../data/sitio.json';
 ---
-<Base titulo="Seguridad" seccion="seguridad" ancho
-  descripcion="Cómo protege ENTRE TODOS a quienes participan, y qué puedes hacer tú para participar con más seguridad, especialmente desde Cuba.">
+<Base titulo="Tu privacidad" seccion="seguridad" ancho
+  descripcion="Cómo protege ENTRE TODOS tus datos personales y qué puedes hacer si prefieres mantener tu participación en privado.">
   <Banda imagen="/img/fotos/cat-sociedad_civil.jpg" lateral={['Sin cuentas', 'Sin rastreo', 'Sin nombres']}>
     <span class="barra"></span>
-    <h1>Participar<br />con seguridad</h1>
-    <p class="lema">Para quienes entran desde Cuba y desde cualquier lugar</p>
-    <p class="entradilla">ENTRE TODOS está diseñada para saber lo mínimo posible de quien participa. Esta página explica qué hace la plataforma para protegerte, qué no puede controlar y qué puedes hacer tú.</p>
+    <h1>Tu<br />privacidad</h1>
+    <p class="lema">Protección de datos para cualquier persona, viva donde viva</p>
+    <p class="entradilla">En la Unión Europea, la protección de los datos personales es un derecho fundamental de toda persona. ENTRE TODOS aplica ese mismo estándar a todos, en cualquier país. Esta página explica qué datos tratamos (muy pocos) y qué puedes hacer si prefieres mantener tus opiniones en privado.</p>
   </Banda>
-
   <div class="contenedor">
     <section class="seccion">
       <h2 class="vista-titulo">Lo que hace la plataforma</h2>
       <ul class="garantias seis">
-        <li><h3>No pedimos tu identidad</h3><p>Leer, explorar propuestas y estudiar en el Blog A+ no requiere registrarse. No pedimos nombre, correo ni teléfono para votar.</p></li>
+        <li><h3>Datos mínimos</h3><p>Leer, explorar propuestas y estudiar en el Blog A+ no requiere registrarse. No pedimos nombre, correo ni teléfono para votar.</p></li>
         <li><h3>Tu número no se guarda</h3><p>El número de carné o pasaporte se convierte en tu navegador en un código. El servidor lo vuelve a cifrar con una clave secreta y solo guarda ese resultado. Sin esa clave no se puede saber de qué número salió.</p></li>
-        <li><h3>Solo totales públicos</h3><p>Nunca se publica quién votó ni qué votó cada persona. Solo se publican los totales.</p></li>
+        <li><h3>Voto secreto</h3><p>Nunca se publica quién votó ni qué votó cada persona. Solo se publican los totales.</p></li>
         <li><h3>Sin cookies de seguimiento</h3><p>No usamos analítica, publicidad ni redes sociales incrustadas que registren tu visita.</p></li>
         <li><h3>Pocos servicios externos</h3><p>Para leer, las letras y los iconos se sirven desde el propio sitio. Solo al votar, aportar o usar el Buscador E/T el navegador conecta con nuestra base de datos (Supabase) y con el filtro antirobots de Cloudflare, que ven tu dirección IP. Ver <a href="/privacidad/#terceros">Proveedores</a>.</p></li>
         <li><h3>Conexión cifrada</h3><p>Todo el sitio funciona solo por HTTPS: el contenido de lo que envías viaja cifrado entre tu dispositivo y el servidor.</p></li>
       </ul>
     </section>
-
     <section class="seccion">
       <div class="aviso-limites panel marino">
-        <h2>Lo que la plataforma no puede controlar</h2>
-        <p>Sin una VPN, el proveedor de internet (en Cuba, ETECSA) puede ver <strong>que</strong> visitas entre-todos.org, aunque no lo que lees ni lo que votas. Tampoco podemos proteger un teléfono que otra persona revisa, ni capturas de pantalla que se compartan. Ninguna plataforma puede prometer seguridad absoluta; lo que sí hacemos es no guardar lo que podría exponerte.</p>
+        <h2>Lo que ningún sitio web puede controlar</h2>
+        <p>Como ocurre con cualquier página, tu proveedor de internet puede ver <strong>que</strong> visitas entre-todos.org, aunque no lo que lees ni lo que votas. Tampoco depende de nosotros lo que quede en un dispositivo compartido ni las capturas de pantalla que alguien comparta. Lo que sí hacemos es no guardar datos que no necesitamos.</p>
       </div>
     </section>
-
     <section class="seccion">
-      <h2 class="vista-titulo">Lo que puedes hacer tú</h2>
+      <h2 class="vista-titulo">Si prefieres más privacidad</h2>
       <ol class="consejos">
-        <li><span class="num">01</span><div><h3>Usa una VPN o Psiphon</h3><p>Ocultan qué sitios visitas a tu proveedor de internet. Instálalas solo desde la tienda oficial de aplicaciones o desde la web oficial del proyecto.</p></div></li>
-        <li><span class="num">02</span><div><h3>Navega en modo privado</h3><p>La ventana de incógnito no guarda historial ni datos del sitio al cerrarla. Si no la usas, borra el historial después de participar.</p></div></li>
-        <li><span class="num">03</span><div><h3>Usa tu propio dispositivo</h3><p>Evita teléfonos o computadoras compartidos, del trabajo o de instituciones del Estado.</p></div></li>
-        <li><span class="num">04</span><div><h3>No compartas capturas de tu voto</h3><p>El comprobante que aparece al votar solo sirve para pedir que se retire tu voto. Guárdalo en privado o no lo guardes.</p></div></li>
-        <li><span class="num">05</span><div><h3>Cuidado con los enlaces</h3><p>Escribe tú la dirección entre-todos.org. ENTRE TODOS nunca te pedirá contraseñas, códigos por SMS ni datos bancarios.</p></div></li>
-        <li><span class="num">06</span><div><h3>Comparte con cabeza</h3><p>Difundir una propuesta es valioso, pero piensa quién ve lo que publicas en tus redes y con qué nombre.</p></div></li>
+        <li><span class="num">01</span><div><h3>Una VPN o Psiphon</h3><p>Evitan que tu proveedor de internet vea qué sitios visitas. Elige un servicio conocido que no guarde registros de tu actividad e instálalo desde la tienda oficial o la web del proyecto.</p></div></li>
+        <li><span class="num">02</span><div><h3>Modo privado</h3><p>La ventana de incógnito no guarda historial ni datos del sitio al cerrarla.</p></div></li>
+        <li><span class="num">03</span><div><h3>Tu propio dispositivo</h3><p>En un dispositivo compartido o del trabajo, otras personas pueden ver lo que hiciste.</p></div></li>
+        <li><span class="num">04</span><div><h3>Dispositivo al día</h3><p>Mantén el sistema y el navegador actualizados y la pantalla con bloqueo.</p></div></li>
+        <li><span class="num">05</span><div><h3>Tu voto es tuyo</h3><p>El comprobante que aparece al votar solo sirve para pedir que se retire tu voto. Guárdalo en privado o no lo guardes.</p></div></li>
+        <li><span class="num">06</span><div><h3>Si nos escribes</h3><p>Puedes usar un correo que no lleve tu nombre. No necesitamos saber quién eres para leer tu mensaje.</p></div></li>
+        <li><span class="num">07</span><div><h3>Enlaces y mensajes</h3><p>Escribe tú la dirección entre-todos.org. ENTRE TODOS nunca te pedirá contraseñas, códigos por SMS ni datos bancarios.</p></div></li>
+        <li><span class="num">08</span><div><h3>Decide qué haces público</h3><p>Compartir una propuesta en tus redes es valioso. Tú eliges si lo haces con tu nombre o no.</p></div></li>
       </ol>
     </section>
-
-    <section class="seccion">
-      <div class="salida-rapida panel">
-        <div>
-          <h2>Salida rápida</h2>
-          <p>Si necesitas cerrar la página de inmediato, este botón te lleva a una web neutral y sustituye esta página en el historial de la pestaña.</p>
-        </div>
-        <button class="boton rojo grande" type="button" id="salir">Salir ahora</button>
-      </div>
-    </section>
-
     <section class="seccion">
       <h2 class="vista-titulo">Puedes comprobarlo</h2>
       <div class="texto-largo">
+        <p>ENTRE TODOS es independiente: no recibe instrucciones de ningún gobierno, partido ni agencia. No organiza acciones; reúne, ordena y explica propuestas, y cada persona decide qué piensa.</p>
         <p>El código del sitio está publicado. Cualquier persona con conocimientos técnicos puede verificar que el número de documento se procesa en el navegador y que solo viaja el código resultante.</p>
-        <p>Si detectas un fallo de seguridad o una página falsa que se haga pasar por ENTRE TODOS, escríbenos a <a href={`mailto:${sitio.contacto}`}>{sitio.contacto}</a>.</p>
+        <p>Si detectas un fallo o una página falsa que se haga pasar por ENTRE TODOS, escríbenos a <a href={`mailto:${sitio.contacto}`}>{sitio.contacto}</a>.</p>
         <div class="acciones"><a class="boton" href="/privacidad/">Política de privacidad</a><a class="boton" href="https://github.com/laxolingua/entre-todos" rel="noopener">Código en GitHub</a></div>
       </div>
     </section>
   </div>
-  <script is:inline>
-    document.getElementById('salir').addEventListener('click', function () { location.replace('https://www.google.com/search?q=pronostico+del+tiempo'); });
-  </script>
 </Base>
