@@ -1,9 +1,6 @@
-"""Tarjetas para compartir las propuestas (Cuba) en redes: una general por ficha y una por cada opción de voto.
-- og/propuesta/<id>.jpg            general: «¿Tú qué piensas? Vota en entre-todos.org»
-- og/propuesta/<id>-v<n>.jpg       con la opción elegida: «Yo voté: A favor. ¿Y tú?»
-- propuesta/<id>/mi-voto/<n>/      página mínima para compartir el voto propio (sus metadatos llevan
-                                   la tarjeta con el voto) que lleva a la ficha
-Además pone los metadatos de la ficha y el script del botón de compartir, que pregunta si incluir el voto.
+"""Tarjeta para compartir cada propuesta (Cuba) en redes: og/propuesta/<id>.jpg con «¿Tú qué piensas? Vota en entre-todos.org».
+Pone los metadatos de la ficha y el script de los botones de compartir (siempre la ficha general:
+el voto se puede cambiar, así que no se comparte la opción votada).
 Las imágenes se guardan en caché para no regenerarlas en cada publicación.
 Uso: python3 og_propuestas.py <pubdir>"""
 import sys, os, re, glob, html, hashlib, shutil, json
@@ -89,11 +86,7 @@ function url(v){return v?BASE+'mi-voto/'+v+'/':BASE}
 function texto(v){return v?'Yo voté «'+OPC[v-1]+'» en esta propuesta para una nueva Cuba: '+T+'. ¿Y tú? Vota en ENTRE TODOS: '+url(v):T+'. Propuesta para una nueva Cuba. ¿Tú qué piensas? Vota en ENTRE TODOS: '+url(0)}
 function abrir(red,v){var h=red==='fb'?'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url(v)):'https://wa.me/?text='+encodeURIComponent(texto(v));window.open(h,'_blank','noopener')}
 document.querySelectorAll('a[href*="facebook.com/sharer"],a[href*="wa.me/"]').forEach(function(a){var red=a.href.indexOf('wa.me')>-1?'wa':'fb';
-a.addEventListener('click',function(e){var v=+(document.documentElement.dataset.miVoto||0);e.preventDefault();if(!v){abrir(red,0);return}
-var p=document.getElementById('et-compartir');if(p)p.remove();p=document.createElement('div');p.id='et-compartir';p.className='et-compartir panel';
-p.innerHTML='<p><b>¿Qué quieres compartir?</b></p><div class="acciones"><button type="button" class="boton" data-o="0">Solo la propuesta</button><button type="button" class="boton marino" data-o="1">La propuesta y mi voto («'+OPC[v-1]+'»)</button></div>';
-a.closest('.acciones,div').insertAdjacentElement('afterend',p);
-p.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){abrir(red,b.dataset.o==='1'?v:0);p.remove()})})})})})();</script>
+a.addEventListener('click',function(e){e.preventDefault();abrir(red,0)})})})();</script>
 <style>.et-compartir{margin:12px 0;padding:14px 16px;border-left:5px solid #f4c20d}.et-compartir p{margin:0 0 10px}.et-compartir .acciones{display:flex;flex-wrap:wrap;gap:10px}.et-compartir .boton.marino{background:#0b1d3f;color:#fff;border-color:#0b1d3f}</style>"""
 
 PAGINA_VOTO = """<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -127,13 +120,5 @@ for f in sorted(glob.glob(f'{P}/propuesta/*/index.html')):
     if 'et-compartir' not in t:
         t = t.replace('</body>', SCRIPT % (json.dumps(OPC, ensure_ascii=False), json.dumps(pid), json.dumps(titulo, ensure_ascii=False), SITIO) + '</body>', 1)
     open(f, 'w', encoding='utf-8').write(t)
-    for v in range(1, 6):
-        con_cache(foto, cat, titulo, f'{P}/og/propuesta/{pid}-v{v}.jpg', v)
-        d = f'{P}/propuesta/{pid}/mi-voto/{v}'
-        os.makedirs(d, exist_ok=True)
-        open(f'{d}/index.html', 'w', encoding='utf-8').write(PAGINA_VOTO.format(
-            titulo_og=html.escape(f'Yo voté «{OPC[v - 1]}»: {titulo}', quote=True), titulo=html.escape(titulo),
-            url=f'{SITIO}/propuesta/{pid}/mi-voto/{v}/', img=f'{SITIO}/og/propuesta/{pid}-v{v}.jpg',
-            ficha=f'/propuesta/{pid}/', ficha_abs=f'{SITIO}/propuesta/{pid}/'))
     hechas += 1
 print('tarjetas para compartir en', hechas, 'propuestas')

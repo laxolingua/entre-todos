@@ -68,7 +68,7 @@ function validarCarne(v) {
   return '';
 }
 const ERRORES = {
-  pin: (r) => `PIN incorrecto. Te quedan ${r.restantes} intentos antes de un bloqueo de una hora.`,
+  pin: (r) => `Este documento ya está registrado y el PIN no coincide. Si es tu documento, revisa el PIN (te quedan ${r.restantes} intentos antes de un bloqueo de una hora). Cada documento vota una sola vez.`,
   bloqueado: () => 'Demasiados intentos con este documento. Vuelve a intentarlo en una hora.',
   congelado: () => `Este documento está en revisión por una reclamación y sus votos no cuentan por ahora. Escríbenos a ${CONTACTO}.`,
   limite: () => 'Demasiados intentos desde este navegador. Espera una hora.',
@@ -131,7 +131,7 @@ function formularioIdentificacion() {
       <label class="declaracion"><input type="checkbox" name="mio" required> Este documento es mío y no lo uso por otra persona.</label>
       <div class="fila"><button class="boton primario" type="submit">Identificarme y votar</button>
         <button class="boton" type="button" data-cancelar>Cancelar</button></div>
-      <p class="discreto" data-aviso role="status"></p>
+      <p class="aviso-voto" data-aviso role="alert"></p>
       <p class="discreto"><button type="button" class="enlace" data-abrir-reclamo>¿Olvidaste tu PIN o alguien votó con tu documento?</button></p>
       <div class="reclamo" data-reclamo hidden>
         <p class="discreto">Escribe arriba el número de tu documento y elige. Los votos de ese documento quedarán congelados hasta comprobar quién es el titular.</p>
@@ -186,7 +186,7 @@ function pedirIdentificacion(panel) {
       if (t === 'pasaporte' && n.length < 6) { aviso.textContent = 'El número debe tener al menos 6 caracteres.'; return; }
       if (!/^\d{6}$/.test(pin)) { aviso.textContent = 'El PIN debe tener 6 cifras.'; return; }
       if (!f.mio.checked) { aviso.textContent = 'Confirma que el documento es tuyo.'; return; }
-      if (Date.now() - abierto < 4000) { aviso.textContent = 'Revisa los datos y vuelve a pulsar.'; return; }
+      if (Date.now() - abierto < 2500) { aviso.textContent = 'Revisa los datos y vuelve a pulsar «Identificarme y votar».'; return; }
       const boton = f.querySelector('button[type=submit]'); boton.disabled = true; aviso.textContent = 'Comprobando…';
       try {
         const c = await sesion();

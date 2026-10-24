@@ -64,8 +64,8 @@ for (const f of recorrer(RAIZ)) {
     if (!(fs.existsSync(p) || fs.existsSync(path.join(p, 'index.html')) || fs.existsSync(p + '.html'))) rotos.add(`${h} (en ${path.relative(RAIZ, f)})`);
   }
 }
-const pv = path.join(RAIZ, 'propuesta/fuerzas-seguridad-civiles/mi-voto/4/index.html');
-if (!fs.existsSync(pv) || !fs.readFileSync(pv, 'utf8').includes('content="Yo voté')) fallos.push('Falta la página para compartir el voto propio.');
+const fp = path.join(RAIZ, 'propuesta/fuerzas-seguridad-civiles/index.html');
+if (!fs.readFileSync(fp, 'utf8').includes('og/propuesta/fuerzas-seguridad-civiles.jpg')) fallos.push('Las fichas no tienen su tarjeta para compartir.');
 if (rotos.size) fallos.push(`Enlaces rotos: ${[...rotos].slice(0, 10).join(', ')}`);
 
 await nav.close();
