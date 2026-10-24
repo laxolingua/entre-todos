@@ -7,8 +7,8 @@ import datos from '../../data/espana.json';
 import ac from '../../data/espana-actores.json';
 const pp = datos.partidos.find((p) => p.documento);
 const todas = [
-  ...pp.documento.compromisos.map((c) => ({ actor: pp.nombre, tema: ac.temaPP[c[0]] || c[0], texto: c[1], cita: '', doc: pp.documento.titulo, pag: '', url: pp.documento.url })),
-  ...ac.propuestas.map((p) => ({ actor: p[0], tema: p[1], texto: p[2], cita: p[3], doc: p[4], pag: p[5], url: p[6] })),
+  ...pp.documento.compromisos.map((c, i) => ({ id: pp.documento.ids[i], actor: pp.nombre, tema: ac.temaPP[c[0]] || c[0], texto: c[1], cita: '', doc: pp.documento.titulo, pag: '', url: pp.documento.url })),
+  ...ac.propuestas.map((p) => ({ id: p[7], actor: p[0], tema: p[1], texto: p[2], cita: p[3], doc: p[4], pag: p[5], url: p[6] })),
 ];
 const porTema = datos.temas.map((t) => [t, todas.filter((x) => x.tema === t)]);
 ---
@@ -49,6 +49,7 @@ const porTema = datos.temas.map((t) => [t, todas.filter((x) => x.tema === t)]);
     <section class="seccion" id="por-tema" aria-labelledby="t-portema">
       <h2 class="vista-titulo" id="t-portema">Propuestas ya publicadas, por tema</h2>
       <p>Mientras los partidos con escaños publican sus programas, aquí están las propuestas que ya figuran en documentos oficiales de partidos, otras candidaturas y organizaciones. Cada propuesta aparece primero sin su autor, para que se lea por lo que dice. Pulsa «Quién lo propone» para verlo.</p>
+      <p class="discreto">Puedes valorar cada propuesta sin registrarte. Es una valoración de quienes participan, no una votación verificada ni una encuesta representativa. Solo se publican los totales. <a href="/privacidad/">Privacidad</a></p>
       <div class="temas-bloques">
         {porTema.map(([t, lista]) => (
           <details class="tema-es" open={lista.length > 0 && t === 'Vivienda'}>
@@ -58,6 +59,7 @@ const porTema = datos.temas.map((t) => [t, todas.filter((x) => x.tema === t)]);
                 <li>
                   <p class="pc-propuesta">{x.texto}</p>
                   {x.cita && <p class="pc-como">{x.cita}</p>}
+                  <div class="valorar-es" data-valorar={x.id}></div>
                   <details class="autor-es"><summary>Quién lo propone</summary>
                     <p><strong>{x.actor}</strong> · <a href={x.url} rel="noopener" target="_blank">{x.doc}{x.pag ? `, ${x.pag}` : ''}</a></p>
                   </details>
@@ -76,4 +78,9 @@ const porTema = datos.temas.map((t) => [t, todas.filter((x) => x.tema === t)]);
       <ul class="temas-es">{datos.temas.map((t) => <li><i class={`fi ${datos.iconos[t]}`} aria-hidden="true"></i><span>{t}</span></li>)}</ul>
     </section>
   </div>
+  <script>
+    import { iniciarValoracionEs } from '../../lib/valoracion-es.js';
+    const r = document.getElementById('por-tema');
+    if (r) iniciarValoracionEs(r);
+  </script>
 </Base>

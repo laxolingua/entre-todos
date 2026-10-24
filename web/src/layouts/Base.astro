@@ -9,6 +9,9 @@ import '@fontsource/barlow-condensed/latin-800.css';
 import '@fontsource/montserrat/latin-900.css';
 import '../styles/global.css';
 import Bandera from '../components/Bandera.astro';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+const verIconos = createHash('md5').update(readFileSync('public/fonts/uicons-br.css')).digest('hex').slice(0, 8);
 
 interface Props {
   titulo: string;
@@ -81,7 +84,7 @@ const subenlaces = [
     <meta name="theme-color" content="#0b1d3f" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/fonts/uicons-br.css" />
+    <link rel="stylesheet" href={`/fonts/uicons-br.css?v=${verIconos}`} />
     <link rel="stylesheet" href="/fonts/uicons-brands.css" />
   </head>
   <body>

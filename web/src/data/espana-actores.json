@@ -1,47 +1,393 @@
 {
  "_nota": "Importado de las hojas 064 y 065 (Nico, 24/10/2026). Regla de neutralidad: «qué propone» y «diagnóstico» solo se muestran si salen de un documento programático publicado, no de portadas ni declaraciones de campaña.",
  "otras": [
-  {"nombre":"Se Acabó La Fiesta (SALF)","tipo":"Partido sin escaños en el Congreso (sí en el Parlamento Europeo)","dirige":"Alvise Pérez","concurre":"Pendiente de proclamación","web":"https://www.seacabolafiesta.com","documento":null},
-  {"nombre":"Democracia21","tipo":"Partido nuevo, en coalición con Ciudadanos y UCIN","dirige":"Miriam González Durántez","concurre":"Pendiente de proclamación (recogiendo avales en Madrid y Barcelona)","web":"https://democracia21.es","documento":{"titulo":"Manifiesto «La otra política» y «Soluciones»","url":"https://democracia21.es","fecha":"10 de octubre de 2026"},"diagnostico":"«Nos dijeron que había dos Españas. Curioso: para repartirse los cargos nunca parecen tan distintas. Mientras discutían, la vivienda se volvió imposible, los jóvenes se fueron y la burocracia creció como una religión.»"},
-  {"nombre":"Iustitia Europa","tipo":"Partido («antipartido»), sin escaños","dirige":"Candidato por Madrid: Pardo","concurre":"Pendiente de proclamación (recogiendo firmas en Madrid)","web":"https://iustitiaeuropa.es","documento":{"titulo":"Contrato Electoral (15 puntos)","url":"https://iustitiaeuropa.es/contrato-electoral/","fecha":""},"diagnostico":"«El régimen del 78 ha derivado en una corrupción estructural e institucional que ha podrido el sistema desde dentro.»"},
-  {"nombre":"Frente Obrero","tipo":"Partido sin escaños","dirige":"Roberto Vaquero","concurre":"Pendiente de proclamación","web":"https://frenteobrero.es","documento":{"titulo":"«Un programa para recuperar España» (21 apartados)","url":"https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf","fecha":"octubre de 2026"},"diagnostico":"«La partitocracia está bien estructurada, se dan alternancias en el poder a izquierda y derecha, pero en esencia nada cambia: todos defienden los mismos intereses.»"},
-  {"nombre":"Escaños en Blanco","tipo":"Partido instrumental, sin escaños","dirige":"Dirección colegiada","concurre":"Pendiente de proclamación","web":"https://escanos.org","documento":{"titulo":"Programa electoral de artículo único","url":"https://escanos.org/conocenos/programa-electoral-de-escanos-en-blanco/","fecha":""},"diagnostico":"Busca «visibilizar y hacer eficaz, mediante los correspondientes escaños vacíos, la voluntad de los electores que no están conformes con el sistema representativo vigente»."},
-  {"nombre":"PACMA","tipo":"Partido sin escaños en el Congreso","dirige":"Javier Luna","concurre":"Pendiente de proclamación; programa del 29N aún no publicado","web":"https://pacma.es","documento":{"titulo":"Página de programa (posicionamiento permanente)","url":"https://pacma.es/programa-electoral/","fecha":""}}
+  {
+   "nombre": "Se Acabó La Fiesta (SALF)",
+   "tipo": "Partido sin escaños en el Congreso (sí en el Parlamento Europeo)",
+   "dirige": "Alvise Pérez",
+   "concurre": "Pendiente de proclamación",
+   "web": "https://www.seacabolafiesta.com",
+   "documento": null
+  },
+  {
+   "nombre": "Democracia21",
+   "tipo": "Partido nuevo, en coalición con Ciudadanos y UCIN",
+   "dirige": "Miriam González Durántez",
+   "concurre": "Pendiente de proclamación (recogiendo avales en Madrid y Barcelona)",
+   "web": "https://democracia21.es",
+   "documento": {
+    "titulo": "Manifiesto «La otra política» y «Soluciones»",
+    "url": "https://democracia21.es",
+    "fecha": "10 de octubre de 2026"
+   },
+   "diagnostico": "«Nos dijeron que había dos Españas. Curioso: para repartirse los cargos nunca parecen tan distintas. Mientras discutían, la vivienda se volvió imposible, los jóvenes se fueron y la burocracia creció como una religión.»"
+  },
+  {
+   "nombre": "Iustitia Europa",
+   "tipo": "Partido («antipartido»), sin escaños",
+   "dirige": "Candidato por Madrid: Pardo",
+   "concurre": "Pendiente de proclamación (recogiendo firmas en Madrid)",
+   "web": "https://iustitiaeuropa.es",
+   "documento": {
+    "titulo": "Contrato Electoral (15 puntos)",
+    "url": "https://iustitiaeuropa.es/contrato-electoral/",
+    "fecha": ""
+   },
+   "diagnostico": "«El régimen del 78 ha derivado en una corrupción estructural e institucional que ha podrido el sistema desde dentro.»"
+  },
+  {
+   "nombre": "Frente Obrero",
+   "tipo": "Partido sin escaños",
+   "dirige": "Roberto Vaquero",
+   "concurre": "Pendiente de proclamación",
+   "web": "https://frenteobrero.es",
+   "documento": {
+    "titulo": "«Un programa para recuperar España» (21 apartados)",
+    "url": "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+    "fecha": "octubre de 2026"
+   },
+   "diagnostico": "«La partitocracia está bien estructurada, se dan alternancias en el poder a izquierda y derecha, pero en esencia nada cambia: todos defienden los mismos intereses.»"
+  },
+  {
+   "nombre": "Escaños en Blanco",
+   "tipo": "Partido instrumental, sin escaños",
+   "dirige": "Dirección colegiada",
+   "concurre": "Pendiente de proclamación",
+   "web": "https://escanos.org",
+   "documento": {
+    "titulo": "Programa electoral de artículo único",
+    "url": "https://escanos.org/conocenos/programa-electoral-de-escanos-en-blanco/",
+    "fecha": ""
+   },
+   "diagnostico": "Busca «visibilizar y hacer eficaz, mediante los correspondientes escaños vacíos, la voluntad de los electores que no están conformes con el sistema representativo vigente»."
+  },
+  {
+   "nombre": "PACMA",
+   "tipo": "Partido sin escaños en el Congreso",
+   "dirige": "Javier Luna",
+   "concurre": "Pendiente de proclamación; programa del 29N aún no publicado",
+   "web": "https://pacma.es",
+   "documento": {
+    "titulo": "Página de programa (posicionamiento permanente)",
+    "url": "https://pacma.es/programa-electoral/",
+    "fecha": ""
+   }
+  }
  ],
  "organizaciones": [
-  {"nombre":"Civio","tipo":"Fundación de periodismo y vigilancia del poder","web":"https://civio.es","documento":{"titulo":"Propuestas de transparencia y rendición de cuentas","url":"https://civio.es/propuestas-transparencia/"},"diagnostico":"Señala promesas que «nunca llegan a cumplirse, año tras año, legislatura tras legislatura, como la regulación del lobby, la publicación de las agendas de altos cargos y diputados, los sistemas independientes de control anticorrupción»."},
-  {"nombre":"Decidim","tipo":"Asociación y plataforma digital de código libre","web":"https://decidim.org/es/","documento":{"titulo":"Plataforma Decidim","url":"https://decidim.org/es/"}},
-  {"nombre":"Deliberativa","tipo":"Asociación sin ánimo de lucro","web":"https://deliberativa.org","documento":{"titulo":"Método de mini-públicos deliberativos","url":"https://deliberativa.org/nosotros/"}},
-  {"nombre":"Junta Democrática de España","tipo":"Organización civil","web":"https://www.juntademocratica.com","documento":{"titulo":"Manifiesto y estatutos","url":"https://www.juntademocratica.com/quienes-somos/"}},
-  {"nombre":"Transparency International España","tipo":"Fundación de vigilancia anticorrupción","web":"https://transparencia.org.es","documento":{"titulo":"«Fortaleciendo la Integridad. 100 recomendaciones para una Estrategia Nacional Anticorrupción»","url":"https://transparencia.org.es/actualidad/transparency-international-espana-presenta-100-recomendaciones-para-impulsar-una-estrategia-nacional-anticorrupcion/","fecha":"22 de octubre de 2026"},"diagnostico":"«La corrupción es una de las mayores amenazas a la democracia y proteger al sistema contra esta amenaza es responsabilidad de todos los grupos parlamentarios.»"},
-  {"nombre":"Xnet","tipo":"Colectivo de derechos digitales y vigilancia del poder","web":"https://xnet-x.net","documento":{"titulo":"Recomendaciones de políticas","url":"https://xnet-x.net/ejes/recomendaciones-de-politicas/"}}
+  {
+   "nombre": "Civio",
+   "tipo": "Fundación de periodismo y vigilancia del poder",
+   "web": "https://civio.es",
+   "documento": {
+    "titulo": "Propuestas de transparencia y rendición de cuentas",
+    "url": "https://civio.es/propuestas-transparencia/"
+   },
+   "diagnostico": "Señala promesas que «nunca llegan a cumplirse, año tras año, legislatura tras legislatura, como la regulación del lobby, la publicación de las agendas de altos cargos y diputados, los sistemas independientes de control anticorrupción»."
+  },
+  {
+   "nombre": "Decidim",
+   "tipo": "Asociación y plataforma digital de código libre",
+   "web": "https://decidim.org/es/",
+   "documento": {
+    "titulo": "Plataforma Decidim",
+    "url": "https://decidim.org/es/"
+   }
+  },
+  {
+   "nombre": "Deliberativa",
+   "tipo": "Asociación sin ánimo de lucro",
+   "web": "https://deliberativa.org",
+   "documento": {
+    "titulo": "Método de mini-públicos deliberativos",
+    "url": "https://deliberativa.org/nosotros/"
+   }
+  },
+  {
+   "nombre": "Junta Democrática de España",
+   "tipo": "Organización civil",
+   "web": "https://www.juntademocratica.com",
+   "documento": {
+    "titulo": "Manifiesto y estatutos",
+    "url": "https://www.juntademocratica.com/quienes-somos/"
+   }
+  },
+  {
+   "nombre": "Transparency International España",
+   "tipo": "Fundación de vigilancia anticorrupción",
+   "web": "https://transparencia.org.es",
+   "documento": {
+    "titulo": "«Fortaleciendo la Integridad. 100 recomendaciones para una Estrategia Nacional Anticorrupción»",
+    "url": "https://transparencia.org.es/actualidad/transparency-international-espana-presenta-100-recomendaciones-para-impulsar-una-estrategia-nacional-anticorrupcion/",
+    "fecha": "22 de octubre de 2026"
+   },
+   "diagnostico": "«La corrupción es una de las mayores amenazas a la democracia y proteger al sistema contra esta amenaza es responsabilidad de todos los grupos parlamentarios.»"
+  },
+  {
+   "nombre": "Xnet",
+   "tipo": "Colectivo de derechos digitales y vigilancia del poder",
+   "web": "https://xnet-x.net",
+   "documento": {
+    "titulo": "Recomendaciones de políticas",
+    "url": "https://xnet-x.net/ejes/recomendaciones-de-politicas/"
+   }
+  }
  ],
  "propuestas": [
-  ["Frente Obrero","Empleo y salarios","Subida general de los salarios ligada al coste de la vida.","«Aumento general de los salarios en relación al coste de la vida.»","Un programa para recuperar España","p. 8","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Empleo y salarios","Prohibir las empresas de trabajo temporal.","«Prohibición de las empresas de trabajo temporal (ETTS).»","Un programa para recuperar España","p. 8","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Impuestos","Bajar el IRPF a las rentas bajas y subirlo a las altas.","«Reducir el impuesto sobre la renta a los trabajadores con menos recursos, a la par que incrementarlo para las rentas más altas.»","Un programa para recuperar España","p. 17","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Impuestos","Bajar el IVA y llevar los productos de primera necesidad al tipo superreducido.","«Disminuir la carga fiscal del IVA e incorporar de forma progresiva todas las mercancías de primera necesidad en el tipo superreducido.»","Un programa para recuperar España","p. 17","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Vivienda","Construir vivienda pública de calidad para ampliar el parque.","«Construir vivienda pública de calidad para aumentar el número de inmuebles existentes.»","Un programa para recuperar España","p. 44","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Vivienda","Frenar la especulación de bancos, fondos y pisos turísticos.","«Luchar contra la especulación de bancos, fondos buitre y grandes rentistas.»","Un programa para recuperar España","p. 45","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Política exterior","Salir de la Unión Europea.","«Salida de la Unión Europea para recuperar nuestra soberanía nacional.»","Un programa para recuperar España","p. 10","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Política exterior","Salir de la OTAN y reforzar el ejército.","«Salida inmediata de la OTAN y reforzamiento de nuestro ejército.»","Un programa para recuperar España","p. 10","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Inmigración","Deportar de inmediato a quien entre o permanezca incumpliendo la ley.","«Todo aquel que incumpla nuestras leyes debe de ser deportado de inmediato.»","Un programa para recuperar España","p. 50","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Frente Obrero","Pensiones","Dirigir los recursos generados en España a financiar las pensiones.","«Dirigir los recursos que se generen en España a financiar las mismas.»","Un programa para recuperar España","p. 47","https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf"],
-  ["Iustitia Europa","Calidad democrática","Elegir directamente al presidente del Gobierno.","«Elección directa del Presidente del Gobierno.»","Contrato Electoral","punto 2","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Iustitia Europa","Calidad democrática","Referéndums vinculantes.","«Referéndum vinculante.»","Contrato Electoral","punto 2","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Iustitia Europa","Calidad democrática","Eliminar la inmunidad y los aforamientos de diputados y senadores.","«Eliminación de la inmunidad y aforamientos de diputados y senadores.»","Contrato Electoral","punto 2","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Iustitia Europa","Calidad democrática","Elegir diputados y senadores sin listas cerradas, en distritos de un solo escaño.","«Elección directa de Diputados y Senadores sin listas cerradas.»","Contrato Electoral","punto 2","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Iustitia Europa","Calidad democrática","Que los jueces elijan al Consejo General del Poder Judicial.","«El CGPJ es elegido por los jueces, no por los políticos.»","Contrato Electoral","punto 3","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Iustitia Europa","Calidad democrática","Garantizar la acción popular de la ciudadanía ante los tribunales.","«Los ciudadanos… tienen el derecho inalienable a ejercer la acción popular como garantía de control democrático del sistema judicial.»","Contrato Electoral","punto 4","https://iustitiaeuropa.es/contrato-electoral/"],
-  ["Escaños en Blanco","Calidad democrática","Que los elegidos no tomen posesión y dejen el escaño vacío.","«Artículo único: No tomaremos posesión del cargo.»","Programa electoral","página única","https://escanos.org/conocenos/programa-electoral-de-escanos-en-blanco/"],
-  ["Democracia21","Calidad democrática","Cortar el clientelismo y despolitizar las instituciones.","«Cortar el clientelismo, atajar la corrupción, despolitizar las instituciones y devolver el control a la ciudadanía.»","Soluciones","web","https://democracia21.es"],
-  ["Democracia21","Vivienda","Plan de choque de vivienda y Plan Nacional de Barrios.","«Un plan de choque para dar un respiro hoy y un Plan Nacional de Barrios para resolverlo para siempre.»","Soluciones","web","https://democracia21.es"],
-  ["PACMA","Animales","Prohibir los festejos taurinos y la caza, endurecer las penas por maltrato y sacrificio cero.","«La prohibición de los festejos taurinos y la caza, el endurecimiento real de las penas por maltrato animal, un sacrificio cero real.»","Página de programa","web","https://pacma.es/programa-electoral/"],
-  ["Junta Democrática de España","Calidad democrática","Elección directa de los representantes y separación de poderes de origen.","«Un sistema de elección directa de los representantes políticos» y «la separación de poderes de origen».","Quiénes somos","web","https://www.juntademocratica.com/quienes-somos/"],
-  ["Deliberativa","Calidad democrática","Incorporar paneles y asambleas ciudadanas por sorteo al sistema político.","«Acompañamos a gobiernos e instituciones de todos los colores políticos en la implementación y expansión de prácticas deliberativas.»","Nosotros","web","https://deliberativa.org/nosotros/"],
-  ["Decidim","Calidad democrática","Plataformas digitales de participación para proponer y votar a cualquier escala.","«Ayuda a ciudadanía, organizaciones e instituciones públicas a autoorganizarse democráticamente a cualquier escala.»","Web de Decidim","web","https://decidim.org/es/"],
-  ["Xnet","Calidad democrática","Exigir más transparencia a los representantes del Estado en la ley de lobbies.","«Se debería exigir más transparencia a los representantes del Estado, que son quienes toman las decisiones.»","Recomendaciones de políticas","26/8/2026","https://xnet-x.net/ejes/recomendaciones-de-politicas/"],
-  ["Civio","Calidad democrática","Agendas públicas de altos cargos y diputados y registro obligatorio de lobbies.","«Las agendas de trabajo de todos los altos cargos y los miembros de las cámaras deben ser públicas.»","Propuestas de transparencia","web","https://civio.es/propuestas-transparencia/"]
+  [
+   "Frente Obrero",
+   "Empleo y salarios",
+   "Subida general de los salarios ligada al coste de la vida.",
+   "«Aumento general de los salarios en relación al coste de la vida.»",
+   "Un programa para recuperar España",
+   "p. 8",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-01"
+  ],
+  [
+   "Frente Obrero",
+   "Empleo y salarios",
+   "Prohibir las empresas de trabajo temporal.",
+   "«Prohibición de las empresas de trabajo temporal (ETTS).»",
+   "Un programa para recuperar España",
+   "p. 8",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-02"
+  ],
+  [
+   "Frente Obrero",
+   "Impuestos",
+   "Bajar el IRPF a las rentas bajas y subirlo a las altas.",
+   "«Reducir el impuesto sobre la renta a los trabajadores con menos recursos, a la par que incrementarlo para las rentas más altas.»",
+   "Un programa para recuperar España",
+   "p. 17",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-03"
+  ],
+  [
+   "Frente Obrero",
+   "Impuestos",
+   "Bajar el IVA y llevar los productos de primera necesidad al tipo superreducido.",
+   "«Disminuir la carga fiscal del IVA e incorporar de forma progresiva todas las mercancías de primera necesidad en el tipo superreducido.»",
+   "Un programa para recuperar España",
+   "p. 17",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-04"
+  ],
+  [
+   "Frente Obrero",
+   "Vivienda",
+   "Construir vivienda pública de calidad para ampliar el parque.",
+   "«Construir vivienda pública de calidad para aumentar el número de inmuebles existentes.»",
+   "Un programa para recuperar España",
+   "p. 44",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-05"
+  ],
+  [
+   "Frente Obrero",
+   "Vivienda",
+   "Frenar la especulación de bancos, fondos y pisos turísticos.",
+   "«Luchar contra la especulación de bancos, fondos buitre y grandes rentistas.»",
+   "Un programa para recuperar España",
+   "p. 45",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-06"
+  ],
+  [
+   "Frente Obrero",
+   "Política exterior",
+   "Salir de la Unión Europea.",
+   "«Salida de la Unión Europea para recuperar nuestra soberanía nacional.»",
+   "Un programa para recuperar España",
+   "p. 10",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-07"
+  ],
+  [
+   "Frente Obrero",
+   "Política exterior",
+   "Salir de la OTAN y reforzar el ejército.",
+   "«Salida inmediata de la OTAN y reforzamiento de nuestro ejército.»",
+   "Un programa para recuperar España",
+   "p. 10",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-08"
+  ],
+  [
+   "Frente Obrero",
+   "Inmigración",
+   "Deportar de inmediato a quien entre o permanezca incumpliendo la ley.",
+   "«Todo aquel que incumpla nuestras leyes debe de ser deportado de inmediato.»",
+   "Un programa para recuperar España",
+   "p. 50",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-09"
+  ],
+  [
+   "Frente Obrero",
+   "Pensiones",
+   "Dirigir los recursos generados en España a financiar las pensiones.",
+   "«Dirigir los recursos que se generen en España a financiar las mismas.»",
+   "Un programa para recuperar España",
+   "p. 47",
+   "https://frenteobrero.es/wp-content/uploads/2026/10/Programa.pdf",
+   "es-frente-obrero-10"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Elegir directamente al presidente del Gobierno.",
+   "«Elección directa del Presidente del Gobierno.»",
+   "Contrato Electoral",
+   "punto 2",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-01"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Referéndums vinculantes.",
+   "«Referéndum vinculante.»",
+   "Contrato Electoral",
+   "punto 2",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-02"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Eliminar la inmunidad y los aforamientos de diputados y senadores.",
+   "«Eliminación de la inmunidad y aforamientos de diputados y senadores.»",
+   "Contrato Electoral",
+   "punto 2",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-03"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Elegir diputados y senadores sin listas cerradas, en distritos de un solo escaño.",
+   "«Elección directa de Diputados y Senadores sin listas cerradas.»",
+   "Contrato Electoral",
+   "punto 2",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-04"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Que los jueces elijan al Consejo General del Poder Judicial.",
+   "«El CGPJ es elegido por los jueces, no por los políticos.»",
+   "Contrato Electoral",
+   "punto 3",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-05"
+  ],
+  [
+   "Iustitia Europa",
+   "Calidad democrática",
+   "Garantizar la acción popular de la ciudadanía ante los tribunales.",
+   "«Los ciudadanos… tienen el derecho inalienable a ejercer la acción popular como garantía de control democrático del sistema judicial.»",
+   "Contrato Electoral",
+   "punto 4",
+   "https://iustitiaeuropa.es/contrato-electoral/",
+   "es-iustitia-europa-06"
+  ],
+  [
+   "Escaños en Blanco",
+   "Calidad democrática",
+   "Que los elegidos no tomen posesión y dejen el escaño vacío.",
+   "«Artículo único: No tomaremos posesión del cargo.»",
+   "Programa electoral",
+   "página única",
+   "https://escanos.org/conocenos/programa-electoral-de-escanos-en-blanco/",
+   "es-escanos-en-blanco-01"
+  ],
+  [
+   "Democracia21",
+   "Calidad democrática",
+   "Cortar el clientelismo y despolitizar las instituciones.",
+   "«Cortar el clientelismo, atajar la corrupción, despolitizar las instituciones y devolver el control a la ciudadanía.»",
+   "Soluciones",
+   "web",
+   "https://democracia21.es",
+   "es-democracia21-01"
+  ],
+  [
+   "Democracia21",
+   "Vivienda",
+   "Plan de choque de vivienda y Plan Nacional de Barrios.",
+   "«Un plan de choque para dar un respiro hoy y un Plan Nacional de Barrios para resolverlo para siempre.»",
+   "Soluciones",
+   "web",
+   "https://democracia21.es",
+   "es-democracia21-02"
+  ],
+  [
+   "PACMA",
+   "Animales",
+   "Prohibir los festejos taurinos y la caza, endurecer las penas por maltrato y sacrificio cero.",
+   "«La prohibición de los festejos taurinos y la caza, el endurecimiento real de las penas por maltrato animal, un sacrificio cero real.»",
+   "Página de programa",
+   "web",
+   "https://pacma.es/programa-electoral/",
+   "es-pacma-01"
+  ],
+  [
+   "Junta Democrática de España",
+   "Calidad democrática",
+   "Elección directa de los representantes y separación de poderes de origen.",
+   "«Un sistema de elección directa de los representantes políticos» y «la separación de poderes de origen».",
+   "Quiénes somos",
+   "web",
+   "https://www.juntademocratica.com/quienes-somos/",
+   "es-junta-democratica-de-espana-01"
+  ],
+  [
+   "Deliberativa",
+   "Calidad democrática",
+   "Incorporar paneles y asambleas ciudadanas por sorteo al sistema político.",
+   "«Acompañamos a gobiernos e instituciones de todos los colores políticos en la implementación y expansión de prácticas deliberativas.»",
+   "Nosotros",
+   "web",
+   "https://deliberativa.org/nosotros/",
+   "es-deliberativa-01"
+  ],
+  [
+   "Decidim",
+   "Calidad democrática",
+   "Plataformas digitales de participación para proponer y votar a cualquier escala.",
+   "«Ayuda a ciudadanía, organizaciones e instituciones públicas a autoorganizarse democráticamente a cualquier escala.»",
+   "Web de Decidim",
+   "web",
+   "https://decidim.org/es/",
+   "es-decidim-01"
+  ],
+  [
+   "Xnet",
+   "Calidad democrática",
+   "Exigir más transparencia a los representantes del Estado en la ley de lobbies.",
+   "«Se debería exigir más transparencia a los representantes del Estado, que son quienes toman las decisiones.»",
+   "Recomendaciones de políticas",
+   "26/8/2026",
+   "https://xnet-x.net/ejes/recomendaciones-de-politicas/",
+   "es-xnet-01"
+  ],
+  [
+   "Civio",
+   "Calidad democrática",
+   "Agendas públicas de altos cargos y diputados y registro obligatorio de lobbies.",
+   "«Las agendas de trabajo de todos los altos cargos y los miembros de las cámaras deben ser públicas.»",
+   "Propuestas de transparencia",
+   "web",
+   "https://civio.es/propuestas-transparencia/",
+   "es-civio-01"
+  ]
  ],
- "temaPP": {"Soberanía y fronteras":"Inmigración","Administración":"Calidad democrática","Salarios":"Empleo y salarios"}
+ "temaPP": {
+  "Soberanía y fronteras": "Inmigración",
+  "Administración": "Calidad democrática",
+  "Salarios": "Empleo y salarios"
+ }
 }

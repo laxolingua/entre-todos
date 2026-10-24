@@ -19,8 +19,10 @@ fnt = subset.load_font(fuente, opts)
 s = subset.Subsetter(opts); s.populate(unicodes=[int(mapa[n], 16) for n in usados]); s.subset(fnt)
 subset.save_font(fnt, destino, opts)
 reglas = ''.join(f'.fi-br-{n}:before{{content:"\\{mapa[n]}"}}' for n in usados)
+import hashlib
+ver = hashlib.md5(open(destino, 'rb').read()).hexdigest()[:8]
 open(os.path.join(salida, 'fonts/uicons-br.css'), 'w').write(
-    '@font-face{font-family:uicons-br;src:url(/fonts/uicons-br.woff2) format("woff2");font-display:swap}'
+    '@font-face{font-family:uicons-br;src:url(/fonts/uicons-br.woff2?v=' + ver + ') format("woff2");font-display:swap}'
     'i[class^=fi-br-]:before,i[class*=" fi-br-"]:before,span[class^=fi-br-]:before,span[class*=" fi-br-"]:before'
     '{font-family:uicons-br!important;font-style:normal;font-weight:400!important;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased}'
     + reglas)

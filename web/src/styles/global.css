@@ -1768,3 +1768,8 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .props-es p { margin: 0; }
 .autor-es summary { cursor: pointer; font-size: .85rem; font-weight: 700; color: var(--rojo); text-transform: uppercase; letter-spacing: .04em; }
 .autor-es p { margin: 4px 0 0; font-size: .92rem; }
+
+.valorar-es { margin: 6px 0 2px; }
+.valorar-es .dato-titulo { margin: 4px 0 0; font-weight: 700; color: var(--marino); font-size: .9rem; }
+.valorar-es .escala { margin: 8px 0 4px; max-width: 520px; }
+.valorar-es .escala button { min-height: 52px; font-size: .78rem; }
