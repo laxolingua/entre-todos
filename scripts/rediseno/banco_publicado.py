@@ -61,4 +61,7 @@ if os.path.exists(fu):
 datos = {'meta': {'totales': {'propuestas': len(propuestas), 'documentos': n_docs, 'autorias': len(aut_f or autorias)}},
          'propuestas': propuestas, 'documentos': documentos, 'actores': [], 'cuestiones': cuestiones}
 json.dump(datos, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False)
+# Cifras que muestran la portada, Sobre nosotros y Propuestas: siempre las mismas que el banco publicado.
+cif = os.path.join(os.path.dirname(OUT), 'cifras-publicadas.json')
+json.dump({'propuestas': len(propuestas), 'documentos': n_docs, 'autorias': len(aut_f or autorias), 'cuestiones': len(cuestiones)}, open(cif, 'w', encoding='utf-8'))
 print('propuestas', len(propuestas), '· documentos', len(documentos), '· autorías', len(autorias), '· cuestiones', len(cuestiones))

@@ -66,6 +66,22 @@ for (const f of recorrer(RAIZ)) {
 }
 const fp = path.join(RAIZ, 'propuesta/fuerzas-seguridad-civiles/index.html');
 if (!fs.readFileSync(fp, 'utf8').includes('og/propuesta/fuerzas-seguridad-civiles.jpg')) fallos.push('Las fichas no tienen su tarjeta para compartir.');
+// Cifras coherentes: lo que dicen la portada y Sobre nosotros = lo que hay publicado.
+{
+  const leerHtml = (r) => { const p = path.join(RAIZ, r, 'index.html'); return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : ''; };
+  const reales = {
+    propuestas: fs.readdirSync(path.join(RAIZ, 'propuesta')).filter((d) => fs.existsSync(path.join(RAIZ, 'propuesta', d, 'index.html'))).length,
+    documentos: (leerHtml('fuentes').split('<tbody')[1] || '').split('</tbody>')[0].split('<tr').length - 1,
+    cuestiones: (leerHtml('cuestiones').match(/class="cuestion-bloque/g) || []).length,
+  };
+  for (const r of ['', 'sobre']) {
+    const h = leerHtml(r);
+    for (const [k, v] of Object.entries(reales)) {
+      const m = h.match(new RegExp('(\\d+)</strong>\\s*' + k));
+      if (m && v && +m[1] !== v) fallos.push(`Cifra incoherente en /${r}: dice ${m[1]} ${k} y hay ${v} publicadas.`);
+    }
+  }
+}
 if (rotos.size) fallos.push(`Enlaces rotos: ${[...rotos].slice(0, 10).join(', ')}`);
 
 await nav.close();
