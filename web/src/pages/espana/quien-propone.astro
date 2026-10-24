@@ -34,7 +34,7 @@ const nPropuestas = (n) => ac.propuestas.filter((p) => p[0] === n).length;
             <p class="discreto">{a.tipo}. {a.dirige}.</p>
             <p class="estado"><i class="fi fi-br-hourglass-end" aria-hidden="true"></i> {a.concurre}</p>
             {a.diagnostico && <p class="diag-es"><span>Cómo describe el problema</span>{a.diagnostico}</p>}
-            {nPropuestas(a.nombre) > 0 && <p class="discreto">{nPropuestas(a.nombre)} propuestas recogidas en <a href="/espana/propuestas/#por-tema">Propuestas por tema</a>.</p>}
+            {nPropuestas(a.nombre) > 0 && <p class="discreto">{nPropuestas(a.nombre)} {nPropuestas(a.nombre) === 1 ? 'propuesta recogida' : 'propuestas recogidas'} en <a href="/espana/propuestas/#por-tema">Propuestas por tema</a>.</p>}
             {a.documento ? <a class="enlace-flecha" href={a.documento.url} rel="noopener" target="_blank">{a.documento.titulo} <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>
               : <a class="enlace-flecha" href={a.web} rel="noopener" target="_blank">Web oficial <i class="fi fi-br-arrow-up-right-from-square" aria-hidden="true"></i></a>}
           </li>
