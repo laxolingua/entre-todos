@@ -9,7 +9,7 @@ P = sys.argv[1]
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = '/tmp/claude-0/og-cache'
 os.makedirs(CACHE, exist_ok=True)
-VERSION = 'v4'
+VERSION = 'v5'
 SITIO = 'https://entre-todos.org'
 F = os.path.join(AQUI, 'fuentes')
 def fnt(n, s): return ImageFont.truetype(os.path.join(F, n), s)
@@ -28,45 +28,54 @@ def lineas(d, t, f, w):
     out.append(l); return out
 
 def tarjeta(foto, cat, tit, dest, voto=0):
-    W, H = 1200, 630
-    im = Image.new('RGB', (W, H), M)
+    """Tarjeta al estilo de los banners del sitio (aprobada por Mitch el 24/10/2026): tarjeta blanca con
+    bordes redondos sobre fondo gris claro, foto en diagonal a la derecha y triángulo marino con puntos."""
+    W, H, S, MG = 1200, 630, 2, 24          # S: supermuestreo para bordes suaves; MG: margen de la tarjeta
+    w, h = (W - 2 * MG) * S, (H - 2 * MG) * S
+    card = Image.new('RGB', (w, h), B); d = ImageDraw.Draw(card)
+    fx = 556 * S
     try:
-        f = ImageOps.fit(Image.open(foto).convert('L'), (560, H)); f = ImageEnhance.Contrast(f).enhance(1.1).filter(ImageFilter.GaussianBlur(0.8))
-        im.paste(Image.merge('RGB', (f, f, f)), (W - 560, 0))
+        f = ImageOps.fit(Image.open(foto).convert('L'), (w - fx, h)); f = ImageEnhance.Contrast(f).enhance(1.12)
+        m = Image.new('L', f.size, 0); ImageDraw.Draw(m).polygon([(int(h / 1.732), 0), (f.size[0], 0), (f.size[0], f.size[1]), (0, f.size[1])], fill=255)
+        card.paste(Image.merge('RGB', (f, f, f)), (fx, 0), m)
     except Exception:
         pass
-    d = ImageDraw.Draw(im)
-    x0, s = 700, int(H / 1.732)
-    d.polygon([(0, 0), (x0, 0), (x0 - s, H), (0, H)], fill=M)
-    d.polygon([(x0, 0), (x0 + 22, 0), (x0 + 22 - s, H), (x0 - s, H)], fill=R)
-    d.polygon([(W - 70, H - 180), (W - 40, H - 180), (W - 110, H - 60), (W - 140, H - 60)], fill=A)
-    d.text((56, 30), 'ENTRE', font=LOGO, fill=B); d.text((56, 66), 'TODOS', font=LOGO, fill=R)
-    d.rectangle([182, 38, 186, 110], fill=A)
-    d.text((204, 44), 'PROPUESTAS PARA', font=SUB, fill=B); d.text((204, 74), 'UNA NUEVA CUBA', font=SUB, fill=B)
-    d.text((56, 134), cat.upper(), font=CAT, fill=A)
-    y = 168
-    for tam in (64, 56, 50, 44):
-        ft = fnt('BarlowCondensed-800.ttf', tam); ls = lineas(d, tit.upper(), ft, 500)
+    tri = Image.new('RGB', (w, h), M); dt = ImageDraw.Draw(tri)
+    for yy in range(0, h, 14 * S):
+        for xx in range(0, w, 14 * S): dt.ellipse([xx, yy, xx + 2 * S, yy + 2 * S], fill=(60, 78, 118))
+    mt = Image.new('L', (w, h), 0); ImageDraw.Draw(mt).polygon([(w, h - 300 * S), (w, h), (w - int(300 * S / 1.732 * 1.15), h)], fill=255)
+    card.paste(tri, (0, 0), mt)
+    d = ImageDraw.Draw(card)
+    TX = fnt('BarlowCondensed-800.ttf', 30 * S)
+    for k, pal in enumerate(['PROPONER', 'VALORAR', 'VOTAR']):
+        d.text((w - 158 * S, h - 128 * S + k * 33 * S), pal, font=TX, fill=B)
+    d.rectangle([w - 158 * S, h - 22 * S, w - 108 * S, h - 17 * S], fill=R)
+    x = 48 * S
+    LG = fnt('BarlowCondensed-800.ttf', 40 * S); SB = fnt('Barlow-500.ttf', 20 * S)
+    d.text((x, 24 * S), 'ENTRE', font=LG, fill=M); d.text((x, 57 * S), 'TODOS', font=LG, fill=R)
+    d.rectangle([166 * S, 32 * S, 170 * S, 96 * S], fill=A)
+    d.text((186 * S, 38 * S), 'PROPUESTAS PARA', font=SB, fill=M); d.text((186 * S, 66 * S), 'UNA NUEVA CUBA', font=SB, fill=M)
+    d.rectangle([x, 136 * S, x + 64 * S, 143 * S], fill=A)
+    d.text((x, 156 * S), cat.upper(), font=fnt('Barlow-500.ttf', 21 * S), fill=R)
+    y = 188 * S
+    for tam in (62, 55, 49, 44):
+        ft = fnt('BarlowCondensed-800.ttf', tam * S); ls = lineas(d, tit.upper(), ft, 480 * S)
         if len(ls) <= 3: break
-    if len(ls) > 3: ls = ls[:3]; ls[-1] = ls[-1].rstrip('.,;:') + '…'
-    for l in ls: d.text((56, y), l, font=ft, fill=B); y += int(tam * 1.03)
-    y = max(y + 14, 370); x = 56
-    for i, c in enumerate(COL):
-        sel = voto == i + 1
-        pts = [(x + 12, y), (x + 92, y), (x + 80, y + 36), (x, y + 36)]
-        d.polygon(pts, fill=A if sel else c)
-        if sel: d.polygon(pts, outline=B, width=3)
-        x += 88
-    d.text((56, y + 44), 'EN CONTRA', font=EXT, fill=(200, 210, 230))
-    w = d.textlength('A FAVOR', font=EXT); d.text((56 + 88 * 5 - 12 - w, y + 44), 'A FAVOR', font=EXT, fill=(200, 210, 230))
-    y += 84
-    l1 = '¿TÚ QUÉ PIENSAS?' if not voto else f'YO VOTÉ: {OPC[voto - 1].upper()}. ¿Y TÚ?'
-    l2 = 'VOTA EN ENTRE-TODOS.ORG'
-    ancho = max(d.textlength(l1, font=CTA), d.textlength(l2, font=CTA2)) + 36
-    d.rectangle([56, y, 56 + ancho, y + 96], fill=A)
-    d.text((74, y + 4), l1, font=CTA, fill=M)
-    d.text((74, y + 54), l2, font=CTA2, fill=M)
-    im.save(dest, quality=75, optimize=True, progressive=True)
+    for l in ls[:3]: d.text((x, y), l, font=ft, fill=M); y += tam * S
+    y = max(y + 18 * S, 388 * S); xx = x
+    for c in COL:
+        d.polygon([(xx + 11 * S, y), (xx + 82 * S, y), (xx + 71 * S, y + 30 * S), (xx, y + 30 * S)], fill=c); xx += 78 * S
+    EX = fnt('Barlow-500.ttf', 16 * S)
+    d.text((x, y + 36 * S), 'EN CONTRA', font=EX, fill=(95, 107, 128))
+    wf = d.textlength('A FAVOR', font=EX); d.text((x + 78 * 5 * S - 11 * S - wf, y + 36 * S), 'A FAVOR', font=EX, fill=(95, 107, 128))
+    y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = '¿TÚ QUÉ PIENSAS? VOTA EN ENTRE-TODOS.ORG'
+    d.rectangle([x, y, x + d.textlength(t1, font=C1) + 32 * S, y + 50 * S], fill=R); d.text((x + 16 * S, y + 7 * S), t1, font=C1, fill=B)
+    fondo = Image.new('RGB', (W * S, H * S), (233, 237, 243))
+    sh = Image.new('L', (W * S, H * S), 0); ImageDraw.Draw(sh).rounded_rectangle([(MG + 6) * S, (MG + 10) * S, (W - MG - 2) * S, (H - MG + 6) * S], radius=30 * S, fill=45)
+    sh = sh.filter(ImageFilter.GaussianBlur(18 * S)); fondo.paste((200, 206, 216), (0, 0), sh)
+    mk = Image.new('L', (w, h), 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, w - 1, h - 1], radius=30 * S, fill=255)
+    fondo.paste(card, (MG * S, MG * S), mk)
+    fondo.resize((W, H), Image.LANCZOS).save(dest, quality=84, optimize=True, progressive=True)
 
 def con_cache(foto, cat, tit, dest, voto=0):
     clave = hashlib.sha1(json.dumps([VERSION, foto, os.path.getmtime(foto) if os.path.exists(foto) else 0, cat, tit, voto]).encode()).hexdigest()
