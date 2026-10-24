@@ -147,7 +147,7 @@ nuevo = [a for a in glob.glob(f'{P}/_astro/participacion.*.js') if 'Muy en contr
 nuevo.sort(key=lambda a: 'votante_entrar' not in open(a, encoding='utf-8').read())  # primero la versión con voto por documento
 if nuevo:
     ruta = '/_astro/' + os.path.basename(nuevo[0])
-    montaje = f'<script type="module">import("{ruta}").then(function(m){{m.iniciarParticipacion()}})</script>'
+    montaje = f'<script type="module">import("{ruta}").then(function(m){{(m.iniciarParticipacion||window.etIniciarParticipacion)()}})</script>'
     montadas = 0
     for f in glob.glob(f'{P}/propuesta/*/index.html'):
         t = open(f, encoding='utf-8').read()

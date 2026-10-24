@@ -330,6 +330,10 @@ export function iniciarParticipacion() {
   const a = document.getElementById('aportes');
   if (a) aportes(a);
 }
+// Gancho global: las páginas del banco fusionadas montan la participación con
+// import(chunk).then(m => (m.iniciarParticipacion || window.etIniciarParticipacion)()).
+// Si este módulo pasa a ser un chunk compartido, Vite acorta los nombres de exportación y el gancho sigue funcionando.
+if (typeof window !== 'undefined') window.etIniciarParticipacion = iniciarParticipacion;
 
 
 export { sb, sesion, ACTIVA, escapar };
