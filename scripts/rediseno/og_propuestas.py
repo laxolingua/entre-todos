@@ -9,7 +9,7 @@ P = sys.argv[1]
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = '/tmp/claude-0/og-cache'
 os.makedirs(CACHE, exist_ok=True)
-VERSION = 'v6'
+VERSION = 'v7'
 SITIO = 'https://entre-todos.org'
 F = os.path.join(AQUI, 'fuentes')
 def fnt(n, s): return ImageFont.truetype(os.path.join(F, n), s)
@@ -68,7 +68,7 @@ def tarjeta(foto, cat, tit, dest, voto=0):
         d.rectangle([x, y + 4 * S, x + 6 * S, y + 46 * S], fill=R)
         d.text((x + 18 * S, y + 2 * S), 'DERECHO FUNDAMENTAL', font=DF, fill=M)
         d.text((x + 18 * S, y + 30 * S), 'No se vota: se garantiza.', font=fnt('Barlow-500.ttf', 18 * S), fill=(95, 107, 128))
-        y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = '¿CÓMO GARANTIZARLO? LÉELO EN ENTRE-TODOS.ORG'
+        y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = 'LÉELO EN ENTRE-TODOS.ORG'
         d.rectangle([x, y, x + d.textlength(t1, font=C1) + 32 * S, y + 50 * S], fill=R); d.text((x + 16 * S, y + 7 * S), t1, font=C1, fill=B)
         COL_ = []
     else:
