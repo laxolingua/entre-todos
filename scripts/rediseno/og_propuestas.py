@@ -84,12 +84,12 @@ def meta(t, prop, valor, nombre=False):
     return pat.sub(nuevo, t, count=1) if pat.search(t) else t.replace('</head>', nuevo + '</head>', 1)
 
 DESC = 'Propuesta para una nueva Cuba. ¿Tú qué piensas? Vota en entre-todos.org'
-SCRIPT = """<script>(function(){var OPC=%s,ID=%s,T=%s,BASE='%s/propuesta/'+ID+'/';
+SCRIPT = """<script>(function(){var OPC=%s,ID=%s,T=%s,BASE=(/(^|\.)entre-todos\.org$/.test(location.hostname)?'%s':location.origin+(location.pathname.indexOf('/entre-todos-preview/')===0?'/entre-todos-preview':''))+'/propuesta/'+ID+'/';
 function url(v){return v?BASE+'mi-voto/'+v+'/':BASE}
 function texto(v){return v?'Yo voté «'+OPC[v-1]+'» en esta propuesta para una nueva Cuba: '+T+'. ¿Y tú? Vota en ENTRE TODOS: '+url(v):T+'. Propuesta para una nueva Cuba. ¿Tú qué piensas? Vota en ENTRE TODOS: '+url(0)}
 function abrir(red,v){var h=red==='fb'?'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url(v)):'https://wa.me/?text='+encodeURIComponent(texto(v));window.open(h,'_blank','noopener')}
 document.querySelectorAll('a[href*="facebook.com/sharer"],a[href*="wa.me/"]').forEach(function(a){var red=a.href.indexOf('wa.me')>-1?'wa':'fb';
-a.addEventListener('click',function(e){var v=+(document.documentElement.dataset.miVoto||0);if(!v)return;e.preventDefault();
+a.addEventListener('click',function(e){var v=+(document.documentElement.dataset.miVoto||0);e.preventDefault();if(!v){abrir(red,0);return}
 var p=document.getElementById('et-compartir');if(p)p.remove();p=document.createElement('div');p.id='et-compartir';p.className='et-compartir panel';
 p.innerHTML='<p><b>¿Qué quieres compartir?</b></p><div class="acciones"><button type="button" class="boton" data-o="0">Solo la propuesta</button><button type="button" class="boton marino" data-o="1">La propuesta y mi voto («'+OPC[v-1]+'»)</button></div>';
 a.closest('.acciones,div').insertAdjacentElement('afterend',p);

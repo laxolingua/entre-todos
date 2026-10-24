@@ -11,6 +11,9 @@ def prefijar(s):
     s = re.sub(r"(location\.(?:replace|assign)\(\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
     s = re.sub(r"(location\.href\s*=\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
     s = re.sub(r"(import\(\s*[`'\"])/(?!/|entre-todos-preview/)", r'\1' + P + '/', s)
+    # Metadatos para compartir: en la vista previa apuntan a la vista previa (el sitio real aún no tiene estas páginas).
+    s = re.sub(r'(<meta[^>]*content=")https://entre-todos\.org/', r'\1https://laxolingua.github.io' + P + '/', s)
+    s = re.sub(r'(<meta[^>]*property="og:(?:url|image)"[^>]*content=")https://entre-todos\.org/', r'\1https://laxolingua.github.io' + P + '/', s)
     return s
 if not archivos:
     archivos = [os.path.relpath(os.path.join(d, f), pub) for d, dn, fs in os.walk(pub) if '.git' not in d.split(os.sep) for f in fs if f not in ('CNAME',)]
