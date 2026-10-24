@@ -29,7 +29,7 @@ for pid in sorted(set(por) | set(extra)):
         s = d['encuestas'][q['encuesta']]
         dom = re.sub(r'^www\.', '', s['fuente'].split('/')[2])
         quien = f"Respuestas de quienes participaron" if s['tipo'] != 'representativa' else 'Resultado'
-        items += (f'<li><p><strong>{e(s["fecha"][-4:])} · {e(s["nombre"])}</strong> <span class="etiqueta">{TIPO[s["tipo"]]}</span></p>'
+        items += (f'<li><p><strong>{e(s["nombre"])} · {e(s["fecha"])}</strong> <span class="etiqueta">{TIPO[s["tipo"]]}</span></p>'
                   f'<p class="discreto">{e(s["autor"])}. {e(s["poblacion"])}, {e(s["muestra"])}. {e(s["metodo"])}.</p>'
                   f'<blockquote>{e(q["pregunta"])}</blockquote><p>{quien}: {e(q["resultado"])}</p>'
                   + (f'<p class="discreto">{e(q["nota"])}</p>' if q.get('nota') else '')
