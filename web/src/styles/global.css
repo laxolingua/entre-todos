@@ -1779,3 +1779,4 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 
 .filtro-cat a.activa .con-icono i { color: #fff; }
 .filtro-cat .con-icono { gap: 10px; }
+.filtro-cat a span.con-icono { color: inherit; font-variant-numeric: normal; }
