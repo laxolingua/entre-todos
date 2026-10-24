@@ -1,0 +1,133 @@
+---
+// Panel interno del equipo E/T: visitas (anónimas) e indicadores del proyecto. No se enlaza ni se indexa.
+// Los datos solo se entregan con el código de acceso (se comprueba en el servidor, que guarda solo su hash).
+import '../styles/global.css';
+const URL_SB = import.meta.env.PUBLIC_SUPABASE_URL;
+const CLAVE = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel interno · ENTRE TODOS</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/fonts/uicons-br.css" />
+</head>
+<body class="panel-int">
+  <main class="contenedor" data-url={URL_SB} data-clave={CLAVE}>
+    <header class="pi-cab">
+      <span class="logo" aria-hidden="true"><span class="l1">Entre</span><span class="l2">Todos</span></span>
+      <h1>Panel interno</h1>
+      <p class="discreto">Visitas contadas sin cookies, sin IP y sin identificar a nadie: página, día, sitio y zona horaria del navegador.</p>
+    </header>
+
+    <form class="pi-acceso" id="acceso">
+      <label>Código de acceso <input id="codigo" type="password" autocomplete="current-password" required /></label>
+      <label>Periodo <select id="dias"><option value="7">7 días</option><option value="30" selected>30 días</option><option value="90">90 días</option><option value="365">1 año</option></select></label>
+      <button class="boton marino" type="submit">Ver</button>
+      <p class="pi-msg" id="msg" role="status"></p>
+    </form>
+
+    <div id="datos" hidden>
+      <section class="pi-sec">
+        <h2>Visitas</h2>
+        <div class="pi-tiles" id="tiles"></div>
+        <div class="pi-graf" id="graf"></div>
+        <p class="discreto">Visita = entrada al sitio desde fuera (otra web, redes o dirección escrita). Páginas vistas = todas las páginas abiertas.</p>
+      </section>
+      <section class="pi-sec pi-dos">
+        <div><h2>Páginas más vistas</h2><table id="paginas"></table></div>
+        <div><h2>Desde dónde (zona horaria)</h2><table id="zonas"></table></div>
+      </section>
+      <section class="pi-sec">
+        <h2>Indicadores del proyecto</h2>
+        <div class="pi-tiles" id="indic"></div>
+      </section>
+      <section class="pi-sec">
+        <h2>Resumen para informes</h2>
+        <textarea id="resumen" rows="10" readonly></textarea>
+        <button class="boton" type="button" id="copiar">Copiar resumen</button>
+      </section>
+    </div>
+  </main>
+
+  <style>
+    .panel-int { background: var(--fondo, #f4f6f9); }
+    .panel-int main { padding: 28px 16px 60px; max-width: 1100px; }
+    .pi-cab h1 { font-family: var(--display); text-transform: uppercase; color: var(--marino); margin: 10px 0 4px; }
+    .pi-acceso { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin: 20px 0; }
+    .pi-acceso label { display: grid; gap: 4px; font-size: .9rem; }
+    .pi-acceso input, .pi-acceso select { font: inherit; padding: 8px 10px; border: 1px solid #c6ccd6; background: #fff; }
+    .pi-msg { width: 100%; margin: 0; color: var(--rojo); min-height: 1.2em; }
+    .pi-sec { background: #fff; padding: 20px; margin-top: 16px; }
+    .pi-sec h2 { font-family: var(--display); text-transform: uppercase; color: var(--marino); font-size: 1.3rem; margin: 0 0 12px; }
+    .pi-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .pi-tile { border-left: 5px solid var(--marino); padding: 10px 12px; background: var(--fondo, #f4f6f9); }
+    .pi-tile b { display: block; font-family: var(--display); font-size: 2rem; color: var(--marino); line-height: 1.1; }
+    .pi-tile span { font-size: .85rem; color: var(--texto-2); }
+    .pi-tile.es { border-left-color: var(--rojo); }
+    .pi-graf { display: flex; align-items: end; gap: 2px; height: 160px; margin: 18px 0 6px; border-bottom: 1px solid #c6ccd6; }
+    .pi-graf div { flex: 1; display: flex; flex-direction: column-reverse; min-width: 3px; }
+    .pi-graf i { display: block; background: var(--marino); }
+    .pi-graf i.es { background: var(--rojo); }
+    .pi-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
+    .pi-sec table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .pi-sec td { padding: 5px 4px; border-bottom: 1px solid #e6e9ef; overflow-wrap: anywhere; }
+    .pi-sec td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .pi-sec textarea { width: 100%; font: .9rem/1.5 ui-monospace, monospace; padding: 10px; border: 1px solid #c6ccd6; }
+    .pi-ley { display: flex; gap: 16px; font-size: .85rem; color: var(--texto-2); }
+    .pi-ley i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; background: var(--marino); }
+    .pi-ley i.es { background: var(--rojo); }
+  </style>
+
+  <script is:inline>
+  (function () {
+    var main = document.querySelector('main'), URL_SB = main.dataset.url, K = main.dataset.clave;
+    var $ = function (id) { return document.getElementById(id); };
+    var fmt = function (n) { return Number(n || 0).toLocaleString('es-ES'); };
+    var SITIO = { cu: 'Cuba', es: 'España' };
+    var ZONAS = { 'America/Havana': 'Cuba', 'Europe/Madrid': 'España', 'Atlantic/Canary': 'España (Canarias)', 'America/New_York': 'EE. UU. (Este, incl. Florida)', 'America/Chicago': 'EE. UU. (Centro)', 'America/Los_Angeles': 'EE. UU. (Pacífico)', 'Europe/Berlin': 'Alemania', 'America/Mexico_City': 'México', 'America/Bogota': 'Colombia', 'America/Caracas': 'Venezuela', 'America/Toronto': 'Canadá', 'America/Montevideo': 'Uruguay', 'America/Argentina/Buenos_Aires': 'Argentina', 'America/Santiago': 'Chile', 'America/Lima': 'Perú', 'America/Panama': 'Panamá', 'America/Santo_Domingo': 'Rep. Dominicana', 'Europe/Rome': 'Italia', 'Europe/Paris': 'Francia', 'Europe/London': 'Reino Unido' };
+    try { $('codigo').value = localStorage.getItem('et-panel') || ''; } catch (e) {}
+    function tile(v, t, cl) { return '<div class="pi-tile ' + (cl || '') + '"><b>' + v + '</b><span>' + t + '</span></div>'; }
+    function filas(arr, f) { return arr.map(f).join('') || '<tr><td>Aún no hay datos.</td></tr>'; }
+    function pintar(d, dias) {
+      var tot = { cu: { v: 0, p: 0 }, es: { v: 0, p: 0 } }, dia = {};
+      d.por_dia.forEach(function (x) { tot[x.sitio].v += +x.visitantes; tot[x.sitio].p += +x.vistas; (dia[x.dia] = dia[x.dia] || { cu: 0, es: 0 })[x.sitio] = +x.vistas; });
+      $('tiles').innerHTML = tile(fmt(tot.cu.v), 'visitas · Cuba') + tile(fmt(tot.cu.p), 'páginas vistas · Cuba') + tile(fmt(tot.es.v), 'visitas · España', 'es') + tile(fmt(tot.es.p), 'páginas vistas · España', 'es') + tile(fmt(d.historico.vistas), 'páginas vistas desde ' + (d.historico.desde || 'el inicio'));
+      var lista = [], max = 1, t0 = new Date(d.desde + 'T00:00:00Z');
+      for (var i = 0; i < dias; i++) { var k = new Date(t0.getTime() + i * 864e5).toISOString().slice(0, 10), v = dia[k] || { cu: 0, es: 0 }; lista.push([k, v]); max = Math.max(max, v.cu + v.es); }
+      $('graf').innerHTML = lista.map(function (x) { return '<div title="' + x[0] + ': Cuba ' + x[1].cu + ' · España ' + x[1].es + '"><i style="height:' + (x[1].cu / max * 158) + 'px"></i><i class="es" style="height:' + (x[1].es / max * 158) + 'px"></i></div>'; }).join('');
+      $('graf').insertAdjacentHTML('afterend', '');
+      $('paginas').innerHTML = filas(d.paginas, function (x) { return '<tr><td>' + SITIO[x.sitio] + '</td><td>' + x.ruta + '</td><td class="n">' + fmt(x.vistas) + '</td></tr>'; });
+      $('zonas').innerHTML = filas(d.zonas, function (x) { return '<tr><td>' + (ZONAS[x.zona] || x.zona) + '</td><td>' + SITIO[x.sitio] + '</td><td class="n">' + fmt(x.vistas) + '</td></tr>'; });
+      var a = d.academia, b = d.banco, c = d.consulta || {};
+      $('indic').innerHTML = tile(fmt(a.lecciones), 'lecciones completadas (Blog A+)') + tile(fmt(a.personas), 'personas que completaron lecciones') + tile(fmt(a.certificados), 'certificados emitidos') + tile(a.cambio_medio == null ? '–' : (a.cambio_medio > 0 ? '+' : '') + String(a.cambio_medio).replace('.', ','), 'cambio medio antes/después (' + fmt(a.con_prepost) + ' respuestas)') + tile(fmt(b.votos), 'votos a propuestas') + tile(fmt(b.valoraciones), 'valoraciones') + tile(fmt(b.aportes), 'aportes enviados') + tile(fmt(d.buscador_preguntas), 'preguntas al Buscador E/T (periodo)') + tile(fmt(c.total), 'votos en «Continuidad o cambio»');
+      $('resumen').value = [
+        'ENTRE TODOS · indicadores del ' + d.desde + ' al ' + d.hasta,
+        'Visitas: Cuba ' + tot.cu.v + ', España ' + tot.es.v + '. Páginas vistas: Cuba ' + tot.cu.p + ', España ' + tot.es.p + '.',
+        'Páginas más vistas: ' + d.paginas.slice(0, 5).map(function (x) { return x.ruta + ' (' + x.vistas + ')'; }).join(', ') + '.',
+        'Blog A+ (acumulado): ' + a.lecciones + ' lecciones completadas por ' + a.personas + ' personas; ' + a.certificados + ' certificados; cambio medio antes/después: ' + (a.cambio_medio == null ? 'sin datos' : a.cambio_medio) + ' (' + a.con_prepost + ' respuestas).',
+        'Banco (acumulado): ' + b.votos + ' votos, ' + b.valoraciones + ' valoraciones, ' + b.aportes + ' aportes.',
+        'Buscador E/T (periodo): ' + d.buscador_preguntas + ' preguntas. Consulta «Continuidad o cambio»: ' + (c.total || 0) + ' votos.'
+      ].join('\n');
+    }
+    $('acceso').addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      var codigo = $('codigo').value.trim(), dias = +$('dias').value;
+      $('msg').textContent = 'Cargando…';
+      try {
+        var r = await fetch(URL_SB + '/rest/v1/rpc/metricas_panel', { method: 'POST', headers: { apikey: K, 'Content-Type': 'application/json' }, body: JSON.stringify({ p_clave: codigo, p_dias: dias }) });
+        var d = await r.json();
+        if (!d || !d.ok) { $('msg').textContent = 'Código incorrecto.'; return; }
+        try { localStorage.setItem('et-panel', codigo); } catch (e) {}
+        $('msg').textContent = ''; $('datos').hidden = false; pintar(d, dias);
+      } catch (e) { $('msg').textContent = 'No se pudo conectar. Inténtalo de nuevo.'; }
+    });
+    $('copiar').addEventListener('click', function () { navigator.clipboard && navigator.clipboard.writeText($('resumen').value); this.textContent = 'Copiado'; });
+    if ($('codigo').value) $('acceso').requestSubmit();
+  })();
+  </script>
+</body>
+</html>
