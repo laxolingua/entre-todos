@@ -1,0 +1,63 @@
+---
+// Propón tú (VOZ): cualquier persona propone una solución a un problema de España, y apoya las de otras personas.
+// Las propuestas se moderan antes de publicarse. Sesión anónima: sin correo ni documento.
+import Base from '../../layouts/Base.astro';
+import Banda from '../../components/Banda.astro';
+import datos from '../../data/espana.json';
+---
+<Base titulo="Propón tú" seccion="propon-es" pais="es" ancho
+  descripcion="Propón una solución a un problema de España y apoya las propuestas de otras personas. Sin registro y sin dar tu nombre.">
+  <Banda imagen="/img/fotos/espana-sobre.jpg" lateral={['Problema', 'Propuesta', 'Apoyo', 'Agenda']}>
+    <span class="barra"></span>
+    <h1>Propón<br />tú</h1>
+    <p class="entradilla">Votar es elegir entre lo que otros proponen. Aquí también puedes proponer: describe un problema y cómo lo resolverías. Las propuestas con más apoyo se pondrán al lado de lo que proponen los partidos.</p>
+  </Banda>
+  <div class="contenedor">
+    <div class="ciudadania-es" id="ciudadania" data-pais="es" data-iconos={JSON.stringify(datos.iconos)}>
+      <section class="seccion" aria-labelledby="t-form">
+        <h2 class="vista-titulo" id="t-form">Tu propuesta</h2>
+        <form class="form-es" novalidate>
+          <label>Tema
+            <select name="tema" required>
+              <option value="">Elige un tema</option>
+              {datos.temas.map((t) => <option>{t}</option>)}
+              <option>Otros</option>
+            </select>
+          </label>
+          <label>¿Qué problema quieres resolver?
+            <textarea name="problema" rows="2" maxlength="600" required placeholder="Los alquileres suben más rápido que los sueldos"></textarea>
+          </label>
+          <label>¿Qué propones?
+            <textarea name="propuesta" rows="4" maxlength="1500" required placeholder="Una medida concreta, en pocas frases"></textarea>
+          </label>
+          <label>¿Cómo se haría? <span class="discreto">(opcional)</span>
+            <textarea name="como" rows="3" maxlength="1500" placeholder="Quién lo haría, con qué recursos, en qué plazo"></textarea>
+          </label>
+          <p class="discreto">No hace falta registrarte ni dar tu nombre. No escribas datos personales tuyos ni de otras personas. Revisamos cada propuesta antes de publicarla y no publicamos insultos ni ataques a personas. Más información en <a href="/privacidad/">Privacidad</a>.</p>
+          <div class="acciones-form">
+            <button type="submit" class="boton rojo">Enviar propuesta <i class="fi fi-br-arrow-right" aria-hidden="true"></i></button>
+            <p class="estado-form" data-estado role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="seccion" aria-labelledby="t-lista">
+        <h2 class="vista-titulo" id="t-lista">Lo que propone la gente</h2>
+        <p>Puedes apoyar las propuestas que compartas. Es un apoyo, no una votación: no se verifica la identidad.</p>
+        <label class="filtro-es">Ver tema
+          <select data-filtro>
+            <option value="">Todos los temas</option>
+            {datos.temas.map((t) => <option>{t}</option>)}
+            <option>Otros</option>
+          </select>
+        </label>
+        <div class="lista-pc" data-lista><p class="discreto">Cargando…</p></div>
+      </section>
+    </div>
+  </div>
+  <script>
+    import { iniciarCiudadania } from '../../lib/ciudadania.js';
+    const raiz = document.getElementById('ciudadania');
+    if (raiz) iniciarCiudadania(raiz);
+  </script>
+</Base>

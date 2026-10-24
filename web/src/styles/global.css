@@ -1733,3 +1733,21 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .compromisos-es i { color: var(--rojo); font-size: 1.1rem; margin-top: 3px; }
 .con-icono { display: inline-flex; align-items: center; gap: 8px; }
 .con-icono i { color: var(--rojo); font-size: 1rem; }
+
+.form-es { display: grid; gap: 14px; max-width: 760px; }
+.form-es label { display: grid; gap: 6px; font-weight: 600; color: var(--marino); }
+.form-es select, .form-es textarea, .filtro-es select { font: inherit; font-weight: 400; padding: 10px 12px; border: 2px solid var(--borde); background: var(--superficie); color: var(--texto); border-radius: 0; }
+.form-es textarea:focus, .form-es select:focus, .filtro-es select:focus { outline: 3px solid var(--foco); outline-offset: 1px; }
+.form-es [aria-invalid="true"] { border-color: var(--rojo); }
+.acciones-form { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.estado-form { margin: 0; font-weight: 600; color: var(--marino); }
+.filtro-es { display: inline-grid; gap: 6px; font-weight: 600; color: var(--marino); margin: 6px 0 16px; }
+.lista-pc { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.pc-es { background: var(--superficie); border: 1px solid var(--borde); border-top: 5px solid var(--amarillo); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.pc-es p { margin: 0; }
+.pc-tema { font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--texto-2); display: flex; align-items: center; gap: 6px; }
+.pc-tema i { color: var(--rojo); }
+.pc-propuesta { font-size: 1.05rem; color: var(--marino); font-weight: 600; }
+.pc-problema, .pc-como { font-size: .92rem; color: var(--texto-2); }
+.pc-apoyo { align-self: flex-start; margin-top: auto; }
+.pc-apoyo[aria-pressed="true"] { background: var(--marino); color: #fff; }

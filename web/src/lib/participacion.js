@@ -331,3 +331,5 @@ export function iniciarParticipacion() {
   if (a) aportes(a);
 }
 
+
+export { sb, sesion, ACTIVA, escapar };
