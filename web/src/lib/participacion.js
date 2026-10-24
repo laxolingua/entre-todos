@@ -100,7 +100,7 @@ function pintarEscala(caja) {
     <div data-identificacion hidden></div>
     <p class="discreto" data-sesion></p>
     <p class="discreto">${ACTIVA
-      ? 'Un documento, un voto. Tu número de carné o pasaporte no sale de tu dispositivo: se convierte en un código que el servidor vuelve a cifrar con una clave secreta. Solo se publican totales, que reflejan a quienes participan y no a toda la población. <a href="/privacidad/">Privacidad</a>'
+      ? 'Un documento, un voto. Solo se publican totales, que reflejan a quienes participan y no a toda la población. <a href="/privacidad/">Privacidad</a>'
       : 'La valoración se activa cuando el banco se publique con su base de datos.'}</p>`;
   const botones = [...caja.querySelectorAll('button[data-v]')];
   const escala = caja.querySelector('.escala');
@@ -122,6 +122,7 @@ function formularioIdentificacion() {
         <label><input type="radio" name="tipo" value="ci" checked> Carné de identidad cubano</label>
         <label><input type="radio" name="tipo" value="pasaporte"> Pasaporte u otro documento</label>
       </fieldset>
+      <p class="nota-doc"><i class="fi fi-br-shield-check" aria-hidden="true"></i> Tu número no se guarda. Se convierte en tu dispositivo en un código cifrado que no puede volver a ser el número, y solo sirve para que cada persona vote una vez.</p>
       <label>Número <input name="numero" inputmode="text" autocomplete="off" required></label>
       <p class="ayuda" data-ayuda></p>
       <label>PIN de 6 cifras <input name="pin" type="password" inputmode="numeric" pattern="\\d{6}" maxlength="6" autocomplete="off" required></label>
