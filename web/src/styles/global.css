@@ -1751,3 +1751,6 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; color: v
 .pc-problema, .pc-como { font-size: .92rem; color: var(--texto-2); }
 .pc-apoyo { align-self: flex-start; margin-top: auto; }
 .pc-apoyo[aria-pressed="true"] { background: var(--marino); color: #fff; }
+
+.pasos-es { margin: 14px 0 0; padding-left: 22px; display: grid; gap: 8px; }
+.pasos-es strong { color: var(--marino); }

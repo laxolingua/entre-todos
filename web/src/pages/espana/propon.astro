@@ -1,19 +1,33 @@
 ---
-// Propón tú (VOZ): cualquier persona propone una solución a un problema de España, y apoya las de otras personas.
+// ¿Qué propones? (VOZ): cualquier persona propone una solución a un problema de España, y apoya las de otras personas.
 // Las propuestas se moderan antes de publicarse. Sesión anónima: sin correo ni documento.
 import Base from '../../layouts/Base.astro';
 import Banda from '../../components/Banda.astro';
 import datos from '../../data/espana.json';
 ---
-<Base titulo="Propón tú" seccion="propon-es" pais="es" ancho
-  descripcion="Propón una solución a un problema de España y apoya las propuestas de otras personas. Sin registro y sin dar tu nombre.">
+<Base titulo="¿Qué propones?" seccion="propon-es" pais="es" ancho
+  descripcion="Cuenta qué problema quieres resolver y cómo lo harías, y apoya las propuestas de otras personas. Sin registro y sin dar tu nombre.">
   <Banda imagen="/img/fotos/espana-sobre.jpg" lateral={['Problema', 'Propuesta', 'Apoyo', 'Agenda']}>
     <span class="barra"></span>
-    <h1>Propón<br />tú</h1>
-    <p class="entradilla">Votar es elegir entre lo que otros proponen. Aquí también puedes proponer: describe un problema y cómo lo resolverías. Las propuestas con más apoyo se pondrán al lado de lo que proponen los partidos.</p>
+    <h1>¿Qué<br />propones?</h1>
+    <p class="entradilla">Cuenta qué problema quieres resolver y cómo lo harías. Tu propuesta se suma a las de otras personas, organizaciones y partidos, y las que reúnan más apoyo se pondrán al lado de lo que proponen los partidos.</p>
   </Banda>
   <div class="contenedor">
     <div class="ciudadania-es" id="ciudadania" data-pais="es" data-iconos={JSON.stringify(datos.iconos)}>
+      <section class="seccion" aria-labelledby="t-para">
+        <h2 class="vista-titulo" id="t-para">En qué consiste</h2>
+        <div class="texto-largo">
+          <p>Votar es elegir entre lo que otros ya propusieron. Aquí puedes intervenir antes: decir qué problema te preocupa y qué harías para resolverlo.</p>
+          <p>Queremos elaborar entre todos y para todos una plataforma programática de gobierno plural, en la que todas las voces se escuchen y nada ni nadie se quede fuera: ninguna propuesta hecha, ninguna persona, ningún animal y ningún entorno natural.</p>
+          <ol class="pasos-es">
+            <li><strong>Propones.</strong> Eliges un tema, describes el problema y tu solución.</li>
+            <li><strong>Revisamos.</strong> Comprobamos que no haya insultos ni datos personales y la publicamos, normalmente en uno o dos días.</li>
+            <li><strong>Otras personas la apoyan.</strong> Cada apoyo se suma a la propuesta.</li>
+            <li><strong>Se compara.</strong> Las propuestas con más apoyo se ponen al lado de las de los partidos, tema por tema.</li>
+          </ol>
+        </div>
+      </section>
+
       <section class="seccion" aria-labelledby="t-form">
         <h2 class="vista-titulo" id="t-form">Tu propuesta</h2>
         <form class="form-es" novalidate>
