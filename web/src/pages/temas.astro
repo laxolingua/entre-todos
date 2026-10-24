@@ -1,15 +1,16 @@
 ---
-// ¿Qué te preocupa?: sección propia de ENTRE TODOS. De un tema que preocupa a las propuestas publicadas sobre él.
+// Temas: las propuestas del banco agrupadas por tema (las categorías del banco, existentes desde marzo de 2026).
+// No usar «preocupaciones» aquí: es el concepto del módulo de colaboración «¿Cuál es el plan?».
 import Base from '../layouts/Base.astro';
 import Banda from '../components/Banda.astro';
 import datos from '../data/publico.json';
 const categorias = [...datos.categorias].sort((a, b) => a.orden - b.orden);
 ---
-<Base titulo="¿Qué te preocupa?" seccion="preocupa" ancho
-  descripcion="Elige el tema que más te preocupa y mira qué proponen las organizaciones de la sociedad civil cubana.">
-  <Banda imagen="/img/fotos/cat-modelo_pais.jpg" lateral={['Preocupación', 'Tema', 'Propuestas', 'Valoración']}>
+<Base titulo="Temas" seccion="preocupa" ancho
+  descripcion="Las propuestas del banco agrupadas por tema: qué se propone, quién lo propone y en qué documento.">
+  <Banda imagen="/img/fotos/cat-modelo_pais.jpg" lateral={['Tema', 'Propuestas', 'Fuentes', 'Valoración']}>
     <span class="barra"></span>
-    <h1>¿Qué te<br />preocupa?</h1>
+    <h1>Propuestas<br />por tema</h1>
     <p class="entradilla">Elige un tema y mira las propuestas que ya existen sobre él, quién las hace y en qué documento.</p>
   </Banda>
   <div class="contenedor">

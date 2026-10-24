@@ -29,7 +29,7 @@ const BANCO = ['propuestas', 'cuestiones', 'compara', 'plataforma', 'fuentes', '
 const enBanco = BANCO.includes(seccion ?? '');
 const enlacesCu = [
   { href: '/propuestas/', texto: 'Propuestas', activo: enBanco },
-  { href: '/que-te-preocupa/', texto: '¿Qué te preocupa?', activo: seccion === 'preocupa' },
+  { href: '/temas/', texto: 'Temas', activo: seccion === 'preocupa' },
   { href: '/academia/', texto: 'Blog A+', activo: seccion === 'academia' },
   { href: '/consulta/', texto: 'Consultas', activo: seccion === 'consulta' },
   { href: '/sobre/', texto: 'Sobre nosotros', activo: seccion === 'sobre' },
@@ -183,7 +183,7 @@ const subenlaces = [
           <h2>Participa</h2>
           <ul>
             <li><a href="/propuestas/">Propuestas</a></li>
-            <li><a href="/que-te-preocupa/">¿Qué te preocupa?</a></li>
+            <li><a href="/temas/">Temas</a></li>
             <li><a href="/consulta/">Consultas</a></li>
             <li><a href="/academia/">Blog A+</a></li>
             <li><a href="/abrazos/">Abrazos</a></li>

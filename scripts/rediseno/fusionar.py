@@ -33,7 +33,7 @@ i=s.index('<main'); j=s.index('<form class="buscador"'); k=s.index('</main>')
 s=s[:i]+pre+s[j:k]+'</div></main>'+s[k+7:]
 open(f,'w',encoding='utf-8').write(s)
 shutil.copy(D+'/index.html',P+'/index.html')
-for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','cuba-eeuu','actualidad','compara','plataforma','candidatura-solucionaria','generador-de-soluciones','analisis','asistente','buscador','verificar','espana','que-te-preocupa','panel']:
+for d in ['academia','consulta','sobre','img','fonts','privacidad','seguridad','abrazos','cual-es-el-plan','diversidad-politica','constituyente','reconstruccion','cuba-eeuu','actualidad','compara','plataforma','candidatura-solucionaria','generador-de-soluciones','analisis','asistente','buscador','verificar','espana','temas','panel']:
     shutil.copytree(f'{D}/{d}',f'{P}/{d}',dirs_exist_ok=True)
 # El directorio de actores cívicos sale del diseño nuevo (dossier de organizaciones); las fichas de cada actor siguen siendo las del banco.
 shutil.copy(D+'/actores/index.html',P+'/actores/index.html')

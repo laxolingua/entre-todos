@@ -109,7 +109,7 @@ window.pintar=(D,F,P)=>{
   '<div class="cred">'+D.foto.credito+'</div><div class="c"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><div class="am"></div></div>'+
   '<div class="cta"><span class="btn">'+(ENC.length>1?'Vota en las encuestas':'Vota en la encuesta')+'</span><span class="url">entre-todos.org</span></div></div>';
  const props=D.propuestas.map(id=>{const p=P[id]||{t:id,k:''};return '<a><span class="k">'+p.k+'</span><span class="t">'+p.t+'</span><span class="v">Ver propuesta →</span></a>';}).join('');
- const pagina='<div class="pieza pagina" id="pagina"><div class="cab">'+logo()+'<nav><span>Propuestas</span><span>¿Qué te preocupa?</span><span class="act">Actualidad</span><span>Blog A+</span><span>Sobre nosotros</span></nav></div>'+
+ const pagina='<div class="pieza pagina" id="pagina"><div class="cab">'+logo()+'<nav><span>Propuestas</span><span>Temas</span><span class="act">Actualidad</span><span>Blog A+</span><span>Sobre nosotros</span></nav></div>'+
   '<div class="art"><div class="ante">Actualidad · '+D.seccion+'</div><h1>'+D.titular+'</h1><p class="entr">'+D.entradilla+'</p><div class="meta"><span>'+D.fecha+'</span><span>Redacción de ENTRE TODOS</span></div>'+
   '<figure><div class="foto" style="background-image:url('+f+')"></div><div class="am"></div></figure><figcaption>'+D.foto.pie+' '+D.foto.credito+'</figcaption>'+
   '<h2>Lo que pasó</h2><ul class="hechos">'+D.hechos.map(h=>'<li>'+h+'</li>').join('')+'</ul>'+
