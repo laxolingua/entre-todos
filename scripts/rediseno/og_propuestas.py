@@ -9,7 +9,7 @@ P = sys.argv[1]
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = '/tmp/claude-0/og-cache'
 os.makedirs(CACHE, exist_ok=True)
-VERSION = 'v5'
+VERSION = 'v6'
 SITIO = 'https://entre-todos.org'
 F = os.path.join(AQUI, 'fuentes')
 def fnt(n, s): return ImageFont.truetype(os.path.join(F, n), s)
@@ -63,13 +63,24 @@ def tarjeta(foto, cat, tit, dest, voto=0):
         if len(ls) <= 3: break
     for l in ls[:3]: d.text((x, y), l, font=ft, fill=M); y += tam * S
     y = max(y + 18 * S, 388 * S); xx = x
-    for c in COL:
+    if voto == -1:   # derecho fundamental: no se vota, no lleva escala
+        DF = fnt('BarlowCondensed-800.ttf', 26 * S)
+        d.rectangle([x, y + 4 * S, x + 6 * S, y + 46 * S], fill=R)
+        d.text((x + 18 * S, y + 2 * S), 'DERECHO FUNDAMENTAL', font=DF, fill=M)
+        d.text((x + 18 * S, y + 30 * S), 'No se vota: se garantiza.', font=fnt('Barlow-500.ttf', 18 * S), fill=(95, 107, 128))
+        y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = '¿CÓMO GARANTIZARLO? LÉELO EN ENTRE-TODOS.ORG'
+        d.rectangle([x, y, x + d.textlength(t1, font=C1) + 32 * S, y + 50 * S], fill=R); d.text((x + 16 * S, y + 7 * S), t1, font=C1, fill=B)
+        COL_ = []
+    else:
+        COL_ = COL
+    for c in COL_:
         d.polygon([(xx + 11 * S, y), (xx + 82 * S, y), (xx + 71 * S, y + 30 * S), (xx, y + 30 * S)], fill=c); xx += 78 * S
     EX = fnt('Barlow-500.ttf', 16 * S)
-    d.text((x, y + 36 * S), 'EN CONTRA', font=EX, fill=(95, 107, 128))
-    wf = d.textlength('A FAVOR', font=EX); d.text((x + 78 * 5 * S - 11 * S - wf, y + 36 * S), 'A FAVOR', font=EX, fill=(95, 107, 128))
-    y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = '¿TÚ QUÉ PIENSAS? VOTA EN ENTRE-TODOS.ORG'
-    d.rectangle([x, y, x + d.textlength(t1, font=C1) + 32 * S, y + 50 * S], fill=R); d.text((x + 16 * S, y + 7 * S), t1, font=C1, fill=B)
+    if voto != -1:
+      d.text((x, y + 36 * S), 'EN CONTRA', font=EX, fill=(95, 107, 128))
+      wf = d.textlength('A FAVOR', font=EX); d.text((x + 78 * 5 * S - 11 * S - wf, y + 36 * S), 'A FAVOR', font=EX, fill=(95, 107, 128))
+      y += 70 * S; C1 = fnt('BarlowCondensed-800.ttf', 30 * S); t1 = '¿TÚ QUÉ PIENSAS? VOTA EN ENTRE-TODOS.ORG'
+      d.rectangle([x, y, x + d.textlength(t1, font=C1) + 32 * S, y + 50 * S], fill=R); d.text((x + 16 * S, y + 7 * S), t1, font=C1, fill=B)
     fondo = Image.new('RGB', (W * S, H * S), (233, 237, 243))
     sh = Image.new('L', (W * S, H * S), 0); ImageDraw.Draw(sh).rounded_rectangle([(MG + 6) * S, (MG + 10) * S, (W - MG - 2) * S, (H - MG + 6) * S], radius=30 * S, fill=45)
     sh = sh.filter(ImageFilter.GaussianBlur(18 * S)); fondo.paste((200, 206, 216), (0, 0), sh)
@@ -90,6 +101,7 @@ def meta(t, prop, valor, nombre=False):
     return pat.sub(nuevo, t, count=1) if pat.search(t) else t.replace('</head>', nuevo + '</head>', 1)
 
 DESC = 'Propuesta para una nueva Cuba. ¿Tú qué piensas? Vota en entre-todos.org'
+DESC_DERECHO = 'Derecho fundamental para una nueva Cuba: no se vota, se garantiza. ¿Cómo garantizarlo? Léelo en entre-todos.org'
 SCRIPT = """<script>(function(){var OPC=%s,ID=%s,T=%s,BASE=(/(^|\.)entre-todos\.org$/.test(location.hostname)?'%s':location.origin+(location.pathname.indexOf('/entre-todos-preview/')===0?'/entre-todos-preview':''))+'/propuesta/'+ID+'/';
 function url(v){return v?BASE+'mi-voto/'+v+'/':BASE}
 function texto(v){return v?'Yo voté «'+OPC[v-1]+'» en esta propuesta para una nueva Cuba: '+T+'. ¿Y tú? Vota en ENTRE TODOS: '+url(v):T+'. Propuesta para una nueva Cuba. ¿Tú qué piensas? Vota en ENTRE TODOS: '+url(0)}
@@ -121,11 +133,13 @@ for f in sorted(glob.glob(f'{P}/propuesta/*/index.html')):
     cat = html.unescape(ca.group(1)).strip() if ca else 'Propuesta'
     im = re.search(r'<img[^>]*src="(/img/fotos/[^"]+)"', t)
     foto = os.path.join(P, (im.group(1) if im else '/img/fotos/propuestas.jpg').lstrip('/'))
-    con_cache(foto, cat, titulo, f'{P}/og/propuesta/{pid}.jpg')
+    derecho = 'marca-derecho' in t
+    con_cache(foto, cat, titulo, f'{P}/og/propuesta/{pid}.jpg', -1 if derecho else 0)
     img = f'{SITIO}/og/propuesta/{pid}.jpg'
     for k, v in (('og:image', img), ('twitter:image', img)):
         t = meta(t, k, v, nombre=k.startswith('twitter'))
-    t = meta(t, 'og:description', DESC); t = meta(t, 'twitter:description', DESC, nombre=True)
+    desc = DESC_DERECHO if derecho else DESC
+    t = meta(t, 'og:description', desc); t = meta(t, 'twitter:description', desc, nombre=True)
     if 'et-compartir' not in t:
         t = t.replace('</body>', SCRIPT % (json.dumps(OPC, ensure_ascii=False), json.dumps(pid), json.dumps(titulo, ensure_ascii=False), SITIO) + '</body>', 1)
     open(f, 'w', encoding='utf-8').write(t)
